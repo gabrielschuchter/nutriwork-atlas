@@ -190,7 +190,7 @@ Piso: WCAG 2.2 AA quando aplicável.
 - graph/canvas com nome e alternativa textual;
 - contraste validado;
 - zoom 200%;
-- prefers-reduced-motion;
+- comportamento de animação único e previsível para todos os usuários;
 - landmarks semânticos;
 - labels reais.
 

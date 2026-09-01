@@ -90,7 +90,7 @@ A rodada corretiva solicitada após a inspeção visual foi concluída no checko
 
 - o parser de frontmatter do Quartz foi preservado e a visualização de propriedades foi ocultada; `description` continua disponível somente como metadado de página, não como painel público;
 - a cópia técnica sobre sincronização, manifesto e validação foi removida da página pública; o rodapé padrão do Quartz e rótulos internos em inglês também foram substituídos por uma camada pública em português;
-- o Explorer mobile passou a dimensionar e quebrar nomes longos sem recorte; as regras customizadas de `prefers-reduced-motion` foram removidas;
+- o Explorer mobile passou a dimensionar e quebrar nomes longos sem recorte; não há lógica condicional de movimento;
 - `vercel.json` agora declara `cleanUrls: true`, mantendo os arquivos estáticos `.html` no output e expondo as rotas limpas usadas pelos links do site;
 - o build final local processou as 141 entradas Markdown, e a execução nova no servidor local confirmou `/atlas/metabolismo` com conteúdo real, breadcrumb `Início`, busca sem resultados em português, grafo global rotulado em português e zero erros de console;
 - a inspeção em 1280 px, 390 px e 320 px confirmou `document.scrollWidth === viewport` e nenhum link visível do Explorer ultrapassando a viewport; o build continua sujeito aos avisos de fallback de fonte do ambiente sem acesso ao Google Fonts;

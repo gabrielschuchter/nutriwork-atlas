@@ -54,6 +54,5 @@ São exports grandes com conteúdo embutido. Devem permanecer fora do fluxo inic
 1. Confirmar com o responsável quais arquivos possuem autorização de publicação no Atlas.
 2. Definir lockup e favicon oficiais para o produto Atlas; não reconstruir o logo com texto arbitrário.
 3. Gerar versões web otimizadas apenas para os assets realmente usados e registrar hashes/arquivos derivados.
-4. Validar contraste, foco, `alt`, lazy loading, proporção, `prefers-reduced-motion` e ausência de crop em arte com texto.
+4. Validar contraste, foco, `alt`, lazy loading, proporção, comportamento de animação consistente e ausência de crop em arte com texto.
 5. Manter os originais fora do bundle e sem alterar os arquivos fonte.
-

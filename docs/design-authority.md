@@ -24,7 +24,7 @@ No momento, o item 1 não existe no checkout Atlas. A referência operacional é
 | Tema | Claro e escuro, com contraste e preferência persistida | `styles.css`, `App.tsx` e contrato do handoff |
 | Superfícies | Cards translúcidos/glass, bordas leves, sombras e gradientes azuis moderados | Classes `.glass-card`, `.site-header`, `.pricing-card` e tokens atuais |
 | Forma | Pílulas em controles, cards arredondados e órbitas/curvas como acentos | Header, buttons, hero, footer e PDF de identidade |
-| Movimento | Transições discretas, pausa/controle e `prefers-reduced-motion` obrigatório no Atlas | Componentes atuais têm carrosséis/animações; a auditoria identificou falta de redução de movimento |
+| Movimento | Transições discretas e previsíveis, com um único comportamento para todos os usuários | Componentes atuais têm carrosséis/animações; o Atlas mantém movimento funcional e curto |
 | Conteúdo científico | Leitura densa, hierarquia clara, largura confortável e foco na rede | Vault e `CODEX_MASTER_PROMPT.md` |
 | Marca | Usar símbolo/lockup proveniente dos assets aprovados; não digitar uma marca falsa | PDF de identidade e `favicon-nutriwork.png` |
 

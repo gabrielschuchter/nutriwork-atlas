@@ -165,6 +165,13 @@ O `noindex, nofollow, noarchive` é injetado no `<head>` pelo hook de recursos d
 **Motivo:** `description`, `Properties`, preferências internas e mensagens de sincronização não são parte da experiência do estudante.
 **Consequência:** metadados continuam disponíveis para SEO e build, mas não aparecem no corpo público; a verificação deve usar o texto visível renderizado, não uma busca ingênua nos atributos HTML.
 
+## ADR-024 — Movimento único sem preferência condicional
+
+**Estado:** aceito.
+**Decisão:** o Atlas não possui CSS, JavaScript, TypeScript, hook, classe ou media query que altere animações conforme uma preferência de movimento do sistema. Transições e animações têm um único comportamento previsível.
+**Origem removida:** a auditoria global confirmou que não havia implementação ativa em `quartz/`, `plugins/`, `scripts/` ou `content/`; referências residuais de contrato foram removidas de `AGENTS.md`, `docs/asset-inventory.md`, `docs/design-authority.md`, `docs/publish-parity-current.md` e `implementation_plan.md`.
+**Consequência:** nenhuma API de consulta de mídia é usada para movimento; usos genéricos de `reduce` em agregações e pontuação permanecem porque não controlam animação. A busca global no código, documentação, CSS/SCSS, saída pública e artefatos de QA deve continuar retornando zero correspondências específicas. A instalação local ainda pode conter nomes estáticos dessa funcionalidade em gramáticas do realçador de sintaxe e declarações de tipo do `lightningcss`; eles não são código do Atlas, não são emitidos como comportamento e reaparecem apenas quando as dependências são instaladas. A consulta de mídia restante na saída pública é exclusivamente a preferência de esquema claro/escuro já necessária ao tema.
+
 ## Decisões ainda abertas
 
 - integração do repositório `https://github.com/gabrielschuchter/nutriwork-atlas` com um projeto Vercel;
