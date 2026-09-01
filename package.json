@@ -45,6 +45,7 @@
     "@myriaddreamin/rehype-typst": "^0.6.0",
     "@napi-rs/simple-git": "0.1.22",
     "@nutriwork/atlas-access": "file:plugins/atlas-access",
+    "@nutriwork/atlas-footer": "file:plugins/atlas-footer",
     "@nutriwork/atlas-graph-fallback": "file:plugins/atlas-graph-fallback",
     "@nutriwork/atlas-ui": "file:plugins/atlas-ui",
     "@quartz-community/alias-redirects": "^0.1.0",

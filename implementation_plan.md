@@ -41,7 +41,7 @@ Depois da auditoria, o checkout foi inicializado a partir do Quartz v5 na branch
 7. Implementar o gate global client-side com Web Crypto, hash configurável, `localStorage`, logout, prevenção de flash quando possível, `noindex` e `robots` coerentes. É uma barreira casual para um site estático, não confidencialidade forte.
 8. Importar o vault inteiro somente depois que o slice passar por build, busca, backlinks, grafo e QA. A resolução de wikilinks deve preservar links não resolvidos como informação auditável; nenhum conceito será criado automaticamente.
 9. Rodar validação proporcional: TypeScript, lint, testes, build de produção, links quebrados, páginas esperadas, ausência de segredos, autenticação, busca, grafo, tema, console, navegação SPA, mobile, teclado e zoom de 200%.
-10. Preparar configuração de GitHub/Vercel sem publicar ou criar remoto. O domínio, o hash de produção e o remoto de destino continuam gates humanos.
+10. Preparar configuração de GitHub/Vercel para o remoto aprovado. O domínio, o hash de produção e a integração do projeto Vercel continuam gates humanos.
 
 ## Critérios de aceite do slice
 
@@ -54,7 +54,7 @@ Depois da auditoria, o checkout foi inicializado a partir do Quartz v5 na branch
 
 ## Riscos e gates humanos
 
-- Não há remoto GitHub confirmado para o Atlas; não criar nem fazer push sem instrução explícita.
+- O remoto GitHub do Atlas está confirmado em `https://github.com/gabrielschuchter/nutriwork-atlas`; push somente mediante instrução explícita, já concedida para esta entrega.
 - Nenhuma senha de produção foi fornecida. O mecanismo pode ser implementado, mas o hash final deve ser definido antes de uma publicação.
 - Não há URL de produção do Atlas a verificar.
 - Os 827 links não resolvidos precisam de triagem editorial posterior; não são autorização para editar as notas.
@@ -82,4 +82,16 @@ Ainda não foram executadas auditoria automatizada WCAG completa, comparação c
 - Assets de referência: `D:\Nutriwork` e `nutriwork-plus\public`.
 - Quartz oficial: [CLI create](https://github.com/jackyzha0/quartz/blob/v5/docs/cli/create.md), [arquitetura e plugins](https://github.com/jackyzha0/quartz/blob/v5/docs/advanced/architecture.md), [authoring](https://github.com/jackyzha0/quartz/blob/v5/docs/getting-started/authoring-content.md).
 
-Nenhum commit, push, deploy ou alteração nos repositórios existentes foi feito nesta fase.
+Nenhum commit, push ou deploy havia sido feito na fase inicial de auditoria.
+
+## Atualização pós-QA da camada pública — 2026-08-31
+
+A rodada corretiva solicitada após a inspeção visual foi concluída no checkout do Atlas, sem alterar nenhuma nota científica:
+
+- o parser de frontmatter do Quartz foi preservado e a visualização de propriedades foi ocultada; `description` continua disponível somente como metadado de página, não como painel público;
+- a cópia técnica sobre sincronização, manifesto e validação foi removida da página pública; o rodapé padrão do Quartz e rótulos internos em inglês também foram substituídos por uma camada pública em português;
+- o Explorer mobile passou a dimensionar e quebrar nomes longos sem recorte; as regras customizadas de `prefers-reduced-motion` foram removidas;
+- `vercel.json` agora declara `cleanUrls: true`, mantendo os arquivos estáticos `.html` no output e expondo as rotas limpas usadas pelos links do site;
+- o build final local processou as 141 entradas Markdown, e a execução nova no servidor local confirmou `/atlas/metabolismo` com conteúdo real, breadcrumb `Início`, busca sem resultados em português, grafo global rotulado em português e zero erros de console;
+- a inspeção em 1280 px, 390 px e 320 px confirmou `document.scrollWidth === viewport` e nenhum link visível do Explorer ultrapassando a viewport; o build continua sujeito aos avisos de fallback de fonte do ambiente sem acesso ao Google Fonts;
+- o remoto foi definido como `https://github.com/gabrielschuchter/nutriwork-atlas`. A confirmação de HTTP em produção fica para depois do push e da execução/integração da Vercel.

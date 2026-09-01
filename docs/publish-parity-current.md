@@ -67,3 +67,10 @@ Não foi localizada uma publicação atual do Atlas nem um repositório existent
 - Saída estática: 143 páginas de conteúdo com gate e `noindex`; a página `404.html` é a única exceção técnica.
 - QA headless: senha errada bloqueia, senha local de QA libera, logout bloqueia novamente; Search navega de ATP para ADP; Explorer mobile abre/fecha; Graph local/global e fallback textual estão presentes; tema claro/escuro persiste; `scrollWidth` e `clientWidth` coincidem em 390x844, no proxy CSS 640x800 e em 1280x800.
 - Console: 0 erros e 2 avisos padrão de preload do Quartz.
+
+## Atualização corretiva da camada pública — 2026-08-31
+
+- O painel visual de propriedades foi ocultado sem remover o parser de frontmatter; assim, campos como `description` não aparecem para o visitante e continuam disponíveis para metadados da página.
+- A interface pública não exibe mais a frase técnica sobre conteúdo científico, cópia byte a byte, manifesto SHA-256 ou detalhes equivalentes de produção. O rodapé padrão e rótulos de interface em inglês foram substituídos por texto público em português.
+- O Explorer foi validado aberto e fechado em 320 px e 390 px, com nomes longos quebrando dentro da largura disponível; não há regra customizada de `prefers-reduced-motion`.
+- `vercel.json` usa `cleanUrls: true`; a execução local confirmou que `/atlas/metabolismo` abre a página real e não somente `/atlas/metabolismo.html`. O HTTP da implantação Vercel ainda deve ser confirmado depois do push e da integração do projeto.

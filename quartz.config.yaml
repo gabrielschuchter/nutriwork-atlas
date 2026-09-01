@@ -59,6 +59,25 @@ plugins:
     layout:
       position: afterBody
       priority: 5
+  - source: "@nutriwork/atlas-footer"
+    enabled: true
+    order: 7
+    layout:
+      position: footer
+      priority: 50
+  - source: "@quartz-community/note-properties"
+    enabled: true
+    options:
+      includeAll: false
+      includedProperties:
+        - description
+        - tags
+        - aliases
+      excludedProperties: []
+      hidePropertiesView: true
+      delimiters: ---
+      language: yaml
+    order: 5
   - source: "@quartz-community/created-modified-date"
     enabled: true
     options:
@@ -206,7 +225,7 @@ plugins:
       groupOptions:
         grow: true
   - source: "@quartz-community/backlinks"
-    enabled: true
+    enabled: false
     layout:
       position: right
       priority: 50
@@ -244,6 +263,8 @@ plugins:
       group: toolbar
   - source: "@quartz-community/breadcrumbs"
     enabled: true
+    options:
+      rootName: Início
     layout:
       position: beforeBody
       priority: 5
@@ -256,14 +277,6 @@ plugins:
     layout:
       position: afterBody
       priority: 10
-  - source: "@quartz-community/footer"
-    enabled: true
-    options:
-      links:
-        "Nutriwork Plus": https://plus.gruponutriwork.com.br/
-    layout:
-      position: footer
-      priority: 50
   - source: "@quartz-community/recent-notes"
     enabled: false
   - source: "@quartz-community/spacer"
@@ -278,23 +291,6 @@ plugins:
     enabled: true
     options: {}
     order: 50
-  - source: "@quartz-community/note-properties"
-    enabled: true
-    options:
-      includeAll: false
-      includedProperties:
-        - description
-        - tags
-        - aliases
-      excludedProperties: []
-      hidePropertiesView: false
-      delimiters: ---
-      language: yaml
-    order: 5
-    layout:
-      position: beforeBody
-      priority: 15
-      display: all
 layout:
   groups:
     toolbar:

@@ -84,11 +84,7 @@ export const AtlasAccess = (userOptions = {}) => {
               "aria-live": "polite",
             }),
           ),
-          h(
-            "p",
-            { class: "atlas-access-note" },
-            "Barreira client-side para uso privado casual; não substitui controle de acesso server-side.",
-          ),
+          h("p", { class: "atlas-access-note" }, "Acesso protegido por senha para uso reservado."),
         ),
       ),
       h(
@@ -244,14 +240,6 @@ html[data-atlas-access="unlocked"] .atlas-access-logout {
   display: inline-flex;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  #atlas-access,
-  .atlas-access-submit,
-  .atlas-access-logout {
-    transition: none;
-  }
-}
-
 @media all and (max-width: 800px) {
   .atlas-access-logout {
     bottom: 0.75rem;
@@ -347,12 +335,48 @@ html[data-atlas-access="unlocked"] .atlas-access-logout {
       }
     };
 
+    const applyPublicLabels = () => {
+      document.querySelectorAll(".global-graph-icon").forEach((button) => {
+        if (button.getAttribute("aria-label") !== "Abrir grafo global") {
+          button.setAttribute("aria-label", "Abrir grafo global");
+        }
+      });
+      document.querySelectorAll(".search-button svg title").forEach((title) => {
+        if (title.textContent !== "Pesquisar") title.textContent = "Pesquisar";
+      });
+      document.querySelectorAll(".search-layout .result-card.no-match h3").forEach((title) => {
+        if (title.textContent !== "Nenhum resultado.") title.textContent = "Nenhum resultado.";
+      });
+      document.querySelectorAll(".search-layout .result-card.no-match p").forEach((hint) => {
+        if (hint.textContent !== "Tente outra busca?") hint.textContent = "Tente outra busca?";
+      });
+      document.querySelectorAll(".search .results-container").forEach((results) => {
+        if (results.getAttribute("aria-label") !== "Resultados da busca") {
+          results.setAttribute("aria-label", "Resultados da busca");
+        }
+      });
+      document.querySelectorAll(".search .tag-suggestions").forEach((suggestions) => {
+        if (suggestions.getAttribute("aria-label") !== "Sugestões de tags") {
+          suggestions.setAttribute("aria-label", "Sugestões de tags");
+        }
+      });
+    };
+
+    const publicLabelObserver = new MutationObserver(applyPublicLabels);
+    publicLabelObserver.observe(document.body, { childList: true, subtree: true });
+
     const runtime = { apply: () => setState(readState()) };
     window[runtimeKey] = runtime;
     document.addEventListener("submit", onSubmit);
     document.addEventListener("click", onClick);
     document.addEventListener("nav", runtime.apply);
     document.addEventListener("render", runtime.apply);
+    document.addEventListener("nav", applyPublicLabels);
+    document.addEventListener("render", applyPublicLabels);
+    if (typeof window.addCleanup === "function") {
+      window.addCleanup(() => publicLabelObserver.disconnect());
+    }
+    applyPublicLabels();
   }
 
   window[runtimeKey].apply();
@@ -427,14 +451,14 @@ export const AtlasGraphFallback = () => {
         h(
           "div",
           null,
-          h("h4", null, "Backlinks"),
+          h("h4", null, "Notas relacionadas"),
           backlinks.length
             ? h(
                 "ul",
                 null,
                 backlinks.map((file, index) => renderRelation(file, `backlink-${index}`)),
               )
-            : h("p", { class: "atlas-graph-empty" }, "Nenhum backlink identificado."),
+            : h("p", { class: "atlas-graph-empty" }, "Nenhuma nota relacionada identificada."),
         ),
       ),
     )

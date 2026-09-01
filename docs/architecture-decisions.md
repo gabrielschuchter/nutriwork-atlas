@@ -109,9 +109,23 @@ O `noindex, nofollow, noarchive` é injetado no `<head>` pelo hook de recursos d
 **Motivo:** a instalação limpa inicial identificou vulnerabilidades transitivas em dependências usadas no build/preview; as atualizações foram feitas sem `npm audit fix --force` e sem alterar o core Quartz.  
 **Consequência:** `npm audit` e `npm audit --omit=dev` retornam 0 vulnerabilidades, e o build final continua emitindo 339 arquivos. Atualizações futuras devem repetir a auditoria e o build antes de publicação.
 
+## ADR-016 — Camada pública sem metadados internos de produção
+
+**Estado:** aceito.
+**Decisão:** manter o parser de frontmatter necessário ao Quartz, mas ocultar o painel visual de propriedades; remover da página pública textos de sincronização, validação, manifesto e termos internos; substituir o rodapé e os rótulos de interface expostos em inglês por componentes/rótulos públicos em português.
+**Motivo:** `description`, `Properties`, `Backlinks`, `Global Graph` e detalhes de pipeline são vocabulário de implementação, não conteúdo para visitantes. O parser continua necessário para que o título e os metadados das notas sejam interpretados corretamente.
+**Consequência:** o SEO permanece alimentado pelos metadados sem vazar o contrato de produção no corpo visível; o conteúdo científico e os arquivos do vault não são reescritos.
+
+## ADR-017 — Rotas limpas na publicação estática
+
+**Estado:** aceito.
+**Decisão:** manter os arquivos `.html` gerados pelo Quartz e declarar `cleanUrls: true` no `vercel.json`, tratando `/atlas/metabolismo` como contrato público equivalente a `atlas/metabolismo.html`.
+**Motivo:** os links internos do Quartz e do Explorer usam rotas limpas; sem essa configuração, a hospedagem estática pode responder 404 para o caminho sem extensão embora o arquivo exista.
+**Consequência:** nenhuma alteração no core do Quartz é necessária. A confirmação final depende de uma implantação Vercel ativa; localmente, a rota limpa foi exercitada com conteúdo real.
+
 ## Decisões ainda abertas
 
-- remoto e nome final do repositório GitHub;
+- integração do repositório `https://github.com/gabrielschuchter/nutriwork-atlas` com um projeto Vercel;
 - domínio/base URL de produção;
 - senha/hash final e política de rotação;
 - lockup e azul institucional definitivos do Atlas;

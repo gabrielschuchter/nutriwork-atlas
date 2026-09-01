@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { copyFile, stat } from "node:fs/promises"
+import { copyFile, readdir, readFile, stat, writeFile } from "node:fs/promises"
 import path from "node:path"
 
 const projectRoot = path.resolve(import.meta.dirname, "..")
@@ -21,3 +21,31 @@ await copyFile(sourcePath, targetPath)
 console.log(
   `Copied ${path.relative(projectRoot, sourcePath)} to ${path.relative(projectRoot, targetPath)}`,
 )
+
+async function sanitizePublicLabels(directory) {
+  const entries = await readdir(directory, { withFileTypes: true })
+  let changedFiles = 0
+
+  for (const entry of entries) {
+    const filePath = path.join(directory, entry.name)
+    if (entry.isDirectory()) {
+      changedFiles += await sanitizePublicLabels(filePath)
+      continue
+    }
+    if (!entry.isFile() || path.extname(entry.name) !== ".html") continue
+
+    const source = await readFile(filePath, "utf8")
+    const sanitized = source
+      .replaceAll("<title>Search</title>", "<title>Pesquisar</title>")
+      .replaceAll('aria-label="Global Graph"', 'aria-label="Abrir grafo global"')
+    if (sanitized === source) continue
+
+    await writeFile(filePath, sanitized, "utf8")
+    changedFiles += 1
+  }
+
+  return changedFiles
+}
+
+const changedFiles = await sanitizePublicLabels(path.dirname(targetPath))
+console.log(`Sanitized public labels in ${changedFiles} HTML file(s)`)

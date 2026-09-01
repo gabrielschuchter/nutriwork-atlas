@@ -5,11 +5,11 @@ description: Rede de conceitos do Nutriwork em Nutrição Baseada em Evidências
 
 # Nutriwork Atlas
 
-O Atlas é uma rede de conceitos em Nutrição Baseada em Evidências. O conteúdo científico vem do vault do Obsidian; esta página é apenas a porta de entrada técnica do site.
+O Atlas reúne conceitos de Nutrição Baseada em Evidências em uma rede navegável de notas relacionadas. Comece por um dos conceitos abaixo ou use a busca para explorar.
 
-## Conteúdo inicial validado
+## Comece por aqui
 
-O primeiro recorte validou leitura, wikilinks, aliases, backlinks, busca, Explorer e Graph. As mesmas notas agora estão no import completo do vault:
+Estas são algumas portas de entrada para a rede de conceitos:
 
 - [[atlas/Metabolismo|Metabolismo]]
 - [[atlas/Adaptação metabólica|Adaptação metabólica]]
@@ -17,5 +17,3 @@ O primeiro recorte validou leitura, wikilinks, aliases, backlinks, busca, Explor
 - [[atlas/Glicólise|Glicólise]]
 - [[atlas/ATP|ATP]]
 - [[atlas/Homeostase|Homeostase]]
-
-O conteúdo científico não é editado pelo site. A sincronização usa cópia byte a byte e manifesto SHA-256.

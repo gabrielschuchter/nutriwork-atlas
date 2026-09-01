@@ -1,0 +1,35 @@
+{
+  "name": "@nutriwork/atlas-footer",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./index.js",
+    "./components": "./components/index.js",
+    "./package.json": "./package.json"
+  },
+  "peerDependencies": {
+    "preact": "^10.0.0"
+  },
+  "quartz": {
+    "name": "atlas-footer",
+    "displayName": "Nutriwork Atlas footer",
+    "description": "Public footer for the Nutriwork Atlas site.",
+    "version": "0.1.0",
+    "quartzVersion": ">=5.0.0",
+    "category": "component",
+    "defaultOrder": 7,
+    "defaultEnabled": true,
+    "defaultOptions": {},
+    "components": {
+      "AtlasFooter": {
+        "name": "atlas-footer",
+        "displayName": "Nutriwork Atlas footer",
+        "description": "Public footer for the Nutriwork Atlas site.",
+        "version": "0.1.0",
+        "defaultPosition": "footer",
+        "defaultPriority": 50
+      }
+    }
+  }
+}

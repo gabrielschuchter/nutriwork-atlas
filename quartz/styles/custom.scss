@@ -126,6 +126,44 @@ a.internal:hover {
     max-width: 100%;
   }
 
+  .page > #quartz-body > .sidebar.left .explorer {
+    flex: 0 1 auto;
+    min-width: 0;
+  }
+
+  .page > #quartz-body > .sidebar.left .explorer.collapsed,
+  .page > #quartz-body > .sidebar.left .explorer:not(.collapsed) {
+    flex-basis: auto;
+  }
+
+  .page > #quartz-body > .sidebar.left .explorer .mobile-explorer {
+    gap: 0.35rem;
+    min-width: max-content;
+    padding: 5px 0;
+  }
+
+  .page > #quartz-body > .sidebar.left .explorer .mobile-explorer::after {
+    color: var(--dark);
+    content: "Explorador";
+    font-family: var(--headerFont);
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.5rem;
+    white-space: nowrap;
+  }
+
+  .page > #quartz-body > .sidebar.left .explorer .desktop-explorer h2,
+  .page > #quartz-body > .sidebar.left .explorer-content a,
+  .page > #quartz-body > .sidebar.left .explorer .folder-title {
+    overflow: visible;
+    text-overflow: clip;
+  }
+
+  .page > #quartz-body > .sidebar.left .explorer-content a {
+    overflow-wrap: anywhere;
+    white-space: normal;
+  }
+
   .page > #quartz-body > .center,
   .page > #quartz-body > footer {
     width: 100%;
@@ -143,16 +181,5 @@ a.internal:hover {
   .backlinks,
   .toc {
     box-shadow: none;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    scroll-behavior: auto !important;
-    transition-duration: 0.01ms !important;
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
   }
 }
