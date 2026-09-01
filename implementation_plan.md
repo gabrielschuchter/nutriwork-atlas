@@ -29,7 +29,7 @@ Depois da auditoria, o checkout foi inicializado a partir do Quartz v5 na branch
 | 8 | Índices, filtros e paridade refinada | Busca/links/grafo comparados com o contrato | Concluída localmente; 827 ocorrências não resolvidas preservadas |
 | 9 | Testes e QA | typecheck/lint/test/build, links, console, acessibilidade, viewports e zoom | Gates automatizados principais concluídos; proxy de 200% passou; a11y/zoom nativo ainda abertos |
 | 10 | Publicação | GitHub/Vercel configuráveis e verificáveis; sem deploy não solicitado | Publicada e verificada em produção |
-| 11 | Experiência premium e Study Engine | shell próprio, onboarding, grafo explorável, estado local, sessões, revisão, trilhas, biblioteca e QA de interação | Implementada, publicada e verificada |
+| 11 | Experiência premium e Study Engine | shell próprio, onboarding, grafo explorável, estado local, sessões, revisão, trilhas, biblioteca e QA de interação | Implementada e verificada localmente; a rodada física atual aguarda publicação |
 
 ## Plano técnico
 
@@ -143,7 +143,7 @@ Limitação mantida: Stacked Pages é usado quando o viewport é compatível com
 
 Esta rodada substitui visualmente o shell padrão do Quartz por `AtlasFrame`, sem migrar de framework. A frame concentra a navegação principal Hoje, Estudar, Explorar, Grafo e Revisar; `/atlas/` passou a ser a Home virtual do produto, com recomendação explicável, trilhas, métricas, retomada, revisão, áreas e uma entrada viva para o grafo.
 
-O grafo próprio em SVG fica em `plugins/atlas-study-engine/client/graph.js`: ele calcula uma composição determinística espaçada, assenta uma física leve, acompanha arraste em tempo real, suporta pinning, pan, wheel/pinch zoom, fit, fullscreen, filtros e rótulos contextuais para redes densas. O índice continua sendo a única fonte das relações; o conteúdo das notas não participa de nenhuma escrita automática.
+O grafo próprio em SVG fica em `plugins/atlas-study-engine/client/graph.js`, com a engine separada em `plugins/atlas-study-engine/client/graph-physics.js`: um seed determinístico apenas inicia uma `forceSimulation` D3 real com repulsão, molas, collision, centralização e gravidade suave. O renderer acompanha arraste em tempo real, reheat, pinning, pan, wheel/pinch zoom, fit, fullscreen, filtros e rótulos contextuais para redes densas. O índice continua sendo a única fonte das relações; o conteúdo das notas não participa de nenhuma escrita automática.
 
 O armazenamento foi dividido por responsabilidade: `localStorage` guarda preferências de baixa complexidade, enquanto IndexedDB guarda a entidade de estudo. O contrato foi versionado e inclui um adaptador de revisão determinístico, pronto para uma integração futura com FSRS sem acoplar o scheduler à interface. `data/learning-paths.json` permanece externo ao vault e é copiado para `static/` pelo emitter durante o build.
 

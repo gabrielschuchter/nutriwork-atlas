@@ -1,17 +1,23 @@
 ;(() => {
   const atlas = (window.__nutriworkAtlasEngine = window.__nutriworkAtlasEngine || {})
-  const { clamp, hash, make, normalizeSlug, normalizeText, routeSlug, svgIcon } = atlas.dom
+  const { clamp, hash, make, normalizeSlug, normalizeText, routeSlug } = atlas.dom
   const graphInstances = new WeakMap()
-  const WIDTH = 1800
-  const HEIGHT = 1100
+  const liveStates = new Set()
+  const WORLD_WIDTH = 1800
+  const WORLD_HEIGHT = 1100
+  const POINTER_THRESHOLD = 7
+  const MIN_ZOOM = 0.28
+  const MAX_ZOOM = 3.8
 
   const controlMeta = [
-    ["spacing", "Distância", 0.8, 2.2, 0.05],
-    ["repulsion", "Repulsão", 0.5, 2, 0.05],
+    ["spacing", "Distância", 0.8, 2.6, 0.05],
+    ["repulsion", "Repulsão", 0.5, 2.3, 0.05],
     ["linkStrength", "Conexões", 0.2, 1.2, 0.05],
     ["nodeScale", "Nós", 0.7, 1.5, 0.05],
     ["labelScale", "Rótulos", 0.7, 1.4, 0.05],
     ["edgeOpacity", "Arestas", 0.15, 1, 0.05],
+    ["collisionPadding", "Colisão", 4, 24, 1],
+    ["centerForce", "Centro", 0.08, 0.55, 0.01],
   ]
 
   function currentCenter() {
@@ -80,59 +86,33 @@
     return [...edges.values()]
   }
 
-  function initialPosition(node, index, nodes, options) {
-    const origin = currentCenter()
-    const distance = origin ? Math.min(4, bfsDistance(origin.slug, node.slug)) : 1
-    const seed = hash(node.slug)
-    const angle = seed * Math.PI * 2 + distance * 0.37
-    const rings = options.scope === "global" ? 5 : Math.max(2, Number(options.depth || 2) + 1)
-    const radius =
-      options.scope === "global"
-        ? 140 + distance * 145 + seed * 70
-        : distance === 0
-          ? 0
-          : 115 + distance * 170 + seed * 60
-    const areaOffset = options.scope === "global" ? hash(node.area) * Math.PI * 2 : 0
+  function visualRadius(node, controls) {
+    const base = node.slug === routeSlug() ? 10.5 : 7 + Math.min(5, node.degree / 10)
+    return base * Number(controls.nodeScale || 1)
+  }
+
+  function seedPosition(node, index, options) {
+    if (node.slug === routeSlug()) return { x: WORLD_WIDTH / 2, y: WORLD_HEIGHT / 2, vx: 0, vy: 0 }
+    const xSeed = hash(node.slug + ":x")
+    const ySeed = hash(node.slug + ":y")
+    const scopeSpread = options.scope === "global" ? 0 : 0.18
+    const x = 150 + xSeed * (WORLD_WIDTH - 300) + (xSeed - 0.5) * scopeSpread * WORLD_WIDTH
+    const y = 130 + ySeed * (WORLD_HEIGHT - 260) + (ySeed - 0.5) * scopeSpread * WORLD_HEIGHT
     return {
-      x: WIDTH / 2 + Math.cos(angle + areaOffset) * radius + (seed - 0.5) * 80,
-      y:
-        HEIGHT / 2 +
-        Math.sin(angle + areaOffset) * radius * 0.68 +
-        (hash(node.slug + "y") - 0.5) * 80,
+      x: clamp(x + (index % 3) * 4, 80, WORLD_WIDTH - 80),
+      y: clamp(y + (index % 5) * 3, 70, WORLD_HEIGHT - 70),
       vx: 0,
       vy: 0,
-      pinned: false,
-      ring: Math.min(distance, rings),
-      index,
     }
   }
 
-  function bfsDistance(start, target) {
-    if (start === target) return 0
-    const visited = new Set([start])
-    const queue = [[start, 0]]
-    while (queue.length) {
-      const [slug, distance] = queue.shift()
-      const node = atlas.data.get(slug)
-      if (!node) continue
-      for (const neighbor of neighborSlugs(node)) {
-        if (neighbor === target) return distance + 1
-        if (!visited.has(neighbor)) {
-          visited.add(neighbor)
-          queue.push([neighbor, distance + 1])
-        }
-      }
-      if (distance > 5) break
-    }
-    return 3
-  }
-
-  function createControlPanel(graph, options) {
+  function createControlPanel(options) {
     const panel = make("div", "atlas-graph-control-panel")
     const heading = make("div", "atlas-graph-control-heading")
     heading.appendChild(make("p", "atlas-kicker", "COMPOSIÇÃO"))
     heading.appendChild(make("span", "atlas-graph-control-hint", "Ajuste o mapa ao seu olhar"))
     panel.appendChild(heading)
+
     const selects = make("div", "atlas-graph-selects")
     const scopeLabel = make("label", "atlas-graph-select-field")
     scopeLabel.appendChild(make("span", null, "Âmbito"))
@@ -149,6 +129,7 @@
     })
     scopeLabel.appendChild(scope)
     selects.appendChild(scopeLabel)
+
     const areaLabel = make("label", "atlas-graph-select-field")
     areaLabel.appendChild(make("span", null, "Área"))
     const area = document.createElement("select")
@@ -165,6 +146,7 @@
     })
     areaLabel.appendChild(area)
     selects.appendChild(areaLabel)
+
     const depthLabel = make("label", "atlas-graph-select-field")
     depthLabel.appendChild(make("span", null, "Profundidade"))
     const depth = document.createElement("select")
@@ -183,6 +165,7 @@
     depthLabel.appendChild(depth)
     selects.appendChild(depthLabel)
     panel.appendChild(selects)
+
     const sliders = make("div", "atlas-graph-sliders")
     controlMeta.forEach(([key, label, min, max, step]) => {
       const wrapper = make("label", "atlas-graph-slider")
@@ -209,11 +192,14 @@
 
   function formatControlValue(key, value) {
     if (key === "edgeOpacity") return Math.round(Number(value) * 100) + "%"
+    if (key === "collisionPadding") return Math.round(Number(value)) + " px"
     return Number(value).toFixed(2).replace(/\.00$/, "")
   }
 
   function createGraph(container, initialOptions) {
     if (!container) return null
+    const previous = graphInstances.get(container)
+    if (previous) destroy(container)
     const state = {
       scope: initialOptions?.scope || "local",
       depth: Number(initialOptions?.depth || atlas.state.get().graphControls.depth || 2),
@@ -222,22 +208,42 @@
       positions: new Map(),
       pinned: new Set(),
       selected: "",
+      lastSelected: "",
       scale: 1,
       panX: 0,
       panY: 0,
+      viewportWidth: 0,
+      viewportHeight: 0,
       pointers: new Map(),
       drag: null,
       pan: null,
+      pinchStartDistance: 0,
+      pinchStartScale: 1,
       moved: false,
-      lastSelected: "",
-      settleFrame: 0,
-      settling: false,
+      suppressClickUntil: 0,
       nodes: [],
       edges: [],
+      nodeBySlug: new Map(),
+      nodeElements: new Map(),
+      edgeElements: new Map(),
+      simulation: null,
+      physics: null,
+      resizeObserver: null,
+      cameraFrame: 0,
+      timers: new Set(),
+      hoverClearTimer: 0,
+      hasInteractedCamera: false,
+      hasInitialFit: false,
+      destroyed: false,
+      resetting: false,
+      loaderRemoved: false,
+      renderVersion: 0,
     }
     graphInstances.set(container, state)
+    liveStates.add(state)
     container.classList.add("atlas-graph-shell")
     atlas.dom.clear(container)
+
     const header = make("div", "atlas-graph-header")
     const titleWrap = make("div", null)
     titleWrap.appendChild(make("p", "atlas-kicker", "MAPA DE RELAÇÕES"))
@@ -273,11 +279,13 @@
     )
     header.appendChild(actions)
     container.appendChild(header)
-    const controlPanel = createControlPanel(container, {
-      ...atlas.state.get().graphControls,
-      ...state,
-    })
-    container.appendChild(controlPanel)
+    container.appendChild(
+      createControlPanel({
+        ...atlas.state.get().graphControls,
+        ...state,
+      }),
+    )
+
     const canvas = make("div", "atlas-graph-canvas")
     canvas.tabIndex = 0
     canvas.setAttribute(
@@ -290,8 +298,9 @@
     loader.appendChild(make("span", null))
     loader.appendChild(make("p", null, "Formando a rede"))
     canvas.appendChild(loader)
+
     const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg")
-    svg.setAttribute("viewBox", `0 0 ${WIDTH} ${HEIGHT}`)
+    svg.setAttribute("viewBox", `0 0 ${WORLD_WIDTH} ${WORLD_HEIGHT}`)
     svg.setAttribute("role", "application")
     svg.setAttribute("aria-label", "Grafo interativo")
     svg.classList.add("atlas-graph-svg")
@@ -306,6 +315,7 @@
     svg.appendChild(viewport)
     canvas.appendChild(svg)
     container.appendChild(canvas)
+
     const footer = make("div", "atlas-graph-footer")
     const legend = make("div", "atlas-graph-legend")
     ;[
@@ -324,6 +334,7 @@
       make("span", "atlas-graph-help", "Arraste · role para aproximar · clique para abrir"),
     )
     container.appendChild(footer)
+
     state.canvas = canvas
     state.svg = svg
     state.viewport = viewport
@@ -331,126 +342,338 @@
     state.nodesLayer = nodesLayer
     state.loader = loader
     bindPointerEvents(container, state)
-    render(container)
-    window.requestAnimationFrame(() => {
-      loader.classList.add("is-complete")
-      window.setTimeout(() => loader.remove(), 480)
-    })
+    observeResize(state)
+    render(container, { fitAfter: true })
     return container
   }
 
-  function ensurePosition(state, node, index, nodes, options) {
-    if (!state.positions.has(node.slug))
-      state.positions.set(node.slug, initialPosition(node, index, nodes, options))
-    return state.positions.get(node.slug)
+  function observeResize(state) {
+    if (typeof ResizeObserver === "undefined") return
+    state.resizeObserver = new ResizeObserver((entries) => {
+      if (state.destroyed) return
+      const rect = entries[0]?.contentRect
+      if (!rect?.width || !rect?.height) return
+      const changed = rect.width !== state.viewportWidth || rect.height !== state.viewportHeight
+      state.viewportWidth = rect.width
+      state.viewportHeight = rect.height
+      applyView(state)
+      if (changed && state.physics) state.physics.resize(WORLD_WIDTH, WORLD_HEIGHT)
+    })
+    state.resizeObserver.observe(state.canvas)
   }
 
-  function render(container) {
-    const state = graphInstances.get(container)
-    if (!state) return
-    if (state.settleFrame) window.cancelAnimationFrame(state.settleFrame)
-    state.settleFrame = 0
-    state.settling = false
-    const controls = atlas.state.get().graphControls
-    const options = { ...controls, ...state }
-    state.nodes = visibleNodes(options)
-    state.edges = visibleEdges(state.nodes)
-    container.classList.toggle("is-dense", state.scope === "global" || state.nodes.length > 48)
-    const allowed = new Set(state.nodes.map((node) => node.slug))
-    for (const slug of state.positions.keys()) if (!allowed.has(slug)) state.positions.delete(slug)
-    state.nodes.forEach((node, index) => ensurePosition(state, node, index, state.nodes, options))
-    atlas.dom.clear(state.edgesLayer)
-    atlas.dom.clear(state.nodesLayer)
-    state.edges.forEach((edge) => {
-      const line = document.createElementNS("http://www.w3.org/2000/svg", "line")
-      line.dataset.source = edge.source
-      line.dataset.target = edge.target
-      line.classList.add("atlas-graph-edge")
-      if (state.selected && (edge.source === state.selected || edge.target === state.selected))
-        line.classList.add("is-related")
-      state.edgesLayer.appendChild(line)
-      edge.element = line
-    })
+  function savePositions(state) {
+    if (state.resetting) return
     state.nodes.forEach((node) => {
-      const position = state.positions.get(node.slug)
-      const group = document.createElementNS("http://www.w3.org/2000/svg", "g")
-      group.classList.add("atlas-graph-node", "is-" + atlas.state.reviewStatus(node.slug))
-      group.dataset.slug = node.slug
-      group.setAttribute("role", "button")
-      group.setAttribute("tabindex", "0")
-      group.setAttribute("aria-label", node.title + ", " + node.areaLabel)
-      group.setAttribute("focusable", "true")
-      if (state.selected === node.slug) group.classList.add("is-selected")
-      if (node.slug === routeSlug()) group.classList.add("is-current")
-      if (node.degree >= 20) group.classList.add("is-hub")
-      const halo = document.createElementNS("http://www.w3.org/2000/svg", "circle")
-      halo.classList.add("atlas-graph-node-halo")
-      halo.setAttribute("r", String((node.slug === routeSlug() ? 25 : 18) * controls.nodeScale))
-      const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle")
-      circle.classList.add("atlas-graph-node-dot")
-      circle.setAttribute(
-        "r",
-        String(
-          (node.slug === routeSlug() ? 10 : 7 + Math.min(5, node.degree / 10)) * controls.nodeScale,
-        ),
-      )
-      const label = document.createElementNS("http://www.w3.org/2000/svg", "text")
-      label.classList.add("atlas-graph-node-label")
-      label.textContent = node.title.length > 30 ? node.title.slice(0, 29) + "…" : node.title
-      label.setAttribute("dy", String(26 * controls.labelScale))
-      group.appendChild(halo)
-      group.appendChild(circle)
-      group.appendChild(label)
-      group.addEventListener("pointerenter", () => selectNode(container, node.slug, true))
-      group.addEventListener("pointerleave", () => clearSelection(container, node.slug))
-      group.addEventListener("focus", () => selectNode(container, node.slug, true))
-      group.addEventListener("blur", () => clearSelection(container, node.slug))
-      group.addEventListener("click", (event) => {
-        if (state.moved) {
-          state.moved = false
-          return
-        }
-        if (
-          event.target === group ||
-          event.target === circle ||
-          event.target === halo ||
-          event.target === label
-        ) {
-          if (typeof atlas.app?.openConcept === "function") atlas.app.openConcept(node.slug)
-        }
+      if (!Number.isFinite(node.x) || !Number.isFinite(node.y)) return
+      state.positions.set(node.slug, {
+        x: node.x,
+        y: node.y,
+        vx: Number(node.vx) || 0,
+        vy: Number(node.vy) || 0,
       })
-      group.addEventListener("keydown", (event) => {
-        if (event.key === "Enter" || event.key === " ") {
-          event.preventDefault()
-          if (typeof atlas.app?.openConcept === "function") atlas.app.openConcept(node.slug)
-        }
-      })
-      state.nodesLayer.appendChild(group)
-      node.element = group
     })
-    applyView(state)
-    updateEdges(state)
+  }
+
+  function stopSimulation(state) {
+    if (!state.simulation) return
+    state.simulation.on("tick", null).on("end", null).stop()
+    state.simulation = null
+    state.physics = null
+  }
+
+  function createPhysicalNode(node, index, state, options) {
+    const stored = state.positions.get(node.slug)
+    const seed = stored || seedPosition(node, index, options)
+    const radius = visualRadius(node, options)
+    const hasStoredPosition =
+      stored && Number.isFinite(Number(stored.x)) && Number.isFinite(Number(stored.y))
+    const physical = {
+      ...node,
+      id: node.slug,
+      x: hasStoredPosition
+        ? Number(seed.x)
+        : clamp(Number(seed.x) || WORLD_WIDTH / 2, radius, WORLD_WIDTH - radius),
+      y: hasStoredPosition
+        ? Number(seed.y)
+        : clamp(Number(seed.y) || WORLD_HEIGHT / 2, radius, WORLD_HEIGHT - radius),
+      vx: Number(seed.vx) || 0,
+      vy: Number(seed.vy) || 0,
+      radius,
+      collisionRadius: radius,
+    }
+    if (state.pinned.has(node.slug)) {
+      physical.fx = physical.x
+      physical.fy = physical.y
+    }
+    return physical
+  }
+
+  function render(container, renderOptions) {
+    const state = graphInstances.get(container)
+    if (!state || state.destroyed) return
+    savePositions(state)
+    stopSimulation(state)
+    const controls = { ...atlas.state.get().graphControls }
+    const options = { ...controls, ...state }
+    const rawNodes = visibleNodes(options)
+    const rawEdges = visibleEdges(rawNodes)
+    const previousSlugs = new Set(state.nodeBySlug.keys())
+    state.nodes = rawNodes.map((node, index) => createPhysicalNode(node, index, state, options))
+    state.edges = rawEdges.map((edge) => ({ ...edge }))
+    state.nodeBySlug = new Map(state.nodes.map((node) => [node.slug, node]))
+    state.renderVersion += 1
+    container.classList.toggle("is-dense", state.scope === "global" || state.nodes.length > 48)
+
+    reconcileEdges(state)
+    reconcileNodes(container, state, previousSlugs)
     updateGraphVisuals(state)
     updatePinButton(state)
-    state.settling = true
-    settle(container, 0)
+    applyView(state)
+    renderPositions(state)
+
+    state.physics = atlas.graphPhysics?.create(
+      state.nodes,
+      state.edges,
+      controls,
+      WORLD_WIDTH,
+      WORLD_HEIGHT,
+    )
+    state.simulation = state.physics?.simulation || null
+    if (state.simulation) {
+      const renderVersion = state.renderVersion
+      state.simulation.on("tick", () => {
+        if (state.destroyed || state.renderVersion !== renderVersion) return
+        renderPositions(state)
+      })
+      state.simulation.on("end", () => {
+        if (!state.destroyed && state.renderVersion === renderVersion) {
+          container.classList.remove("is-reheating")
+          renderPositions(state)
+          if (!state.hasInteractedCamera) fit(container, 520, true)
+          state.hasInitialFit = true
+        }
+      })
+      container.classList.add("is-reheating")
+      state.simulation.alpha(1).restart()
+    }
+
+    if (!state.loaderRemoved) {
+      state.loader.classList.remove("is-complete")
+      schedule(
+        state,
+        () => {
+          state.loader.classList.add("is-complete")
+          schedule(
+            state,
+            () => {
+              state.loader.remove()
+              state.loaderRemoved = true
+            },
+            480,
+          )
+        },
+        360,
+      )
+    }
+    if (renderOptions?.fitAfter || !state.hasInitialFit) scheduleInitialFit(container, state)
+  }
+
+  function scheduleInitialFit(container, state) {
+    if (state.initialFitTimer) return
+    state.initialFitTimer = schedule(
+      state,
+      () => {
+        state.initialFitTimer = 0
+        if (!state.destroyed && !state.hasInteractedCamera) fit(container, 520, true)
+        state.hasInitialFit = true
+      },
+      720,
+    )
+  }
+
+  function schedule(state, callback, delay) {
+    const timer = window.setTimeout(() => {
+      state.timers.delete(timer)
+      callback()
+    }, delay)
+    state.timers.add(timer)
+    return timer
+  }
+
+  function createSvgElement(tag) {
+    return document.createElementNS("http://www.w3.org/2000/svg", tag)
+  }
+
+  function createEdgeElement(state, edge) {
+    const line = createSvgElement("line")
+    line.classList.add("atlas-graph-edge", "is-entering")
+    line.dataset.source = edge.source
+    line.dataset.target = edge.target
+    state.edgesLayer.appendChild(line)
+    schedule(state, () => line.classList.remove("is-entering"), 280)
+    return line
+  }
+
+  function reconcileEdges(state) {
+    const next = new Map(state.edges.map((edge) => [edgeKey(edge.source, edge.target), edge]))
+    state.edgeElements.forEach((element, key) => {
+      if (next.has(key)) return
+      state.edgeElements.delete(key)
+      element.classList.add("is-exiting")
+      schedule(
+        state,
+        () => {
+          if (!state.edgeElements.has(key)) element.remove()
+        },
+        280,
+      )
+    })
+    next.forEach((edge, key) => {
+      let element = state.edgeElements.get(key)
+      if (!element) {
+        element = createEdgeElement(state, edge)
+        state.edgeElements.set(key, element)
+      }
+      element.dataset.source = edge.source
+      element.dataset.target = edge.target
+      edge.element = element
+    })
+  }
+
+  function createNodeElement(container, state, node) {
+    const group = createSvgElement("g")
+    group.classList.add("atlas-graph-node", "is-entering")
+    group.dataset.slug = node.slug
+    group.setAttribute("role", "button")
+    group.setAttribute("tabindex", "0")
+    group.setAttribute("focusable", "true")
+
+    const halo = createSvgElement("circle")
+    halo.classList.add("atlas-graph-node-halo")
+    const circle = createSvgElement("circle")
+    circle.classList.add("atlas-graph-node-dot")
+    const pin = createSvgElement("circle")
+    pin.classList.add("atlas-graph-node-pin")
+    pin.setAttribute("cx", "0")
+    pin.setAttribute("cy", "0")
+    const label = createSvgElement("text")
+    label.classList.add("atlas-graph-node-label")
+    group.appendChild(halo)
+    group.appendChild(circle)
+    group.appendChild(pin)
+    group.appendChild(label)
+    state.nodesLayer.appendChild(group)
+
+    group.addEventListener("pointerenter", (event) => {
+      if (event.pointerType && event.pointerType !== "mouse") return
+      selectNode(container, group.dataset.slug, true, group)
+    })
+    group.addEventListener("pointerleave", () => clearSelection(container, group.dataset.slug))
+    group.addEventListener("focus", () => selectNode(container, group.dataset.slug, true, group))
+    group.addEventListener("blur", () => clearSelection(container, group.dataset.slug))
+    group.addEventListener("click", (event) => {
+      if (Date.now() < state.suppressClickUntil) {
+        event.preventDefault()
+        return
+      }
+      if (state.moved) {
+        state.moved = false
+        event.preventDefault()
+        return
+      }
+      const slug = normalizeSlug(group.dataset.slug)
+      if (slug && typeof atlas.app?.openConcept === "function") atlas.app.openConcept(slug)
+    })
+    group.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault()
+        if (typeof atlas.app?.openConcept === "function") atlas.app.openConcept(group.dataset.slug)
+      }
+    })
+    schedule(state, () => group.classList.remove("is-entering"), 320)
+    return group
+  }
+
+  function reconcileNodes(container, state, previousSlugs) {
+    const next = new Map(state.nodes.map((node) => [node.slug, node]))
+    state.nodeElements.forEach((element, slug) => {
+      if (next.has(slug)) return
+      state.nodeElements.delete(slug)
+      element.classList.add("is-exiting")
+      schedule(
+        state,
+        () => {
+          if (!state.nodeElements.has(slug)) element.remove()
+        },
+        320,
+      )
+    })
+    next.forEach((node, slug) => {
+      let element = state.nodeElements.get(slug)
+      if (!element) {
+        element = createNodeElement(container, state, node)
+        state.nodeElements.set(slug, element)
+      } else if (!previousSlugs.has(slug)) {
+        element.classList.add("is-entering")
+        schedule(state, () => element.classList.remove("is-entering"), 320)
+      }
+      node.element = element
+      syncNodeElement(state, node)
+    })
+  }
+
+  function syncNodeElement(state, node) {
+    const element = node.element
+    if (!element) return
+    const status = atlas.state.reviewStatus(node.slug)
+    element.classList.remove("is-new", "is-learning", "is-due", "is-scheduled", "is-mastered")
+    element.classList.add("is-" + status)
+    element.classList.toggle("is-selected", state.selected === node.slug)
+    element.classList.toggle("is-current", node.slug === routeSlug())
+    element.classList.toggle("is-hub", node.degree >= 20)
+    element.classList.toggle("is-pinned", state.pinned.has(node.slug))
+    element.dataset.slug = node.slug
+    element.setAttribute("aria-label", node.title + ", " + node.areaLabel)
+    const label = element.querySelector(".atlas-graph-node-label")
+    if (label)
+      label.textContent = node.title.length > 30 ? node.title.slice(0, 29) + "…" : node.title
+  }
+
+  function viewSize(state, scale) {
+    const aspect =
+      state.viewportWidth > 0 && state.viewportHeight > 0
+        ? state.viewportWidth / state.viewportHeight
+        : WORLD_WIDTH / WORLD_HEIGHT
+    const height = WORLD_HEIGHT / scale
+    return { width: height * aspect, height }
   }
 
   function applyView(state) {
-    const width = WIDTH / state.scale
-    const height = HEIGHT / state.scale
-    state.svg.setAttribute("viewBox", `${state.panX} ${state.panY} ${width} ${height}`)
+    if (!state.svg) return
+    const size = viewSize(state, state.scale)
+    state.svg.setAttribute("viewBox", `${state.panX} ${state.panY} ${size.width} ${size.height}`)
+    state.svg.dataset.zoom = state.scale.toFixed(3)
+    state.svg.classList.toggle("is-panning", Boolean(state.pan))
   }
 
-  function updateEdges(state) {
+  function renderPositions(state) {
+    if (state.destroyed) return
     state.nodes.forEach((node) => {
-      const position = state.positions.get(node.slug)
-      if (!position || !node.element) return
-      node.element.setAttribute("transform", `translate(${position.x} ${position.y})`)
+      if (!Number.isFinite(node.x) || !Number.isFinite(node.y)) return
+      node.element?.setAttribute("transform", `translate(${node.x} ${node.y})`)
+      state.positions.set(node.slug, {
+        x: node.x,
+        y: node.y,
+        vx: Number(node.vx) || 0,
+        vy: Number(node.vy) || 0,
+      })
     })
     state.edges.forEach((edge) => {
-      const source = state.positions.get(edge.source)
-      const target = state.positions.get(edge.target)
+      const source =
+        typeof edge.source === "object" ? edge.source : state.nodeBySlug.get(edge.source)
+      const target =
+        typeof edge.target === "object" ? edge.target : state.nodeBySlug.get(edge.target)
       if (!source || !target || !edge.element) return
       edge.element.setAttribute("x1", String(source.x))
       edge.element.setAttribute("y1", String(source.y))
@@ -462,122 +685,73 @@
   function updateGraphVisuals(state) {
     const controls = atlas.state.get().graphControls
     state.nodes.forEach((node) => {
+      node.radius = visualRadius(node, controls)
+      node.collisionRadius = node.radius
+      syncNodeElement(state, node)
       const element = node.element
       if (!element) return
       const halo = element.querySelector(".atlas-graph-node-halo")
       const dot = element.querySelector(".atlas-graph-node-dot")
+      const pin = element.querySelector(".atlas-graph-node-pin")
       const label = element.querySelector(".atlas-graph-node-label")
-      if (halo)
-        halo.setAttribute("r", String((node.slug === routeSlug() ? 25 : 18) * controls.nodeScale))
-      if (dot)
-        dot.setAttribute(
-          "r",
-          String(
-            (node.slug === routeSlug() ? 10 : 7 + Math.min(5, node.degree / 10)) *
-              controls.nodeScale,
-          ),
-        )
+      const isCurrent = node.slug === routeSlug()
+      if (halo) halo.setAttribute("r", String((isCurrent ? 27 : 19) * controls.nodeScale))
+      if (dot) dot.setAttribute("r", String(node.radius))
+      if (pin) {
+        pin.setAttribute("r", String(Math.max(2.5, node.radius * 0.27)))
+        pin.setAttribute("cx", String(node.radius * 0.72))
+        pin.setAttribute("cy", String(-node.radius * 0.72))
+      }
       if (label) {
-        label.setAttribute("dy", String(26 * controls.labelScale))
+        label.setAttribute("dy", String((node.radius + 18) * controls.labelScale))
         label.setAttribute("font-size", String(15 * controls.labelScale))
       }
     })
-    state.edges.forEach((edge) => {
-      edge.element?.style.setProperty("--atlas-edge-opacity", String(controls.edgeOpacity))
-    })
+    state.edges.forEach((edge) =>
+      edge.element?.style.setProperty("--atlas-edge-opacity", String(controls.edgeOpacity)),
+    )
   }
 
-  function settle(container, frame) {
-    const state = graphInstances.get(container)
-    if (!state || !state.settling) return
-    const controls = atlas.state.get().graphControls
-    const nodes = state.nodes
-    const positions = state.positions
-    const edgePairs = state.edges
-    const bySlug = new Map(nodes.map((node) => [node.slug, positions.get(node.slug)]))
-    nodes.forEach((node, index) => {
-      const position = positions.get(node.slug)
-      if (!position || position.pinned) return
-      let fx = (WIDTH / 2 - position.x) * 0.002
-      let fy = (HEIGHT / 2 - position.y) * 0.002
-      for (let otherIndex = index + 1; otherIndex < nodes.length; otherIndex += 1) {
-        const other = positions.get(nodes[otherIndex].slug)
-        if (!other) continue
-        const dx = position.x - other.x
-        const dy = position.y - other.y
-        const distanceSquared = Math.max(180, dx * dx + dy * dy)
-        const distance = Math.sqrt(distanceSquared)
-        const force = (6800 * Number(controls.repulsion || 1)) / distanceSquared
-        fx += (dx / distance) * force
-        fy += (dy / distance) * force
-        if (!other.pinned) {
-          other.vx -= (dx / distance) * force * 0.16
-          other.vy -= (dy / distance) * force * 0.16
-        }
-      }
-      position.vx = (position.vx + fx) * 0.82
-      position.vy = (position.vy + fy) * 0.82
-    })
-    edgePairs.forEach((edge) => {
-      const source = bySlug.get(edge.source)
-      const target = bySlug.get(edge.target)
-      if (!source || !target) return
-      const dx = target.x - source.x
-      const dy = target.y - source.y
-      const distance = Math.max(1, Math.sqrt(dx * dx + dy * dy))
-      const desired = 155 * Number(controls.spacing || 1)
-      const force = (distance - desired) * 0.00034 * Number(controls.linkStrength || 1)
-      if (!source.pinned) {
-        source.vx += (dx / distance) * force
-        source.vy += (dy / distance) * force
-      }
-      if (!target.pinned) {
-        target.vx -= (dx / distance) * force
-        target.vy -= (dy / distance) * force
-      }
-    })
-    nodes.forEach((node) => {
-      const position = positions.get(node.slug)
-      if (!position || position.pinned) return
-      position.x = clamp(position.x + position.vx, 50, WIDTH - 50)
-      position.y = clamp(position.y + position.vy, 50, HEIGHT - 50)
-    })
-    updateEdges(state)
-    if (frame < 75) {
-      state.settleFrame = window.requestAnimationFrame(() => settle(container, frame + 1))
-    } else {
-      state.settling = false
-      state.settleFrame = 0
-    }
+  function updatePhysics(state) {
+    if (!state.physics) return
+    updateGraphVisuals(state)
+    state.physics.update(atlas.state.get().graphControls, WORLD_WIDTH, WORLD_HEIGHT)
+    state.simulation?.alphaTarget(0).restart()
+    state.simulation?.alpha(Math.max(state.simulation.alpha(), 0.62)).restart()
+    state.canvas.closest(".atlas-graph-shell")?.classList.add("is-reheating")
   }
 
-  function selectNode(container, slug, preview) {
+  function selectNode(container, slug, preview, anchor) {
     const state = graphInstances.get(container)
     if (!state) return
+    if (state.hoverClearTimer) window.clearTimeout(state.hoverClearTimer)
     state.selected = normalizeSlug(slug)
     state.lastSelected = state.selected
     const related = new Set([state.selected, ...neighborSlugs(atlas.data.get(state.selected))])
-    state.nodes.forEach((node) =>
-      node.element?.classList.toggle("is-selected", node.slug === state.selected),
-    )
-    state.nodes.forEach((node) =>
+    state.nodes.forEach((node) => {
+      node.element?.classList.toggle("is-selected", node.slug === state.selected)
       node.element?.classList.toggle(
         "is-related",
         related.has(node.slug) && node.slug !== state.selected,
-      ),
-    )
-    state.nodes.forEach((node) =>
-      node.element?.classList.toggle("is-dimmed", !related.has(node.slug)),
-    )
+      )
+      node.element?.classList.toggle("is-dimmed", !related.has(node.slug))
+    })
     state.edges.forEach((edge) =>
       edge.element?.classList.toggle(
         "is-related",
-        edge.source === state.selected || edge.target === state.selected,
+        edge.source === state.selected ||
+          edge.target === state.selected ||
+          edge.source?.slug === state.selected ||
+          edge.target?.slug === state.selected,
       ),
     )
     updatePinButton(state)
-    if (preview && typeof atlas.app?.showGraphPreview === "function")
-      atlas.app.showGraphPreview(atlas.data.get(state.selected), container)
+    if (preview && typeof atlas.app?.showGraphPreview === "function") {
+      atlas.app.showGraphPreview(
+        atlas.data.get(state.selected),
+        anchor || state.nodeElements.get(state.selected),
+      )
+    }
   }
 
   function updatePinButton(state) {
@@ -586,27 +760,32 @@
       ?.querySelector("[data-atlas-pin-button]")
     if (!button) return
     const activeSlug = state.selected || state.lastSelected
-    const position = activeSlug ? state.positions.get(activeSlug) : null
-    button.textContent = position?.pinned ? "Soltar ponto" : "Fixar ponto"
+    button.textContent = activeSlug && state.pinned.has(activeSlug) ? "Soltar ponto" : "Fixar ponto"
   }
 
   function clearSelection(container, slug) {
     const state = graphInstances.get(container)
     if (!state || state.drag || state.selected !== normalizeSlug(slug)) return
-    state.selected = ""
-    state.lastSelected = ""
-    state.nodes.forEach((node) =>
-      node.element?.classList.remove("is-related", "is-dimmed", "is-selected"),
-    )
-    state.edges.forEach((edge) => edge.element?.classList.remove("is-related"))
-    if (typeof atlas.app?.hideGraphPreview === "function") atlas.app.hideGraphPreview()
+    if (state.hoverClearTimer) window.clearTimeout(state.hoverClearTimer)
+    state.hoverClearTimer = window.setTimeout(() => {
+      const preview = document.getElementById("atlas-link-preview")
+      if (preview?.matches(":hover")) return
+      state.selected = ""
+      state.nodes.forEach((node) =>
+        node.element?.classList.remove("is-related", "is-dimmed", "is-selected"),
+      )
+      state.edges.forEach((edge) => edge.element?.classList.remove("is-related"))
+      updatePinButton(state)
+      if (typeof atlas.app?.hideGraphPreview === "function") atlas.app.hideGraphPreview()
+    }, 260)
   }
 
   function clientPoint(event, state) {
     const rect = state.svg.getBoundingClientRect()
+    const size = viewSize(state, state.scale)
     return {
-      x: ((event.clientX - rect.left) / rect.width) * (WIDTH / state.scale) + state.panX,
-      y: ((event.clientY - rect.top) / rect.height) * (HEIGHT / state.scale) + state.panY,
+      x: ((event.clientX - rect.left) / rect.width) * size.width + state.panX,
+      y: ((event.clientY - rect.top) / rect.height) * size.height + state.panY,
     }
   }
 
@@ -616,42 +795,93 @@
     return Math.hypot(values[0].clientX - values[1].clientX, values[0].clientY - values[1].clientY)
   }
 
+  function midpoint(pointers) {
+    const values = [...pointers.values()]
+    return {
+      x: values.reduce((sum, item) => sum + item.clientX, 0) / values.length,
+      y: values.reduce((sum, item) => sum + item.clientY, 0) / values.length,
+    }
+  }
+
+  function releaseDrag(state, reheat) {
+    const drag = state.drag
+    if (!drag) return
+    const node = state.nodeBySlug.get(drag.slug)
+    if (node) {
+      if (drag.wasPinned) {
+        node.fx = node.x
+        node.fy = node.y
+      } else {
+        node.fx = null
+        node.fy = null
+      }
+    }
+    if (reheat && state.simulation) {
+      state.simulation.alphaTarget(0)
+      state.simulation.alpha(Math.max(state.simulation.alpha(), 0.34)).restart()
+    }
+    state.drag = null
+  }
+
   function bindPointerEvents(container, state) {
     const svg = state.svg
     svg.addEventListener("pointerdown", (event) => {
-      svg.setPointerCapture?.(event.pointerId)
-      state.pointers.set(event.pointerId, { clientX: event.clientX, clientY: event.clientY })
-      const nodeElement =
-        event.target instanceof Element ? event.target.closest(".atlas-graph-node") : null
+      if (event.button !== undefined && event.button !== 0) return
+      event.preventDefault()
+      state.pointers.set(event.pointerId, {
+        clientX: event.clientX,
+        clientY: event.clientY,
+        pointerType: event.pointerType,
+      })
       if (state.pointers.size >= 2) {
-        if (state.drag && !state.moved) {
-          const position = state.positions.get(state.drag.slug)
-          if (position) position.pinned = false
-          state.pinned.delete(state.drag.slug)
+        const interruptedDrag = state.drag
+        releaseDrag(state, true)
+        if (interruptedDrag) {
+          state.nodeElements.get(interruptedDrag.slug)?.classList.remove("is-dragging")
+          container.classList.remove("is-dragging")
         }
-        state.drag = null
         state.pan = null
         state.pinchStartDistance = distanceBetweenPointers(state.pointers)
         state.pinchStartScale = state.scale
         return
       }
-      if (nodeElement) {
-        const slug = normalizeSlug(nodeElement.dataset.slug)
+      const target =
+        event.target instanceof Element ? event.target.closest(".atlas-graph-node") : null
+      if (target) {
+        const slug = normalizeSlug(target.dataset.slug)
+        const node = state.nodeBySlug.get(slug)
+        if (!node) return
+        try {
+          target.setPointerCapture?.(event.pointerId)
+        } catch {
+          // Synthetic events and a cancelled pointer may not have an active capture target.
+        }
         const point = clientPoint(event, state)
         state.drag = {
           slug,
-          offsetX: point.x - state.positions.get(slug).x,
-          offsetY: point.y - state.positions.get(slug).y,
+          pointerId: event.pointerId,
+          offsetX: point.x - node.x,
+          offsetY: point.y - node.y,
           startX: event.clientX,
           startY: event.clientY,
+          wasPinned: state.pinned.has(slug),
+          moved: false,
         }
         state.moved = false
-        const position = state.positions.get(slug)
-        if (position) position.pinned = true
-        selectNode(container, slug, false)
+        node.fx = node.x
+        node.fy = node.y
+        state.simulation?.alphaTarget(0.26).restart()
+        selectNode(container, slug, false, target)
+        target.classList.add("is-dragging")
         container.classList.add("is-dragging")
       } else {
+        try {
+          svg.setPointerCapture?.(event.pointerId)
+        } catch {
+          // Synthetic events and a cancelled pointer may not have an active capture target.
+        }
         state.pan = {
+          pointerId: event.pointerId,
           startX: event.clientX,
           startY: event.clientY,
           originX: state.panX,
@@ -661,60 +891,75 @@
         container.classList.add("is-panning")
       }
     })
+
     svg.addEventListener("pointermove", (event) => {
       if (state.pointers.has(event.pointerId))
-        state.pointers.set(event.pointerId, { clientX: event.clientX, clientY: event.clientY })
+        state.pointers.set(event.pointerId, {
+          clientX: event.clientX,
+          clientY: event.clientY,
+          pointerType: event.pointerType,
+        })
       if (state.pointers.size >= 2 && state.pinchStartDistance) {
+        event.preventDefault()
         const distance = distanceBetweenPointers(state.pointers)
-        const center = [...state.pointers.values()].reduce(
-          (acc, point) => ({ x: acc.x + point.clientX / 2, y: acc.y + point.clientY / 2 }),
-          { x: 0, y: 0 },
-        )
-        const factor = clamp(distance / state.pinchStartDistance, 0.65, 1.65)
+        const center = midpoint(state.pointers)
+        const factor = clamp(distance / state.pinchStartDistance, 0.55, 1.85)
         zoomAt(state, center.x, center.y, state.pinchStartScale * factor)
         return
       }
-      if (state.drag) {
+      if (state.drag?.pointerId === event.pointerId) {
+        const node = state.nodeBySlug.get(state.drag.slug)
+        if (!node) return
         const point = clientPoint(event, state)
-        const position = state.positions.get(state.drag.slug)
-        if (!position) return
-        position.x = clamp(point.x - state.drag.offsetX, 30, WIDTH - 30)
-        position.y = clamp(point.y - state.drag.offsetY, 30, HEIGHT - 30)
-        if (Math.hypot(event.clientX - state.drag.startX, event.clientY - state.drag.startY) > 4) {
+        const distance = Math.hypot(
+          event.clientX - state.drag.startX,
+          event.clientY - state.drag.startY,
+        )
+        if (distance > POINTER_THRESHOLD) {
+          state.drag.moved = true
           state.moved = true
-          state.pinned.add(state.drag.slug)
-          updatePinButton(state)
+          state.suppressClickUntil = Date.now() + 300
         }
-        updateEdges(state)
-      } else if (state.pan) {
+        // Keep the pointer-to-node mapping faithful to the force simulation. The
+        // camera is intentionally unbounded, so a world-sized clamp here would
+        // make a node jump when the settled graph extends beyond its seed area.
+        const nextX = point.x - state.drag.offsetX
+        const nextY = point.y - state.drag.offsetY
+        node.fx = Number.isFinite(nextX) ? nextX : node.x
+        node.fy = Number.isFinite(nextY) ? nextY : node.y
+        node.x = node.fx
+        node.y = node.fy
+        renderPositions(state)
+      } else if (state.pan?.pointerId === event.pointerId) {
         const rect = state.svg.getBoundingClientRect()
+        const size = viewSize(state, state.scale)
         state.panX =
-          state.pan.originX -
-          ((event.clientX - state.pan.startX) / rect.width) * (WIDTH / state.scale)
+          state.pan.originX - ((event.clientX - state.pan.startX) / rect.width) * size.width
         state.panY =
-          state.pan.originY -
-          ((event.clientY - state.pan.startY) / rect.height) * (HEIGHT / state.scale)
+          state.pan.originY - ((event.clientY - state.pan.startY) / rect.height) * size.height
         state.moved = true
+        state.hasInteractedCamera = true
         applyView(state)
       }
     })
+
     const endPointer = (event) => {
       const drag = state.drag
-      const moved = state.moved
+      const wasMoved = Boolean(drag?.moved || state.moved)
       state.pointers.delete(event.pointerId)
       if (state.pointers.size < 2) state.pinchStartDistance = 0
-      if (drag && !moved) {
-        const position = state.positions.get(drag.slug)
-        if (position) position.pinned = false
-        state.pinned.delete(drag.slug)
+      if (drag?.pointerId === event.pointerId) {
+        releaseDrag(state, true)
+        const element = state.nodeElements.get(drag.slug)
+        element?.classList.remove("is-dragging")
+        if (wasMoved) state.suppressClickUntil = Date.now() + 280
       }
-      state.drag = null
       state.pan = null
       container.classList.remove("is-dragging", "is-panning")
       updatePinButton(state)
       window.setTimeout(() => {
         state.moved = false
-      }, 40)
+      }, 80)
     }
     svg.addEventListener("pointerup", endPointer)
     svg.addEventListener("pointercancel", endPointer)
@@ -722,57 +967,128 @@
       "wheel",
       (event) => {
         event.preventDefault()
-        const next = state.scale * (event.deltaY > 0 ? 0.9 : 1.1)
-        zoomAt(state, event.clientX, event.clientY, next)
+        state.hasInteractedCamera = true
+        zoomAt(state, event.clientX, event.clientY, state.scale * Math.exp(-event.deltaY * 0.0012))
       },
       { passive: false },
     )
-    svg.addEventListener("dblclick", () => fit(container))
+    svg.addEventListener("dblclick", () => {
+      state.hasInteractedCamera = true
+      fit(container, 420)
+    })
   }
 
   function zoomAt(state, clientX, clientY, nextScale) {
     const previousScale = state.scale
-    const next = clamp(nextScale, 0.35, 2.4)
+    const next = clamp(nextScale, MIN_ZOOM, MAX_ZOOM)
     const rect = state.svg.getBoundingClientRect()
+    const beforeSize = viewSize(state, previousScale)
+    const afterSize = viewSize(state, next)
+    const ratioX = clamp((clientX - rect.left) / rect.width, 0, 1)
+    const ratioY = clamp((clientY - rect.top) / rect.height, 0, 1)
     const before = {
-      x: ((clientX - rect.left) / rect.width) * (WIDTH / previousScale) + state.panX,
-      y: ((clientY - rect.top) / rect.height) * (HEIGHT / previousScale) + state.panY,
+      x: ratioX * beforeSize.width + state.panX,
+      y: ratioY * beforeSize.height + state.panY,
     }
     state.scale = next
-    const afterWidth = WIDTH / next
-    const afterHeight = HEIGHT / next
-    state.panX = before.x - ((clientX - rect.left) / rect.width) * afterWidth
-    state.panY = before.y - ((clientY - rect.top) / rect.height) * afterHeight
+    state.panX = before.x - ratioX * afterSize.width
+    state.panY = before.y - ratioY * afterSize.height
     applyView(state)
   }
 
-  function fit(container) {
+  function animateCamera(state, target, duration) {
+    if (state.cameraFrame) window.cancelAnimationFrame(state.cameraFrame)
+    const start = {
+      scale: state.scale,
+      panX: state.panX,
+      panY: state.panY,
+    }
+    const startedAt = performance.now()
+    const tick = (now) => {
+      if (state.destroyed) return
+      const progress = clamp((now - startedAt) / duration, 0, 1)
+      const eased = 1 - Math.pow(1 - progress, 3)
+      state.scale = start.scale + (target.scale - start.scale) * eased
+      state.panX = start.panX + (target.panX - start.panX) * eased
+      state.panY = start.panY + (target.panY - start.panY) * eased
+      applyView(state)
+      if (progress < 1) state.cameraFrame = window.requestAnimationFrame(tick)
+      else state.cameraFrame = 0
+    }
+    state.cameraFrame = window.requestAnimationFrame(tick)
+  }
+
+  function fit(container, duration = 460, initial = false) {
     const state = graphInstances.get(container)
     if (!state || !state.nodes.length) return
-    const points = state.nodes.map((node) => state.positions.get(node.slug)).filter(Boolean)
-    const minX = Math.min(...points.map((point) => point.x))
-    const maxX = Math.max(...points.map((point) => point.x))
-    const minY = Math.min(...points.map((point) => point.y))
-    const maxY = Math.max(...points.map((point) => point.y))
-    const width = Math.max(520, maxX - minX + 260)
-    const height = Math.max(360, maxY - minY + 220)
-    state.scale = clamp(Math.min(WIDTH / width, HEIGHT / height), 0.42, 1.5)
-    state.panX = (minX + maxX) / 2 - WIDTH / state.scale / 2
-    state.panY = (minY + maxY) / 2 - HEIGHT / state.scale / 2
-    applyView(state)
+    const points = state.nodes.filter((node) => Number.isFinite(node.x) && Number.isFinite(node.y))
+    if (!points.length) return
+    const minX = Math.min(...points.map((point) => point.x - point.radius))
+    const maxX = Math.max(...points.map((point) => point.x + point.radius))
+    const minY = Math.min(...points.map((point) => point.y - point.radius))
+    const maxY = Math.max(...points.map((point) => point.y + point.radius))
+    const aspect =
+      state.viewportWidth > 0 && state.viewportHeight > 0
+        ? state.viewportWidth / state.viewportHeight
+        : WORLD_WIDTH / WORLD_HEIGHT
+    const paddingX = 120
+    const paddingY = 100
+    const contentWidth = Math.max(320, maxX - minX + paddingX * 2)
+    const contentHeight = Math.max(240, maxY - minY + paddingY * 2)
+    const targetScale = clamp(
+      Math.min((WORLD_HEIGHT * aspect) / contentWidth, WORLD_HEIGHT / contentHeight),
+      MIN_ZOOM,
+      2.2,
+    )
+    const targetSize = viewSize(state, targetScale)
+    const target = {
+      scale: targetScale,
+      panX: (minX + maxX) / 2 - targetSize.width / 2,
+      panY: (minY + maxY) / 2 - targetSize.height / 2,
+    }
+    animateCamera(state, target, duration)
+    if (!initial) state.hasInteractedCamera = true
   }
 
   function reset(container) {
     const state = graphInstances.get(container)
     if (!state) return
+    state.resetting = true
+    stopSimulation(state)
     state.positions.clear()
     state.pinned.clear()
     state.selected = ""
+    state.lastSelected = ""
     state.scale = 1
     state.panX = 0
     state.panY = 0
-    render(container)
-    window.setTimeout(() => fit(container), 90)
+    state.hasInteractedCamera = false
+    state.hasInitialFit = false
+    state.resetting = false
+    render(container, { fitAfter: true })
+  }
+
+  function destroy(container) {
+    if (!container) return
+    const state = graphInstances.get(container)
+    if (!state) return
+    state.destroyed = true
+    stopSimulation(state)
+    state.resizeObserver?.disconnect()
+    if (state.cameraFrame) window.cancelAnimationFrame(state.cameraFrame)
+    state.timers.forEach((timer) => window.clearTimeout(timer))
+    state.timers.clear()
+    if (state.hoverClearTimer) window.clearTimeout(state.hoverClearTimer)
+    state.pointers.clear()
+    liveStates.delete(state)
+    graphInstances.delete(container)
+  }
+
+  function destroyAll() {
+    liveStates.forEach((state) => {
+      const container = state.canvas?.closest(".atlas-graph-shell")
+      if (container) destroy(container)
+    })
   }
 
   function rerenderAll() {
@@ -795,14 +1111,20 @@
       }
     } else if (action === "pin-active-node") {
       const activeSlug = state.selected || state.lastSelected
-      if (activeSlug) {
-        const position = state.positions.get(activeSlug)
-        if (position) {
-          position.pinned = !position.pinned
-          if (position.pinned) state.pinned.add(activeSlug)
-          else state.pinned.delete(activeSlug)
-          target.textContent = position.pinned ? "Soltar ponto" : "Fixar ponto"
+      const node = activeSlug ? state.nodeBySlug.get(activeSlug) : null
+      if (node) {
+        if (state.pinned.has(activeSlug)) {
+          state.pinned.delete(activeSlug)
+          node.fx = null
+          node.fy = null
+        } else {
+          state.pinned.add(activeSlug)
+          node.fx = node.x
+          node.fy = node.y
         }
+        node.element?.classList.toggle("is-pinned", state.pinned.has(activeSlug))
+        updatePinButton(state)
+        state.simulation?.alpha(0.42).restart()
       }
     } else if (action === "graph-recall") {
       if (typeof atlas.app?.openGraphRecall === "function")
@@ -829,23 +1151,17 @@
       })
       const output = graph.querySelector(`[data-atlas-graph-output="${key}"]`)
       if (output) output.textContent = formatControlValue(key, value)
-      updateGraphVisuals(state)
-      if (["spacing", "repulsion", "linkStrength"].includes(key)) {
-        if (state.settleFrame) window.cancelAnimationFrame(state.settleFrame)
-        state.settleFrame = 0
-        state.settling = true
-        settle(graph, 0)
-      }
+      updatePhysics(state)
       return true
     }
     if (target.matches("[data-atlas-graph-scope]")) {
       state.scope = target.value
-      render(graph)
+      render(graph, { fitAfter: true })
       return true
     }
     if (target.matches("[data-atlas-graph-area]")) {
       state.area = target.value
-      render(graph)
+      render(graph, { fitAfter: true })
       return true
     }
     if (target.matches("[data-atlas-graph-depth]")) {
@@ -853,20 +1169,29 @@
       atlas.state.update((stored) => {
         stored.graphControls.depth = state.depth
       })
-      render(graph)
+      render(graph, { fitAfter: true })
       return true
     }
     if (target.matches("[data-atlas-graph-search]")) {
       state.query = target.value
-      render(graph)
+      render(graph, { fitAfter: true })
       return true
     }
     return false
   }
 
+  document.addEventListener("prenav", destroyAll)
+  document.addEventListener("render", () => {
+    liveStates.forEach((state) => {
+      const container = state.canvas?.closest(".atlas-graph-shell")
+      if (container && !container.isConnected) destroy(container)
+    })
+  })
+  window.addEventListener("beforeunload", destroyAll)
+
   function mount(container, options) {
     return createGraph(container, options)
   }
 
-  atlas.graph = { fit, handleAction, handleInput, mount, render, rerenderAll, reset }
+  atlas.graph = { destroy, fit, handleAction, handleInput, mount, render, rerenderAll, reset }
 })()

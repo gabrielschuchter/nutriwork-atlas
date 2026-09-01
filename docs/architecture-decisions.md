@@ -179,12 +179,16 @@ O `noindex, nofollow, noarchive` é injetado no `<head>` pelo hook de recursos d
 **Motivo:** o Quartz é a base técnica, mas sua composição padrão não comunica o Atlas como uma experiência de estudo premium. A frame permite evoluir hierarquia, navegação e superfícies sem reescrever o parser ou o gerador de páginas.
 **Consequência:** componentes upstream são reaproveitados como slots e contratos, não como limite visual. Alterações de frame precisam preservar rotas, slots de conteúdo, acessibilidade e build do Quartz 5.
 
-## ADR-027 — Grafo SVG próprio com física determinística
+## ADR-027 — Grafo Atlas com física D3 e renderer SVG semântico
 
 **Estado:** aceito para implementação local.
-**Decisão:** o grafo de exploração usa SVG e um assentamento físico leve, alimentados exclusivamente pelo índice derivado. A visualização reduz rótulos secundários em redes densas, revela contexto por hover/foco e mantém uma lista textual de fallback.
-**Motivo:** a experiência de showcase exige espaçamento, arraste, pinning, pan, zoom, fullscreen, preview e estados de estudo que não cabiam na composição nativa sem perder controle de interação.
-**Consequência:** o layout inicial é reproduzível e não inventa relações; controles persistentes ajustam a composição, enquanto a atualização de conteúdo continua dependente do build do índice.
+**Decisão:** separar física e apresentação: `d3-force` local ao bundle cuida de `forceSimulation`, `forceManyBody`, `forceLink`, `forceCollide`, `forceCenter` e gravidade suave; SVG continua como renderer semântico para os 140 conceitos atuais, preservando labels, foco, ARIA, previews e fallback textual. O seed determinístico serve apenas para iniciar a simulação; não define o layout final.
+**Motivo:** a implementação anterior substituiu as forças do Graph Community por posições hash/BFS em anéis, um loop heurístico de 75 frames e mutações diretas de `x/y`. Isso removia repulsão, molas, colisão robusta, settling contínuo, reação após drag e reheat. A separação atual recupera o comportamento físico do Quartz sem sacrificar as interações de estudo do Atlas. SVG foi mantido por ser apropriado ao tamanho atual da rede e permitir uma camada de interação acessível e inspecionável; Pixi/WebGL permanece uma opção futura caso a escala real exija.
+**Consequência:** local e global usam a mesma engine e preservam posições durante filtros; sliders atualizam forças e reaqueçem a simulação; drag usa `fx/fy` temporários, collision acompanha o raio do nó e release devolve o nó à física, salvo pin explícito. O índice derivado continua sendo a única fonte de relações.
+
+### Comparação auditada com `@quartz-community/graph`
+
+O runtime instalado em `node_modules/@quartz-community/graph` foi lido pelo source map do pacote. O Graph Community carrega D3 e PixiJS, inicializa `forceSimulation` com `forceManyBody`, `forceCenter`, `forceLink` e `forceCollide`, mantém um render loop contínuo, reaquece em `dragstart`, fixa `fx/fy` durante o arraste, libera esses campos no `dragend`, usa zoom com limites e destrói simulation/renderer na navegação. O Atlas anterior tinha SVG recriado por render, seed radial/hash/BFS em uma área fixa, repulsão e links implementados como uma aproximação finita sem collision force, arraste que mantinha nós presos e nenhum settling depois do loop curto. Essa diferença explica a sensação de diagrama estático.
 
 ## ADR-028 — Onboarding e revisão como contratos locais substituíveis
 

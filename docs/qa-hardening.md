@@ -7,7 +7,7 @@
 
 O Atlas foi revisado como produto navegável, com build limpo e validação em navegador. A superfície principal agora é uma Home de estudo em `/atlas/`, emitida como page type virtual e montada pela frame própria do Atlas. Também foram corrigidos problemas de navegação interna que levavam a 404, fechamento do Explorador em mudanças de viewport, rótulos técnicos expostos na interface, sobreposição de rótulos em grafos densos, foco/teclado de overlays, limites de popovers, estado local de estudo e metadados/caches da navegação SPA.
 
-Quartz 5 continua sendo a base. Não foram adicionados serviços, banco, autenticação nova, IA, dependências ou framework. O índice derivado permanece determinístico e é gerado no prebuild.
+Quartz 5 continua sendo a base. Não foram adicionados serviços, banco, autenticação nova, IA ou framework. A única dependência de runtime adicionada nesta rodada é `d3-force`, empacotada localmente durante o build para que a física não dependa de CDN. O índice derivado permanece determinístico e é gerado no prebuild.
 
 ## Evidência do corpus
 
@@ -15,7 +15,7 @@ Quartz 5 continua sendo a base. Não foram adicionados serviços, banco, autenti
 - 1.106 conexões resolvidas.
 - 381 alvos de lacuna e 827 ocorrências não resolvidas.
 - 7 áreas, 4 componentes desconectados, 2 notas isoladas, 5 periféricas, 3 com uma conexão e 1 ponte.
-- Build local atual: 153 arquivos Markdown processados e 156 arquivos HTML emitidos, sendo 155 rotas funcionais e o fallback `404.html`.
+- Build local atual: 153 arquivos Markdown processados e 356 arquivos emitidos, sendo 155 rotas funcionais e o fallback `404.html`, além dos assets estáticos.
 - Auditoria estática atual: 155 rotas geradas, todas respondendo 200; rota inexistente respondendo 404; nenhum asset local ausente; nenhum link interno resolvido quebrado.
 
 ## Correções e refinamentos
@@ -47,8 +47,11 @@ Quartz 5 continua sendo a base. Não foram adicionados serviços, banco, autenti
 
 ### Grafo e leitura
 
-- O grafo SVG ganhou composição espaçada, assentamento determinístico, pan/zoom, pinch, arraste de nó, pinning, recenter, fit, fullscreen nativo com fallback, busca e foco de nó.
-- O painel oferece filtros de âmbito, área e profundidade, além de sliders de distância, repulsão, força das conexões, escala de nós, escala de rótulos e opacidade de arestas.
+- O grafo usa uma `forceSimulation` D3 real em local e global, com repulsão (`forceManyBody`), molas (`forceLink`), colisão (`forceCollide`), centralização e gravidade suave. O seed hash serve apenas para iniciar a rede; o resultado final emerge da topologia e do settling.
+- O painel oferece filtros de âmbito, área e profundidade, além de sliders de distância, repulsão, força das conexões, espaçamento de colisão, centralização, escala de nós, escala de rótulos e opacidade de arestas. Alterações atualizam as forças sem recriar a cena e reaqueçem a simulation.
+- Drag distingue clique de movimento, fixa `fx/fy` temporariamente, reaquece a rede, mantém collision durante o gesto e libera o nó no soltamento quando ele não está pinned. Pin/unpin é explícito e o nó fixado permanece reconhecível.
+- Filtros preservam posições existentes, animam entrada/saída dos elementos e reaqueçem a rede. ResizeObserver atualiza o centro sem esticar o canvas; fit calcula bounds reais e anima a câmera. Pointer events cobrem mouse, pan, pinch e touch.
+- A implementação física foi comparada ao runtime instalado de `@quartz-community/graph`: foram recuperados os contratos de `forceSimulation`, `forceManyBody`, `forceLink`, `forceCollide`, drag/reheat e cleanup, enquanto o Atlas mantém o renderer SVG semântico para labels, ARIA, previews, estados de estudo e fallback textual.
 - Hover/foco destaca a vizinhança, reduz distrações e abre preview contextual; Graph Recall revela as conexões reais do índice após a tentativa do estudante.
 - Em grafos densos, rótulos secundários são ocultados até busca, foco ou hover; o nó atual e hubs permanecem visualmente identificáveis.
 - O fallback do grafo usa títulos legíveis em vez de expor o caminho técnico do arquivo.
@@ -71,6 +74,9 @@ Quartz 5 continua sendo a base. Não foram adicionados serviços, banco, autenti
 - `plugins/atlas-ui/runtime.js`: ponto de entrada compatível que reexporta o runtime modular do Study Engine.
 - `plugins/atlas-ui/components/index.js`: rótulos públicos, page shells, CSS de integração, acessibilidade visual e estados dos componentes.
 - `plugins/atlas-index-emitter/index.js`: índice derivado, learning paths e page type virtual da Home em `/atlas/`.
+- `plugins/atlas-study-engine/client/graph-physics.js`: adaptador de física D3 local, com forças, parâmetros, reheat, resize e atualização sem recriação da cena.
+- `plugins/atlas-study-engine/client/graph.js`: renderer/interação SVG do Atlas, reconciliação de nós/arestas, drag/pan/zoom/pinch, fit, pinning, previews e cleanup SPA.
+- `plugins/atlas-study-engine/runtime.js`: bundle local do `d3-force` e ordem de carregamento da camada física antes do renderer.
 - `data/learning-paths.json`: trilhas externas ao vault, sem alteração das notas científicas.
 - `scripts/build-atlas-index.mjs` e `public/static/atlas-index.json`: índice derivado determinístico do corpus.
 - Estado de estudo: IndexedDB `nutriwork-atlas-study`, com backup local; preferências simples usam `nutriwork-atlas-preferences-v2`.
@@ -83,24 +89,27 @@ Quartz 5 continua sendo a base. Não foram adicionados serviços, banco, autenti
 - `npm run check` — passou: TypeScript sem erros e Prettier sem divergências.
 - `npm test` — passou: 163 testes, 45 suítes, 0 falhas.
 - `npm run vault:check` — passou: 140 arquivos conferidos por SHA-256.
-- `npm run build` — passou em build limpo, com 156 arquivos HTML emitidos (155 funcionais e `404.html`).
-- `npm audit --audit-level=high` — passou: 0 vulnerabilidades; nenhuma dependência nova foi adicionada nesta rodada.
+- `npm run build` — passou em build limpo, com 153 arquivos Markdown processados e 356 arquivos emitidos; a contagem de rotas segue 155 funcionais mais o fallback 404 conforme o inventário atualizado.
+- `npm audit --audit-level=high` — passou: 0 vulnerabilidades; `d3-force` foi a única dependência adicionada para a engine física local.
 - Auditoria estática de rotas, links e assets — passou conforme os números acima.
 - Inventário completo das rotas geradas: [`docs/route-inventory.md`](route-inventory.md).
 - Navegador real via Playwright CLI: gate, onboarding limpo, reabertura por Preferências, deep links, SPA, reload, busca, command palette, Explorer, favoritos, recentes, sessão, active recall, review, trilhas, biblioteca, comparação, highlights, anotações, cartões, grafo local/global/fullscreen, Graph Recall, previews, Stacked Pages, gaps e 404.
 - Viewports CSS verificados: 360×800, 390×844, 430×932, 768×1024, 1024×768, 1280×800, 1366×768, 1440×900 e 1920×1080. Não houve overflow horizontal; a alternância mobile/desktop preservou o layout e os controles móveis ficaram dentro da viewport.
 - Teclado verificado: avanço/volta e Escape no onboarding, foco contido, Ctrl/Cmd+K, Escape na palette e Enter em nó do grafo.
 - Touch/pointer verificado: fechamento do drawer por toque fora, SVG do grafo com área de interação própria e suporte de pointer para arraste/pan/pinch.
+- Física do grafo verificada manualmente: arraste de nó conectado alterou 140/140 posições enquanto a rede reagia, o nó acompanhou o ponteiro, o release sem pin reaqueceu a simulation e o layout continuou assentando; collision mínima medida contra `raio A + raio B + padding` ficou em aproximadamente zero de sobreposição. Sliders de distância/repulsão reaqueceram a rede; fit mudou o viewBox por bounds reais; pin/unpin alternou `fx/fy` e o estado visual.
+- Touch sintético em 390×844 verificou arraste com `pointerType=touch`, pinch zoom com mudança do viewBox, 140 nós, largura documental igual à viewport e zero overflow horizontal.
 - Console do fluxo limpo: 0 erros e 0 avisos relevantes em navegação normal após a correção de preloads; logs informativos upstream do Explorador não foram mascarados.
 - As imagens finais de QA foram geradas em `output/playwright` e permanecem artefatos locais ignorados pelo Git.
 
 ## Integridade e segurança editorial
 
-- Comparação byte a byte do vault: 0 divergências; o agregado SHA-256 antes/depois foi `f57e56264b48b7f6d736be3b73453373e071065075de578c7ee9b555476515b9`.
+- Comparação byte a byte do vault: 0 divergências; o agregado SHA-256 reproduzível pela concatenação dos bytes dos 140 arquivos em ordem de nome permaneceu `26ac828017207d38431cb72d7f3c9c48e338ff6b6f57dc3760deb28a894d8f5e` antes/depois desta rodada.
 - Nenhum arquivo em `content/atlas/*.md` foi alterado.
 - O gate mantém, por autorização explícita do responsável em 1º de setembro de 2026, o hash da senha compartilhada de desenvolvimento `nutriwork-atlas-dev`; a barreira é client-side e oferece privacidade casual, não autenticação forte.
 - A varredura de marcadores de pendência nas áreas alteradas não encontrou itens abertos.
 - A revisão de segredos não encontrou credenciais reais no código alterado.
+- A auditoria global final da política de movimento ficou sem ocorrências; o Atlas não possui caminho condicional de animação.
 
 ## Limitações remanescentes
 
@@ -109,5 +118,6 @@ Quartz 5 continua sendo a base. Não foram adicionados serviços, banco, autenti
 - O Chromium headless não aplicou os atalhos de zoom do navegador; a matriz de viewports cobre responsividade CSS, não substitui uma conferência manual de zoom real em 200%.
 - Não foi instalado um auditor automatizado WCAG; contraste foi verificado por tokens/computed style, inspeção visual e teclado.
 - O conector Browser embutido falhou ao iniciar nesta máquina; a validação foi executada pelo Playwright CLI local.
+- A comparação lado a lado do renderer Pixi oficial não foi promovida a uma dependência de CDN: o código instalado foi auditado pelo source map, e a implementação do Atlas usa o mesmo modelo de forças D3 com SVG semântico, adequado à escala atual de 140 conceitos.
 - O gate continua usando, por autorização explícita, o hash client-side da senha compartilhada de desenvolvimento; qualquer uso além de privacidade casual requer uma camada de autenticação apropriada.
-- O deployment de produção `dpl_EdvX1fFKCPy8eb4Ptg2rVvmzYUZ2` foi publicado em `https://nutriwork-atlas.vercel.app/` com estado `READY`. A verificação pública confirmou `/`, `/atlas/`, `/hoje`, `/revisar`, `/trilhas`, `/biblioteca`, `/grafo`, `/atlas/atp`, `/mapa-do-atlas`, os dois assets derivados e `robots.txt` com HTTP 200; uma rota inexistente respondeu 404. O snapshot público não apresenta mais `page-listing` em `/atlas/`, e os canonicals/OG apontam para as rotas limpas.
+- O último deployment público verificado antes desta rodada foi `dpl_EdvX1fFKCPy8eb4Ptg2rVvmzYUZ2`, em `https://nutriwork-atlas.vercel.app/`, com estado `READY`. Esta rodada física ainda não foi publicada; portanto, a URL pública não é evidência do bundle local atual.

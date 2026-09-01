@@ -13,6 +13,8 @@
     nodeScale: 1,
     labelScale: 1,
     edgeOpacity: 0.7,
+    collisionPadding: 10,
+    centerForce: 0.28,
     depth: 2,
   }
   const emptyState = () => ({
