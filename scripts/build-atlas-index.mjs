@@ -1,13 +1,10 @@
 #!/usr/bin/env node
 
-import { execFile } from "node:child_process"
-import { promisify } from "node:util"
 import { mkdir, readdir, readFile, writeFile } from "node:fs/promises"
 import path from "node:path"
 import { parse as parseYaml } from "yaml"
 import { simplifySlug, slugifyFilePath } from "@quartz-community/utils/path"
 
-const execFileAsync = promisify(execFile)
 const projectRoot = path.resolve(import.meta.dirname, "..")
 const contentRoot = path.join(projectRoot, "content", "atlas")
 const outputPath = path.join(projectRoot, "quartz", "static", "atlas-index.json")
@@ -117,20 +114,6 @@ function extractLinks(body) {
     })
   }
   return links
-}
-
-async function gitDate(filePath) {
-  const relative = path.relative(projectRoot, filePath).split(path.sep).join("/")
-  try {
-    const result = await execFileAsync("git", ["log", "-1", "--format=%cI", "--", relative], {
-      cwd: projectRoot,
-      windowsHide: true,
-    })
-    const value = result.stdout.trim()
-    return value || null
-  } catch {
-    return null
-  }
 }
 
 function classifyArea(title, areaConfig) {
@@ -254,7 +237,9 @@ const documents = await Promise.all(
       text: bodyText,
       sections: extractSections(parsed.body),
       links: extractLinks(parsed.body),
-      updatedAt: frontmatterDate ? String(frontmatterDate) : await gitDate(filePath),
+      // Git metadata is unavailable in some deployment builds. Keep this
+      // derived index byte-stable across local and remote environments.
+      updatedAt: frontmatterDate ? String(frontmatterDate) : null,
     }
   }),
 )
