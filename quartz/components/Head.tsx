@@ -27,26 +27,23 @@ export default (() => {
     const baseDir = fileData.slug === "404" ? path : pathToRoot(fileData.slug!)
     const iconPath = joinSegments(baseDir, "static/icon.png")
 
-    // Url of current page
+    // Use clean folder URLs for virtual index pages (for example, /atlas/
+    // instead of /atlas/index) while keeping the root Home at /.
+    const canonicalSlug = fileData.slug?.endsWith("/index")
+      ? fileData.slug.slice(0, -"/index".length)
+      : fileData.slug
     const socialUrl =
-      fileData.slug === "404" ? url.toString() : joinSegments(url.toString(), fileData.slug!)
+      fileData.slug === "404" || !canonicalSlug || canonicalSlug === "index"
+        ? url.toString()
+        : joinSegments(url.toString(), `${canonicalSlug}/`)
 
     const usesCustomOgImage = ctx.cfg.plugins.emitters.some((e) => e.name === "CustomOgImages")
     const ogImageDefaultPath = `https://${cfg.baseUrl}/static/og-image.png`
-
-    const coreStylesheet = css[0]?.content
-    const coreScript = js.find(
-      (r) => r.loadTime === "beforeDOMReady" && r.contentType === "external",
-    )
 
     return (
       <head>
         <title>{title}</title>
         <meta charSet="utf-8" />
-        {coreStylesheet && <link rel="preload" href={coreStylesheet} as="style" />}
-        {coreScript && coreScript.contentType === "external" && (
-          <link rel="preload" href={coreScript.src} as="script" />
-        )}
         {cfg.theme.cdnCaching && cfg.theme.fontOrigin === "googleFonts" && (
           <>
             <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -86,6 +83,7 @@ export default (() => {
             <meta property="twitter:domain" content={cfg.baseUrl}></meta>
             <meta property="og:url" content={socialUrl}></meta>
             <meta property="twitter:url" content={socialUrl}></meta>
+            <link rel="canonical" href={socialUrl} />
           </>
         )}
 

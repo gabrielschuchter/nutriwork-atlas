@@ -24,7 +24,7 @@ No momento, o item 1 não existe no checkout Atlas. A referência operacional é
 | Tema | Claro e escuro, com contraste e preferência persistida | `styles.css`, `App.tsx` e contrato do handoff |
 | Superfícies | Cards translúcidos/glass, bordas leves, sombras e gradientes azuis moderados | Classes `.glass-card`, `.site-header`, `.pricing-card` e tokens atuais |
 | Forma | Pílulas em controles, cards arredondados e órbitas/curvas como acentos | Header, buttons, hero, footer e PDF de identidade |
-| Movimento | Transições discretas e previsíveis, com um único comportamento para todos os usuários | Componentes atuais têm carrosséis/animações; o Atlas mantém movimento funcional e curto |
+| Interação | Microinterações funcionais, feedback claro e transições com propósito | Componentes atuais têm carrosséis/animações; o Atlas mantém feedback curto e legível |
 | Conteúdo científico | Leitura densa, hierarquia clara, largura confortável e foco na rede | Vault e `CODEX_MASTER_PROMPT.md` |
 | Marca | Usar símbolo/lockup proveniente dos assets aprovados; não digitar uma marca falsa | PDF de identidade e `favicon-nutriwork.png` |
 
@@ -55,14 +55,14 @@ Campanhas de aniversário, páginas de notícias e ilustrações editoriais tamb
 3. Manter a semântica de conteúdo do Quartz: landmarks, headings, links, botões, foco, skip link e `aria-label`.
 4. Recompor o layout em mobile; não simplesmente reduzir o desktop.
 5. Verificar 320×568, 390×844, 720×1024, 1280×800, 1440×900, 1920×1080 e zoom de 200%.
-6. Aplicar redução de movimento e garantir fallback textual para o Graph.
+6. Garantir transições suaves e fallback textual para o Graph.
 
 ## Inconsistências a manter visíveis
 
 - `#3068FF` aparece como azul de marca em documentação, enquanto o código atual usa `#1263FF`/`#0B63F6`; a implementação não deve pulverizar esses valores. Um token Atlas e uma validação humana resolverão a escolha.
 - O PDF possui um lockup, mas o pacote de código não possui uma fonte única de lockup completo confirmada.
 - O material editorial contém textos de placeholder; nenhum placeholder será publicado.
-- A auditoria do código atual identificou oportunidades de acessibilidade em menu/controles e redução de movimento; elas são requisitos de QA do Atlas.
+- A auditoria do código atual identificou oportunidades de acessibilidade em menu e controles; elas são requisitos de QA do Atlas.
 
 ## Gate humano
 

@@ -122,7 +122,9 @@ plugins:
       highlight: true
       wikilinks: true
       callouts: true
-      mermaid: true
+      # Atlas uses its own frame; mermaid's legacy runtime expects Quartz's
+      # `.center` slot, so keep the transformer available only when needed.
+      mermaid: false
       parseTags: true
       parseArrows: true
       parseBlockReferences: true
@@ -205,7 +207,7 @@ plugins:
       maxTabs: 8
       mobileBreakpoint: 800
       showSpines: true
-      animateTransitions: false
+      animateTransitions: true
     layout:
       position: afterBody
       priority: 50
@@ -215,8 +217,10 @@ plugins:
   - source: "@quartz-community/content-index"
     enabled: true
     options:
-      enableSiteMap: true
-      enableRSS: true
+      # The Atlas is behind a client-side access gate; public discovery feeds
+      # would expose its private route inventory without adding user value.
+      enableSiteMap: false
+      enableRSS: false
   - source: "@quartz-community/favicon"
     enabled: true
   - source: "@quartz-community/og-image"
@@ -227,8 +231,11 @@ plugins:
     enabled: true
   - source: "@quartz-community/content-page"
     enabled: true
+  # The Atlas folder route is an intentional product surface, not a generated
+  # file listing. The Atlas index package owns /atlas/ while note routes remain
+  # backed by the untouched content/atlas vault.
   - source: "@quartz-community/folder-page"
-    enabled: true
+    enabled: false
   - source: "@quartz-community/tag-page"
     enabled: true
   - source: "@quartz-community/explorer"
@@ -242,7 +249,7 @@ plugins:
       position: right
       priority: 10
   - source: "@quartz-community/search"
-    enabled: true
+    enabled: false
     layout:
       position: left
       priority: 20
@@ -270,18 +277,18 @@ plugins:
       position: beforeBody
       priority: 30
   - source: "@quartz-community/page-title"
-    enabled: true
+    enabled: false
     layout:
       position: left
       priority: 10
   - source: "@quartz-community/darkmode"
-    enabled: true
+    enabled: false
     layout:
       position: left
       priority: 30
       group: toolbar
   - source: "@quartz-community/reader-mode"
-    enabled: true
+    enabled: false
     layout:
       position: left
       priority: 35
@@ -305,7 +312,7 @@ plugins:
   - source: "@quartz-community/recent-notes"
     enabled: false
   - source: "@quartz-community/spacer"
-    enabled: true
+    enabled: false
     options: {}
     order: 25
     layout:
@@ -328,16 +335,25 @@ layout:
         beforeBody: []
         left: []
         right: []
-    content: {}
+    content:
+      template: atlas
+    atlas-home:
+      template: atlas
+      positions:
+        right: []
     folder:
       exclude:
         - reader-mode
+      template: atlas
       positions:
         right: []
     tag:
       exclude:
         - reader-mode
+      template: atlas
       positions:
         right: []
-    canvas: {}
-    bases: {}
+    canvas:
+      template: atlas
+    bases:
+      template: atlas

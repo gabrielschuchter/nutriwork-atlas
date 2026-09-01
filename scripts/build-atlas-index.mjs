@@ -59,6 +59,26 @@ function cleanText(value) {
     .trim()
 }
 
+function cleanHeading(value) {
+  return cleanText(String(value ?? ""))
+    .replace(/\s+/g, " ")
+    .trim()
+}
+
+function extractSections(body) {
+  const sections = []
+  const headingPattern = /^#{2,6}\s+(.+)$/gm
+  const headings = [...body.matchAll(headingPattern)]
+  headings.forEach((heading, index) => {
+    const start = heading.index + heading[0].length
+    const end = headings[index + 1]?.index ?? body.length
+    const title = cleanHeading(heading[1])
+    const content = cleanText(body.slice(start, end))
+    if (title) sections.push({ title, text: content })
+  })
+  return sections
+}
+
 function excerptAround(source, index, length = 240) {
   const lineStart = source.lastIndexOf("\n", index) + 1
   const lineEnd = source.indexOf("\n", index)
@@ -232,6 +252,7 @@ const documents = await Promise.all(
           : bodyText.slice(0, 220),
       excerpt: bodyText.slice(0, 280),
       text: bodyText,
+      sections: extractSections(parsed.body),
       links: extractLinks(parsed.body),
       updatedAt: frontmatterDate ? String(frontmatterDate) : await gitDate(filePath),
     }
@@ -291,6 +312,7 @@ const nodes = documents.map((document) => {
     description: document.description,
     excerpt: document.excerpt,
     text: document.text,
+    sections: document.sections,
     updatedAt: document.updatedAt,
     outgoing: outgoingSlugs,
     incoming: incomingSlugs,

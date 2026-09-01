@@ -1,7 +1,7 @@
 # Nutriwork Atlas — plano de implementação
 
 **Data da auditoria:** 2026-08-31  
-**Estado:** Fases 0–5, 7 e 8 executadas localmente; a evolução da experiência de estudo foi implementada e validada localmente; os gates finais de Fase 9 e a publicação seguem registrados abaixo.
+**Estado:** Fases 0–5, 7 e 8 executadas localmente; a evolução da experiência de estudo e a nova camada visual do Atlas estão implementadas no working tree; os gates finais de QA e a publicação continuam separados e sem autorização implícita.
 **Destino local planejado:** `C:\Users\gabsc\Documents\Codex\nutriwork-atlas`
 
 ## Resultado executivo da auditoria e da execução atual
@@ -29,6 +29,7 @@ Depois da auditoria, o checkout foi inicializado a partir do Quartz v5 na branch
 | 8 | Índices, filtros e paridade refinada | Busca/links/grafo comparados com o contrato | Concluída localmente; 827 ocorrências não resolvidas preservadas |
 | 9 | Testes e QA | typecheck/lint/test/build, links, console, acessibilidade, viewports e zoom | Gates automatizados principais concluídos; proxy de 200% passou; a11y/zoom nativo ainda abertos |
 | 10 | Publicação | GitHub/Vercel configuráveis e verificáveis; sem deploy não solicitado | Preparada; gates humanos abertos |
+| 11 | Experiência premium e Study Engine | shell próprio, onboarding, grafo explorável, estado local, sessões, revisão, trilhas, biblioteca e QA de interação | Implementada localmente; validação final desta rodada em andamento |
 
 ## Plano técnico
 
@@ -54,7 +55,7 @@ Depois da auditoria, o checkout foi inicializado a partir do Quartz v5 na branch
 
 ## Riscos e gates humanos
 
-- O remoto GitHub do Atlas está confirmado em `https://github.com/gabrielschuchter/nutriwork-atlas`; push somente mediante instrução explícita, já concedida para esta entrega.
+- O remoto GitHub do Atlas está confirmado em `https://github.com/gabrielschuchter/nutriwork-atlas`; nesta etapa não há autorização para commit, push ou deploy.
 - Nenhuma senha de produção foi fornecida. O mecanismo pode ser implementado, mas o hash final deve ser definido antes de uma publicação.
 - URL de produção verificada: `https://nutriwork-atlas.vercel.app/`; a integração GitHub/Vercel continua sendo responsabilidade operacional do projeto.
 - Os 827 links não resolvidos precisam de triagem editorial posterior; não são autorização para editar as notas.
@@ -90,7 +91,7 @@ A rodada corretiva solicitada após a inspeção visual foi concluída no checko
 
 - o parser de frontmatter do Quartz foi preservado e a visualização de propriedades foi ocultada; `description` continua disponível somente como metadado de página, não como painel público;
 - a cópia técnica sobre sincronização, manifesto e validação foi removida da página pública; o rodapé padrão do Quartz e rótulos internos em inglês também foram substituídos por uma camada pública em português;
-- o Explorer mobile passou a dimensionar e quebrar nomes longos sem recorte; não há lógica condicional de movimento;
+- o Explorer mobile passou a dimensionar e quebrar nomes longos sem recorte;
 - `vercel.json` agora declara `cleanUrls: true`, mantendo os arquivos estáticos `.html` no output e expondo as rotas limpas usadas pelos links do site;
 - o build final local processou as 141 entradas Markdown, e a execução nova no servidor local confirmou `/atlas/metabolismo` com conteúdo real, breadcrumb `Início`, busca sem resultados em português, grafo global rotulado em português e zero erros de console;
 - a inspeção em 1280 px, 390 px e 320 px confirmou `document.scrollWidth === viewport` e nenhum link visível do Explorer ultrapassando a viewport; o build continua sujeito aos avisos de fallback de fonte do ambiente sem acesso ao Google Fonts;
@@ -104,10 +105,10 @@ A camada de estudo foi implementada sobre o Quartz v5 existente, preservando o c
 
 - `scripts/build-atlas-index.mjs` lê as notas reais e gera métricas, arestas, contextos de wikilinks, backlinks, lacunas, áreas, hubs, componentes e conceitos ponte. O sidecar `data/atlas-areas.json` fornece a classificação externa sem inserir metadata nas notas.
 - `@nutriwork/atlas-index-emitter` publica o índice gerado em `static/` sem versionar o artefato. Isso mantém o `.gitignore` e o build reprodutível sem patch no emissor do Quartz.
-- `@nutriwork/atlas-study-shell`, `@nutriwork/atlas-enhanced-graph` e `@nutriwork/atlas-context-panel` são wrappers locais que integram home de estudo, busca avançada, palette, estado local, previews, painel contextual, Explorer e grafo.
+- `@nutriwork/atlas-study-shell`, `@nutriwork/atlas-enhanced-graph` e `@nutriwork/atlas-context-panel` são wrappers locais que integram home de estudo, busca avançada, palette, estado local, previews, painel contextual, Explorer e grafo. O comportamento próprio foi separado em `plugins/atlas-study-engine/client/`, com módulos de dados, estado, grafo, views, onboarding e aplicação.
 - A Home ganhou continuar explorando, ranking de hubs, atualização, áreas, aleatório, mapa e estrutura. Foram adicionadas as rotas públicas `/mais-conectados`, `/lacunas-da-rede`, `/mapa-do-atlas`, `/estrutura-da-rede`, `/favoritos`, `/recentes`, `/busca-avancada` e `/grafo`.
-- As 20 frentes do pedido estão cobertas pela composição: grafo local/global com profundidade, área, busca, fullscreen, centralização e legenda; diagnósticos de rede; links recebidos com contexto; previews; Stacked Pages; foco; atalhos; favoritos/recentes e command palette.
-- O estado pessoal usa apenas `localStorage` (`nutriwork-atlas-study-v1`) para favoritos, histórico e retomada. Não há backend, banco, IA, API externa ou sincronização pessoal.
+- As frentes de estudo estão cobertas pela composição: onboarding progressivo; home orientada a ações; grafo local/global com profundidade, área, busca, espaçamento, repulsão, força das conexões, escala de nós/rótulos, opacidade de arestas, fullscreen, pinning, pan, zoom, preview e Graph Recall; sessões com active recall; estados de revisão; trilhas; recomendações determinísticas; comparação; destaques; anotações; listas; cartões básicos e cloze; retomada e painel contextual.
+- Preferências simples usam `localStorage`; favoritos, histórico, retomada, sessões, reviews, destaques, cartões, listas e controles persistentes usam IndexedDB (`nutriwork-atlas-study`) com backup local defensivo. O adaptador de revisão é determinístico e isolado para futura integração deliberada com FSRS. Não há backend, banco remoto, IA, API externa ou sincronização pessoal.
 
 ### Resultado do índice atual
 
@@ -122,6 +123,8 @@ O corpus produz 140 conceitos, 1.106 conexões únicas, 381 alvos não resolvido
 | Navegação | rotas limpas, navegação SPA, Stacked Pages desktop e fallback normal mobile |
 | Estudo local | favoritos/recentes após reload, palette, atalhos e modo foco com saída por `Esc` |
 | Responsividade | 320/390 px sem overflow; grafo e painel reorganizados em uma coluna |
+| Interação premium | onboarding, hover preview, drag/pan/zoom, sliders, fullscreen, tema, focus mode e Graph Recall exercitados em navegador |
+| Estado local | sessão, rating, reload, favoritos, lista, cartão e anotação devem sobreviver no mesmo navegador |
 | Conteúdo público | nenhum termo técnico de produção exposto no `body.innerText` |
 
 Limitação mantida: Stacked Pages é usado quando o viewport é compatível com a implementação atual; em mobile a navegação segue a página normal para preservar leitura e largura. A comparação formal com uma sessão publicada real do Obsidian e a auditoria WCAG automatizada continuam gates externos.
@@ -130,8 +133,18 @@ Limitação mantida: Stacked Pages é usado quando o viewport é compatível com
 
 - `npm run check`: TypeScript e Prettier aprovados.
 - `npm test`: 163 testes em 45 suites, 0 falhas.
-- `npm run build`: 149 entradas Markdown processadas, 356 arquivos emitidos, índice em `public/static/atlas-index.json` e `robots.txt` na raiz. O ambiente ainda não alcança Google Fonts para geração OG e registra fallback de Poppins para Arial apenas nesse artefato.
+- `npm run build`: 153 entradas Markdown processadas, 156 arquivos HTML emitidos, índice em `public/static/atlas-index.json` e `robots.txt` na raiz. O ambiente ainda não alcança Google Fonts para geração OG e registra fallback de Poppins para Arial apenas nesse artefato.
 - `npm run vault:check`: 140 arquivos conferidos por SHA-256; `git diff -- content/atlas` vazio.
-- Auditoria estática: 152 HTML; os 827 hrefs ausentes correspondem exatamente aos alvos declarados em `index.gaps`; 0 hrefs locais não diagnósticos faltantes. `/atlas/metabolismo`, `/grafo`, `/static/atlas-index.json` e `/robots.txt` responderam 200 no servidor local; rota inexistente respondeu 404.
-- QA Playwright: home, páginas de rede, busca combinada, SPA, favoritos/recentes após reload, palette, atalhos, modo foco, preview, painel contextual, grafo local/global/fullscreen, Stacked Pages e console sem erros. Em 1280px não houve overflow; em 390px o grafo e painel ocuparam uma coluna de 358px; em 320px o Explorer e o shell permaneceram dentro da viewport.
-- `npm audit --omit=dev`: 0 vulnerabilidades.
+- Auditoria estática: 156 HTML, sendo 155 rotas funcionais e o fallback 404; os 827 hrefs ausentes correspondem exatamente aos alvos declarados em `index.gaps`; 0 hrefs locais não diagnósticos faltantes. `/atlas/`, `/atlas/atp`, `/grafo`, `/revisar`, `/trilhas`, `/biblioteca`, `/static/atlas-index.json` e `/robots.txt` responderam 200 no servidor local; rota inexistente respondeu 404.
+- QA Playwright: Home, onboarding limpo, reabertura por Preferências, palette e teclado, tema, sessão com active recall e rating persistente, review, trilhas, biblioteca, comparação, highlights, anotações, cartões, previews, grafo local/global/fullscreen, Graph Recall, menu mobile e drawer responsivo. Em 390px, 768px e 1024px não houve overflow; o SVG do grafo permaneceu dentro da viewport com interação de toque habilitada.
+- `npm audit --audit-level=high`: 0 vulnerabilidades.
+
+## Refinamento premium e Study Engine — 2026-09-01
+
+Esta rodada substitui visualmente o shell padrão do Quartz por `AtlasFrame`, sem migrar de framework. A frame concentra a navegação principal Hoje, Estudar, Explorar, Grafo e Revisar; `/atlas/` passou a ser a Home virtual do produto, com recomendação explicável, trilhas, métricas, retomada, revisão, áreas e uma entrada viva para o grafo.
+
+O grafo próprio em SVG fica em `plugins/atlas-study-engine/client/graph.js`: ele calcula uma composição determinística espaçada, assenta uma física leve, acompanha arraste em tempo real, suporta pinning, pan, wheel/pinch zoom, fit, fullscreen, filtros e rótulos contextuais para redes densas. O índice continua sendo a única fonte das relações; o conteúdo das notas não participa de nenhuma escrita automática.
+
+O armazenamento foi dividido por responsabilidade: `localStorage` guarda preferências de baixa complexidade, enquanto IndexedDB guarda a entidade de estudo. O contrato foi versionado e inclui um adaptador de revisão determinístico, pronto para uma integração futura com FSRS sem acoplar o scheduler à interface. `data/learning-paths.json` permanece externo ao vault e é copiado para `static/` pelo emitter durante o build.
+
+Nenhum commit, push ou deploy foi executado nesta rodada. A URL pública continua representando uma versão anterior ao working tree e precisa ser verificada novamente somente depois de uma publicação autorizada.

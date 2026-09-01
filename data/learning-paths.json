@@ -1,0 +1,71 @@
+{
+  "version": 1,
+  "paths": [
+    {
+      "id": "mapa-do-metabolismo",
+      "title": "Mapa do metabolismo",
+      "description": "Construa uma visão de sistema: energia, vias e regulação conversam entre si.",
+      "area": "metabolismo-bioquimica",
+      "difficulty": "Fundamentos",
+      "concepts": [
+        "atlas/atp",
+        "atlas/adp",
+        "atlas/glicólise",
+        "atlas/glicogênese",
+        "atlas/glicogenólise",
+        "atlas/ciclo-de-krebs",
+        "atlas/cadeia-transportadora-de-elétrons",
+        "atlas/fosforilação-oxidativa"
+      ]
+    },
+    {
+      "id": "primeiros-anos",
+      "title": "Primeiros anos, grandes fundamentos",
+      "description": "Acompanhe a sequência que conecta gestação, aleitamento e alimentação complementar.",
+      "area": "gestacao-infancia-aleitamento",
+      "difficulty": "Essencial",
+      "concepts": [
+        "atlas/estado-nutricional-materno",
+        "atlas/ganho-de-peso-gestacional",
+        "atlas/necessidades-nutricionais-na-gestação",
+        "atlas/aleitamento-materno-exclusivo",
+        "atlas/leite-materno",
+        "atlas/introdução-alimentar",
+        "atlas/alimentação-complementar",
+        "atlas/obesidade-infantil"
+      ]
+    },
+    {
+      "id": "pensamento-causal",
+      "title": "Pensamento causal",
+      "description": "Aprenda a enxergar relações, vieses e limites antes de interpretar um resultado.",
+      "area": "metodos-epidemiologia",
+      "difficulty": "Intermediário",
+      "concepts": [
+        "atlas/diagrama-acíclico-direcionado-(dag)",
+        "atlas/confundimento",
+        "atlas/viés-de-seleção",
+        "atlas/colisor-(collider-bias)",
+        "atlas/risco-basal",
+        "atlas/heterogeneidade-de-efeito-do-tratamento",
+        "atlas/validade-externa"
+      ]
+    },
+    {
+      "id": "comportamento-alimentar",
+      "title": "Comportamento alimentar",
+      "description": "Passe do estímulo à consequência e conecte aprendizagem com escolhas alimentares.",
+      "area": "comportamento-aprendizagem",
+      "difficulty": "Intermediário",
+      "concepts": [
+        "atlas/eventos-antecedentes",
+        "atlas/resposta-comportamental",
+        "atlas/consequência-reforçadora",
+        "atlas/consequência-punitiva",
+        "atlas/reforço",
+        "atlas/extinção-comportamental",
+        "atlas/escolhas-alimentares"
+      ]
+    }
+  ]
+}

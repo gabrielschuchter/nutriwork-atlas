@@ -77,7 +77,7 @@
 **Estado:** aceito após o vertical slice e o import completo.  
 **Decisão:** usar `markdownLinkResolution: relative` no transformer `crawl-links`.  
 **Motivo:** o vault não possui taxonomia de pastas para conteúdo e foi isolado em `content/atlas/`. A estratégia `shortest` do template Obsidian deixou links para notas existentes sem o prefixo `atlas/` em parte do build quando os alvos não eram unicamente identificados pelo conjunto de slugs. A resolução relativa preserva `[[Nota]]` dentro da pasta importada e não altera os Markdown fonte.  
-**Consequência:** links para conceitos ausentes continuam sendo links quebrados rastreáveis; não são convertidos em notas, aliases ou redirects automaticamente. O scanner e o QA de rotas devem permanecer no pipeline.
+**Consequência:** o build mantém os alvos ausentes como diagnóstico rastreável; no navegador, a camada de estudo leva o estudante ao diagnóstico filtrado da lacuna, sem criar, corrigir ou aliasar conceitos automaticamente. O scanner e o QA de rotas devem permanecer no pipeline.
 
 ## ADR-012 — Um único modelo de acesso no site estático
 
@@ -140,16 +140,16 @@ O `noindex, nofollow, noarchive` é injetado no `<head>` pelo hook de recursos d
 ## ADR-020 — Estado de estudo local-first
 
 **Estado:** aceito.
-**Decisão:** favoritos, histórico e retomada ficam em `localStorage` sob a chave versionada `nutriwork-atlas-study-v1`.
-**Motivo:** atender o uso pessoal sem backend, autenticação nova, banco ou sincronização remota.
-**Consequência:** o estado é por navegador/dispositivo e pode ser perdido quando o usuário limpar os dados; nenhuma informação pessoal é enviada ao site.
+**Decisão:** preferências simples ficam em `localStorage`; favoritos, histórico, retomada, sessões, reviews, destaques, cartões, listas e controles do grafo ficam em IndexedDB no banco `nutriwork-atlas-study`, com uma cópia de recuperação em `localStorage`.
+**Motivo:** separar preferências pequenas de entidades de estudo e permitir crescimento local-first sem backend, autenticação nova, banco remoto ou sincronização.
+**Consequência:** o estado é por navegador/dispositivo e pode ser perdido quando o usuário limpar os dados; nenhuma informação pessoal é enviada ao site. A leitura e escrita passam por um contrato versionado e tolerante a dados antigos.
 
 ## ADR-021 — Experiência de estudo como camada de componentes
 
 **Estado:** aceito.
-**Decisão:** integrar as 20 frentes por wrappers de plugin e um runtime client-side pequeno, mantendo Quartz Search, Explorer, TOC, auth, temas e SPA. O grafo visual customizado usa somente o índice derivado, com fallback textual preservado.
-**Motivo:** corrigir a experiência sem forkar o core e sem criar uma segunda arquitetura de conteúdo.
-**Consequência:** Stacked Pages permanece uma integração opcional do plugin comunitário; abaixo do breakpoint mobile, a navegação normal é preferida. Relações estruturais só são exibidas quando têm base em wikilinks diretos ou vizinhança comum já presente na rede.
+**Decisão:** integrar a experiência por `AtlasFrame`, componentes de produto e módulos client-side em `plugins/atlas-study-engine/client/`, mantendo Quartz Search, Explorer, TOC, auth, temas, SPA e Stacked Pages como infraestrutura. A camada de interface não precisa preservar a composição visual padrão do Quartz.
+**Motivo:** entregar identidade própria, separação de responsabilidades e evolução segura sem migrar de framework nem duplicar a arquitetura de conteúdo.
+**Consequência:** a navegação normal continua preferida abaixo do breakpoint mobile; sessões, revisão, paths, comparação, biblioteca e graph recall consomem o mesmo estado local. Relações estruturais só são exibidas quando têm base em wikilinks diretos ou vizinhança comum já presente na rede.
 
 ## ADR-022 — Emissão do índice ignorado sem patch no Quartz
 
@@ -165,12 +165,47 @@ O `noindex, nofollow, noarchive` é injetado no `<head>` pelo hook de recursos d
 **Motivo:** `description`, `Properties`, preferências internas e mensagens de sincronização não são parte da experiência do estudante.
 **Consequência:** metadados continuam disponíveis para SEO e build, mas não aparecem no corpo público; a verificação deve usar o texto visível renderizado, não uma busca ingênua nos atributos HTML.
 
-## ADR-024 — Movimento único sem preferência condicional
+## ADR-025 — Hardening de navegação e fallback visual
 
-**Estado:** aceito.
-**Decisão:** o Atlas não possui CSS, JavaScript, TypeScript, hook, classe ou media query que altere animações conforme uma preferência de movimento do sistema. Transições e animações têm um único comportamento previsível.
-**Origem removida:** a auditoria global confirmou que não havia implementação ativa em `quartz/`, `plugins/`, `scripts/` ou `content/`; referências residuais de contrato foram removidas de `AGENTS.md`, `docs/asset-inventory.md`, `docs/design-authority.md`, `docs/publish-parity-current.md` e `implementation_plan.md`.
-**Consequência:** nenhuma API de consulta de mídia é usada para movimento; usos genéricos de `reduce` em agregações e pontuação permanecem porque não controlam animação. A busca global no código, documentação, CSS/SCSS, saída pública e artefatos de QA deve continuar retornando zero correspondências específicas. A instalação local ainda pode conter nomes estáticos dessa funcionalidade em gramáticas do realçador de sintaxe e declarações de tipo do `lightningcss`; eles não são código do Atlas, não são emitidos como comportamento e reaparecem apenas quando as dependências são instaladas. A consulta de mídia restante na saída pública é exclusivamente a preferência de esquema claro/escuro já necessária ao tema.
+**Estado:** aceito após a rodada de QA de 1º de setembro de 2026.
+**Decisão:** corrigir a superfície de navegação na camada Atlas: links ausentes apontam para o diagnóstico filtrado, o grafo denso reduz rótulos secundários, o Explorador acompanha a troca de viewport e o 404 usa uma composição Nutriwork própria. Remover preloads duplicados do `<head>` e manter apenas o canonical correto da Home.
+**Motivo:** a auditoria encontrou 404s acionáveis, sobreposição de rótulos, estado mobile preso, ruído de preload na navegação SPA e um 404 visualmente desconectado do produto.
+**Consequência:** o Quartz Search, Explorer, SPA, Stacked Pages, gate e o índice derivado permanecem as bases do produto; a auditoria de rotas, console, responsividade e hashes deve ser repetida antes de cada publicação.
+
+## ADR-026 — Frame própria do Atlas
+
+**Estado:** aceito para implementação local.
+**Decisão:** usar `quartz/components/frames/AtlasFrame.tsx` como frame visual e estrutural das páginas, com sidebar própria, topbar, rail contextual, navegação orientada às ações e regras responsivas próprias.
+**Motivo:** o Quartz é a base técnica, mas sua composição padrão não comunica o Atlas como uma experiência de estudo premium. A frame permite evoluir hierarquia, navegação e superfícies sem reescrever o parser ou o gerador de páginas.
+**Consequência:** componentes upstream são reaproveitados como slots e contratos, não como limite visual. Alterações de frame precisam preservar rotas, slots de conteúdo, acessibilidade e build do Quartz 5.
+
+## ADR-027 — Grafo SVG próprio com física determinística
+
+**Estado:** aceito para implementação local.
+**Decisão:** o grafo de exploração usa SVG e um assentamento físico leve, alimentados exclusivamente pelo índice derivado. A visualização reduz rótulos secundários em redes densas, revela contexto por hover/foco e mantém uma lista textual de fallback.
+**Motivo:** a experiência de showcase exige espaçamento, arraste, pinning, pan, zoom, fullscreen, preview e estados de estudo que não cabiam na composição nativa sem perder controle de interação.
+**Consequência:** o layout inicial é reproduzível e não inventa relações; controles persistentes ajustam a composição, enquanto a atualização de conteúdo continua dependente do build do índice.
+
+## ADR-028 — Onboarding e revisão como contratos locais substituíveis
+
+**Estado:** aceito para implementação local.
+**Decisão:** onboarding, sessões, active recall e revisão usam contratos de estado explícitos; o scheduler atual é um adaptador determinístico (`deterministic-review-adapter-v1`) e não está misturado à UI. Trilhas vivem em `data/learning-paths.json`, e cartões, highlights e anotações nunca escrevem no vault.
+**Motivo:** permitir validar a experiência agora e integrar FSRS futuramente sem migrar dados pessoais nem reimplementar as telas.
+**Consequência:** estados de conceito são `new`, `learning`, `scheduled`, `due` e `mastered`; qualquer integração FSRS futura deve preservar proveniência, migração versionada e revisão humana do contrato.
+
+## ADR-029 — Home do produto na rota `/atlas/`
+
+**Estado:** aceito para implementação local.
+**Decisão:** tratar `atlas/index` como um page type virtual emitido por `@nutriwork/atlas-index-emitter`. A página mantém a rota pública `/atlas/`, usa a frame própria e monta a Home orientada a estudo; a lista de arquivos deixa de ser a superfície principal dessa rota.
+**Motivo:** a entrada do Atlas precisa começar por ações, retomada, revisão, trilhas e exploração, sem alterar ou duplicar o conteúdo científico do vault.
+**Consequência:** o índice continua derivado do corpus, o build segue estático e a Home não depende de um Markdown científico adicional. O canonical remove o sufixo técnico `/index` sem mudar a rota das notas.
+
+## ADR-030 — Chrome contextual do Atlas
+
+**Estado:** aceito para implementação local.
+**Decisão:** manter Stacked Pages disponível para leitura de conceitos, mas ocultar o binder visual nas superfícies de produto (Home, estudo, revisão, trilhas, biblioteca e grafo). A frame do Atlas controla a hierarquia de navegação, enquanto overlays têm uma camada própria acima do conteúdo e do rail contextual.
+**Motivo:** a navegação contextual é útil durante a leitura, mas o chrome padrão competia com as experiências principais e podia interceptar ações de modais em larguras intermediárias.
+**Consequência:** conceitos preservam a navegação empilhada; dashboards e experiências de estudo têm uma composição limpa, com foco, toque e modais previsíveis.
 
 ## Decisões ainda abertas
 
@@ -180,4 +215,5 @@ O `noindex, nofollow, noarchive` é injetado no `<head>` pelo hook de recursos d
 - lockup e azul institucional definitivos do Atlas;
 - destino editorial dos DOCX e eventual política de rascunho;
 - tratamento humano dos 381 alvos de link não resolvido;
-- necessidade real de Canvas/stacked panes além do contrato de compatibilidade.
+- necessidade real de Canvas além do contrato de compatibilidade;
+- integração futura do adaptador local com FSRS, sem inventar parâmetros científicos antes da decisão técnica.
