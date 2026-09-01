@@ -1,7 +1,7 @@
 # Nutriwork Atlas — plano de implementação
 
 **Data da auditoria:** 2026-08-31  
-**Estado:** Fases 0–5, 7 e 8 executadas localmente; Fase 9 parcialmente validada nos gates automatizados disponíveis; Fases 6, 9 e 10 mantêm gates explícitos abaixo.  
+**Estado:** Fases 0–5, 7 e 8 executadas localmente; a evolução da experiência de estudo foi implementada e validada localmente; os gates finais de Fase 9 e a publicação seguem registrados abaixo.
 **Destino local planejado:** `C:\Users\gabsc\Documents\Codex\nutriwork-atlas`
 
 ## Resultado executivo da auditoria e da execução atual
@@ -95,3 +95,43 @@ A rodada corretiva solicitada após a inspeção visual foi concluída no checko
 - o build final local processou as 141 entradas Markdown, e a execução nova no servidor local confirmou `/atlas/metabolismo` com conteúdo real, breadcrumb `Início`, busca sem resultados em português, grafo global rotulado em português e zero erros de console;
 - a inspeção em 1280 px, 390 px e 320 px confirmou `document.scrollWidth === viewport` e nenhum link visível do Explorer ultrapassando a viewport; o build continua sujeito aos avisos de fallback de fonte do ambiente sem acesso ao Google Fonts;
 - o remoto foi definido como `https://github.com/gabrielschuchter/nutriwork-atlas`; após o push, a Vercel confirmou HTTP 200 na raiz e em `/atlas/metabolismo`, e o navegador confirmou o conteúdo protegido e o fluxo de navegação.
+
+## Evolução da experiência de estudo — 2026-09-01
+
+A camada de estudo foi implementada sobre o Quartz v5 existente, preservando o conteúdo de `content/atlas/` e evitando alterações no core. O trabalho foi organizado em um índice derivado determinístico, componentes locais e um runtime pequeno para estado pessoal no navegador.
+
+### Entregas
+
+- `scripts/build-atlas-index.mjs` lê as notas reais e gera métricas, arestas, contextos de wikilinks, backlinks, lacunas, áreas, hubs, componentes e conceitos ponte. O sidecar `data/atlas-areas.json` fornece a classificação externa sem inserir metadata nas notas.
+- `@nutriwork/atlas-index-emitter` publica o índice gerado em `static/` sem versionar o artefato. Isso mantém o `.gitignore` e o build reprodutível sem patch no emissor do Quartz.
+- `@nutriwork/atlas-study-shell`, `@nutriwork/atlas-enhanced-graph` e `@nutriwork/atlas-context-panel` são wrappers locais que integram home de estudo, busca avançada, palette, estado local, previews, painel contextual, Explorer e grafo.
+- A Home ganhou continuar explorando, ranking de hubs, atualização, áreas, aleatório, mapa e estrutura. Foram adicionadas as rotas públicas `/mais-conectados`, `/lacunas-da-rede`, `/mapa-do-atlas`, `/estrutura-da-rede`, `/favoritos`, `/recentes`, `/busca-avancada` e `/grafo`.
+- As 20 frentes do pedido estão cobertas pela composição: grafo local/global com profundidade, área, busca, fullscreen, centralização e legenda; diagnósticos de rede; links recebidos com contexto; previews; Stacked Pages; foco; atalhos; favoritos/recentes e command palette.
+- O estado pessoal usa apenas `localStorage` (`nutriwork-atlas-study-v1`) para favoritos, histórico e retomada. Não há backend, banco, IA, API externa ou sincronização pessoal.
+
+### Resultado do índice atual
+
+O corpus produz 140 conceitos, 1.106 conexões únicas, 381 alvos não resolvidos (827 ocorrências), 7 áreas e 4 componentes desconectados. Lacunas são exibidas como diagnóstico; nenhum conceito ou link científico é criado automaticamente.
+
+### Gates desta evolução
+
+| Gate | Resultado esperado |
+| --- | --- |
+| Conteúdo científico | `npm run vault:check` continua conferindo 140 hashes; `git diff -- content/atlas` vazio |
+| Build e qualidade | `npm run check`, `npm test` e `npm run build` sem falhas |
+| Navegação | rotas limpas, navegação SPA, Stacked Pages desktop e fallback normal mobile |
+| Estudo local | favoritos/recentes após reload, palette, atalhos e modo foco com saída por `Esc` |
+| Responsividade | 320/390 px sem overflow; grafo e painel reorganizados em uma coluna |
+| Conteúdo público | nenhum termo técnico de produção exposto no `body.innerText` |
+
+Limitação mantida: Stacked Pages é usado quando o viewport é compatível com a implementação atual; em mobile a navegação segue a página normal para preservar leitura e largura. A comparação formal com uma sessão publicada real do Obsidian e a auditoria WCAG automatizada continuam gates externos.
+
+### Evidência final desta execução
+
+- `npm run check`: TypeScript e Prettier aprovados.
+- `npm test`: 163 testes em 45 suites, 0 falhas.
+- `npm run build`: 149 entradas Markdown processadas, 356 arquivos emitidos, índice em `public/static/atlas-index.json` e `robots.txt` na raiz. O ambiente ainda não alcança Google Fonts para geração OG e registra fallback de Poppins para Arial apenas nesse artefato.
+- `npm run vault:check`: 140 arquivos conferidos por SHA-256; `git diff -- content/atlas` vazio.
+- Auditoria estática: 152 HTML; os 827 hrefs ausentes correspondem exatamente aos alvos declarados em `index.gaps`; 0 hrefs locais não diagnósticos faltantes. `/atlas/metabolismo`, `/grafo`, `/static/atlas-index.json` e `/robots.txt` responderam 200 no servidor local; rota inexistente respondeu 404.
+- QA Playwright: home, páginas de rede, busca combinada, SPA, favoritos/recentes após reload, palette, atalhos, modo foco, preview, painel contextual, grafo local/global/fullscreen, Stacked Pages e console sem erros. Em 1280px não houve overflow; em 390px o grafo e painel ocuparam uma coluna de 358px; em 320px o Explorer e o shell permaneceram dentro da viewport.
+- `npm audit --omit=dev`: 0 vulnerabilidades.

@@ -74,3 +74,23 @@ Não foi localizada uma publicação atual do Atlas nem um repositório existent
 - A interface pública não exibe mais a frase técnica sobre conteúdo científico, cópia byte a byte, manifesto SHA-256 ou detalhes equivalentes de produção. O rodapé padrão e rótulos de interface em inglês foram substituídos por texto público em português.
 - O Explorer foi validado aberto e fechado em 320 px e 390 px, com nomes longos quebrando dentro da largura disponível; não há regra customizada de `prefers-reduced-motion`.
 - `vercel.json` usa `cleanUrls: true`; a execução local e a implantação em `https://nutriwork-atlas.vercel.app/` confirmaram HTTP 200 em `/atlas/metabolismo`, que abre a página real e não somente `/atlas/metabolismo.html`.
+
+## Evolução da experiência de estudo — 2026-09-01
+
+| Capacidade | Implementação atual | Evidência local |
+| --- | --- | --- |
+| Home de estudo | Dashboard derivado com retomada, hubs, atualização, áreas, aleatório, mapa e estrutura | Home renderizada com índice real de 140 conceitos |
+| Áreas | Sidecar externo `data/atlas-areas.json` | 7 áreas e filtro compartilhado em Home, Explorer, busca e grafo |
+| Grafo | SVG local/global, profundidade 1–3, busca, área, nó atual, hubs, fullscreen, recentralização e legenda | `/grafo` e nota real exercitados em desktop e mobile |
+| Mais conectados | Grau total, entradas e saídas | `/mais-conectados` com ranking derivado |
+| Lacunas | Alvo, ocorrências, notas de origem e contexto | `/lacunas-da-rede` com 381 alvos e 827 ocorrências |
+| Busca avançada | Texto, campo, área, grau mínimo, data e ordenação | combinação `homeostase` + título + área + grau validada |
+| Palette/atalhos | Ctrl/Cmd+K, `/`, `G`, `B`, `F`, `R`, `Esc` | palette abre e fecha; ações de navegação e foco testadas |
+| Favoritos/recentes | localStorage versionado e páginas próprias | favorito e histórico sobreviveram ao reload |
+| Relações/previews | relações diretas e vizinhança comum; preview com trecho, grau e ações | hover de wikilink real exibiu dados e abertura de painel |
+| Stacked Pages | plugin comunitário integrado no desktop, com labels corretos; fallback normal no mobile | navegação `Metabolismo` → `Catabolismo` formou cadeia lateral |
+| Estrutura da rede | órfãs, uma conexão, periféricas, pontes e componentes | `/estrutura-da-rede` renderizou métricas derivadas |
+| Mapa do Atlas | conceitos, conexões, áreas, componentes, lacunas, órfãs/periféricas e hubs | `/mapa-do-atlas` renderizou as seções e métricas |
+| Superfície pública | labels em português; metadados internos fora do corpo | inspeção de `body.innerText` sem termos técnicos proibidos |
+
+O índice atual tem 140 conceitos, 1.106 conexões, 381 alvos não resolvidos, 7 áreas e 4 componentes. Os links não resolvidos seguem sendo diagnóstico editorial e não recebem autofix. A auditoria formal contra Obsidian Publish real, WCAG automatizada e produção autenticada continuam fora da evidência local.

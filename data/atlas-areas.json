@@ -1,0 +1,153 @@
+{
+  "version": 1,
+  "defaultArea": "fundamentos",
+  "areas": [
+    {
+      "id": "gestacao-infancia-aleitamento",
+      "label": "Gestação, infância e aleitamento",
+      "keywords": [
+        "gestação",
+        "gestacional",
+        "gravíd",
+        "materno",
+        "aleitamento",
+        "lactogênese",
+        "leite materno",
+        "colostro",
+        "apojadura",
+        "mamogênese",
+        "desmame",
+        "introdução alimentar",
+        "alimentação complementar",
+        "pega adequada",
+        "prematuridade",
+        "idade gestacional",
+        "puerpério",
+        "peso ao nascer",
+        "gig",
+        "pig",
+        "crescimento intrauterino",
+        "crescimento e desenvolvimento infantil",
+        "micronutrientes na infância",
+        "obesidade infantil",
+        "programação metabólica fetal"
+      ]
+    },
+    {
+      "id": "comportamento-aprendizagem",
+      "label": "Comportamento e aprendizagem",
+      "keywords": [
+        "comportamento",
+        "behaviorismo",
+        "condicionamento",
+        "consequência",
+        "eventos antecedentes",
+        "evento apetitivo",
+        "evento aversivo",
+        "extinção comportamental",
+        "operações motivadoras",
+        "reforço",
+        "punição",
+        "resposta comportamental",
+        "seleção cultural",
+        "filogênese",
+        "ontogênese",
+        "escolhas alimentares"
+      ]
+    },
+    {
+      "id": "exercicio-desempenho",
+      "label": "Exercício e desempenho",
+      "keywords": [
+        "cafeína",
+        "creatina",
+        "beta-alanina",
+        "bcaa",
+        "fatmax",
+        "fadiga muscular",
+        "dano muscular",
+        "glicogênio muscular",
+        "limiar anaeróbico",
+        "limiar de lactato",
+        "vo₂",
+        "disponibilidade energética",
+        "red-s",
+        "resistência anabólica",
+        "síntese proteica muscular",
+        "sistema fosfagênio",
+        "supercompensação",
+        "resposta inflamatória ao exercício",
+        "particionamento energético",
+        "janela anabólica"
+      ]
+    },
+    {
+      "id": "metodos-epidemiologia",
+      "label": "Métodos e epidemiologia",
+      "keywords": [
+        "confundimento",
+        "colisor",
+        "dag",
+        "desfecho substituto",
+        "falácia ecológica",
+        "heterogeneidade de efeito",
+        "modificador de efeito",
+        "mediação",
+        "regressão à média",
+        "validade externa",
+        "viés",
+        "risco basal",
+        "causalidade reversa"
+      ]
+    },
+    {
+      "id": "nutricao-clinica",
+      "label": "Nutrição clínica",
+      "keywords": [
+        "caquexia",
+        "desnutrição",
+        "fragilidade",
+        "hiponatremia",
+        "obesidade sarcopênica",
+        "sarcopenia",
+        "síndrome de realimentação",
+        "resistência à insulina fisiológica"
+      ]
+    },
+    {
+      "id": "metabolismo-bioquimica",
+      "label": "Metabolismo e bioquímica",
+      "keywords": [
+        "adp",
+        "adaptação metabólica",
+        "alosterismo",
+        "amp",
+        "anabolismo",
+        "atp",
+        "beta-oxidação",
+        "cadeia transportadora",
+        "catalisadores",
+        "catabolismo",
+        "ciclo de krebs",
+        "coenzimas",
+        "digestão",
+        "fermentação",
+        "fibra alimentar",
+        "flexibilidade metabólica",
+        "fosforilação oxidativa",
+        "glicogênese",
+        "glicogenólise",
+        "glicólise",
+        "gliconeogênese",
+        "glicose-6-fosfato",
+        "homeostase",
+        "inibição enzimática",
+        "lipólise",
+        "membrana plasmática",
+        "saliva",
+        "termogênese adaptativa",
+        "carga glicêmica"
+      ]
+    }
+  ]
+}

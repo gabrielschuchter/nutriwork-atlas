@@ -93,3 +93,8 @@ Não foram encontrados anexos publicáveis ou segredos no conteúdo auditado. Os
 3. Confirmar a política de notas novas, rascunhos e revisão humana.
 4. Validar quais plugins do Obsidian correspondem a requisito de paridade real, em vez de apenas presença no vault.
 
+## Auditoria após a camada de estudo — 2026-09-01
+
+O índice derivado foi gerado exclusivamente lendo as 140 notas de `content/atlas/` e o sidecar externo de áreas. Nenhuma nota científica recebeu frontmatter, tag, link, resumo ou edição de interface. O resultado atual é 140 conceitos, 1.106 conexões únicas e 381 alvos não resolvidos em 827 ocorrências.
+
+O gate `npm run vault:check` permanece obrigatório antes de cada build de entrega. A implementação também mantém o artefato do índice fora do Git e o emite apenas durante o build, evitando que uma saída gerada seja confundida com fonte do vault.

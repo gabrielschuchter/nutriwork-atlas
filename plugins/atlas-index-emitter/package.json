@@ -1,0 +1,21 @@
+{
+  "name": "@nutriwork/atlas-index-emitter",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./index.js",
+    "./package.json": "./package.json"
+  },
+  "quartz": {
+    "name": "atlas-index-emitter",
+    "displayName": "Nutriwork Atlas derived index",
+    "description": "Emits the deterministic study index generated from the Atlas corpus.",
+    "version": "0.1.0",
+    "quartzVersion": ">=5.0.0",
+    "category": "emitter",
+    "defaultOrder": 15,
+    "defaultEnabled": true,
+    "defaultOptions": {}
+  }
+}

@@ -123,6 +123,48 @@ O `noindex, nofollow, noarchive` é injetado no `<head>` pelo hook de recursos d
 **Motivo:** os links internos do Quartz e do Explorer usam rotas limpas; sem essa configuração, a hospedagem estática pode responder 404 para o caminho sem extensão embora o arquivo exista.
 **Consequência:** nenhuma alteração no core do Quartz é necessária. A rota limpa foi exercitada localmente e, após o push, confirmada na Vercel com HTTP 200 e conteúdo real em `/atlas/metabolismo`.
 
+## ADR-018 — Índice derivado determinístico do Atlas
+
+**Estado:** aceito.
+**Decisão:** gerar `quartz/static/atlas-index.json` em `prebuild` a partir de `content/atlas/*.md`, com métricas e relações derivadas de wikilinks. O arquivo é emitido para `public/static/` por um emitter local e permanece ignorado pelo Git.
+**Motivo:** Home, busca avançada, grafo, backlinks e diagnósticos precisam de uma visão comum da rede; calcular o corpus inteiro em cada navegador seria mais lento e menos determinístico.
+**Consequência:** o índice não é fonte científica nem substitui as notas. Alterações de conteúdo só aparecem após o build; o script falha de forma explícita quando uma entrada externa não pode ser lida.
+
+## ADR-019 — Classificação externa por sidecar
+
+**Estado:** aceito.
+**Decisão:** manter áreas em `data/atlas-areas.json`, fora das notas científicas, com classificação determinística por slug e fallback explícito.
+**Motivo:** entregar navegação por área sem inserir frontmatter, tags ou qualquer texto editorial no vault.
+**Consequência:** mudanças de taxonomia são alterações de produto auditáveis no sidecar; o conteúdo Markdown permanece byte a byte intacto.
+
+## ADR-020 — Estado de estudo local-first
+
+**Estado:** aceito.
+**Decisão:** favoritos, histórico e retomada ficam em `localStorage` sob a chave versionada `nutriwork-atlas-study-v1`.
+**Motivo:** atender o uso pessoal sem backend, autenticação nova, banco ou sincronização remota.
+**Consequência:** o estado é por navegador/dispositivo e pode ser perdido quando o usuário limpar os dados; nenhuma informação pessoal é enviada ao site.
+
+## ADR-021 — Experiência de estudo como camada de componentes
+
+**Estado:** aceito.
+**Decisão:** integrar as 20 frentes por wrappers de plugin e um runtime client-side pequeno, mantendo Quartz Search, Explorer, TOC, auth, temas e SPA. O grafo visual customizado usa somente o índice derivado, com fallback textual preservado.
+**Motivo:** corrigir a experiência sem forkar o core e sem criar uma segunda arquitetura de conteúdo.
+**Consequência:** Stacked Pages permanece uma integração opcional do plugin comunitário; abaixo do breakpoint mobile, a navegação normal é preferida. Relações estruturais só são exibidas quando têm base em wikilinks diretos ou vizinhança comum já presente na rede.
+
+## ADR-022 — Emissão do índice ignorado sem patch no Quartz
+
+**Estado:** aceito.
+**Decisão:** usar `@nutriwork/atlas-index-emitter` para copiar o artefato gerado ao output, porque o emissor estático padrão respeita o `.gitignore` e não publica o JSON ignorado.
+**Motivo:** o índice deve ser derivado no build, não commitado, e ainda assim estar disponível ao runtime público.
+**Consequência:** o emitter local é pequeno e substituível; se o contrato do emissor do Quartz mudar, há um único ponto de adaptação documentado.
+
+## ADR-023 — Termos internos fora da superfície pública
+
+**Estado:** aceito.
+**Decisão:** manter nomes técnicos apenas em código, metadados e documentação de engenharia; o texto visível usa português de produto, sem painel de propriedades ou frases de pipeline.
+**Motivo:** `description`, `Properties`, preferências internas e mensagens de sincronização não são parte da experiência do estudante.
+**Consequência:** metadados continuam disponíveis para SEO e build, mas não aparecem no corpo público; a verificação deve usar o texto visível renderizado, não uma busca ingênua nos atributos HTML.
+
 ## Decisões ainda abertas
 
 - integração do repositório `https://github.com/gabrielschuchter/nutriwork-atlas` com um projeto Vercel;

@@ -6,9 +6,8 @@ configuration:
   enablePopovers: true
   analytics: null
   locale: pt-BR
-  # Local build metadata only. Replace with the confirmed production host
-  # before configuring GitHub/Vercel publication.
-  baseUrl: localhost:8080
+  # Canonical public host used for metadata and clean production routes.
+  baseUrl: nutriwork-atlas.vercel.app
   ignorePatterns:
     - private
     - templates
@@ -59,6 +58,27 @@ plugins:
     layout:
       position: afterBody
       priority: 5
+  - source: "@nutriwork/atlas-index-emitter"
+    enabled: true
+    order: 15
+  - source: "@nutriwork/atlas-study-shell"
+    enabled: true
+    order: 8
+    layout:
+      position: afterBody
+      priority: 10
+  - source: "@nutriwork/atlas-enhanced-graph"
+    enabled: true
+    order: 9
+    layout:
+      position: right
+      priority: 10
+  - source: "@nutriwork/atlas-context-panel"
+    enabled: true
+    order: 10
+    layout:
+      position: right
+      priority: 45
   - source: "@nutriwork/atlas-footer"
     enabled: true
     order: 7
@@ -180,7 +200,12 @@ plugins:
       unlistWhenEncrypted: false
       outputPath: static/encryptedContentIndex.json
   - source: "@quartz-community/stacked-pages"
-    enabled: false
+    enabled: true
+    options:
+      maxTabs: 8
+      mobileBreakpoint: 800
+      showSpines: true
+      animateTransitions: false
     layout:
       position: afterBody
       priority: 50
@@ -212,7 +237,7 @@ plugins:
       position: left
       priority: 50
   - source: "@quartz-community/graph"
-    enabled: true
+    enabled: false
     layout:
       position: right
       priority: 10

@@ -20,9 +20,10 @@
     "test": "tsx --test",
     "vault:sync": "node scripts/sync-vault.mjs",
     "vault:check": "node scripts/sync-vault.mjs --check",
+    "atlas:index": "node scripts/build-atlas-index.mjs",
     "profile": "0x -D prof ./quartz/bootstrap-cli.mjs build --concurrency=1",
     "install-plugins": "npx tsx ./quartz/plugins/loader/install-plugins.ts",
-    "prebuild": "npm run install-plugins"
+    "prebuild": "npm run install-plugins && npm run atlas:index"
   },
   "engines": {
     "npm": ">=10.9.2",
@@ -45,8 +46,12 @@
     "@myriaddreamin/rehype-typst": "^0.6.0",
     "@napi-rs/simple-git": "0.1.22",
     "@nutriwork/atlas-access": "file:plugins/atlas-access",
+    "@nutriwork/atlas-context-panel": "file:plugins/atlas-context-panel",
+    "@nutriwork/atlas-enhanced-graph": "file:plugins/atlas-enhanced-graph",
     "@nutriwork/atlas-footer": "file:plugins/atlas-footer",
     "@nutriwork/atlas-graph-fallback": "file:plugins/atlas-graph-fallback",
+    "@nutriwork/atlas-index-emitter": "file:plugins/atlas-index-emitter",
+    "@nutriwork/atlas-study-shell": "file:plugins/atlas-study-shell",
     "@nutriwork/atlas-ui": "file:plugins/atlas-ui",
     "@quartz-community/alias-redirects": "^0.1.0",
     "@quartz-community/article-title": "^0.1.0",

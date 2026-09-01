@@ -41,6 +41,30 @@
         "version": "0.1.0",
         "defaultPosition": "afterBody",
         "defaultPriority": 5
+      },
+      "AtlasStudyShell": {
+        "name": "atlas-study-shell",
+        "displayName": "Atlas study experience",
+        "description": "Local study navigation, search, previews and personal state.",
+        "version": "0.2.0",
+        "defaultPosition": "afterBody",
+        "defaultPriority": 10
+      },
+      "AtlasEnhancedGraph": {
+        "name": "atlas-enhanced-graph",
+        "displayName": "Atlas graph controls",
+        "description": "Accessible local and global graph controls derived from wikilinks.",
+        "version": "0.2.0",
+        "defaultPosition": "right",
+        "defaultPriority": 10
+      },
+      "AtlasContextPanel": {
+        "name": "atlas-context-panel",
+        "displayName": "Atlas contextual study panel",
+        "description": "Local contextual tabs for summary, relations and personal study state.",
+        "version": "0.2.0",
+        "defaultPosition": "right",
+        "defaultPriority": 45
       }
     }
   }

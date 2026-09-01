@@ -1,0 +1,34 @@
+{
+  "name": "@nutriwork/atlas-study-shell",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./index.js",
+    "./components": "./components/index.js",
+    "./package.json": "./package.json"
+  },
+  "dependencies": {
+    "@nutriwork/atlas-ui": "file:../atlas-ui"
+  },
+  "quartz": {
+    "name": "atlas-study-shell",
+    "displayName": "Nutriwork Atlas study shell",
+    "description": "Local study navigation, search, previews and personal state.",
+    "version": "0.2.0",
+    "quartzVersion": ">=5.0.0",
+    "category": "component",
+    "defaultOrder": 10,
+    "defaultEnabled": true,
+    "components": {
+      "AtlasStudyShell": {
+        "name": "atlas-study-shell",
+        "displayName": "Atlas study experience",
+        "description": "Local study navigation, search, previews and personal state.",
+        "version": "0.2.0",
+        "defaultPosition": "afterBody",
+        "defaultPriority": 10
+      }
+    }
+  }
+}

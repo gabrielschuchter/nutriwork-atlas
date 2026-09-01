@@ -36,6 +36,12 @@ No momento, o item 1 não existe no checkout Atlas. A referência operacional é
 - O conceito visual de rede/órbita no Graph, sem transformar o grafo em decoração ilegível.
 - Os assets raster do inventário somente quando a finalidade do Atlas exigir e após validação de direitos.
 
+## Aplicação na experiência de estudo — 2026-09-01
+
+A evolução implementada reutiliza os tokens, Poppins, azul Nutriwork, superfícies escuras e foco visual já presentes no shell. Não foram introduzidos assets decorativos novos nem uma identidade paralela. Cards, controles e estados do grafo usam a mesma linguagem de bordas, raio, contraste e links azuis; o resultado foi validado em 320 px, 390 px e desktop.
+
+Termos de implementação e preferências técnicas não são copy pública. A interface expõe ações e estados em português, mantém foco de teclado e usa fallback textual quando o gráfico não é adequado ao viewport.
+
 ## O que não é autoridade
 
 `C:\Users\gabsc\Documents\Codex\gabriel-schuchter-design-system` documenta um sistema pessoal Gabriel Schuchter. Seu overview declara que ele não importa o visual Nutriwork; suas fontes Literata/Atkinson Hyperlegible/IBM Plex Mono e paleta pessoal não devem substituir Poppins/azul Nutriwork no Atlas. Ele pode informar método de tokens, acessibilidade e documentação, mas não a aparência do produto.
@@ -61,4 +67,3 @@ Campanhas de aniversário, páginas de notícias e ilustrações editoriais tamb
 ## Gate humano
 
 Antes de produção, confirmar: nome/lockup do Atlas, azul canônico, fontes licenciadas/hosteadas, direito de uso dos retratos/eventos/SVGs, título/description/OG e política visual de graph. Até lá, esta autoridade é suficiente para um vertical slice técnico, não para uma aprovação final de marca.
-

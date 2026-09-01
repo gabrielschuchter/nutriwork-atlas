@@ -17,3 +17,5 @@ Estas são algumas portas de entrada para a rede de conceitos:
 - [[atlas/Glicólise|Glicólise]]
 - [[atlas/ATP|ATP]]
 - [[atlas/Homeostase|Homeostase]]
+
+<div id="atlas-home-dashboard"></div>
