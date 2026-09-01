@@ -1,0 +1,31 @@
+{
+  "nodes": [
+    {
+      "id": "fixture-note",
+      "type": "text",
+      "text": "Fixture de compatibilidade",
+      "x": 0,
+      "y": 0,
+      "width": 240,
+      "height": 80
+    },
+    {
+      "id": "fixture-target",
+      "type": "file",
+      "file": "Fixture alvo.md",
+      "x": 320,
+      "y": 0,
+      "width": 240,
+      "height": 80
+    }
+  ],
+  "edges": [
+    {
+      "id": "fixture-edge",
+      "fromNode": "fixture-note",
+      "toNode": "fixture-target",
+      "fromSide": "right",
+      "toSide": "left"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "name": "@nutriwork/atlas-graph-fallback",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./index.js",
+    "./components": "./components/index.js",
+    "./package.json": "./package.json"
+  },
+  "peerDependencies": {
+    "@quartz-community/utils": "^0.1.0",
+    "preact": "^10.0.0"
+  },
+  "dependencies": {
+    "@nutriwork/atlas-ui": "file:../atlas-ui"
+  },
+  "quartz": {
+    "name": "atlas-graph-fallback",
+    "displayName": "Nutriwork Atlas graph fallback",
+    "description": "Accessible textual relationships alongside the graph.",
+    "version": "0.1.0",
+    "quartzVersion": ">=5.0.0",
+    "category": "component",
+    "defaultOrder": 6,
+    "defaultEnabled": true,
+    "defaultOptions": {},
+    "components": {
+      "AtlasGraphFallback": {
+        "name": "atlas-graph-fallback",
+        "displayName": "Atlas graph textual fallback",
+        "description": "Accessible outgoing-link and backlink list accompanying the graph.",
+        "version": "0.1.0",
+        "defaultPosition": "afterBody",
+        "defaultPriority": 5
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="96" viewBox="0 0 160 96" role="img" aria-labelledby="title desc">
+  <title id="title">Asset da fixture</title>
+  <desc id="desc">Formas azuis usadas somente no teste de imagem.</desc>
+  <rect width="160" height="96" rx="16" fill="#F4F7FC"/>
+  <circle cx="58" cy="48" r="24" fill="#1263FF" opacity="0.88"/>
+  <circle cx="88" cy="48" r="24" fill="#29A8FF" opacity="0.7"/>
+  <circle cx="118" cy="48" r="24" fill="#8EB9FF" opacity="0.62"/>
+</svg>

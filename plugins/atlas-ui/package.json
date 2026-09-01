@@ -1,0 +1,47 @@
+{
+  "name": "@nutriwork/atlas-ui",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./index.js",
+    "./components": "./components/index.js",
+    "./package.json": "./package.json"
+  },
+  "peerDependencies": {
+    "@quartz-community/utils": "^0.1.0",
+    "preact": "^10.0.0"
+  },
+  "quartz": {
+    "name": "atlas-ui",
+    "displayName": "Nutriwork Atlas UI",
+    "description": "Local, small-scope components for the Nutriwork Atlas shell.",
+    "version": "0.1.0",
+    "quartzVersion": ">=5.0.0",
+    "category": "component",
+    "defaultOrder": 5,
+    "defaultEnabled": true,
+    "defaultOptions": {
+      "passwordHash": "8546caeab1389bb18a5ffd7923802fe181434e69ca868010f83d92c65f7b4cb4",
+      "storageKey": "nutriwork-atlas-access"
+    },
+    "components": {
+      "AtlasAccess": {
+        "name": "atlas-access",
+        "displayName": "Atlas access gate",
+        "description": "Client-side global password barrier for casual privacy.",
+        "version": "0.1.0",
+        "defaultPosition": "beforeBody",
+        "defaultPriority": 1
+      },
+      "AtlasGraphFallback": {
+        "name": "atlas-graph-fallback",
+        "displayName": "Atlas graph textual fallback",
+        "description": "Accessible outgoing-link and backlink list accompanying the graph.",
+        "version": "0.1.0",
+        "defaultPosition": "afterBody",
+        "defaultPriority": 5
+      }
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "name": "@nutriwork/atlas-access",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./index.js",
+    "./components": "./components/index.js",
+    "./package.json": "./package.json"
+  },
+  "peerDependencies": {
+    "@quartz-community/utils": "^0.1.0",
+    "preact": "^10.0.0"
+  },
+  "dependencies": {
+    "@nutriwork/atlas-ui": "file:../atlas-ui"
+  },
+  "quartz": {
+    "name": "atlas-access",
+    "displayName": "Nutriwork Atlas access",
+    "description": "Client-side global password barrier for casual privacy.",
+    "version": "0.1.0",
+    "quartzVersion": ">=5.0.0",
+    "category": [
+      "transformer",
+      "component"
+    ],
+    "defaultOrder": 5,
+    "defaultEnabled": true,
+    "defaultOptions": {
+      "passwordHash": "8546caeab1389bb18a5ffd7923802fe181434e69ca868010f83d92c65f7b4cb4",
+      "storageKey": "nutriwork-atlas-access"
+    },
+    "components": {
+      "AtlasAccess": {
+        "name": "atlas-access",
+        "displayName": "Atlas access gate",
+        "description": "Client-side global password barrier for casual privacy.",
+        "version": "0.1.0",
+        "defaultPosition": "beforeBody",
+        "defaultPriority": 1
+      }
+    }
+  }
+}

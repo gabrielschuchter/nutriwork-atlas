@@ -1,3 +1,12 @@
+# Generated and dependency output from the upstream Quartz checkout.
 public
 node_modules
 .quartz-cache
+
+# The vault and audit handoff are source/reference material. Formatting them
+# would create scientific or evidentiary diffs unrelated to the implementation.
+content/
+docs/
+implementation_plan.md
+AGENTS.md
+tests/fixtures/

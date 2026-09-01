@@ -1,1 +1,4 @@
 * text=auto eol=lf
+
+# Imported Markdown is a byte-preserved mirror of the external Obsidian vault.
+content/atlas/** -text whitespace=cr-at-eol

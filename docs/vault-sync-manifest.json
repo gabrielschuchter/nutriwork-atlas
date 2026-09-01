@@ -1,0 +1,847 @@
+{
+  "version": 1,
+  "sourceRoot": "<ATLAS_VAULT_PATH>",
+  "destinationRoot": "content/atlas",
+  "files": [
+    {
+      "source": "Adaptação metabólica.md",
+      "destination": "Adaptação metabólica.md",
+      "bytes": 3572,
+      "sha256": "876764c1bfd6cbe2786b8dcb151cbca583f44851b56284a6797e7e3b8f60c9dc"
+    },
+    {
+      "source": "ADP.md",
+      "destination": "ADP.md",
+      "bytes": 2896,
+      "sha256": "058dff009d8031d1cb2e92507a87057a06a19d1e7cf1308d296cba60cf4317bc"
+    },
+    {
+      "source": "Aleitamento materno complementado.md",
+      "destination": "Aleitamento materno complementado.md",
+      "bytes": 2250,
+      "sha256": "70dc830ecd6aace5ff14861d464f8b53114586e5d3fabf1afc02d96b89fed349"
+    },
+    {
+      "source": "Aleitamento materno exclusivo.md",
+      "destination": "Aleitamento materno exclusivo.md",
+      "bytes": 3002,
+      "sha256": "5830e2f5d685165bea8bc7a0416ee9ca89cdaf37319549b6850404f8d65b06b8"
+    },
+    {
+      "source": "Alimentação complementar.md",
+      "destination": "Alimentação complementar.md",
+      "bytes": 1973,
+      "sha256": "0609cc7f9f38839c67fac7b2b164fd32b347ae44509e51a407a6457358021dd8"
+    },
+    {
+      "source": "Alosterismo.md",
+      "destination": "Alosterismo.md",
+      "bytes": 2721,
+      "sha256": "dca7f25809612437b2fcc8d55487e5479bfb2b60c6fd84350697ac2381eeb71c"
+    },
+    {
+      "source": "AMP.md",
+      "destination": "AMP.md",
+      "bytes": 2604,
+      "sha256": "dd2f2d090b6f449df1ce4b88c99b8285d42790f6fb30ae648dccf7ecc6f31d60"
+    },
+    {
+      "source": "Anabolismo.md",
+      "destination": "Anabolismo.md",
+      "bytes": 4367,
+      "sha256": "6723a992b295da8ae2f24f6ce32564118fb85011e5dc6ecd0986b5435a949537"
+    },
+    {
+      "source": "Análise do comportamento.md",
+      "destination": "Análise do comportamento.md",
+      "bytes": 6614,
+      "sha256": "7441d74a46c8c42b0b824993fcc0e89c99074bb52b8267246451a0741d46fd84"
+    },
+    {
+      "source": "Apojadura.md",
+      "destination": "Apojadura.md",
+      "bytes": 7347,
+      "sha256": "1001df32eb4e7b42b7c434ca8ba39dc49f6ebb7fe8f76d1c26cc370440243169"
+    },
+    {
+      "source": "ATP.md",
+      "destination": "ATP.md",
+      "bytes": 3061,
+      "sha256": "63d94709f825f3c5a4b1e569262746e7a9411ee017e2f821170ea2046533171a"
+    },
+    {
+      "source": "Baixo peso ao nascer.md",
+      "destination": "Baixo peso ao nascer.md",
+      "bytes": 2605,
+      "sha256": "e29d05647d64407a7a4c988b67eecbacb581a1240da9f11ae5b3475a398f6a4e"
+    },
+    {
+      "source": "BCAA.md",
+      "destination": "BCAA.md",
+      "bytes": 2902,
+      "sha256": "b2515f1e4a902e6e1194eb91218846e42232892dfba39fd22cd04b26128c76aa"
+    },
+    {
+      "source": "Behaviorismo radical.md",
+      "destination": "Behaviorismo radical.md",
+      "bytes": 6934,
+      "sha256": "2fc4debaa9dda8ea152861ab5ff180e30127d7fd7787e422befb5be286052eee"
+    },
+    {
+      "source": "Beta-alanina.md",
+      "destination": "Beta-alanina.md",
+      "bytes": 3291,
+      "sha256": "079b04dab7d68e797076d0518bb417f65c7ae7c66b9fe32fab1de78dee1605dc"
+    },
+    {
+      "source": "Beta-oxidação.md",
+      "destination": "Beta-oxidação.md",
+      "bytes": 2598,
+      "sha256": "6943f94c92e69d79c3e4f27d4cea35c0a07936676887cee03ef13c45f3b3c5f3"
+    },
+    {
+      "source": "Cadeia transportadora de elétrons.md",
+      "destination": "Cadeia transportadora de elétrons.md",
+      "bytes": 2545,
+      "sha256": "576e142c29f8639663b3d6e6e8e3722fba581fe4c72bbefc24f6e90a4e4668d2"
+    },
+    {
+      "source": "Cafeína.md",
+      "destination": "Cafeína.md",
+      "bytes": 4331,
+      "sha256": "b81e0b7c5c3769e79841a2c88890ae4ebc3cffc1e63beeb87617d9f15c6d1ab5"
+    },
+    {
+      "source": "Capacidade Mastigatória.md",
+      "destination": "Capacidade Mastigatória.md",
+      "bytes": 3477,
+      "sha256": "a42b4d45fc5a55d4e1e4d3971075839c284919eaceb27777a67b51579b3a9139"
+    },
+    {
+      "source": "Caquexia.md",
+      "destination": "Caquexia.md",
+      "bytes": 3669,
+      "sha256": "e30fa2afc08bf2b33aee974d29d80ab05d7f2e966966bb2cf6d37283b13bbe9a"
+    },
+    {
+      "source": "Carga glicêmica.md",
+      "destination": "Carga glicêmica.md",
+      "bytes": 3739,
+      "sha256": "375ad15f28ca53f59f073f1e0aead44008b67c35890edd2dae89147269591a86"
+    },
+    {
+      "source": "Catabolismo.md",
+      "destination": "Catabolismo.md",
+      "bytes": 3296,
+      "sha256": "d847daaf216dc3659b6b88d36e37b16cd9f2c0cf430ad745c24fe5f4ad4d21b4"
+    },
+    {
+      "source": "Catalisadores.md",
+      "destination": "Catalisadores.md",
+      "bytes": 2492,
+      "sha256": "69f4b5e50691dd213463ce5a48a6b357cb529ae5c77eda16e93ddee418cc05ee"
+    },
+    {
+      "source": "Ciclo de Krebs.md",
+      "destination": "Ciclo de Krebs.md",
+      "bytes": 2653,
+      "sha256": "7ab1912e19b55c49b40b7f8cdae065425a3f22dd269f4420d8872e199667a375"
+    },
+    {
+      "source": "Classe funcional de respostas.md",
+      "destination": "Classe funcional de respostas.md",
+      "bytes": 5676,
+      "sha256": "3722f23d2334aa8d41dd701a608c4c5e497e1f36e9a8ac7629b623658008e143"
+    },
+    {
+      "source": "Coenzimas.md",
+      "destination": "Coenzimas.md",
+      "bytes": 2463,
+      "sha256": "7b0b63b322effb8f3afcf05833e2929a03e3d0318ad8d162d84bfd45b42d4b5d"
+    },
+    {
+      "source": "Colisor (Collider Bias).md",
+      "destination": "Colisor (Collider Bias).md",
+      "bytes": 2914,
+      "sha256": "6e06a6fd5d272679a8ad50edaab58746975190c01a90dcc864892234ce77b116"
+    },
+    {
+      "source": "Colostro.md",
+      "destination": "Colostro.md",
+      "bytes": 2601,
+      "sha256": "9473d096a0da4e78f6beb78a73096342d327923e04654ec27be05d6641193162"
+    },
+    {
+      "source": "Comportamento alimentar.md",
+      "destination": "Comportamento alimentar.md",
+      "bytes": 6536,
+      "sha256": "9ef4f46b63d8e8675fe47387e604a188ceace0d10c2590e6be5aeddbdcedaf71"
+    },
+    {
+      "source": "Comportamento verbal.md",
+      "destination": "Comportamento verbal.md",
+      "bytes": 6474,
+      "sha256": "470d69c9a8a269a598a03aa4a064353d2048f1c63054cb41161879d8b6a287af"
+    },
+    {
+      "source": "Condicionamento pavloviano.md",
+      "destination": "Condicionamento pavloviano.md",
+      "bytes": 5736,
+      "sha256": "6f48b712a6ba336c76f18128a240d73ee75e13275b8e82155b02bdc0d801a280"
+    },
+    {
+      "source": "Confundimento por indicação.md",
+      "destination": "Confundimento por indicação.md",
+      "bytes": 3738,
+      "sha256": "d0422a9f0208318b43ba60433519eb48dd27016d3c5bd1314f7480636d3f54f0"
+    },
+    {
+      "source": "Confundimento residual.md",
+      "destination": "Confundimento residual.md",
+      "bytes": 3362,
+      "sha256": "80c920c37f200664de8be5daf2eb8e34edc9f718ebc6197e31d5ef850bf9c2b9"
+    },
+    {
+      "source": "Confundimento.md",
+      "destination": "Confundimento.md",
+      "bytes": 3345,
+      "sha256": "411ad024f97675dbf75b4d3a12901b6d66f19c4ef9ccd053e3647f70338d0f8e"
+    },
+    {
+      "source": "Consequência punitiva.md",
+      "destination": "Consequência punitiva.md",
+      "bytes": 5558,
+      "sha256": "53cdb8490c96413f7a73e6f6e8a3197595a6e3ba43cfed2e73f579bda0d9f1da"
+    },
+    {
+      "source": "Consequência reforçadora.md",
+      "destination": "Consequência reforçadora.md",
+      "bytes": 5878,
+      "sha256": "b8e508133254fcaeff1a0a8be6dc4e508e13330a9e6bf54206912eaccb047398"
+    },
+    {
+      "source": "Consequência.md",
+      "destination": "Consequência.md",
+      "bytes": 5438,
+      "sha256": "819c2af9f6b727daa1b4c5a6e3b2708afa198e06c763fa633da6798fc2c9f4ab"
+    },
+    {
+      "source": "Creatina.md",
+      "destination": "Creatina.md",
+      "bytes": 3468,
+      "sha256": "ef34fdb271c6bd3080496dffc866f6234b831bee6350dc5c4c3b57c4682fb321"
+    },
+    {
+      "source": "Crescimento e desenvolvimento infantil.md",
+      "destination": "Crescimento e desenvolvimento infantil.md",
+      "bytes": 2487,
+      "sha256": "c7a2f74bd3b403004a202b1096d172cb916b9118bc2c607e4d04572e19c8513c"
+    },
+    {
+      "source": "Dano muscular induzido pelo exercício.md",
+      "destination": "Dano muscular induzido pelo exercício.md",
+      "bytes": 3160,
+      "sha256": "6dc0e5bc6ff38bfb3151d5f607ae82b7b7972030919cc07102033bbbcf46863b"
+    },
+    {
+      "source": "Data provável do parto (DPP).md",
+      "destination": "Data provável do parto (DPP).md",
+      "bytes": 6848,
+      "sha256": "84cd4b1265f286ff6203229a5fb83fa8cf79dde3739122820f0b1c597ed6d9f1"
+    },
+    {
+      "source": "Deficiência de micronutrientes na infância.md",
+      "destination": "Deficiência de micronutrientes na infância.md",
+      "bytes": 2325,
+      "sha256": "3088953c9d169bafb7a6b331edc4de8e9d6b45f04a25ab5bad298d3dcae50f0b"
+    },
+    {
+      "source": "Desfecho substituto.md",
+      "destination": "Desfecho substituto.md",
+      "bytes": 3830,
+      "sha256": "d4c412a3a84414ca1d66dddf47c79dfa88a0899a7f0bcb43c15dd22b1ad66676"
+    },
+    {
+      "source": "Desmame precoce.md",
+      "destination": "Desmame precoce.md",
+      "bytes": 8089,
+      "sha256": "604970d168f74561fdb788163160bae995dc71cd0c2a70c8bacc506d75bdc922"
+    },
+    {
+      "source": "Desnutrição relacionada à doença.md",
+      "destination": "Desnutrição relacionada à doença.md",
+      "bytes": 3390,
+      "sha256": "19baca6cf02b4d936a8aeed4c261c692fb3d27bafded8360615eac1baa42c6ff"
+    },
+    {
+      "source": "Diabetes mellitus gestacional.md",
+      "destination": "Diabetes mellitus gestacional.md",
+      "bytes": 2570,
+      "sha256": "8a09271f6efbbc5b34b08bffe2b9f258c3aa3e0b72ee911d543478812b0845bb"
+    },
+    {
+      "source": "Diagrama Acíclico Direcionado (DAG).md",
+      "destination": "Diagrama Acíclico Direcionado (DAG).md",
+      "bytes": 3289,
+      "sha256": "2b917a9eba5f7536cee0996d5d9c87c0ec29f9ed561f0a58eb737dd149b31004"
+    },
+    {
+      "source": "Digestão mecânica.md",
+      "destination": "Digestão mecânica.md",
+      "bytes": 6416,
+      "sha256": "06bff39232a7be9f1759500e3b69dd50b6e632656c96456fc6622eb404d6c538"
+    },
+    {
+      "source": "Digestão química.md",
+      "destination": "Digestão química.md",
+      "bytes": 6051,
+      "sha256": "3e0486208f21ed3d3d44716ec03eb3ae3e2ef4ba369ebb4b02b49208be3c9cb6"
+    },
+    {
+      "source": "Disponibilidade Energética.md",
+      "destination": "Disponibilidade Energética.md",
+      "bytes": 3717,
+      "sha256": "42141e1f7455b0cd31e1e7faa6803e735115c984dc413a802e6066e3322a92eb"
+    },
+    {
+      "source": "Escolhas alimentares.md",
+      "destination": "Escolhas alimentares.md",
+      "bytes": 5932,
+      "sha256": "ac84b5b8af58b7ac0e90b602de2463018a918c589d2d1792103eef15207fb495"
+    },
+    {
+      "source": "Escore Z de crescimento infantil.md",
+      "destination": "Escore Z de crescimento infantil.md",
+      "bytes": 7475,
+      "sha256": "6282a06ce56a4c0c53016ad6d93975019434f400496c54dd2364a549e46e6b73"
+    },
+    {
+      "source": "Estado nutricional materno.md",
+      "destination": "Estado nutricional materno.md",
+      "bytes": 2545,
+      "sha256": "bcfebc87b70c0b37a9b1d197d3cc2798f06513b4e1134ee522f56da4ed2c5929"
+    },
+    {
+      "source": "Evento apetitivo.md",
+      "destination": "Evento apetitivo.md",
+      "bytes": 5640,
+      "sha256": "f7ef409bd6bcc384d7d75f72fcc5d129869d73b19b380b60b76ca6e4aa5a0017"
+    },
+    {
+      "source": "Evento aversivo.md",
+      "destination": "Evento aversivo.md",
+      "bytes": 5758,
+      "sha256": "7d587038ae938c764cf7f3a0f4818577a4fa44d1f27194da382e00513589f154"
+    },
+    {
+      "source": "Eventos antecedentes.md",
+      "destination": "Eventos antecedentes.md",
+      "bytes": 6335,
+      "sha256": "0e7524fcfa8b28d5c58c923266d83753ef4984a6e5ccb6fa8579b1bedd617f4b"
+    },
+    {
+      "source": "Extinção comportamental.md",
+      "destination": "Extinção comportamental.md",
+      "bytes": 6083,
+      "sha256": "294cc1af495291d8dbcda0053c25e9af4f5af5997f96d1aae0160ef9a63ee7d1"
+    },
+    {
+      "source": "Fadiga muscular.md",
+      "destination": "Fadiga muscular.md",
+      "bytes": 3548,
+      "sha256": "997de97474c4ac6d04c0fe02795df1b9fbe8cde510dcb34d5013d6dfe6dec7eb"
+    },
+    {
+      "source": "Falácia Ecológica.md",
+      "destination": "Falácia Ecológica.md",
+      "bytes": 2775,
+      "sha256": "eacafdfdb257eb777789aec7ecdcd90779e423f069e95195b8f90366fad9c475"
+    },
+    {
+      "source": "FatMax.md",
+      "destination": "FatMax.md",
+      "bytes": 3881,
+      "sha256": "c59cc133821cb9ecda01353a63bd0faf8411b82deb1dd62fd5bc9bb4aac8c45f"
+    },
+    {
+      "source": "Fermentação.md",
+      "destination": "Fermentação.md",
+      "bytes": 3636,
+      "sha256": "e3913299ddcf13ad8d097dd99bd4c5a87b6ad2aef1242630f4cc9a20a3da417a"
+    },
+    {
+      "source": "Fibra alimentar insolúvel.md",
+      "destination": "Fibra alimentar insolúvel.md",
+      "bytes": 5773,
+      "sha256": "167a4b5f601a09dd046ee5308a75b2e4fd8ede07c0e094bed9016edade17afe2"
+    },
+    {
+      "source": "Fibra alimentar solúvel.md",
+      "destination": "Fibra alimentar solúvel.md",
+      "bytes": 6217,
+      "sha256": "4da30372563ee39567d198fb0a13a40fb9d6fe0cd39dce9fbb39791d97cc0eff"
+    },
+    {
+      "source": "Fibra alimentar.md",
+      "destination": "Fibra alimentar.md",
+      "bytes": 7653,
+      "sha256": "96b218b808d06336a0683607069cb48c1f8221e267e98d729d245833da51ddab"
+    },
+    {
+      "source": "Filogênese.md",
+      "destination": "Filogênese.md",
+      "bytes": 5712,
+      "sha256": "10f05b4fd938a588274c8f7ecb76b7c63ef1651e30560528f4939a9b7a8b146e"
+    },
+    {
+      "source": "Flexibilidade metabólica.md",
+      "destination": "Flexibilidade metabólica.md",
+      "bytes": 3607,
+      "sha256": "a8feee72ecef67dbc46344911bf79d813f74e0afca747c08e9fa9e8cec7ae8bf"
+    },
+    {
+      "source": "Fosforilação oxidativa.md",
+      "destination": "Fosforilação oxidativa.md",
+      "bytes": 3093,
+      "sha256": "7adc06ecda1a2233dbc5e54f71d4f723b65752176dc2858d031759e333f5e9e0"
+    },
+    {
+      "source": "Fragilidade.md",
+      "destination": "Fragilidade.md",
+      "bytes": 3461,
+      "sha256": "0c4843db8a6a7ce4e8167398e922b46457438224302ac3e3d52264c3447ecaf2"
+    },
+    {
+      "source": "Ganho de peso gestacional.md",
+      "destination": "Ganho de peso gestacional.md",
+      "bytes": 2512,
+      "sha256": "4fd5486b878298e02d1251f29c4eb219b7f74f9046e9d61ccd5f79e145bbadad"
+    },
+    {
+      "source": "Glicogênese.md",
+      "destination": "Glicogênese.md",
+      "bytes": 2874,
+      "sha256": "54923a9ba7016343ecc2c4bded86f1c6d168c1b62c7ad66462e01580b2df1af2"
+    },
+    {
+      "source": "Glicogênio muscular.md",
+      "destination": "Glicogênio muscular.md",
+      "bytes": 3523,
+      "sha256": "5bd3acf8c32e4b85000d90a757e923209df829261c617af2e433b0df064cd261"
+    },
+    {
+      "source": "Glicogenólise.md",
+      "destination": "Glicogenólise.md",
+      "bytes": 2728,
+      "sha256": "a3d603e6d694ecba8b59de5819f1ac594c76546c164e53d8d5364f9a64f5c2be"
+    },
+    {
+      "source": "Glicólise.md",
+      "destination": "Glicólise.md",
+      "bytes": 3661,
+      "sha256": "76adb49b3819e39e754f2c628a69573c44370d4274c436032f97c2a02d99cec2"
+    },
+    {
+      "source": "Gliconeogênese.md",
+      "destination": "Gliconeogênese.md",
+      "bytes": 2823,
+      "sha256": "b3a78e389eb0720606baad4f291e6f0b1b3655265b94fc2a1ba38100d9c1feff"
+    },
+    {
+      "source": "Glicose-6-fosfato.md",
+      "destination": "Glicose-6-fosfato.md",
+      "bytes": 2419,
+      "sha256": "abe7f7da5d1e64f03ea1ef4d3b4ae011249b3ea1654c7eb7e9a06c177e4d5ec8"
+    },
+    {
+      "source": "Grande para idade gestacional (GIG).md",
+      "destination": "Grande para idade gestacional (GIG).md",
+      "bytes": 8299,
+      "sha256": "1999eb9f8ec5dbc8a9486a6e0fd5e9575318c0cca46eed78df4887d3f6636ae9"
+    },
+    {
+      "source": "Heterogeneidade de efeito do tratamento.md",
+      "destination": "Heterogeneidade de efeito do tratamento.md",
+      "bytes": 3586,
+      "sha256": "615e72f65787e4930284339326c24bdda78e998f2982742e49932bee585f5eec"
+    },
+    {
+      "source": "Hiperêmese gravídica.md",
+      "destination": "Hiperêmese gravídica.md",
+      "bytes": 7781,
+      "sha256": "b258ae1adb7bae319ddc7968b7b4f53828c59bac84e94d45206282d9ef466bd4"
+    },
+    {
+      "source": "Hipertensão gestacional e nutrição.md",
+      "destination": "Hipertensão gestacional e nutrição.md",
+      "bytes": 2359,
+      "sha256": "4a952374295a37b46280bb2e08619a91e36f4dc708f17ebf3638e77c019d24c8"
+    },
+    {
+      "source": "Hiponatremia.md",
+      "destination": "Hiponatremia.md",
+      "bytes": 3221,
+      "sha256": "49f34adf7fca7bffda978fabbc0bb818ed4dd25f2754a0a180325c675c32a6be"
+    },
+    {
+      "source": "Homeostase.md",
+      "destination": "Homeostase.md",
+      "bytes": 2529,
+      "sha256": "7ff74de8f5bebabb655e4422cc0dc7efc4d364c38ab2fd1226e9e9bdc864a7c3"
+    },
+    {
+      "source": "Idade gestacional.md",
+      "destination": "Idade gestacional.md",
+      "bytes": 6929,
+      "sha256": "f7f60d3e6419fcae1b658edb5e4072a55b70bf5d2ae0323804ba9e6ec6214e76"
+    },
+    {
+      "source": "IMC pré-gestacional.md",
+      "destination": "IMC pré-gestacional.md",
+      "bytes": 9243,
+      "sha256": "95f857183a59e04aff26d9af67cbdd565885df4069fe4a0f0724c8d1ab5d0edc"
+    },
+    {
+      "source": "Inibição enzimática.md",
+      "destination": "Inibição enzimática.md",
+      "bytes": 2598,
+      "sha256": "63fe6ad9d63ae8f773b8b50d1d6aa27fccb911693b2348c990f32af1c7697312"
+    },
+    {
+      "source": "Introdução alimentar.md",
+      "destination": "Introdução alimentar.md",
+      "bytes": 1996,
+      "sha256": "7e7961677986c0df5b5e476abf0d1427425b85cf5cdbcf7661dee28fba1b9707"
+    },
+    {
+      "source": "Janela anabólica.md",
+      "destination": "Janela anabólica.md",
+      "bytes": 7259,
+      "sha256": "700a883e79a8de7bdd26bd8e9626b4bf6f4576aaeeefa8ec30c9e8f94a8d5acb"
+    },
+    {
+      "source": "Lactogênese.md",
+      "destination": "Lactogênese.md",
+      "bytes": 9172,
+      "sha256": "cd043a8a500bcb070d15654f10a3933cbe0fb372dba6f4de6d51d3c4983bcc95"
+    },
+    {
+      "source": "Leite materno de transição.md",
+      "destination": "Leite materno de transição.md",
+      "bytes": 6734,
+      "sha256": "c7d4a7260220dcd94071dd0f37f1b9da353b274cabc7cc6dd6f46863b13bd21f"
+    },
+    {
+      "source": "Leite materno maduro.md",
+      "destination": "Leite materno maduro.md",
+      "bytes": 8490,
+      "sha256": "f03664c1a12ad5e7113c77c6770cdefbe0133510d6a5a73d0c02d43367390c46"
+    },
+    {
+      "source": "Leite materno.md",
+      "destination": "Leite materno.md",
+      "bytes": 2319,
+      "sha256": "b4de76142cde2f8b9ec5c8b4db62c37f47e55d658680d2a6fb723fa171d3bb3c"
+    },
+    {
+      "source": "Leucina.md",
+      "destination": "Leucina.md",
+      "bytes": 4402,
+      "sha256": "21e86211662b065b6adb28b1c9e6f91fcb818d9c0af8a02c7b9aebdb48cd9858"
+    },
+    {
+      "source": "Limiar anaeróbico.md",
+      "destination": "Limiar anaeróbico.md",
+      "bytes": 4565,
+      "sha256": "bda2cb51f382947d3cb01601df2eaaee96481f770e0c1c61df157d9613cc418c"
+    },
+    {
+      "source": "Limiar de lactato.md",
+      "destination": "Limiar de lactato.md",
+      "bytes": 3003,
+      "sha256": "c3f03910229bb46bd7c4235c8b42b0348ce73deb139ae74e01d8ed8efeca0329"
+    },
+    {
+      "source": "Lipólise aumentada na gestação.md",
+      "destination": "Lipólise aumentada na gestação.md",
+      "bytes": 8304,
+      "sha256": "7c863a2f41dd15a112b711cd093290c57674505c55e0816854e698856da20617"
+    },
+    {
+      "source": "Mamogênese.md",
+      "destination": "Mamogênese.md",
+      "bytes": 7069,
+      "sha256": "170c3b515fb068689b3268665dfb78e47faa4490272f3f69fda7a286591a906b"
+    },
+    {
+      "source": "Mediação.md",
+      "destination": "Mediação.md",
+      "bytes": 3963,
+      "sha256": "8a004cbb71205175c62d5fbe3df7b0ac5b900890bc972cc6368d6a40d1eab9a0"
+    },
+    {
+      "source": "Membrana plasmática.md",
+      "destination": "Membrana plasmática.md",
+      "bytes": 2612,
+      "sha256": "6b152dd4bc70d99ddc80ac1d6a9bec444815c66cf79c3e323787871cb35fc7d7"
+    },
+    {
+      "source": "Metabolismo.md",
+      "destination": "Metabolismo.md",
+      "bytes": 2683,
+      "sha256": "21dfe4ea097db506ae7b12c9eba99c1b62fa54cbbecafe6c4a0544c0249c7a65"
+    },
+    {
+      "source": "Modificador de efeito.md",
+      "destination": "Modificador de efeito.md",
+      "bytes": 3951,
+      "sha256": "a096dd588da1b035229f5e1eed43607c9da49dd8c61736e52d67fffb3dd8d814"
+    },
+    {
+      "source": "Necessidades nutricionais na gestação.md",
+      "destination": "Necessidades nutricionais na gestação.md",
+      "bytes": 2645,
+      "sha256": "2e6cd77985d38a20f5085c65035a44769d6a07d9dea85d70e7a1702f1c743c39"
+    },
+    {
+      "source": "Nutrição.md",
+      "destination": "Nutrição.md",
+      "bytes": 5853,
+      "sha256": "1538b1bf8941332243355340550ce663b1f3b956714d26c08288e2a1439283df"
+    },
+    {
+      "source": "Obesidade infantil.md",
+      "destination": "Obesidade infantil.md",
+      "bytes": 7974,
+      "sha256": "0b695094a240d4084a58a01e902017f623590dcb9f4bef0d06c36cc25a6bebd9"
+    },
+    {
+      "source": "Obesidade sarcopênica.md",
+      "destination": "Obesidade sarcopênica.md",
+      "bytes": 3639,
+      "sha256": "331b78f98eb5890a23e03376d8329b6a922156265a0e28a1ac3a66df4b995759"
+    },
+    {
+      "source": "Ontogênese.md",
+      "destination": "Ontogênese.md",
+      "bytes": 5986,
+      "sha256": "dbe5618f3e04b1a9acb7242d974a355b127b3d1ef897810ed024c82df1b74728"
+    },
+    {
+      "source": "Operações motivadoras.md",
+      "destination": "Operações motivadoras.md",
+      "bytes": 6747,
+      "sha256": "f37a981d91c089ada767a7020f632dff3154503ac511fda95bcb2bf002fef993"
+    },
+    {
+      "source": "Particionamento energético.md",
+      "destination": "Particionamento energético.md",
+      "bytes": 3415,
+      "sha256": "e4789415da07b0606208487c3bea3ec5e5d32068d8a17b47aab4c9b81a317245"
+    },
+    {
+      "source": "Pega adequada.md",
+      "destination": "Pega adequada.md",
+      "bytes": 7018,
+      "sha256": "4e092489c187e88a17c66239bc15d91bd40b2ea922e8a7cc778d781f6e9c540b"
+    },
+    {
+      "source": "Pequeno para idade gestacional (PIG).md",
+      "destination": "Pequeno para idade gestacional (PIG).md",
+      "bytes": 9881,
+      "sha256": "3f8758d49d110179ac35ea9bd57425d1fa9465457b1ae70e97715d61b337654f"
+    },
+    {
+      "source": "Prematuridade e nutrição.md",
+      "destination": "Prematuridade e nutrição.md",
+      "bytes": 2745,
+      "sha256": "f19f4b54b2d8c6f78b1603ca5cd3e3960dc79c562e86a3d17253ed33662c21bd"
+    },
+    {
+      "source": "Programação metabólica fetal.md",
+      "destination": "Programação metabólica fetal.md",
+      "bytes": 3698,
+      "sha256": "872ae1621e507dfe009e7b0823bded02971f605ce19e5cfcc726219253102ca7"
+    },
+    {
+      "source": "Ptialismo gravídico.md",
+      "destination": "Ptialismo gravídico.md",
+      "bytes": 6283,
+      "sha256": "de099273b7fedc8f8387fb064bf3868fae1af03d16cf552997dfb47b18dd1513"
+    },
+    {
+      "source": "Puerpério.md",
+      "destination": "Puerpério.md",
+      "bytes": 8695,
+      "sha256": "859421bcdc9f83d555fe2af69f47772f3fde41b0620e70d05cdc3c564fcfb87a"
+    },
+    {
+      "source": "Punição.md",
+      "destination": "Punição.md",
+      "bytes": 6222,
+      "sha256": "f27457886113d987a3fd9453654dab5bc4d237cb552d3b5e85618c53cf04585c"
+    },
+    {
+      "source": "Reforço.md",
+      "destination": "Reforço.md",
+      "bytes": 6574,
+      "sha256": "d104e11b30355d1f1de15ff8310515fbbbf9543eb0cb079c2e8c1f85498479f5"
+    },
+    {
+      "source": "Regressão à Média.md",
+      "destination": "Regressão à Média.md",
+      "bytes": 2929,
+      "sha256": "f1c6414024b251013a1a8f470fef3db40429474fa4d708abb3dc69586be9b465"
+    },
+    {
+      "source": "Resistência à insulina fisiológica na gestação.md",
+      "destination": "Resistência à insulina fisiológica na gestação.md",
+      "bytes": 7935,
+      "sha256": "c0ccc44694c84a291436f7df58eed1b647169521235fe7c2d00075ee1a74d28f"
+    },
+    {
+      "source": "Resistência anabólica.md",
+      "destination": "Resistência anabólica.md",
+      "bytes": 4106,
+      "sha256": "faf9e1d62a3cd9608bdb8151bc9813dab9515ef82bd4fb2f937b980d1f159631"
+    },
+    {
+      "source": "Resposta comportamental.md",
+      "destination": "Resposta comportamental.md",
+      "bytes": 5375,
+      "sha256": "5d2016a913b8b74bf0e3492d203404dde02e56d74a224c37727106e0b10df7bb"
+    },
+    {
+      "source": "Resposta inflamatória ao exercício.md",
+      "destination": "Resposta inflamatória ao exercício.md",
+      "bytes": 4807,
+      "sha256": "93bc1fde32ca8867f4b2adca595634ac1f36d39473e8e5fd3f3b8c0f06035f37"
+    },
+    {
+      "source": "Restrição de crescimento intrauterino.md",
+      "destination": "Restrição de crescimento intrauterino.md",
+      "bytes": 2782,
+      "sha256": "e4a6ae441e20f5ed4b8261ec2bfcdcc1443559b9ebb862cd1a896ad895415ed7"
+    },
+    {
+      "source": "Risco basal.md",
+      "destination": "Risco basal.md",
+      "bytes": 3680,
+      "sha256": "e2599dbeef2fe0ef691f28bff3f15d2a03cf44712d5a1b1eefe5b1c37d6d8e2a"
+    },
+    {
+      "source": "Saliva.md",
+      "destination": "Saliva.md",
+      "bytes": 6591,
+      "sha256": "b8571a3babfafa7d634d77cdca67c592d9ab5ffd9b5475facb3f1bf83bd98580"
+    },
+    {
+      "source": "Sarcopenia.md",
+      "destination": "Sarcopenia.md",
+      "bytes": 3963,
+      "sha256": "d644c6b213f2a2cbf088f179c9701b161989a4a8774affad1a285f24f71df514"
+    },
+    {
+      "source": "Segurança alimentar e nutricional na primeira infância.md",
+      "destination": "Segurança alimentar e nutricional na primeira infância.md",
+      "bytes": 2325,
+      "sha256": "c6192cbe2011951bd7f6a2cdcd4f4f7e79e1ca7ad65f18f605b8cc82429aaf21"
+    },
+    {
+      "source": "Seleção cultural.md",
+      "destination": "Seleção cultural.md",
+      "bytes": 6086,
+      "sha256": "2b740f3347ed3a44b182355f5eecc64d6c24de73d222de707d2a94a352d03865"
+    },
+    {
+      "source": "Síndrome de realimentação.md",
+      "destination": "Síndrome de realimentação.md",
+      "bytes": 3443,
+      "sha256": "17540a4a1d0bc81d6117634d09e09437ce361dac992257b7366fd1baceb5f7b5"
+    },
+    {
+      "source": "Síndrome RED-S (Relative Energy Deficiency in Sport).md",
+      "destination": "Síndrome RED-S (Relative Energy Deficiency in Sport).md",
+      "bytes": 3285,
+      "sha256": "e0252d9a48e6ef005d0b7f4d978e47044176d67b9c869f7db7d8319465784436"
+    },
+    {
+      "source": "Síntese proteica muscular.md",
+      "destination": "Síntese proteica muscular.md",
+      "bytes": 6888,
+      "sha256": "dbe298b1cd08eb4d4b6a06a854bcac68f7904a08b13d485a46b3e98f437205bf"
+    },
+    {
+      "source": "Sistema fosfagênio.md",
+      "destination": "Sistema fosfagênio.md",
+      "bytes": 4064,
+      "sha256": "6a459757816f9964d09a41c673067a882d2939fdc699e8db543e45586d6513e5"
+    },
+    {
+      "source": "Supercompensação de glicogênio.md",
+      "destination": "Supercompensação de glicogênio.md",
+      "bytes": 3464,
+      "sha256": "ea7b7e0619b0db41ea3206da7774249cc58ed9c0aa778d9bca45b74648694cb5"
+    },
+    {
+      "source": "Suplementação de ácido fólico.md",
+      "destination": "Suplementação de ácido fólico.md",
+      "bytes": 2728,
+      "sha256": "c9ab2876ade523ac4af3fb49897831d14b655dbcdaf95bb35ad8050e83a9d75c"
+    },
+    {
+      "source": "Suplementação de ferro na gestação.md",
+      "destination": "Suplementação de ferro na gestação.md",
+      "bytes": 2414,
+      "sha256": "57b39ceb85de624815e3c2241353f32a5189292327ececc400073b124b30c948"
+    },
+    {
+      "source": "Termogênese adaptativa.md",
+      "destination": "Termogênese adaptativa.md",
+      "bytes": 3822,
+      "sha256": "acc027400f32067ca6ab9f3d709f1ef9fcb75968d4ddecef302ff42510d63fe1"
+    },
+    {
+      "source": "Teste oral de tolerância à glicose (TOTG).md",
+      "destination": "Teste oral de tolerância à glicose (TOTG).md",
+      "bytes": 7989,
+      "sha256": "36c73702fbb70781215fd9e91d6047dff2b45760e1386f66f4d72ad331225d11"
+    },
+    {
+      "source": "Validade Externa.md",
+      "destination": "Validade Externa.md",
+      "bytes": 3325,
+      "sha256": "1241d2bcb7dc06155b33b881699adfd7f78dc6758b1a91b51b8dd82023fa400b"
+    },
+    {
+      "source": "Viés de causalidade reversa.md",
+      "destination": "Viés de causalidade reversa.md",
+      "bytes": 3352,
+      "sha256": "351ad329691ff558dd2113f2ab9ba3fa6457095fd0b886e3eef15009c9d7bcc5"
+    },
+    {
+      "source": "Viés de seleção.md",
+      "destination": "Viés de seleção.md",
+      "bytes": 3446,
+      "sha256": "a2d21ae37b9354b3940c84e7eef2e9d5567c9f1c25a9bda9be3ce12e23222494"
+    },
+    {
+      "source": "Viés de tempo imortal.md",
+      "destination": "Viés de tempo imortal.md",
+      "bytes": 3002,
+      "sha256": "216fb34cd8b5fcc9ab5406c215641e09a15527bf9a7510b34a31fde6ebdfc163"
+    },
+    {
+      "source": "Viés do usuário saudável.md",
+      "destination": "Viés do usuário saudável.md",
+      "bytes": 3080,
+      "sha256": "ea2633ca1bb4e934e9a79a479f0797a4d376e2eddeee8c68ba1d6312c6cf8814"
+    },
+    {
+      "source": "VO₂máx.md",
+      "destination": "VO₂máx.md",
+      "bytes": 3787,
+      "sha256": "89bd6a4592b82f7eb05132795b2e6b46a277853937d0957340405273ce09762a"
+    }
+  ]
+}
