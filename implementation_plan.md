@@ -29,7 +29,7 @@ Depois da auditoria, o checkout foi inicializado a partir do Quartz v5 na branch
 | 8 | Índices, filtros e paridade refinada | Busca/links/grafo comparados com o contrato | Concluída localmente; 827 ocorrências não resolvidas preservadas |
 | 9 | Testes e QA | typecheck/lint/test/build, links, console, acessibilidade, viewports e zoom | Gates automatizados principais concluídos; proxy de 200% passou; a11y/zoom nativo ainda abertos |
 | 10 | Publicação | GitHub/Vercel configuráveis e verificáveis; sem deploy não solicitado | Publicada e verificada em produção |
-| 11 | Experiência premium e Study Engine | shell próprio, onboarding, grafo explorável, estado local, sessões, revisão, trilhas, biblioteca e QA de interação | Implementada e verificada localmente; a rodada física atual aguarda publicação |
+| 11 | Experiência premium e Study Engine | shell próprio, onboarding, grafo explorável, estado local, sessões, revisão, trilhas, biblioteca e QA de interação | Implementada, verificada localmente e publicada com física D3 |
 
 ## Plano técnico
 
@@ -150,3 +150,7 @@ O armazenamento foi dividido por responsabilidade: `localStorage` guarda prefer�
 ## Publicação inicial verificada — 2026-09-01
 
 O commit `52b2c447dfe93ec2f63fb414cbec8b8f5a8745fa` foi enviado para `origin/main` e publicado na Vercel como `dpl_EdvX1fFKCPy8eb4Ptg2rVvmzYUZ2`, com estado `READY` e alias em `https://nutriwork-atlas.vercel.app/`. A produção confirmou a Home virtual em `/atlas/`, canonicals/OG limpos, rotas principais e assets derivados com HTTP 200, fallback 404, gate, onboarding, sessão/recall, tema, palette e grafo interativo sem erros de console.
+
+## Publicação da física D3 — 2026-09-01
+
+O commit `a0129d6` foi enviado para `origin/main` e publicado pela integração GitHub/Vercel como `dpl_GESgxGwzCSoYgq3Lm5UQQFkjkenu`, com estado `READY` e alias em `https://nutriwork-atlas.vercel.app/`. O smoke test público confirmou a presença da engine D3, 140 nós, 699 arestas, drag com reação física, hover preview, abertura de conceito, reload do grafo e console sem erros ou warnings.

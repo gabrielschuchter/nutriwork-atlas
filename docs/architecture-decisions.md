@@ -211,11 +211,16 @@ O runtime instalado em `node_modules/@quartz-community/graph` foi lido pelo sour
 **Motivo:** a navegação contextual é útil durante a leitura, mas o chrome padrão competia com as experiências principais e podia interceptar ações de modais em larguras intermediárias.
 **Consequência:** conceitos preservam a navegação empilhada; dashboards e experiências de estudo têm uma composição limpa, com foco, toque e modais previsíveis.
 
+## ADR-031 — Publicação da engine física do grafo
+
+**Estado:** concluído em 1º de setembro de 2026.
+**Decisão:** publicar o commit `a0129d6` pela integração GitHub/Vercel no projeto `nutriwork-atlas`, mantendo o domínio `https://nutriwork-atlas.vercel.app/` e a senha de desenvolvimento por autorização explícita. O deployment `dpl_GESgxGwzCSoYgq3Lm5UQQFkjkenu` foi conferido como `READY`.
+**Motivo:** a camada física D3 passou pelos gates automatizados, QA de interação em desktop/tablet/mobile e smoke test público, sem alterar o vault.
+**Consequência:** a produção agora usa `forceSimulation` local, drag/reheat/collision, zoom/pan, filtros e cleanup da nova implementação. Rotação futura da senha continua sendo um gate humano separado.
+
 ## Decisões ainda abertas
 
-- integração do repositório `https://github.com/gabrielschuchter/nutriwork-atlas` com um projeto Vercel;
-- domínio/base URL de produção;
-- senha/hash final e política de rotação;
+- senha/hash definitivo e política de rotação;
 - lockup e azul institucional definitivos do Atlas;
 - destino editorial dos DOCX e eventual política de rascunho;
 - tratamento humano dos 381 alvos de link não resolvido;
