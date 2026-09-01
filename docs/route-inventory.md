@@ -4,6 +4,8 @@
 
 O build emitiu **155 rotas funcionais**, além do fallback `404.html`. Cada rota abaixo foi consultada no servidor estático local; todas responderam 200. Uma rota inexistente de controle respondeu 404.
 
+Após a publicação de `52b2c447dfe93ec2f63fb414cbec8b8f5a8745fa`, a produção foi conferida em `https://nutriwork-atlas.vercel.app/`; as rotas principais e os assets derivados responderam 200, e uma rota inexistente respondeu 404.
+
 ## Entradas
 
 - `/`

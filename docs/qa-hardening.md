@@ -98,7 +98,7 @@ Quartz 5 continua sendo a base. Não foram adicionados serviços, banco, autenti
 
 - Comparação byte a byte do vault: 0 divergências; o agregado SHA-256 antes/depois foi `f57e56264b48b7f6d736be3b73453373e071065075de578c7ee9b555476515b9`.
 - Nenhum arquivo em `content/atlas/*.md` foi alterado.
-- Não foram encontrados referências de ambiente de desenvolvimento na configuração ou no output de produção; ocorrências restantes estão apenas em documentação e defaults upstream do Quartz para desenvolvimento.
+- O gate mantém, por autorização explícita do responsável em 1º de setembro de 2026, o hash da senha compartilhada de desenvolvimento `nutriwork-atlas-dev`; a barreira é client-side e oferece privacidade casual, não autenticação forte.
 - A varredura de marcadores de pendência nas áreas alteradas não encontrou itens abertos.
 - A revisão de segredos não encontrou credenciais reais no código alterado.
 
@@ -109,5 +109,5 @@ Quartz 5 continua sendo a base. Não foram adicionados serviços, banco, autenti
 - O Chromium headless não aplicou os atalhos de zoom do navegador; a matriz de viewports cobre responsividade CSS, não substitui uma conferência manual de zoom real em 200%.
 - Não foi instalado um auditor automatizado WCAG; contraste foi verificado por tokens/computed style, inspeção visual e teclado.
 - O conector Browser embutido falhou ao iniciar nesta máquina; a validação foi executada pelo Playwright CLI local.
-- O gate continua usando o hash local/dev já existente no projeto; a credencial definitiva deve ser definida pelo responsável antes de uma abertura pública.
-- O snapshot público consultado respondeu 200 para Home, Atlas, conceito, grafo, índice e `robots.txt`, e 404 para uma rota inexistente. Ele ainda exibia o endereço social legado com sufixo de índice e não refletia os ajustes locais de canonical; não foi redeployado nesta etapa porque não houve push após o QA. Após publicar, repetir smoke de deep links, assets, console, metadados e gate.
+- O gate continua usando, por autorização explícita, o hash client-side da senha compartilhada de desenvolvimento; qualquer uso além de privacidade casual requer uma camada de autenticação apropriada.
+- O deployment de produção `dpl_EdvX1fFKCPy8eb4Ptg2rVvmzYUZ2` foi publicado em `https://nutriwork-atlas.vercel.app/` com estado `READY`. A verificação pública confirmou `/`, `/atlas/`, `/hoje`, `/revisar`, `/trilhas`, `/biblioteca`, `/grafo`, `/atlas/atp`, `/mapa-do-atlas`, os dois assets derivados e `robots.txt` com HTTP 200; uma rota inexistente respondeu 404. O snapshot público não apresenta mais `page-listing` em `/atlas/`, e os canonicals/OG apontam para as rotas limpas.

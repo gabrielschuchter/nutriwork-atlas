@@ -56,7 +56,7 @@ Não foi localizada uma publicação atual do Atlas nem um repositório existent
 2. **Concluído localmente:** build com 140 notas do vault; 153 Markdown processados, 356 arquivos emitidos pelo Quartz e scanner SHA-256 aprovado.
 3. **Concluído localmente:** Search, backlinks, Graph, tema, auth, navegação, console e responsividade em mobile, tablet e desktop.
 4. **Concluído com pendência editorial:** 827 ocorrências referentes a 381 alvos não resolvidos foram preservadas e não receberam autofix.
-5. **Aberto:** comparação visual/funcional com uma sessão real do Obsidian Publish, auditoria automatizada WCAG, zoom nativo de 200% e verificação em produção. O proxy de viewport CSS em 640 px passou sem overflow.
+5. **Aberto:** comparação visual/funcional com uma sessão real do Obsidian Publish, auditoria automatizada WCAG e zoom nativo de 200%. A verificação pública do deployment atual foi concluída; o proxy de viewport CSS em 640 px passou sem overflow.
 
 ## Evidência da execução atual
 
@@ -99,4 +99,12 @@ Não foi localizada uma publicação atual do Atlas nem um repositório existent
 | Mapa do Atlas | conceitos, conexões, áreas, componentes, lacunas, órfãs/periféricas e hubs | `/mapa-do-atlas` renderizou as seções e métricas |
 | Superfície pública | labels em português; metadados internos fora do corpo | inspeção de `body.innerText` sem rótulos técnicos internos |
 
-O índice atual tem 140 conceitos, 1.106 conexões, 381 alvos não resolvidos, 7 áreas e 4 componentes. Os links não resolvidos seguem sendo diagnóstico editorial e não recebem autofix. A auditoria formal contra Obsidian Publish real, WCAG automatizada e produção autenticada continuam fora da evidência local.
+O índice atual tem 140 conceitos, 1.106 conexões, 381 alvos não resolvidos, 7 áreas e 4 componentes. Os links não resolvidos seguem sendo diagnóstico editorial e não recebem autofix. A auditoria formal contra Obsidian Publish real e WCAG automatizada continuam fora da evidência local; a produção pública atual foi verificada separadamente.
+
+## Publicação verificada — 2026-09-01
+
+- Commit publicado: `52b2c447dfe93ec2f63fb414cbec8b8f5a8745fa` em `origin/main`.
+- Deployment Vercel: `dpl_EdvX1fFKCPy8eb4Ptg2rVvmzYUZ2`, estado `READY`, com alias em `https://nutriwork-atlas.vercel.app/`.
+- O `/atlas/` público agora é a Home virtual de estudo e não contém o `page-listing` legado; canonical e `og:url` foram conferidos nas rotas limpas.
+- Rotas principais, assets derivados (`atlas-index.json` e `learning-paths.json`) e `robots.txt` responderam HTTP 200; rota inexistente de controle respondeu 404.
+- Playwright em produção confirmou gate, onboarding, sessão Active Recall, avaliação, reload, tema persistente, busca Ctrl/Cmd+K, Graph Recall, grafo com 140 nós e seis sliders; o console permaneceu sem erros.

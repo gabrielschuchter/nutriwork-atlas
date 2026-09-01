@@ -1,7 +1,7 @@
 # Nutriwork Atlas — plano de implementação
 
 **Data da auditoria:** 2026-08-31  
-**Estado:** Fases 0–5, 7 e 8 executadas localmente; a evolução da experiência de estudo e a nova camada visual do Atlas estão implementadas no working tree; os gates finais de QA e a publicação continuam separados e sem autorização implícita.
+**Estado:** Fases 0–5, 7 e 8, a evolução da experiência de estudo, a nova camada visual do Atlas e a publicação inicial foram executadas; os gates externos de WCAG automatizada, comparação com Obsidian Publish e zoom nativo continuam separados.
 **Destino local planejado:** `C:\Users\gabsc\Documents\Codex\nutriwork-atlas`
 
 ## Resultado executivo da auditoria e da execução atual
@@ -28,8 +28,8 @@ Depois da auditoria, o checkout foi inicializado a partir do Quartz v5 na branch
 | 7 | Importação completa | 140 notas importadas por sync determinístico; DOCX/admin excluídos | Concluída |
 | 8 | Índices, filtros e paridade refinada | Busca/links/grafo comparados com o contrato | Concluída localmente; 827 ocorrências não resolvidas preservadas |
 | 9 | Testes e QA | typecheck/lint/test/build, links, console, acessibilidade, viewports e zoom | Gates automatizados principais concluídos; proxy de 200% passou; a11y/zoom nativo ainda abertos |
-| 10 | Publicação | GitHub/Vercel configuráveis e verificáveis; sem deploy não solicitado | Preparada; gates humanos abertos |
-| 11 | Experiência premium e Study Engine | shell próprio, onboarding, grafo explorável, estado local, sessões, revisão, trilhas, biblioteca e QA de interação | Implementada localmente; validação final desta rodada em andamento |
+| 10 | Publicação | GitHub/Vercel configuráveis e verificáveis; sem deploy não solicitado | Publicada e verificada em produção |
+| 11 | Experiência premium e Study Engine | shell próprio, onboarding, grafo explorável, estado local, sessões, revisão, trilhas, biblioteca e QA de interação | Implementada, publicada e verificada |
 
 ## Plano técnico
 
@@ -55,9 +55,9 @@ Depois da auditoria, o checkout foi inicializado a partir do Quartz v5 na branch
 
 ## Riscos e gates humanos
 
-- O remoto GitHub do Atlas está confirmado em `https://github.com/gabrielschuchter/nutriwork-atlas`; nesta etapa não há autorização para commit, push ou deploy.
-- Nenhuma senha de produção foi fornecida. O mecanismo pode ser implementado, mas o hash final deve ser definido antes de uma publicação.
-- URL de produção verificada: `https://nutriwork-atlas.vercel.app/`; a integração GitHub/Vercel continua sendo responsabilidade operacional do projeto.
+- O remoto GitHub do Atlas está confirmado em `https://github.com/gabrielschuchter/nutriwork-atlas`; o commit `52b2c447dfe93ec2f63fb414cbec8b8f5a8745fa` foi enviado para `main`.
+- A senha compartilhada de desenvolvimento `nutriwork-atlas-dev` foi mantida por autorização explícita; o mecanismo segue sendo uma barreira client-side de privacidade casual.
+- URL de produção verificada: `https://nutriwork-atlas.vercel.app/`; o deployment Vercel `dpl_EdvX1fFKCPy8eb4Ptg2rVvmzYUZ2` está `READY`.
 - Os 827 links não resolvidos precisam de triagem editorial posterior; não são autorização para editar as notas.
 - Direitos de uso, nomes oficiais do lockup e eventual otimização dos SVGs precisam de validação humana.
 
@@ -72,7 +72,7 @@ Depois da auditoria, o checkout foi inicializado a partir do Quartz v5 na branch
 - QA headless em `390x844`, `640x800` (proxy de viewport CSS para zoom de 200%) e `1280x800`: autenticação inválida/válida/logout, Search `ATP` → `ADP`, Explorer mobile, tema claro/escuro, Graph local/global, fallback textual e ausência de overflow horizontal. Contrastes finais medidos: texto escuro 13,63, título 19,39, link 10,40; tema claro com texto 5,80 e link 4,74.
 - Console: 0 erros; permanecem apenas 2 avisos padrão de preload do Quartz.
 
-Ainda não foram executadas auditoria automatizada WCAG completa, comparação com uma sessão real do Obsidian Publish, verificação em produção ou teste do zoom nativo do navegador em 200%; o viewport CSS equivalente de 640 px passou sem overflow. Esses itens continuam gates de QA/publicação, não são declarados como concluídos.
+Naquele ponto ainda não haviam sido executadas auditoria automatizada WCAG completa, comparação com uma sessão real do Obsidian Publish, verificação em produção ou teste do zoom nativo do navegador em 200%; o viewport CSS equivalente de 640 px passou sem overflow. A verificação em produção foi concluída posteriormente; WCAG, comparação Publish e zoom nativo continuam gates externos.
 
 ## Evidência consultada
 
@@ -147,4 +147,6 @@ O grafo próprio em SVG fica em `plugins/atlas-study-engine/client/graph.js`: el
 
 O armazenamento foi dividido por responsabilidade: `localStorage` guarda preferências de baixa complexidade, enquanto IndexedDB guarda a entidade de estudo. O contrato foi versionado e inclui um adaptador de revisão determinístico, pronto para uma integração futura com FSRS sem acoplar o scheduler à interface. `data/learning-paths.json` permanece externo ao vault e é copiado para `static/` pelo emitter durante o build.
 
-Nenhum commit, push ou deploy foi executado nesta rodada. A URL pública continua representando uma versão anterior ao working tree e precisa ser verificada novamente somente depois de uma publicação autorizada.
+## Publicação inicial verificada — 2026-09-01
+
+O commit `52b2c447dfe93ec2f63fb414cbec8b8f5a8745fa` foi enviado para `origin/main` e publicado na Vercel como `dpl_EdvX1fFKCPy8eb4Ptg2rVvmzYUZ2`, com estado `READY` e alias em `https://nutriwork-atlas.vercel.app/`. A produção confirmou a Home virtual em `/atlas/`, canonicals/OG limpos, rotas principais e assets derivados com HTTP 200, fallback 404, gate, onboarding, sessão/recall, tema, palette e grafo interativo sem erros de console.

@@ -44,8 +44,8 @@ plugins:
   - source: "@nutriwork/atlas-access"
     enabled: true
     options:
-      # SHA-256 of the local/dev phrase "nutriwork-atlas-dev". Replace before
-      # any real publication; the hash is client-visible by design.
+      # SHA-256 of the shared development phrase "nutriwork-atlas-dev". This is
+      # a client-visible casual privacy gate, not strong authentication.
       passwordHash: 8546caeab1389bb18a5ffd7923802fe181434e69ca868010f83d92c65f7b4cb4
       storageKey: nutriwork-atlas-access
     order: 5

@@ -16,3 +16,6 @@ quartz/cli/tui/dist/
 tmp/
 output/
 .playwright-cli/
+
+.vercel
+.env*
