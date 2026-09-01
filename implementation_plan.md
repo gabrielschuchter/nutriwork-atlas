@@ -56,7 +56,7 @@ Depois da auditoria, o checkout foi inicializado a partir do Quartz v5 na branch
 
 - O remoto GitHub do Atlas está confirmado em `https://github.com/gabrielschuchter/nutriwork-atlas`; push somente mediante instrução explícita, já concedida para esta entrega.
 - Nenhuma senha de produção foi fornecida. O mecanismo pode ser implementado, mas o hash final deve ser definido antes de uma publicação.
-- Não há URL de produção do Atlas a verificar.
+- URL de produção verificada: `https://nutriwork-atlas.vercel.app/`; a integração GitHub/Vercel continua sendo responsabilidade operacional do projeto.
 - Os 827 links não resolvidos precisam de triagem editorial posterior; não são autorização para editar as notas.
 - Direitos de uso, nomes oficiais do lockup e eventual otimização dos SVGs precisam de validação humana.
 
@@ -94,4 +94,4 @@ A rodada corretiva solicitada após a inspeção visual foi concluída no checko
 - `vercel.json` agora declara `cleanUrls: true`, mantendo os arquivos estáticos `.html` no output e expondo as rotas limpas usadas pelos links do site;
 - o build final local processou as 141 entradas Markdown, e a execução nova no servidor local confirmou `/atlas/metabolismo` com conteúdo real, breadcrumb `Início`, busca sem resultados em português, grafo global rotulado em português e zero erros de console;
 - a inspeção em 1280 px, 390 px e 320 px confirmou `document.scrollWidth === viewport` e nenhum link visível do Explorer ultrapassando a viewport; o build continua sujeito aos avisos de fallback de fonte do ambiente sem acesso ao Google Fonts;
-- o remoto foi definido como `https://github.com/gabrielschuchter/nutriwork-atlas`. A confirmação de HTTP em produção fica para depois do push e da execução/integração da Vercel.
+- o remoto foi definido como `https://github.com/gabrielschuchter/nutriwork-atlas`; após o push, a Vercel confirmou HTTP 200 na raiz e em `/atlas/metabolismo`, e o navegador confirmou o conteúdo protegido e o fluxo de navegação.

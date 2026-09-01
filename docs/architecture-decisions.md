@@ -121,7 +121,7 @@ O `noindex, nofollow, noarchive` é injetado no `<head>` pelo hook de recursos d
 **Estado:** aceito.
 **Decisão:** manter os arquivos `.html` gerados pelo Quartz e declarar `cleanUrls: true` no `vercel.json`, tratando `/atlas/metabolismo` como contrato público equivalente a `atlas/metabolismo.html`.
 **Motivo:** os links internos do Quartz e do Explorer usam rotas limpas; sem essa configuração, a hospedagem estática pode responder 404 para o caminho sem extensão embora o arquivo exista.
-**Consequência:** nenhuma alteração no core do Quartz é necessária. A confirmação final depende de uma implantação Vercel ativa; localmente, a rota limpa foi exercitada com conteúdo real.
+**Consequência:** nenhuma alteração no core do Quartz é necessária. A rota limpa foi exercitada localmente e, após o push, confirmada na Vercel com HTTP 200 e conteúdo real em `/atlas/metabolismo`.
 
 ## Decisões ainda abertas
 

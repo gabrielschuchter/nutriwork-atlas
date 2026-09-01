@@ -73,4 +73,4 @@ Não foi localizada uma publicação atual do Atlas nem um repositório existent
 - O painel visual de propriedades foi ocultado sem remover o parser de frontmatter; assim, campos como `description` não aparecem para o visitante e continuam disponíveis para metadados da página.
 - A interface pública não exibe mais a frase técnica sobre conteúdo científico, cópia byte a byte, manifesto SHA-256 ou detalhes equivalentes de produção. O rodapé padrão e rótulos de interface em inglês foram substituídos por texto público em português.
 - O Explorer foi validado aberto e fechado em 320 px e 390 px, com nomes longos quebrando dentro da largura disponível; não há regra customizada de `prefers-reduced-motion`.
-- `vercel.json` usa `cleanUrls: true`; a execução local confirmou que `/atlas/metabolismo` abre a página real e não somente `/atlas/metabolismo.html`. O HTTP da implantação Vercel ainda deve ser confirmado depois do push e da integração do projeto.
+- `vercel.json` usa `cleanUrls: true`; a execução local e a implantação em `https://nutriwork-atlas.vercel.app/` confirmaram HTTP 200 em `/atlas/metabolismo`, que abre a página real e não somente `/atlas/metabolismo.html`.
