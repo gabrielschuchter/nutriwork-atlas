@@ -75,10 +75,10 @@ export const AtlasFrame: PageFrame = {
                 type="button"
                 data-atlas-action="open-onboarding"
                 aria-label="Reabrir introdução do Atlas"
-                title="Reabrir introdução"
+                title="Como funciona?"
               >
                 <span aria-hidden="true">?</span>
-                <span class="atlas-control-label">Ajuda</span>
+                <span class="atlas-control-label">Como funciona?</span>
               </button>
             ) : null}
             {isNote ? (
@@ -230,6 +230,12 @@ AtlasFrame.css = `
   --atlas-muted: #94A3B8;
   --atlas-line: rgba(142, 185, 255, .18);
   --atlas-line-strong: rgba(142, 185, 255, .32);
+  --atlas-glass: rgba(6, 15, 32, .34);
+  --atlas-glass-soft: rgba(7, 16, 35, .18);
+  --atlas-glass-strong: rgba(7, 16, 35, .56);
+  --atlas-glass-line: rgba(220, 235, 255, .16);
+  --atlas-glass-highlight: rgba(255, 255, 255, .13);
+  --atlas-glass-shadow: 0 18px 52px rgba(0, 0, 0, .24), inset 0 1px 0 rgba(255, 255, 255, .12), inset 1px 0 0 rgba(255, 255, 255, .055);
   --atlas-blue: #1263FF;
   --atlas-blue-bright: #29A8FF;
   --atlas-blue-soft: #8EB9FF;
@@ -245,6 +251,12 @@ AtlasFrame.css = `
   --atlas-muted: #6E7F95;
   --atlas-line: rgba(18, 99, 255, .16);
   --atlas-line-strong: rgba(18, 99, 255, .3);
+  --atlas-glass: rgba(247, 250, 255, .48);
+  --atlas-glass-soft: rgba(255, 255, 255, .26);
+  --atlas-glass-strong: rgba(247, 250, 255, .68);
+  --atlas-glass-line: rgba(255, 255, 255, .7);
+  --atlas-glass-highlight: rgba(255, 255, 255, .92);
+  --atlas-glass-shadow: 0 18px 48px rgba(30, 62, 110, .14), inset 0 1px 0 rgba(255, 255, 255, .92), inset 1px 0 0 rgba(255, 255, 255, .58);
   --atlas-shadow: 0 18px 45px rgba(30, 62, 110, .12);
 }
 
@@ -338,11 +350,12 @@ canvas:focus-visible {
 
 .atlas-navbar {
   align-items: center;
-  backdrop-filter: blur(18px) saturate(135%);
-  background: var(--atlas-surface);
-  border: 1px solid var(--atlas-line);
+  -webkit-backdrop-filter: blur(26px) saturate(148%);
+  backdrop-filter: blur(26px) saturate(148%);
+  background: linear-gradient(145deg, rgba(255, 255, 255, .075), transparent 42%), var(--atlas-glass);
+  border: 1px solid var(--atlas-glass-line);
   border-radius: 999px;
-  box-shadow: var(--atlas-shadow);
+  box-shadow: var(--atlas-glass-shadow);
   display: flex;
   gap: .8rem;
   left: 50%;
@@ -402,16 +415,17 @@ canvas:focus-visible {
 
 .atlas-search-field {
   align-items: center;
-  background: rgba(1, 2, 6, .18);
-  border: 1px solid var(--atlas-line);
+  background: var(--atlas-glass-soft);
+  border: 1px solid var(--atlas-glass-line);
   border-radius: 999px;
+  box-shadow: inset 0 1px 0 color-mix(in srgb, var(--atlas-glass-highlight) 72%, transparent);
   display: flex;
   flex: 1 1 15rem;
   min-width: 7rem;
 }
 
 :root[data-theme="light"] .atlas-search-field {
-  background: rgba(244, 247, 252, .68);
+  background: rgba(255, 255, 255, .34);
 }
 
 .atlas-search-icon {
@@ -437,9 +451,10 @@ canvas:focus-visible {
 }
 
 .atlas-graph-filters select {
-  background: transparent;
-  border: 1px solid var(--atlas-line);
+  background: var(--atlas-glass-soft);
+  border: 1px solid var(--atlas-glass-line);
   border-radius: 999px;
+  box-shadow: inset 0 1px 0 color-mix(in srgb, var(--atlas-glass-highlight) 72%, transparent);
   color: var(--atlas-copy);
   cursor: pointer;
   min-height: 2.35rem;
@@ -478,8 +493,9 @@ canvas:focus-visible {
 
 .atlas-nav-button:hover,
 .atlas-icon-button:hover {
-  background: color-mix(in srgb, var(--atlas-blue) 11%, transparent);
-  border-color: var(--atlas-line);
+  background: color-mix(in srgb, var(--atlas-glass-highlight) 42%, transparent);
+  border-color: var(--atlas-glass-line);
+  box-shadow: inset 0 1px 0 color-mix(in srgb, var(--atlas-glass-highlight) 78%, transparent);
   color: var(--atlas-ink);
 }
 
@@ -512,10 +528,12 @@ canvas:focus-visible {
 
 .atlas-reopen-nav {
   align-items: center;
-  background: var(--atlas-surface-strong);
-  border: 1px solid var(--atlas-line);
+  -webkit-backdrop-filter: blur(24px) saturate(145%);
+  backdrop-filter: blur(24px) saturate(145%);
+  background: linear-gradient(145deg, rgba(255, 255, 255, .075), transparent 48%), var(--atlas-glass);
+  border: 1px solid var(--atlas-glass-line);
   border-radius: 999px;
-  box-shadow: var(--atlas-shadow);
+  box-shadow: var(--atlas-glass-shadow);
   color: var(--atlas-ink);
   cursor: pointer;
   display: flex;
@@ -608,9 +626,12 @@ canvas:focus-visible {
 }
 
 .atlas-graph-list summary {
-  background: var(--atlas-surface);
-  border: 1px solid var(--atlas-line);
+  -webkit-backdrop-filter: blur(22px) saturate(145%);
+  backdrop-filter: blur(22px) saturate(145%);
+  background: linear-gradient(145deg, rgba(255, 255, 255, .07), transparent 48%), var(--atlas-glass);
+  border: 1px solid var(--atlas-glass-line);
   border-radius: 999px;
+  box-shadow: var(--atlas-glass-shadow);
   cursor: pointer;
   padding: .55rem .8rem;
 }
@@ -620,14 +641,59 @@ canvas:focus-visible {
 }
 
 .atlas-graph-list-items {
-  background: var(--atlas-surface-strong);
-  border: 1px solid var(--atlas-line);
+  background: var(--atlas-glass-strong);
+  border: 1px solid var(--atlas-glass-line);
   border-top: 0;
   list-style: decimal;
   margin: 0;
   max-height: 15rem;
   overflow: auto;
   padding: .65rem .8rem .65rem 2rem;
+}
+
+.atlas-map-controls {
+  -webkit-backdrop-filter: blur(24px) saturate(148%);
+  backdrop-filter: blur(24px) saturate(148%);
+  background: linear-gradient(145deg, rgba(255, 255, 255, .075), transparent 48%), var(--atlas-glass);
+  border: 1px solid var(--atlas-glass-line);
+  border-radius: 999px;
+  bottom: 1rem;
+  box-shadow: var(--atlas-glass-shadow);
+  display: flex;
+  overflow: hidden;
+  position: absolute;
+  right: 1rem;
+  z-index: 4;
+}
+
+.atlas-map-control {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  border-right: 1px solid color-mix(in srgb, var(--atlas-glass-line) 72%, transparent);
+  color: var(--atlas-copy);
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 1rem;
+  height: 2.75rem;
+  justify-content: center;
+  padding: 0;
+  transition: background-color 160ms ease, color 160ms ease;
+  width: 2.75rem;
+}
+
+.atlas-map-control:last-child {
+  border-right: 0;
+}
+
+.atlas-map-control:hover {
+  background: color-mix(in srgb, var(--atlas-glass-highlight) 45%, transparent);
+  color: var(--atlas-ink);
+}
+
+.atlas-map-control[data-atlas-graph-action="fit"] {
+  color: var(--atlas-blue-soft);
+  font-size: .82rem;
 }
 
 .atlas-concept-list-link {
@@ -912,6 +978,11 @@ canvas:focus-visible {
   .atlas-graph-list {
     bottom: .65rem;
     left: .65rem;
+  }
+
+  .atlas-map-controls {
+    bottom: .65rem;
+    right: .65rem;
   }
 }
 

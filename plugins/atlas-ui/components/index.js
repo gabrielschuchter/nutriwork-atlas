@@ -195,10 +195,12 @@ html[data-atlas-access="unlocked"] #atlas-access {
 }
 
 #atlas-preview {
-  background: rgba(7, 16, 35, .92);
-  border: 1px solid rgba(142, 185, 255, .25);
+  -webkit-backdrop-filter: blur(26px) saturate(148%);
+  backdrop-filter: blur(26px) saturate(148%);
+  background: linear-gradient(145deg, rgba(255, 255, 255, .075), transparent 46%), var(--atlas-glass, rgba(7, 16, 35, .4));
+  border: 1px solid var(--atlas-glass-line, rgba(220, 235, 255, .16));
   border-radius: 18px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, .3);
+  box-shadow: var(--atlas-glass-shadow, 0 20px 50px rgba(0, 0, 0, .3));
   color: #F5F7FF;
   max-width: calc(100vw - 2rem);
   opacity: 0;
@@ -208,7 +210,6 @@ html[data-atlas-access="unlocked"] #atlas-access {
   transform: translateY(6px);
   transition: opacity 140ms ease, transform 140ms ease;
   z-index: 9000;
-  backdrop-filter: blur(16px);
 }
 
 #atlas-preview .atlas-preview-open {
@@ -290,10 +291,12 @@ html[data-atlas-access="unlocked"] #atlas-access {
 }
 
 .atlas-onboarding-card {
-  background: rgba(7, 16, 35, .94);
-  border: 1px solid rgba(142, 185, 255, .24);
+  -webkit-backdrop-filter: blur(28px) saturate(145%);
+  backdrop-filter: blur(28px) saturate(145%);
+  background: linear-gradient(145deg, rgba(255, 255, 255, .075), transparent 46%), var(--atlas-glass-strong, rgba(7, 16, 35, .58));
+  border: 1px solid var(--atlas-glass-line, rgba(220, 235, 255, .16));
   border-radius: 24px;
-  box-shadow: 0 24px 90px rgba(0, 0, 0, .36);
+  box-shadow: var(--atlas-glass-shadow, 0 24px 90px rgba(0, 0, 0, .36));
   color: #F5F7FF;
   max-width: 34rem;
   padding: clamp(1.2rem, 4vw, 2rem);
@@ -385,6 +388,23 @@ html[data-atlas-access="unlocked"] #atlas-access {
   transform-origin: left;
   transition: transform 180ms ease;
   width: 100%;
+}
+
+:root[data-theme="light"] #atlas-preview,
+:root[data-theme="light"] .atlas-onboarding-card {
+  color: #07152A;
+}
+
+:root[data-theme="light"] .atlas-preview-excerpt,
+:root[data-theme="light"] .atlas-onboarding-step p,
+:root[data-theme="light"] .atlas-onboarding-skip {
+  color: #526277;
+}
+
+:root[data-theme="light"] .atlas-preview-kicker,
+:root[data-theme="light"] .atlas-preview-area,
+:root[data-theme="light"] .atlas-onboarding-header {
+  color: #1263FF;
 }
 
 .atlas-visually-hidden {

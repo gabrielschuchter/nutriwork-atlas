@@ -349,6 +349,55 @@
     scheduleDraw(state)
   }
 
+  function animateCameraTo(state, target, userCamera) {
+    if (state.cameraAnimationFrame) window.cancelAnimationFrame(state.cameraAnimationFrame)
+    const start = { ...state.camera }
+    const startedAt = performance.now()
+    const duration = 220
+    const tick = (now) => {
+      if (state.destroyed) return
+      const progress = clamp((now - startedAt) / duration, 0, 1)
+      const eased = 1 - Math.pow(1 - progress, 3)
+      state.camera = {
+        x: start.x + (target.x - start.x) * eased,
+        y: start.y + (target.y - start.y) * eased,
+        scale: start.scale + (target.scale - start.scale) * eased,
+      }
+      scheduleDraw(state)
+      if (progress < 1) {
+        state.cameraAnimationFrame = window.requestAnimationFrame(tick)
+      } else {
+        state.cameraAnimationFrame = 0
+        state.userCamera = userCamera
+        persist()
+      }
+    }
+    state.cameraAnimationFrame = window.requestAnimationFrame(tick)
+  }
+
+  function animateZoom(state, factor) {
+    const point = { x: state.width / 2, y: state.height / 2 }
+    const world = screenToWorld(state, point.x, point.y)
+    const scale = clamp(state.camera.scale * factor, 0.12, 3.2)
+    animateCameraTo(
+      state,
+      {
+        x: world.x - point.x / scale,
+        y: world.y - point.y / scale,
+        scale,
+      },
+      true,
+    )
+  }
+
+  function animateFit(state) {
+    const start = { ...state.camera }
+    fitAll(state)
+    const target = { ...state.camera }
+    state.camera = start
+    animateCameraTo(state, target, false)
+  }
+
   function handleWheel(state, event) {
     const point = localPoint(state, event)
     zoomAt(state, point, Math.exp(-event.deltaY * 0.0012))
@@ -389,6 +438,35 @@
       details.dataset.ready = "true"
     })
     state.mount.appendChild(details)
+  }
+
+  function addMapControls(state) {
+    if (state.mode !== "explore") return
+    const controls = make("div", "atlas-map-controls")
+    controls.setAttribute("aria-label", "Controles de zoom do grafo")
+    const definitions = [
+      ["zoom-out", "−", "Diminuir zoom"],
+      ["fit", "○", "Reenquadrar grafo"],
+      ["zoom-in", "+", "Aumentar zoom"],
+    ]
+    for (const [action, label, accessibleLabel] of definitions) {
+      const control = make("button", "atlas-map-control", label)
+      control.type = "button"
+      control.dataset.atlasGraphAction = action
+      control.setAttribute("aria-label", accessibleLabel)
+      control.title = accessibleLabel
+      controls.appendChild(control)
+    }
+    const onClick = (event) => {
+      const control = event.target instanceof Element ? event.target.closest("button") : null
+      const action = control?.dataset.atlasGraphAction
+      if (action === "zoom-out") animateZoom(state, 0.82)
+      else if (action === "zoom-in") animateZoom(state, 1.2)
+      else if (action === "fit") animateFit(state)
+    }
+    controls.addEventListener("click", onClick)
+    state.cleanups.push(() => controls.removeEventListener("click", onClick))
+    state.mount.appendChild(controls)
   }
 
   function buildScene(state) {
@@ -482,6 +560,7 @@
       simulationDone: false,
       pointer: null,
       frame: 0,
+      cameraAnimationFrame: 0,
       destroyed: false,
       cleanups: [],
       emptyMessage: null,
@@ -513,6 +592,7 @@
     }
     mount.append(empty)
     addAccessibleList(state)
+    addMapControls(state)
 
     const onPointerDown = (event) => beginPointer(state, event)
     const onPointerMove = (event) => movePointer(state, event)
@@ -556,6 +636,7 @@
   function destroyState(state) {
     state.destroyed = true
     if (state.frame) window.cancelAnimationFrame(state.frame)
+    if (state.cameraAnimationFrame) window.cancelAnimationFrame(state.cameraAnimationFrame)
     state.physics?.simulation.stop()
     for (const cleanup of state.cleanups) cleanup()
     state.mount.replaceChildren()
