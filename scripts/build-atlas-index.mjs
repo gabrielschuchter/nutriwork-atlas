@@ -74,16 +74,26 @@ function targetToSlug(target) {
   return normalizeSlug(cleaned.includes("/") ? cleaned : "atlas/" + cleaned)
 }
 
+function titleFromTarget(target) {
+  const cleaned = String(target ?? "")
+    .trim()
+    .replace(/\\/g, "/")
+    .replace(/\.md$/i, "")
+  const basename = cleaned.split("/").filter(Boolean).pop() || cleaned
+  return basename.replace(/[-_]+/g, " ").trim() || "Termo sem título"
+}
+
 function extractLinks(body) {
   const links = []
   const pattern = /!?\[\[([^\]]+)\]\]/g
   let match
   while ((match = pattern.exec(body)) !== null) {
     const parts = match[1].split("|")
-    const slug = targetToSlug(parts[0].split("#")[0])
-    if (slug) links.push(slug)
+    const target = parts[0].split("#")[0].trim()
+    const slug = targetToSlug(target)
+    if (slug) links.push({ slug, title: titleFromTarget(target) })
   }
-  return unique(links)
+  return [...new Map(links.map((link) => [link.slug, link])).values()]
 }
 
 function classifyArea(title, areaConfig) {
@@ -126,13 +136,35 @@ const documents = await Promise.all(
 )
 
 documents.sort((left, right) => left.title.localeCompare(right.title, "pt-BR"))
-const nodesBySlug = new Map(documents.map((document) => [document.slug, document]))
-const outgoing = new Map(documents.map((document) => [document.slug, new Set()]))
-const incoming = new Map(documents.map((document) => [document.slug, new Set()]))
+const publishedSlugs = new Set(documents.map((document) => document.slug))
+const developmentTerms = new Map()
+for (const document of documents) {
+  for (const link of document.links) {
+    if (!publishedSlugs.has(link.slug) && !developmentTerms.has(link.slug)) {
+      developmentTerms.set(link.slug, link.title)
+    }
+  }
+}
+
+const developmentDocuments = [...developmentTerms.entries()]
+  .map(([slug, title]) => ({
+    slug,
+    title,
+    area: classifyArea(title, areaConfig),
+    excerpt: "Este termo está em desenvolvimento.",
+    links: [],
+    status: "development",
+  }))
+  .sort((left, right) => left.title.localeCompare(right.title, "pt-BR"))
+
+const allDocuments = [...documents, ...developmentDocuments]
+const nodesBySlug = new Map(allDocuments.map((document) => [document.slug, document]))
+const outgoing = new Map(allDocuments.map((document) => [document.slug, new Set()]))
+const incoming = new Map(allDocuments.map((document) => [document.slug, new Set()]))
 const edgeSet = new Set()
 
 for (const document of documents) {
-  for (const target of document.links) {
+  for (const { slug: target } of document.links) {
     if (!nodesBySlug.has(target)) continue
     outgoing.get(document.slug).add(target)
     incoming.get(target).add(document.slug)
@@ -140,7 +172,7 @@ for (const document of documents) {
   }
 }
 
-const nodes = documents.map((document) => {
+const nodes = allDocuments.map((document) => {
   const outgoingSlugs = [...outgoing.get(document.slug)].sort()
   const incomingSlugs = [...incoming.get(document.slug)].sort()
   const degree = unique([...outgoingSlugs, ...incomingSlugs]).length
@@ -153,6 +185,8 @@ const nodes = documents.map((document) => {
     outgoing: outgoingSlugs,
     incoming: incomingSlugs,
     degree,
+    status: document.status || "published",
+    isDevelopment: document.status === "development",
   }
 })
 
@@ -185,12 +219,14 @@ const areas = (areaConfig.areas ?? [])
   .sort((left, right) => right.count - left.count || left.label.localeCompare(right.label, "pt-BR"))
 
 const index = {
-  version: 2,
+  version: 3,
   concepts: nodes,
   edges,
   areas,
   metrics: {
-    conceptCount: nodes.length,
+    conceptCount: documents.length,
+    developmentCount: developmentDocuments.length,
+    nodeCount: nodes.length,
     connectionCount: edges.length,
     areaCount: areas.length,
   },

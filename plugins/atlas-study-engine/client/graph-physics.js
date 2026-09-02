@@ -36,18 +36,35 @@
       .force("gravityX", gravityX)
       .force("gravityY", gravityY)
       .force("center", center)
-      .velocityDecay(0.42)
-      .alphaDecay(0.028)
-      .alphaMin(0.002)
-      .alpha(0.92)
+      .velocityDecay(0.48)
+      .alphaDecay(0.035)
+      .alphaMin(0.001)
+      .alphaTarget(0.008)
+      .alpha(0.82)
+
+    function resize(width, height) {
+      const viewportScale = clamp(
+        Math.min(Number(width) || 1, Number(height) || 1) / 900,
+        0.68,
+        1.2,
+      )
+      gravityX.strength(0.018 * viewportScale)
+      gravityY.strength(0.018 * viewportScale)
+      center.strength(0.06 * viewportScale)
+      simulation.alphaTarget(0.008).alpha(Math.max(simulation.alpha(), 0.06)).restart()
+    }
 
     return {
       dimensions: WORLD,
       nodes,
       links,
       simulation,
+      resize,
       reheat(alpha = 0.45) {
-        simulation.alpha(clamp(alpha, 0.08, 0.9)).restart()
+        simulation
+          .alphaTarget(0.008)
+          .alpha(clamp(alpha, 0.08, 0.9))
+          .restart()
       },
     }
   }

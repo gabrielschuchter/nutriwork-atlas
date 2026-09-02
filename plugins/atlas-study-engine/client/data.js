@@ -15,6 +15,9 @@
     normalized.area = String(normalized.area || "fundamentos")
     normalized.areaLabel = String(normalized.areaLabel || "Fundamentos da nutrição")
     normalized.excerpt = String(normalized.excerpt || "")
+    normalized.status = normalized.status === "development" ? "development" : "published"
+    normalized.isDevelopment =
+      normalized.status === "development" || normalized.isDevelopment === true
     normalized.outgoing = Array.isArray(normalized.outgoing)
       ? normalized.outgoing.map(normalizeSlug).filter(Boolean)
       : []
@@ -37,10 +40,18 @@
         })
         .then((index) => {
           const concepts = Array.isArray(index?.concepts) ? index.concepts.map(normalizeNode) : []
+          const edges = Array.isArray(index?.edges)
+            ? index.edges
+                .map((edge) => ({
+                  source: normalizeSlug(edge?.source),
+                  target: normalizeSlug(edge?.target),
+                }))
+                .filter((edge) => edge.source && edge.target && edge.source !== edge.target)
+            : []
           data.index = {
             version: Number(index?.version || 2),
             concepts,
-            edges: Array.isArray(index?.edges) ? index.edges : [],
+            edges,
             areas: Array.isArray(index?.areas) ? index.areas : [],
             metrics: index?.metrics || {},
           }

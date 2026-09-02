@@ -7,7 +7,7 @@
 
 O produto agora tem somente duas superfícies: exploração em `/` e leitura em `/atlas/<conceito>`. O fluxo é protegido pelo gate existente, seguido de onboarding curto e entrada direta no grafo. A navbar é discreta, recolhível e usa os tokens/asset oficial do Nutriwork.
 
-O grafo usa um canvas único por superfície, `d3-force` empacotado localmente, índice compacto e uma lista acessível carregada sob demanda. A leitura mantém o mesmo grafo como minimapa; expansão, retorno à nota e histórico usam o mesmo contexto de navegação.
+O grafo usa um único canvas reparentado entre fullscreen e minimapa, `d3-force` empacotado localmente, índice compacto e uma lista acessível carregada sob demanda. A leitura mantém a mesma instância, posições, forças e câmera; expansão, retorno à nota e histórico usam o mesmo contexto de navegação.
 
 ## Limpeza de escopo
 
@@ -20,28 +20,31 @@ O grafo usa um canvas único por superfície, `d3-force` empacotado localmente, 
 
 ## Evidência do grafo
 
-- 140 conceitos em `content/atlas`.
-- 1.106 conexões resolvidas.
-- Índice derivado compacto com versão 2, áreas, grau e adjacência.
+- 140 conceitos publicados em `content/atlas`.
+- 381 termos em desenvolvimento descobertos automaticamente pelos wikilinks.
+- 521 nós e 1.811 conexões no índice derivado versão 3.
+- Áreas, grau, adjacência e estado de publicação são derivados sem alterar o vault.
 - `npm run atlas:index` gera `quartz/static/atlas-index.json` sem reescrever o vault.
 
 ## Fluxos verificados no navegador
 
 - Gate: senha incorreta exibe erro; senha de desenvolvimento autorizada libera a aplicação.
-- Onboarding: cinco passos informativos sobre pan/zoom, hover/preview, clique/leitura, minimapa/histórico e filtros; avanço, pulo e foco funcionam.
-- Exploração: canvas em tela cheia, pan, zoom por teclado, filtros por texto/área, lista acessível e ocultação/reabertura da navbar.
+- Onboarding: seis passos informativos sobre o papel do grafo, pan/zoom, hover/preview, clique/leitura, minimapa/histórico, filtros e termos em desenvolvimento; avanço, pulo, repetição e foco funcionam.
+- Exploração: canvas contínuo em `100vw × 100dvh`, pan sem `translateExtent`, zoom por roda/pinch/teclado e controles `− ○ +`, filtros por texto/área, lista acessível e ocultação/reabertura da navbar.
 - Clique no canvas: abre diretamente uma nota.
+- Termos sem nota: aparecem sutis/acinzentados, abrem o estado “Este termo está em desenvolvimento.” e retornam ao mesmo contexto.
 - Hover/foco em link: existe exatamente uma `#atlas-preview`, com um único título e ação de abertura; não há popover nativo concorrente.
-- Leitura: nota em tela ampla, minimapa com a mesma rede, botão para expandir o grafo e retorno para a nota anterior.
+- Leitura: nota em foco, minimapa com a mesma rede/instância, botão para expandir o grafo e retorno para a nota anterior.
 - Histórico: “Voltar” retorna ao contexto anterior sem perder a rota visitada.
-- Responsividade: viewport desktop de 1280×720 e mobile de 390×844 conferidos sem overflow horizontal; a composição mobile mantém navbar, grafo e leitura utilizáveis.
+- Interface: onboarding repetível, ajuda com contatos oficiais, tema, previews, loaders e mostrar/ocultar senha sem mudança de layout.
+- Responsividade: viewport desktop, tablet e mobile devem manter renderer e câmera dimensionados por `ResizeObserver`/`visualViewport`, sem overflow horizontal ou área morta estrutural.
 
 ## Validações automatizadas
 
 - `npm run check` — TypeScript e Prettier aprovados.
 - `npm test` — 163 testes, 45 suítes, 0 falhas.
 - `npm run vault:check` — 140 arquivos conferidos por SHA-256.
-- `npm run atlas:index` — 140 conceitos e 1.106 conexões.
+- `npm run atlas:index` — 521 nós e 1.811 conexões, incluindo termos em desenvolvimento.
 - `npm run build` — build limpo aprovado, com 141 rotas de conteúdo e fallback 404.
 - `npm audit --audit-level=high` — 0 vulnerabilidades.
 - `git diff --check` — sem erros de whitespace.
@@ -50,5 +53,5 @@ O grafo usa um canvas único por superfície, `d3-force` empacotado localmente, 
 ## Limitações conhecidas
 
 - O gate continua sendo client-side e oferece privacidade casual, não autenticação forte.
-- Não houve commit, push ou deploy; a produção não foi verificada nesta rodada.
+- Commit, push e deploy devem ser confirmados separadamente com o SHA, deployment e alias oficial.
 - A validação visual foi feita em navegador local; zoom nativo de 200% e auditoria automatizada WCAG continuam fora deste ciclo.

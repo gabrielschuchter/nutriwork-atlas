@@ -15,9 +15,11 @@ Quartz 5 permanece como gerador estático e parser do vault. A composição padr
 
 ## 3. O grafo usa canvas e física local
 
-O grafo global e o minimapa usam `canvas`, um renderer por superfície e `d3-force` local. O canvas reduz a quantidade de elementos DOM e permite desenhar arestas e nós sem re-renderizar uma árvore de componentes a cada tick.
+O grafo global e o minimapa usam um único `canvas` reparentado entre as duas superfícies e `d3-force` local. O canvas reduz a quantidade de elementos DOM e permite desenhar arestas e nós sem re-renderizar uma árvore de componentes a cada tick.
 
-A física combina repulsão, links, colisão, centralização e gravidade suave. O seed é determinístico apenas para iniciar a rede. Posições e câmera são persistidas na sessão; o minimapa reutiliza essas posições para preservar contexto espacial.
+A física permanece ativa para todos os nós e arestas, combinando repulsão, links, colisão, centralização e gravidade suave. O seed é determinístico apenas para iniciar a rede; filtros alteram a projeção visível, não desmontam a simulação. Posições e câmera são persistidas na sessão; o minimapa reutiliza essas posições para preservar contexto espacial.
+
+O renderer mede o mount real com `ResizeObserver`, `visualViewport` e resize/orientação da janela. Em fullscreen ele ocupa `100vw × 100dvh`; a navbar é overlay. O pan não possui parede artificial e os limites de escala são derivados das dimensões atuais. O fit-to-graph calcula o bounding box dos nós visíveis e seu padding em cada execução.
 
 ## 4. O índice é pequeno e derivado
 
@@ -29,11 +31,11 @@ O emitter local copia o índice para `static/`. O runtime não carrega o índice
 
 `plugins/atlas-study-engine/client/app.js` delega ações e mantém uma única preview `#atlas-preview`. `enablePopovers` fica desativado. O canvas chama o mesmo `openConcept` e `showGraphPreview` usados pelos links de notas, eliminando handlers concorrentes e a possibilidade de duas previews da mesma nota.
 
-O ciclo SPA destrói a instância do grafo antes da troca de rota e monta uma nova instância depois da navegação. Isso evita listeners, simulações e renderizações órfãs.
+Nas transições internas do Atlas, o ciclo não desmonta a instância: `#atlas-graph-root` é reparentado entre fullscreen e o slot do minimapa, preservando listeners, simulação, posições e câmeras. O ciclo SPA destrói a instância somente antes de uma navegação externa ao Atlas.
 
 ## 6. Leitura preserva o contexto
 
-Ao abrir uma nota, o layout atual é salvo. A nota mostra o mesmo grafo em escala de minimapa. “Expandir grafo” retorna à exploração e salva a nota atual; “Voltar à nota” recupera esse conceito. O botão “Voltar” usa o histórico quando a entrada veio do grafo.
+Ao abrir uma nota, o layout e a câmera de exploração são salvos. A nota mostra o mesmo grafo em escala de minimapa e mantém sua interatividade. “Expandir grafo” retorna suavemente à exploração; “Voltar” usa o histórico quando a entrada veio do grafo; links publicados e termos em desenvolvimento passam pelo mesmo coordenador.
 
 ## 7. A interface usa a autoridade visual do Nutriwork
 
@@ -45,7 +47,7 @@ O gate atual calcula SHA-256 no navegador e guarda apenas o hash configurado no 
 
 ## 9. Conteúdo científico não é código de interface
 
-`content/atlas/*.md` permanece somente leitura. A classificação de áreas e o índice são derivados fora das notas. Links não resolvidos continuam sendo um diagnóstico editorial; não são corrigidos automaticamente nem usados para inventar conceitos.
+`content/atlas/*.md` permanece somente leitura. A classificação de áreas e o índice são derivados fora das notas. Wikilinks sem arquivo publicado viram nós de desenvolvimento, com estado e visual distintos, sem criar uma segunda lista manual e sem inventar conteúdo científico. A ausência da nota continua explícita no estado de leitura.
 
 ## 10. Gates atuais
 

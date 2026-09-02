@@ -13,7 +13,7 @@ O conteúdo científico em `content/atlas/*.md` é a fonte de verdade e permanec
 
 - Quartz 5 continua responsável pelo parsing Markdown, geração estática, navegação SPA e assets.
 - `AtlasFrame` controla as duas superfícies: navbar glass discreta, canvas do grafo, leitura ampla e minimapa.
-- `plugins/atlas-study-engine/client/graph.js` usa um canvas por superfície. Os nós não viram elementos DOM individuais; a lista textual acessível é criada somente quando solicitada.
+- `plugins/atlas-study-engine/client/graph.js` mantém um único canvas reparentado entre fullscreen e minimapa. O renderer ocupa a viewport real, mede resize/orientação dinamicamente, mantém pan/zoom sem parede artificial e calcula fit pelo bounding box visível. Os nós não viram elementos DOM individuais; a lista textual acessível é criada somente quando solicitada.
 - `plugins/atlas-study-engine/client/graph-physics.js` usa `d3-force` local com repulsão, links, colisão, centralização e gravidade suave.
 - `plugins/atlas-study-engine/client/app.js` é o único coordenador de preview, ações, onboarding, filtros, histórico e lifecycle SPA.
 - `scripts/build-atlas-index.mjs` emite somente os dados necessários para nós, arestas, áreas, adjacência e filtros.
@@ -26,9 +26,11 @@ O conteúdo científico em `content/atlas/*.md` é a fonte de verdade e permanec
 | Clique no nó ou em “Abrir nota” | abre a nota do conceito |
 | Link dentro da nota | mostra preview e permite continuar pela rede |
 | “Voltar” | retorna ao contexto anterior no histórico |
-| “Expandir grafo” | volta à mesma rede com layout persistido |
+| “Expandir grafo” | volta suavemente à mesma rede com layout/câmera persistidos |
 | Clique no minimapa | navega pelo mesmo grafo espacial |
 | Filtro | reduz a rede por texto ou área |
+| Termo sem nota | abre o estado minimalista “Este termo está em desenvolvimento.” |
+| `− ○ +` | ajusta zoom ou faz fit-to-graph baseado nos nós visíveis |
 
 ## Limpeza de escopo
 
@@ -48,12 +50,12 @@ git diff --check
 git diff --name-only -- content/atlas
 ```
 
-O navegador deve cobrir primeiro acesso, onboarding, clique, hover/preview único, nota, minimapa, histórico, filtros, navbar recolhível, tema e viewports mobile/desktop. Nenhum commit, push ou deploy faz parte deste ciclo.
+O navegador deve cobrir primeiro acesso, onboarding, clique, hover/preview único, nota, minimapa, histórico, filtros, navbar recolhível, tema, ajuda, senha, fit/zoom e viewports mobile/desktop. Commit, push e deploy são executados somente após a revisão final e os gates passarem.
 
 ## Estado verificado
 
-- 140 conceitos científicos e 1.106 conexões resolvidas.
-- Build com 141 rotas de conteúdo: raiz, 140 notas e fallback 404.
+- 140 conceitos publicados, 381 termos em desenvolvimento, 521 nós e 1.811 conexões.
+- Build com as rotas de conteúdo publicadas e fallback 404; termos em desenvolvimento não geram notas vazias.
 - TypeScript, Prettier e 163 testes aprovados.
 - Integridade SHA-256 dos 140 arquivos científicos aprovada.
-- Fluxo frio validado em 390×844 e 1280×720 sem overflow horizontal.
+- Fluxo local validado com canvas de largura/altura iguais à viewport, sem overflow estrutural no fullscreen.
