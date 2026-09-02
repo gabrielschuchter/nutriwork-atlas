@@ -18,7 +18,10 @@ export const AtlasFrame: PageFrame = {
     const noteSlug = isNote ? String(current) : ""
     const title = componentData.fileData.frontmatter?.title || labelFromSlug(current)
     const homeHref = isGraph ? "." : resolveRelative(current, ".." as FullSlug)
-    const logoHref = resolveRelative(current, "static/icon.png" as FullSlug)
+    const logoHref = resolveRelative(
+      current,
+      "static/atlas-logo-horizontal-transparent.png" as FullSlug,
+    )
 
     return (
       <div
@@ -44,11 +47,7 @@ export const AtlasFrame: PageFrame = {
             data-router-ignore=""
             aria-label="Nutriwork Atlas, grafo"
           >
-            <img class="atlas-brand-symbol" src={logoHref} alt="" width="30" height="30" />
-            <span class="atlas-brand-wordmark">
-              <strong>NUTRIWORK</strong>
-              <span>ATLAS</span>
-            </span>
+            <img class="atlas-brand-logo" src={logoHref} alt="Atlas." width="112" height="66" />
           </a>
 
           <div class="atlas-graph-filters" aria-label="Filtros do grafo" hidden={!isGraph}>
@@ -57,7 +56,19 @@ export const AtlasFrame: PageFrame = {
             </label>
             <span class="atlas-search-field">
               <span class="atlas-search-icon" aria-hidden="true">
-                ⌕
+                <svg
+                  class="atlas-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  focusable="false"
+                >
+                  <circle cx="10.8" cy="10.8" r="6.2" />
+                  <path d="m16 16 4 4" />
+                </svg>
               </span>
               <input
                 id="atlas-search"
@@ -67,98 +78,223 @@ export const AtlasFrame: PageFrame = {
                 spellcheck={false}
               />
             </span>
-            <label class="atlas-visually-hidden" for="atlas-area-filter">
-              Filtrar por área
-            </label>
-            <select id="atlas-area-filter" aria-label="Filtrar por área">
-              <option value="all">Todas as áreas</option>
-            </select>
+            <div class="atlas-area-picker" data-atlas-area-picker>
+              <button
+                id="atlas-area-trigger"
+                class="atlas-area-trigger"
+                type="button"
+                data-atlas-area-trigger=""
+                aria-haspopup="listbox"
+                aria-expanded="false"
+                aria-controls="atlas-area-menu"
+                aria-label="Filtrar por área"
+              >
+                <span id="atlas-area-value" class="atlas-area-value">
+                  Todas as áreas
+                </span>
+                <svg
+                  class="atlas-icon atlas-area-chevron"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <path d="m7 10 5 5 5-5" />
+                </svg>
+              </button>
+              <div
+                id="atlas-area-menu"
+                class="atlas-area-menu"
+                role="listbox"
+                aria-label="Áreas do grafo"
+                hidden
+              ></div>
+              <select
+                id="atlas-area-filter"
+                class="atlas-area-filter-state"
+                aria-hidden="true"
+                tabIndex={-1}
+                hidden
+              >
+                <option value="all">Todas as áreas</option>
+              </select>
+            </div>
           </div>
 
           <div class="atlas-navbar-actions">
-            <button
-              id="atlas-onboarding-open"
-              class="atlas-icon-button"
-              type="button"
-              data-atlas-action="open-onboarding"
-              aria-label="Reabrir introdução do Atlas"
-              title="Como funciona?"
-            >
-              <span aria-hidden="true">?</span>
-              <span class="atlas-control-label">Como funciona?</span>
-            </button>
-            <button
-              id="atlas-help-open"
-              class="atlas-icon-button"
-              type="button"
-              data-atlas-action="open-help"
-              aria-label="Ajuda e suporte"
-              title="Ajuda e suporte"
-            >
-              <span aria-hidden="true">?</span>
-              <span class="atlas-control-label">Ajuda</span>
-            </button>
-            <button
-              id="atlas-back"
-              class="atlas-nav-button"
-              type="button"
-              data-atlas-action="go-back"
-              aria-label="Voltar ao contexto anterior"
-              hidden={!isNote}
-            >
-              <span aria-hidden="true">←</span>
-              <span>Voltar</span>
-            </button>
-            <button
-              id="atlas-expand-graph"
-              class="atlas-nav-button atlas-nav-button-primary"
-              type="button"
-              data-atlas-action="expand-graph"
-              aria-label="Expandir grafo"
-              hidden={!isNote}
-            >
-              <span aria-hidden="true">◌</span>
-              <span>Expandir grafo</span>
-            </button>
-            <button
-              id="atlas-return-note"
-              class="atlas-nav-button atlas-return-note"
-              type="button"
-              data-atlas-action="return-note"
-              hidden
-            >
-              Voltar à nota
-            </button>
-            <button
-              id="atlas-theme-toggle"
-              class="atlas-icon-button"
-              type="button"
-              data-atlas-action="toggle-theme"
-              aria-label="Alternar tema"
-              title="Alternar tema"
-            >
-              <span aria-hidden="true">◐</span>
-              <span class="atlas-control-label">Tema</span>
-            </button>
-            <button
-              class="atlas-icon-button atlas-hide-nav"
-              type="button"
-              data-atlas-action="toggle-nav"
-              aria-label="Ocultar barra de navegação"
-              title="Ocultar barra de navegação"
-            >
-              <span aria-hidden="true">⌃</span>
-            </button>
-            <button
-              id="atlas-access-logout"
-              class="atlas-icon-button atlas-logout-button"
-              type="button"
-              aria-label="Sair do Atlas"
-              title="Sair do Atlas"
-            >
-              <span aria-hidden="true">↪</span>
-              <span class="atlas-control-label">Sair</span>
-            </button>
+            <div class="atlas-navbar-group atlas-navbar-context-actions">
+              <button
+                id="atlas-onboarding-open"
+                class="atlas-nav-button"
+                type="button"
+                data-atlas-action="open-onboarding"
+                aria-label="Reabrir introdução do Atlas"
+                title="Como funciona?"
+              >
+                <svg
+                  class="atlas-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <circle cx="12" cy="12" r="9" />
+                  <path d="M9.8 9a2.4 2.4 0 1 1 3.9 1.9c-1.1.8-1.7 1.2-1.7 2.6" />
+                  <path d="M12 17h.01" />
+                </svg>
+                <span class="atlas-control-label">Como funciona?</span>
+              </button>
+              <button
+                id="atlas-help-open"
+                class="atlas-nav-button"
+                type="button"
+                data-atlas-action="open-help"
+                aria-label="Ajuda e suporte"
+                title="Ajuda e suporte"
+              >
+                <svg
+                  class="atlas-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <circle cx="12" cy="12" r="9" />
+                  <path d="M9.8 9a2.4 2.4 0 1 1 3.9 1.9c-1.1.8-1.7 1.2-1.7 2.6" />
+                  <path d="M12 17h.01" />
+                </svg>
+                <span class="atlas-control-label">Ajuda</span>
+              </button>
+              <button
+                id="atlas-back"
+                class="atlas-nav-button"
+                type="button"
+                data-atlas-action="go-back"
+                aria-label="Voltar ao contexto anterior"
+                hidden={!isNote}
+              >
+                <svg
+                  class="atlas-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <path d="m15 18-6-6 6-6" />
+                  <path d="M9 12h10" />
+                </svg>
+                <span>Voltar</span>
+              </button>
+              <button
+                id="atlas-expand-graph"
+                class="atlas-nav-button atlas-nav-button-primary"
+                type="button"
+                data-atlas-action="expand-graph"
+                aria-label="Expandir grafo"
+                hidden={!isNote}
+              >
+                <svg
+                  class="atlas-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <path d="M8 3H3v5M3 3l6 6M16 21h5v-5M21 21l-6-6" />
+                </svg>
+                <span>Expandir grafo</span>
+              </button>
+            </div>
+            <div class="atlas-navbar-group atlas-navbar-system-actions">
+              <button
+                id="atlas-theme-toggle"
+                class="atlas-nav-button"
+                type="button"
+                data-atlas-action="toggle-theme"
+                aria-label="Alternar tema"
+                title="Alternar tema"
+              >
+                <svg
+                  class="atlas-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <circle cx="12" cy="12" r="4" />
+                  <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
+                </svg>
+                <span class="atlas-control-label">Tema</span>
+              </button>
+              <button
+                class="atlas-icon-button atlas-hide-nav"
+                type="button"
+                data-atlas-action="toggle-nav"
+                aria-label="Ocultar barra de navegação"
+                title="Ocultar barra de navegação"
+              >
+                <svg
+                  class="atlas-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <path d="m6 15 6-6 6 6" />
+                </svg>
+              </button>
+              <button
+                id="atlas-access-logout"
+                class="atlas-nav-button atlas-logout-button"
+                type="button"
+                aria-label="Sair do Atlas"
+                title="Sair do Atlas"
+              >
+                <svg
+                  class="atlas-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <path d="M10 6H5v12h5" />
+                  <path d="m14 8 4 4-4 4M18 12H9" />
+                </svg>
+                <span class="atlas-control-label">Sair</span>
+              </button>
+            </div>
           </div>
         </header>
 
@@ -171,7 +307,19 @@ export const AtlasFrame: PageFrame = {
           title="Mostrar barra de navegação"
           hidden
         >
-          <span aria-hidden="true">+</span>
+          <svg
+            class="atlas-icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.7"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <path d="m6 9 6 6 6-6" />
+          </svg>
           <span class="atlas-visually-hidden">Mostrar navegação</span>
         </button>
 
@@ -259,6 +407,10 @@ AtlasFrame.css = `
   --atlas-glass-highlight: rgba(255, 255, 255, .16);
   --atlas-glass-filter: blur(28px) saturate(158%);
   --atlas-glass-shadow: 0 22px 58px rgba(0, 0, 0, .28), inset 0 1px 0 rgba(255, 255, 255, .15), inset 1px 0 0 rgba(255, 255, 255, .065);
+  --atlas-brand-navy: #0C2D57;
+  --atlas-brand-blue: #1E5FAF;
+  --atlas-brand-sky: #7DB5E4;
+  --atlas-brand-pale: #BFD8F6;
   --atlas-blue: #1263FF;
   --atlas-blue-bright: #29A8FF;
   --atlas-blue-soft: #8EB9FF;
@@ -282,6 +434,10 @@ AtlasFrame.css = `
   --atlas-glass-filter: blur(28px) saturate(145%);
   --atlas-glass-shadow: 0 22px 58px rgba(30, 62, 110, .16), inset 0 1px 0 rgba(255, 255, 255, .82), inset 1px 0 0 rgba(255, 255, 255, .46);
   --atlas-shadow: 0 18px 45px rgba(30, 62, 110, .12);
+  --atlas-brand-navy: #0C2D57;
+  --atlas-brand-blue: #1E5FAF;
+  --atlas-brand-sky: #7DB5E4;
+  --atlas-brand-pale: #BFD8F6;
 }
 
 html,
@@ -382,59 +538,44 @@ canvas:focus-visible {
   border-radius: 999px;
   box-shadow: var(--atlas-glass-shadow);
   display: flex;
-  gap: .8rem;
+  gap: .68rem;
   left: 50%;
   max-width: calc(100vw - 2rem);
-  min-height: 3.35rem;
-  padding: .42rem .5rem .42rem .7rem;
+  min-height: 3rem;
+  overflow: visible;
+  padding: .28rem .36rem .28rem .48rem;
   position: fixed;
   top: 1rem;
   transform: translateX(-50%);
   transition: opacity 180ms ease, transform 220ms ease;
-  width: min(72rem, calc(100vw - 2rem));
+  width: min(76rem, calc(100vw - 2rem));
   z-index: 7000;
 }
 
 .atlas-brand {
   align-items: center;
-  color: var(--atlas-ink);
   display: inline-flex;
   flex: 0 0 auto;
-  gap: .55rem;
+  height: 2.7rem;
   text-decoration: none;
 }
 
-.atlas-brand-symbol {
+.atlas-brand-logo {
   display: block;
-  height: 1.9rem;
+  height: 2.7rem;
   object-fit: contain;
-  width: 1.9rem;
+  width: 4.6rem;
 }
 
-.atlas-brand-wordmark {
-  align-items: baseline;
-  display: inline-flex;
-  gap: .35rem;
-  letter-spacing: .08em;
-  line-height: 1;
-}
-
-.atlas-brand-wordmark strong {
-  font-size: .72rem;
-  font-weight: 800;
-}
-
-.atlas-brand-wordmark span {
-  color: var(--atlas-blue-soft);
-  font-family: var(--codeFont);
-  font-size: .58rem;
+:root:not([data-theme="light"]) .atlas-brand-logo {
+  filter: brightness(0) invert(1) opacity(.88) drop-shadow(0 1px 5px rgba(125, 181, 228, .18));
 }
 
 .atlas-graph-filters {
   align-items: center;
   display: flex;
   flex: 1 1 auto;
-  gap: .45rem;
+  gap: .4rem;
   min-width: 0;
 }
 
@@ -447,7 +588,7 @@ canvas:focus-visible {
   border-radius: 999px;
   box-shadow: inset 0 1px 0 color-mix(in srgb, var(--atlas-glass-highlight) 72%, transparent);
   display: flex;
-  flex: 1 1 15rem;
+  flex: 1 1 15.5rem;
   min-width: 7rem;
 }
 
@@ -457,19 +598,19 @@ canvas:focus-visible {
 
 .atlas-search-icon {
   color: var(--atlas-muted);
-  font-size: 1.1rem;
   line-height: 1;
-  padding-left: .75rem;
+  padding-left: .7rem;
 }
 
 .atlas-search-field input {
   background: transparent;
   border: 0;
   color: var(--atlas-ink);
-  min-height: 2.35rem;
+  font-size: .76rem;
+  min-height: 2.2rem;
   min-width: 0;
   outline: 0;
-  padding: .5rem .75rem .5rem .4rem;
+  padding: .35rem .68rem .35rem .38rem;
   width: 100%;
 }
 
@@ -477,7 +618,14 @@ canvas:focus-visible {
   color: var(--atlas-muted);
 }
 
-.atlas-graph-filters select {
+.atlas-area-picker {
+  flex: 0 1 12rem;
+  min-width: 9rem;
+  position: relative;
+}
+
+.atlas-area-trigger {
+  align-items: center;
   -webkit-backdrop-filter: blur(18px) saturate(140%);
   backdrop-filter: blur(18px) saturate(140%);
   background: linear-gradient(145deg, rgba(255, 255, 255, .055), transparent 54%), var(--atlas-glass-soft);
@@ -486,16 +634,123 @@ canvas:focus-visible {
   box-shadow: inset 0 1px 0 color-mix(in srgb, var(--atlas-glass-highlight) 72%, transparent);
   color: var(--atlas-copy);
   cursor: pointer;
-  min-height: 2.35rem;
-  max-width: 12rem;
-  padding: .45rem 2rem .45rem .75rem;
+  display: inline-flex;
+  font-size: .76rem;
+  gap: .55rem;
+  height: 2.2rem;
+  justify-content: space-between;
+  padding: .35rem .62rem .35rem .72rem;
+  text-align: left;
+  width: 100%;
+}
+
+:root[data-theme="light"] .atlas-area-trigger {
+  background: rgba(255, 255, 255, .34);
+}
+
+.atlas-area-trigger:hover,
+.atlas-area-trigger[aria-expanded="true"] {
+  background: color-mix(in srgb, var(--atlas-glass-highlight) 42%, transparent);
+  border-color: color-mix(in srgb, var(--atlas-brand-sky) 48%, var(--atlas-glass-line));
+  color: var(--atlas-ink);
+}
+
+.atlas-area-value {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.atlas-area-chevron {
+  flex: 0 0 auto;
+  height: .9rem;
+  transition: transform 180ms ease;
+  width: .9rem;
+}
+
+.atlas-area-trigger[aria-expanded="true"] .atlas-area-chevron {
+  transform: rotate(180deg);
+}
+
+.atlas-area-filter-state {
+  display: none;
+}
+
+.atlas-area-menu {
+  -webkit-backdrop-filter: blur(26px) saturate(150%);
+  backdrop-filter: blur(26px) saturate(150%);
+  background: linear-gradient(145deg, rgba(255, 255, 255, .09), transparent 52%), var(--atlas-glass-strong);
+  border: 1px solid var(--atlas-glass-line);
+  border-radius: .85rem;
+  box-shadow: var(--atlas-glass-shadow);
+  left: 0;
+  max-height: min(22rem, calc(100dvh - 5rem));
+  min-width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: .28rem;
+  position: absolute;
+  top: calc(100% + .45rem);
+  width: max(100%, 15rem);
+  z-index: 9000;
+}
+
+:root[data-theme="light"] .atlas-area-menu {
+  background: linear-gradient(145deg, rgba(255, 255, 255, .48), transparent 52%), rgba(247, 250, 255, .76);
+  border-color: rgba(30, 95, 175, .16);
+  box-shadow: 0 20px 45px rgba(30, 62, 110, .16), inset 0 1px 0 rgba(255, 255, 255, .82);
+}
+
+.atlas-area-menu[hidden] {
+  display: none;
+}
+
+.atlas-area-option {
+  align-items: center;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: .58rem;
+  color: var(--atlas-copy);
+  cursor: pointer;
+  display: flex;
+  font-size: .72rem;
+  line-height: 1.25;
+  min-height: 2.1rem;
+  padding: .48rem .62rem;
+  text-align: left;
+  transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease;
+  width: 100%;
+}
+
+.atlas-area-option:hover,
+.atlas-area-option:focus-visible,
+.atlas-area-option[aria-selected="true"] {
+  background: color-mix(in srgb, var(--atlas-brand-blue) 20%, transparent);
+  border-color: color-mix(in srgb, var(--atlas-brand-sky) 35%, transparent);
+  color: var(--atlas-ink);
+}
+
+.atlas-area-option[aria-selected="true"] {
+  font-weight: 600;
 }
 
 .atlas-navbar-actions {
   align-items: center;
   display: flex;
   flex: 0 0 auto;
-  gap: .28rem;
+  gap: .34rem;
+}
+
+.atlas-navbar-group {
+  align-items: center;
+  display: flex;
+  gap: .12rem;
+}
+
+.atlas-navbar-system-actions {
+  border-left: 1px solid color-mix(in srgb, var(--atlas-glass-line) 58%, transparent);
+  margin-left: .2rem;
+  padding-left: .28rem;
 }
 
 .atlas-nav-button,
@@ -507,17 +762,17 @@ canvas:focus-visible {
   color: var(--atlas-copy);
   cursor: pointer;
   display: inline-flex;
-  gap: .38rem;
+  gap: .32rem;
   justify-content: center;
-  min-height: 2.45rem;
-  padding: .5rem .72rem;
-  transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease;
+  min-height: 2.2rem;
+  padding: .35rem .58rem;
+  transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease, transform 160ms ease;
   white-space: nowrap;
 }
 
 .atlas-icon-button {
-  min-width: 2.45rem;
-  padding-inline: .62rem;
+  min-width: 2.2rem;
+  padding-inline: .55rem;
 }
 
 .atlas-nav-button:hover,
@@ -526,6 +781,7 @@ canvas:focus-visible {
   border-color: var(--atlas-glass-line);
   box-shadow: inset 0 1px 0 color-mix(in srgb, var(--atlas-glass-highlight) 78%, transparent);
   color: var(--atlas-ink);
+  transform: translateY(-1px);
 }
 
 .atlas-nav-button-primary {
@@ -542,17 +798,17 @@ canvas:focus-visible {
 
 .atlas-icon {
   display: block;
-  height: 1.05rem;
-  width: 1.05rem;
+  height: .9rem;
+  width: .9rem;
 }
 
 .atlas-control-label {
-  font-size: .72rem;
+  font-size: inherit;
 }
 
 .atlas-logout-button {
   color: var(--atlas-muted);
-  font-size: .7rem;
+  font-size: .72rem;
 }
 
 .atlas-reopen-nav {
@@ -744,19 +1000,57 @@ canvas:focus-visible {
   display: none;
 }
 
+.atlas-map-controls-shell {
+  align-items: flex-end;
+  bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: .45rem;
+  position: absolute;
+  right: 1rem;
+  z-index: 4;
+}
+
+.atlas-return-context {
+  -webkit-backdrop-filter: var(--atlas-glass-filter);
+  backdrop-filter: var(--atlas-glass-filter);
+  background: linear-gradient(145deg, rgba(255, 255, 255, .1), transparent 48%), var(--atlas-glass);
+  border: 1px solid var(--atlas-glass-line);
+  border-radius: 999px;
+  box-shadow: var(--atlas-glass-shadow);
+  color: var(--atlas-copy);
+  cursor: pointer;
+  font-size: .7rem;
+  max-width: min(18rem, calc(100vw - 2rem));
+  overflow: hidden;
+  padding: .46rem .72rem;
+  text-overflow: ellipsis;
+  transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease, transform 160ms ease;
+  white-space: nowrap;
+}
+
+.atlas-return-context:hover,
+.atlas-return-context:focus-visible {
+  background: color-mix(in srgb, var(--atlas-glass-highlight) 42%, transparent);
+  border-color: var(--atlas-glass-line);
+  color: var(--atlas-ink);
+  transform: translateY(-1px);
+}
+
+.atlas-return-context[hidden] {
+  display: none;
+}
+
 .atlas-map-controls {
   -webkit-backdrop-filter: var(--atlas-glass-filter);
   backdrop-filter: var(--atlas-glass-filter);
   background: linear-gradient(145deg, rgba(255, 255, 255, .1), transparent 48%), var(--atlas-glass);
   border: 1px solid var(--atlas-glass-line);
   border-radius: 999px;
-  bottom: 1rem;
   box-shadow: var(--atlas-glass-shadow);
   display: flex;
   overflow: hidden;
-  position: absolute;
-  right: 1rem;
-  z-index: 4;
+  position: relative;
 }
 
 .atlas-map-control {
@@ -1046,7 +1340,7 @@ canvas:focus-visible {
   .atlas-navbar {
     border-radius: 18px;
     flex-wrap: wrap;
-    padding: .45rem;
+    padding: .34rem;
     top: .65rem;
   }
 
@@ -1067,8 +1361,8 @@ canvas:focus-visible {
     display: none;
   }
 
-  .atlas-graph-filters select {
-    max-width: 10rem;
+  .atlas-area-picker {
+    flex: 0 1 11rem;
   }
 
   .atlas-note-view {
@@ -1083,12 +1377,9 @@ canvas:focus-visible {
     width: calc(100vw - 1rem);
   }
 
-  .atlas-brand-wordmark {
-    gap: 0;
-  }
-
-  .atlas-brand-wordmark span {
-    display: none;
+  .atlas-brand-logo {
+    height: 2.28rem;
+    width: 3.88rem;
   }
 
   .atlas-control-label {
@@ -1103,9 +1394,19 @@ canvas:focus-visible {
     flex-basis: 0;
   }
 
-  .atlas-graph-filters select {
+  .atlas-area-picker {
     flex: 0 1 9.5rem;
     max-width: 42%;
+  }
+
+  .atlas-area-trigger {
+    font-size: .66rem;
+    gap: .35rem;
+    padding-inline: .6rem .5rem;
+  }
+
+  .atlas-area-menu {
+    max-width: calc(100vw - 1.5rem);
   }
 
   .atlas-graph-view {
@@ -1131,7 +1432,7 @@ canvas:focus-visible {
     left: .65rem;
   }
 
-  .atlas-map-controls {
+  .atlas-map-controls-shell {
     bottom: .65rem;
     right: .65rem;
   }

@@ -6,6 +6,7 @@
 
   const previewId = "atlas-preview"
   const onboardingKey = "nutriwork-atlas-onboarding-v1"
+  const lastNoteKey = "nutriwork-atlas-last-note-v2"
   const themeKey = "nutriwork-atlas-theme"
   let previewTimer = 0
   let previewSlug = ""
@@ -15,6 +16,7 @@
   let helpOpener = null
   let refreshSerial = 0
   let navigationSerial = 0
+  let selectedArea = "all"
   let viewState = { mode: "graph", noteSlug: "", openedFromGraph: false }
 
   function root() {
@@ -46,6 +48,14 @@
       return window.sessionStorage.getItem(key)
     } catch {
       return null
+    }
+  }
+
+  function writeSession(key, value) {
+    try {
+      window.sessionStorage.setItem(key, String(value))
+    } catch {
+      // Session context is optional and never blocks graph navigation.
     }
   }
 
@@ -195,29 +205,223 @@
     if (back) back.hidden = graph
     if (expand) expand.hidden = graph
     if (filters) filters.hidden = !graph
+    if (!graph) closeAreaMenu()
     if (onboarding) onboarding.hidden = !isUnlocked()
     if (help) help.hidden = !isUnlocked()
 
     const returnButton = document.getElementById("atlas-return-note")
-    const returnSlug = readSession("nutriwork-atlas-return-note")
+    const returnSlug = readSession(lastNoteKey)
     const returnNode = returnSlug ? atlas.data.get(returnSlug) : null
     if (returnButton) {
       returnButton.hidden = !graph || !returnNode
-      if (returnNode) returnButton.setAttribute("aria-label", "Voltar para " + returnNode.title)
+      if (returnNode) {
+        const label = "Voltar para " + returnNode.title
+        returnButton.textContent = label
+        returnButton.setAttribute("aria-label", label)
+        returnButton.title = label
+      }
     }
     setNavHidden(false)
     renderViewState()
   }
 
+  function areaPickerElements() {
+    return {
+      picker: document.querySelector("[data-atlas-area-picker]"),
+      trigger: document.getElementById("atlas-area-trigger"),
+      value: document.getElementById("atlas-area-value"),
+      menu: document.getElementById("atlas-area-menu"),
+      select: document.getElementById("atlas-area-filter"),
+    }
+  }
+
+  function areaOptions(menu) {
+    return [...(menu?.querySelectorAll("[data-atlas-area-value]") || [])]
+  }
+
+  function setAreaPickerValue(value) {
+    const { trigger, value: valueElement, menu, select } = areaPickerElements()
+    if (!trigger || !valueElement || !menu) return
+    const options = areaOptions(menu)
+    const selected = options.find((option) => option.dataset.atlasAreaValue === value)
+    const fallback = selected || options[0]
+    selectedArea = fallback?.dataset.atlasAreaValue || "all"
+    if (select) select.value = selectedArea
+    if (valueElement) valueElement.textContent = fallback?.textContent || "Todas as áreas"
+    trigger.setAttribute(
+      "aria-label",
+      fallback ? "Filtrar por área: " + fallback.textContent : "Filtrar por área",
+    )
+    for (const option of options) option.setAttribute("aria-selected", String(option === fallback))
+  }
+
+  function positionAreaMenu() {
+    const { trigger, menu } = areaPickerElements()
+    if (!trigger || !menu || menu.hidden) return
+    const viewportWidth = window.visualViewport?.width || window.innerWidth
+    const viewportHeight = window.visualViewport?.height || window.innerHeight
+    const gutter = 12
+    const triggerRect = trigger.getBoundingClientRect()
+    menu.style.bottom = "auto"
+    menu.style.left = "0"
+    menu.style.right = "auto"
+    menu.style.top = "calc(100% + .45rem)"
+    menu.dataset.menuPlacement = "below"
+
+    const belowRect = menu.getBoundingClientRect()
+    const spaceBelow = viewportHeight - triggerRect.bottom - gutter
+    const spaceAbove = triggerRect.top - gutter
+    if (belowRect.height > spaceBelow && spaceAbove > spaceBelow) {
+      menu.style.bottom = "calc(100% + .45rem)"
+      menu.style.top = "auto"
+      menu.dataset.menuPlacement = "above"
+    }
+
+    const horizontalRect = menu.getBoundingClientRect()
+    if (horizontalRect.right > viewportWidth - gutter) {
+      menu.style.left = "auto"
+      menu.style.right = "0"
+    } else if (horizontalRect.left < gutter) {
+      menu.style.left = "0"
+      menu.style.right = "auto"
+    }
+  }
+
+  function closeAreaMenu(focusTrigger = false) {
+    const { trigger, menu } = areaPickerElements()
+    if (!trigger || !menu) return
+    menu.hidden = true
+    trigger.setAttribute("aria-expanded", "false")
+    menu.style.bottom = "auto"
+    menu.style.left = "0"
+    menu.style.right = "auto"
+    menu.style.top = "calc(100% + .45rem)"
+    delete menu.dataset.menuPlacement
+    if (focusTrigger) trigger.focus()
+  }
+
+  function openAreaMenu(focusSelected = false) {
+    const { trigger, menu } = areaPickerElements()
+    if (!trigger || !menu || !menu.children.length) return
+    menu.hidden = false
+    trigger.setAttribute("aria-expanded", "true")
+    window.requestAnimationFrame(() => {
+      positionAreaMenu()
+      if (focusSelected)
+        areaOptions(menu)
+          .find((option) => option.getAttribute("aria-selected") === "true")
+          ?.focus()
+    })
+  }
+
+  function toggleAreaMenu() {
+    const { menu } = areaPickerElements()
+    if (!menu) return
+    if (menu.hidden) openAreaMenu()
+    else closeAreaMenu(true)
+  }
+
   function renderAreas() {
-    const select = document.getElementById("atlas-area-filter")
+    const { trigger, menu, select } = areaPickerElements()
     const areas = atlas.data.index?.areas || []
-    if (!select || select.dataset.ready === "true") return
+    if (!trigger || !menu || !select) return
+    if (select.dataset.ready === "true" && menu.children.length) {
+      setAreaPickerValue(selectedArea)
+      return
+    }
+    closeAreaMenu()
     clear(select)
-    select.appendChild(new Option("Todas as áreas", "all"))
-    for (const area of areas)
-      select.appendChild(new Option(String(area.label || area.id), String(area.id)))
+    clear(menu)
+    const addArea = (value, label) => {
+      select.appendChild(new Option(label, value))
+      const option = make("button", "atlas-area-option", label)
+      option.type = "button"
+      option.setAttribute("role", "option")
+      option.setAttribute("aria-selected", "false")
+      option.tabIndex = -1
+      option.dataset.atlasAreaValue = value
+      menu.appendChild(option)
+    }
+    addArea("all", "Todas as áreas")
+    for (const area of areas) addArea(String(area.id), String(area.label || area.id))
     select.dataset.ready = "true"
+    setAreaPickerValue(selectedArea)
+  }
+
+  function applyFilters() {
+    const search = document.getElementById("atlas-search")
+    if (!search) return
+    atlas.graph?.setFilter(search.value, selectedArea)
+  }
+
+  function rememberLastNote(node) {
+    if (node?.slug) writeSession(lastNoteKey, node.slug)
+  }
+
+  function selectArea(value) {
+    const { menu } = areaPickerElements()
+    const option = areaOptions(menu).find((item) => item.dataset.atlasAreaValue === value)
+    if (!option) return
+    setAreaPickerValue(value)
+    closeAreaMenu(true)
+    applyFilters()
+  }
+
+  function handleAreaKeydown(event) {
+    const target = event.target instanceof Element ? event.target : null
+    if (!target) return false
+    const { menu, trigger } = areaPickerElements()
+    const key = event.key
+    const isConfirm = key === "Enter" || key === " " || key === "Spacebar"
+    const triggerTarget = target.closest("[data-atlas-area-trigger]")
+    if (triggerTarget && trigger === triggerTarget) {
+      if (key === "ArrowDown" || key === "ArrowUp") {
+        event.preventDefault()
+        if (menu?.hidden) openAreaMenu(true)
+        else
+          areaOptions(menu)
+            .find((option) => option.getAttribute("aria-selected") === "true")
+            ?.focus()
+        return true
+      }
+      if (isConfirm) {
+        event.preventDefault()
+        toggleAreaMenu()
+        return true
+      }
+      if (key === "Escape" && menu && !menu.hidden) {
+        event.preventDefault()
+        closeAreaMenu(true)
+        return true
+      }
+    }
+
+    const optionTarget = target.closest("[data-atlas-area-value]")
+    if (!optionTarget || !menu || menu.hidden) return false
+    const options = areaOptions(menu)
+    const currentIndex = options.indexOf(optionTarget)
+    if (key === "ArrowDown" || key === "ArrowUp") {
+      event.preventDefault()
+      const offset = key === "ArrowDown" ? 1 : -1
+      options[(currentIndex + offset + options.length) % options.length]?.focus()
+      return true
+    }
+    if (key === "Home" || key === "End") {
+      event.preventDefault()
+      options[key === "Home" ? 0 : options.length - 1]?.focus()
+      return true
+    }
+    if (isConfirm) {
+      event.preventDefault()
+      selectArea(optionTarget.dataset.atlasAreaValue || "all")
+      return true
+    }
+    if (key === "Escape") {
+      event.preventDefault()
+      closeAreaMenu(true)
+      return true
+    }
+    return false
   }
 
   function targetFromAnchor(anchor) {
@@ -351,6 +555,7 @@
     try {
       await ensureNoteContent(node)
       if (serial !== navigationSerial) return
+      rememberLastNote(node)
       const wasNote = viewState.mode === "note"
       if (!wasNote) pushGraphContext(node.slug)
       window.history.pushState({ atlasView: "note", slug: node.slug }, "", pathFor(node.slug))
@@ -385,6 +590,7 @@
       window.history.replaceState({ atlasView: "graph", contextSlug }, "", pathFor("index"))
     viewState = { mode: "graph", noteSlug: "", openedFromGraph: false }
     placeGraphRoot("graph")
+    atlas.graph?.mountAll()
     renderViewState()
     renderNavState()
     atlas.graph?.setMode("explore", contextSlug)
@@ -420,7 +626,7 @@
   }
 
   function returnToNote() {
-    const slug = readSession("nutriwork-atlas-return-note")
+    const slug = readSession(lastNoteKey)
     if (slug && atlas.data.get(slug)) openConcept(slug)
   }
 
@@ -562,6 +768,27 @@
   }
 
   function handleClick(event) {
+    const picker =
+      event.target instanceof Element ? event.target.closest("[data-atlas-area-picker]") : null
+    if (picker) {
+      const option =
+        event.target instanceof Element ? event.target.closest("[data-atlas-area-value]") : null
+      if (option && picker.contains(option)) {
+        event.preventDefault()
+        event.stopPropagation()
+        selectArea(option.dataset.atlasAreaValue || "all")
+        return
+      }
+      const trigger =
+        event.target instanceof Element ? event.target.closest("[data-atlas-area-trigger]") : null
+      if (trigger && picker.contains(trigger)) {
+        event.preventDefault()
+        event.stopPropagation()
+        toggleAreaMenu()
+      }
+      return
+    }
+    closeAreaMenu()
     const target =
       event.target instanceof Element ? event.target.closest("[data-atlas-action]") : null
     if (target) {
@@ -625,7 +852,13 @@
   }
 
   function handleKeydown(event) {
+    if (handleAreaKeydown(event)) return
     if (event.key !== "Escape") return
+    const { menu } = areaPickerElements()
+    if (menu && !menu.hidden) {
+      closeAreaMenu()
+      return
+    }
     const onboarding = onboardingElements()
     if (onboarding && !onboarding.overlay.hidden) {
       closeOnboarding()
@@ -668,8 +901,14 @@
     const search = document.getElementById("atlas-search")
     const area = document.getElementById("atlas-area-filter")
     if (!search || !area) return
-    if (event?.target !== search && event?.target !== area) return
-    atlas.graph?.setFilter(search.value, area.value)
+    if (event?.target === area) {
+      selectedArea = area.value
+      setAreaPickerValue(selectedArea)
+      applyFilters()
+      return
+    }
+    if (event?.target !== search) return
+    applyFilters()
   }
 
   function stateFromLocation() {
@@ -689,13 +928,14 @@
     if (next.mode === "note") {
       const node = atlas.data.get(next.noteSlug)
       if (!node) return
+      rememberLastNote(node)
       if (node.isDevelopment) renderNoteContent(node)
       placeGraphRoot("note")
       const graph = graphRoot()
       if (graph) graph.dataset.atlasGraphMode = "minimap"
+      atlas.graph?.mountAll()
       renderViewState()
       renderNavState()
-      atlas.graph?.mountAll()
       atlas.graph?.setMode("minimap", node.slug)
       await ensureNoteContent(node)
       enhanceLinks()
@@ -703,9 +943,9 @@
       placeGraphRoot("graph")
       const graph = graphRoot()
       if (graph) graph.dataset.atlasGraphMode = "explore"
+      atlas.graph?.mountAll()
       renderViewState()
       renderNavState()
-      atlas.graph?.mountAll()
       enhanceLinks()
     }
   }
@@ -724,6 +964,7 @@
     try {
       await atlas.data.load()
       if (serial !== refreshSerial) return
+      selectedArea = "all"
       renderAreas()
       await renderInitialRoute()
       if (serial !== refreshSerial) return
@@ -756,6 +997,7 @@
       ensureNoteContent(node)
         .then(() => {
           if (locationSlug() !== node.slug) return
+          rememberLastNote(node)
           viewState = {
             mode: "note",
             noteSlug: node.slug,
@@ -793,6 +1035,8 @@
   window.addEventListener("popstate", handlePopState)
   window.addEventListener("resize", () => {
     if (previewAnchor && previewSlug) positionPreview(previewAnchor)
+    const { menu } = areaPickerElements()
+    if (menu && !menu.hidden) positionAreaMenu()
   })
   window.addEventListener("pagehide", () => atlas.graph?.persist())
   document.addEventListener("atlas-access", refresh)

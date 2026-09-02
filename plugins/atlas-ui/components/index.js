@@ -27,7 +27,7 @@ function safeJson(value) {
 }
 
 function logoPath(fileData) {
-  return resolveRelative(String(fileData?.slug || "index"), "static/icon.png")
+  return resolveRelative(String(fileData?.slug || "index"), "static/atlas-symbol.png")
 }
 
 export const AtlasAccess = (userOptions = {}) => {

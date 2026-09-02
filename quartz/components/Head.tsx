@@ -1,5 +1,5 @@
 import { i18n } from "../i18n"
-import { FullSlug, getFileExtension, joinSegments, pathToRoot } from "../util/path"
+import { FullSlug, getFileExtension, joinSegments } from "../util/path"
 import { CSSResourceToStyleElement, JSResourceToScriptElement } from "../util/resources"
 import { googleFontHref, googleFontSubsetHref } from "../util/theme"
 import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
@@ -24,8 +24,11 @@ export default (() => {
 
     const url = new URL(`https://${cfg.baseUrl ?? "example.com"}`)
     const path = url.pathname as FullSlug
-    const baseDir = fileData.slug === "404" ? path : pathToRoot(fileData.slug!)
-    const iconPath = joinSegments(baseDir, "static/icon.png")
+    const staticDir = joinSegments(path, "static")
+    const icon16Path = joinSegments(staticDir, "atlas-favicon-16.png")
+    const icon32Path = joinSegments(staticDir, "atlas-favicon-32.png")
+    const icon64Path = joinSegments(staticDir, "atlas-favicon-64.png")
+    const appleTouchIconPath = joinSegments(staticDir, "atlas-apple-touch-icon.png")
 
     // Use clean folder URLs for virtual index pages (for example, /atlas/
     // instead of /atlas/index) while keeping the root Home at /.
@@ -85,7 +88,10 @@ export default (() => {
           </>
         )}
 
-        <link rel="icon" href={iconPath} />
+        <link rel="icon" type="image/png" sizes="16x16" href={icon16Path} />
+        <link rel="icon" type="image/png" sizes="32x32" href={icon32Path} />
+        <link rel="icon" type="image/png" sizes="64x64" href={icon64Path} />
+        <link rel="apple-touch-icon" sizes="180x180" href={appleTouchIconPath} />
         <meta name="description" content={description} />
         <meta name="generator" content="Quartz" />
 

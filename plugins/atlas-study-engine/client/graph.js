@@ -588,6 +588,15 @@
   }
 
   function addMapControls(state) {
+    const shell = make("div", "atlas-map-controls-shell")
+    const returnButton = make("button", "atlas-return-context", "Voltar para o último termo")
+    returnButton.id = "atlas-return-note"
+    returnButton.type = "button"
+    returnButton.dataset.atlasAction = "return-note"
+    returnButton.hidden = true
+    returnButton.setAttribute("aria-label", "Voltar para o último termo visitado")
+    returnButton.title = "Voltar para o último termo visitado"
+
     const controls = make("div", "atlas-map-controls")
     controls.setAttribute("aria-label", "Controles de zoom do grafo")
     const definitions = [
@@ -613,7 +622,8 @@
     controls.addEventListener("click", onClick)
     state.cleanups.push(() => controls.removeEventListener("click", onClick))
     state.controls = controls
-    state.mount.appendChild(controls)
+    shell.append(returnButton, controls)
+    state.mount.appendChild(shell)
   }
 
   function applyFilter(state, shouldAnimate = true) {
