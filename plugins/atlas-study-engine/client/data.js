@@ -33,7 +33,7 @@
   async function load() {
     if (data.index) return data
     if (!data.promise) {
-      data.promise = fetch(staticPath("atlas-index.json"), { cache: "force-cache" })
+      data.promise = fetch(staticPath("atlas-index.json"), { cache: "no-cache" })
         .then((response) => {
           if (!response.ok) throw new Error("Não foi possível carregar o índice do Atlas.")
           return response.json()

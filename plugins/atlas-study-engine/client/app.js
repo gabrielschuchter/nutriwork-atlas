@@ -149,7 +149,7 @@
       return
     }
     if (content.dataset.atlasSlug === node.slug && content.querySelector("article")) return
-    const response = await fetch(pathFor(node.slug), { cache: "force-cache" })
+    const response = await fetch(pathFor(node.slug), { cache: "no-cache" })
     if (!response.ok) throw new Error("Não foi possível carregar a nota do Atlas.")
     const html = await response.text()
     const parsed = new DOMParser().parseFromString(html, "text/html")
