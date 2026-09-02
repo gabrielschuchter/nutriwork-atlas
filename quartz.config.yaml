@@ -3,10 +3,9 @@ configuration:
   pageTitle: Nutriwork Atlas
   pageTitleSuffix: ""
   enableSPA: true
-  enablePopovers: true
+  enablePopovers: false
   analytics: null
   locale: pt-BR
-  # Canonical public host used for metadata and clean production routes.
   baseUrl: nutriwork-atlas.vercel.app
   ignorePatterns:
     - private
@@ -40,73 +39,30 @@ configuration:
         tertiary: "#29A8FF"
         highlight: rgba(18, 99, 255, 0.18)
         textHighlight: "#29A8FF66"
+
 plugins:
   - source: "@nutriwork/atlas-access"
     enabled: true
     options:
-      # SHA-256 of the shared development phrase "nutriwork-atlas-dev". This is
-      # a client-visible casual privacy gate, not strong authentication.
+      # SHA-256 of the shared development phrase "nutriwork-atlas-dev".
+      # This is a client-visible casual privacy gate, not strong authentication.
       passwordHash: 8546caeab1389bb18a5ffd7923802fe181434e69ca868010f83d92c65f7b4cb4
       storageKey: nutriwork-atlas-access
     order: 5
     layout:
       position: beforeBody
       priority: 1
-  - source: "@nutriwork/atlas-graph-fallback"
-    enabled: true
-    order: 6
-    layout:
-      position: afterBody
-      priority: 5
   - source: "@nutriwork/atlas-index-emitter"
     enabled: true
-    order: 15
-  - source: "@nutriwork/atlas-study-shell"
+    order: 10
+  - source: "@nutriwork/atlas-ui"
     enabled: true
-    order: 8
+    order: 20
     layout:
       position: afterBody
       priority: 10
-  - source: "@nutriwork/atlas-enhanced-graph"
-    enabled: true
-    order: 9
-    layout:
-      position: right
-      priority: 10
-  - source: "@nutriwork/atlas-context-panel"
-    enabled: true
-    order: 10
-    layout:
-      position: right
-      priority: 45
-  - source: "@nutriwork/atlas-footer"
-    enabled: true
-    order: 7
-    layout:
-      position: footer
-      priority: 50
-  - source: "@quartz-community/note-properties"
-    enabled: true
-    options:
-      includeAll: false
-      includedProperties:
-        - description
-        - tags
-        - aliases
-      excludedProperties: []
-      hidePropertiesView: true
-      delimiters: ---
-      language: yaml
-    order: 5
-  - source: "@quartz-community/created-modified-date"
-    enabled: true
-    options:
-      defaultDateType: modified
-      priority:
-        - frontmatter
-        - git
-        - filesystem
-    order: 10
+
+  # Only the transformers needed to render the scientific vault remain.
   - source: "@quartz-community/syntax-highlighting"
     enabled: true
     options:
@@ -122,8 +78,6 @@ plugins:
       highlight: true
       wikilinks: true
       callouts: true
-      # Atlas uses its own frame; mermaid's legacy runtime expects Quartz's
-      # `.center` slot, so keep the transformer available only when needed.
       mermaid: false
       parseTags: true
       parseArrows: true
@@ -136,224 +90,65 @@ plugins:
   - source: "@quartz-community/github-flavored-markdown"
     enabled: true
     order: 40
-  - source: "@quartz-community/table-of-contents"
-    enabled: true
-    order: 50
-    layout:
-      position: right
-      priority: 30
   - source: "@quartz-community/crawl-links"
     enabled: true
     options:
-      # The imported vault is flat inside content/atlas. Relative resolution
-      # keeps [[Note]] links inside that folder without rewriting source notes
-      # or relying on basename matching across the full site.
       markdownLinkResolution: relative
-    order: 60
+    order: 50
+  # Frontmatter parsing is required for note titles and descriptions. The
+  # visual properties panel stays disabled because the graph is the product.
+  - source: "@quartz-community/note-properties"
+    enabled: true
+    options:
+      includeAll: false
+      includedProperties:
+        - description
+        - tags
+        - aliases
+      excludedProperties: []
+      hidePropertiesView: true
+      delimiters: ---
+      language: yaml
+    order: 55
   - source: "@quartz-community/description"
     enabled: true
-    order: 70
+    order: 60
   - source: "@quartz-community/latex"
     enabled: true
     options:
       renderEngine: katex
-    order: 80
-  - source: "@quartz-community/citations"
-    enabled: false
-    order: 85
+    order: 70
   - source: "@quartz-community/hard-line-breaks"
     enabled: true
-    order: 90
-  - source: "@quartz-community/ox-hugo"
-    enabled: false
-    order: 91
-  - source: "@quartz-community/roam"
-    enabled: false
-    order: 92
-  - source: "@quartz-community/quartz-fonts"
-    enabled: true
-    options:
-      useThemeFonts: false
-      fontOrigin: googleFonts
-      header: Poppins
-      body: Poppins
-      code: IBM Plex Mono
-  # The Quartz Themes default package exports JSON through an ESM-only path
-  # that is not loadable by the v5 theme resolver on the current Node runtime.
-  # Atlas tokens below are applied with custom styles, so no theme package is
-  # needed for the vertical slice.
-  - source: "@quartz-themes/core"
-    enabled: false
+    order: 80
   - source: "@quartz-community/remove-draft"
     enabled: true
-  - source: "@quartz-community/explicit-publish"
-    enabled: false
-  - source: "@quartz-community/unlisted-pages"
-    enabled: true
-    options: {}
-    order: 45
-  # Atlas uses one explicit global client-side gate. Keep Quartz's per-page
-  # encrypted-pages transformer disabled so the two access models do not mix.
-  - source: "@quartz-community/encrypted-pages"
-    enabled: false
-    options:
-      iterations: 600000
-      passwordField: password
-      unlistWhenEncrypted: false
-      outputPath: static/encryptedContentIndex.json
-  - source: "@quartz-community/stacked-pages"
-    enabled: true
-    options:
-      maxTabs: 8
-      mobileBreakpoint: 800
-      showSpines: true
-      animateTransitions: true
-    layout:
-      position: afterBody
-      priority: 50
-      display: all
-  - source: "@quartz-community/alias-redirects"
-    enabled: true
-  - source: "@quartz-community/content-index"
-    enabled: true
-    options:
-      # The Atlas is behind a client-side access gate; public discovery feeds
-      # would expose its private route inventory without adding user value.
-      enableSiteMap: false
-      enableRSS: false
-  - source: "@quartz-community/favicon"
-    enabled: true
-  - source: "@quartz-community/og-image"
-    enabled: true
-  - source: "@quartz-community/cname"
-    enabled: false
-  - source: "@quartz-community/canvas-page"
-    enabled: true
+    order: 100
+
+  # The frame owns the product surface, so Quartz's parallel shells and
+  # discovery widgets stay out of the build and out of the DOM.
   - source: "@quartz-community/content-page"
     enabled: true
-  # The Atlas folder route is an intentional product surface, not a generated
-  # file listing. The Atlas index package owns /atlas/ while note routes remain
-  # backed by the untouched content/atlas vault.
-  - source: "@quartz-community/folder-page"
-    enabled: false
-  - source: "@quartz-community/tag-page"
+  - source: "@quartz-community/favicon"
     enabled: true
-  - source: "@quartz-community/explorer"
-    enabled: true
-    layout:
-      position: left
-      priority: 50
-  - source: "@quartz-community/graph"
-    enabled: false
-    layout:
-      position: right
-      priority: 10
-  - source: "@quartz-community/search"
-    enabled: false
-    layout:
-      position: left
-      priority: 20
-      group: toolbar
-      groupOptions:
-        grow: true
-  - source: "@quartz-community/backlinks"
-    enabled: false
-    layout:
-      position: right
-      priority: 50
-  - source: "@quartz-community/article-title"
-    enabled: true
-    layout:
-      position: beforeBody
-      priority: 10
-  - source: "@quartz-community/content-meta"
-    enabled: true
-    layout:
-      position: beforeBody
-      priority: 20
-  - source: "@quartz-community/tag-list"
-    enabled: false
-    layout:
-      position: beforeBody
-      priority: 30
-  - source: "@quartz-community/page-title"
-    enabled: false
-    layout:
-      position: left
-      priority: 10
-  - source: "@quartz-community/darkmode"
-    enabled: false
-    layout:
-      position: left
-      priority: 30
-      group: toolbar
-  - source: "@quartz-community/reader-mode"
-    enabled: false
-    layout:
-      position: left
-      priority: 35
-      group: toolbar
-  - source: "@quartz-community/breadcrumbs"
-    enabled: true
-    options:
-      rootName: Início
-    layout:
-      position: beforeBody
-      priority: 5
-      condition: not-index
-  - source: "@quartz-community/comments"
-    enabled: false
-    options:
-      provider: giscus
-      options: {}
-    layout:
-      position: afterBody
-      priority: 10
-  - source: "@quartz-community/recent-notes"
-    enabled: false
-  - source: "@quartz-community/spacer"
-    enabled: false
-    options: {}
-    order: 25
-    layout:
-      position: left
-      priority: 25
-      display: mobile-only
-  - source: "@quartz-community/bases-page"
-    enabled: true
-    options: {}
-    order: 50
+
 layout:
-  groups:
-    toolbar:
-      priority: 35
-      direction: row
-      gap: 0.5rem
   byPageType:
     "404":
+      template: atlas
+      exclude:
+        - "@quartz-community/note-properties"
       positions:
-        beforeBody: []
+        header: []
         left: []
         right: []
+        footer: []
     content:
       template: atlas
-    atlas-home:
-      template: atlas
-      positions:
-        right: []
-    folder:
       exclude:
-        - reader-mode
-      template: atlas
+        - "@quartz-community/note-properties"
       positions:
+        header: []
+        left: []
         right: []
-    tag:
-      exclude:
-        - reader-mode
-      template: atlas
-      positions:
-        right: []
-    canvas:
-      template: atlas
-    bases:
-      template: atlas
+        footer: []

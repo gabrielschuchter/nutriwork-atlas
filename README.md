@@ -1,16 +1,10 @@
-# Quartz v5
+# Nutriwork Atlas
 
 > “[One] who works with the door open gets all kinds of interruptions, but [they] also occasionally gets clues as to what the world is and what might be important.” — Richard Hamming
 
-Quartz is a set of tools that helps you publish your [digital garden](https://jzhao.xyz/posts/networked-thought) and notes as a website for free.
+O Atlas é o grafo de conceitos do Nutriwork. O produto tem uma única superfície: acesso, onboarding curto, exploração do grafo e leitura das notas científicas.
 
-🔗 Read the documentation and get started: https://quartz.jzhao.xyz/
-
-[Join the Discord Community](https://discord.gg/cRFFHYye7t)
-
-## Nutriwork Atlas
-
-Este checkout contém o Atlas protegido do Nutriwork, publicado sobre Quartz v5. As notas científicas vivem em `content/atlas/`; a classificação por área fica no sidecar `data/atlas-areas.json`, o índice de navegação é gerado no build e `/atlas/` é a Home orientada à experiência de estudo.
+As notas vivem em `content/atlas/` e permanecem imutáveis. A classificação por área fica em `data/atlas-areas.json`; o índice compacto é gerado no build em `quartz/static/atlas-index.json`.
 
 ### Desenvolvimento e validação
 
@@ -23,9 +17,9 @@ npm run vault:check
 npm run build
 ```
 
-Rotas de estudo: `/`, `/atlas/`, `/hoje`, `/revisar`, `/trilhas`, `/biblioteca`, `/mais-conectados`, `/lacunas-da-rede`, `/mapa-do-atlas`, `/estrutura-da-rede`, `/favoritos`, `/recentes`, `/busca-avancada` e `/grafo`. Favoritos, histórico, retomada, sessões, reviews, destaques, cartões, listas e preferências ficam somente no navegador; não há backend nem sincronização pessoal.
+Rotas do MVP: `/` para exploração e `/atlas/<conceito>` para leitura. Não há dashboards, páginas analíticas, biblioteca pessoal, trilhas, revisão, favoritos ou busca paralela.
 
-O índice é derivado de wikilinks reais. Links ausentes são apresentados como diagnóstico e não geram conceitos automaticamente. O script `npm run vault:check` compara o checkout com o vault Nutriwork antes da entrega. O relatório da rodada de QA está em [`docs/qa-hardening.md`](docs/qa-hardening.md), com o inventário completo em [`docs/route-inventory.md`](docs/route-inventory.md).
+O índice é derivado de wikilinks reais e usado somente para navegação, filtros, previews e minimapa. O script `npm run vault:check` compara o checkout com o vault Nutriwork antes da entrega. O relatório atual está em [`docs/qa-hardening.md`](docs/qa-hardening.md), com o inventário em [`docs/route-inventory.md`](docs/route-inventory.md).
 
 ## Sponsors
 

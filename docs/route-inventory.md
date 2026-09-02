@@ -1,33 +1,14 @@
 # Inventário real de rotas
 
-**Fonte:** `public/` após o build local de produção de 1º de setembro de 2026.
+**Fonte:** `public/` após o build local de produção de 2 de setembro de 2026.
 
-O build emitiu **155 rotas funcionais**, além do fallback `404.html`. Cada rota abaixo foi consultada no servidor estático local; todas responderam 200. Uma rota inexistente de controle respondeu 404.
+O build emitiu **141 rotas de conteúdo**, além do fallback `404.html`: a raiz de exploração e 140 notas do grafo. Cada rota de conteúdo é protegida pelo gate do Atlas; uma rota inexistente de controle responde 404.
 
-Após a publicação de `52b2c447dfe93ec2f63fb414cbec8b8f5a8745fa`, a produção foi conferida em `https://nutriwork-atlas.vercel.app/`; as rotas principais e os assets derivados responderam 200, e uma rota inexistente respondeu 404.
+Não houve publicação nesta rodada. A verificação descrita aqui é local.
 
 ## Entradas
 
 - `/`
-- `/atlas/`
-
-## Páginas analíticas
-
-- `/busca-avancada`
-- `/estrutura-da-rede`
-- `/favoritos`
-- `/grafo`
-- `/lacunas-da-rede`
-- `/mais-conectados`
-- `/mapa-do-atlas`
-- `/recentes`
-
-## Páginas de estudo
-
-- `/biblioteca`
-- `/hoje`
-- `/revisar`
-- `/trilhas`
 
 ## Conceitos
 
@@ -171,10 +152,6 @@ Após a publicação de `52b2c447dfe93ec2f63fb414cbec8b8f5a8745fa`, a produção
 - `/atlas/viés-de-tempo-imortal`
 - `/atlas/viés-do-usuário-saudável`
 - `/atlas/vo₂máx`
-
-## Outras rotas emitidas
-
-- `/tags/`
 
 ## Fallback
 

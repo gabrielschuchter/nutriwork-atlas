@@ -15,56 +15,20 @@
   "quartz": {
     "name": "atlas-ui",
     "displayName": "Nutriwork Atlas UI",
-    "description": "Local, small-scope components for the Nutriwork Atlas shell.",
+    "description": "Minimal Nutriwork Atlas graph and reading runtime.",
     "version": "0.1.0",
     "quartzVersion": ">=5.0.0",
     "category": "component",
     "defaultOrder": 5,
     "defaultEnabled": true,
-    "defaultOptions": {
-      "passwordHash": "8546caeab1389bb18a5ffd7923802fe181434e69ca868010f83d92c65f7b4cb4",
-      "storageKey": "nutriwork-atlas-access"
-    },
     "components": {
-      "AtlasAccess": {
-        "name": "atlas-access",
-        "displayName": "Atlas access gate",
-        "description": "Client-side global password barrier for casual privacy.",
-        "version": "0.1.0",
-        "defaultPosition": "beforeBody",
-        "defaultPriority": 1
-      },
-      "AtlasGraphFallback": {
-        "name": "atlas-graph-fallback",
-        "displayName": "Atlas graph textual fallback",
-        "description": "Accessible outgoing-link and backlink list accompanying the graph.",
-        "version": "0.1.0",
-        "defaultPosition": "afterBody",
-        "defaultPriority": 5
-      },
-      "AtlasStudyShell": {
-        "name": "atlas-study-shell",
-        "displayName": "Atlas study experience",
-        "description": "Local study navigation, search, previews and personal state.",
+      "AtlasApp": {
+        "name": "atlas-app",
+        "displayName": "Atlas graph runtime",
+        "description": "Single graph, preview, onboarding and reading runtime.",
         "version": "0.2.0",
         "defaultPosition": "afterBody",
         "defaultPriority": 10
-      },
-      "AtlasEnhancedGraph": {
-        "name": "atlas-enhanced-graph",
-        "displayName": "Atlas graph controls",
-        "description": "Accessible local and global graph controls derived from wikilinks.",
-        "version": "0.2.0",
-        "defaultPosition": "right",
-        "defaultPriority": 10
-      },
-      "AtlasContextPanel": {
-        "name": "atlas-context-panel",
-        "displayName": "Atlas contextual study panel",
-        "description": "Local contextual tabs for summary, relations and personal study state.",
-        "version": "0.2.0",
-        "defaultPosition": "right",
-        "defaultPriority": 45
       }
     }
   }

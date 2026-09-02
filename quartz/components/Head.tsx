@@ -38,7 +38,8 @@ export default (() => {
         : joinSegments(url.toString(), `${canonicalSlug}/`)
 
     const usesCustomOgImage = ctx.cfg.plugins.emitters.some((e) => e.name === "CustomOgImages")
-    const ogImageDefaultPath = `https://${cfg.baseUrl}/static/og-image.png`
+    const ogImageDefaultPath = `https://${cfg.baseUrl}/static/nutriwork-banner-pc.webp`
+    const ogImageType = getFileExtension(ogImageDefaultPath)?.replace(/^\./, "") ?? "png"
 
     return (
       <head>
@@ -71,10 +72,7 @@ export default (() => {
             <meta property="og:image" content={ogImageDefaultPath} />
             <meta property="og:image:url" content={ogImageDefaultPath} />
             <meta name="twitter:image" content={ogImageDefaultPath} />
-            <meta
-              property="og:image:type"
-              content={`image/${getFileExtension(ogImageDefaultPath) ?? "png"}`}
-            />
+            <meta property="og:image:type" content={`image/${ogImageType}`} />
           </>
         )}
 

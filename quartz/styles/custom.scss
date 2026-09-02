@@ -1,201 +1,24 @@
 @use "./variables.scss" as *;
 
+html,
 body {
   background: var(--light);
 }
 
 button,
-input {
+input,
+select {
   font-family: var(--bodyFont);
+}
+
+a {
+  text-underline-offset: 0.18em;
 }
 
 button:focus-visible,
 a:focus-visible,
-input:focus-visible {
+input:focus-visible,
+select:focus-visible {
   outline: 3px solid var(--secondary);
   outline-offset: 3px;
-}
-
-.page-title a {
-  color: var(--secondary);
-  font-family: var(--headerFont);
-  font-weight: 700;
-  letter-spacing: -0.025em;
-}
-
-.search-button,
-.darkmode,
-.readermode {
-  border-radius: 12px;
-}
-
-.search-button {
-  border: 1px solid var(--lightgray);
-  min-height: 2.75rem;
-  padding: 0 0.7rem;
-}
-
-.search-button:hover {
-  border-color: var(--secondary);
-}
-
-.explorer,
-.graph,
-.backlinks,
-.toc {
-  border-radius: 18px;
-}
-
-.graph,
-.backlinks,
-.toc {
-  background: color-mix(in srgb, var(--light) 86%, transparent);
-  border: 1px solid var(--lightgray);
-  box-shadow: 0 12px 30px color-mix(in srgb, var(--dark) 8%, transparent);
-  padding: 1rem;
-}
-
-.graph > h3,
-.backlinks > h3,
-.toc > h3 {
-  color: var(--dark);
-  font-weight: 700;
-}
-
-.graph-outer {
-  border-radius: 14px;
-  overflow: hidden;
-}
-
-.center > article {
-  max-width: 72ch;
-}
-
-.article-title {
-  letter-spacing: -0.035em;
-}
-
-article h2 {
-  letter-spacing: -0.02em;
-}
-
-a.internal {
-  background: color-mix(in srgb, var(--secondary) 12%, transparent);
-}
-
-a.internal:hover {
-  background: color-mix(in srgb, var(--tertiary) 18%, transparent);
-}
-
-@media all and ($mobile) {
-  .page > #quartz-body {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .page > #quartz-body > .sidebar.left {
-    width: 100%;
-    min-width: 0;
-    flex-wrap: wrap;
-  }
-
-  .page > #quartz-body > .sidebar.left > .page-title {
-    min-width: 0;
-    flex: 1 1 auto;
-  }
-
-  .page > #quartz-body > .sidebar.left .flex-component {
-    min-width: 0;
-    flex: 0 1 auto;
-  }
-
-  .page > #quartz-body > .sidebar.left .search-button {
-    padding: 0 0.55rem;
-  }
-
-  .page > #quartz-body > .sidebar.left .search-button p {
-    display: none;
-  }
-
-  .page > #quartz-body > .sidebar.left .page-title a {
-    font-size: clamp(1.4rem, 7vw, 1.75rem);
-    line-height: 1.1;
-  }
-
-  .page > #quartz-body > .sidebar.left .explorer .explorer-content {
-    width: 100%;
-    max-width: 100%;
-  }
-
-  .page > #quartz-body > .sidebar.left .explorer {
-    flex: 0 1 auto;
-    min-width: 0;
-  }
-
-  .page > #quartz-body > .sidebar.left .explorer.collapsed,
-  .page > #quartz-body > .sidebar.left .explorer:not(.collapsed) {
-    flex-basis: auto;
-  }
-
-  .page > #quartz-body > .sidebar.left .explorer .mobile-explorer {
-    gap: 0.35rem;
-    min-width: max-content;
-    padding: 5px 0;
-  }
-
-  .page > #quartz-body > .sidebar.left .explorer .mobile-explorer::after {
-    color: var(--dark);
-    content: "Explorador";
-    font-family: var(--headerFont);
-    font-size: 1rem;
-    font-weight: 700;
-    line-height: 1.5rem;
-    white-space: nowrap;
-  }
-
-  .page > #quartz-body > .sidebar.left .explorer .desktop-explorer h2,
-  .page > #quartz-body > .sidebar.left .explorer-content a,
-  .page > #quartz-body > .sidebar.left .explorer .folder-title {
-    overflow: visible;
-    text-overflow: clip;
-  }
-
-  .page > #quartz-body > .sidebar.left .explorer-content a {
-    overflow-wrap: anywhere;
-    white-space: normal;
-  }
-
-  .page > #quartz-body > .center,
-  .page > #quartz-body > footer {
-    width: 100%;
-    min-width: 0;
-    max-width: 100%;
-    box-sizing: border-box;
-  }
-
-  .page > #quartz-body > .sidebar.right {
-    box-sizing: border-box;
-    width: 100%;
-    min-width: 0;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .page > #quartz-body > .sidebar.right > * {
-    box-sizing: border-box;
-    flex: 0 1 auto;
-    max-height: none;
-    min-width: 0;
-    width: 100%;
-  }
-
-  .page-title a {
-    font-size: 2rem;
-    line-height: 1;
-  }
-
-  .graph,
-  .backlinks,
-  .toc {
-    box-shadow: none;
-  }
 }

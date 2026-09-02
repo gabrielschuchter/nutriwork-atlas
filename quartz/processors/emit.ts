@@ -72,7 +72,7 @@ export async function emitContent(ctx: BuildCtx, content: ProcessedContent[]) {
 
   // Phase 2: Run all other emitters with content extended by virtual pages.
   // This ensures emitters like ContentIndex include virtual pages in their output
-  // (e.g. sitemap, RSS, contentIndex.json used by the explorer sidebar).
+  // (e.g. sitemap, RSS, or other optional discovery assets).
   const contentWithVirtual =
     ctx.virtualPages.length > 0 ? [...content, ...ctx.virtualPages] : content
   const otherEmitters = cfg.plugins.emitters.filter(
