@@ -149,6 +149,8 @@ html[data-atlas-access="unlocked"] #atlas-access {
 
 .atlas-access-logo {
   display: block;
+  flex-shrink: 0;
+  filter: invert(1) grayscale(1) brightness(1.55);
   height: 3.5rem;
   margin-bottom: 1.4rem;
   object-fit: contain;
@@ -176,6 +178,43 @@ html[data-atlas-access="unlocked"] #atlas-access {
   color: #C8D2E5;
   line-height: 1.55;
   margin: 0;
+}
+
+:root[data-theme="light"] .atlas-access-card {
+  background: rgba(255, 255, 255, .92);
+  border-color: rgba(12, 45, 87, .14);
+  box-shadow: 0 24px 80px rgba(12, 45, 87, .16);
+  color: #142033;
+}
+
+:root[data-theme="light"] .atlas-access-logo {
+  filter: none;
+}
+
+:root[data-theme="light"] .atlas-access-kicker {
+  color: #1E5FAF;
+}
+
+:root[data-theme="light"] .atlas-access-description {
+  color: #526277;
+}
+
+:root[data-theme="light"] .atlas-device-hint {
+  color: #60738B;
+}
+
+:root[data-theme="light"] .atlas-access-form label {
+  color: #142033;
+}
+
+:root[data-theme="light"] .atlas-access-form input {
+  background: rgba(246, 248, 251, .86);
+  border-color: rgba(12, 45, 87, .18);
+  color: #142033;
+}
+
+:root[data-theme="light"] .atlas-password-toggle {
+  color: #526277;
 }
 
 .atlas-device-hint {
