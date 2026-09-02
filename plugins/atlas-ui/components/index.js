@@ -64,6 +64,16 @@ export const AtlasAccess = (userOptions = {}) => {
           "Entre para explorar conceitos e notas de Nutrição Baseada em Evidências.",
         ),
         h(
+          "p",
+          {
+            id: "atlas-device-hint",
+            class: "atlas-device-hint",
+            hidden: true,
+            role: "note",
+          },
+          "Para uma experiência mais produtiva, recomendamos usar o Atlas pelo computador.",
+        ),
+        h(
           "form",
           { id: "atlas-access-form", class: "atlas-access-form", novalidate: true },
           h("label", { for: "atlas-access-password" }, "Senha"),
@@ -166,6 +176,17 @@ html[data-atlas-access="unlocked"] #atlas-access {
   color: #C8D2E5;
   line-height: 1.55;
   margin: 0;
+}
+
+.atlas-device-hint {
+  color: #9EAFCA;
+  font-size: .76rem;
+  line-height: 1.45;
+  margin: .85rem 0 -.45rem;
+}
+
+.atlas-device-hint[hidden] {
+  display: none;
 }
 
 .atlas-access-form {
@@ -748,6 +769,23 @@ html[data-atlas-access="unlocked"] #atlas-access {
     }
   };
 
+  const isMobileOrTablet = () => {
+    const userAgent = navigator.userAgent || "";
+    const userAgentData = navigator.userAgentData;
+    const iPadOs = navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1;
+
+    return Boolean(
+      userAgentData?.mobile ||
+        /Android|iPhone|iPad|iPod|Windows Phone|webOS|BlackBerry|IEMobile|Opera Mini/i.test(userAgent) ||
+        iPadOs,
+    );
+  };
+
+  const renderDeviceHint = () => {
+    const hint = document.getElementById("atlas-device-hint");
+    if (hint) hint.hidden = !isMobileOrTablet();
+  };
+
   const announce = (message, state = "") => {
     const status = document.getElementById("atlas-access-status");
     if (!status) return;
@@ -816,6 +854,7 @@ html[data-atlas-access="unlocked"] #atlas-access {
   };
 
   window[runtimeKey] = true;
+  renderDeviceHint();
   document.addEventListener("submit", onSubmit);
   document.addEventListener("click", onClick);
   document.addEventListener("nav", () => setState(readState()));
