@@ -1,10 +1,11 @@
 ;(() => {
   const atlas = (window.__nutriworkAtlasEngine = window.__nutriworkAtlasEngine || {})
-  const { normalizeSlug, staticPath } = atlas.dom
+  const { normalizeSlug, normalizeText, staticPath } = atlas.dom
 
   const data = {
     index: null,
     bySlug: new Map(),
+    sortedConcepts: [],
     promise: null,
   }
 
@@ -15,6 +16,9 @@
     normalized.area = String(normalized.area || "fundamentos")
     normalized.areaLabel = String(normalized.areaLabel || "Fundamentos da nutrição")
     normalized.excerpt = String(normalized.excerpt || "")
+    normalized.searchText = normalizeText(
+      [normalized.title, normalized.areaLabel, normalized.excerpt].join(" "),
+    )
     normalized.status = normalized.status === "development" ? "development" : "published"
     normalized.isDevelopment =
       normalized.status === "development" || normalized.isDevelopment === true
@@ -56,6 +60,9 @@
             metrics: index?.metrics || {},
           }
           data.bySlug = new Map(concepts.map((node) => [node.slug, node]))
+          data.sortedConcepts = [...concepts].sort((left, right) =>
+            left.title.localeCompare(right.title, "pt-BR"),
+          )
           atlas.data.index = data.index
           atlas.data.bySlug = data.bySlug
           return data
@@ -77,5 +84,9 @@
     return data.index?.concepts || []
   }
 
-  atlas.data = { ...data, load, get, concepts }
+  function sortedConcepts() {
+    return data.sortedConcepts
+  }
+
+  atlas.data = { ...data, load, get, concepts, sortedConcepts }
 })()

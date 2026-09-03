@@ -2,7 +2,7 @@
   const atlas = (window.__nutriworkAtlasEngine = window.__nutriworkAtlasEngine || {})
   const { WORLD, create: createPhysics } = atlas.graphPhysics
   const { applyPinch: applyPinchCamera, startPinch } = atlas.graphGestureMath
-  const { clamp, hash, link, make, searchMatch } = atlas.dom
+  const { clamp, hash, link, make, searchMatch, searchQuery } = atlas.dom
   const perf = atlas.perf?.enabled ? atlas.perf : null
 
   const instances = new Set()
@@ -21,9 +21,17 @@
   const TOUCH_TAP_THRESHOLD = 10
   const MOUSE_DRAG_THRESHOLD = 4
   const PINCH_ACTIVATION_THRESHOLD = 8
+  const EMPTY_SET = new Set()
+  const EMPTY_DASH = []
+  const DEVELOPMENT_DASH = [3, 4]
+  const GRAPH_FONT = "600 12px Poppins, Arial, sans-serif"
+  let darkTheme = document.documentElement.dataset.theme !== "light"
 
   let storedLayout = readSession(layoutKey)
   let storedCamera = readSession(cameraKey)
+  let availableAreas = null
+  let persistHandle = 0
+  let persistHandleType = ""
 
   function readSession(key) {
     try {
@@ -43,6 +51,38 @@
     }
   }
 
+  function schedulePersist() {
+    if (persistHandle) return
+    const flush = () => {
+      persistHandle = 0
+      persistHandleType = ""
+      persist()
+    }
+    if (typeof window.requestIdleCallback === "function") {
+      persistHandleType = "idle"
+      persistHandle = window.requestIdleCallback(flush, { timeout: 1000 })
+    } else {
+      persistHandleType = "timeout"
+      persistHandle = window.setTimeout(flush, 0)
+    }
+  }
+
+  function cancelScheduledPersist() {
+    if (!persistHandle) return
+    if (persistHandleType === "idle" && typeof window.cancelIdleCallback === "function")
+      window.cancelIdleCallback(persistHandle)
+    else if (persistHandleType === "timeout") window.clearTimeout(persistHandle)
+    persistHandle = 0
+    persistHandleType = ""
+  }
+
+  function setTheme(theme) {
+    const nextDarkTheme = theme !== "light"
+    if (darkTheme === nextDarkTheme) return
+    darkTheme = nextDarkTheme
+    for (const state of instances) scheduleDraw(state)
+  }
+
   function validPoint(value) {
     return Number.isFinite(value?.x) && Number.isFinite(value?.y)
   }
@@ -54,29 +94,6 @@
       x: WORLD.width / 2 + Math.cos(angle) * distance,
       y: WORLD.height / 2 + Math.sin(angle) * distance,
     }
-  }
-
-  function sourceNode(edge, nodeBySlug) {
-    return typeof edge.source === "object" ? edge.source : nodeBySlug.get(edge.source)
-  }
-
-  function targetNode(edge, nodeBySlug) {
-    return typeof edge.target === "object" ? edge.target : nodeBySlug.get(edge.target)
-  }
-
-  function isDarkTheme() {
-    const root = document.documentElement
-    const saved = root.getAttribute("saved-theme") || root.dataset.theme
-    return (
-      saved === "dark" || (!saved && window.matchMedia?.("(prefers-color-scheme: dark)").matches)
-    )
-  }
-
-  function colorFor(node) {
-    if (node.isDevelopment) return isDarkTheme() ? "#8591A3" : "#78869A"
-    return areaColors[
-      Math.floor(hash(node.area || node.slug) * areaColors.length) % areaColors.length
-    ]
   }
 
   function scaleBounds(state) {
@@ -94,7 +111,7 @@
     }
   }
 
-  function dimensions(state) {
+  function measureDimensions(state) {
     const rect = state.mount.getBoundingClientRect()
     const fullscreen = state.mount.parentElement?.id === "atlas-graph-view"
     const viewportWidth = window.visualViewport?.width || window.innerWidth
@@ -105,23 +122,27 @@
     }
   }
 
-  function worldToScreen(state, x, y) {
-    return {
-      x: (x - state.camera.x) * state.camera.scale,
-      y: (y - state.camera.y) * state.camera.scale,
-    }
-  }
-
-  function screenToWorld(state, x, y) {
-    return {
-      x: x / state.camera.scale + state.camera.x,
-      y: y / state.camera.scale + state.camera.y,
-    }
-  }
-
-  function localPoint(state, event) {
+  function refreshCanvasRect(state) {
+    if (!state.canvasRectDirty && state.canvasRect) return state.canvasRect
     const rect = state.canvas.getBoundingClientRect()
-    return { x: event.clientX - rect.left, y: event.clientY - rect.top }
+    state.canvasRect = {
+      left: rect.left,
+      top: rect.top,
+      width: rect.width,
+      height: rect.height,
+    }
+    state.canvasRectDirty = false
+    return state.canvasRect
+  }
+
+  function invalidateCanvasRect(state) {
+    state.canvasRectDirty = true
+  }
+
+  function readLocalPoint(state, event) {
+    const rect = refreshCanvasRect(state)
+    state.localX = event.clientX - rect.left
+    state.localY = event.clientY - rect.top
   }
 
   function nodesForFit(state) {
@@ -129,27 +150,35 @@
   }
 
   function calculateFit(state) {
-    const size = dimensions(state)
+    const viewportWidth = state.width
+    const viewportHeight = state.height
     const nodes = nodesForFit(state)
     const bounds = scaleBounds(state)
     if (!nodes.length) {
       return {
-        x: WORLD.width / 2 - size.width / (2 * bounds.min),
-        y: WORLD.height / 2 - size.height / (2 * bounds.min),
+        x: WORLD.width / 2 - viewportWidth / (2 * bounds.min),
+        y: WORLD.height / 2 - viewportHeight / (2 * bounds.min),
         scale: bounds.min,
       }
     }
-    const minX = Math.min(...nodes.map((node) => node.x))
-    const maxX = Math.max(...nodes.map((node) => node.x))
-    const minY = Math.min(...nodes.map((node) => node.y))
-    const maxY = Math.max(...nodes.map((node) => node.y))
+    let minX = Infinity
+    let maxX = -Infinity
+    let minY = Infinity
+    let maxY = -Infinity
+    for (const node of nodes) {
+      if (node.x < minX) minX = node.x
+      if (node.x > maxX) maxX = node.x
+      if (node.y < minY) minY = node.y
+      if (node.y > maxY) maxY = node.y
+    }
     const width = Math.max(260, maxX - minX)
     const height = Math.max(220, maxY - minY)
-    const padding = state.mode === "minimap" ? 22 : Math.min(92, Math.max(46, size.width * 0.055))
+    const padding =
+      state.mode === "minimap" ? 22 : Math.min(92, Math.max(46, viewportWidth * 0.055))
     const scale = clamp(
       Math.min(
-        Math.max(1, size.width - padding * 2) / width,
-        Math.max(1, size.height - padding * 2) / height,
+        Math.max(1, viewportWidth - padding * 2) / width,
+        Math.max(1, viewportHeight - padding * 2) / height,
       ),
       bounds.min,
       bounds.max,
@@ -157,8 +186,8 @@
     const contentWidth = width * scale
     const contentHeight = height * scale
     return {
-      x: minX - Math.max(padding, (size.width - contentWidth) / 2) / scale,
-      y: minY - Math.max(padding, (size.height - contentHeight) / 2) / scale,
+      x: minX - Math.max(padding, (viewportWidth - contentWidth) / 2) / scale,
+      y: minY - Math.max(padding, (viewportHeight - contentHeight) / 2) / scale,
       scale,
     }
   }
@@ -166,84 +195,277 @@
   function fitAll(state) {
     state.camera = calculateFit(state)
     state.userCamera = false
+    state.cameraDirty = true
+    state.screenPositionsDirty = true
     scheduleDraw(state)
   }
 
   function resizeCanvas(state, { fit = state.mode === "minimap" || !state.userCamera } = {}) {
     perf?.count("resizeCalls")
-    const size = dimensions(state)
+    state.resizePending = false
+    const previousWidth = state.width
+    const previousHeight = state.height
+    const measured = measureDimensions(state)
     const ratio = Math.min(2, Math.max(1, window.devicePixelRatio || 1))
-    state.width = size.width
-    state.height = size.height
-    state.canvas.width = Math.round(size.width * ratio)
-    state.canvas.height = Math.round(size.height * ratio)
-    state.canvas.style.width = size.width + "px"
-    state.canvas.style.height = size.height + "px"
-    state.ctx.setTransform(ratio, 0, 0, ratio, 0, 0)
-    state.physics?.resize?.(size.width, size.height)
-    if (fit && !state.transitioning) fitAll(state)
+    const sizeChanged =
+      Math.abs(measured.width - previousWidth) > 0.01 ||
+      Math.abs(measured.height - previousHeight) > 0.01
+    const backingWidth = Math.round(measured.width * ratio)
+    const backingHeight = Math.round(measured.height * ratio)
+    const backingChanged =
+      backingWidth !== state.canvas.width || backingHeight !== state.canvas.height
+    const ratioChanged = ratio !== state.pixelRatio
+    state.width = measured.width
+    state.height = measured.height
+    state.pixelRatio = ratio
+    state.canvasRectDirty = true
+    if (backingChanged) {
+      state.canvas.width = backingWidth
+      state.canvas.height = backingHeight
+    }
+    if (sizeChanged || ratioChanged) {
+      if (sizeChanged) {
+        state.canvas.style.width = measured.width + "px"
+        state.canvas.style.height = measured.height + "px"
+      }
+      state.ctx.setTransform(ratio, 0, 0, ratio, 0, 0)
+      if (sizeChanged) state.physics?.resize?.(measured.width, measured.height)
+      state.screenPositionsDirty = true
+      if (fit && sizeChanged && !state.transitioning) fitAll(state)
+      perf?.count("resizeApplied")
+      scheduleDraw(state)
+    } else if (backingChanged) {
+      state.ctx.setTransform(ratio, 0, 0, ratio, 0, 0)
+      state.screenPositionsDirty = true
+      scheduleDraw(state)
+    }
+    refreshCanvasRect(state)
+  }
+
+  function scheduleResize(state) {
+    state.resizePending = true
+    if (state.destroyed || state.suspended || state.resizeFrame) return
+    state.resizeFrame = window.requestAnimationFrame(() => {
+      state.resizeFrame = 0
+      if (state.destroyed || state.suspended || !state.resizePending) return
+      resizeCanvas(state)
+    })
+  }
+
+  function pauseCameraAnimation(state) {
+    if (state.cameraAnimationFrame) window.cancelAnimationFrame(state.cameraAnimationFrame)
+    if (state.transitioning && state.cameraAnimationTarget) {
+      state.cameraAnimationPaused = {
+        target: { ...state.cameraAnimationTarget },
+        userCamera: state.cameraAnimationUserCamera,
+        onComplete: state.cameraAnimationOnComplete,
+      }
+    }
+    state.cameraAnimationFrame = 0
+    state.cameraAnimationTarget = null
+    state.cameraAnimationOnComplete = null
+    state.transitioning = false
+  }
+
+  function suspendVisualWork(state) {
+    if (state.suspended) return
+    state.suspended = true
+    if (state.frame) window.cancelAnimationFrame(state.frame)
+    state.frame = 0
+    pauseCameraAnimation(state)
+    state.physics?.suspendSimulation?.()
+  }
+
+  function resumeVisualWork(state) {
+    if (!state.suspended) return
+    state.suspended = false
+    invalidateCanvasRect(state)
+    if (state.resizePending) resizeCanvas(state)
+    state.physics?.resumeSimulationIfNeeded?.()
+    const pausedAnimation = state.cameraAnimationPaused
+    state.cameraAnimationPaused = null
+    if (pausedAnimation) {
+      animateCameraTo(
+        state,
+        pausedAnimation.target,
+        pausedAnimation.userCamera,
+        pausedAnimation.onComplete,
+      )
+    }
     scheduleDraw(state)
   }
 
-  function relatedTo(state, slug) {
-    if (!slug) return new Set()
-    const node = state.nodeBySlug.get(slug)
-    return new Set([...(node?.outgoing || []), ...(node?.incoming || [])])
+  function surfaceIsActive(state) {
+    const graphView = document.getElementById("atlas-graph-view")
+    const noteView = document.getElementById("atlas-note-view")
+    return state.mode === "minimap"
+      ? (noteView?.classList.contains("is-active") ?? true)
+      : (graphView?.classList.contains("is-active") ?? true)
   }
 
-  function drawEdge(state, edge, highlight) {
-    const source = sourceNode(edge, state.nodeBySlug)
-    const target = targetNode(edge, state.nodeBySlug)
-    if (!source || !target) return
-    const start = worldToScreen(state, source.x, source.y)
-    const end = worldToScreen(state, target.x, target.y)
-    const dark = isDarkTheme()
-    const developmentEdge = source.isDevelopment || target.isDevelopment
+  function updateVisualActivity(state) {
+    const active = !state.documentHidden && state.intersectionVisible && surfaceIsActive(state)
+    state.surfaceActive = active
+    if (active) resumeVisualWork(state)
+    else suspendVisualWork(state)
+  }
+
+  function relatedTo(state, slug) {
+    return slug ? state.relatedBySlug.get(slug) || EMPTY_SET : EMPTY_SET
+  }
+
+  function prepareNodeStyles(state) {
     const ctx = state.ctx
-    ctx.beginPath()
-    ctx.moveTo(start.x, start.y)
-    ctx.lineTo(end.x, end.y)
-    ctx.lineWidth = highlight ? 1.25 : state.mode === "minimap" ? 0.45 : 0.65
-    ctx.strokeStyle = highlight
-      ? dark
-        ? "rgba(142,185,255,.58)"
-        : "rgba(11,99,246,.48)"
-      : developmentEdge
-        ? dark
-          ? "rgba(160,171,188,.20)"
-          : "rgba(100,113,132,.22)"
-        : dark
-          ? "rgba(142,185,255,.13)"
-          : "rgba(18,99,255,.16)"
-    if (developmentEdge && !highlight) ctx.setLineDash([3, 4])
-    ctx.stroke()
-    ctx.setLineDash([])
+    ctx.font = GRAPH_FONT
+    state.nodeStyles = new Array(state.allNodes.length)
+    for (const node of state.allNodes) {
+      const degreeScale = Math.sqrt(node.degree + 1)
+      const development = Boolean(node.isDevelopment)
+      const measuredLabelWidth = ctx.measureText(node.title).width
+      const conservativeLabelWidth = Math.max(measuredLabelWidth, node.title.length * 9)
+      const color = development
+        ? null
+        : areaColors[
+            Math.floor(hash(node.area || node.slug) * areaColors.length) % areaColors.length
+          ]
+      state.nodeStyles[node.atlasIndex] = {
+        development,
+        colorDark: color || "#8591A3",
+        colorLight: color || "#78869A",
+        labelColorDark: development ? "#A1ADBD" : "#F5F7FF",
+        labelColorLight: development ? "#66768C" : "#07152A",
+        radiusBase: development
+          ? 2.6 + Math.min(4.2, degreeScale * 0.7)
+          : 4.2 + Math.min(7.8, degreeScale * 1.25),
+        exploreMinRadius: development ? 1.8 : 3.3,
+        minimapMinRadius: development ? 1.2 : 2.2,
+        hitRadiusBase: 7 + degreeScale,
+        labelExtent: conservativeLabelWidth + 48,
+      }
+    }
+  }
+
+  function screenPositions(state) {
+    if (!state.screenPositionsDirty) return
+    const scale = state.camera.scale
+    const cameraX = state.camera.x
+    const cameraY = state.camera.y
+    for (const node of state.nodes) {
+      const index = node.atlasIndex
+      state.screenX[index] = (node.x - cameraX) * scale
+      state.screenY[index] = (node.y - cameraY) * scale
+    }
+    state.screenPositionsDirty = false
+  }
+
+  function segmentVisible(state, startX, startY, endX, endY) {
+    const margin = state.mode === "minimap" ? 2 : 4
+    const minX = Math.min(startX, endX)
+    const maxX = Math.max(startX, endX)
+    const minY = Math.min(startY, endY)
+    const maxY = Math.max(startY, endY)
+    return (
+      maxX >= -margin &&
+      minX <= state.width + margin &&
+      maxY >= -margin &&
+      minY <= state.height + margin
+    )
+  }
+
+  function applyEdgeStyle(state, styleIndex) {
+    const ctx = state.ctx
+    if (styleIndex === 2) {
+      ctx.lineWidth = 1.25
+      ctx.strokeStyle = darkTheme ? "rgba(142,185,255,.58)" : "rgba(11,99,246,.48)"
+      ctx.setLineDash(EMPTY_DASH)
+      return
+    }
+    ctx.lineWidth = state.mode === "minimap" ? 0.45 : 0.65
+    if (styleIndex === 1) {
+      ctx.strokeStyle = darkTheme ? "rgba(160,171,188,.20)" : "rgba(100,113,132,.22)"
+      ctx.setLineDash(DEVELOPMENT_DASH)
+    } else {
+      ctx.strokeStyle = darkTheme ? "rgba(142,185,255,.13)" : "rgba(18,99,255,.16)"
+      ctx.setLineDash(EMPTY_DASH)
+    }
+  }
+
+  function drawEdges(state, highlighted) {
+    const ctx = state.ctx
+    let activeStyle = -1
+    let pathOpen = false
+
+    for (const edge of state.edges) {
+      const source = edge.source
+      const target = edge.target
+      if (!source || !target) continue
+      const sourceIndex = source.atlasIndex
+      const targetIndex = target.atlasIndex
+      const startX = state.screenX[sourceIndex]
+      const startY = state.screenY[sourceIndex]
+      const endX = state.screenX[targetIndex]
+      const endY = state.screenY[targetIndex]
+      if (!segmentVisible(state, startX, startY, endX, endY)) {
+        perf?.count("edgeCulls")
+        continue
+      }
+      const highlight =
+        Boolean(state.hoveredSlug) &&
+        (source.slug === state.hoveredSlug ||
+          target.slug === state.hoveredSlug ||
+          highlighted.has(source.slug) ||
+          highlighted.has(target.slug))
+      const nextStyle = highlight ? 2 : source.isDevelopment || target.isDevelopment ? 1 : 0
+      if (nextStyle !== activeStyle) {
+        if (pathOpen) ctx.stroke()
+        activeStyle = nextStyle
+        ctx.beginPath()
+        applyEdgeStyle(state, activeStyle)
+        pathOpen = true
+      }
+      ctx.moveTo(startX, startY)
+      ctx.lineTo(endX, endY)
+    }
+    if (pathOpen) ctx.stroke()
+    ctx.setLineDash(EMPTY_DASH)
   }
 
   function drawNode(state, node) {
-    const point = worldToScreen(state, node.x, node.y)
-    const radius = node.isDevelopment
-      ? Math.max(
-          state.mode === "minimap" ? 1.2 : 1.8,
-          (2.6 + Math.min(4.2, Math.sqrt(node.degree + 1) * 0.7)) * state.camera.scale,
-        )
-      : Math.max(
-          state.mode === "minimap" ? 2.2 : 3.3,
-          (4.2 + Math.min(7.8, Math.sqrt(node.degree + 1) * 1.25)) * state.camera.scale,
-        )
+    const index = node.atlasIndex
+    const pointX = state.screenX[index]
+    const pointY = state.screenY[index]
+    const style = state.nodeStyles[index]
+    const radius = Math.max(
+      state.mode === "minimap" ? style.minimapMinRadius : style.exploreMinRadius,
+      style.radiusBase * state.camera.scale,
+    )
     const active = node.slug === state.hoveredSlug || node.slug === state.currentSlug
-    const dark = isDarkTheme()
+    const labelVisible =
+      state.mode === "minimap" ? active : active || (state.camera.scale > 0.52 && node.degree >= 18)
+    const haloRadius = active && state.mode !== "minimap" ? radius * 2.25 : radius
+    const horizontalMargin = Math.max(haloRadius, labelVisible ? style.labelExtent + radius : 0)
+    const verticalMargin = Math.max(haloRadius, labelVisible ? 8 : 0)
+    if (
+      pointX < -horizontalMargin ||
+      pointX > state.width + horizontalMargin ||
+      pointY < -verticalMargin ||
+      pointY > state.height + verticalMargin
+    ) {
+      perf?.count("nodeCulls")
+      return
+    }
+
     const ctx = state.ctx
     if (active && state.mode !== "minimap") {
       ctx.beginPath()
-      ctx.arc(point.x, point.y, radius * 2.25, 0, Math.PI * 2)
-      ctx.fillStyle = dark ? "rgba(41,168,255,.14)" : "rgba(18,99,255,.11)"
+      ctx.arc(pointX, pointY, haloRadius, 0, Math.PI * 2)
+      ctx.fillStyle = darkTheme ? "rgba(41,168,255,.14)" : "rgba(18,99,255,.11)"
       ctx.fill()
     }
     ctx.beginPath()
-    ctx.arc(point.x, point.y, radius, 0, Math.PI * 2)
-    ctx.fillStyle = colorFor(node)
-    ctx.globalAlpha = node.isDevelopment
+    ctx.arc(pointX, pointY, radius, 0, Math.PI * 2)
+    ctx.fillStyle = darkTheme ? style.colorDark : style.colorLight
+    ctx.globalAlpha = style.development
       ? active
         ? 0.8
         : 0.34
@@ -256,67 +478,59 @@
     ctx.globalAlpha = 1
     if (active) {
       ctx.lineWidth = 1.5
-      ctx.strokeStyle = dark ? "#F5F7FF" : "#07152A"
+      ctx.strokeStyle = darkTheme ? "#F5F7FF" : "#07152A"
       ctx.stroke()
     }
 
-    const labelVisible =
-      state.mode === "minimap" ? active : active || (state.camera.scale > 0.52 && node.degree >= 18)
     if (labelVisible) {
-      ctx.font = "600 12px Poppins, Arial, sans-serif"
-      ctx.fillStyle = node.isDevelopment
-        ? dark
-          ? "#A1ADBD"
-          : "#66768C"
-        : dark
-          ? "#F5F7FF"
-          : "#07152A"
-      ctx.textBaseline = "middle"
-      ctx.fillText(node.title, point.x + radius + 7, point.y)
+      ctx.fillStyle = darkTheme ? style.labelColorDark : style.labelColorLight
+      ctx.fillText(node.title, pointX + radius + 7, pointY)
     }
   }
 
   function draw(state) {
-    if (state.destroyed) return
+    if (state.destroyed || state.suspended) return
     const startedAt = perf ? performance.now() : 0
     perf?.count("draws")
     state.frame = 0
     const ctx = state.ctx
     ctx.clearRect(0, 0, state.width, state.height)
+    screenPositions(state)
     const highlighted = relatedTo(state, state.hoveredSlug || state.currentSlug)
-    for (const edge of state.edges) {
-      const source = sourceNode(edge, state.nodeBySlug)
-      const target = targetNode(edge, state.nodeBySlug)
-      const highlight =
-        Boolean(state.hoveredSlug) &&
-        (source?.slug === state.hoveredSlug ||
-          target?.slug === state.hoveredSlug ||
-          highlighted.has(source?.slug) ||
-          highlighted.has(target?.slug))
-      drawEdge(state, edge, highlight)
-    }
+    drawEdges(state, highlighted)
+    ctx.font = GRAPH_FONT
+    ctx.textBaseline = "middle"
     for (const node of state.nodes) drawNode(state, node)
-    if (state.emptyMessage) state.emptyMessage.hidden = state.nodes.length > 0
     if (perf) perf.sample("draw", performance.now() - startedAt)
   }
 
   function scheduleDraw(state) {
-    if (state.frame || state.destroyed) return
+    if (state.destroyed) return
+    state.needsDraw = true
+    if (state.frame || state.suspended) return
     perf?.count("graphRafScheduled")
     state.frame = window.requestAnimationFrame(() => {
+      state.frame = 0
+      if (state.suspended) return
       perf?.count("graphRafCallbacks")
+      flushPointerMoves(state)
+      flushWheel(state)
+      state.needsDraw = false
       draw(state)
     })
   }
 
   function anchorFor(state, node) {
-    const point = worldToScreen(state, node.x, node.y)
-    const rect = state.canvas.getBoundingClientRect()
+    screenPositions(state)
+    const rect = refreshCanvasRect(state)
+    const index = node.atlasIndex
+    const pointX = state.screenX[index]
+    const pointY = state.screenY[index]
     return {
-      left: rect.left + point.x,
-      top: rect.top + point.y,
-      right: rect.left + point.x + 1,
-      bottom: rect.top + point.y + 1,
+      left: rect.left + pointX,
+      top: rect.top + pointY,
+      right: rect.left + pointX + 1,
+      bottom: rect.top + pointY + 1,
       width: 1,
       height: 1,
     }
@@ -328,28 +542,28 @@
     return pointerType === "touch" || pointerType === "pen"
   }
 
-  function hitTest(state, point, pointerType = "mouse") {
+  function hitTest(state, pointX, pointY, pointerType = "mouse") {
     const startedAt = perf ? performance.now() : 0
     perf?.count("hitTests")
+    screenPositions(state)
     const touch = isTouchPointer(pointerType)
     let candidate = null
     let distance = Infinity
     for (const node of state.nodes) {
-      const screen = worldToScreen(state, node.x, node.y)
-      const visualRadius = node.isDevelopment
-        ? Math.max(
-            state.mode === "minimap" ? 1.2 : 1.8,
-            (2.6 + Math.min(4.2, Math.sqrt(node.degree + 1) * 0.7)) * state.camera.scale,
-          )
-        : Math.max(
-            state.mode === "minimap" ? 2.2 : 3.3,
-            (4.2 + Math.min(7.8, Math.sqrt(node.degree + 1) * 1.25)) * state.camera.scale,
-          )
+      const style = state.nodeStyles[node.atlasIndex]
+      const visualRadius = Math.max(
+        state.mode === "minimap" ? style.minimapMinRadius : style.exploreMinRadius,
+        style.radiusBase * state.camera.scale,
+      )
       const radius = touch
         ? Math.max(22, visualRadius + 12)
-        : Math.max(10, (7 + Math.sqrt(node.degree + 1)) * state.camera.scale)
-      const nextDistance = Math.hypot(screen.x - point.x, screen.y - point.y)
-      if (nextDistance <= radius && nextDistance < distance) {
+        : Math.max(10, style.hitRadiusBase * state.camera.scale)
+      const screenX = state.screenX[node.atlasIndex]
+      const screenY = state.screenY[node.atlasIndex]
+      const deltaX = screenX - pointX
+      const deltaY = screenY - pointY
+      const nextDistance = deltaX * deltaX + deltaY * deltaY
+      if (nextDistance <= radius * radius && nextDistance < distance) {
         candidate = node
         distance = nextDistance
       }
@@ -360,7 +574,7 @@
 
   function updateHover(state, node, event) {
     const nextSlug = node?.slug || ""
-    if (nextSlug === state.hoveredSlug) return
+    if (nextSlug === state.hoveredSlug) return false
     state.hoveredSlug = nextSlug
     state.canvas.style.cursor = node ? "pointer" : "grab"
     if (node && !isTouchPointer(event)) {
@@ -368,32 +582,33 @@
     } else if (!node) {
       atlas.app?.hidePreview()
     }
-    scheduleDraw(state)
+    return true
   }
 
   function releaseDraggedNode(state) {
-    if (!state.pointer?.node) return
+    if (!state.pointer?.node || state.pointer.gesture !== GESTURES.NODE_DRAG) return
     state.pointer.node.fx = null
     state.pointer.node.fy = null
     state.physics?.reheat(0.22)
   }
 
   function pinchPoints(state) {
-    let pointerIds = state.pinch?.pointerIds?.filter((id) => state.pointers.has(id)) || []
-    if (pointerIds.length < 2) pointerIds = [...state.pointers.keys()].slice(0, 2)
-    if (pointerIds.length < 2) return null
-    const [firstId, secondId] = pointerIds
+    let firstId = state.pinch?.pointerIds?.[0]
+    let secondId = state.pinch?.pointerIds?.[1]
+    if (!state.pointers.has(firstId) || !state.pointers.has(secondId)) {
+      const iterator = state.pointers.keys()
+      firstId = iterator.next().value
+      secondId = iterator.next().value
+    }
+    if (firstId === undefined || secondId === undefined) return null
     const first = state.pointers.get(firstId)
     const second = state.pointers.get(secondId)
     if (!first || !second) return null
-    const midpoint = {
-      x: (first.x + second.x) / 2,
-      y: (first.y + second.y) / 2,
-    }
     return {
-      pointerIds: [firstId, secondId],
+      pointerIds: state.pinch?.pointerIds || [firstId, secondId],
       distance: Math.max(1, Math.hypot(first.x - second.x, first.y - second.y)),
-      midpoint,
+      midpointX: (first.x + second.x) / 2,
+      midpointY: (first.y + second.y) / 2,
     }
   }
 
@@ -403,7 +618,7 @@
     return {
       ...startPinch({
         camera: state.camera,
-        centroid: sample.midpoint,
+        centroid: { x: sample.midpointX, y: sample.midpointY },
         distance: sample.distance,
       }),
       pointerIds: sample.pointerIds,
@@ -415,8 +630,8 @@
     return (
       Math.abs(next.distance - pinch.initialDistance) >= PINCH_ACTIVATION_THRESHOLD ||
       Math.hypot(
-        next.midpoint.x - pinch.initialCentroid.x,
-        next.midpoint.y - pinch.initialCentroid.y,
+        next.midpointX - pinch.initialCentroid.x,
+        next.midpointY - pinch.initialCentroid.y,
       ) >= PINCH_ACTIVATION_THRESHOLD
     )
   }
@@ -434,17 +649,20 @@
       atlas.app?.hidePreview(0)
       cancelCameraAnimation(state)
     }
+    perf?.count("pinchFrames")
     const bounds = scaleBounds(state)
     state.camera = applyPinchCamera({
       camera: state.camera,
       pinch,
-      centroid: next.midpoint,
+      centroid: { x: next.midpointX, y: next.midpointY },
       distance: next.distance,
       minimumScale: bounds.min,
       maximumScale: bounds.max,
     })
     state.userCamera = true
-    scheduleDraw(state)
+    state.cameraDirty = true
+    state.screenPositionsDirty = true
+    return true
   }
 
   function releasePointer(state, pointerId) {
@@ -460,12 +678,13 @@
   }
 
   function setPanContinuation(state) {
-    const [id, point] = [...state.pointers.entries()][0] || []
-    if (id === undefined || !point) {
+    const first = state.pointers.entries().next().value
+    if (!first) {
       state.pointer = null
       state.gesture = GESTURES.IDLE
       return
     }
+    const [id, point] = first
     state.pointer = {
       id,
       node: null,
@@ -483,9 +702,11 @@
 
   function beginPointer(state, event) {
     if (event.button !== undefined && event.button !== 0) return
-    const point = localPoint(state, event)
+    readLocalPoint(state, event)
+    const pointX = state.localX
+    const pointY = state.localY
     const touch = isTouchPointer(event)
-    state.pointers.set(event.pointerId, point)
+    state.pointers.set(event.pointerId, { x: pointX, y: pointY })
     if (state.pointers.size >= 2) {
       cancelCameraAnimation(state)
       releaseDraggedNode(state)
@@ -500,15 +721,15 @@
       return
     }
     if (!touch || state.mode !== "minimap") capturePointer(state, event.pointerId)
-    const node = hitTest(state, point, event.pointerType)
+    const node = hitTest(state, pointX, pointY, event.pointerType)
     state.pointer = {
       id: event.pointerId,
       node,
       pointerType: event.pointerType || "mouse",
-      startX: point.x,
-      startY: point.y,
-      lastX: point.x,
-      lastY: point.y,
+      startX: pointX,
+      startY: pointY,
+      lastX: pointX,
+      lastY: pointY,
       moved: false,
       gesture: GESTURES.TAP_CANDIDATE,
     }
@@ -518,30 +739,28 @@
       node.fx = node.x
       node.fy = node.y
       state.physics?.reheat(0.18)
+      state.layoutDirty = true
     }
     if (!touch || state.mode !== "minimap") event.preventDefault()
+    scheduleDraw(state)
   }
 
-  function movePointer(state, event) {
-    const point = localPoint(state, event)
-    if (state.pointers.has(event.pointerId)) state.pointers.set(event.pointerId, point)
+  function processPointerMove(state, pointerId, pointX, pointY, pointerType) {
+    perf?.count("pointerMovesProcessed")
     if (state.pinch && state.pointers.size >= 2) {
-      applyPinch(state)
-      if (state.pinch.active) event.preventDefault()
-      return
+      return applyPinch(state)
     }
     const pointer = state.pointer
-    if (!pointer || pointer.id !== event.pointerId) {
-      updateHover(state, hitTest(state, point, event.pointerType), event)
-      return
+    if (!pointer || pointer.id !== pointerId) {
+      return updateHover(state, hitTest(state, pointX, pointY, pointerType), pointerType)
     }
-    const dx = point.x - pointer.lastX
-    const dy = point.y - pointer.lastY
+    const dx = pointX - pointer.lastX
+    const dy = pointY - pointer.lastY
     const touch = isTouchPointer(pointer.pointerType)
     const threshold = touch ? TOUCH_TAP_THRESHOLD : MOUSE_DRAG_THRESHOLD
     if (
       !pointer.moved &&
-      Math.hypot(point.x - pointer.startX, point.y - pointer.startY) > threshold
+      Math.hypot(pointX - pointer.startX, pointY - pointer.startY) > threshold
     ) {
       pointer.moved = true
       pointer.gesture = pointer.node && !touch ? GESTURES.NODE_DRAG : GESTURES.PAN
@@ -550,27 +769,77 @@
       if (touch) atlas.app?.dismissTouchHint()
     }
     if (pointer.gesture === GESTURES.NODE_DRAG && pointer.node) {
-      const position = screenToWorld(state, point.x, point.y)
-      pointer.node.fx = position.x
-      pointer.node.fy = position.y
-      pointer.node.x = position.x
-      pointer.node.y = position.y
+      const worldX = pointX / state.camera.scale + state.camera.x
+      const worldY = pointY / state.camera.scale + state.camera.y
+      pointer.node.fx = worldX
+      pointer.node.fy = worldY
+      pointer.node.x = worldX
+      pointer.node.y = worldY
+      state.layoutDirty = true
+      state.screenPositionsDirty = true
       state.physics?.reheat(0.14)
     } else if (pointer.gesture === GESTURES.PAN && !(touch && state.mode === "minimap")) {
       if (state.cameraAnimationFrame) cancelCameraAnimation(state)
       state.camera.x -= dx / state.camera.scale
       state.camera.y -= dy / state.camera.scale
       state.userCamera = true
+      state.cameraDirty = true
+      state.screenPositionsDirty = true
     }
-    pointer.lastX = point.x
-    pointer.lastY = point.y
-    scheduleDraw(state)
+    pointer.lastX = pointX
+    pointer.lastY = pointY
+    return pointer.gesture !== GESTURES.TAP_CANDIDATE || pointer.moved
+  }
+
+  function flushPointerMoves(state) {
+    let changed = false
+    if (state.pinch && state.pointers.size >= 2) {
+      for (const move of state.pendingPointerMoves.values()) move.pending = false
+      changed = applyPinch(state)
+    } else {
+      for (const [pointerId, move] of state.pendingPointerMoves) {
+        if (!move.pending) continue
+        move.pending = false
+        changed = processPointerMove(state, pointerId, move.x, move.y, move.pointerType) || changed
+      }
+    }
+    if (!state.pointer && !state.pinch && !state.pointers.size) state.pendingPointerMoves.clear()
+    return changed
+  }
+
+  function queuePointerMove(state, event) {
+    perf?.count("pointerMovesQueued")
+    readLocalPoint(state, event)
+    const point = state.pointers.get(event.pointerId)
+    if (point) {
+      point.x = state.localX
+      point.y = state.localY
+    }
+    let move = state.pendingPointerMoves.get(event.pointerId)
+    if (!move) {
+      move = { x: 0, y: 0, pointerType: "mouse", pending: false }
+      state.pendingPointerMoves.set(event.pointerId, move)
+    }
+    move.x = state.localX
+    move.y = state.localY
+    move.pointerType = event.pointerType || "mouse"
+    move.pending = true
+    const touch = isTouchPointer(event)
     if (!touch || state.mode !== "minimap") event.preventDefault()
+    if (!(touch && state.mode === "minimap")) scheduleDraw(state)
   }
 
   function endPointer(state, event) {
-    state.pointers.delete(event.pointerId)
     const canceled = event.type === "pointercancel" || event.type === "lostpointercapture"
+    if (!canceled) {
+      const move = state.pendingPointerMoves.get(event.pointerId)
+      if (move?.pending) {
+        move.pending = false
+        processPointerMove(state, event.pointerId, move.x, move.y, move.pointerType)
+      }
+    }
+    state.pendingPointerMoves.delete(event.pointerId)
+    state.pointers.delete(event.pointerId)
     releasePointer(state, event.pointerId)
     if (state.pinch) {
       if (state.pointers.size >= 2) {
@@ -587,7 +856,7 @@
         state.suppressTap = false
       }
       if (!state.pinch) state.canvas.style.cursor = "grab"
-      if (!state.pointers.size) persist()
+      if (!state.pointers.size) schedulePersist()
       scheduleDraw(state)
       return
     }
@@ -604,7 +873,7 @@
     if (isTouchPointer(pointer.pointerType)) atlas.app?.dismissTouchHint()
     if (isTap && pointer.node && !state.suppressTap) atlas.app?.openConcept(pointer.node.slug)
     state.suppressTap = false
-    persist()
+    schedulePersist()
     scheduleDraw(state)
   }
 
@@ -612,19 +881,25 @@
     if (state.cameraAnimationFrame) window.cancelAnimationFrame(state.cameraAnimationFrame)
     state.cameraAnimationFrame = 0
     state.cameraAnimationTarget = null
+    state.cameraAnimationOnComplete = null
+    state.cameraAnimationUserCamera = false
+    state.cameraAnimationPaused = null
     state.transitioning = false
   }
 
-  function zoomAt(state, point, factor) {
+  function zoomAt(state, pointX, pointY, factor) {
     cancelCameraAnimation(state)
-    const before = screenToWorld(state, point.x, point.y)
+    const beforeX = pointX / state.camera.scale + state.camera.x
+    const beforeY = pointY / state.camera.scale + state.camera.y
     const bounds = scaleBounds(state)
     state.camera.scale = clamp(state.camera.scale * factor, bounds.min, bounds.max)
-    const after = screenToWorld(state, point.x, point.y)
-    state.camera.x += before.x - after.x
-    state.camera.y += before.y - after.y
+    const afterX = pointX / state.camera.scale + state.camera.x
+    const afterY = pointY / state.camera.scale + state.camera.y
+    state.camera.x += beforeX - afterX
+    state.camera.y += beforeY - afterY
     state.userCamera = true
-    scheduleDraw(state)
+    state.cameraDirty = true
+    state.screenPositionsDirty = true
   }
 
   function animateCameraTo(state, target, userCamera, onComplete) {
@@ -638,17 +913,26 @@
     const start = { ...state.camera }
     const startedAt = performance.now()
     const duration = 300
+    if (state.suspended) {
+      state.cameraAnimationPaused = { target: nextTarget, userCamera, onComplete }
+      state.cameraAnimationUserCamera = userCamera
+      state.cameraDirty = true
+      return
+    }
     state.cameraAnimationTarget = nextTarget
+    state.cameraAnimationUserCamera = userCamera
+    state.cameraAnimationOnComplete = onComplete
+    state.cameraDirty = true
     state.transitioning = true
     const tick = (now) => {
       if (state.destroyed) return
       const progress = clamp((now - startedAt) / duration, 0, 1)
       const eased = 1 - Math.pow(1 - progress, 3)
-      state.camera = {
-        x: start.x + (nextTarget.x - start.x) * eased,
-        y: start.y + (nextTarget.y - start.y) * eased,
-        scale: start.scale + (nextTarget.scale - start.scale) * eased,
-      }
+      state.camera.x = start.x + (nextTarget.x - start.x) * eased
+      state.camera.y = start.y + (nextTarget.y - start.y) * eased
+      state.camera.scale = start.scale + (nextTarget.scale - start.scale) * eased
+      state.cameraDirty = true
+      state.screenPositionsDirty = true
       scheduleDraw(state)
       if (progress < 1) {
         state.cameraAnimationFrame = window.requestAnimationFrame(tick)
@@ -657,27 +941,28 @@
         state.cameraAnimationTarget = null
         state.transitioning = false
         state.userCamera = userCamera
+        state.cameraAnimationUserCamera = false
+        state.cameraAnimationOnComplete = null
         onComplete?.()
-        persist()
+        schedulePersist()
       }
     }
     state.cameraAnimationFrame = window.requestAnimationFrame(tick)
   }
 
   function animateZoom(state, factor) {
-    const point = { x: state.width / 2, y: state.height / 2 }
+    const pointX = state.width / 2
+    const pointY = state.height / 2
     const baseCamera = state.cameraAnimationTarget || state.camera
-    const world = {
-      x: point.x / baseCamera.scale + baseCamera.x,
-      y: point.y / baseCamera.scale + baseCamera.y,
-    }
+    const worldX = pointX / baseCamera.scale + baseCamera.x
+    const worldY = pointY / baseCamera.scale + baseCamera.y
     const bounds = scaleBounds(state)
     const scale = clamp(baseCamera.scale * factor, bounds.min, bounds.max)
     animateCameraTo(
       state,
       {
-        x: world.x - point.x / scale,
-        y: world.y - point.y / scale,
+        x: worldX - pointX / scale,
+        y: worldY - pointY / scale,
         scale,
       },
       true,
@@ -688,10 +973,39 @@
     animateCameraTo(state, calculateFit(state), false)
   }
 
+  function flushWheel(state) {
+    if (!state.wheelQueued || !state.wheelDeltaY) return false
+    const deltaY = state.wheelDeltaY
+    const pointX = state.wheelX
+    const pointY = state.wheelY
+    state.wheelDeltaY = 0
+    state.wheelQueued = false
+    zoomAt(state, pointX, pointY, Math.exp(-deltaY * 0.0012))
+    return true
+  }
+
   function handleWheel(state, event) {
-    const point = localPoint(state, event)
-    zoomAt(state, point, Math.exp(-event.deltaY * 0.0012))
+    perf?.count("wheelEvents")
+    readLocalPoint(state, event)
+    if (!state.wheelQueued) {
+      state.wheelX = state.localX
+      state.wheelY = state.localY
+      state.wheelDeltaY = event.deltaY
+      state.wheelQueued = true
+    } else if (
+      Math.abs(state.wheelX - state.localX) <= 0.5 &&
+      Math.abs(state.wheelY - state.localY) <= 0.5
+    ) {
+      state.wheelDeltaY += event.deltaY
+    } else {
+      flushWheel(state)
+      state.wheelX = state.localX
+      state.wheelY = state.localY
+      state.wheelDeltaY = event.deltaY
+      state.wheelQueued = true
+    }
     event.preventDefault()
+    scheduleDraw(state)
   }
 
   function handleKey(state, event) {
@@ -710,13 +1024,11 @@
   function renderAccessibleList(state) {
     if (!state.listItems) return
     state.listItems.replaceChildren()
-    const nodes = state.allNodes
-      .filter(
-        (node) =>
-          searchMatch(node, state.filterState.query) &&
-          (state.filterState.area === "all" || node.area === state.filterState.area),
-      )
-      .sort((left, right) => left.title.localeCompare(right.title, "pt-BR"))
+    const nodes = (state.sortedNodes || state.allNodes).filter(
+      (node) =>
+        searchMatch(node, state.filterState.queryParts) &&
+        (state.filterState.area === "all" || node.area === state.filterState.area),
+    )
     for (const node of nodes) {
       const item = make("li")
       const nodeLink = link(node, node.title, "atlas-concept-list-link")
@@ -787,19 +1099,19 @@
   function applyFilter(state, shouldAnimate = true) {
     perf?.count("filterRecalculations")
     const previousCount = state.nodes.length
+    const queryParts = searchQuery(filterState.query)
     const visibleNodes = state.allNodes.filter(
       (node) =>
-        searchMatch(node, filterState.query) &&
+        searchMatch(node, queryParts) &&
         (filterState.area === "all" || node.area === filterState.area),
     )
     const visibleSlugs = new Set(visibleNodes.map((node) => node.slug))
     state.nodes = visibleNodes
     state.edges = state.allEdges.filter(
-      (edge) =>
-        visibleSlugs.has(typeof edge.source === "object" ? edge.source.slug : edge.source) &&
-        visibleSlugs.has(typeof edge.target === "object" ? edge.target.slug : edge.target),
+      (edge) => visibleSlugs.has(edge.source.slug) && visibleSlugs.has(edge.target.slug),
     )
-    state.filterState = { ...filterState }
+    state.filterState = { ...filterState, queryParts }
+    state.screenPositionsDirty = true
     state.emptyMessage.hidden = visibleNodes.length > 0
     if (state.hoveredSlug && !visibleSlugs.has(state.hoveredSlug)) {
       state.hoveredSlug = ""
@@ -817,16 +1129,39 @@
     const allNodes = concepts.map((node, index) => {
       const saved = storedLayout?.[node.slug]
       const point = validPoint(saved) ? saved : seedPoint(node, index)
-      return { ...node, id: node.slug, x: point.x, y: point.y, vx: 0, vy: 0 }
+      return {
+        ...node,
+        id: node.slug,
+        atlasIndex: index,
+        x: point.x,
+        y: point.y,
+        vx: 0,
+        vy: 0,
+      }
     })
     const allBySlug = new Map(allNodes.map((node) => [node.slug, node]))
     const allEdges = (Array.isArray(index?.edges) ? index.edges : [])
       .filter((edge) => allBySlug.has(edge.source) && allBySlug.has(edge.target))
-      .map((edge) => ({ source: edge.source, target: edge.target }))
+      .map((edge) => ({ source: allBySlug.get(edge.source), target: allBySlug.get(edge.target) }))
+
+    const relatedBySlug = new Map()
+    for (const node of allNodes) {
+      const related = new Set()
+      for (const slug of node.outgoing) related.add(slug)
+      for (const slug of node.incoming) related.add(slug)
+      relatedBySlug.set(node.slug, related)
+    }
 
     state.allNodes = allNodes
+    state.sortedNodes = [...allNodes].sort((left, right) =>
+      left.title.localeCompare(right.title, "pt-BR"),
+    )
     state.allEdges = allEdges
     state.nodeBySlug = allBySlug
+    state.relatedBySlug = relatedBySlug
+    state.screenX = new Float64Array(allNodes.length)
+    state.screenY = new Float64Array(allNodes.length)
+    prepareNodeStyles(state)
     state.currentSlug = state.mount.dataset.atlasCurrent || ""
     applyFilter(state, false)
 
@@ -834,8 +1169,11 @@
     if (state.physics) {
       state.physics.simulation.on("tick", () => {
         perf?.count("physicsTicks")
+        state.layoutDirty = true
+        state.screenPositionsDirty = true
         if (!state.userCamera && state.initialFitTicks > 0) {
           state.camera = calculateFit(state)
+          state.cameraDirty = true
           state.initialFitTicks -= 1
         }
         scheduleDraw(state)
@@ -856,6 +1194,7 @@
   }
 
   function createState(mount) {
+    const startedAt = perf ? performance.now() : 0
     const state = {
       mount,
       mode: mount.dataset.atlasGraphMode || "explore",
@@ -863,27 +1202,55 @@
       ctx: null,
       width: 1,
       height: 1,
+      pixelRatio: 1,
+      canvasRect: null,
+      canvasRectDirty: true,
+      localX: 0,
+      localY: 0,
       camera: { x: 0, y: 0, scale: 0.4 },
       cameras: { explore: null, minimap: null },
       userCamera: false,
       transitioning: false,
+      cameraDirty: true,
+      cameraAnimationUserCamera: false,
+      cameraAnimationPaused: null,
       nodes: [],
       allNodes: [],
       edges: [],
       allEdges: [],
       nodeBySlug: new Map(),
+      sortedNodes: [],
+      relatedBySlug: new Map(),
+      screenX: null,
+      screenY: null,
+      screenPositionsDirty: true,
+      nodeStyles: [],
       currentSlug: "",
       hoveredSlug: "",
-      filterState: { ...filterState },
+      filterState: { ...filterState, queryParts: [] },
+      layoutDirty: true,
       physics: null,
       pointer: null,
       pointers: new Map(),
+      pendingPointerMoves: new Map(),
       pinch: null,
       gesture: GESTURES.IDLE,
       suppressTap: false,
       frame: 0,
+      needsDraw: false,
       cameraAnimationFrame: 0,
       cameraAnimationTarget: null,
+      cameraAnimationOnComplete: null,
+      wheelQueued: false,
+      wheelDeltaY: 0,
+      wheelX: 0,
+      wheelY: 0,
+      resizePending: false,
+      resizeFrame: 0,
+      suspended: false,
+      surfaceActive: true,
+      documentHidden: document.hidden,
+      intersectionVisible: true,
       initialFitTicks: 60,
       destroyed: false,
       cleanups: [],
@@ -922,13 +1289,16 @@
     addMapControls(state)
 
     const onPointerDown = (event) => beginPointer(state, event)
-    const onPointerMove = (event) => movePointer(state, event)
+    const onPointerMove = (event) => queuePointerMove(state, event)
     const onPointerUp = (event) => endPointer(state, event)
     const onLostPointerCapture = (event) => {
       if (state.pointers.has(event.pointerId)) endPointer(state, event)
     }
     const onPointerLeave = () => {
-      if (!state.pointer && !state.pinch) updateHover(state, null)
+      if (!state.pointer && !state.pinch) {
+        state.pendingPointerMoves.clear()
+        if (updateHover(state, null)) scheduleDraw(state)
+      }
     }
     const onWheel = (event) => handleWheel(state, event)
     const onKey = (event) => handleKey(state, event)
@@ -952,22 +1322,45 @@
     )
 
     if (window.ResizeObserver) {
-      const observer = new ResizeObserver(() => resizeCanvas(state))
+      const observer = new ResizeObserver(() => scheduleResize(state))
       observer.observe(mount)
       state.cleanups.push(() => observer.disconnect())
     }
-    const onResize = () => resizeCanvas(state)
+    const onResize = () => scheduleResize(state)
     window.addEventListener("resize", onResize)
     state.cleanups.push(() => window.removeEventListener("resize", onResize))
+    const onScroll = () => invalidateCanvasRect(state)
+    window.addEventListener("scroll", onScroll, { passive: true, capture: true })
+    state.cleanups.push(() => window.removeEventListener("scroll", onScroll, true))
     if (window.visualViewport) {
       window.visualViewport.addEventListener("resize", onResize)
       state.cleanups.push(() => window.visualViewport.removeEventListener("resize", onResize))
+      window.visualViewport.addEventListener("scroll", onScroll)
+      state.cleanups.push(() => window.visualViewport.removeEventListener("scroll", onScroll))
+    }
+    const onVisibilityChange = () => {
+      state.documentHidden = document.hidden
+      updateVisualActivity(state)
+    }
+    document.addEventListener("visibilitychange", onVisibilityChange)
+    state.cleanups.push(() => document.removeEventListener("visibilitychange", onVisibilityChange))
+    if (window.IntersectionObserver) {
+      const observer = new IntersectionObserver((entries) => {
+        state.intersectionVisible = entries[0]?.isIntersecting !== false
+        updateVisualActivity(state)
+      })
+      observer.observe(mount)
+      state.cleanups.push(() => observer.disconnect())
     }
     resizeCanvas(state, { fit: false })
     buildScene(state)
     state.camera = initialCamera(state)
+    state.cameraDirty = true
+    state.screenPositionsDirty = true
     if (state.mode === "minimap") fitAll(state)
+    updateVisualActivity(state)
     scheduleDraw(state)
+    if (perf) perf.sample("graphInit", performance.now() - startedAt)
     return state
   }
 
@@ -975,7 +1368,12 @@
     state.destroyed = true
     cancelCameraAnimation(state)
     if (state.frame) window.cancelAnimationFrame(state.frame)
-    state.physics?.simulation.stop()
+    if (state.resizeFrame) window.cancelAnimationFrame(state.resizeFrame)
+    state.frame = 0
+    state.resizeFrame = 0
+    state.pendingPointerMoves.clear()
+    state.pointers.clear()
+    state.physics?.suspendSimulation?.()
     for (const cleanup of state.cleanups) cleanup()
     instances.delete(state)
     instanceByMount.delete(state.mount)
@@ -983,17 +1381,29 @@
 
   function persist() {
     perf?.count("persistCalls")
-    const positions = { ...(storedLayout || {}) }
+    cancelScheduledPersist()
+    let layoutChanged = false
+    let cameraChanged = false
     for (const state of instances) {
-      for (const node of state.allNodes) {
-        if (validPoint(node)) positions[node.slug] = { x: node.x, y: node.y }
+      if (state.layoutDirty) {
+        if (!storedLayout) storedLayout = {}
+        for (const node of state.allNodes) {
+          if (validPoint(node)) storedLayout[node.slug] = { x: node.x, y: node.y }
+        }
+        state.layoutDirty = false
+        layoutChanged = true
       }
-      if (state.mode === "explore" && state.camera) storedCamera = { ...state.camera }
-      else if (state.cameras.explore) storedCamera = { ...state.cameras.explore }
+      if (state.cameraDirty) {
+        const camera = state.mode === "explore" ? state.camera : state.cameras.explore
+        if (camera) {
+          storedCamera = { ...camera }
+          cameraChanged = true
+        }
+        state.cameraDirty = false
+      }
     }
-    storedLayout = positions
-    writeSession(layoutKey, positions)
-    if (storedCamera) writeSession(cameraKey, storedCamera)
+    if (layoutChanged) writeSession(layoutKey, storedLayout)
+    if (cameraChanged && storedCamera) writeSession(cameraKey, storedCamera)
   }
 
   function updateModeSurfaces(state) {
@@ -1019,15 +1429,21 @@
     if (state.mode === mode) {
       state.currentSlug = nextSlug
       updateModeSurfaces(state)
+      updateVisualActivity(state)
       scheduleDraw(state)
       return
     }
-    if (state.mode === "explore") state.cameras.explore = { ...state.camera }
-    else state.cameras.minimap = { ...state.camera }
+    if (state.mode === "explore") {
+      state.cameras.explore = { ...state.camera }
+      state.cameraDirty = true
+    } else {
+      state.cameras.minimap = { ...state.camera }
+    }
     state.mode = mode
     state.currentSlug = nextSlug
     state.userCamera = false
     updateModeSurfaces(state)
+    updateVisualActivity(state)
     resizeCanvas(state, { fit: false })
     const target =
       mode === "minimap" ? calculateFit(state) : state.cameras.explore || calculateFit(state)
@@ -1044,6 +1460,7 @@
         instances.add(state)
         instanceByMount.set(mount, state)
         updateModeSurfaces(state)
+        updateVisualActivity(state)
       }
     }
   }
@@ -1052,11 +1469,91 @@
     for (const state of instances) scheduleDraw(state)
   }
 
+  function runSyntheticBenchmark(multiplier = 1, frameCount = 60) {
+    if (!perf) return null
+    const state = [...instances][0]
+    if (!state || !state.nodes.length) return null
+
+    const factor = [1, 2, 4].includes(Number(multiplier)) ? Number(multiplier) : 1
+    const frames = Math.max(1, Math.min(240, Math.floor(Number(frameCount) || 60)))
+    const saved = {
+      nodes: state.nodes,
+      edges: state.edges,
+      nodeStyles: state.nodeStyles,
+      screenX: state.screenX,
+      screenY: state.screenY,
+      screenPositionsDirty: state.screenPositionsDirty,
+      frame: state.frame,
+    }
+    const baseNodes = state.nodes
+    const baseEdges = state.edges
+    const syntheticNodes = []
+    const syntheticStyles = []
+    const copies = []
+
+    try {
+      if (state.frame) window.cancelAnimationFrame(state.frame)
+      state.frame = 0
+      for (let copyIndex = 0; copyIndex < factor; copyIndex += 1) {
+        const copy = new Map()
+        for (const node of baseNodes) {
+          const synthetic = {
+            ...node,
+            slug: `${node.slug}::atlas-perf-${copyIndex}`,
+            atlasIndex: syntheticNodes.length,
+          }
+          syntheticNodes.push(synthetic)
+          syntheticStyles.push(state.nodeStyles[node.atlasIndex])
+          copy.set(node, synthetic)
+        }
+        copies.push(copy)
+      }
+      const syntheticEdges = []
+      for (const copy of copies) {
+        for (const edge of baseEdges) {
+          const source = copy.get(edge.source)
+          const target = copy.get(edge.target)
+          if (source && target) syntheticEdges.push({ source, target })
+        }
+      }
+
+      state.nodes = syntheticNodes
+      state.edges = syntheticEdges
+      state.nodeStyles = syntheticStyles
+      state.screenX = new Float64Array(syntheticNodes.length)
+      state.screenY = new Float64Array(syntheticNodes.length)
+      state.screenPositionsDirty = true
+      perf.reset()
+      for (let frameIndex = 0; frameIndex < frames; frameIndex += 1) {
+        state.screenPositionsDirty = true
+        draw(state)
+      }
+      return {
+        ...perf.snapshot(),
+        synthetic: {
+          factor,
+          frames,
+          nodes: syntheticNodes.length,
+          edges: syntheticEdges.length,
+        },
+      }
+    } finally {
+      state.nodes = saved.nodes
+      state.edges = saved.edges
+      state.nodeStyles = saved.nodeStyles
+      state.screenX = saved.screenX
+      state.screenY = saved.screenY
+      state.screenPositionsDirty = true
+      if (saved.frame && !state.suspended) scheduleDraw(state)
+    }
+  }
+
   function redraw() {
     refresh()
   }
 
   function destroyAll() {
+    persist()
     for (const state of [...instances]) destroyState(state)
     filterState.query = ""
     filterState.area = "all"
@@ -1065,7 +1562,8 @@
   function setFilter(query, area) {
     filterState.query = String(query || "").trim()
     const requestedArea = String(area || "all")
-    const availableAreas = new Set((atlas.data.index?.areas || []).map((item) => String(item.id)))
+    if (!availableAreas)
+      availableAreas = new Set((atlas.data.index?.areas || []).map((item) => String(item.id)))
     filterState.area =
       requestedArea === "all" || availableAreas.has(requestedArea) ? requestedArea : "all"
     for (const state of instances) applyFilter(state)
@@ -1079,7 +1577,9 @@
     persist,
     redraw,
     refresh,
+    ...(perf ? { runSyntheticBenchmark } : {}),
     setFilter,
+    setTheme,
     setMode,
   }
 })()

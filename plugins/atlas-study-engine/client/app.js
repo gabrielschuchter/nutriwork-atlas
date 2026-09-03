@@ -2,7 +2,17 @@
   const atlas = (window.__nutriworkAtlasEngine = window.__nutriworkAtlasEngine || {})
   if (atlas.app?.runtimeVersion === 3) return
 
-  const { button, clear, focusable, make, normalizeSlug, pathFor, searchMatch, svgIcon } = atlas.dom
+  const {
+    button,
+    clear,
+    focusable,
+    make,
+    normalizeSlug,
+    pathFor,
+    searchMatch,
+    searchQuery,
+    svgIcon,
+  } = atlas.dom
 
   const previewId = "atlas-preview"
   const onboardingKey = "nutriwork-atlas-onboarding-v1"
@@ -88,13 +98,13 @@
 
   function setTheme(theme) {
     const nextTheme = theme === "light" ? "light" : "dark"
-    const changed = root().dataset.theme !== nextTheme
     root().dataset.theme = nextTheme
     root().setAttribute("saved-theme", nextTheme)
     root().style.colorScheme = nextTheme
     writeStorage(themeKey, nextTheme)
     renderThemeControl()
-    if (changed) atlas.graph?.redraw()
+    // Synchronize the canvas even when the document theme was initialized before the app.
+    atlas.graph?.setTheme?.(nextTheme)
   }
 
   function currentTheme() {
@@ -512,10 +522,8 @@
       return
     }
 
-    const matches = atlas.data
-      .concepts()
-      .filter((node) => searchMatch(node, normalizedQuery))
-      .sort((left, right) => left.title.localeCompare(right.title, "pt-BR"))
+    const queryParts = searchQuery(normalizedQuery)
+    const matches = atlas.data.sortedConcepts().filter((node) => searchMatch(node, queryParts))
     const visibleMatches = matches.slice(0, 50)
     status.textContent = matches.length
       ? matches.length + (matches.length === 1 ? " conceito encontrado" : " conceitos encontrados")

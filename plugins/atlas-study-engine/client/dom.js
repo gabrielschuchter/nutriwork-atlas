@@ -21,6 +21,10 @@
       .toLowerCase()
   }
 
+  function searchQuery(value) {
+    return normalizeText(value).split(/\s+/).filter(Boolean)
+  }
+
   function normalizeSlug(value) {
     let raw = String(value || "")
       .trim()
@@ -144,12 +148,11 @@
   }
 
   function searchMatch(node, query) {
-    if (!query) return true
-    const haystack = normalizeText([node.title, node.areaLabel, node.excerpt].join(" "))
-    return normalizeText(query)
-      .split(/\s+/)
-      .filter(Boolean)
-      .every((part) => haystack.includes(part))
+    const parts = Array.isArray(query) ? query : searchQuery(query)
+    if (!parts.length) return true
+    const haystack =
+      node.searchText || normalizeText([node.title, node.areaLabel, node.excerpt].join(" "))
+    return parts.every((part) => haystack.includes(part))
   }
 
   atlas.dom = {
@@ -167,6 +170,7 @@
     pathFor,
     routeSlug,
     searchMatch,
+    searchQuery,
     setHidden,
     staticPath,
     svgIcon,
