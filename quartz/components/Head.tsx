@@ -35,10 +35,12 @@ export default (() => {
         ? url.toString()
         : joinSegments(url.toString(), `${canonicalSlug}/`)
 
+    const socialTitle = canonicalSlug === "index" ? "Atlas Nutriwork" : title
+    const socialSiteName = "Atlas Nutriwork"
     const siteBaseUrl = url.toString().replace(/\/$/, "")
-    const ogImageDefaultPath = `${siteBaseUrl}/static/atlas-og-image.png`
+    const ogImageDefaultPath = `${siteBaseUrl}/static/atlas-og-image-v2.png`
     const ogImageType = getFileExtension(ogImageDefaultPath)?.replace(/^\./, "") ?? "png"
-    const ogImageAlt = "Logo completa do Atlas Nutriwork"
+    const ogImageAlt = "Atlas Nutriwork"
 
     return (
       <head>
@@ -57,27 +59,29 @@ export default (() => {
         <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossOrigin="anonymous" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 
-        <meta property="og:site_name" content={cfg.pageTitle} />
-        <meta property="og:title" content={title} />
+        <meta property="og:site_name" content={socialSiteName} />
+        <meta property="og:title" content={socialTitle} />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={title} />
+        <meta name="twitter:title" content={socialTitle} />
         <meta name="twitter:description" content={description} />
         <meta property="og:description" content={description} />
         <meta property="og:image:alt" content={ogImageAlt} />
 
         <meta property="og:image" content={ogImageDefaultPath} />
         <meta property="og:image:url" content={ogImageDefaultPath} />
+        <meta property="og:image:secure_url" content={ogImageDefaultPath} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:image" content={ogImageDefaultPath} />
+        <meta name="twitter:image:alt" content={ogImageAlt} />
         <meta property="og:image:type" content={`image/${ogImageType}`} />
 
         {cfg.baseUrl && (
           <>
-            <meta property="twitter:domain" content={cfg.baseUrl}></meta>
+            <meta name="twitter:domain" content={cfg.baseUrl} />
             <meta property="og:url" content={socialUrl}></meta>
-            <meta property="twitter:url" content={socialUrl}></meta>
+            <meta name="twitter:url" content={socialUrl} />
             <link rel="canonical" href={socialUrl} />
           </>
         )}

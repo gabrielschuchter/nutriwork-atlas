@@ -114,8 +114,8 @@ Regras:
 - persistir sessão simples em `localStorage`;
 - oferecer logout;
 - bloquear visualmente a aplicação antes de revelar a UI;
-- adicionar `noindex,nofollow`;
-- manter `robots.txt` bloqueando crawlers;
+- manter o bloqueio visual client-side sem bloquear crawlers na superfície pública;
+- não emitir `noindex`, `nofollow` ou `noarchive` e manter `robots.txt` permitindo rastreamento público;
 - não adicionar backend sem requisito.
 
 A existência de conteúdo no HTML/build estático é aceita nesta versão.
