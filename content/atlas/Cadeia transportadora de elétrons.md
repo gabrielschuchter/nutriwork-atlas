@@ -33,7 +33,7 @@ Também não é adequado avaliar "função mitocondrial" por um único marcador.
 - [[Coenzima Q]]
 - [[Citocromo c]]
 - [[Força próton-motriz]]
-- [[Espécies reativas de oxigênio]]
+- [[Espécies reativas de oxigênio (EROs)]]
 - [[Oxigênio]]
 - [[Ciclo de Krebs]]
 ## Referências de base

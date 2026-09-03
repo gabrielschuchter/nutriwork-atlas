@@ -12,7 +12,7 @@
 | `D:\Nutriwork` | 9 SVGs Canva, 3.096.122–54.624.337 bytes | Referência visual/original; não copiar integralmente para o bundle sem otimizar |
 | `D:\ID VISUAL NUTRIWORK.pdf` | 11 páginas de identidade, inspeção visual feita | Autoridade para símbolo/lockup/editorial até validação humana |
 | `D:\Nutriwork Design System.pdf` | 33 páginas, WeasyPrint | Documento de método/auditoria; não substitui assets finais |
-| Vault `C:\Users\gabsc\Documents\Obsidian Vault\Nutriwork` | 140 Markdown, sem imagens/attachments | Fonte de conteúdo; não possui assets para publicação |
+| Vault `C:\Users\gabsc\Documents\Obsidian Vault\Nutriwork` | 292 Markdown, sem imagens/attachments | Fonte de conteúdo; não possui assets para publicação |
 
 ## Assets oficiais raster encontrados em `nutriwork-plus/public`
 

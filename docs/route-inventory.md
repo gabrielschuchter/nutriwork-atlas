@@ -1,8 +1,8 @@
 # Inventário real de rotas
 
-**Fonte:** `public/` após o build local de produção de 2 de setembro de 2026.
+**Fonte:** `public/` após o build local de produção de 3 de setembro de 2026.
 
-O build emitiu **141 rotas de conteúdo**, além do fallback `404.html`: a raiz de exploração e 140 notas do grafo. Cada rota de conteúdo é protegida pelo gate do Atlas; uma rota inexistente de controle responde 404.
+O build emitiu **293 rotas de conteúdo**, além do fallback `404.html`: a raiz de exploração e 292 notas do grafo. Cada rota de conteúdo é protegida pelo gate do Atlas; uma rota inexistente de controle responde 404.
 
 Não houve publicação nesta rodada. A verificação descrita aqui é local.
 
@@ -11,6 +11,8 @@ Não houve publicação nesta rodada. A verificação descrita aqui é local.
 - `/`
 
 ## Conceitos
+
+As rotas atuais são derivadas dos 292 arquivos Markdown sincronizados do vault. A listagem nominal abaixo preserva o recorte detalhado da auditoria anterior; a contagem atual e os hashes completos estão no manifesto de sincronização.
 
 - `/atlas/adaptação-metabólica`
 - `/atlas/adp`

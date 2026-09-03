@@ -1,6 +1,6 @@
 # Nutriwork Atlas — escopo e paridade do MVP
 
-**Data:** 2 de setembro de 2026
+**Data:** 3 de setembro de 2026
 **Fonte de conteúdo:** `content/atlas/*.md`
 **Fonte de relações:** wikilinks resolvidos no índice derivado
 
@@ -24,7 +24,7 @@ Não fazem parte do MVP dashboards, páginas de métricas, biblioteca pessoal, f
 
 ## Dados e desempenho
 
-- 140 nós científicos e 1.106 arestas resolvidas.
+- 292 conceitos publicados, 324 termos em desenvolvimento e 3.126 conexões no índice do grafo.
 - O índice contém somente dados usados pelo grafo, filtros e previews.
 - A renderização usa um canvas por superfície; nós e arestas não são uma árvore DOM individual.
 - A lista acessível é lazy e fornece a alternativa textual sem penalizar a exploração visual.
@@ -33,13 +33,14 @@ Não fazem parte do MVP dashboards, páginas de métricas, biblioteca pessoal, f
 ## Validação executada
 
 - `npm run check`: TypeScript e Prettier aprovados.
-- `npm test`: 163 testes em 45 suítes, 0 falhas.
-- `npm run vault:check`: 140 hashes aprovados.
-- `npm run atlas:index`: 140 conceitos e 1.106 conexões.
-- `npm run build`: 141 rotas de conteúdo e fallback 404.
+- `npm test`: 166 testes em 45 suítes, 0 falhas.
+- `npm run vault:check`: 292 hashes aprovados.
+- `npm run atlas:index`: 616 nós e 3.126 conexões, incluindo termos em desenvolvimento.
+- `npm run build`: 293 rotas de conteúdo e fallback 404.
+- Auditoria editorial: 152 notas novas com estrutura obrigatória, sem placeholders de referência e sem padrões anti-IA auditados.
 - Navegador: primeiro acesso, onboarding, filtros, clique no canvas, preview único, abertura de nota, minimapa, histórico, expansão, retorno, navbar, tema e viewports 390×844/1280×720.
 - `git diff --name-only -- content/atlas`: somente as notas incluídas na revisão editorial conservadora; o gate de paridade continua aprovado.
 
 ## Limitações explícitas
 
-O gate é client-side e oferece privacidade casual, não autenticação forte. A validação visual foi local; não houve commit, push, deploy, comparação com produção, auditoria automatizada WCAG ou teste de zoom nativo de 200% nesta rodada.
+O gate é client-side e oferece privacidade casual, não autenticação forte. A validação visual foi local; a execução em hardware físico iPhone/iPad com Safari/WebKit, auditoria automatizada WCAG e teste de zoom nativo de 200% continuam não verificados.

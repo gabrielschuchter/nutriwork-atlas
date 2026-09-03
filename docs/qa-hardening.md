@@ -1,7 +1,7 @@
 # QA do Atlas MVP
 
-**Data:** 2 de setembro de 2026
-**Escopo:** reconstrução do Atlas em torno do grafo e revisão editorial conservadora das notas sincronizadas do vault.
+**Data:** 3 de setembro de 2026
+**Escopo:** reconstrução do Atlas em torno do grafo, revisão editorial conservadora e complementação da taxonomia prevista nas notas sincronizadas do vault.
 
 ## Resultado
 
@@ -20,12 +20,12 @@ O grafo usa um único canvas reparentado entre fullscreen e minimapa, `d3-force`
 
 ## Evidência do grafo
 
-- 140 conceitos publicados em `content/atlas`.
-- 381 termos em desenvolvimento descobertos automaticamente pelos wikilinks.
-- 521 nós e 1.811 conexões no índice derivado versão 3.
+- 292 conceitos publicados em `content/atlas`: 140 notas preexistentes e 152 notas novas.
+- 324 termos em desenvolvimento descobertos automaticamente pelos wikilinks.
+- 616 nós e 3.126 conexões no índice derivado.
 - Áreas, grau, adjacência e estado de publicação são derivados sem alterar as notas.
 - `npm run atlas:index` gera `quartz/static/atlas-index.json` sem reescrever o vault.
-- A revisão final leu as 140 notas, alterou 31 e removeu resíduos de produção ou bibliografia genérica sem obra identificável; o escore Z recebeu a única tabela nova e teve sua fórmula/exemplos reorganizados.
+- A revisão editorial anterior preservou as 140 notas existentes; a complementação atual adicionou os 152 conceitos ausentes sem reescrever esse conjunto. A fórmula do Escore Z permanece na nota existente, com sua tabela e exemplos já organizados.
 
 ## Fluxos verificados no navegador
 
@@ -46,12 +46,14 @@ O grafo usa um único canvas reparentado entre fullscreen e minimapa, `d3-force`
 
 - `npm run check` — TypeScript e Prettier aprovados.
 - `npm test` — 166 testes, 45 suítes, 0 falhas.
-- `npm run vault:check` — 140 arquivos conferidos por SHA-256.
-- `npm run atlas:index` — 521 nós e 1.811 conexões, incluindo termos em desenvolvimento.
-- `npm run build` — build limpo aprovado, com 141 rotas de conteúdo e fallback 404.
+- `npm run vault:check` — 292 arquivos conferidos por SHA-256.
+- `npm run atlas:index` — 616 nós e 3.126 conexões, incluindo termos em desenvolvimento.
+- `npm run build` — build limpo aprovado, com 293 rotas de conteúdo e fallback 404.
 - `npm audit --audit-level=high` — 0 vulnerabilidades.
 - `git diff --check` — sem erros de whitespace.
-- `git diff --name-only -- content/atlas` — somente as 31 notas da revisão editorial conservadora.
+- Auditoria da taxonomia — 229/229 conceitos resolvidos, com aliases nominais documentados e zero duplicatas normalizadas.
+- Auditoria das notas novas — 152/152 com H1 e as seis seções obrigatórias na ordem definida; zero placeholders de referência e zero ocorrências dos padrões anti-IA auditados.
+- Sincronização — 152 notas adicionadas e notas preexistentes preservadas, com um ajuste pontual de link nominal para a rede.
 
 ## Limitações conhecidas
 
