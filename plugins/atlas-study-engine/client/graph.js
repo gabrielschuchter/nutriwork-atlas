@@ -3,6 +3,7 @@
   const { WORLD, create: createPhysics } = atlas.graphPhysics
   const { applyPinch: applyPinchCamera, startPinch } = atlas.graphGestureMath
   const { clamp, hash, link, make, searchMatch } = atlas.dom
+  const perf = atlas.perf?.enabled ? atlas.perf : null
 
   const instances = new Set()
   const instanceByMount = new WeakMap()
@@ -34,6 +35,7 @@
   }
 
   function writeSession(key, value) {
+    perf?.count("sessionWrites")
     try {
       window.sessionStorage.setItem(key, JSON.stringify(value))
     } catch {
@@ -168,6 +170,7 @@
   }
 
   function resizeCanvas(state, { fit = state.mode === "minimap" || !state.userCamera } = {}) {
+    perf?.count("resizeCalls")
     const size = dimensions(state)
     const ratio = Math.min(2, Math.max(1, window.devicePixelRatio || 1))
     state.width = size.width
@@ -275,6 +278,8 @@
 
   function draw(state) {
     if (state.destroyed) return
+    const startedAt = perf ? performance.now() : 0
+    perf?.count("draws")
     state.frame = 0
     const ctx = state.ctx
     ctx.clearRect(0, 0, state.width, state.height)
@@ -292,11 +297,16 @@
     }
     for (const node of state.nodes) drawNode(state, node)
     if (state.emptyMessage) state.emptyMessage.hidden = state.nodes.length > 0
+    if (perf) perf.sample("draw", performance.now() - startedAt)
   }
 
   function scheduleDraw(state) {
     if (state.frame || state.destroyed) return
-    state.frame = window.requestAnimationFrame(() => draw(state))
+    perf?.count("graphRafScheduled")
+    state.frame = window.requestAnimationFrame(() => {
+      perf?.count("graphRafCallbacks")
+      draw(state)
+    })
   }
 
   function anchorFor(state, node) {
@@ -319,6 +329,8 @@
   }
 
   function hitTest(state, point, pointerType = "mouse") {
+    const startedAt = perf ? performance.now() : 0
+    perf?.count("hitTests")
     const touch = isTouchPointer(pointerType)
     let candidate = null
     let distance = Infinity
@@ -342,6 +354,7 @@
         distance = nextDistance
       }
     }
+    if (perf) perf.sample("hitTest", performance.now() - startedAt)
     return candidate
   }
 
@@ -772,6 +785,7 @@
   }
 
   function applyFilter(state, shouldAnimate = true) {
+    perf?.count("filterRecalculations")
     const previousCount = state.nodes.length
     const visibleNodes = state.allNodes.filter(
       (node) =>
@@ -819,6 +833,7 @@
     state.physics = createPhysics(allNodes, allEdges)
     if (state.physics) {
       state.physics.simulation.on("tick", () => {
+        perf?.count("physicsTicks")
         if (!state.userCamera && state.initialFitTicks > 0) {
           state.camera = calculateFit(state)
           state.initialFitTicks -= 1
@@ -967,6 +982,7 @@
   }
 
   function persist() {
+    perf?.count("persistCalls")
     const positions = { ...(storedLayout || {}) }
     for (const state of instances) {
       for (const node of state.allNodes) {
@@ -1058,6 +1074,7 @@
   atlas.graph = {
     destroyAll,
     getState: () => [...instances][0] || null,
+    getPerformance: () => perf?.snapshot?.() || null,
     mountAll,
     persist,
     redraw,

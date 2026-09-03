@@ -37,6 +37,7 @@ const d3ForceBundle = buildSync({
 const clientFiles = [
   "dom.js",
   "data.js",
+  "performance.js",
   "graph-physics.js",
   "gesture-math.cjs",
   "graph.js",
