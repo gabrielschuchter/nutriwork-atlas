@@ -104,5 +104,3 @@ Do ponto de vista clínico, reduzir a resistência à insulina durante a gestaç
 - Catalano PM. Trying to understand gestational diabetes. Diabetic Medicine, Oxford, v. 31, n. 3, p. 273–281, 2014. DOI: 10.1111/dme.12381.
 
 - GABBE, SG. et al. Obstetrics: normal and problem pregnancies. 7. ed. Philadelphia: Elsevier, 2017.
-
-- —------------------------------------------------------------------------------------------------------------------------

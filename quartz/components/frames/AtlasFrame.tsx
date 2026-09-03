@@ -511,10 +511,7 @@ export const AtlasFrame: PageFrame = {
                   {title}
                 </h1>
               </header>
-              <div
-                id="atlas-note-content"
-                class={`atlas-note-content${title === "Grande para idade gestacional (GIG)" ? " is-gig" : ""}`}
-              >
+              <div id="atlas-note-content" class="atlas-note-content">
                 {isNote ? <Content {...componentData} /> : null}
               </div>
               <section class="atlas-minimap-shell" aria-label={"Minimapa do conceito " + title}>
@@ -1319,7 +1316,7 @@ canvas:focus-visible {
   line-height: 1.7;
 }
 
-.atlas-note-content.is-gig article p {
+.atlas-note-content article p {
   text-align: justify;
 }
 

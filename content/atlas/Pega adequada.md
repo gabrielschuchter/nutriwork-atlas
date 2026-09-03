@@ -155,5 +155,3 @@ Além disso, intervenções focadas apenas na técnica podem falhar quando o pro
 - LAWRENCE, Ruth A.; LAWRENCE, Robert M. Breastfeeding: a guide for the medical profession. 9. ed. Philadelphia: Elsevier, 2022.
 
 - WAMBACH, Karen; SPENCER, Becky (ed.). Breastfeeding and human lactation. 7. ed. Burlington, MA: Jones & Bartlett Learning, 2024.
-
-- —------------------------------------------------------------------------------------------------------------------------

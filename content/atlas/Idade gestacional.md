@@ -119,5 +119,3 @@ A idade gestacional é uma ferramenta indispensável para o cuidado obstétrico,
 - CUNNINGHAM, F. Gary et al. Williams Obstetrics. 26. ed. New York: McGraw Hill, 2022.
 
 - SALOMON, Laurent J. et al. Practice guidelines for performance of the routine mid-trimester fetal ultrasound scan. Ultrasound in Obstetrics & Gynecology, Chichester, v. 37, n. 1, p. 116–126, 2011. DOI: 10.1002/uog.8831.
-
-- —------------------------------------------------------------------------------------------------------------------------

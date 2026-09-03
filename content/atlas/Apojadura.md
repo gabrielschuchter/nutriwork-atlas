@@ -158,5 +158,3 @@ Intervenções para acelerar a apojadura devem ser interpretadas com cautela. Me
 - World Health Organization (WHO). Protecting, promoting and supporting breastfeeding in facilities providing maternity and newborn services: guideline. Geneva: World Health Organization, 2017.
 
 - MEEK, Joan Younger; NOBLE, Lawrence; SECTION ON BREASTFEEDING. Policy Statement: Breastfeeding and the Use of Human Milk. Pediatrics, Itasca, v. 150, n. 1, e2022057988, 2022.
-
-- —------------------------------------------------------------------------------------------------------------------------

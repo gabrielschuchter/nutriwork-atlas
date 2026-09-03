@@ -177,5 +177,3 @@ Além disso, intervenções nutricionais agressivas para acelerar o crescimento 
 - HOSPITAL UNIVERSITÁRIO DA UNIVERSIDADE FEDERAL DA GRANDE DOURADOS. Restrição de crescimento fetal: protocolo PRT.UDI.003. Dourados, MS: Hospital Universitário da Universidade Federal da Grande Dourados, 2025. Versão 01.
 
 - BRASIL. Ministério da Saúde. Secretaria de Atenção à Saúde. Departamento de Atenção Básica. Orientações para a coleta e análise de dados antropométricos em serviços de saúde: Norma Técnica do Sistema de Vigilância Alimentar e Nutricional – SISVAN. Brasília, DF: Ministério da Saúde, 2011. 76 p. (Série G. Estatística e Informação em Saúde). ISBN 978-85-334-1813-4.
-
-- —------------------------------------------------------------------------------------------------------------------------

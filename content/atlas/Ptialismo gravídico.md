@@ -85,5 +85,3 @@ O manejo geralmente é baseado em controle de sintomas e suporte, pois não há 
 - GOODWIN, Thomas Murphy. Nausea and vomiting of pregnancy: an obstetric syndrome. American Journal of Obstetrics and Gynecology, St. Louis, v. 186, n. 5, supl. 2, p. S184–S189, 2002.
 
 - GABBE, SG. et al. Obstetrics: normal and problem pregnancies. 7. ed. Philadelphia: Elsevier, 2017.
-
-- —------------------------------------------------------------------------------------------------------------------------

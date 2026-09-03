@@ -113,5 +113,3 @@ Também existe risco de extrapolação ao interpretar mecanismos fisiológicos c
 - GABBE, SG. et al. Obstetrics: normal and problem pregnancies. 7. ed. Philadelphia: Elsevier, 2017.
 
 - RASMUSSEN, Kathleen M.; YAKTINE, Ann L. (eds.). Weight gain during pregnancy: reexamining the guidelines. Washington, DC: National Academies Press, 2009.
-
-- —------------------------------------------------------------------------------------------------------------------------

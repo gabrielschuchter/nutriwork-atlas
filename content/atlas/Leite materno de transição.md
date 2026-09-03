@@ -67,5 +67,3 @@ Na prática clínica, a classificação do leite como “de transição” não 
 - Ballard O, Morrow AL. Human milk composition: nutrients and bioactive factors. Pediatric Clinics of North America. 2013.
 
 - Andreas NJ, Kampmann B, Mehring Le-Doare K. Human breast milk: A review on its composition and bioactivity. Early Human Development. 2015.
-
-- —------------------------------------------------------------------------------------------------------------------------

@@ -60,5 +60,3 @@ Também há risco de uso moralizante do conceito. A classificação do IMC não 
 - Goldstein RF, Abell SK, Ranasinha S, et al. **Association of Gestational Weight Gain With Maternal and Infant Outcomes: A Systematic Review and Meta-analysis**. *JAMA*. 2017;317(21):2207-2225.
 
 - Vats H, Saxena R, Sachdeva MP, Walia GK, Gupta V. **Impact of maternal pre-pregnancy body mass index on maternal, fetal and neonatal adverse outcomes in the worldwide populations: A systematic review and meta-analysis**. *Obesity Research & Clinical Practice*. 2021;15(6):536-545.
-
-- —------------------------------------------------------------------------------------------------------------------------

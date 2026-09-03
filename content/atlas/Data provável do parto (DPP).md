@@ -125,5 +125,3 @@ Um feto maior ou menor não necessariamente possui idade gestacional diferente.
 - WORLD HEALTH ORGANIZATION. WHO recommendations on antenatal care for a positive pregnancy experience. Geneva: World Health Organization, 2016.
 
 - CUNNINGHAM, F. Gary et al. Williams Obstetrics. 26. ed. New York: McGraw Hill, 2022.
-
-- —------------------------------------------------------------------------------------------------------------------------

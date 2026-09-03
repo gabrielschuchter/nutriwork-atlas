@@ -122,5 +122,3 @@ Além disso, recomendações populacionais de promoção do aleitamento não dev
 - Rollins NC, et al. Why invest, and what it will take to improve breastfeeding practices? The Lancet. 2016.
 
 - LAWRENCE, Ruth A.; LAWRENCE, Robert M. Breastfeeding: a guide for the medical profession. 9. ed. Philadelphia: Elsevier, 2022.
-
-- —------------------------------------------------------------------------------------------------------------------------

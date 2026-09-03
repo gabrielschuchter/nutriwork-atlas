@@ -162,8 +162,8 @@
     {
       "source": "Apojadura.md",
       "destination": "Apojadura.md",
-      "bytes": 7347,
-      "sha256": "1001df32eb4e7b42b7c434ca8ba39dc49f6ebb7fe8f76d1c26cc370440243169"
+      "bytes": 7220,
+      "sha256": "6ab1a97821e0211d310e840e568b066a4387bd5400ddc98316e541fcfb4df4cf"
     },
     {
       "source": "ATP.md",
@@ -504,8 +504,8 @@
     {
       "source": "Data provável do parto (DPP).md",
       "destination": "Data provável do parto (DPP).md",
-      "bytes": 6848,
-      "sha256": "84cd4b1265f286ff6203229a5fb83fa8cf79dde3739122820f0b1c597ed6d9f1"
+      "bytes": 6718,
+      "sha256": "8baa74d8e0afccbc4f2ed59536012121455c0de0e892562b238d7aa6b7070709"
     },
     {
       "source": "Deficiência de micronutrientes na infância.md",
@@ -534,8 +534,8 @@
     {
       "source": "Desmame precoce.md",
       "destination": "Desmame precoce.md",
-      "bytes": 8089,
-      "sha256": "604970d168f74561fdb788163160bae995dc71cd0c2a70c8bacc506d75bdc922"
+      "bytes": 7959,
+      "sha256": "55e35048bc5ed880b34654d0907a9437974e3469f64b00e5e1c74f13401533b7"
     },
     {
       "source": "Desnaturação proteica.md",
@@ -942,8 +942,8 @@
     {
       "source": "Hiperêmese gravídica.md",
       "destination": "Hiperêmese gravídica.md",
-      "bytes": 7781,
-      "sha256": "b258ae1adb7bae319ddc7968b7b4f53828c59bac84e94d45206282d9ef466bd4"
+      "bytes": 7651,
+      "sha256": "469f43861254196332a447af087557e310ec9ad5a45b0bdcca96409ab5d21fa9"
     },
     {
       "source": "Hipertensão gestacional e nutrição.md",
@@ -966,14 +966,14 @@
     {
       "source": "Idade gestacional.md",
       "destination": "Idade gestacional.md",
-      "bytes": 6929,
-      "sha256": "f7f60d3e6419fcae1b658edb5e4072a55b70bf5d2ae0323804ba9e6ec6214e76"
+      "bytes": 6802,
+      "sha256": "35898337d93fc28f97b9521295840f057f8e6234650b048edd81899cf09bbab8"
     },
     {
       "source": "IMC pré-gestacional.md",
       "destination": "IMC pré-gestacional.md",
-      "bytes": 9243,
-      "sha256": "95f857183a59e04aff26d9af67cbdd565885df4069fe4a0f0724c8d1ab5d0edc"
+      "bytes": 9113,
+      "sha256": "d54a5bc2c1718bc1d7c315fbc0b11115caafaa0c129a8d1889003beec653b7ae"
     },
     {
       "source": "Índice glicêmico.md",
@@ -1044,8 +1044,8 @@
     {
       "source": "Lactogênese.md",
       "destination": "Lactogênese.md",
-      "bytes": 9172,
-      "sha256": "cd043a8a500bcb070d15654f10a3933cbe0fb372dba6f4de6d51d3c4983bcc95"
+      "bytes": 9045,
+      "sha256": "fd511a9ea9012bfe2322051d315f86a5607bbb0439e09573848be867022c3c91"
     },
     {
       "source": "LDL.md",
@@ -1056,14 +1056,14 @@
     {
       "source": "Leite materno de transição.md",
       "destination": "Leite materno de transição.md",
-      "bytes": 6734,
-      "sha256": "c7d4a7260220dcd94071dd0f37f1b9da353b274cabc7cc6dd6f46863b13bd21f"
+      "bytes": 6604,
+      "sha256": "2d4fcb273af27cd7156b4d0f06fdadb782c89332ffd854782260905de22e2e4a"
     },
     {
       "source": "Leite materno maduro.md",
       "destination": "Leite materno maduro.md",
-      "bytes": 8452,
-      "sha256": "1101000e1003d28e3d987472a1f6544e931d7b3e5da8b4ec0519a381bc116d96"
+      "bytes": 8322,
+      "sha256": "5ea7812260ae79cf7221e4f4a751276aa74622eb28a88f8bf28af70b62e01710"
     },
     {
       "source": "Leite materno.md",
@@ -1122,8 +1122,8 @@
     {
       "source": "Lipólise aumentada na gestação.md",
       "destination": "Lipólise aumentada na gestação.md",
-      "bytes": 8304,
-      "sha256": "7c863a2f41dd15a112b711cd093290c57674505c55e0816854e698856da20617"
+      "bytes": 8174,
+      "sha256": "0653aa2c79b76b2221bd4bb1284c86d4eddc9fac399332a41a0b6333137157c2"
     },
     {
       "source": "Lipólise.md",
@@ -1146,8 +1146,8 @@
     {
       "source": "Mamogênese.md",
       "destination": "Mamogênese.md",
-      "bytes": 7069,
-      "sha256": "170c3b515fb068689b3268665dfb78e47faa4490272f3f69fda7a286591a906b"
+      "bytes": 6939,
+      "sha256": "b72025bfe53cdff99f86fd797deca360e516df0da53959508e621cf8b4e5b870"
     },
     {
       "source": "Mediação.md",
@@ -1278,8 +1278,8 @@
     {
       "source": "Pega adequada.md",
       "destination": "Pega adequada.md",
-      "bytes": 7018,
-      "sha256": "4e092489c187e88a17c66239bc15d91bd40b2ea922e8a7cc778d781f6e9c540b"
+      "bytes": 6891,
+      "sha256": "5b373859118862d6cce06fe36279d758846e524153d8be8ea03f9e027f041a2c"
     },
     {
       "source": "Pepsina.md",
@@ -1296,8 +1296,8 @@
     {
       "source": "Pequeno para idade gestacional (PIG).md",
       "destination": "Pequeno para idade gestacional (PIG).md",
-      "bytes": 9881,
-      "sha256": "3f8758d49d110179ac35ea9bd57425d1fa9465457b1ae70e97715d61b337654f"
+      "bytes": 9751,
+      "sha256": "25ce21fc9a9ff6384aa02f656753d824a63430c1b53b6bb604269a282a6ab00d"
     },
     {
       "source": "Peristaltismo.md",
@@ -1374,8 +1374,8 @@
     {
       "source": "Ptialismo gravídico.md",
       "destination": "Ptialismo gravídico.md",
-      "bytes": 6283,
-      "sha256": "de099273b7fedc8f8387fb064bf3868fae1af03d16cf552997dfb47b18dd1513"
+      "bytes": 6153,
+      "sha256": "cb7a209e076a5673734d870db66b5ac08d0613284bd25a2d2bc0c8a630d950a5"
     },
     {
       "source": "Puerpério.md",
@@ -1434,8 +1434,8 @@
     {
       "source": "Resistência à insulina fisiológica na gestação.md",
       "destination": "Resistência à insulina fisiológica na gestação.md",
-      "bytes": 7935,
-      "sha256": "c0ccc44694c84a291436f7df58eed1b647169521235fe7c2d00075ee1a74d28f"
+      "bytes": 7808,
+      "sha256": "4ff3d51fc632a3d961ce4722612325d63de8d6ae7f8a73b05bf3d0a7d3817915"
     },
     {
       "source": "Resistência à insulina.md",

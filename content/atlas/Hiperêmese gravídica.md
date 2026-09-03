@@ -135,5 +135,3 @@ O manejo deve equilibrar controle de sintomas, manutenção do estado nutriciona
 - KOREN, Gideon; MALTEPE, Carolyn. The management of nausea and vomiting of pregnancy and hyperemesis gravidarum: a 2013 update. Journal of Population Therapeutics and Clinical Pharmacology, v. 20, n. 2, p. e184–e192, 2013.
 
 - GABBE, SG. et al. Obstetrics: normal and problem pregnancies. 7. ed. Philadelphia: Elsevier, 2017.
-
-- —------------------------------------------------------------------------------------------------------------------------

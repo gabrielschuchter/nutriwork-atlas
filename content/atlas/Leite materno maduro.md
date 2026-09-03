@@ -100,5 +100,3 @@ Quando há necessidade de suplementação ou substituição parcial do leite mat
 - NEVILLE, Margaret C.; MORTON, Jane; UMEMURA, Shinobu. Lactogenesis: the transition from pregnancy to lactation. Pediatric Clinics of North America, Philadelphia, v. 48, n. 1, p. 35–52, fev. 2001. DOI: 10.1016/S0031-3955(05)70284-4.
 
 - LAWRENCE, Ruth A.; LAWRENCE, Robert M. Breastfeeding: a guide for the medical profession. 7. ed. Maryland Heights: Mosby Elsevier, 2011.
-
-- —------------------------------------------------------------------------------------------------------------------------
