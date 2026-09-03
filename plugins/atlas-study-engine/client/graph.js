@@ -1274,6 +1274,22 @@
     state.ctx = canvas.getContext("2d")
     if (!state.ctx) return state
 
+    const transitionViews = [
+      document.getElementById("atlas-graph-view"),
+      document.getElementById("atlas-note-view"),
+    ]
+    for (const view of transitionViews) {
+      if (!view) continue
+      const onTransitionEnd = (event) => {
+        if (event.target !== view || event.propertyName !== "transform") return
+        invalidateCanvasRect(state)
+        refreshCanvasRect(state)
+        scheduleDraw(state)
+      }
+      view.addEventListener("transitionend", onTransitionEnd)
+      state.cleanups.push(() => view.removeEventListener("transitionend", onTransitionEnd))
+    }
+
     const empty = make("p", "atlas-graph-empty", "Nenhum conceito corresponde ao filtro.")
     empty.hidden = true
     empty.setAttribute("role", "status")
@@ -1426,6 +1442,7 @@
     const state = [...instances][0]
     if (!state || !["explore", "minimap"].includes(mode)) return
     const nextSlug = String(currentSlug || "")
+    invalidateCanvasRect(state)
     if (state.mode === mode) {
       state.currentSlug = nextSlug
       updateModeSurfaces(state)

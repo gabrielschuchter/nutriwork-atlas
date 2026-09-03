@@ -44,7 +44,7 @@ O renderer permaneceu abaixo de 8 ms no desktop, inclusive no cenário sintétic
 
 - A física mantém exatamente as forças, distâncias, colisão, gravidade, decay e `alphaMin` existentes, mas passa a ter alvo estável zero, wake explícito para interação/resize e suspensão quando converge, a aba fica oculta ou a superfície sai do viewport.
 - O grafo usa um único RAF coalescido, cache de posições/estilos/adjacência, culling conservador de arestas e nós e batching de arestas por estilo.
-- Pointer move e wheel acumulam somente o estado mais recente por frame. O pinch continua ancorado no centroide e não reaquece a física indevidamente.
+- Pointer move e wheel acumulam somente o estado mais recente por frame. O pinch continua ancorado no centroide e não reaquece a física indevidamente. O cache geométrico também é invalidado no fim das transições de tela, evitando que a escala visual intermediária do CSS contamine o anchor após navegação.
 - Busca normaliza o texto uma vez no carregamento e reutiliza uma lista estável; persistência de layout/câmera é adiada para idle e escreve somente quando há mudança.
 - Resize, `visualViewport`, visibilidade do documento e `IntersectionObserver` têm lifecycle único e cleanup explícito. A superfície recebeu apenas contenção de layout/paint e isolamento; blur, sombras, vidro e identidade Nutriwork foram preservados.
 - A paleta do Canvas é sincronizada com o tema inicial. No modo claro, rótulos publicados usam `#07152A`; no modo escuro, `#F5F7FF`. A troca de tema continua redesenhando a cena.
