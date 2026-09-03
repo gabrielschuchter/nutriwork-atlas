@@ -1842,16 +1842,5 @@ canvas:focus-visible {
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .atlas-frame,
-  .atlas-frame *,
-  .atlas-frame *::before,
-  .atlas-frame *::after {
-    scroll-behavior: auto !important;
-    transition-duration: .01ms !important;
-    animation-duration: .01ms !important;
-    animation-iteration-count: 1 !important;
-  }
-}
 
 `

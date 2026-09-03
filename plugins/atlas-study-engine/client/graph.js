@@ -624,18 +624,7 @@
     }
     const start = { ...state.camera }
     const startedAt = performance.now()
-    const reducedMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches
-    const duration = reducedMotion ? 0 : 300
-    if (!duration) {
-      state.camera = nextTarget
-      state.cameraAnimationTarget = null
-      state.transitioning = false
-      state.userCamera = userCamera
-      onComplete?.()
-      persist()
-      scheduleDraw(state)
-      return
-    }
+    const duration = 300
     state.cameraAnimationTarget = nextTarget
     state.transitioning = true
     const tick = (now) => {

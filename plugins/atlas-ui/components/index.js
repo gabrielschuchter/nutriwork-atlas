@@ -1192,13 +1192,6 @@ html.atlas-modal-open body {
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .atlas-touch-hint,
-  .atlas-mobile-sheet,
-  .atlas-mobile-sheet-card {
-    transition-duration: .01ms !important;
-  }
-}
 `
 
   AtlasAccessComponent.beforeDOMLoaded =
