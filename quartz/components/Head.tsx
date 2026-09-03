@@ -35,8 +35,10 @@ export default (() => {
         ? url.toString()
         : joinSegments(url.toString(), `${canonicalSlug}/`)
 
-    const ogImageDefaultPath = `https://${cfg.baseUrl}/static/atlas-og-image.png`
+    const siteBaseUrl = url.toString().replace(/\/$/, "")
+    const ogImageDefaultPath = `${siteBaseUrl}/static/atlas-og-image.png`
     const ogImageType = getFileExtension(ogImageDefaultPath)?.replace(/^\./, "") ?? "png"
+    const ogImageAlt = "Logo completa do Atlas Nutriwork"
 
     return (
       <head>
@@ -55,17 +57,19 @@ export default (() => {
         <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossOrigin="anonymous" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 
-        <meta name="og:site_name" content={cfg.pageTitle}></meta>
+        <meta property="og:site_name" content={cfg.pageTitle} />
         <meta property="og:title" content={title} />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
         <meta property="og:description" content={description} />
-        <meta property="og:image:alt" content={description} />
+        <meta property="og:image:alt" content={ogImageAlt} />
 
         <meta property="og:image" content={ogImageDefaultPath} />
         <meta property="og:image:url" content={ogImageDefaultPath} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta name="twitter:image" content={ogImageDefaultPath} />
         <meta property="og:image:type" content={`image/${ogImageType}`} />
 

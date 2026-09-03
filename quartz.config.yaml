@@ -6,7 +6,7 @@ configuration:
   enablePopovers: false
   analytics: null
   locale: pt-BR
-  baseUrl: nutriwork-atlas.vercel.app
+  baseUrl: atlas.gruponutriwork.com.br
   ignorePatterns:
     - private
     - templates
