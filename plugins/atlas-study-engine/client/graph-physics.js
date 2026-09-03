@@ -39,8 +39,60 @@
       .velocityDecay(0.48)
       .alphaDecay(0.035)
       .alphaMin(0.001)
-      .alphaTarget(0.008)
+      .alphaTarget(0)
       .alpha(0.82)
+
+    let suspended = false
+    let running = true
+    let wasRunning = true
+    let pendingWakeAlpha = 0
+
+    simulation.on("end.atlasLifecycle", () => {
+      if (!suspended) running = false
+    })
+
+    function activate(alpha) {
+      simulation.alphaTarget(0).alpha(alpha).restart()
+      running = true
+      wasRunning = true
+    }
+
+    function wakeSimulation(alpha = 0.45) {
+      const nextAlpha = clamp(alpha, 0.08, 0.9)
+      if (suspended) {
+        pendingWakeAlpha = Math.max(pendingWakeAlpha, nextAlpha)
+        wasRunning = true
+        return
+      }
+      pendingWakeAlpha = 0
+      activate(nextAlpha)
+    }
+
+    function coolSimulation() {
+      pendingWakeAlpha = 0
+      simulation.alphaTarget(0)
+    }
+
+    function suspendSimulation() {
+      if (suspended) return
+      suspended = true
+      wasRunning = running && simulation.alpha() >= simulation.alphaMin()
+      simulation.stop()
+    }
+
+    function resumeSimulationIfNeeded() {
+      if (!suspended) return
+      suspended = false
+      if (pendingWakeAlpha > 0) {
+        const nextAlpha = pendingWakeAlpha
+        pendingWakeAlpha = 0
+        activate(nextAlpha)
+      } else if (wasRunning && simulation.alpha() >= simulation.alphaMin()) {
+        simulation.alphaTarget(0).restart()
+        running = true
+      }
+      wasRunning = false
+    }
 
     function resize(width, height) {
       const viewportScale = clamp(
@@ -51,7 +103,13 @@
       gravityX.strength(0.018 * viewportScale)
       gravityY.strength(0.018 * viewportScale)
       center.strength(0.06 * viewportScale)
-      simulation.alphaTarget(0.008).alpha(Math.max(simulation.alpha(), 0.06)).restart()
+      const nextAlpha = Math.max(simulation.alpha(), 0.06)
+      if (suspended) {
+        pendingWakeAlpha = Math.max(pendingWakeAlpha, nextAlpha)
+        wasRunning = true
+      } else {
+        activate(nextAlpha)
+      }
     }
 
     return {
@@ -60,12 +118,12 @@
       links,
       simulation,
       resize,
-      reheat(alpha = 0.45) {
-        simulation
-          .alphaTarget(0.008)
-          .alpha(clamp(alpha, 0.08, 0.9))
-          .restart()
-      },
+      reheat: wakeSimulation,
+      wakeSimulation,
+      coolSimulation,
+      suspendSimulation,
+      resumeSimulationIfNeeded,
+      isRunning: () => running && !suspended,
     }
   }
 
