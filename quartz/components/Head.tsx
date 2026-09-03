@@ -6,12 +6,7 @@ import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } fro
 import { unescapeHTML } from "../util/escape"
 
 export default (() => {
-  const Head: QuartzComponent = ({
-    cfg,
-    fileData,
-    externalResources,
-    ctx,
-  }: QuartzComponentProps) => {
+  const Head: QuartzComponent = ({ cfg, fileData, externalResources }: QuartzComponentProps) => {
     const titleSuffix = cfg.pageTitleSuffix ?? ""
     const title =
       (fileData.frontmatter?.title ?? i18n(cfg.locale).propertyDefaults.title) + titleSuffix
@@ -40,8 +35,7 @@ export default (() => {
         ? url.toString()
         : joinSegments(url.toString(), `${canonicalSlug}/`)
 
-    const usesCustomOgImage = ctx.cfg.plugins.emitters.some((e) => e.name === "CustomOgImages")
-    const ogImageDefaultPath = `https://${cfg.baseUrl}/static/nutriwork-banner-pc.webp`
+    const ogImageDefaultPath = `https://${cfg.baseUrl}/static/atlas-og-image.png`
     const ogImageType = getFileExtension(ogImageDefaultPath)?.replace(/^\./, "") ?? "png"
 
     return (
@@ -70,14 +64,10 @@ export default (() => {
         <meta property="og:description" content={description} />
         <meta property="og:image:alt" content={description} />
 
-        {!usesCustomOgImage && (
-          <>
-            <meta property="og:image" content={ogImageDefaultPath} />
-            <meta property="og:image:url" content={ogImageDefaultPath} />
-            <meta name="twitter:image" content={ogImageDefaultPath} />
-            <meta property="og:image:type" content={`image/${ogImageType}`} />
-          </>
-        )}
+        <meta property="og:image" content={ogImageDefaultPath} />
+        <meta property="og:image:url" content={ogImageDefaultPath} />
+        <meta name="twitter:image" content={ogImageDefaultPath} />
+        <meta property="og:image:type" content={`image/${ogImageType}`} />
 
         {cfg.baseUrl && (
           <>
