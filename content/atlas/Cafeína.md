@@ -64,8 +64,5 @@ Na prática esportiva, o prejuízo potencial ao sono deve ser considerado, espec
 
 - International Society of Sports Nutrition. Position Stand: Caffeine and Exercise Performance.
 
-- Grgic J, et al. Revisões sistemáticas e metanálises sobre cafeína e desempenho esportivo.
-
-- Spriet LL. Revisões sobre mecanismos fisiológicos da cafeína.
 
 - Thomas DT, Erdman KA, Burke LM. Nutrition and Athletic Performance.

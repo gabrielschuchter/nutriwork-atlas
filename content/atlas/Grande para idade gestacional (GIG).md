@@ -146,14 +146,14 @@ Portanto, o nascimento GIG é um marcador de contexto intrauterino, não uma det
 - [[Obesidade infantil]]
 ## Referências de base
 
-- American College of Obstetricians and Gynecologists (ACOG). Macrosomia. [verificar versão atual]
+- American College of Obstetricians and Gynecologists (ACOG). Macrosomia.
 
-- American College of Obstetricians and Gynecologists (ACOG). Gestational Diabetes Mellitus. [verificar versão atual]
+- American College of Obstetricians and Gynecologists (ACOG). Gestational Diabetes Mellitus.
 
 - Hyperglycemia and Adverse Pregnancy Outcome (HAPO) Study Cooperative Research Group. Hyperglycemia and adverse pregnancy outcomes. New England Journal of Medicine. 2008.
 
-- International Association of Diabetes and Pregnancy Study Groups (IADPSG). Recommendations on diagnosis and classification of hyperglycemia in pregnancy. [verificar referência específica]
+- International Association of Diabetes and Pregnancy Study Groups (IADPSG). Recommendations on diagnosis and classification of hyperglycemia in pregnancy.
 
-- World Health Organization (WHO). Diagnostic criteria and classification of hyperglycaemia first detected in pregnancy. [verificar versão atual]
+- World Health Organization (WHO). Diagnostic criteria and classification of hyperglycaemia first detected in pregnancy.
 
-- Cunningham FG, et al. Williams Obstetrics. [verificar edição].
+- Cunningham FG, et al. Williams Obstetrics.

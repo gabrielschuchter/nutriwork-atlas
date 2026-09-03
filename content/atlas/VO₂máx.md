@@ -74,5 +74,3 @@ Na prática clínica, o VO₂máx constitui excelente marcador funcional, mas de
 - Bassett DR, Howley ET. Limiting factors for maximum oxygen uptake and determinants of endurance performance.
 
 - Brooks GA, Fahey TD, Baldwin KM. Exercise Physiology: Human Bioenergetics and Its Applications.
-
-- Joyner MJ, Coyle EF. Revisões sobre determinantes fisiológicos do desempenho em endurance.

@@ -53,5 +53,3 @@ Assim, a evidência atual favorece a ingestão adequada de proteína de alta qua
 - International Society of Sports Nutrition. Position Stand: Protein and Exercise.
 
 - Morton RW, et al. Protein supplementation and resistance training adaptations.
-
-- Wolfe RR. Trabalhos sobre aminoácidos essenciais e síntese proteica muscular.

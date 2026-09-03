@@ -56,8 +56,4 @@ Por essas razões, muitos pesquisadores preferem utilizar termos mais específic
 
 - American College of Sports Medicine. ACSM's Guidelines for Exercise Testing and Prescription.
 
-- Brooks GA. Revisões sobre metabolismo do lactato e fisiologia do exercício.
-
 - Faude O, Kindermann W, Meyer T. Lactate Threshold Concepts: How Valid Are They? Sports Medicine.
-
-- Joyner MJ, Coyle EF. Revisões sobre determinantes fisiológicos do desempenho em endurance.

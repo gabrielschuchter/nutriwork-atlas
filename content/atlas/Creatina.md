@@ -65,5 +65,3 @@ A retenção hídrica intracelular observada no início da suplementação repre
 - Kreider RB, et al. International Society of Sports Nutrition Position Stand: Creatine Supplementation and Exercise.
 
 - Buford TW, et al. ISSN Position Stand: Creatine Supplementation and Exercise.
-
-- Rawson ES, Persky AM. Revisões sobre creatina e desempenho.

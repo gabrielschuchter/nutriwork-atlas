@@ -57,9 +57,8 @@ Na prática clínica, a carga glicêmica deve complementar, e não substituir, a
 - [[Resposta glicêmica]]
 ## Referências de base
 
-- International Organization for Standardization (ISO). Método para determinação do índice glicêmico. [Verificar versão vigente.]
+- International Organization for Standardization (ISO). Método para determinação do índice glicêmico.
 
-- Jenkins DJA, et al. Trabalhos originais sobre índice glicêmico e carga glicêmica.
 
 - American Diabetes Association. Standards of Care in Diabetes. (edição vigente).
 

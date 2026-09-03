@@ -7,7 +7,7 @@
 
 O fluxo do produto é acesso, onboarding curto, exploração do grafo e leitura de uma nota. A exploração acontece em `/`; a leitura acontece em `/atlas/<conceito>`. Não existem superfícies paralelas no MVP.
 
-O conteúdo científico em `content/atlas/*.md` é a fonte de verdade e permanece byte a byte intacto. O arquivo `data/atlas-areas.json` classifica os conceitos sem inserir metadados nas notas. O índice derivado é `quartz/static/atlas-index.json`.
+O conteúdo científico em `content/atlas/*.md` é sincronizado deterministicamente a partir do vault, que é a fonte de verdade. Alterações editoriais explícitas devem ser feitas na fonte e propagadas por `npm run vault:sync`, com hashes registrados no manifesto. O arquivo `data/atlas-areas.json` classifica os conceitos sem inserir metadados nas notas. O índice derivado é `quartz/static/atlas-index.json`.
 
 ## Arquitetura implementada
 
@@ -56,6 +56,8 @@ O navegador deve cobrir primeiro acesso, onboarding, clique, hover/preview únic
 
 - 140 conceitos publicados, 381 termos em desenvolvimento, 521 nós e 1.811 conexões.
 - Build com as rotas de conteúdo publicadas e fallback 404; termos em desenvolvimento não geram notas vazias.
-- TypeScript, Prettier e 163 testes aprovados.
+- TypeScript, Prettier e 166 testes aprovados.
+- Máquina touch, matemática da pinça, sheets mobile, safe areas e regimes phone/tablet passaram por QA emulado; a suíte agora tem 166 testes aprovados.
+- Revisão editorial conservadora: 140 notas lidas, 31 alteradas para remover resíduos de produção e organizar a fórmula/exemplos do escore Z.
 - Integridade SHA-256 dos 140 arquivos científicos aprovada.
 - Fluxo local validado com canvas de largura/altura iguais à viewport, sem overflow estrutural no fullscreen.

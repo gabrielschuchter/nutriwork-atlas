@@ -89,7 +89,7 @@ Quando há necessidade de suplementação ou substituição parcial do leite mat
 - [[Puerpério]]
 ## Referências de base
 
-- World Health Organization (WHO). Guideline: Protecting, promoting and supporting breastfeeding in facilities providing maternity and newborn services. [verificar detalhes bibliográficos]
+- World Health Organization (WHO). Guideline: Protecting, promoting and supporting breastfeeding in facilities providing maternity and newborn services.
 
 - MEEK, J. Y.; NOBLE, L.; SECTION ON BREASTFEEDING. Policy Statement: Breastfeeding and the Use of Human Milk. Pediatrics, Itasca, v. 150, n. 1, e2022057988, 2022. DOI: 10.1542/peds.2022-057988.
 

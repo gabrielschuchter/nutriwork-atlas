@@ -90,6 +90,6 @@ Por fim, é importante distinguir descrever um comportamento de explicá-lo. Diz
 
 - Catania AC. Learning. 5th ed. Sloan Publishing; 2013.
 
-- Lowe CF, Horne PJ. Eating Behaviour: Psychological Perspectives. [verificar edição].
+- Lowe CF, Horne PJ. Eating Behaviour: Psychological Perspectives.
 
-- Krause's Food & the Nutrition Care Process. Elsevier. [verificar edição].
+- Krause's Food & the Nutrition Care Process. Elsevier.

@@ -79,4 +79,4 @@ Na prática clínica, reconhecer influências filogenéticas pode favorecer inte
 
 - Catania AC. Learning. 5th ed. Sloan Publishing; 2013.
 
-- Alcock J. Animal Behavior: An Evolutionary Approach. [verificar edição].
+- Alcock J. Animal Behavior: An Evolutionary Approach.

@@ -52,7 +52,7 @@ Na prática clínica, diferenciar hiponatremia de desidratação é essencial, p
 - [[Nutrição esportiva]]
 ## Referências de base
 
-- International Olympic Committee (IOC). Consensus Statement on Dietary Supplements and the High-Performance Athlete. [Seções sobre hidratação.]
+- International Olympic Committee (IOC). Consensus Statement on Dietary Supplements and the High-Performance Athlete.
 
 - American College of Sports Medicine. Exercise and Fluid Replacement.
 

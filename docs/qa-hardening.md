@@ -1,7 +1,7 @@
 # QA do Atlas MVP
 
 **Data:** 2 de setembro de 2026
-**Escopo:** reconstrução do Atlas em torno do grafo, sem alteração dos arquivos científicos em `content/atlas/*.md`.
+**Escopo:** reconstrução do Atlas em torno do grafo e revisão editorial conservadora das notas sincronizadas do vault.
 
 ## Resultado
 
@@ -23,8 +23,9 @@ O grafo usa um único canvas reparentado entre fullscreen e minimapa, `d3-force`
 - 140 conceitos publicados em `content/atlas`.
 - 381 termos em desenvolvimento descobertos automaticamente pelos wikilinks.
 - 521 nós e 1.811 conexões no índice derivado versão 3.
-- Áreas, grau, adjacência e estado de publicação são derivados sem alterar o vault.
+- Áreas, grau, adjacência e estado de publicação são derivados sem alterar as notas.
 - `npm run atlas:index` gera `quartz/static/atlas-index.json` sem reescrever o vault.
+- A revisão final leu as 140 notas, alterou 31 e removeu resíduos de produção ou bibliografia genérica sem obra identificável; o escore Z recebeu a única tabela nova e teve sua fórmula/exemplos reorganizados.
 
 ## Fluxos verificados no navegador
 
@@ -37,21 +38,23 @@ O grafo usa um único canvas reparentado entre fullscreen e minimapa, `d3-force`
 - Leitura: nota em foco, minimapa com a mesma rede/instância, botão para expandir o grafo e retorno para a nota anterior.
 - Histórico: “Voltar” retorna ao contexto anterior sem perder a rota visitada.
 - Interface: onboarding repetível, ajuda com contatos oficiais, tema, previews, loaders e mostrar/ocultar senha sem mudança de layout.
-- Responsividade: viewport desktop, tablet e mobile devem manter renderer e câmera dimensionados por `ResizeObserver`/`visualViewport`, sem overflow horizontal ou área morta estrutural.
+- Touch: pinça com escala baseada no snapshot inicial, âncora no centroide, pan contínuo ao levantar um dedo, threshold de tap, hitboxes touch próximas de 44px, pinch sobre node sem abertura acidental e nodes sem drag direto no touch.
+- Phone/tablet: header de uma linha, busca quase full-screen, filtro por áreas em sheet, menu dedicado, controls de mapa próximos de 48–52px, safe areas, viewport dinâmica e minimapa com scroll vertical preservado.
+- Responsividade: viewport desktop, tablet portrait/landscape e phone portrait/landscape mantêm renderer e câmera dimensionados por `ResizeObserver`/`visualViewport`, sem overflow horizontal ou área morta estrutural.
 
 ## Validações automatizadas
 
 - `npm run check` — TypeScript e Prettier aprovados.
-- `npm test` — 163 testes, 45 suítes, 0 falhas.
+- `npm test` — 166 testes, 45 suítes, 0 falhas.
 - `npm run vault:check` — 140 arquivos conferidos por SHA-256.
 - `npm run atlas:index` — 521 nós e 1.811 conexões, incluindo termos em desenvolvimento.
 - `npm run build` — build limpo aprovado, com 141 rotas de conteúdo e fallback 404.
 - `npm audit --audit-level=high` — 0 vulnerabilidades.
 - `git diff --check` — sem erros de whitespace.
-- `git diff --name-only -- content/atlas` — nenhum arquivo científico alterado.
+- `git diff --name-only -- content/atlas` — somente as 31 notas da revisão editorial conservadora.
 
 ## Limitações conhecidas
 
 - O gate continua sendo client-side e oferece privacidade casual, não autenticação forte.
 - Commit, push e deploy devem ser confirmados separadamente com o SHA, deployment e alias oficial.
-- A validação visual foi feita em navegador local; zoom nativo de 200% e auditoria automatizada WCAG continuam fora deste ciclo.
+- A validação touch foi feita com emulação de dispositivo móvel Chromium e viewport tablet/desktop no navegador local; WebKit/Safari real em iPhone/iPad e hardware Android não estavam instalados/disponíveis neste ambiente. Zoom nativo de 200% e auditoria automatizada WCAG continuam fora deste ciclo.

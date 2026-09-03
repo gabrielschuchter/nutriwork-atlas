@@ -52,8 +52,4 @@ Além disso, o aumento do peso corporal decorrente da retenção hídrica pode s
 - [[Exercício de endurance]]
 ## Referências de base
 
-- Burke LM, Hawley JA, Wong SHS, Jeukendrup AE. Revisões sobre estratégias de ingestão de carboidratos no esporte.
-
 - Thomas DT, Erdman KA, Burke LM. Nutrition and Athletic Performance. Academy of Nutrition and Dietetics, Dietitians of Canada e American College of Sports Medicine.
-
-- Jeukendrup AE. Trabalhos sobre metabolismo de carboidratos durante o exercício.

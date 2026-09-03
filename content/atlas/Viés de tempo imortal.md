@@ -27,4 +27,3 @@ Uma dificuldade prática é que o viés nem sempre é facilmente identificável 
 - Hernán MA, Robins JM. Causal Inference: What If.
 - Suissa S. Immortal Time Bias in Pharmacoepidemiology. American Journal of Epidemiology.
 - Suissa S. Immortal Time Bias in Observational Studies of Drug Effects. Pharmacoepidemiology and Drug Safety.
-- [verificar: Lévesque LE et al. Problem of Immortal Time Bias in Cohort Studies].

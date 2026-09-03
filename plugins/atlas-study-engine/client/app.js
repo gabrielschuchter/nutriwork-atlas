@@ -2,18 +2,25 @@
   const atlas = (window.__nutriworkAtlasEngine = window.__nutriworkAtlasEngine || {})
   if (atlas.app?.runtimeVersion === 3) return
 
-  const { button, clear, focusable, make, normalizeSlug, pathFor, svgIcon } = atlas.dom
+  const { button, clear, focusable, make, normalizeSlug, pathFor, searchMatch, svgIcon } = atlas.dom
 
   const previewId = "atlas-preview"
   const onboardingKey = "nutriwork-atlas-onboarding-v1"
   const lastNoteKey = "nutriwork-atlas-last-note-v2"
   const themeKey = "nutriwork-atlas-theme"
+  const touchHintKey = "nutriwork-atlas-touch-hint-v1"
   let previewTimer = 0
   let previewSlug = ""
   let previewAnchor = null
   let onboardingStep = 0
   let onboardingOpener = null
   let helpOpener = null
+  let searchOpener = null
+  let areaOpener = null
+  let mobileMenuOpener = null
+  let touchHintTimer = 0
+  let touchHintShown = false
+  let mobileSearchQuery = ""
   let refreshSerial = 0
   let navigationSerial = 0
   let selectedArea = "all"
@@ -25,6 +32,26 @@
 
   function isUnlocked() {
     return root().dataset.atlasAccess === "unlocked"
+  }
+
+  function isTouchDevice() {
+    return Boolean(navigator.maxTouchPoints > 0 || window.matchMedia?.("(pointer: coarse)").matches)
+  }
+
+  function overlayIsOpen(id) {
+    const overlay = document.getElementById(id)
+    return Boolean(overlay && !overlay.hidden && overlay.classList.contains("is-open"))
+  }
+
+  function syncModalLock() {
+    const open = [
+      "atlas-search-sheet",
+      "atlas-area-sheet",
+      "atlas-mobile-menu",
+      "atlas-onboarding",
+      "atlas-help",
+    ].some(overlayIsOpen)
+    root().classList.toggle("atlas-modal-open", open)
   }
 
   function readStorage(key) {
@@ -77,17 +104,24 @@
   }
 
   function renderThemeControl() {
-    const control = document.getElementById("atlas-theme-toggle")
-    if (!control) return
     const dark = (root().dataset.theme || currentTheme()) === "dark"
-    clear(control)
-    control.appendChild(svgIcon(dark ? "sun" : "moon"))
-    control.appendChild(make("span", "atlas-control-label", dark ? "Modo claro" : "Modo escuro"))
-    control.setAttribute("aria-label", dark ? "Usar modo claro" : "Usar modo escuro")
-    control.title = dark ? "Usar modo claro" : "Usar modo escuro"
+    const controls = document.querySelectorAll("[data-atlas-theme-toggle]")
+    for (const control of controls) {
+      clear(control)
+      control.appendChild(svgIcon(dark ? "sun" : "moon"))
+      if (!control.classList.contains("atlas-mobile-action"))
+        control.appendChild(
+          make("span", "atlas-control-label", dark ? "Modo claro" : "Modo escuro"),
+        )
+      control.setAttribute("aria-label", dark ? "Usar modo claro" : "Usar modo escuro")
+      control.title = dark ? "Usar modo claro" : "Usar modo escuro"
+    }
+    const menuLabel = document.getElementById("atlas-theme-menu-label")
+    if (menuLabel) menuLabel.textContent = dark ? "Usar modo claro" : "Usar modo escuro"
   }
 
   function setNavHidden(hidden) {
+    if (hidden) closeMobileMenu(false)
     root().classList.toggle("atlas-nav-hidden", hidden)
     const reopen = document.getElementById("atlas-reopen-nav")
     if (reopen) reopen.hidden = !hidden
@@ -200,12 +234,25 @@
     const back = document.getElementById("atlas-back")
     const expand = document.getElementById("atlas-expand-graph")
     const filters = document.querySelector(".atlas-graph-filters")
+    const mobileGraphTools = document.getElementById("atlas-mobile-graph-tools")
+    const mobileSearch = document.querySelector(".atlas-mobile-search-trigger")
+    const mobileBack = document.querySelector(
+      '[data-atlas-action="go-back"].atlas-mobile-note-action',
+    )
+    const mobileExpand = document.querySelector(
+      '[data-atlas-action="expand-graph"].atlas-mobile-note-action',
+    )
     const onboarding = document.getElementById("atlas-onboarding-open")
     const help = document.getElementById("atlas-help-open")
     if (back) back.hidden = graph
     if (expand) expand.hidden = graph
     if (filters) filters.hidden = !graph
+    if (mobileGraphTools) mobileGraphTools.hidden = !graph
+    if (mobileSearch) mobileSearch.hidden = !graph
+    if (mobileBack) mobileBack.hidden = graph
+    if (mobileExpand) mobileExpand.hidden = graph
     if (!graph) closeAreaMenu()
+    if (!graph) closeAreaSheet(false)
     if (onboarding) onboarding.hidden = !isUnlocked()
     if (help) help.hidden = !isUnlocked()
 
@@ -223,6 +270,7 @@
     }
     setNavHidden(false)
     renderViewState()
+    renderMobileMenuState()
   }
 
   function areaPickerElements() {
@@ -235,24 +283,57 @@
     }
   }
 
+  function areaSheetElements() {
+    return {
+      sheet: document.getElementById("atlas-area-sheet"),
+      options: document.getElementById("atlas-area-sheet-options"),
+      trigger: document.getElementById("atlas-mobile-area-trigger"),
+      value: document.getElementById("atlas-mobile-area-value"),
+    }
+  }
+
+  function preferredOpener(fallback = null) {
+    const active = document.activeElement instanceof HTMLElement ? document.activeElement : null
+    if (active?.closest("#atlas-mobile-menu"))
+      return document.querySelector('[data-atlas-action="toggle-mobile-menu"]') || fallback
+    return active || fallback
+  }
+
+  function mobileOpener(trigger) {
+    const active = document.activeElement instanceof HTMLElement ? document.activeElement : null
+    if (active?.closest("#atlas-mobile-menu"))
+      return document.querySelector('[data-atlas-action="toggle-mobile-menu"]') || trigger
+    return trigger
+  }
+
   function areaOptions(menu) {
     return [...(menu?.querySelectorAll("[data-atlas-area-value]") || [])]
   }
 
   function setAreaPickerValue(value) {
     const { trigger, value: valueElement, menu, select } = areaPickerElements()
-    if (!trigger || !valueElement || !menu) return
+    const sheet = areaSheetElements()
     const options = areaOptions(menu)
+    const sheetOptions = areaOptions(sheet.options)
     const selected = options.find((option) => option.dataset.atlasAreaValue === value)
     const fallback = selected || options[0]
     selectedArea = fallback?.dataset.atlasAreaValue || "all"
     if (select) select.value = selectedArea
-    if (valueElement) valueElement.textContent = fallback?.textContent || "Todas as áreas"
-    trigger.setAttribute(
-      "aria-label",
-      fallback ? "Filtrar por área: " + fallback.textContent : "Filtrar por área",
-    )
+    const label = fallback?.textContent || "Todas as áreas"
+    if (valueElement) valueElement.textContent = label
+    if (trigger) {
+      if (valueElement) valueElement.textContent = label
+      trigger.setAttribute("aria-label", "Filtrar por área: " + label)
+    }
+    if (sheet.value) {
+      sheet.value.textContent = label
+      sheet.trigger?.setAttribute("aria-label", "Filtrar por área: " + label)
+    }
+    const mobileMenuValue = document.getElementById("atlas-mobile-menu-area-value")
+    if (mobileMenuValue) mobileMenuValue.textContent = label
     for (const option of options) option.setAttribute("aria-selected", String(option === fallback))
+    for (const option of sheetOptions)
+      option.setAttribute("aria-selected", String(option.dataset.atlasAreaValue === selectedArea))
   }
 
   function positionAreaMenu() {
@@ -300,6 +381,21 @@
     if (focusTrigger) trigger.focus()
   }
 
+  function closeAreaSheet(focusTrigger = true) {
+    const { sheet, trigger } = areaSheetElements()
+    if (!sheet) return
+    sheet.classList.remove("is-open")
+    sheet.setAttribute("aria-hidden", "true")
+    trigger?.setAttribute("aria-expanded", "false")
+    syncModalLock()
+    window.setTimeout(() => {
+      if (!sheet.classList.contains("is-open")) sheet.hidden = true
+    }, 220)
+    const opener = areaOpener
+    areaOpener = null
+    if (focusTrigger) (opener || trigger)?.focus({ preventScroll: true })
+  }
+
   function openAreaMenu(focusSelected = false) {
     const { trigger, menu } = areaPickerElements()
     if (!trigger || !menu || !menu.children.length) return
@@ -314,6 +410,26 @@
     })
   }
 
+  function openAreaSheet() {
+    if (!isUnlocked()) return
+    const { sheet, options, trigger } = areaSheetElements()
+    if (!sheet || !options || !options.children.length) return
+    closeAreaMenu()
+    closeSearch(false)
+    closeMobileMenu(false)
+    areaOpener = mobileOpener(trigger)
+    sheet.hidden = false
+    sheet.setAttribute("aria-hidden", "false")
+    trigger?.setAttribute("aria-expanded", "true")
+    root().classList.add("atlas-modal-open")
+    window.requestAnimationFrame(() => {
+      sheet.classList.add("is-open")
+      areaOptions(options)
+        .find((option) => option.getAttribute("aria-selected") === "true")
+        ?.focus({ preventScroll: true })
+    })
+  }
+
   function toggleAreaMenu() {
     const { menu } = areaPickerElements()
     if (!menu) return
@@ -323,24 +439,33 @@
 
   function renderAreas() {
     const { trigger, menu, select } = areaPickerElements()
+    const { options: sheetOptions } = areaSheetElements()
     const areas = atlas.data.index?.areas || []
-    if (!trigger || !menu || !select) return
-    if (select.dataset.ready === "true" && menu.children.length) {
+    if (!trigger || !menu || !select || !sheetOptions) return
+    if (select.dataset.ready === "true" && menu.children.length && sheetOptions.children.length) {
       setAreaPickerValue(selectedArea)
       return
     }
     closeAreaMenu()
+    closeAreaSheet(false)
     clear(select)
     clear(menu)
+    clear(sheetOptions)
     const addArea = (value, label) => {
       select.appendChild(new Option(label, value))
-      const option = make("button", "atlas-area-option", label)
-      option.type = "button"
-      option.setAttribute("role", "option")
-      option.setAttribute("aria-selected", "false")
-      option.tabIndex = -1
-      option.dataset.atlasAreaValue = value
-      menu.appendChild(option)
+      for (const target of [menu, sheetOptions]) {
+        const option = make(
+          "button",
+          target === menu ? "atlas-area-option" : "atlas-area-sheet-option",
+          label,
+        )
+        option.type = "button"
+        option.setAttribute("role", "option")
+        option.setAttribute("aria-selected", "false")
+        option.tabIndex = -1
+        option.dataset.atlasAreaValue = value
+        target.appendChild(option)
+      }
     }
     addArea("all", "Todas as áreas")
     for (const area of areas) addArea(String(area.id), String(area.label || area.id))
@@ -358,13 +483,158 @@
     if (node?.slug) writeSession(lastNoteKey, node.slug)
   }
 
-  function selectArea(value) {
+  function selectArea(value, { focusTrigger = true } = {}) {
     const { menu } = areaPickerElements()
     const option = areaOptions(menu).find((item) => item.dataset.atlasAreaValue === value)
     if (!option) return
     setAreaPickerValue(value)
-    closeAreaMenu(true)
+    closeAreaMenu(focusTrigger)
+    closeAreaSheet(focusTrigger)
     applyFilters()
+  }
+
+  function searchSheetElements() {
+    return {
+      sheet: document.getElementById("atlas-search-sheet"),
+      input: document.getElementById("atlas-mobile-search"),
+      status: document.getElementById("atlas-search-results-status"),
+      results: document.getElementById("atlas-search-results"),
+    }
+  }
+
+  function renderMobileSearchResults(query = mobileSearchQuery) {
+    const { status, results } = searchSheetElements()
+    if (!status || !results) return
+    const normalizedQuery = String(query || "").trim()
+    clear(results)
+    if (!normalizedQuery) {
+      status.textContent = "Digite um conceito para começar a explorar."
+      return
+    }
+
+    const matches = atlas.data
+      .concepts()
+      .filter((node) => searchMatch(node, normalizedQuery))
+      .sort((left, right) => left.title.localeCompare(right.title, "pt-BR"))
+    const visibleMatches = matches.slice(0, 50)
+    status.textContent = matches.length
+      ? matches.length + (matches.length === 1 ? " conceito encontrado" : " conceitos encontrados")
+      : "Nenhum conceito encontrado."
+    for (const node of visibleMatches) {
+      const result = make("button", "atlas-mobile-search-result")
+      result.type = "button"
+      result.dataset.atlasAction = "open-search-result"
+      result.dataset.atlasSlug = node.slug
+      result.setAttribute("role", "option")
+      result.setAttribute(
+        "aria-label",
+        node.title + ", " + node.areaLabel + (node.isDevelopment ? ", em desenvolvimento" : ""),
+      )
+      const title = make("strong", "atlas-mobile-search-result-title", node.title)
+      const meta = make(
+        "span",
+        "atlas-mobile-search-result-meta",
+        (node.isDevelopment ? "Em desenvolvimento · " : "") + node.areaLabel,
+      )
+      result.append(title, meta)
+      results.appendChild(result)
+    }
+    if (matches.length > visibleMatches.length) {
+      const more = make(
+        "p",
+        "atlas-mobile-search-results-more",
+        "Refine a busca para ver mais resultados.",
+      )
+      results.appendChild(more)
+    }
+  }
+
+  function closeSearch(focusTrigger = true) {
+    const { sheet, input } = searchSheetElements()
+    if (!sheet) return
+    mobileSearchQuery = input?.value ?? mobileSearchQuery
+    if (document.activeElement === input) input.blur()
+    sheet.classList.remove("is-open")
+    sheet.setAttribute("aria-hidden", "true")
+    syncModalLock()
+    window.setTimeout(() => {
+      if (!sheet.classList.contains("is-open")) sheet.hidden = true
+    }, 220)
+    const opener = searchOpener
+    searchOpener = null
+    if (focusTrigger) opener?.focus({ preventScroll: true })
+  }
+
+  function openSearch() {
+    if (!isUnlocked()) return
+    const { sheet, input } = searchSheetElements()
+    if (!sheet || !input) return
+    closeAreaMenu()
+    closeAreaSheet(false)
+    closeMobileMenu(false)
+    searchOpener = mobileOpener(document.querySelector(".atlas-mobile-search-trigger"))
+    input.value = mobileSearchQuery
+    renderMobileSearchResults(input.value)
+    sheet.hidden = false
+    sheet.setAttribute("aria-hidden", "false")
+    root().classList.add("atlas-modal-open")
+    sheet.classList.add("is-open")
+    input.focus({ preventScroll: true })
+    window.requestAnimationFrame(() => input.focus({ preventScroll: true }))
+  }
+
+  function mobileMenuElements() {
+    return {
+      sheet: document.getElementById("atlas-mobile-menu"),
+      close: document.querySelector('#atlas-mobile-menu [data-atlas-action="close-mobile-menu"]'),
+      trigger: document.querySelector('[data-atlas-action="toggle-mobile-menu"]'),
+    }
+  }
+
+  function renderMobileMenuState() {
+    const { sheet, trigger } = mobileMenuElements()
+    if (!sheet || !trigger) return
+    const open = overlayIsOpen("atlas-mobile-menu")
+    trigger.setAttribute("aria-expanded", String(open))
+    sheet.setAttribute("aria-hidden", String(!open))
+  }
+
+  function closeMobileMenu(focusTrigger = true) {
+    const { sheet, trigger } = mobileMenuElements()
+    if (!sheet) return
+    sheet.classList.remove("is-open")
+    sheet.setAttribute("aria-hidden", "true")
+    syncModalLock()
+    window.setTimeout(() => {
+      if (!sheet.classList.contains("is-open")) sheet.hidden = true
+    }, 220)
+    const opener = mobileMenuOpener
+    mobileMenuOpener = null
+    if (focusTrigger) (opener || trigger)?.focus({ preventScroll: true })
+    renderMobileMenuState()
+  }
+
+  function openMobileMenu() {
+    if (!isUnlocked()) return
+    const { sheet, close, trigger } = mobileMenuElements()
+    if (!sheet) return
+    closeSearch(false)
+    closeAreaSheet(false)
+    closeAreaMenu()
+    mobileMenuOpener = trigger
+    sheet.hidden = false
+    sheet.setAttribute("aria-hidden", "false")
+    root().classList.add("atlas-modal-open")
+    window.requestAnimationFrame(() => {
+      sheet.classList.add("is-open")
+      close?.focus({ preventScroll: true })
+      renderMobileMenuState()
+    })
+  }
+
+  function toggleMobileMenu() {
+    if (overlayIsOpen("atlas-mobile-menu")) closeMobileMenu(true)
+    else openMobileMenu()
   }
 
   function handleAreaKeydown(event) {
@@ -397,8 +667,11 @@
     }
 
     const optionTarget = target.closest("[data-atlas-area-value]")
-    if (!optionTarget || !menu || menu.hidden) return false
-    const options = areaOptions(menu)
+    const sheetOptions = document.getElementById("atlas-area-sheet-options")
+    const inSheet = Boolean(optionTarget && sheetOptions?.contains(optionTarget))
+    if (!optionTarget || (inSheet ? !overlayIsOpen("atlas-area-sheet") : !menu || menu.hidden))
+      return false
+    const options = areaOptions(inSheet ? sheetOptions : menu)
     const currentIndex = options.indexOf(optionTarget)
     if (key === "ArrowDown" || key === "ArrowUp") {
       event.preventDefault()
@@ -418,7 +691,8 @@
     }
     if (key === "Escape") {
       event.preventDefault()
-      closeAreaMenu(true)
+      if (inSheet) closeAreaSheet(true)
+      else closeAreaMenu(true)
       return true
     }
     return false
@@ -455,15 +729,16 @@
     const preview = document.getElementById(previewId)
     if (!preview || !anchor) return
     const margin = 16
-    const previewWidth = Math.min(360, window.innerWidth - margin * 2)
+    const viewportWidth = window.visualViewport?.width || window.innerWidth
+    const viewportHeight = window.visualViewport?.height || window.innerHeight
+    const previewWidth = Math.min(360, viewportWidth - margin * 2)
     preview.style.width = previewWidth + "px"
     const previewHeight = preview.offsetHeight || 190
     let left = anchor.left
     let top = anchor.bottom + margin
-    if (left + previewWidth > window.innerWidth - margin)
-      left = window.innerWidth - previewWidth - margin
+    if (left + previewWidth > viewportWidth - margin) left = viewportWidth - previewWidth - margin
     if (left < margin) left = margin
-    if (top + previewHeight > window.innerHeight - margin) top = anchor.top - previewHeight - margin
+    if (top + previewHeight > viewportHeight - margin) top = anchor.top - previewHeight - margin
     if (top < margin) top = margin
     preview.style.left = Math.round(left) + "px"
     preview.style.top = Math.round(top) + "px"
@@ -535,6 +810,52 @@
     if (node) showPreview(node, anchor.getBoundingClientRect())
   }
 
+  function syncViewportMetrics() {
+    const viewport = window.visualViewport
+    const height = Math.max(1, viewport?.height || window.innerHeight)
+    const width = Math.max(1, viewport?.width || window.innerWidth)
+    root().style.setProperty("--atlas-visual-height", height + "px")
+    root().style.setProperty("--atlas-visual-width", width + "px")
+    root().style.setProperty("--atlas-viewport-offset-top", (viewport?.offsetTop || 0) + "px")
+    const active = document.activeElement
+    const keyboardOpen =
+      Boolean(active instanceof HTMLElement && active.matches("input, textarea, select")) &&
+      height < window.innerHeight - 120
+    root().classList.toggle("atlas-keyboard-open", keyboardOpen)
+    if (previewAnchor && previewSlug) positionPreview(previewAnchor)
+    const { menu } = areaPickerElements()
+    if (menu && !menu.hidden) positionAreaMenu()
+  }
+
+  function dismissTouchHint() {
+    if (touchHintTimer) window.clearTimeout(touchHintTimer)
+    touchHintTimer = 0
+    const hint = document.getElementById("atlas-touch-hint")
+    if (hint) {
+      hint.classList.remove("is-visible")
+      hint.hidden = true
+    }
+    writeStorage(touchHintKey, "complete")
+  }
+
+  function maybeShowTouchHint() {
+    const hint = document.getElementById("atlas-touch-hint")
+    if (
+      !hint ||
+      touchHintShown ||
+      !isTouchDevice() ||
+      viewState.mode !== "graph" ||
+      readStorage(touchHintKey) === "complete" ||
+      overlayIsOpen("atlas-onboarding")
+    )
+      return
+    touchHintShown = true
+    hint.hidden = false
+    window.requestAnimationFrame(() => hint.classList.add("is-visible"))
+    if (touchHintTimer) window.clearTimeout(touchHintTimer)
+    touchHintTimer = window.setTimeout(dismissTouchHint, 4600)
+  }
+
   function pushGraphContext(slug) {
     const current =
       window.history.state && typeof window.history.state === "object" ? window.history.state : {}
@@ -551,6 +872,10 @@
     const serial = ++navigationSerial
     atlas.graph?.persist()
     hidePreview(0)
+    closeSearch(false)
+    closeAreaSheet(false)
+    closeAreaMenu()
+    closeMobileMenu(false)
     setRouteLoading(true)
     try {
       await ensureNoteContent(node)
@@ -584,6 +909,10 @@
     navigationSerial += 1
     atlas.graph?.persist()
     hidePreview(0)
+    closeSearch(false)
+    closeAreaSheet(false)
+    closeAreaMenu()
+    closeMobileMenu(false)
     if (historyMode === "push")
       window.history.pushState({ atlasView: "graph", contextSlug }, "", pathFor("index"))
     if (historyMode === "replace")
@@ -669,11 +998,14 @@
     onboardingOpener = null
     if (markComplete) writeStorage(onboardingKey, "complete")
     elements.overlay.classList.remove("is-open")
+    elements.overlay.setAttribute("aria-hidden", "true")
     root().classList.remove("atlas-onboarding-open")
+    syncModalLock()
     window.setTimeout(() => {
       if (!elements.overlay.classList.contains("is-open")) elements.overlay.hidden = true
     }, 220)
     window.requestAnimationFrame(() => opener?.focus())
+    window.setTimeout(maybeShowTouchHint, 240)
   }
 
   function openOnboarding(force = false) {
@@ -681,13 +1013,12 @@
     const elements = onboardingElements()
     if (!elements || (!force && onboardingComplete())) return
     onboardingStep = 0
-    onboardingOpener =
-      document.activeElement instanceof HTMLElement
-        ? document.activeElement
-        : document.getElementById("atlas-onboarding-open")
+    onboardingOpener = preferredOpener(document.getElementById("atlas-onboarding-open"))
     elements.overlay.hidden = false
+    elements.overlay.setAttribute("aria-hidden", "false")
     window.requestAnimationFrame(() => elements.overlay.classList.add("is-open"))
     root().classList.add("atlas-onboarding-open")
+    root().classList.add("atlas-modal-open")
     renderOnboarding()
     window.requestAnimationFrame(() => elements.next?.focus())
   }
@@ -713,13 +1044,12 @@
     if (!isUnlocked()) return
     const elements = helpElements()
     if (!elements) return
-    helpOpener =
-      document.activeElement instanceof HTMLElement
-        ? document.activeElement
-        : document.getElementById("atlas-help-open")
+    helpOpener = preferredOpener(document.getElementById("atlas-help-open"))
     elements.overlay.hidden = false
+    elements.overlay.setAttribute("aria-hidden", "false")
     window.requestAnimationFrame(() => elements.overlay.classList.add("is-open"))
     root().classList.add("atlas-help-open")
+    root().classList.add("atlas-modal-open")
     window.requestAnimationFrame(() => elements.close?.focus())
   }
 
@@ -729,7 +1059,9 @@
     const opener = helpOpener
     helpOpener = null
     elements.overlay.classList.remove("is-open")
+    elements.overlay.setAttribute("aria-hidden", "true")
     root().classList.remove("atlas-help-open")
+    syncModalLock()
     window.setTimeout(() => {
       if (!elements.overlay.classList.contains("is-open")) elements.overlay.hidden = true
     }, 220)
@@ -740,6 +1072,22 @@
     const action = target.dataset.atlasAction
     if (action === "toggle-theme") {
       setTheme((root().dataset.theme || currentTheme()) === "dark" ? "light" : "dark")
+    } else if (action === "open-search") {
+      openSearch()
+    } else if (action === "close-search") {
+      closeSearch(true)
+    } else if (action === "open-search-result") {
+      closeSearch(false)
+      mobileSearchQuery = ""
+      openConcept(target.dataset.atlasSlug || "")
+    } else if (action === "open-area") {
+      openAreaSheet()
+    } else if (action === "close-area") {
+      closeAreaSheet(true)
+    } else if (action === "toggle-mobile-menu") {
+      toggleMobileMenu()
+    } else if (action === "close-mobile-menu") {
+      closeMobileMenu(true)
     } else if (action === "toggle-nav") {
       setNavHidden(true)
     } else if (action === "show-nav") {
@@ -757,10 +1105,12 @@
     } else if (action === "onboarding-next") {
       advanceOnboarding()
     } else if (action === "open-onboarding") {
+      closeMobileMenu(false)
       openOnboarding(true)
     } else if (action === "onboarding-skip") {
       closeOnboarding()
     } else if (action === "open-help") {
+      closeMobileMenu(false)
       openHelp()
     } else if (action === "close-help") {
       closeHelp()
@@ -788,6 +1138,18 @@
       }
       return
     }
+    const areaSheet =
+      event.target instanceof Element ? event.target.closest("#atlas-area-sheet") : null
+    if (areaSheet) {
+      const option =
+        event.target instanceof Element ? event.target.closest("[data-atlas-area-value]") : null
+      if (option && areaSheet.contains(option)) {
+        event.preventDefault()
+        event.stopPropagation()
+        selectArea(option.dataset.atlasAreaValue || "all")
+        return
+      }
+    }
     closeAreaMenu()
     const target =
       event.target instanceof Element ? event.target.closest("[data-atlas-action]") : null
@@ -811,6 +1173,7 @@
   }
 
   function handlePointerOver(event) {
+    if (event.pointerType && event.pointerType !== "mouse") return
     const previewTarget =
       event.target instanceof Element ? event.target.closest("#" + previewId) : null
     if (previewTarget) {
@@ -827,6 +1190,7 @@
   }
 
   function handlePointerOut(event) {
+    if (event.pointerType && event.pointerType !== "mouse") return
     const previewTarget =
       event.target instanceof Element ? event.target.closest("#" + previewId) : null
     if (previewTarget) {
@@ -854,6 +1218,18 @@
   function handleKeydown(event) {
     if (handleAreaKeydown(event)) return
     if (event.key !== "Escape") return
+    if (overlayIsOpen("atlas-search-sheet")) {
+      closeSearch(true)
+      return
+    }
+    if (overlayIsOpen("atlas-area-sheet")) {
+      closeAreaSheet(true)
+      return
+    }
+    if (overlayIsOpen("atlas-mobile-menu")) {
+      closeMobileMenu(true)
+      return
+    }
     const { menu } = areaPickerElements()
     if (menu && !menu.hidden) {
       closeAreaMenu()
@@ -877,12 +1253,13 @@
     if (event.key !== "Tab") return
     const onboarding = onboardingElements()
     const help = helpElements()
-    const overlay =
-      onboarding && !onboarding.overlay.hidden
-        ? onboarding.overlay
-        : help && !help.overlay.hidden
-          ? help.overlay
-          : null
+    const overlay = [
+      document.getElementById("atlas-search-sheet"),
+      document.getElementById("atlas-area-sheet"),
+      document.getElementById("atlas-mobile-menu"),
+      onboarding?.overlay,
+      help?.overlay,
+    ].find((candidate) => candidate && !candidate.hidden && candidate.classList.contains("is-open"))
     if (!overlay) return
     const items = focusable(overlay)
     if (!items.length) return
@@ -909,6 +1286,12 @@
     }
     if (event?.target !== search) return
     applyFilters()
+  }
+
+  function handleMobileSearchInput(event) {
+    if (event?.target?.id !== "atlas-mobile-search") return
+    mobileSearchQuery = event.target.value
+    renderMobileSearchResults(mobileSearchQuery)
   }
 
   function stateFromLocation() {
@@ -956,6 +1339,10 @@
     if (!isUnlocked()) {
       setRouteLoading(false)
       hidePreview(0)
+      closeSearch(false)
+      closeAreaSheet(false)
+      closeAreaMenu()
+      closeMobileMenu(false)
       atlas.graph?.persist()
       atlas.graph?.destroyAll()
       return
@@ -971,6 +1358,7 @@
       renderNavState()
       if (viewState.mode === "graph") openOnboarding()
       setRouteLoading(false)
+      window.setTimeout(maybeShowTouchHint, 260)
     } catch (error) {
       console.error("O Atlas não conseguiu carregar o grafo.", error)
       const mount = document.querySelector("[data-atlas-graph-mount]")
@@ -1021,6 +1409,7 @@
   document.addEventListener("keydown", handleKeydown)
   document.addEventListener("keydown", handleModalTab)
   document.addEventListener("input", handleFilters)
+  document.addEventListener("input", handleMobileSearchInput)
   document.addEventListener("change", handleFilters)
   document.addEventListener("prenav", () => {
     setRouteLoading(true)
@@ -1033,17 +1422,21 @@
     refresh()
   })
   window.addEventListener("popstate", handlePopState)
-  window.addEventListener("resize", () => {
-    if (previewAnchor && previewSlug) positionPreview(previewAnchor)
-    const { menu } = areaPickerElements()
-    if (menu && !menu.hidden) positionAreaMenu()
-  })
+  const onViewportChange = () => syncViewportMetrics()
+  window.addEventListener("resize", onViewportChange)
+  window.addEventListener("orientationchange", onViewportChange)
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener("resize", onViewportChange)
+    window.visualViewport.addEventListener("scroll", onViewportChange)
+  }
+  syncViewportMetrics()
   window.addEventListener("pagehide", () => atlas.graph?.persist())
   document.addEventListener("atlas-access", refresh)
 
   setTheme(currentTheme())
   atlas.app = {
     runtimeVersion: 3,
+    dismissTouchHint,
     goTo,
     hidePreview,
     openConcept,

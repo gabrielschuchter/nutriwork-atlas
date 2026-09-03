@@ -60,5 +60,3 @@ Em idosos e indivíduos com [[Resistência anabólica|resistência anabólica]],
 - International Society of Sports Nutrition. Position Stand: Protein and Exercise.
 
 - Morton RW, et al. Protein supplementation and resistance training adaptations. British Journal of Sports Medicine (2018).
-
-- Phillips SM. Revisões sobre proteína dietética, leucina e síntese proteica muscular.

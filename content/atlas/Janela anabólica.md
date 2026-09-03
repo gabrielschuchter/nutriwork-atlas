@@ -68,4 +68,4 @@ Na prática, a evidência sustenta que o consumo de proteína próximo ao exerc�
 
 - Schoenfeld BJ, Aragon AA. Nutrient timing revisited: is there a post-exercise anabolic window? Journal of the International Society of Sports Nutrition (2013).
 
-- Thomas DT, Erdman KA, Burke LM. Position of the Academy of Nutrition and Dietetics, Dietitians of Canada, and the American College of Sports Medicine: Nutrition and Athletic Performance. [Verificar edição mais recente.]
+- Thomas DT, Erdman KA, Burke LM. Position of the Academy of Nutrition and Dietetics, Dietitians of Canada, and the American College of Sports Medicine: Nutrition and Athletic Performance.

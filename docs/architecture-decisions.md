@@ -52,3 +52,11 @@ O gate atual calcula SHA-256 no navegador e guarda apenas o hash configurado no 
 ## 10. Gates atuais
 
 As mudanças devem passar por typecheck, Prettier, testes, build, `npm run vault:check`, auditoria do diff e navegador em desktop/mobile. Publicação, commit e push são etapas separadas e exigem solicitação explícita.
+
+## 11. A interação touch é uma camada própria
+
+O canvas mantém o motor customizado do Atlas, mas mouse e touch seguem contratos diferentes. Touch usa uma máquina explícita (`idle`, `tapCandidate`, `pan`, `pinch`): um dedo sobre área vazia navega, um tap curto em node abre o conceito, nodes não são arrastados diretamente e dois dedos cancelam tap/drag antes de ativar a pinça.
+
+A pinça guarda distância, escala, centroide e âncora no início do gesto. Cada amostra calcula a escala a partir desse snapshot inicial e reposiciona a câmera para manter a âncora do mundo sob o centroide atual; isso evita aceleração acumulada e permite pan simultâneo pelo movimento dos dois dedos. Ao sobrar um dedo, o estado é rebaseado no ponto atual para continuar em pan sem salto. A matemática pura vive em `client/gesture-math.cjs` e tem testes unitários independentes.
+
+Em phone e tablet, o header é recomposto como uma barra glass compacta; busca, áreas e ações secundárias aparecem em sheets/painel sob demanda. O minimapa touch usa `touch-action: pan-y` e não cancela o gesto de um dedo, priorizando o scroll da leitura. Safe areas, `viewport-fit=cover` e `visualViewport` dimensionam navbar, canvas, controls, sheets e leitura sem bloquear o zoom de acessibilidade do navegador fora da superfície interativa.

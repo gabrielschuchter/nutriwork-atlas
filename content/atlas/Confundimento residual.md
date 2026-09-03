@@ -28,4 +28,3 @@ Na literatura nutricional, esse conceito torna-se especialmente relevante quando
 - Causal Inference: What If.
 - Hernán MA, Robins JM. Causal Inference: What If.
 - Willett W. Nutritional Epidemiology. 3ª edição.
-- [verificar: Greenland S. artigos sobre residual confounding e quantitative bias analysis].

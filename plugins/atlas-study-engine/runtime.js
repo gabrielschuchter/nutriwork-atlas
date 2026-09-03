@@ -34,7 +34,14 @@ const d3ForceBundle = buildSync({
   },
 }).outputFiles[0].text
 
-const clientFiles = ["dom.js", "data.js", "graph-physics.js", "graph.js", "app.js"]
+const clientFiles = [
+  "dom.js",
+  "data.js",
+  "graph-physics.js",
+  "gesture-math.cjs",
+  "graph.js",
+  "app.js",
+]
 
 const clientSource = clientFiles
   .map((filename) => readFileSync(new URL(`./client/${filename}`, import.meta.url), "utf8"))

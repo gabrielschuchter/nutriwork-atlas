@@ -74,6 +74,5 @@ Por fim, muitos suplementos comercializados alegam aumentar a SPM com base em es
 
 - Phillips SM, Tipton KD, Aarsland A, Wolf SE, Wolfe RR. Mixed muscle protein synthesis and breakdown after resistance exercise in humans. American Journal of Physiology.
 
-- Burd NA, Holwerda AM, Selby KC, et al. Trabalhos sobre síntese proteica muscular e adaptação ao treinamento. [Verificar referência específica.]
 
-- Thomas DT, Erdman KA, Burke LM. Position of the Academy of Nutrition and Dietetics, Dietitians of Canada, and the American College of Sports Medicine: Nutrition and Athletic Performance. [Verificar edição mais recente.]
+- Thomas DT, Erdman KA, Burke LM. Position of the Academy of Nutrition and Dietetics, Dietitians of Canada, and the American College of Sports Medicine: Nutrition and Athletic Performance.

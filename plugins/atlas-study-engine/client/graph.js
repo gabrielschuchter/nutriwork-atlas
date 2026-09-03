@@ -1,6 +1,7 @@
 ;(() => {
   const atlas = (window.__nutriworkAtlasEngine = window.__nutriworkAtlasEngine || {})
   const { WORLD, create: createPhysics } = atlas.graphPhysics
+  const { applyPinch: applyPinchCamera, startPinch } = atlas.graphGestureMath
   const { clamp, hash, link, make, searchMatch } = atlas.dom
 
   const instances = new Set()
@@ -9,6 +10,16 @@
   const cameraKey = "nutriwork-atlas-graph-camera-v2"
   const filterState = { query: "", area: "all" }
   const areaColors = ["#1263FF", "#29A8FF", "#6D9DFF", "#8EB9FF", "#2D72D9", "#77C8FF", "#4D82E8"]
+  const GESTURES = {
+    IDLE: "idle",
+    TAP_CANDIDATE: "tapCandidate",
+    PAN: "pan",
+    PINCH: "pinch",
+    NODE_DRAG: "nodeDrag",
+  }
+  const TOUCH_TAP_THRESHOLD = 10
+  const MOUSE_DRAG_THRESHOLD = 4
+  const PINCH_ACTIVATION_THRESHOLD = 8
 
   let storedLayout = readSession(layoutKey)
   let storedCamera = readSession(cameraKey)
@@ -87,12 +98,8 @@
     const viewportWidth = window.visualViewport?.width || window.innerWidth
     const viewportHeight = window.visualViewport?.height || window.innerHeight
     return {
-      width: Math.max(1, rect.width, fullscreen ? viewportWidth : 0),
-      height: Math.max(
-        1,
-        rect.height || (state.mode === "minimap" ? 224 : viewportHeight),
-        fullscreen ? viewportHeight : 0,
-      ),
+      width: Math.max(1, rect.width || (fullscreen ? viewportWidth : 0)),
+      height: Math.max(1, rect.height || (state.mode === "minimap" ? 224 : viewportHeight)),
     }
   }
 
@@ -305,12 +312,30 @@
     }
   }
 
-  function hitTest(state, point) {
+  function isTouchPointer(eventOrType) {
+    const pointerType =
+      typeof eventOrType === "string" ? eventOrType : eventOrType?.pointerType || "mouse"
+    return pointerType === "touch" || pointerType === "pen"
+  }
+
+  function hitTest(state, point, pointerType = "mouse") {
+    const touch = isTouchPointer(pointerType)
     let candidate = null
     let distance = Infinity
     for (const node of state.nodes) {
       const screen = worldToScreen(state, node.x, node.y)
-      const radius = Math.max(10, (7 + Math.sqrt(node.degree + 1)) * state.camera.scale)
+      const visualRadius = node.isDevelopment
+        ? Math.max(
+            state.mode === "minimap" ? 1.2 : 1.8,
+            (2.6 + Math.min(4.2, Math.sqrt(node.degree + 1) * 0.7)) * state.camera.scale,
+          )
+        : Math.max(
+            state.mode === "minimap" ? 2.2 : 3.3,
+            (4.2 + Math.min(7.8, Math.sqrt(node.degree + 1) * 1.25)) * state.camera.scale,
+          )
+      const radius = touch
+        ? Math.max(22, visualRadius + 12)
+        : Math.max(10, (7 + Math.sqrt(node.degree + 1)) * state.camera.scale)
       const nextDistance = Math.hypot(screen.x - point.x, screen.y - point.y)
       if (nextDistance <= radius && nextDistance < distance) {
         candidate = node
@@ -325,7 +350,7 @@
     if (nextSlug === state.hoveredSlug) return
     state.hoveredSlug = nextSlug
     state.canvas.style.cursor = node ? "pointer" : "grab"
-    if (node && event?.pointerType !== "touch") {
+    if (node && !isTouchPointer(event)) {
       atlas.app?.showGraphPreview(node, anchorFor(state, node))
     } else if (!node) {
       atlas.app?.hidePreview()
@@ -340,68 +365,148 @@
     state.physics?.reheat(0.22)
   }
 
-  function pinchFor(state) {
-    const points = [...state.pointers.values()]
-    if (points.length < 2) return null
-    const [first, second] = points
+  function pinchPoints(state) {
+    let pointerIds = state.pinch?.pointerIds?.filter((id) => state.pointers.has(id)) || []
+    if (pointerIds.length < 2) pointerIds = [...state.pointers.keys()].slice(0, 2)
+    if (pointerIds.length < 2) return null
+    const [firstId, secondId] = pointerIds
+    const first = state.pointers.get(firstId)
+    const second = state.pointers.get(secondId)
+    if (!first || !second) return null
     const midpoint = {
       x: (first.x + second.x) / 2,
       y: (first.y + second.y) / 2,
     }
     return {
+      pointerIds: [firstId, secondId],
       distance: Math.max(1, Math.hypot(first.x - second.x, first.y - second.y)),
       midpoint,
-      anchor: screenToWorld(state, midpoint.x, midpoint.y),
     }
+  }
+
+  function createPinch(state) {
+    const sample = pinchPoints(state)
+    if (!sample) return null
+    return {
+      ...startPinch({
+        camera: state.camera,
+        centroid: sample.midpoint,
+        distance: sample.distance,
+      }),
+      pointerIds: sample.pointerIds,
+      active: false,
+    }
+  }
+
+  function pinchPassedThreshold(pinch, next) {
+    return (
+      Math.abs(next.distance - pinch.initialDistance) >= PINCH_ACTIVATION_THRESHOLD ||
+      Math.hypot(
+        next.midpoint.x - pinch.initialCentroid.x,
+        next.midpoint.y - pinch.initialCentroid.y,
+      ) >= PINCH_ACTIVATION_THRESHOLD
+    )
   }
 
   function applyPinch(state) {
     const pinch = state.pinch
-    const next = pinchFor(state)
+    const next = pinchPoints(state)
     if (!pinch || !next) return
+    if (!pinch.active) {
+      if (!pinchPassedThreshold(pinch, next)) return
+      pinch.active = true
+      state.gesture = GESTURES.PINCH
+      state.suppressTap = true
+      atlas.app?.dismissTouchHint()
+      atlas.app?.hidePreview(0)
+      cancelCameraAnimation(state)
+    }
     const bounds = scaleBounds(state)
-    const scale = clamp(
-      state.camera.scale * (next.distance / pinch.distance),
-      bounds.min,
-      bounds.max,
-    )
-    state.camera.scale = scale
-    state.camera.x = next.anchor.x - next.midpoint.x / scale
-    state.camera.y = next.anchor.y - next.midpoint.y / scale
+    state.camera = applyPinchCamera({
+      camera: state.camera,
+      pinch,
+      centroid: next.midpoint,
+      distance: next.distance,
+      minimumScale: bounds.min,
+      maximumScale: bounds.max,
+    })
     state.userCamera = true
     scheduleDraw(state)
+  }
+
+  function releasePointer(state, pointerId) {
+    if (state.canvas.hasPointerCapture?.(pointerId)) state.canvas.releasePointerCapture?.(pointerId)
+  }
+
+  function capturePointer(state, pointerId) {
+    try {
+      state.canvas.setPointerCapture?.(pointerId)
+    } catch (error) {
+      if (error?.name !== "NotFoundError") throw error
+    }
+  }
+
+  function setPanContinuation(state) {
+    const [id, point] = [...state.pointers.entries()][0] || []
+    if (id === undefined || !point) {
+      state.pointer = null
+      state.gesture = GESTURES.IDLE
+      return
+    }
+    state.pointer = {
+      id,
+      node: null,
+      pointerType: "touch",
+      startX: point.x,
+      startY: point.y,
+      lastX: point.x,
+      lastY: point.y,
+      moved: true,
+      gesture: GESTURES.PAN,
+    }
+    state.gesture = GESTURES.PAN
+    state.canvas.style.cursor = "grabbing"
   }
 
   function beginPointer(state, event) {
     if (event.button !== undefined && event.button !== 0) return
     const point = localPoint(state, event)
+    const touch = isTouchPointer(event)
     state.pointers.set(event.pointerId, point)
-    state.canvas.setPointerCapture?.(event.pointerId)
     if (state.pointers.size >= 2) {
+      cancelCameraAnimation(state)
       releaseDraggedNode(state)
       state.pointer = null
-      state.pinch = pinchFor(state)
+      state.gesture = GESTURES.PINCH
+      state.pinch = createPinch(state)
+      state.suppressTap = true
       state.canvas.style.cursor = "grabbing"
       atlas.app?.hidePreview(0)
+      capturePointer(state, event.pointerId)
       event.preventDefault()
       return
     }
-    const node = hitTest(state, point)
+    if (!touch || state.mode !== "minimap") capturePointer(state, event.pointerId)
+    const node = hitTest(state, point, event.pointerType)
     state.pointer = {
       id: event.pointerId,
       node,
+      pointerType: event.pointerType || "mouse",
       startX: point.x,
       startY: point.y,
       lastX: point.x,
       lastY: point.y,
       moved: false,
+      gesture: GESTURES.TAP_CANDIDATE,
     }
-    if (node) {
+    state.gesture = GESTURES.TAP_CANDIDATE
+    state.suppressTap = false
+    if (node && !touch) {
       node.fx = node.x
       node.fy = node.y
       state.physics?.reheat(0.18)
     }
-    event.preventDefault()
+    if (!touch || state.mode !== "minimap") event.preventDefault()
   }
 
   function movePointer(state, event) {
@@ -409,25 +514,36 @@
     if (state.pointers.has(event.pointerId)) state.pointers.set(event.pointerId, point)
     if (state.pinch && state.pointers.size >= 2) {
       applyPinch(state)
-      event.preventDefault()
+      if (state.pinch.active) event.preventDefault()
       return
     }
     const pointer = state.pointer
     if (!pointer || pointer.id !== event.pointerId) {
-      updateHover(state, hitTest(state, point), event)
+      updateHover(state, hitTest(state, point, event.pointerType), event)
       return
     }
     const dx = point.x - pointer.lastX
     const dy = point.y - pointer.lastY
-    if (Math.hypot(point.x - pointer.startX, point.y - pointer.startY) > 4) pointer.moved = true
-    if (pointer.node) {
+    const touch = isTouchPointer(pointer.pointerType)
+    const threshold = touch ? TOUCH_TAP_THRESHOLD : MOUSE_DRAG_THRESHOLD
+    if (
+      !pointer.moved &&
+      Math.hypot(point.x - pointer.startX, point.y - pointer.startY) > threshold
+    ) {
+      pointer.moved = true
+      pointer.gesture = pointer.node && !touch ? GESTURES.NODE_DRAG : GESTURES.PAN
+      state.gesture = pointer.gesture
+      if (pointer.gesture === GESTURES.PAN) cancelCameraAnimation(state)
+      if (touch) atlas.app?.dismissTouchHint()
+    }
+    if (pointer.gesture === GESTURES.NODE_DRAG && pointer.node) {
       const position = screenToWorld(state, point.x, point.y)
       pointer.node.fx = position.x
       pointer.node.fy = position.y
       pointer.node.x = position.x
       pointer.node.y = position.y
       state.physics?.reheat(0.14)
-    } else if (pointer.moved) {
+    } else if (pointer.gesture === GESTURES.PAN && !(touch && state.mode === "minimap")) {
       if (state.cameraAnimationFrame) cancelCameraAnimation(state)
       state.camera.x -= dx / state.camera.scale
       state.camera.y -= dy / state.camera.scale
@@ -436,35 +552,53 @@
     pointer.lastX = point.x
     pointer.lastY = point.y
     scheduleDraw(state)
-    event.preventDefault()
+    if (!touch || state.mode !== "minimap") event.preventDefault()
   }
 
   function endPointer(state, event) {
     state.pointers.delete(event.pointerId)
+    const canceled = event.type === "pointercancel" || event.type === "lostpointercapture"
+    releasePointer(state, event.pointerId)
     if (state.pinch) {
-      if (state.pointers.size < 2) state.pinch = null
-      state.canvas.releasePointerCapture?.(event.pointerId)
+      if (state.pointers.size >= 2) {
+        state.pinch = createPinch(state)
+        if (state.pinch) state.pinch.active = true
+        state.gesture = GESTURES.PINCH
+      } else if (state.pointers.size === 1 && !canceled) {
+        state.pinch = null
+        setPanContinuation(state)
+      } else {
+        state.pinch = null
+        state.pointer = null
+        state.gesture = GESTURES.IDLE
+        state.suppressTap = false
+      }
+      if (!state.pinch) state.canvas.style.cursor = "grab"
+      if (!state.pointers.size) persist()
       scheduleDraw(state)
       return
     }
     const pointer = state.pointer
     if (!pointer || pointer.id !== event.pointerId) return
     state.pointer = null
-    if (pointer.node) {
+    if (pointer.node && pointer.gesture === GESTURES.NODE_DRAG) {
       pointer.node.fx = null
       pointer.node.fy = null
       state.physics?.reheat(0.22)
     }
-    state.canvas.releasePointerCapture?.(event.pointerId)
-    if (!pointer.moved && pointer.node) atlas.app?.openConcept(pointer.node.slug)
+    const isTap = !canceled && pointer.gesture === GESTURES.TAP_CANDIDATE && !pointer.moved
+    state.gesture = GESTURES.IDLE
+    if (isTouchPointer(pointer.pointerType)) atlas.app?.dismissTouchHint()
+    if (isTap && pointer.node && !state.suppressTap) atlas.app?.openConcept(pointer.node.slug)
+    state.suppressTap = false
     persist()
     scheduleDraw(state)
   }
 
   function cancelCameraAnimation(state) {
-    if (!state.cameraAnimationFrame) return
-    window.cancelAnimationFrame(state.cameraAnimationFrame)
+    if (state.cameraAnimationFrame) window.cancelAnimationFrame(state.cameraAnimationFrame)
     state.cameraAnimationFrame = 0
+    state.cameraAnimationTarget = null
     state.transitioning = false
   }
 
@@ -490,7 +624,19 @@
     }
     const start = { ...state.camera }
     const startedAt = performance.now()
-    const duration = 300
+    const reducedMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches
+    const duration = reducedMotion ? 0 : 300
+    if (!duration) {
+      state.camera = nextTarget
+      state.cameraAnimationTarget = null
+      state.transitioning = false
+      state.userCamera = userCamera
+      onComplete?.()
+      persist()
+      scheduleDraw(state)
+      return
+    }
+    state.cameraAnimationTarget = nextTarget
     state.transitioning = true
     const tick = (now) => {
       if (state.destroyed) return
@@ -506,6 +652,7 @@
         state.cameraAnimationFrame = window.requestAnimationFrame(tick)
       } else {
         state.cameraAnimationFrame = 0
+        state.cameraAnimationTarget = null
         state.transitioning = false
         state.userCamera = userCamera
         onComplete?.()
@@ -517,9 +664,13 @@
 
   function animateZoom(state, factor) {
     const point = { x: state.width / 2, y: state.height / 2 }
-    const world = screenToWorld(state, point.x, point.y)
+    const baseCamera = state.cameraAnimationTarget || state.camera
+    const world = {
+      x: point.x / baseCamera.scale + baseCamera.x,
+      y: point.y / baseCamera.scale + baseCamera.y,
+    }
     const bounds = scaleBounds(state)
-    const scale = clamp(state.camera.scale * factor, bounds.min, bounds.max)
+    const scale = clamp(baseCamera.scale * factor, bounds.min, bounds.max)
     animateCameraTo(
       state,
       {
@@ -619,8 +770,13 @@
       else if (action === "zoom-in") animateZoom(state, 1.2)
       else if (action === "fit") animateFit(state)
     }
+    const onPointerDown = (event) => event.stopPropagation()
     controls.addEventListener("click", onClick)
-    state.cleanups.push(() => controls.removeEventListener("click", onClick))
+    controls.addEventListener("pointerdown", onPointerDown)
+    state.cleanups.push(
+      () => controls.removeEventListener("click", onClick),
+      () => controls.removeEventListener("pointerdown", onPointerDown),
+    )
     state.controls = controls
     shell.append(returnButton, controls)
     state.mount.appendChild(shell)
@@ -719,8 +875,11 @@
       pointer: null,
       pointers: new Map(),
       pinch: null,
+      gesture: GESTURES.IDLE,
+      suppressTap: false,
       frame: 0,
       cameraAnimationFrame: 0,
+      cameraAnimationTarget: null,
       initialFitTicks: 60,
       destroyed: false,
       cleanups: [],
@@ -761,6 +920,9 @@
     const onPointerDown = (event) => beginPointer(state, event)
     const onPointerMove = (event) => movePointer(state, event)
     const onPointerUp = (event) => endPointer(state, event)
+    const onLostPointerCapture = (event) => {
+      if (state.pointers.has(event.pointerId)) endPointer(state, event)
+    }
     const onPointerLeave = () => {
       if (!state.pointer && !state.pinch) updateHover(state, null)
     }
@@ -770,6 +932,7 @@
     canvas.addEventListener("pointermove", onPointerMove)
     canvas.addEventListener("pointerup", onPointerUp)
     canvas.addEventListener("pointercancel", onPointerUp)
+    canvas.addEventListener("lostpointercapture", onLostPointerCapture)
     canvas.addEventListener("pointerleave", onPointerLeave)
     canvas.addEventListener("wheel", onWheel, { passive: false })
     canvas.addEventListener("keydown", onKey)
@@ -778,6 +941,7 @@
       () => canvas.removeEventListener("pointermove", onPointerMove),
       () => canvas.removeEventListener("pointerup", onPointerUp),
       () => canvas.removeEventListener("pointercancel", onPointerUp),
+      () => canvas.removeEventListener("lostpointercapture", onLostPointerCapture),
       () => canvas.removeEventListener("pointerleave", onPointerLeave),
       () => canvas.removeEventListener("wheel", onWheel),
       () => canvas.removeEventListener("keydown", onKey),

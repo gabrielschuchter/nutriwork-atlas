@@ -29,4 +29,4 @@ Outra limitação é a extrapolação de mecanismos fisiológicos para inferênc
 - Forbes GB. Human Body Composition: Growth, Aging, Nutrition, and Activity.
 - Modern Nutrition in Health and Disease.
 - Krause's Food & the Nutrition Care Process.
-- Heymsfield SB, Thomas D, Martin CK, Redman LM, Schoeller DA. Models of Body Composition and Energy Balance. [verificar edição específica].
+- Heymsfield SB, Thomas D, Martin CK, Redman LM, Schoeller DA. Models of Body Composition and Energy Balance.

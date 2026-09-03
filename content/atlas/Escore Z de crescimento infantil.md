@@ -6,39 +6,15 @@ O escore Z indica quantos desvios-padrão uma medida está acima ou abaixo da me
 
 A fórmula geral é:
 
-Z=
+`Z = (valor observado − mediana da referência) / desvio-padrão da referência`
 
-desvio-padr
+A leitura básica é:
 
-a
-
-˜
-
-o da refer
-
-e
-
-ˆ
-
-ncia
-
-valor observado−mediana da refer
-
-e
-
-ˆ
-
-ncia
-
-​
-
-Exemplos:
-
-escore Z = 0 → valor igual à mediana da referência;
-
-escore Z = +2 → aproximadamente dois desvios-padrão acima da mediana;
-
-escore Z = −2 → aproximadamente dois desvios-padrão abaixo da mediana.
+| Escore Z | Interpretação |
+| --- | --- |
+| `0` | Valor igual à mediana da referência. |
+| `+2` | Aproximadamente dois desvios-padrão acima da mediana. |
+| `−2` | Aproximadamente dois desvios-padrão abaixo da mediana. |
 
 Na avaliação nutricional infantil, os escores Z são utilizados principalmente para interpretar:
 
@@ -224,8 +200,8 @@ Em estudos nutricionais, alterações no escore Z frequentemente são utilizadas
 
 - World Health Organization (WHO). Growth reference data for 5–19 years. 2007.
 
-- de Onis M, et al. Development of a WHO growth reference for school-aged children and adolescents. [verificar referência específica]
+- de Onis M, et al. Development of a WHO growth reference for school-aged children and adolescents.
 
-- Ministério da Saúde (Brasil). Orientações para a coleta e análise de dados antropométricos em serviços de saúde. [verificar versão atual]
+- Ministério da Saúde (Brasil). Orientações para a coleta e análise de dados antropométricos em serviços de saúde.
 
-- Gibson RS. Principles of Nutritional Assessment. [verificar edição].
+- Gibson RS. Principles of Nutritional Assessment.

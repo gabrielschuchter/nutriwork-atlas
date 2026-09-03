@@ -53,7 +53,6 @@ Embora aumente a capacidade tamponante muscular, isso não significa que elimine
 
 - International Society of Sports Nutrition. Position Stand: Beta-Alanine.
 
-- Saunders B, Elliott-Sale K, Artioli GG, et al. Revisões sistemáticas sobre beta-alanina e desempenho.
 
 - Hobson RM, et al. Effects of β-alanine supplementation on exercise performance: a meta-analysis.
 

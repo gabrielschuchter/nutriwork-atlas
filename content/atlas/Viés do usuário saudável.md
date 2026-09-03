@@ -28,4 +28,3 @@ Entretanto, atribuir automaticamente associações observacionais a esse viés t
 - Nutritional Epidemiology.
 - Hernán MA, Robins JM. Causal Inference: What If.
 - Ioannidis JPA. The Challenge of Reforming Nutritional Epidemiologic Research. JAMA.
-- [verificar: Shrank WH et al. Healthy User and Related Biases in Observational Studies].

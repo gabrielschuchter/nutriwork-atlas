@@ -63,8 +63,5 @@ Outro equívoco consiste em utilizar biomarcadores como CK isoladamente para est
 
 - Clarkson PM, Hubal MJ. Exercise-Induced Muscle Damage in Humans.
 
-- Proske U, Morgan DL. Revisões sobre dano muscular excêntrico.
-
-- American College of Sports Medicine. Documentos sobre treinamento resistido e adaptação muscular.
 
 - Resposta inflamatória ao exercício

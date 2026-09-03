@@ -25,6 +25,6 @@ Na epidemiologia nutricional, o tema é particularmente complexo porque comporta
 
 - Rothman KJ, Greenland S, Lash TL. Modern Epidemiology. 4ª edição.
 - Hernán MA, Robins JM. Causal Inference: What If.
-- Pearce N, Vandenbroucke JP. Reverse causation in epidemiological studies. International Journal of Epidemiology. [verificar edição específica].
+- Pearce N, Vandenbroucke JP. Reverse causation in epidemiological studies. International Journal of Epidemiology.
 - Willett W. Nutritional Epidemiology. 3ª edição.
-- Sattar N, Preiss D. Reverse causality in cardiometabolic epidemiology. [verificar artigo específico].
+- Sattar N, Preiss D. Reverse causality in cardiometabolic epidemiology.

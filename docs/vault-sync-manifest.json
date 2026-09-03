@@ -78,8 +78,8 @@
     {
       "source": "BCAA.md",
       "destination": "BCAA.md",
-      "bytes": 2902,
-      "sha256": "b2515f1e4a902e6e1194eb91218846e42232892dfba39fd22cd04b26128c76aa"
+      "bytes": 2819,
+      "sha256": "3b15baeddd78d5cdc222972220a83da854ec2f8fa4739162327fa4bb294b6c90"
     },
     {
       "source": "Behaviorismo radical.md",
@@ -90,8 +90,8 @@
     {
       "source": "Beta-alanina.md",
       "destination": "Beta-alanina.md",
-      "bytes": 3291,
-      "sha256": "079b04dab7d68e797076d0518bb417f65c7ae7c66b9fe32fab1de78dee1605dc"
+      "bytes": 3185,
+      "sha256": "8fb4703192a43db0121008c19f9109d037ef00df0f101efe948fac92a84114ba"
     },
     {
       "source": "Beta-oxidação.md",
@@ -108,8 +108,8 @@
     {
       "source": "Cafeína.md",
       "destination": "Cafeína.md",
-      "bytes": 4331,
-      "sha256": "b81e0b7c5c3769e79841a2c88890ae4ebc3cffc1e63beeb87617d9f15c6d1ab5"
+      "bytes": 4167,
+      "sha256": "b8c61073f769b2b61543096226b4f45dffab6c15af1f563f55b772b816ade591"
     },
     {
       "source": "Capacidade Mastigatória.md",
@@ -126,8 +126,8 @@
     {
       "source": "Carga glicêmica.md",
       "destination": "Carga glicêmica.md",
-      "bytes": 3739,
-      "sha256": "375ad15f28ca53f59f073f1e0aead44008b67c35890edd2dae89147269591a86"
+      "bytes": 3623,
+      "sha256": "1fd5f82b7eecc78438baa5e90de0556cfa2c3b560498aaec0f880e8df3dde9e1"
     },
     {
       "source": "Catabolismo.md",
@@ -174,8 +174,8 @@
     {
       "source": "Comportamento alimentar.md",
       "destination": "Comportamento alimentar.md",
-      "bytes": 6536,
-      "sha256": "9ef4f46b63d8e8675fe47387e604a188ceace0d10c2590e6be5aeddbdcedaf71"
+      "bytes": 6492,
+      "sha256": "eac3ab4678b20244f0fddf407d986867631b825fecee6e4fc2c79e6b48f8df54"
     },
     {
       "source": "Comportamento verbal.md",
@@ -198,8 +198,8 @@
     {
       "source": "Confundimento residual.md",
       "destination": "Confundimento residual.md",
-      "bytes": 3362,
-      "sha256": "80c920c37f200664de8be5daf2eb8e34edc9f718ebc6197e31d5ef850bf9c2b9"
+      "bytes": 3268,
+      "sha256": "86e3741aad620f5c36b8b567d7c4f48d430460463a39acc6e213c5eadfbe9010"
     },
     {
       "source": "Confundimento.md",
@@ -228,8 +228,8 @@
     {
       "source": "Creatina.md",
       "destination": "Creatina.md",
-      "bytes": 3468,
-      "sha256": "ef34fdb271c6bd3080496dffc866f6234b831bee6350dc5c4c3b57c4682fb321"
+      "bytes": 3401,
+      "sha256": "58c4f8efdb9742604abfa0faec748e79e695dd90bb60a7303b25576d596b68d4"
     },
     {
       "source": "Crescimento e desenvolvimento infantil.md",
@@ -240,8 +240,8 @@
     {
       "source": "Dano muscular induzido pelo exercício.md",
       "destination": "Dano muscular induzido pelo exercício.md",
-      "bytes": 3160,
-      "sha256": "6dc0e5bc6ff38bfb3151d5f607ae82b7b7972030919cc07102033bbbcf46863b"
+      "bytes": 2991,
+      "sha256": "d2edb8a3e6547c9d855e2dbff45e288904811cc5a824481eb9a2183af9860f61"
     },
     {
       "source": "Data provável do parto (DPP).md",
@@ -300,8 +300,8 @@
     {
       "source": "Disponibilidade Energética.md",
       "destination": "Disponibilidade Energética.md",
-      "bytes": 3717,
-      "sha256": "42141e1f7455b0cd31e1e7faa6803e735115c984dc413a802e6066e3322a92eb"
+      "bytes": 3683,
+      "sha256": "727bfe05e4d0d2c0197f336bf652f4acd99b343f8ddc553940f85bf046398da4"
     },
     {
       "source": "Escolhas alimentares.md",
@@ -312,8 +312,8 @@
     {
       "source": "Escore Z de crescimento infantil.md",
       "destination": "Escore Z de crescimento infantil.md",
-      "bytes": 7475,
-      "sha256": "6282a06ce56a4c0c53016ad6d93975019434f400496c54dd2364a549e46e6b73"
+      "bytes": 7406,
+      "sha256": "0c718f2880d9610f2f71b4a547833cd4b84e2d18d1f666a62742729becbcde8e"
     },
     {
       "source": "Estado nutricional materno.md",
@@ -348,8 +348,8 @@
     {
       "source": "Fadiga muscular.md",
       "destination": "Fadiga muscular.md",
-      "bytes": 3548,
-      "sha256": "997de97474c4ac6d04c0fe02795df1b9fbe8cde510dcb34d5013d6dfe6dec7eb"
+      "bytes": 3485,
+      "sha256": "230f2d6a90224585504af01a8348e23c7024de9747006f8464075432106edbc8"
     },
     {
       "source": "Falácia Ecológica.md",
@@ -390,8 +390,8 @@
     {
       "source": "Filogênese.md",
       "destination": "Filogênese.md",
-      "bytes": 5712,
-      "sha256": "10f05b4fd938a588274c8f7ecb76b7c63ef1651e30560528f4939a9b7a8b146e"
+      "bytes": 5689,
+      "sha256": "d096c0a967a51ca331ae1121784ca45cdcab3bf10d58df68625009890d693e95"
     },
     {
       "source": "Flexibilidade metabólica.md",
@@ -426,8 +426,8 @@
     {
       "source": "Glicogênio muscular.md",
       "destination": "Glicogênio muscular.md",
-      "bytes": 3523,
-      "sha256": "5bd3acf8c32e4b85000d90a757e923209df829261c617af2e433b0df064cd261"
+      "bytes": 3444,
+      "sha256": "7d09b068c5d9647a6b209a8e486f3d0a33d6530a4d7a2ecb6bce10d17c6db333"
     },
     {
       "source": "Glicogenólise.md",
@@ -456,8 +456,8 @@
     {
       "source": "Grande para idade gestacional (GIG).md",
       "destination": "Grande para idade gestacional (GIG).md",
-      "bytes": 8299,
-      "sha256": "1999eb9f8ec5dbc8a9486a6e0fd5e9575318c0cca46eed78df4887d3f6636ae9"
+      "bytes": 8158,
+      "sha256": "d7350572bb7758c53f66a0a0b21d213e1bcf98514d5e60746c6ccec876e64692"
     },
     {
       "source": "Heterogeneidade de efeito do tratamento.md",
@@ -480,8 +480,8 @@
     {
       "source": "Hiponatremia.md",
       "destination": "Hiponatremia.md",
-      "bytes": 3221,
-      "sha256": "49f34adf7fca7bffda978fabbc0bb818ed4dd25f2754a0a180325c675c32a6be"
+      "bytes": 3190,
+      "sha256": "94772fb3cfab13c979860d0f2b5ae19c4dcfcc5c7646b610e2b7886c432929d9"
     },
     {
       "source": "Homeostase.md",
@@ -516,8 +516,8 @@
     {
       "source": "Janela anabólica.md",
       "destination": "Janela anabólica.md",
-      "bytes": 7259,
-      "sha256": "700a883e79a8de7bdd26bd8e9626b4bf6f4576aaeeefa8ec30c9e8f94a8d5acb"
+      "bytes": 7224,
+      "sha256": "9bafbe94481ae2018b08d161b43a778a057ff21de4fc6c9b52305a5887dc725e"
     },
     {
       "source": "Lactogênese.md",
@@ -534,8 +534,8 @@
     {
       "source": "Leite materno maduro.md",
       "destination": "Leite materno maduro.md",
-      "bytes": 8490,
-      "sha256": "f03664c1a12ad5e7113c77c6770cdefbe0133510d6a5a73d0c02d43367390c46"
+      "bytes": 8452,
+      "sha256": "1101000e1003d28e3d987472a1f6544e931d7b3e5da8b4ec0519a381bc116d96"
     },
     {
       "source": "Leite materno.md",
@@ -546,20 +546,20 @@
     {
       "source": "Leucina.md",
       "destination": "Leucina.md",
-      "bytes": 4402,
-      "sha256": "21e86211662b065b6adb28b1c9e6f91fcb818d9c0af8a02c7b9aebdb48cd9858"
+      "bytes": 4310,
+      "sha256": "3571a9caf63f804ed403b396eefe89583befbc850bceb7a7f142e1436e6e772c"
     },
     {
       "source": "Limiar anaeróbico.md",
       "destination": "Limiar anaeróbico.md",
-      "bytes": 4565,
-      "sha256": "bda2cb51f382947d3cb01601df2eaaee96481f770e0c1c61df157d9613cc418c"
+      "bytes": 4383,
+      "sha256": "2b07f6b2480195168e010f4fc7ea5e9ec8ddf34e7e89b55563b109c243a06831"
     },
     {
       "source": "Limiar de lactato.md",
       "destination": "Limiar de lactato.md",
-      "bytes": 3003,
-      "sha256": "c3f03910229bb46bd7c4235c8b42b0348ce73deb139ae74e01d8ed8efeca0329"
+      "bytes": 2931,
+      "sha256": "fc53f5c75c99c5f5eaa63247cca4b0865100675ef112755ce6551b596f7bdf0c"
     },
     {
       "source": "Lipólise aumentada na gestação.md",
@@ -612,8 +612,8 @@
     {
       "source": "Obesidade infantil.md",
       "destination": "Obesidade infantil.md",
-      "bytes": 7974,
-      "sha256": "0b695094a240d4084a58a01e902017f623590dcb9f4bef0d06c36cc25a6bebd9"
+      "bytes": 7875,
+      "sha256": "76e403d327fbe3ac90b216df3cd230b6a12e0ef6e5e25c4e089f1e6944f5031e"
     },
     {
       "source": "Obesidade sarcopênica.md",
@@ -636,8 +636,8 @@
     {
       "source": "Particionamento energético.md",
       "destination": "Particionamento energético.md",
-      "bytes": 3415,
-      "sha256": "e4789415da07b0606208487c3bea3ec5e5d32068d8a17b47aab4c9b81a317245"
+      "bytes": 3381,
+      "sha256": "d14e0557fd4e3d12cdd7925b01b86406156106a343d0932f4ba2ae919f3673ed"
     },
     {
       "source": "Pega adequada.md",
@@ -672,8 +672,8 @@
     {
       "source": "Puerpério.md",
       "destination": "Puerpério.md",
-      "bytes": 8695,
-      "sha256": "859421bcdc9f83d555fe2af69f47772f3fde41b0620e70d05cdc3c564fcfb87a"
+      "bytes": 8554,
+      "sha256": "fbf51c205d5ed547f7e4b26203033f477479c4d7f7d0c4bbe85a22f3b31a1d5c"
     },
     {
       "source": "Punição.md",
@@ -714,8 +714,8 @@
     {
       "source": "Resposta inflamatória ao exercício.md",
       "destination": "Resposta inflamatória ao exercício.md",
-      "bytes": 4807,
-      "sha256": "93bc1fde32ca8867f4b2adca595634ac1f36d39473e8e5fd3f3b8c0f06035f37"
+      "bytes": 4523,
+      "sha256": "e4646db171c53ebeee51cde5388288aa7faa73a2208c7e2e9f19a43c671b7fcb"
     },
     {
       "source": "Restrição de crescimento intrauterino.md",
@@ -768,8 +768,8 @@
     {
       "source": "Síntese proteica muscular.md",
       "destination": "Síntese proteica muscular.md",
-      "bytes": 6888,
-      "sha256": "dbe298b1cd08eb4d4b6a06a854bcac68f7904a08b13d485a46b3e98f437205bf"
+      "bytes": 6700,
+      "sha256": "8f90e5f06f5a2f18daffbbb9121309ba05129bf3e79fe5daf51ed000c0c9748e"
     },
     {
       "source": "Sistema fosfagênio.md",
@@ -780,8 +780,8 @@
     {
       "source": "Supercompensação de glicogênio.md",
       "destination": "Supercompensação de glicogênio.md",
-      "bytes": 3464,
-      "sha256": "ea7b7e0619b0db41ea3206da7774249cc58ed9c0aa778d9bca45b74648694cb5"
+      "bytes": 3261,
+      "sha256": "a1b07187f5258fd5bd8ddf4c77f35c80ac237a65e8d99d98a9b6ba63af18151c"
     },
     {
       "source": "Suplementação de ácido fólico.md",
@@ -804,8 +804,8 @@
     {
       "source": "Teste oral de tolerância à glicose (TOTG).md",
       "destination": "Teste oral de tolerância à glicose (TOTG).md",
-      "bytes": 7989,
-      "sha256": "36c73702fbb70781215fd9e91d6047dff2b45760e1386f66f4d72ad331225d11"
+      "bytes": 7853,
+      "sha256": "e69ff0e026c147e34f64d6fcde92835cfe541824b4bf7a605e7a7f7903ce2c99"
     },
     {
       "source": "Validade Externa.md",
@@ -816,8 +816,8 @@
     {
       "source": "Viés de causalidade reversa.md",
       "destination": "Viés de causalidade reversa.md",
-      "bytes": 3352,
-      "sha256": "351ad329691ff558dd2113f2ab9ba3fa6457095fd0b886e3eef15009c9d7bcc5"
+      "bytes": 3286,
+      "sha256": "03690a2e899a3f5932b17d9a5f3cfcd56a22fb6d1480b6c349c36c0e15a32871"
     },
     {
       "source": "Viés de seleção.md",
@@ -828,20 +828,20 @@
     {
       "source": "Viés de tempo imortal.md",
       "destination": "Viés de tempo imortal.md",
-      "bytes": 3002,
-      "sha256": "216fb34cd8b5fcc9ab5406c215641e09a15527bf9a7510b34a31fde6ebdfc163"
+      "bytes": 2918,
+      "sha256": "9084fa05b5b9ba4f8e576ec6ff4ec9e9947c576065e41d7385b547aed8c5d37c"
     },
     {
       "source": "Viés do usuário saudável.md",
       "destination": "Viés do usuário saudável.md",
-      "bytes": 3080,
-      "sha256": "ea2633ca1bb4e934e9a79a479f0797a4d376e2eddeee8c68ba1d6312c6cf8814"
+      "bytes": 2990,
+      "sha256": "85d08ba37aab65d5e700714baeff3140708179c53a66a6e4c70bde055db845a4"
     },
     {
       "source": "VO₂máx.md",
       "destination": "VO₂máx.md",
-      "bytes": 3787,
-      "sha256": "89bd6a4592b82f7eb05132795b2e6b46a277853937d0957340405273ce09762a"
+      "bytes": 3691,
+      "sha256": "cda3478e937cba363bf8e273b8d1d081be9a7d27d98671f861681bf643a9e0a5"
     }
   ]
 }

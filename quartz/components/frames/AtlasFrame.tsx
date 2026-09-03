@@ -50,6 +50,118 @@ export const AtlasFrame: PageFrame = {
             <img class="atlas-brand-logo" src={logoHref} alt="Atlas." width="112" height="66" />
           </a>
 
+          <div class="atlas-mobile-actions" aria-label="Ações rápidas do Atlas">
+            <button
+              class="atlas-icon-button atlas-mobile-action atlas-mobile-search-trigger"
+              type="button"
+              data-atlas-action="open-search"
+              aria-label="Buscar conceitos"
+              aria-controls="atlas-search-sheet"
+            >
+              <svg
+                class="atlas-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <circle cx="10.8" cy="10.8" r="6.2" />
+                <path d="m16 16 4 4" />
+              </svg>
+            </button>
+            <button
+              class="atlas-icon-button atlas-mobile-action atlas-mobile-note-action"
+              type="button"
+              data-atlas-action="go-back"
+              aria-label="Voltar ao contexto anterior"
+              hidden={!isNote}
+            >
+              <svg
+                class="atlas-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path d="m15 18-6-6 6-6" />
+                <path d="M9 12h10" />
+              </svg>
+            </button>
+            <button
+              class="atlas-icon-button atlas-mobile-action atlas-mobile-note-action"
+              type="button"
+              data-atlas-action="expand-graph"
+              aria-label="Expandir grafo"
+              hidden={!isNote}
+            >
+              <svg
+                class="atlas-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path d="M8 3H3v5M3 3l6 6M16 21h5v-5M21 21l-6-6" />
+              </svg>
+            </button>
+            <button
+              class="atlas-icon-button atlas-mobile-action"
+              type="button"
+              data-atlas-action="toggle-theme"
+              data-atlas-theme-toggle=""
+              aria-label="Alternar tema"
+              title="Alternar tema"
+            >
+              <svg
+                class="atlas-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <circle cx="12" cy="12" r="4" />
+              </svg>
+            </button>
+            <button
+              class="atlas-icon-button atlas-mobile-action atlas-mobile-menu-trigger"
+              type="button"
+              data-atlas-action="toggle-mobile-menu"
+              aria-label="Abrir menu"
+              aria-controls="atlas-mobile-menu"
+              aria-expanded="false"
+            >
+              <svg
+                class="atlas-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path d="M4 7h16M4 12h16M4 17h16" />
+              </svg>
+            </button>
+          </div>
+
           <div class="atlas-graph-filters" aria-label="Filtros do grafo" hidden={!isGraph}>
             <label class="atlas-visually-hidden" for="atlas-search">
               Buscar conceitos
@@ -231,6 +343,7 @@ export const AtlasFrame: PageFrame = {
                 class="atlas-nav-button"
                 type="button"
                 data-atlas-action="toggle-theme"
+                data-atlas-theme-toggle=""
                 aria-label="Alternar tema"
                 title="Alternar tema"
               >
@@ -297,6 +410,39 @@ export const AtlasFrame: PageFrame = {
             </div>
           </div>
         </header>
+
+        <div
+          id="atlas-mobile-graph-tools"
+          class="atlas-mobile-graph-tools"
+          aria-label="Ferramentas rápidas do grafo"
+          hidden={!isGraph}
+        >
+          <button
+            id="atlas-mobile-area-trigger"
+            class="atlas-mobile-area-trigger"
+            type="button"
+            data-atlas-action="open-area"
+            aria-haspopup="dialog"
+            aria-expanded="false"
+            aria-controls="atlas-area-sheet"
+            aria-label="Filtrar por área: Todas as áreas"
+          >
+            <span id="atlas-mobile-area-value">Todas as áreas</span>
+            <svg
+              class="atlas-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.7"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path d="m7 10 5 5 5-5" />
+            </svg>
+          </button>
+        </div>
 
         <button
           id="atlas-reopen-nav"
@@ -415,6 +561,10 @@ AtlasFrame.css = `
   --atlas-blue-bright: #29A8FF;
   --atlas-blue-soft: #8EB9FF;
   --atlas-shadow: 0 18px 45px rgba(0, 0, 0, .24);
+  --atlas-safe-top: env(safe-area-inset-top, 0px);
+  --atlas-safe-right: env(safe-area-inset-right, 0px);
+  --atlas-safe-bottom: env(safe-area-inset-bottom, 0px);
+  --atlas-safe-left: env(safe-area-inset-left, 0px);
 }
 
 :root[data-theme="light"] {
@@ -461,6 +611,7 @@ a,
 input,
 select {
   -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 button:focus-visible,
@@ -481,6 +632,7 @@ canvas:focus-visible {
   overflow: visible;
   position: relative;
   width: 100%;
+  overscroll-behavior: none;
 }
 
 .atlas-frame[aria-busy="true"] {
@@ -498,7 +650,7 @@ canvas:focus-visible {
   box-sizing: border-box;
   height: 100%;
   margin: 0;
-  min-height: 100vh;
+  min-height: 100dvh;
   padding: 0;
   width: 100%;
 }
@@ -843,7 +995,7 @@ canvas:focus-visible {
 }
 
 .atlas-main {
-  min-height: 100dvh;
+  min-height: var(--atlas-visual-height, 100dvh);
   position: relative;
   width: 100vw;
   max-width: none;
@@ -854,7 +1006,7 @@ canvas:focus-visible {
   box-sizing: border-box;
   opacity: 0;
   pointer-events: none;
-  transform: translateY(8px) scale(.988);
+  transform: scale(.988);
   transform-origin: top center;
   transition: opacity 300ms ease, transform 360ms cubic-bezier(.22, .8, .2, 1), visibility 300ms ease;
   visibility: hidden;
@@ -1336,105 +1488,369 @@ canvas:focus-visible {
   font-size: .75rem;
 }
 
-@media all and (max-width: 850px) {
+.atlas-mobile-actions,
+.atlas-mobile-graph-tools {
+  display: none;
+}
+
+.atlas-mobile-action,
+.atlas-mobile-area-trigger {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.atlas-mobile-graph-tools[hidden],
+.atlas-mobile-action[hidden] {
+  display: none !important;
+}
+
+@media all and (max-width: 1024px) {
+  .atlas-search-field input {
+    font-size: 16px;
+  }
+
+  .atlas-reopen-nav {
+    right: calc(.75rem + var(--atlas-safe-right));
+    top: calc(.75rem + var(--atlas-safe-top));
+  }
+
   .atlas-navbar {
-    border-radius: 18px;
-    flex-wrap: wrap;
-    padding: .34rem;
-    top: .65rem;
+    box-sizing: border-box;
+    flex-wrap: nowrap;
+    gap: .35rem;
+    left: calc(50% + (var(--atlas-safe-left) - var(--atlas-safe-right)) / 2);
+    max-width: calc(100vw - 2rem - var(--atlas-safe-left) - var(--atlas-safe-right));
+    min-height: 3.35rem;
+    padding: .28rem .34rem .28rem .58rem;
+    top: calc(.65rem + var(--atlas-safe-top));
+    width: calc(100vw - 2rem - var(--atlas-safe-left) - var(--atlas-safe-right));
   }
 
   .atlas-brand {
-    flex: 1 1 auto;
-  }
-
-  .atlas-graph-filters {
-    flex-basis: 100%;
-    order: 3;
-  }
-
-  .atlas-navbar-actions {
-    margin-left: auto;
-  }
-
-  .atlas-navbar-actions .atlas-nav-button span:last-child {
-    display: none;
-  }
-
-  .atlas-area-picker {
-    flex: 0 1 11rem;
-  }
-
-  .atlas-note-view {
-    padding-inline: 1rem;
-    padding-top: 8.5rem;
-  }
-}
-
-@media all and (max-width: 560px) {
-  .atlas-navbar {
-    max-width: calc(100vw - 1rem);
-    width: calc(100vw - 1rem);
+    flex: 0 0 auto;
+    height: 2.75rem;
   }
 
   .atlas-brand-logo {
-    height: 2.28rem;
-    width: 3.88rem;
+    height: 2.55rem;
+    width: 4.35rem;
   }
 
-  .atlas-control-label {
-    display: none;
+  .atlas-graph-filters,
+  .atlas-navbar-actions {
+    display: none !important;
   }
 
-  .atlas-graph-filters {
-    gap: .3rem;
+  .atlas-mobile-actions {
+    align-items: center;
+    display: flex;
+    flex: 0 0 auto;
+    gap: .08rem;
+    margin-left: auto;
   }
 
-  .atlas-search-field {
-    flex-basis: 0;
+  .atlas-mobile-action {
+    align-items: center;
+    border-radius: 999px;
+    display: inline-flex;
+    height: 2.75rem;
+    justify-content: center;
+    min-height: 2.75rem;
+    min-width: 2.75rem;
+    padding: 0;
+    touch-action: manipulation;
   }
 
-  .atlas-area-picker {
-    flex: 0 1 9.5rem;
-    max-width: 42%;
+  .atlas-mobile-action:hover {
+    transform: none;
   }
 
-  .atlas-area-trigger {
-    font-size: .66rem;
-    gap: .35rem;
-    padding-inline: .6rem .5rem;
+  .atlas-mobile-action:active,
+  .atlas-mobile-action[aria-expanded="true"] {
+    background: color-mix(in srgb, var(--atlas-glass-highlight) 42%, transparent);
+    color: var(--atlas-ink);
+    transform: scale(.96);
   }
 
-  .atlas-area-menu {
-    max-width: calc(100vw - 1.5rem);
+  .atlas-mobile-action .atlas-icon {
+    height: 1.08rem;
+    width: 1.08rem;
+  }
+
+  .atlas-mobile-graph-tools {
+    align-items: center;
+    display: flex;
+    left: calc(.75rem + var(--atlas-safe-left));
+    pointer-events: none;
+    position: fixed;
+    top: calc(4.55rem + var(--atlas-safe-top));
+    z-index: 6500;
+  }
+
+  .atlas-mobile-area-trigger {
+    align-items: center;
+    -webkit-backdrop-filter: blur(18px) saturate(145%);
+    backdrop-filter: blur(18px) saturate(145%);
+    background: linear-gradient(145deg, rgba(255, 255, 255, .1), transparent 48%), var(--atlas-glass);
+    border: 1px solid var(--atlas-glass-line);
+    border-radius: 999px;
+    box-shadow: var(--atlas-glass-shadow);
+    color: var(--atlas-copy);
+    display: inline-flex;
+    font-size: .76rem;
+    gap: .45rem;
+    justify-content: space-between;
+    min-height: 2.75rem;
+    max-width: min(17rem, calc(100vw - 1.5rem - var(--atlas-safe-left) - var(--atlas-safe-right)));
+    padding: .45rem .65rem .45rem .85rem;
+    pointer-events: auto;
+    text-align: left;
+    touch-action: manipulation;
+  }
+
+  .atlas-mobile-area-trigger:hover,
+  .atlas-mobile-area-trigger:focus-visible,
+  .atlas-mobile-area-trigger[aria-expanded="true"] {
+    background: color-mix(in srgb, var(--atlas-glass-highlight) 42%, transparent);
+    border-color: color-mix(in srgb, var(--atlas-brand-sky) 48%, var(--atlas-glass-line));
+    color: var(--atlas-ink);
+  }
+
+  .atlas-mobile-area-trigger span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .atlas-graph-view {
-    min-height: 100svh;
+    height: var(--atlas-visual-height, 100dvh);
+    min-height: var(--atlas-visual-height, 100dvh);
+    overscroll-behavior: none;
   }
 
-  .atlas-reading-header {
-    margin-bottom: 1.8rem;
-  }
-
-  .atlas-reading-header h1 {
-    font-size: clamp(2.2rem, 13vw, 4rem);
-  }
-
-  .atlas-minimap-shell {
-    border-radius: 16px;
-    height: 13rem;
-    margin-top: 2.2rem;
+  .atlas-graph-surface,
+  .atlas-graph-view > .atlas-graph-surface {
+    height: 100%;
+    min-height: 100%;
   }
 
   .atlas-graph-list {
-    bottom: .65rem;
-    left: .65rem;
+    bottom: calc(.75rem + var(--atlas-safe-bottom));
+    left: calc(.75rem + var(--atlas-safe-left));
   }
 
   .atlas-map-controls-shell {
-    bottom: .65rem;
-    right: .65rem;
+    bottom: calc(.75rem + var(--atlas-safe-bottom));
+    right: calc(.75rem + var(--atlas-safe-right));
+  }
+
+  .atlas-map-control {
+    font-size: 1.08rem;
+    height: 3rem;
+    min-height: 3rem;
+    width: 3rem;
+    touch-action: manipulation;
+  }
+
+  .atlas-map-control:active {
+    background: color-mix(in srgb, var(--atlas-glass-highlight) 48%, transparent);
+    color: var(--atlas-ink);
+  }
+
+  .atlas-return-context,
+  .atlas-graph-list summary {
+    min-height: 2.75rem;
+    touch-action: manipulation;
+  }
+
+  .atlas-note-view {
+    padding-left: max(1rem, calc(clamp(1rem, 5vw, 5.5rem) + var(--atlas-safe-left)));
+    padding-right: max(1rem, calc(clamp(1rem, 5vw, 5.5rem) + var(--atlas-safe-right)));
+    padding-bottom: calc(3rem + var(--atlas-safe-bottom));
+    padding-top: calc(5.75rem + var(--atlas-safe-top));
+  }
+
+  .atlas-note-content article .table-container {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+  }
+
+  .atlas-minimap-shell .atlas-graph-canvas {
+    touch-action: pan-y;
+  }
+}
+
+@media all and (min-width: 601px) and (max-width: 1024px) {
+  .atlas-navbar {
+    max-width: calc(100vw - 3rem - var(--atlas-safe-left) - var(--atlas-safe-right));
+    top: calc(1rem + var(--atlas-safe-top));
+    width: calc(100vw - 3rem - var(--atlas-safe-left) - var(--atlas-safe-right));
+  }
+
+  .atlas-mobile-graph-tools {
+    left: calc(1.5rem + var(--atlas-safe-left));
+    top: calc(5rem + var(--atlas-safe-top));
+  }
+
+  .atlas-mobile-area-trigger {
+    font-size: .82rem;
+    min-height: 3rem;
+  }
+
+  .atlas-map-control {
+    height: 3.15rem;
+    min-height: 3.15rem;
+    width: 3.15rem;
+  }
+
+  .atlas-map-controls-shell {
+    bottom: calc(1.35rem + var(--atlas-safe-bottom));
+    right: calc(1.35rem + var(--atlas-safe-right));
+  }
+
+  .atlas-graph-list {
+    bottom: calc(1.35rem + var(--atlas-safe-bottom));
+    left: calc(1.35rem + var(--atlas-safe-left));
+  }
+}
+
+@media all and (max-width: 600px) {
+  .atlas-navbar {
+    max-width: calc(100vw - 1rem - var(--atlas-safe-left) - var(--atlas-safe-right));
+    min-height: 3.4rem;
+    padding-left: .5rem;
+    top: calc(.5rem + var(--atlas-safe-top));
+    width: calc(100vw - 1rem - var(--atlas-safe-left) - var(--atlas-safe-right));
+  }
+
+  .atlas-brand {
+    height: 2.7rem;
+  }
+
+  .atlas-brand-logo {
+    height: 2.3rem;
+    width: 3.95rem;
+  }
+
+  .atlas-mobile-actions {
+    gap: 0;
+  }
+
+  .atlas-mobile-action {
+    height: 2.75rem;
+    min-height: 2.75rem;
+    min-width: 2.75rem;
+  }
+
+  .atlas-mobile-action .atlas-icon {
+    height: 1rem;
+    width: 1rem;
+  }
+
+  .atlas-mobile-graph-tools {
+    left: calc(.7rem + var(--atlas-safe-left));
+    top: calc(4.45rem + var(--atlas-safe-top));
+  }
+
+  .atlas-mobile-area-trigger {
+    font-size: .72rem;
+    min-height: 2.75rem;
+    padding-left: .75rem;
+  }
+
+  .atlas-map-controls-shell {
+    bottom: calc(.7rem + var(--atlas-safe-bottom));
+    right: calc(.7rem + var(--atlas-safe-right));
+  }
+
+  .atlas-map-control {
+    height: 3.05rem;
+    min-height: 3.05rem;
+    width: 3.05rem;
+  }
+
+  .atlas-return-context {
+    max-width: min(16rem, calc(100vw - 1.4rem - var(--atlas-safe-left) - var(--atlas-safe-right)));
+  }
+
+  .atlas-graph-list {
+    bottom: calc(.7rem + var(--atlas-safe-bottom));
+    left: calc(.7rem + var(--atlas-safe-left));
+    max-width: min(12rem, calc(100vw - 11rem));
+  }
+
+  .atlas-note-view {
+    padding-left: max(1rem, calc(1rem + var(--atlas-safe-left)));
+    padding-right: max(1rem, calc(1rem + var(--atlas-safe-right)));
+    padding-top: calc(5.35rem + var(--atlas-safe-top));
+  }
+
+  .atlas-reading-header {
+    margin-bottom: 1.65rem;
+  }
+
+  .atlas-reading-header h1 {
+    font-size: clamp(2rem, 10.5vw, 3.25rem);
+    line-height: 1.02;
+    max-width: 14ch;
+  }
+
+  .atlas-note-content {
+    font-size: 1rem;
+  }
+
+  .atlas-note-content article p,
+  .atlas-note-content article li {
+    line-height: 1.65;
+  }
+
+  .atlas-note-content article h2 {
+    font-size: clamp(1.45rem, 7vw, 2rem);
+    margin-top: 2.35rem;
+  }
+
+  .atlas-note-content article h3 {
+    font-size: clamp(1.18rem, 5.5vw, 1.5rem);
+    margin-top: 1.9rem;
+  }
+
+  .atlas-note-content article iframe {
+    aspect-ratio: 16 / 9;
+    height: auto;
+    min-height: 0;
+    width: 100%;
+  }
+
+  .atlas-minimap-shell {
+    height: 13rem;
+    margin-top: 2rem;
+  }
+
+  .atlas-minimap-shell .atlas-graph-canvas {
+    touch-action: pan-y;
+  }
+}
+
+@media all and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  .atlas-mobile-graph-tools {
+    left: calc(1.25rem + var(--atlas-safe-left));
+    top: calc(5.2rem + var(--atlas-safe-top));
+  }
+
+  .atlas-note-view {
+    padding-top: calc(5.8rem + var(--atlas-safe-top));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .atlas-frame,
+  .atlas-frame *,
+  .atlas-frame *::before,
+  .atlas-frame *::after {
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
   }
 }
 

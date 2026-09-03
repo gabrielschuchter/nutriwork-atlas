@@ -57,7 +57,6 @@ Além disso, protocolos de restrição deliberada de carboidratos para treinar c
 - [[FatMax]]
 ## Referências de base
 
-- Burke LM, Hawley JA. Revisões sobre metabolismo de carboidratos no esporte.
 
 - Jeukendrup AE. Sports Nutrition.
 

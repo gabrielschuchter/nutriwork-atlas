@@ -201,10 +201,10 @@ A evidência sustenta que intervenções familiares e multicomponentes podem mel
 
 - World Health Organization (WHO). Report of the Commission on Ending Childhood Obesity. 2016.
 
-- World Health Organization (WHO). Obesity and overweight. [verificar atualização]
+- World Health Organization (WHO). Obesity and overweight.
 
 - American Academy of Pediatrics. Clinical Practice Guideline for the Evaluation and Treatment of Children and Adolescents With Obesity. 2023.
 
-- Styne DM, et al. Pediatric Obesity—Assessment, Treatment, and Prevention. [verificar referência específica]
+- Styne DM, et al. Pediatric Obesity—Assessment, Treatment, and Prevention.
 
-- Simmonds M, et al. Predicting adult obesity from childhood obesity: a systematic review and meta-analysis. [verificar referência específica].
+- Simmonds M, et al. Predicting adult obesity from childhood obesity: a systematic review and meta-analysis.

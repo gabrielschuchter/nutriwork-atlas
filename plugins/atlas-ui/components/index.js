@@ -71,7 +71,7 @@ export const AtlasAccess = (userOptions = {}) => {
             hidden: true,
             role: "note",
           },
-          "Para uma experiência mais produtiva, recomendamos usar o Atlas pelo computador.",
+          "No celular ou tablet, explore com arrastar e pinça.",
         ),
         h(
           "form",
@@ -120,11 +120,17 @@ html[data-atlas-access="locked"] .atlas-frame {
 #atlas-access {
   align-items: center;
   background: rgba(1, 2, 6, .86);
+  box-sizing: border-box;
+  bottom: auto;
   display: flex;
-  inset: 0;
+  height: var(--atlas-visual-height, 100dvh);
   justify-content: center;
-  padding: 1rem;
+  left: 0;
+  padding: max(1rem, env(safe-area-inset-top, 0px)) max(1rem, env(safe-area-inset-right, 0px)) max(1rem, env(safe-area-inset-bottom, 0px)) max(1rem, env(safe-area-inset-left, 0px));
   position: fixed;
+  right: 0;
+  top: var(--atlas-viewport-offset-top, 0px);
+  touch-action: manipulation;
   visibility: visible;
   z-index: 10000;
   backdrop-filter: blur(20px);
@@ -254,6 +260,11 @@ html[data-atlas-access="unlocked"] #atlas-access {
   min-height: 3rem;
   padding: .7rem 3.25rem .7rem .85rem;
   width: 100%;
+}
+
+.atlas-access-form input,
+.atlas-access-form button {
+  touch-action: manipulation;
 }
 
 .atlas-password-toggle {
@@ -430,7 +441,8 @@ html[data-atlas-access="unlocked"] #atlas-access {
   inset: 0;
   justify-content: center;
   opacity: 0;
-  padding: 1rem;
+  max-height: var(--atlas-visual-height, 100dvh);
+  padding: max(1rem, calc(var(--atlas-safe-top, env(safe-area-inset-top, 0px)) + .75rem)) max(1rem, calc(var(--atlas-safe-right, env(safe-area-inset-right, 0px)) + .75rem)) max(1rem, calc(var(--atlas-safe-bottom, env(safe-area-inset-bottom, 0px)) + .75rem)) max(1rem, calc(var(--atlas-safe-left, env(safe-area-inset-left, 0px)) + .75rem));
   pointer-events: none;
   position: fixed;
   z-index: 8000;
@@ -462,6 +474,8 @@ html[data-atlas-access="unlocked"] #atlas-access {
   box-shadow: var(--atlas-glass-shadow, 0 24px 90px rgba(0, 0, 0, .36));
   color: #F5F7FF;
   max-width: 34rem;
+  max-height: calc(var(--atlas-visual-height, 100dvh) - var(--atlas-safe-top, env(safe-area-inset-top, 0px)) - var(--atlas-safe-bottom, env(safe-area-inset-bottom, 0px)) - 1rem);
+  overflow: auto;
   padding: clamp(1.2rem, 4vw, 2rem);
   position: relative;
   transform: translateY(8px) scale(.975);
@@ -582,7 +596,8 @@ html[data-atlas-access="unlocked"] #atlas-access {
   inset: 0;
   justify-content: center;
   opacity: 0;
-  padding: 1rem;
+  max-height: var(--atlas-visual-height, 100dvh);
+  padding: max(1rem, calc(var(--atlas-safe-top, env(safe-area-inset-top, 0px)) + .75rem)) max(1rem, calc(var(--atlas-safe-right, env(safe-area-inset-right, 0px)) + .75rem)) max(1rem, calc(var(--atlas-safe-bottom, env(safe-area-inset-bottom, 0px)) + .75rem)) max(1rem, calc(var(--atlas-safe-left, env(safe-area-inset-left, 0px)) + .75rem));
   pointer-events: none;
   position: fixed;
   transition: opacity 220ms ease;
@@ -618,6 +633,8 @@ html[data-atlas-access="unlocked"] #atlas-access {
   box-shadow: var(--atlas-glass-shadow, 0 24px 90px rgba(0, 0, 0, .36));
   color: #F5F7FF;
   max-width: 27rem;
+  max-height: calc(var(--atlas-visual-height, 100dvh) - var(--atlas-safe-top, env(safe-area-inset-top, 0px)) - var(--atlas-safe-bottom, env(safe-area-inset-bottom, 0px)) - 1rem);
+  overflow: auto;
   padding: 1.25rem;
   position: relative;
   transform: translateY(8px) scale(.975);
@@ -768,6 +785,420 @@ html[data-atlas-access="unlocked"] #atlas-access {
     padding-block: 2.4rem;
   }
 }
+
+.atlas-touch-hint {
+  align-items: center;
+  -webkit-backdrop-filter: blur(18px) saturate(145%);
+  backdrop-filter: blur(18px) saturate(145%);
+  background: linear-gradient(145deg, rgba(255, 255, 255, .1), transparent 48%), var(--atlas-glass, rgba(7, 16, 35, .5));
+  border: 1px solid var(--atlas-glass-line, rgba(220, 235, 255, .16));
+  border-radius: 999px;
+  bottom: calc(4.8rem + var(--atlas-safe-bottom, env(safe-area-inset-bottom, 0px)));
+  box-shadow: var(--atlas-glass-shadow, 0 18px 48px rgba(0, 0, 0, .28));
+  color: var(--atlas-ink, #F5F7FF);
+  display: flex;
+  font-size: .76rem;
+  gap: .5rem;
+  left: 50%;
+  opacity: 0;
+  padding: .62rem .85rem;
+  pointer-events: none;
+  position: fixed;
+  transform: translate(-50%, 8px);
+  transition: opacity 180ms ease, transform 220ms ease, visibility 180ms ease;
+  visibility: hidden;
+  white-space: nowrap;
+  z-index: 7600;
+}
+
+.atlas-touch-hint.is-visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+  visibility: visible;
+}
+
+.atlas-touch-hint[hidden] {
+  display: none;
+}
+
+.atlas-touch-hint-separator {
+  color: var(--atlas-brand-sky, #7DB5E4);
+}
+
+.atlas-mobile-sheet {
+  align-items: flex-end;
+  box-sizing: border-box;
+  display: flex;
+  height: var(--atlas-visual-height, 100dvh);
+  inset: 0;
+  justify-content: center;
+  opacity: 0;
+  padding: max(.75rem, calc(var(--atlas-safe-top, env(safe-area-inset-top, 0px)) + .5rem)) max(.75rem, calc(var(--atlas-safe-right, env(safe-area-inset-right, 0px)) + .5rem)) max(.75rem, calc(var(--atlas-safe-bottom, env(safe-area-inset-bottom, 0px)) + .5rem)) max(.75rem, calc(var(--atlas-safe-left, env(safe-area-inset-left, 0px)) + .5rem));
+  pointer-events: none;
+  position: fixed;
+  top: var(--atlas-viewport-offset-top, 0px);
+  bottom: auto;
+  visibility: hidden;
+  z-index: 9200;
+  transition: opacity 180ms ease, visibility 180ms ease;
+}
+
+.atlas-mobile-sheet.is-open {
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.atlas-mobile-sheet[hidden] {
+  display: none !important;
+}
+
+.atlas-mobile-sheet-backdrop {
+  background: rgba(1, 2, 6, .62);
+  border: 0;
+  inset: 0;
+  padding: 0;
+  position: absolute;
+  touch-action: none;
+}
+
+.atlas-mobile-sheet-card {
+  -webkit-backdrop-filter: blur(24px) saturate(145%);
+  backdrop-filter: blur(24px) saturate(145%);
+  background: linear-gradient(145deg, rgba(255, 255, 255, .1), transparent 48%), var(--atlas-glass-strong, rgba(7, 16, 35, .8));
+  border: 1px solid var(--atlas-glass-line, rgba(220, 235, 255, .18));
+  border-radius: 26px 26px 20px 20px;
+  box-shadow: var(--atlas-glass-shadow, 0 24px 90px rgba(0, 0, 0, .36));
+  box-sizing: border-box;
+  color: var(--atlas-ink, #F5F7FF);
+  display: flex;
+  flex-direction: column;
+  max-height: calc(var(--atlas-visual-height, 100dvh) - var(--atlas-safe-top, env(safe-area-inset-top, 0px)) - .5rem);
+  min-height: 0;
+  overflow: hidden;
+  padding: 1.15rem 1rem max(1rem, var(--atlas-safe-bottom, env(safe-area-inset-bottom, 0px)));
+  position: relative;
+  transform: translateY(14px);
+  transition: transform 240ms cubic-bezier(.22, .8, .2, 1);
+  width: min(100%, 38rem);
+}
+
+.atlas-mobile-sheet button,
+.atlas-mobile-sheet input {
+  font: inherit;
+}
+
+.atlas-mobile-sheet.is-open .atlas-mobile-sheet-card {
+  transform: none;
+}
+
+.atlas-mobile-sheet-header {
+  align-items: flex-start;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+.atlas-mobile-sheet-kicker {
+  color: var(--atlas-brand-sky, #7DB5E4);
+  font-family: var(--codeFont, monospace);
+  font-size: .66rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  margin: 0 0 .42rem;
+  text-transform: uppercase;
+}
+
+.atlas-mobile-sheet-header h2 {
+  color: var(--atlas-ink, #F5F7FF);
+  font-size: clamp(1.3rem, 5vw, 1.7rem);
+  letter-spacing: -.035em;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.atlas-mobile-sheet-close {
+  align-items: center;
+  background: rgba(255, 255, 255, .05);
+  border: 1px solid var(--atlas-glass-line, rgba(220, 235, 255, .16));
+  border-radius: 999px;
+  color: var(--atlas-ink, #F5F7FF);
+  cursor: pointer;
+  display: inline-flex;
+  flex: 0 0 auto;
+  font-size: 1.35rem;
+  height: 2.75rem;
+  justify-content: center;
+  line-height: 1;
+  min-height: 2.75rem;
+  min-width: 2.75rem;
+  padding: 0;
+  touch-action: manipulation;
+}
+
+.atlas-mobile-sheet-close:active,
+.atlas-mobile-sheet-close:focus-visible {
+  background: color-mix(in srgb, var(--atlas-brand-sky, #7DB5E4) 18%, transparent);
+  border-color: var(--atlas-brand-sky, #7DB5E4);
+}
+
+.atlas-mobile-search-form {
+  align-items: center;
+  background: rgba(1, 2, 6, .38);
+  border: 1px solid var(--atlas-glass-line, rgba(220, 235, 255, .2));
+  border-radius: 16px;
+  display: flex;
+  flex: 0 0 auto;
+  gap: .6rem;
+  margin-top: 1.15rem;
+  min-height: 3.25rem;
+  padding: 0 .9rem;
+}
+
+.atlas-mobile-search-icon {
+  color: var(--atlas-brand-sky, #7DB5E4);
+  font-size: 1.45rem;
+  line-height: 1;
+}
+
+#atlas-mobile-search {
+  background: transparent;
+  border: 0;
+  color: var(--atlas-ink, #F5F7FF);
+  font-size: 16px;
+  line-height: 1.4;
+  min-height: 3.25rem;
+  min-width: 0;
+  outline: 0;
+  padding: .5rem 0;
+  width: 100%;
+}
+
+#atlas-mobile-search::placeholder {
+  color: var(--atlas-muted, #94A3B8);
+}
+
+.atlas-mobile-sheet-status {
+  color: var(--atlas-copy, #C8D2E5);
+  flex: 0 0 auto;
+  font-size: .78rem;
+  line-height: 1.45;
+  margin: .8rem .1rem .45rem;
+}
+
+.atlas-mobile-search-results,
+.atlas-area-sheet-options,
+.atlas-mobile-menu-list {
+  list-style: none;
+  margin: 0 -.35rem;
+  min-height: 0;
+  overflow: auto;
+  overscroll-behavior: contain;
+  padding: .1rem .35rem .25rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+.atlas-mobile-search-result {
+  align-items: flex-start;
+  background: rgba(255, 255, 255, .045);
+  border: 1px solid transparent;
+  border-radius: 14px;
+  color: var(--atlas-ink, #F5F7FF);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: .22rem;
+  margin: .3rem 0;
+  min-height: 3.8rem;
+  padding: .72rem .8rem;
+  text-align: left;
+  touch-action: manipulation;
+  width: 100%;
+}
+
+.atlas-mobile-search-result:active,
+.atlas-mobile-search-result:focus-visible {
+  background: color-mix(in srgb, var(--atlas-brand-sky, #7DB5E4) 18%, transparent);
+  border-color: color-mix(in srgb, var(--atlas-brand-sky, #7DB5E4) 48%, transparent);
+}
+
+.atlas-mobile-search-result-title {
+  font-size: .95rem;
+  line-height: 1.25;
+}
+
+.atlas-mobile-search-result-meta,
+.atlas-mobile-search-results-more {
+  color: var(--atlas-muted, #94A3B8);
+  font-size: .72rem;
+  line-height: 1.4;
+}
+
+.atlas-mobile-search-results-more {
+  margin: .85rem .25rem;
+}
+
+.atlas-area-sheet-options {
+  display: grid;
+  gap: .35rem;
+}
+
+.atlas-area-sheet-option,
+.atlas-mobile-menu-list button {
+  align-items: center;
+  background: rgba(255, 255, 255, .045);
+  border: 1px solid transparent;
+  border-radius: 14px;
+  color: var(--atlas-ink, #F5F7FF);
+  cursor: pointer;
+  display: flex;
+  font-size: .92rem;
+  justify-content: space-between;
+  min-height: 3.5rem;
+  padding: .72rem .85rem;
+  text-align: left;
+  touch-action: manipulation;
+  width: 100%;
+}
+
+.atlas-area-sheet-option[aria-selected="true"] {
+  background: color-mix(in srgb, var(--atlas-brand-sky, #7DB5E4) 18%, transparent);
+  border-color: color-mix(in srgb, var(--atlas-brand-sky, #7DB5E4) 52%, transparent);
+  font-weight: 700;
+}
+
+.atlas-area-sheet-option[aria-selected="true"]::after {
+  color: var(--atlas-brand-sky, #7DB5E4);
+  content: "✓";
+  font-size: 1.1rem;
+}
+
+.atlas-mobile-menu-list {
+  display: grid;
+  gap: .35rem;
+  margin-top: 1.1rem;
+}
+
+.atlas-mobile-menu-list button {
+  font-size: .92rem;
+  gap: 1rem;
+}
+
+.atlas-mobile-menu-list button:active,
+.atlas-mobile-menu-list button:focus-visible {
+  background: color-mix(in srgb, var(--atlas-brand-sky, #7DB5E4) 18%, transparent);
+  border-color: color-mix(in srgb, var(--atlas-brand-sky, #7DB5E4) 48%, transparent);
+}
+
+.atlas-mobile-menu-arrow,
+.atlas-mobile-menu-value {
+  color: var(--atlas-muted, #94A3B8);
+  flex: 0 0 auto;
+  font-size: .75rem;
+}
+
+.atlas-mobile-menu-arrow {
+  font-size: 1.1rem;
+}
+
+html.atlas-modal-open,
+html.atlas-modal-open body {
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+:root[data-theme="light"] .atlas-mobile-sheet-card {
+  color: #07152A;
+}
+
+:root[data-theme="light"] .atlas-mobile-sheet-header h2,
+:root[data-theme="light"] #atlas-mobile-search,
+:root[data-theme="light"] .atlas-mobile-search-result,
+:root[data-theme="light"] .atlas-area-sheet-option,
+:root[data-theme="light"] .atlas-mobile-menu-list button,
+:root[data-theme="light"] .atlas-touch-hint {
+  color: #07152A;
+}
+
+:root[data-theme="light"] .atlas-mobile-search-form {
+  background: rgba(255, 255, 255, .38);
+}
+
+:root[data-theme="light"] .atlas-mobile-search-result,
+:root[data-theme="light"] .atlas-area-sheet-option,
+:root[data-theme="light"] .atlas-mobile-menu-list button {
+  background: rgba(255, 255, 255, .3);
+}
+
+:root[data-theme="light"] .atlas-mobile-sheet-status,
+:root[data-theme="light"] .atlas-mobile-search-result-meta,
+:root[data-theme="light"] .atlas-mobile-search-results-more,
+:root[data-theme="light"] .atlas-mobile-menu-arrow,
+:root[data-theme="light"] .atlas-mobile-menu-value {
+  color: #526277;
+}
+
+@media all and (max-width: 1024px) {
+  .atlas-access-form input {
+    font-size: 16px;
+  }
+
+  .atlas-password-toggle {
+    height: 2.75rem;
+    min-height: 2.75rem;
+    min-width: 2.75rem;
+    width: 2.75rem;
+  }
+
+  .atlas-mobile-sheet-card {
+    width: min(100%, 42rem);
+  }
+}
+
+@media all and (max-width: 600px) {
+  .atlas-touch-hint {
+    bottom: calc(4.55rem + var(--atlas-safe-bottom, env(safe-area-inset-bottom, 0px)));
+    font-size: .7rem;
+    max-width: calc(100vw - 2rem);
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .atlas-mobile-sheet-card {
+    max-height: calc(var(--atlas-visual-height, 100dvh) - var(--atlas-safe-top, env(safe-area-inset-top, 0px)) - .25rem);
+    padding-inline: .85rem;
+    width: 100%;
+  }
+
+  #atlas-search-sheet .atlas-mobile-sheet-card {
+    height: 100%;
+    min-height: 0;
+  }
+}
+
+@media all and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  .atlas-mobile-sheet {
+    align-items: stretch;
+    justify-content: flex-end;
+  }
+
+  .atlas-mobile-sheet-card {
+    border-radius: 26px 0 0 26px;
+    height: 100%;
+    max-height: none;
+    transform: translateX(14px);
+    width: min(28rem, calc(100vw - 2rem));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .atlas-touch-hint,
+  .atlas-mobile-sheet,
+  .atlas-mobile-sheet-card {
+    transition-duration: .01ms !important;
+  }
+}
 `
 
   AtlasAccessComponent.beforeDOMLoaded =
@@ -882,7 +1313,9 @@ html[data-atlas-access="unlocked"] #atlas-access {
       return;
     }
     const target =
-      event.target instanceof Element ? event.target.closest("#atlas-access-logout") : null;
+      event.target instanceof Element
+        ? event.target.closest("#atlas-access-logout, [data-atlas-logout]")
+        : null;
     if (!target) return;
     try {
       window.localStorage.removeItem(storageKey);
@@ -919,6 +1352,236 @@ export const AtlasApp = () => {
         "aria-hidden": "true",
         hidden: true,
       }),
+      h(
+        "div",
+        {
+          id: "atlas-touch-hint",
+          class: "atlas-touch-hint",
+          role: "status",
+          hidden: true,
+        },
+        h("span", null, "Arraste para explorar"),
+        h("span", { class: "atlas-touch-hint-separator", "aria-hidden": "true" }, "·"),
+        h("span", null, "Pinça para aproximar"),
+      ),
+      h(
+        "section",
+        {
+          id: "atlas-search-sheet",
+          class: "atlas-mobile-sheet atlas-search-sheet",
+          role: "dialog",
+          "aria-modal": "true",
+          "aria-labelledby": "atlas-search-sheet-title",
+          "aria-hidden": "true",
+          hidden: true,
+        },
+        h("button", {
+          class: "atlas-mobile-sheet-backdrop",
+          type: "button",
+          "aria-label": "Fechar busca",
+          "data-atlas-action": "close-search",
+        }),
+        h(
+          "div",
+          { class: "atlas-mobile-sheet-card" },
+          h(
+            "header",
+            { class: "atlas-mobile-sheet-header" },
+            h(
+              "div",
+              null,
+              h("p", { class: "atlas-mobile-sheet-kicker" }, "EXPLORAR O GRAFO"),
+              h("h2", { id: "atlas-search-sheet-title" }, "Buscar conceito"),
+            ),
+            h(
+              "button",
+              {
+                class: "atlas-mobile-sheet-close",
+                type: "button",
+                "aria-label": "Fechar busca",
+                "data-atlas-action": "close-search",
+              },
+              "×",
+            ),
+          ),
+          h(
+            "div",
+            { class: "atlas-mobile-search-form", role: "search" },
+            h("span", { class: "atlas-mobile-search-icon", "aria-hidden": "true" }, "⌕"),
+            h("input", {
+              id: "atlas-mobile-search",
+              type: "search",
+              placeholder: "Digite um conceito",
+              autocomplete: "off",
+              autocapitalize: "none",
+              spellcheck: false,
+              "aria-label": "Buscar conceitos no Atlas",
+              "aria-controls": "atlas-search-results",
+              "aria-describedby": "atlas-search-results-status",
+            }),
+          ),
+          h("p", {
+            id: "atlas-search-results-status",
+            class: "atlas-mobile-sheet-status",
+            role: "status",
+          }),
+          h("ul", {
+            id: "atlas-search-results",
+            class: "atlas-mobile-search-results",
+            role: "listbox",
+            "aria-label": "Resultados da busca",
+          }),
+        ),
+      ),
+      h(
+        "section",
+        {
+          id: "atlas-area-sheet",
+          class: "atlas-mobile-sheet atlas-area-sheet",
+          role: "dialog",
+          "aria-modal": "true",
+          "aria-labelledby": "atlas-area-sheet-title",
+          "aria-hidden": "true",
+          hidden: true,
+        },
+        h("button", {
+          class: "atlas-mobile-sheet-backdrop",
+          type: "button",
+          "aria-label": "Fechar filtro por área",
+          "data-atlas-action": "close-area",
+        }),
+        h(
+          "div",
+          { class: "atlas-mobile-sheet-card" },
+          h(
+            "header",
+            { class: "atlas-mobile-sheet-header" },
+            h(
+              "div",
+              null,
+              h("p", { class: "atlas-mobile-sheet-kicker" }, "FILTRO DO GRAFO"),
+              h("h2", { id: "atlas-area-sheet-title" }, "Escolher área"),
+            ),
+            h(
+              "button",
+              {
+                class: "atlas-mobile-sheet-close",
+                type: "button",
+                "aria-label": "Fechar filtro por área",
+                "data-atlas-action": "close-area",
+              },
+              "×",
+            ),
+          ),
+          h(
+            "p",
+            { class: "atlas-mobile-sheet-status" },
+            "Mostre apenas o contexto que deseja explorar.",
+          ),
+          h("div", {
+            id: "atlas-area-sheet-options",
+            class: "atlas-area-sheet-options",
+            role: "listbox",
+            "aria-label": "Áreas do grafo",
+          }),
+        ),
+      ),
+      h(
+        "section",
+        {
+          id: "atlas-mobile-menu",
+          class: "atlas-mobile-sheet atlas-mobile-menu",
+          role: "dialog",
+          "aria-modal": "true",
+          "aria-labelledby": "atlas-mobile-menu-title",
+          "aria-hidden": "true",
+          hidden: true,
+        },
+        h("button", {
+          class: "atlas-mobile-sheet-backdrop",
+          type: "button",
+          "aria-label": "Fechar menu",
+          "data-atlas-action": "close-mobile-menu",
+        }),
+        h(
+          "div",
+          { class: "atlas-mobile-sheet-card" },
+          h(
+            "header",
+            { class: "atlas-mobile-sheet-header" },
+            h(
+              "div",
+              null,
+              h("p", { class: "atlas-mobile-sheet-kicker" }, "NUTRIWORK / ATLAS"),
+              h("h2", { id: "atlas-mobile-menu-title" }, "Menu do Atlas"),
+            ),
+            h(
+              "button",
+              {
+                class: "atlas-mobile-sheet-close",
+                type: "button",
+                "aria-label": "Fechar menu",
+                "data-atlas-action": "close-mobile-menu",
+              },
+              "×",
+            ),
+          ),
+          h(
+            "nav",
+            { class: "atlas-mobile-menu-list", "aria-label": "Ações do Atlas" },
+            h(
+              "button",
+              { type: "button", "data-atlas-action": "open-search" },
+              h("span", null, "Buscar conceito"),
+              h("span", { class: "atlas-mobile-menu-arrow", "aria-hidden": "true" }, "→"),
+            ),
+            h(
+              "button",
+              { type: "button", "data-atlas-action": "open-area" },
+              h("span", null, "Filtrar por área"),
+              h(
+                "span",
+                { class: "atlas-mobile-menu-value", id: "atlas-mobile-menu-area-value" },
+                "Todas as áreas",
+              ),
+            ),
+            h(
+              "button",
+              { type: "button", "data-atlas-action": "open-onboarding" },
+              h("span", null, "Como funciona?"),
+              h("span", { class: "atlas-mobile-menu-arrow", "aria-hidden": "true" }, "→"),
+            ),
+            h(
+              "button",
+              { type: "button", "data-atlas-action": "open-help" },
+              h("span", null, "Ajuda e suporte"),
+              h("span", { class: "atlas-mobile-menu-arrow", "aria-hidden": "true" }, "→"),
+            ),
+            h(
+              "button",
+              { type: "button", "data-atlas-action": "toggle-theme" },
+              h("span", null, "Tema"),
+              h(
+                "span",
+                { class: "atlas-mobile-menu-value", id: "atlas-theme-menu-label" },
+                "Usar modo escuro",
+              ),
+            ),
+            h(
+              "button",
+              { type: "button", "data-atlas-action": "toggle-nav" },
+              h("span", null, "Ocultar barra de navegação"),
+              h("span", { class: "atlas-mobile-menu-arrow", "aria-hidden": "true" }, "−"),
+            ),
+            h(
+              "button",
+              { type: "button", "data-atlas-logout": "true" },
+              h("span", null, "Sair do Atlas"),
+              h("span", { class: "atlas-mobile-menu-arrow", "aria-hidden": "true" }, "↗"),
+            ),
+          ),
+        ),
+      ),
       h(
         "div",
         {

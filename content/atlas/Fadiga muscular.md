@@ -76,5 +76,3 @@ Na prática esportiva, a percepção subjetiva de esforço também exerce papel 
 - Enoka RM, Duchateau J. Translating Fatigue to Human Performance.
 
 - Allen DG, Lamb GD, Westerblad H. Skeletal Muscle Fatigue: Cellular Mechanisms.
-
-- Brooks GA. Revisões sobre metabolismo do lactato e fadiga.

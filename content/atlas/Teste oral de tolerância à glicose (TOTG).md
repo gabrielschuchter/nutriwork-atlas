@@ -163,12 +163,12 @@ A questão central não é apenas “detectar mais alterações”, mas determin
 
 - Hyperglycemia and Adverse Pregnancy Outcome (HAPO) Study Cooperative Research Group. Hyperglycemia and adverse pregnancy outcomes. New England Journal of Medicine. 2008.
 
-- International Association of Diabetes and Pregnancy Study Groups (IADPSG). Recommendations on diagnosis and classification of hyperglycemia in pregnancy. [verificar referência específica]
+- International Association of Diabetes and Pregnancy Study Groups (IADPSG). Recommendations on diagnosis and classification of hyperglycemia in pregnancy.
 
-- World Health Organization (WHO). Diagnostic Criteria and Classification of Hyperglycaemia First Detected in Pregnancy. [verificar versão atual]
+- World Health Organization (WHO). Diagnostic Criteria and Classification of Hyperglycaemia First Detected in Pregnancy.
 
-- American Diabetes Association. Standards of Care in Diabetes — Management of Diabetes in Pregnancy. [verificar versão atual]
+- American Diabetes Association. Standards of Care in Diabetes — Management of Diabetes in Pregnancy.
 
-- American College of Obstetricians and Gynecologists (ACOG). Gestational Diabetes Mellitus. [verificar versão atual]
+- American College of Obstetricians and Gynecologists (ACOG). Gestational Diabetes Mellitus.
 
-- Cunningham FG, et al. Williams Obstetrics. [verificar edição].
+- Cunningham FG, et al. Williams Obstetrics.

@@ -36,5 +36,5 @@ Outra controvérsia envolve a interpretação causal das associações observada
 - International Olympic Committee Consensus Statement on Relative Energy Deficiency in Sport (2018; atualização de 2023).
 - Loucks AB, Kiens B, Wright HH. Energy Availability in Athletes. Journal of Sports Sciences. 2011.
 - Mountjoy M et al. IOC Consensus Statement on Relative Energy Deficiency in Sport.
-- Burke LM, De Souza MJ. Low Energy Availability in Athletes. [verificar edição específica].
+- Burke LM, De Souza MJ. Low Energy Availability in Athletes.
 - Modern Nutrition in Health and Disease.

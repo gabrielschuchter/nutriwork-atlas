@@ -69,6 +69,5 @@ Na prática, é essencial especificar qual método foi utilizado para determinar
 
 - Faude O, Kindermann W, Meyer T. Lactate Threshold Concepts: How Valid Are They?
 
-- Brooks GA. Revisões sobre o lactato como intermediário metabólico.
 
 - American College of Sports Medicine. ACSM's Guidelines for Exercise Testing and Prescription.

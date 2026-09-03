@@ -63,9 +63,3 @@ Também é importante diferenciar exercícios agudos muito intensos, que podem i
 ## Referências de base
 
 - Peake JM, Neubauer O, Della Gatta PA, Nosaka K. Muscle Damage and Inflammation during Recovery from Exercise.
-
-- Pedersen BK, Febbraio MA. Revisões sobre miocinas e IL-6 no exercício.
-
-- Gleeson M, et al. Revisões sobre exercício e função imunológica.
-
-- American College of Sports Medicine. Documentos de posicionamento sobre exercício e imunologia. [Verificar documento específico.]

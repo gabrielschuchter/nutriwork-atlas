@@ -201,17 +201,17 @@ A promoção do aleitamento deve ser acompanhada de suporte prático e respeito 
 - [[Estado nutricional materno]]
 ## Referências de base
 
-- World Health Organization (WHO). WHO recommendations on maternal and newborn care for a positive postnatal experience. [verificar versão atual]
+- World Health Organization (WHO). WHO recommendations on maternal and newborn care for a positive postnatal experience.
 
-- American College of Obstetricians and Gynecologists (ACOG). Optimizing Postpartum Care. [verificar versão atual]
+- American College of Obstetricians and Gynecologists (ACOG). Optimizing Postpartum Care.
 
-- American Academy of Pediatrics. Policy Statement: Breastfeeding and the Use of Human Milk. [verificar versão atual]
+- American Academy of Pediatrics. Policy Statement: Breastfeeding and the Use of Human Milk.
 
-- Lawrence RA, Lawrence RM. Breastfeeding: A Guide for the Medical Profession. [verificar edição]
+- Lawrence RA, Lawrence RM. Breastfeeding: A Guide for the Medical Profession.
 
-- Gabbe SG, et al. Obstetrics: Normal and Problem Pregnancies. [verificar edição]
+- Gabbe SG, et al. Obstetrics: Normal and Problem Pregnancies.
 
-- Cunningham FG, et al. Williams Obstetrics. [verificar edição]
+- Cunningham FG, et al. Williams Obstetrics.
 
 - NUTRIÇÃO MATERNO-INFANTIL (Vitória)
 

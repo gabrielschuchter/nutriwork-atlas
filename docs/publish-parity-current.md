@@ -38,7 +38,7 @@ Não fazem parte do MVP dashboards, páginas de métricas, biblioteca pessoal, f
 - `npm run atlas:index`: 140 conceitos e 1.106 conexões.
 - `npm run build`: 141 rotas de conteúdo e fallback 404.
 - Navegador: primeiro acesso, onboarding, filtros, clique no canvas, preview único, abertura de nota, minimapa, histórico, expansão, retorno, navbar, tema e viewports 390×844/1280×720.
-- `git diff --name-only -- content/atlas`: nenhum arquivo científico alterado.
+- `git diff --name-only -- content/atlas`: somente as notas incluídas na revisão editorial conservadora; o gate de paridade continua aprovado.
 
 ## Limitações explícitas
 
