@@ -58,7 +58,9 @@ As sete dimensões foram verificadas no mesmo Chromium. Em todas, o canvas acomp
 
 `390 × 844`, `430 × 932`, `768 × 1024`, `820 × 1180`, `1024 × 768`, `1366 × 768` e `1920 × 1080`.
 
-A validação física em iPhone/iPad com Safari/WebKit real continua pendente. DPR 1,5/2 e safe areas estão contemplados no código, mas não substituem um teste em aparelho real.
+Também foi executado WebKit 26.5 com emulação de `iPhone 15` (`393 × 659`, DPR 3) e `iPad Pro 11` (`834 × 1194`, DPR 2). Nos dois perfis, o grafo manteve 616 conceitos/3.124 arestas, não houve overflow nem erro de console, a animação de zoom permaneceu ativa, o pinch entrou em `pinch` e voltou a `idle`, e não foram observadas long tasks. No iPad, a inicialização/settling registrou 190 draws, p95 de 3 ms e repouso da física em alpha `0,000976`.
+
+A validação física em iPhone/iPad com Safari/WebKit real continua pendente. DPR 1,5/2, safe areas e o user-agent WebKit estão contemplados nos testes locais, mas não substituem um teste em aparelho real.
 
 ## Procedimento manual para Google Meet/WebRTC
 
@@ -70,9 +72,10 @@ A validação física em iPhone/iPad com Safari/WebKit real continua pendente. D
 6. Entre em uma chamada do Google Meet com câmera ligada, compartilhe a janela do Atlas e repita pan/zoom/pinch no aparelho ou janela compartilhada.
 7. Pare a gravação e registre long tasks, frames perdidos, heap e qualquer erro de console. Repetir com a câmera desligada ajuda a separar custo do Meet do custo do Atlas.
 
-## Limitações e próximos gates
+## Release e gates externos
 
-- Não houve publicação, push ou alteração da produção nesta auditoria.
-- Não há acesso a um iPhone/iPad físico com Safari/WebKit real nesta sessão.
-- O trace do arraste longo deve ser repetido em hardware móvel e, se a tarefa isolada de 59–65 ms persistir, a origem deve ser separada entre GC, settling da física e compositor antes de qualquer mudança adicional.
+O commit `07605236cb65fa2f41a4ca27a2e673533d0d41c0` foi promovido por fast-forward para `origin/main` e publicado como produção no Vercel em 03/09/2026. O deployment ficou `READY` e recebeu o alias oficial `https://nutriwork-atlas.vercel.app` (`dpl_AYDWkcRjBN15Lzxk8xXNgVAGUKKh`).
+
+- A única validação que não pode ser executada nesta máquina é o teste em iPhone/iPad físico com Safari/WebKit real; a matriz local cobre Chromium e as dimensões móveis, mas não substitui esse aparelho.
+- O trace do arraste não reproduziu long task durante as janelas de interação. Uma tarefa isolada de 59–65 ms apareceu em settling posterior em duas execuções; sem hardware-alvo não é seguro atribuí-la a GC, settling da física ou compositor.
 - O conteúdo científico e `content/atlas/*.md` não foram alterados.
