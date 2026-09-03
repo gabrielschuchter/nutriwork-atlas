@@ -4,7 +4,7 @@
 
 O build emitiu **293 rotas de conteúdo**, além do fallback `404.html`: a raiz de exploração e 292 notas do grafo. Cada rota de conteúdo é protegida pelo gate do Atlas; uma rota inexistente de controle responde 404.
 
-Não houve publicação nesta rodada. A verificação descrita aqui é local.
+A implantação de produção foi confirmada em 3 de setembro de 2026 pela CLI da Vercel: deployment `dpl_CUtfD3dvyTfhaMFobm8xpV8RKh2y`, estado `READY`, commit `4ab18e7c95fb77c1f723f10e06b5a9864ab95cd6`. Os aliases verificados incluem `nutriwork-atlas.vercel.app` e `atlas.gruponutriwork.com.br`; a contagem de rotas abaixo continua sendo a evidência local do build.
 
 ## Entradas
 
