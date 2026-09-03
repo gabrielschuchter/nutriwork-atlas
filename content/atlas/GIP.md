@@ -38,3 +38,4 @@ Alteração de insulina ou peso em um ensaio não define benefício para todos o
 - NCBI Bookshelf. *Physiology, Gastrointestinal Hormonal Control*. https://www.ncbi.nlm.nih.gov/books/NBK537284/
 - Parmar RM, Can AS. *Physiology, Appetite And Weight Regulation*. https://www.ncbi.nlm.nih.gov/books/NBK574539/
 - NCBI Bookshelf. *Physiology, Enteroglucagon*. https://www.ncbi.nlm.nih.gov/books/NBK553105/
+- American Diabetes Association Professional Practice Committee for Diabetes. 9. Pharmacologic Approaches to Glycemic Treatment: Standards of Care in Diabetes—2026. *Diabetes Care*. 2026;49(Suppl 1):S183-S215. https://pubmed.ncbi.nlm.nih.gov/41358900/. DOI: 10.2337/dc26-S009.

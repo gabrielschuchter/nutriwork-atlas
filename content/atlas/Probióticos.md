@@ -32,7 +32,7 @@ Desfechos intermediários, como mudança de composição fecal, não substituem 
 - [[Fermentação]]
 - [[Ácidos graxos de cadeia curta (AGCC)]]
 - [[Barreira intestinal]]
-- [[Inflamação Sistêmica]]
+- [[Inflamação crônica de baixo grau]]
 - [[FODMAPs]]
 
 ## **Referências de base**

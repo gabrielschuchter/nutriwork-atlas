@@ -6,7 +6,7 @@ VLDL, ou lipoproteína de muito baixa densidade, é produzida pelo fígado e tra
 
 ## **Contexto clínico**
 
-VLDL aumenta em resistência à insulina, obesidade visceral, consumo de álcool, diabetes descompensado e excesso de oferta de ácidos graxos ao fígado. Como VLDL participa da hipertrigliceridemia, sua avaliação é relevante na prevenção de pancreatite e na análise de risco aterogênico.
+VLDL aumenta em resistência à insulina, obesidade visceral, consumo de álcool, diabetes descompensado e excesso de oferta de ácidos graxos ao fígado. A hipertrigliceridemia associada ao excesso de VLDL tem relevância na prevenção de pancreatite e na análise de risco aterogênico; na prática, a decisão costuma partir da concentração de triglicerídeos e do risco global.
 
 Em muitos laboratórios, VLDL é estimada a partir de triglicerídeos, com limitações importantes quando a concentração é alta. A decisão clínica costuma usar triglicerídeos, não HDL-C, LDL-C e apoB, conforme o cenário.
 
@@ -38,3 +38,4 @@ Marcadores de VLDL podem melhorar com intervenção sem provar redução de even
 - Feingold KR. *Introduction to Lipids and Lipoproteins*. Endotext, NCBI Bookshelf. https://www.ncbi.nlm.nih.gov/books/NBK305896/
 - NCBI Bookshelf. *Biochemistry, Chylomicron*. https://www.ncbi.nlm.nih.gov/books/NBK545157/
 - European Society of Cardiology; European Atherosclerosis Society. *2019 ESC/EAS Guidelines for the management of dyslipidaemias*. https://www.escardio.org/guidelines/clinical-practice-guidelines/all-esc-practice-guidelines/dyslipidaemias-management/
+- Mach F, Koskinas KC, Roeters van Lennep JE, et al. *2025 Focused Update of the 2019 ESC/EAS Guidelines for the management of dyslipidaemias*. European Heart Journal. 2025;46(42):4359-4378. https://www.escardio.org/guidelines/clinical-practice-guidelines/all-esc-practice-guidelines/dyslipidaemias/. DOI: 10.1093/eurheartj/ehaf190.

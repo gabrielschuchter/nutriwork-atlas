@@ -30,7 +30,6 @@ Intervenções que aceleram o trânsito podem reduzir retenção e também aumen
 - [[Peristaltismo]]
 - [[Segmentação]]
 - [[Esvaziamento gástrico]]
-- [[Motilidade gastrointestinal]]
 - [[Trânsito intestinal]]
 - [[Sais biliares]]
 - [[Colecistocinina (CCK)]]

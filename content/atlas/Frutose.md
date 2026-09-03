@@ -14,7 +14,7 @@ Em pessoas com diabetes, a frutose costuma produzir menor elevação imediata da
 
 [[GLUT5]] transporta frutose no polo apical do enterócito; a saída basolateral envolve principalmente GLUT2. A capacidade de transporte varia ao longo do intestino e pode ser influenciada pela presença de glicose. A frutose absorvida chega ao fígado e entra em vias que contornam etapas regulatórias importantes da glicólise, formando trioses fosfato.
 
-Estudos metabólicos com grandes doses de frutose livre mostram aumento de lipogênese de novo e triglicerídeos em algumas condições. Estudos observacionais de bebidas açucaradas também associam consumo a obesidade e diabetes, porém há confundimento por padrão alimentar e comportamento. A inferência mais segura considera dose, fonte e substituição dietética.
+Em ensaios controlados, o efeito depende da comparação e do balanço energético: quando a frutose foi acrescentada em excesso calórico e em doses altas, metanálises observaram aumento de triglicerídeos e gordura intra-hepática; na troca isocalórica por outros carboidratos, esses efeitos não foram consistentes. Estudos observacionais de bebidas açucaradas também associam consumo a obesidade e diabetes, porém há confundimento por padrão alimentar e comportamento. A inferência mais segura considera dose, fonte e substituição dietética.
 
 ## **Limitações e controvérsias**
 
@@ -35,5 +35,7 @@ Testes respiratórios e dietas de eliminação têm limitações de reprodutibil
 ## **Referências de base**
 
 - NCBI Bookshelf. *Physiology, Nutrient Absorption*. https://www.ncbi.nlm.nih.gov/books/NBK597379/
-- Misselwitz B, et al. *Update on lactose malabsorption and intolerance: pathogenesis, diagnosis and clinical management*. Gut. https://doi.org/10.1136/gutjnl-2019-318404
+- Latulippe ME, Skoog SM. Fructose malabsorption and intolerance: effects of fructose with and without simultaneous glucose ingestion. *Critical Reviews in Food Science and Nutrition*. 2011;51(7):583-592. https://pubmed.ncbi.nlm.nih.gov/21793722/. DOI: 10.1080/10408398.2011.566646.
+- Chiu S, et al. Effect of fructose on markers of non-alcoholic fatty liver disease (NAFLD): a systematic review and meta-analysis of controlled feeding trials. *European Journal of Clinical Nutrition*. 2014;68(4):416-423. https://pubmed.ncbi.nlm.nih.gov/24569542/. DOI: 10.1038/ejcn.2014.8.
+- Sievenpiper JL, et al. Effect of fructose on established lipid targets: a systematic review and meta-analysis of controlled feeding trials. *Journal of the American Heart Association*. 2015;4(9):e001700. https://pubmed.ncbi.nlm.nih.gov/26358358/. DOI: 10.1161/JAHA.114.001700.
 - World Health Organization. *Carbohydrate intake for adults and children: WHO guideline*. https://www.who.int/publications/i/item/9789240073593

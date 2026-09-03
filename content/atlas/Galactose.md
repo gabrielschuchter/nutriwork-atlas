@@ -34,4 +34,5 @@ O teor de galactose liberada depende da hidrólise da lactose, da atividade enzi
 
 - NCBI Bookshelf. *Physiology, Digestion*. https://www.ncbi.nlm.nih.gov/books/NBK544242/
 - NCBI Bookshelf. *Physiology, Nutrient Absorption*. https://www.ncbi.nlm.nih.gov/books/NBK597379/
+- Berry GT. Classic Galactosemia and Clinical Variant Galactosemia. *GeneReviews®*. NCBI Bookshelf; initial posting 2000, last update 2021 Mar 11. https://www.ncbi.nlm.nih.gov/books/NBK1518/.
 - Misselwitz B, et al. *Update on lactose malabsorption and intolerance: pathogenesis, diagnosis and clinical management*. Gut. https://doi.org/10.1136/gutjnl-2019-318404

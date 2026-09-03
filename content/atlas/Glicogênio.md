@@ -12,7 +12,7 @@ Doenças de armazenamento de glicogênio resultam de defeitos enzimáticos e pro
 
 ## **Base fisiológica, bioquímica ou epidemiológica**
 
-Após a refeição, a insulina favorece [[Glicogênese]] em fígado e músculo. No jejum ou no exercício, glucagon e catecolaminas estimulam [[Glicogenólise]]; o fígado libera glicose, enquanto o músculo converte glicose-6-fosfato em energia local. A ramificação aumenta a quantidade de extremidades disponíveis para síntese e mobilização rápidas.
+Após a refeição, a insulina favorece [[Glicogênese]] em fígado e músculo. No jejum, glucagon favorece a [[Glicogenólise]] hepática; durante o exercício, catecolaminas e sinais locais estimulam a glicogenólise muscular. O fígado libera glicose, enquanto o músculo converte glicose-6-fosfato em energia local. A ramificação aumenta a quantidade de extremidades disponíveis para síntese e mobilização rápidas.
 
 O músculo não exporta glicose livre em quantidade significativa porque carece de glicose-6-fosfatase funcional para essa finalidade. Essa separação ajuda a explicar por que o glicogênio muscular melhora desempenho local sem corrigir diretamente hipoglicemia sistêmica.
 

@@ -38,3 +38,4 @@ Associação entre estresse psicológico e obesidade não prova que cortisol sej
 - NCBI Bookshelf. *Physiology, Cortisol*. https://www.ncbi.nlm.nih.gov/books/NBK538239/
 - NCBI Bookshelf. *Physiology, Adrenal Gland*. https://www.ncbi.nlm.nih.gov/books/NBK537260/
 - Guyton and Hall. *Textbook of Medical Physiology*, 14th ed. Elsevier. https://www.us.elsevierhealth.com/guyton-and-hall-textbook-of-medical-physiology-9780323640060.html
+- European Society of Endocrinology; Endocrine Society. European Society of Endocrinology and Endocrine Society Joint Clinical Guideline: Diagnosis and Therapy of Glucocorticoid-Induced Adrenal Insufficiency. *The Journal of Clinical Endocrinology & Metabolism*. 2024;109(7):1657-1683. https://www.endocrine.org/clinical-practice-guidelines/glucocorticoid-induced-adrenal-insufficiency. DOI: 10.1210/clinem/dgae250.

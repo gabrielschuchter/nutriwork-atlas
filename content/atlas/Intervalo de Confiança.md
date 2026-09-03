@@ -38,4 +38,4 @@ Intervalos mal calibrados podem surgir de modelos inadequados, múltiplas compar
 
 - Cochrane Collaboration. *Cochrane Handbook for Systematic Reviews of Interventions*, Chapter 6. https://training.cochrane.org/handbook/current/chapter-06
 - American Statistical Association. *ASA Statement on Statistical Significance and P-Values*. https://www.amstat.org/asa/files/pdfs/P-ValueStatement.pdf
-- Rothman KJ, Lash TL, VanderWeele TJ, Haneuse S. *Modern Epidemiology*, 4th ed. Wolters Kluwer. https://www.stata.com/bookstore/modern-epidemiology/
+- Lash TL, VanderWeele TJ, Haneuse S, Rothman KJ. *Modern Epidemiology*, 4th ed. Wolters Kluwer. https://www.stata.com/bookstore/modern-epidemiology/

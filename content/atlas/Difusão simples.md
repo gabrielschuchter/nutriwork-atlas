@@ -37,5 +37,5 @@ A ideia de que aumentar dose sempre aumenta absorção falha quando a solubilida
 
 ## **Referências de base**
 
-- Boron WF, Boulpaep EL. [Medical Physiology, 3rd edition](https://www.educate.elsevier.com/book/details/9788491131250). Elsevier; 2017.
+- Boron WF, Boulpaep EL. [Medical Physiology, 3rd edition](https://www.us.elsevierhealth.com/medical-physiology-9781455743773.html). Elsevier; 2017.
 - Hall JE, Hall ME. [Guyton and Hall Textbook of Medical Physiology, 14th edition](https://www.us.elsevierhealth.com/guyton-and-hall-textbook-of-medical-physiology-9780323640060.html). Elsevier; 2021.

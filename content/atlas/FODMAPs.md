@@ -37,5 +37,8 @@ A dieta baixa em FODMAP pode alterar a composição microbiana e reduzir substra
 ## **Referências de base**
 
 - American College of Gastroenterology. *Irritable Bowel Syndrome*. https://gi.org/topics/irritable-bowel-syndrome/
+- Lacy BE, Pimentel M, Brenner DM, et al. ACG Clinical Guideline: Management of Irritable Bowel Syndrome. *The American Journal of Gastroenterology*. 2021;116(1):17-44. https://pubmed.ncbi.nlm.nih.gov/33315591/. DOI: 10.14309/ajg.0000000000001036.
+- Chey WD, Hashash JG, Manning L, Chang L. AGA Clinical Practice Update on the Role of Diet in Irritable Bowel Syndrome: Expert Review. *Gastroenterology*. 2022;162(6):1737-1745.e5. https://pubmed.ncbi.nlm.nih.gov/35337654/. DOI: 10.1053/j.gastro.2021.12.248.
+- Staudacher HM, Whelan K. The low FODMAP diet: recent advances in understanding its mechanisms and efficacy in IBS. *Gut*. 2017;66:1517-1527. https://doi.org/10.1136/gutjnl-2017-313750.
 - National Institute for Health and Care Excellence. *Irritable bowel syndrome in adults: diagnosis and management*. https://www.nice.org.uk/guidance/cg61/chapter/recommendations
 - NCBI Bookshelf. *Physiology, Digestion*. https://www.ncbi.nlm.nih.gov/books/NBK544242/

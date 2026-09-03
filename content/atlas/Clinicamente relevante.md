@@ -37,5 +37,6 @@ Diferença minimamente importante não é uma constante do instrumento e não su
 ## **Referências de base**
 
 - Cochrane Collaboration. *Cochrane Handbook for Systematic Reviews of Interventions*, Chapter 14: Completing “Summary of findings” tables and grading the certainty of the evidence. https://training.cochrane.org/handbook/current/chapter-14
+- Cochrane Collaboration. *Cochrane Handbook for Systematic Reviews of Interventions*, Chapter 15: Interpreting results and drawing conclusions. https://training.cochrane.org/handbook/current/chapter-15
 - Guyatt GH, et al. *GRADE guidelines: 7. Rating the quality of evidence—inconsistency*. Journal of Clinical Epidemiology. https://doi.org/10.1016/j.jclinepi.2011.03.017
 - American Statistical Association. *ASA Statement on Statistical Significance and P-Values*. https://www.amstat.org/asa/files/pdfs/P-ValueStatement.pdf

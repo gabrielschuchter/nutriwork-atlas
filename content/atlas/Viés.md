@@ -39,4 +39,4 @@ Viés de publicação, seleção de desfecho e relato seletivo podem afetar revi
 
 - Sterne JAC, et al. *RoB 2: a revised tool for assessing risk of bias in randomised trials*. BMJ. https://www.bmj.com/content/366/bmj.l4898.short
 - Cochrane Collaboration. *Cochrane Handbook for Systematic Reviews of Interventions*, Chapter 8. https://training.cochrane.org/handbook/current/chapter-08
-- Rothman KJ, Lash TL, VanderWeele TJ, Haneuse S. *Modern Epidemiology*, 4th ed. Wolters Kluwer. https://www.stata.com/bookstore/modern-epidemiology/
+- Lash TL, VanderWeele TJ, Haneuse S, Rothman KJ. *Modern Epidemiology*, 4th ed. Wolters Kluwer. https://www.stata.com/bookstore/modern-epidemiology/

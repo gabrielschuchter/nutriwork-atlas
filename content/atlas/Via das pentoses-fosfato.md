@@ -37,4 +37,4 @@ Modelos celulares e animais ajudam a explicar vulnerabilidade oxidativa, porém 
 
 - Aziz H, Mohiuddin SS. *Biochemistry, Hexose Monophosphate Pathway*. StatPearls, NCBI Bookshelf. https://www.ncbi.nlm.nih.gov/books/NBK551687/
 - NCBI MeSH. *Pentose Phosphate Pathway*. https://www.ncbi.nlm.nih.gov/mesh/68010427
-- Mullarky E, Cantley LC. *The Pentose Phosphate Pathway and NADPH Production*. NCBI Bookshelf. https://www.ncbi.nlm.nih.gov/books/NBK500330/
+- TeSlaa T, Ralser M, Fan J, Rabinowitz JD. *The pentose phosphate pathway in health and disease*. Nature Metabolism. 2023;5(8):1275-1289. https://doi.org/10.1038/s42255-023-00863-2. PMCID: PMC11251397.

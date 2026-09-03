@@ -37,4 +37,5 @@ Ensaios de função de HDL são majoritariamente experimentais e não têm padro
 
 - Feingold KR. *Introduction to Lipids and Lipoproteins*. Endotext, NCBI Bookshelf. https://www.ncbi.nlm.nih.gov/books/NBK305896/
 - European Society of Cardiology; European Atherosclerosis Society. *2019 ESC/EAS Guidelines for the management of dyslipidaemias*. https://www.escardio.org/guidelines/clinical-practice-guidelines/all-esc-practice-guidelines/dyslipidaemias-management/
+- Mach F, Koskinas KC, Roeters van Lennep JE, et al. *2025 Focused Update of the 2019 ESC/EAS Guidelines for the management of dyslipidaemias*. European Heart Journal. 2025;46(42):4359-4378. https://www.escardio.org/guidelines/clinical-practice-guidelines/all-esc-practice-guidelines/dyslipidaemias/. DOI: 10.1093/eurheartj/ehaf190.
 - Ference BA, et al. *Low-density lipoproteins cause atherosclerotic cardiovascular disease. 1. Evidence from genetic, epidemiologic, and clinical studies*. https://doi.org/10.1093/eurheartj/ehx144

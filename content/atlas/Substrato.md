@@ -39,4 +39,4 @@ Resultados obtidos com um substrato artificial ou em uma enzima isolada não dem
 ## **Referências de base**
 
 - Kennelly PJ, Botham KM, McGuinness O, Rodwell VW, Weil PA. [Harper's Illustrated Biochemistry, 32nd edition](https://accessmedicine.mhmedical.com/content.aspx?bookId=3220&sectionId=268188332). McGraw Hill; 2023.
-- NCBI Bookshelf. [Biochemistry, Proteins Enzymes](https://www.ncbi.nlm.nih.gov/books/NBK554481/). StatPearls Publishing; updated 2026.
+- NCBI Bookshelf. [Biochemistry, Proteins Enzymes](https://www.ncbi.nlm.nih.gov/books/NBK554481/). StatPearls Publishing; updated 2023 Apr 24.

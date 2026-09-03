@@ -38,4 +38,6 @@ Frutose e glicose não devem ser comparadas apenas por um marcador isolado. Dose
 
 - NCBI Bookshelf. *Physiology, Digestion*. https://www.ncbi.nlm.nih.gov/books/NBK544242/
 - NCBI Bookshelf. *Physiology, Nutrient Absorption*. https://www.ncbi.nlm.nih.gov/books/NBK597379/
+- Chiu S, et al. Effect of fructose on markers of non-alcoholic fatty liver disease (NAFLD): a systematic review and meta-analysis of controlled feeding trials. *European Journal of Clinical Nutrition*. 2014;68(4):416-423. https://pubmed.ncbi.nlm.nih.gov/24569542/. DOI: 10.1038/ejcn.2014.8.
+- Sievenpiper JL, et al. Effect of fructose on established lipid targets: a systematic review and meta-analysis of controlled feeding trials. *Journal of the American Heart Association*. 2015;4(9):e001700. https://pubmed.ncbi.nlm.nih.gov/26358358/. DOI: 10.1161/JAHA.114.001700.
 - World Health Organization. *Carbohydrate intake for adults and children: WHO guideline*. https://www.who.int/publications/i/item/9789240073593

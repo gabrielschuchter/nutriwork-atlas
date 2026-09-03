@@ -37,5 +37,5 @@ Mudança de 2% para 3% é aumento de 1 ponto percentual e aumento relativo de 50
 ## **Referências de base**
 
 - Cochrane Collaboration. *Cochrane Handbook for Systematic Reviews of Interventions*, Chapter 6: Choosing effect measures and computing estimates of effect. https://training.cochrane.org/handbook/current/chapter-06
-- World Health Organization. *Basic epidemiology*, 2nd ed. https://apps.who.int/iris/handle/10665/43541
-- Rothman KJ, Lash TL, VanderWeele TJ, Haneuse S. *Modern Epidemiology*, 4th ed. Wolters Kluwer. https://www.stata.com/bookstore/modern-epidemiology/
+- Bonita R, Beaglehole R, Kjellström T. *Basic epidemiology*, 2nd ed. Geneva: World Health Organization; 2006. https://iris.who.int/handle/10665/43541
+- Lash TL, VanderWeele TJ, Haneuse S, Rothman KJ. *Modern Epidemiology*, 4th ed. Wolters Kluwer. https://www.stata.com/bookstore/modern-epidemiology/

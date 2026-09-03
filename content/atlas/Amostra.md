@@ -36,6 +36,6 @@ Representatividade não é garantida por tamanho amostral. Uma amostra de conven
 
 ## **Referências de base**
 
-- Cochrane Collaboration. *Cochrane Handbook for Systematic Reviews of Interventions*, Chapter 3: Searching for and selecting studies. https://training.cochrane.org/handbook/current/chapter-03
+- Hickey GL, Grant SW, Dunning J, Siepe M. Statistical primer: sample size and power calculations—why, when and how? *European Journal of Cardio-Thoracic Surgery*. 2018;54(1):4-9. https://pmc.ncbi.nlm.nih.gov/articles/PMC6005113/. DOI: 10.1093/ejcts/ezy169.
 - Schulz KF, Altman DG, Moher D. *CONSORT 2010 Statement*. BMJ. https://www.bmj.com/content/340/bmj.c332
-- Rothman KJ, Lash TL, VanderWeele TJ, Haneuse S. *Modern Epidemiology*, 4th ed. Wolters Kluwer. https://www.stata.com/bookstore/modern-epidemiology/
+- Lash TL, VanderWeele TJ, Haneuse S, Rothman KJ. *Modern Epidemiology*, 4th ed. Wolters Kluwer. https://www.stata.com/bookstore/modern-epidemiology/

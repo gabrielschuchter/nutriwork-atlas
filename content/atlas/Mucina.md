@@ -31,7 +31,7 @@ Intervenções que aumentam muco em modelo experimental podem ter efeitos difere
 - [[Microbiota intestinal]]
 - [[Motilidade gastrointestinal]]
 - [[Viscosidade]]
-- [[Inflamação Sistêmica]]
+- [[Inflamação crônica de baixo grau]]
 - [[Hidrólise]]
 - [[Absorção]]
 

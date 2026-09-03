@@ -18,7 +18,7 @@ Ferro participa de hemoglobina, mioglobina e enzimas de transporte de elétrons.
 
 ## **Limitações e controvérsias**
 
-Maior biodisponibilidade não transforma carne em tratamento universal para anemia. Ferro heme também acompanha componentes alimentares que podem aumentar risco cardiometabólico quando o padrão global é inadequado.
+Maior biodisponibilidade não transforma carne em tratamento universal para anemia. O impacto clínico de uma fonte alimentar depende do padrão global, da quantidade e do contexto de substituição; não pode ser atribuído ao ferro isoladamente.
 
 Ferritina é proteína de fase aguda e pode parecer normal ou elevada na inflamação. Diagnóstico requer conjunto de dados, não um marcador isolado ou a quantidade estimada de ferro dietético.
 

@@ -8,7 +8,7 @@ O transporte de um soluto pode fornecer energia para o outro. O acoplamento pode
 
 ## **Contexto clínico**
 
-SGLT1 é um simporte de sódio e glicose ou galactose no intestino. A Na+K+ ATPase mantém o gradiente que sustenta esse transporte, fundamento da solução de reidratação oral.
+SGLT1 é um simporte de sódio e glicose ou galactose no intestino. A Na+/K+-ATPase mantém o gradiente que sustenta esse transporte, fundamento da solução de reidratação oral.
 
 Cotransportadores também atuam no rim e em outros tecidos. Mutação, hipóxia, alterações de sódio e medicamentos podem alterar volume celular, pH e distribuição de nutrientes.
 
@@ -39,3 +39,4 @@ Estudos de transportadores em células isoladas não demonstram melhora de hidra
 
 - NCBI Bookshelf. [Physiology, Nutrient Absorption](https://www.ncbi.nlm.nih.gov/books/NBK597379/). StatPearls Publishing; updated 2025.
 - Wright EM, Loo DDF, Hirayama BA. Biology of human sodium glucose transporters. Physiological Reviews. 2011;91:733-794. https://doi.org/10.1152/physrev.00055.2009.
+- World Health Organization. *Oral rehydration salts*. 2006. https://www.who.int/publications/i/item/WHO-FCH-CAH-06.1

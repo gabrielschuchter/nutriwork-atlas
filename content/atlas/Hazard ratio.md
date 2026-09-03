@@ -37,5 +37,5 @@ Significância estatística do HR não demonstra relevância clínica. Diferenç
 ## **Referências de base**
 
 - Cochrane Collaboration. *Cochrane Handbook for Systematic Reviews of Interventions*, Chapter 6. https://training.cochrane.org/handbook/current/chapter-06
-- Rothman KJ, Lash TL, VanderWeele TJ, Haneuse S. *Modern Epidemiology*, 4th ed. Wolters Kluwer. https://www.stata.com/bookstore/modern-epidemiology/
+- Lash TL, VanderWeele TJ, Haneuse S, Rothman KJ. *Modern Epidemiology*, 4th ed. Wolters Kluwer. https://www.stata.com/bookstore/modern-epidemiology/
 - Hernán MA, Robins JM. *Causal Inference: What If*. https://www.hsph.harvard.edu/miguel-hernan/wp-content/uploads/sites/1268/2024/04/hernanrobins_WhatIf_26apr24.pdf

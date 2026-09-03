@@ -20,7 +20,7 @@ O hormônio coordena pâncreas, motilidade e cérebro. A resposta varia conforme
 
 GLP-1 plasmático periférico não representa toda a sinalização local ou neural. Ensaios com agonistas não quantificam a contribuição do GLP-1 endógeno.
 
-Melhora de glicemia ou perda de peso não deve ser usada como sinônimo de redução de todos os eventos. Cada indicação requer ensaio e desfecho próprios; efeitos adversos e recuperação de peso após interrupção também entram na avaliação.
+Melhora de glicemia ou perda de peso não deve ser usada como sinônimo de redução de todos os eventos. Cada indicação requer ensaio e desfecho próprios. Em um estudo de extensão do STEP 1, participantes que suspenderam semaglutida 2,4 mg após 68 semanas recuperaram parte substancial do peso perdido ao longo de um ano; o achado é específico daquela intervenção, população e período, e a análise de extensão foi exploratória. Efeitos adversos também entram na avaliação.
 
 ## **Conceitos relacionados**
 
@@ -38,3 +38,5 @@ Melhora de glicemia ou perda de peso não deve ser usada como sinônimo de redu�
 - NCBI Bookshelf. *Physiology, Enteroglucagon*. https://www.ncbi.nlm.nih.gov/books/NBK553105/
 - NCBI Bookshelf. *Physiology, Gastrointestinal Hormonal Control*. https://www.ncbi.nlm.nih.gov/books/NBK537284/
 - Parmar RM, Can AS. *Physiology, Appetite And Weight Regulation*. https://www.ncbi.nlm.nih.gov/books/NBK574539/
+- Wilding JPH, et al. Weight regain and cardiometabolic effects after withdrawal of semaglutide: The STEP 1 trial extension. *Diabetes, Obesity and Metabolism*. 2022;24(8):1553-1564. https://pubmed.ncbi.nlm.nih.gov/35441470/. DOI: 10.1111/dom.14725.
+- American Diabetes Association Professional Practice Committee for Diabetes. 9. Pharmacologic Approaches to Glycemic Treatment: Standards of Care in Diabetes—2026. *Diabetes Care*. 2026;49(Suppl 1):S183-S215. https://pubmed.ncbi.nlm.nih.gov/41358900/. DOI: 10.2337/dc26-S009.

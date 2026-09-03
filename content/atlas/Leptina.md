@@ -38,3 +38,5 @@ Alterar leptina em animais ou um marcador em humanos não demonstra redução su
 - Parmar RM, Can AS. *Physiology, Appetite And Weight Regulation*. StatPearls, NCBI Bookshelf. https://www.ncbi.nlm.nih.gov/books/NBK574539/
 - Münzberg H, Morrison CD. *Structure, production and signaling of leptin*. Metabolism. https://pmc.ncbi.nlm.nih.gov/articles/PMC4267896/
 - NCBI Bookshelf. *Physiology, Endocrine Hormones*. https://www.ncbi.nlm.nih.gov/books/NBK538498/
+- Montague CT, Farooqi IS, Whitehead JP, et al. Congenital leptin deficiency is associated with severe early-onset obesity in humans. *Nature*. 1997;387(6636):903-908. https://pubmed.ncbi.nlm.nih.gov/9202122/.
+- Farooqi IS, Matarese G, Lord GM, et al. Beneficial effects of leptin on obesity, T cell hyporesponsiveness, and neuroendocrine/metabolic dysfunction of human congenital leptin deficiency. *The Journal of Clinical Investigation*. 2002;110(8):1093-1103. https://pubmed.ncbi.nlm.nih.gov/12393845/.

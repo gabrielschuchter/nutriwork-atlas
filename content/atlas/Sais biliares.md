@@ -38,5 +38,5 @@ Concentração fecal aumentada não identifica sozinha o mecanismo da diarreia. 
 
 ## **Referências de base**
 
-- Patel A, et al. [Physiology, Bile Secretion](https://www.ncbi.nlm.nih.gov/books/NBK470209/). StatPearls Publishing; updated 2023.
+- Patel A, et al. [Physiology, Bile Secretion](https://www.ncbi.nlm.nih.gov/books/NBK470209/). StatPearls Publishing; updated 2022 Sep 26.
 - Camilleri M. Bile Acid diarrhea: prevalence, pathogenesis, and therapy. Gut and Liver. 2015;9:332-339. https://doi.org/10.5009/gnl14397.

@@ -37,4 +37,4 @@ Atribuir benefícios a um alimento pelo teor de fosfolipídios ignora proteínas
 
 - Feingold KR. *Introduction to Lipids and Lipoproteins*. Endotext, NCBI Bookshelf. https://www.ncbi.nlm.nih.gov/books/NBK305896/
 - NCBI Bookshelf. *Physiology, Digestion*. https://www.ncbi.nlm.nih.gov/books/NBK544242/
-- Boron WF, Boulpaep EL. *Medical Physiology*, 3rd ed. Elsevier. https://www.educate.elsevier.com/book/details/9788491131250
+- Boron WF, Boulpaep EL. *Medical Physiology*, 3rd ed. Elsevier. https://www.us.elsevierhealth.com/medical-physiology-9781455743773.html

@@ -37,5 +37,5 @@ RR alto em estudo observacional pode refletir confundimento ou seleção. RR pr�
 ## **Referências de base**
 
 - Cochrane Collaboration. *Cochrane Handbook for Systematic Reviews of Interventions*, Chapter 6. https://training.cochrane.org/handbook/current/chapter-06
-- Rothman KJ, Lash TL, VanderWeele TJ, Haneuse S. *Modern Epidemiology*, 4th ed. Wolters Kluwer. https://www.stata.com/bookstore/modern-epidemiology/
-- World Health Organization. *Basic epidemiology*, 2nd ed. https://apps.who.int/iris/handle/10665/43541
+- Lash TL, VanderWeele TJ, Haneuse S, Rothman KJ. *Modern Epidemiology*, 4th ed. Wolters Kluwer. https://www.stata.com/bookstore/modern-epidemiology/
+- Bonita R, Beaglehole R, Kjellström T. *Basic epidemiology*, 2nd ed. Geneva: World Health Organization; 2006. https://iris.who.int/handle/10665/43541

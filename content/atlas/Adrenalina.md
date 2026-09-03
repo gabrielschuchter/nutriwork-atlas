@@ -38,3 +38,5 @@ Palpitação ou tremor após alimento ou suplemento não confirma excesso de adr
 - NCBI Bookshelf. *Physiology, Adrenal Gland*. https://www.ncbi.nlm.nih.gov/books/NBK537260/
 - NCBI Bookshelf. *Physiology, Endocrine Hormones*. https://www.ncbi.nlm.nih.gov/books/NBK538498/
 - Guyton and Hall. *Textbook of Medical Physiology*, 14th ed. Elsevier. https://www.us.elsevierhealth.com/guyton-and-hall-textbook-of-medical-physiology-9780323640060.html
+- Cardona V, Ansotegui IJ, Ebisawa M, et al. World allergy organization anaphylaxis guidance 2020. *World Allergy Organization Journal*. 2020;13(10):100472. https://pubmed.ncbi.nlm.nih.gov/33204386/. DOI: 10.1016/j.waojou.2020.100472.
+- American Heart Association. *Part 9: Adult Advanced Life Support: 2025 American Heart Association Guidelines for Cardiopulmonary Resuscitation and Emergency Cardiovascular Care*. https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines/adult-advanced-life-support

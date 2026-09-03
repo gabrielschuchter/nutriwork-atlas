@@ -38,3 +38,4 @@ Elevação de glicose após glucagon demonstra resposta fisiológica aguda. Não
 - NCBI Bookshelf. *Physiology, Glucagon*. https://www.ncbi.nlm.nih.gov/books/NBK537082/
 - NCBI Bookshelf. *Physiology, Endocrine Hormones*. https://www.ncbi.nlm.nih.gov/books/NBK538498/
 - NCBI Bookshelf. *Physiology, Glucose*. https://www.ncbi.nlm.nih.gov/books/NBK545201/
+- American Diabetes Association Professional Practice Committee for Diabetes. 6. Glycemic Goals, Hypoglycemia, and Hyperglycemic Crises: Standards of Care in Diabetes—2026. *Diabetes Care*. 2026;49(Suppl 1):S132-S149. https://pubmed.ncbi.nlm.nih.gov/41358894/. DOI: 10.2337/dc26-S006.

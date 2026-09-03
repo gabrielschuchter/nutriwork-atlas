@@ -38,5 +38,5 @@ Associação temporal, dose-resposta ou significância estatística não provam 
 ## **Referências de base**
 
 - Hernán MA, Robins JM. *Causal Inference: What If*. https://www.hsph.harvard.edu/miguel-hernan/wp-content/uploads/sites/1268/2024/04/hernanrobins_WhatIf_26apr24.pdf
-- Rothman KJ, Lash TL, VanderWeele TJ, Haneuse S. *Modern Epidemiology*, 4th ed. Wolters Kluwer. https://www.stata.com/bookstore/modern-epidemiology/
+- Lash TL, VanderWeele TJ, Haneuse S, Rothman KJ. *Modern Epidemiology*, 4th ed. Wolters Kluwer. https://www.stata.com/bookstore/modern-epidemiology/
 - Hill AB. *The Environment and Disease: Association or Causation?* Proceedings of the Royal Society of Medicine. https://pmc.ncbi.nlm.nih.gov/articles/PMC1898525/

@@ -38,5 +38,5 @@ Uma alteração na microbiota ou nas fezes pode acompanhar mudanças na circula�
 
 ## **Referências de base**
 
-- Patel A, et al. [Physiology, Bile Secretion](https://www.ncbi.nlm.nih.gov/books/NBK470209/). StatPearls Publishing; updated 2023.
+- Patel A, et al. [Physiology, Bile Secretion](https://www.ncbi.nlm.nih.gov/books/NBK470209/). StatPearls Publishing; updated 2022 Sep 26.
 - Trauner M, Boyer JL. Bile salt transporters: molecular characterization, function, and regulation. Physiological Reviews. 2003;83:633-671. https://doi.org/10.1152/physrev.00027.2002.

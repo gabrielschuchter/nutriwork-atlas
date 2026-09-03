@@ -12,7 +12,7 @@ Presença de cetonas na urina ou no sangue não distingue cetose adaptativa de c
 
 ## **Base fisiológica, bioquímica ou epidemiológica**
 
-Baixa insulina e maior glucagon aumentam [[Lipólise]]. Ácidos graxos entram na mitocôndria pelo [[Ciclo da carnitina]] e sofrem [[Beta-oxidação]], gerando acetil-CoA. Quando oxaloacetato é direcionado para [[Gliconeogênese]], o fígado condensa acetil-CoA em corpos cetônicos.
+A queda de insulina favorece [[Lipólise]], enquanto glucagon e catecolaminas coordenam a disponibilidade de substratos e a resposta hepática. Ácidos graxos entram na mitocôndria pelo [[Ciclo da carnitina]] e sofrem [[Beta-oxidação]], gerando acetil-CoA. Quando oxaloacetato é direcionado para [[Gliconeogênese]], o fígado condensa acetil-CoA em corpos cetônicos.
 
 Fígado produz, mas não utiliza corpos cetônicos de modo relevante por falta de uma enzima necessária para sua ativação. Músculo, coração e cérebro podem convertê-los em acetil-CoA por [[Cetólise]].
 

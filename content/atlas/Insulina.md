@@ -39,3 +39,5 @@ Reduzir a insulina após uma dieta não prova melhora de saúde. O desfecho clí
 - NCBI Bookshelf. *Physiology, Endocrine Hormones*. https://www.ncbi.nlm.nih.gov/books/NBK538498/
 - NCBI Bookshelf. *Physiology, Glucose*. https://www.ncbi.nlm.nih.gov/books/NBK545201/
 - Guyton and Hall. *Textbook of Medical Physiology*, 14th ed. Elsevier. https://www.us.elsevierhealth.com/guyton-and-hall-textbook-of-medical-physiology-9780323640060.html
+- American Diabetes Association Professional Practice Committee for Diabetes. 9. Pharmacologic Approaches to Glycemic Treatment: Standards of Care in Diabetes—2026. *Diabetes Care*. 2026;49(Suppl 1):S183-S215. https://pubmed.ncbi.nlm.nih.gov/41358900/. DOI: 10.2337/dc26-S009.
+- American Diabetes Association Professional Practice Committee for Diabetes. 6. Glycemic Goals, Hypoglycemia, and Hyperglycemic Crises: Standards of Care in Diabetes—2026. *Diabetes Care*. 2026;49(Suppl 1):S132-S149. https://pubmed.ncbi.nlm.nih.gov/41358894/. DOI: 10.2337/dc26-S006.

@@ -12,7 +12,7 @@ A mobilização de gordura não prova redução de gordura corporal: o balanço 
 
 ## **Base fisiológica, bioquímica ou epidemiológica**
 
-ATGL, lipase hormônio-sensível e monoacilglicerol lipase hidrolisam sequencialmente triglicerídeos. Catecolaminas e glucagon favorecem o processo; insulina o inibe e estimula reesterificação. Ácidos graxos livres circulam ligados à albumina e entram em [[Beta-oxidação]] ou retornam ao adipócito.
+ATGL, lipase hormônio-sensível e monoacilglicerol lipase hidrolisam sequencialmente triglicerídeos. Catecolaminas favorecem o processo; insulina o inibe e estimula reesterificação. Ácidos graxos livres circulam ligados à albumina e entram em [[Beta-oxidação]] ou retornam ao adipócito.
 
 Glicerol chega ao fígado e pode alimentar [[Gliconeogênese]]. Em jejum prolongado, acetil-CoA hepático produzido por beta-oxidação favorece [[Cetogênese]]. O fluxo depende de oxigênio, mitocôndrias, enzimas e demanda tecidual.
 

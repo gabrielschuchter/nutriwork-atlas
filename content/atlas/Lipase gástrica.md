@@ -38,4 +38,4 @@ A ideia de que estimular lipase gástrica acelera emagrecimento confunde digest�
 ## **Referências de base**
 
 - Patricia JJ, Dhamoon AS. [Physiology, Digestion](https://www.ncbi.nlm.nih.gov/books/NBK544242/). StatPearls Publishing; updated 2022.
-- Moreau H, Laugier R, Gargouri Y, Ferrato F, Verger R. Human gastric lipase: variations originating from alimentary habits and aging. Scandinavian Journal of Gastroenterology. 1988;23:415-421. https://doi.org/10.3109/00365528809093882.
+- Moreau H, Laugier R, Gargouri Y, Ferrato F, Verger R. Human preduodenal lipase is entirely of gastric fundic origin. Gastroenterology. 1988;95(5):1221-1226. https://pubmed.ncbi.nlm.nih.gov/3169491/. DOI: 10.1016/0016-5085(88)90354-X.

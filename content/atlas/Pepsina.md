@@ -22,7 +22,7 @@ A digestão gástrica reduz proteínas a peptídeos. Tripsina, quimotripsina e c
 
 A presença de pepsina em uma amostra de saliva ou tecido não prova refluxo clinicamente relevante. O valor diagnóstico depende de método, ponto de corte, sintomas e comparação com avaliação validada.
 
-Alterar a acidez para modificar pepsina pode afetar absorção de fármacos, ferro e vitamina B12 em tratamentos prolongados. A decisão clínica precisa pesar indicação, duração e risco individual.
+Alterar a acidez para modificar pepsina pode produzir efeitos fora do alvo; a decisão clínica precisa pesar indicação, duração e risco individual.
 
 ## **Conceitos relacionados**
 

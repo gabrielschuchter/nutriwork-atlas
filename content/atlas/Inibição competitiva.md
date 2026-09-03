@@ -39,5 +39,5 @@ A reversão pelo aumento do substrato é uma previsão de um modelo, não uma re
 
 ## **Referências de base**
 
-- NCBI Bookshelf. [Biochemistry, Proteins Enzymes](https://www.ncbi.nlm.nih.gov/books/NBK554481/). StatPearls Publishing; updated 2026.
+- NCBI Bookshelf. [Biochemistry, Proteins Enzymes](https://www.ncbi.nlm.nih.gov/books/NBK554481/). StatPearls Publishing; updated 2023 Apr 24.
 - Cornish-Bowden A. Fundamentals of Enzyme Kinetics. 4th ed. Wiley-Blackwell; 2012.
