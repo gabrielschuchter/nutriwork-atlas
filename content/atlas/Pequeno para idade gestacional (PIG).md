@@ -134,9 +134,9 @@ A escolha da curva de crescimento também influencia a classificação. Curvas d
 
 Outro ponto crítico é a confusão entre PIG e RCIU. Essa distinção é importante porque:
 
-PIG descreve um estado ao nascimento;
+- PIG descreve um estado ao nascimento;
 
-RCIU descreve uma trajetória alterada de crescimento fetal.
+- RCIU descreve uma trajetória alterada de crescimento fetal.
 
 Apenas a classificação PIG não informa a causa nem o momento em que ocorreu a alteração.
 

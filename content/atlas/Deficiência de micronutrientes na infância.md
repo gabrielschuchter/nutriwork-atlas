@@ -10,15 +10,15 @@ As deficiências de micronutrientes permanecem entre os principais problemas nut
 
 Os micronutrientes mais frequentemente envolvidos incluem:
 
-ferro;
+- ferro;
 
-vitamina A;
+- vitamina A;
 
-vitamina D;
+- vitamina D;
 
-zinco;
+- zinco;
 
-iodo.
+- iodo.
 
 Essas deficiências podem comprometer crescimento, imunidade, desenvolvimento neurocognitivo e saúde geral.
 
@@ -28,15 +28,15 @@ Micronutrientes participam de processos fundamentais relacionados ao [[Metabolis
 
 A ocorrência de deficiência depende da interação entre:
 
-ingestão alimentar;
+- ingestão alimentar;
 
-biodisponibilidade;
+- biodisponibilidade;
 
-absorção intestinal;
+- absorção intestinal;
 
-estado fisiológico;
+- estado fisiológico;
 
-presença de doenças.
+- presença de doenças.
 
 A fase de [[Alimentação complementar]] representa um período particularmente vulnerável para o desenvolvimento dessas deficiências.
 

@@ -6,21 +6,21 @@ A definição clínica em pediatria geralmente utiliza indicadores antropométri
 
 Diferentemente dos adultos, nos quais pontos de corte fixos de IMC são utilizados, crianças estão em constante crescimento e maturação. Portanto, o mesmo valor absoluto de IMC pode ter significados diferentes conforme:
 
-idade;
+- idade;
 
-sexo;
+- sexo;
 
-estágio puberal;
+- estágio puberal;
 
-curva de referência utilizada.
+- curva de referência utilizada.
 
 A obesidade infantil deve ser diferenciada de:
 
-excesso de peso: categoria mais ampla que inclui sobrepeso e obesidade;
+- excesso de peso: categoria mais ampla que inclui sobrepeso e obesidade;
 
-maior peso corporal por massa muscular: menos comum na infância, mas possível em alguns contextos;
+- maior peso corporal por massa muscular: menos comum na infância, mas possível em alguns contextos;
 
-aumento fisiológico de gordura corporal: como parte de determinadas fases do desenvolvimento.
+- aumento fisiológico de gordura corporal: como parte de determinadas fases do desenvolvimento.
 
 O diagnóstico antropométrico identifica uma condição de risco, mas não explica isoladamente composição corporal, causa ou prognóstico individual.
 
@@ -30,55 +30,55 @@ A obesidade infantil é relevante na prática clínica porque está associada a 
 
 A avaliação clínica envolve:
 
-trajetória de crescimento ao longo do tempo;
+- trajetória de crescimento ao longo do tempo;
 
-padrão alimentar;
+- padrão alimentar;
 
-atividade física;
+- atividade física;
 
-sono;
+- sono;
 
-ambiente familiar;
+- ambiente familiar;
 
-condições socioeconômicas;
+- condições socioeconômicas;
 
-histórico gestacional e perinatal;
+- histórico gestacional e perinatal;
 
-sinais clínicos de complicações metabólicas.
+- sinais clínicos de complicações metabólicas.
 
 Possíveis alterações associadas incluem:
 
-[[Resistência à insulina]];
+- [[Resistência à insulina]];
 
-dislipidemias;
+- dislipidemias;
 
-hipertensão arterial;
+- hipertensão arterial;
 
-esteatose hepática associada à disfunção metabólica;
+- esteatose hepática associada à disfunção metabólica;
 
-alterações ortopédicas;
+- alterações ortopédicas;
 
-distúrbios do sono;
+- distúrbios do sono;
 
-impacto psicossocial.
+- impacto psicossocial.
 
 A presença de obesidade infantil não deve ser interpretada apenas como resultado de escolhas individuais ou [[Comportamento alimentar|comportamento alimentar]] isolado. O desenvolvimento da condição envolve interação entre:
 
-predisposição genética;
+- predisposição genética;
 
-ambiente alimentar;
+- ambiente alimentar;
 
-disponibilidade de alimentos;
+- disponibilidade de alimentos;
 
-publicidade e exposição comercial;
+- publicidade e exposição comercial;
 
-padrões familiares;
+- padrões familiares;
 
-sono;
+- sono;
 
-atividade física;
+- atividade física;
 
-fatores emocionais e sociais.
+- fatores emocionais e sociais.
 
 Na abordagem nutricional, o objetivo geralmente não é simplesmente reduzir peso rapidamente, especialmente em crianças em crescimento. A conduta depende da idade, grau de excesso de adiposidade, velocidade de crescimento, comorbidades e contexto familiar.
 
@@ -92,21 +92,21 @@ O tecido adiposo não é apenas um depósito energético; ele funciona como órg
 
 O excesso persistente de energia armazenada em relação ao gasto energético favorece expansão do tecido adiposo. Essa expansão pode envolver:
 
-aumento do tamanho dos adipócitos (hipertrofia);
+- aumento do tamanho dos adipócitos (hipertrofia);
 
-aumento do número de adipócitos (hiperplasia), especialmente durante fases de desenvolvimento.
+- aumento do número de adipócitos (hiperplasia), especialmente durante fases de desenvolvimento.
 
 A regulação do peso corporal envolve sistemas centrais e periféricos, incluindo:
 
-hipotálamo;
+- hipotálamo;
 
-leptina;
+- leptina;
 
-insulina;
+- insulina;
 
-sinais gastrointestinais de saciedade;
+- sinais gastrointestinais de saciedade;
 
-circuito de recompensa alimentar.
+- circuito de recompensa alimentar.
 
 Entretanto, a existência desses mecanismos não significa que o peso corporal seja determinado apenas por controle voluntário. O ambiente moderno modifica fortemente a exposição a estímulos alimentares e oportunidades de gasto energético.
 
@@ -114,19 +114,19 @@ Determinantes precoces
 
 Alguns fatores associados ao maior risco de obesidade infantil incluem:
 
-obesidade parental;
+- obesidade parental;
 
-[[Ganho de peso gestacional|ganho de peso gestacional]] elevado;
+- [[Ganho de peso gestacional|ganho de peso gestacional]] elevado;
 
-diabetes gestacional;
+- diabetes gestacional;
 
-crescimento fetal aumentado ([[Grande para idade gestacional (GIG)]]);
+- crescimento fetal aumentado ([[Grande para idade gestacional (GIG)]]);
 
-introdução precoce de alimentos ultraprocessados;
+- introdução precoce de alimentos ultraprocessados;
 
-menor duração do aleitamento materno em alguns contextos;
+- menor duração do aleitamento materno em alguns contextos;
 
-privação de sono.
+- privação de sono.
 
 Essas associações devem ser interpretadas com cautela. Muitos fatores são marcadores de um conjunto maior de condições familiares, sociais e ambientais, não causas isoladas.
 
@@ -142,37 +142,37 @@ A principal limitação do diagnóstico baseado em IMC é que ele é uma medida 
 
 O IMC não diferencia:
 
-massa de gordura;
+- massa de gordura;
 
-massa muscular;
+- massa muscular;
 
-distribuição corporal da gordura.
+- distribuição corporal da gordura.
 
 Por isso, pode haver erro de classificação em algumas situações.
 
 Outra questão é a interpretação causal da obesidade infantil. Embora exista associação entre determinados comportamentos e obesidade, relações simples como “consumo de determinado alimento causa obesidade” frequentemente ignoram:
 
-padrão alimentar global;
+- padrão alimentar global;
 
-contexto socioeconômico;
+- contexto socioeconômico;
 
-predisposição genética;
+- predisposição genética;
 
-ambiente alimentar.
+- ambiente alimentar.
 
 A obesidade infantil também apresenta forte componente social. Estratégias exclusivamente centradas em educação individual podem ter efeito limitado quando o ambiente favorece consumo energético elevado e baixa atividade física.
 
 Existe ainda debate sobre quais desfechos devem orientar o sucesso do tratamento. Redução do IMC pode ser útil, mas não deve ser considerada o único objetivo. Melhorias em:
 
-pressão arterial;
+- pressão arterial;
 
-perfil metabólico;
+- perfil metabólico;
 
-qualidade de vida;
+- qualidade de vida;
 
-capacidade funcional;
+- capacidade funcional;
 
-relação saudável com alimentação;
+- relação saudável com alimentação;
 
 podem ser clinicamente relevantes.
 

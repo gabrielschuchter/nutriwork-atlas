@@ -32,59 +32,59 @@ O puerpério é um período crítico para acompanhamento da saúde materna, pois
 
 Na prática clínica, envolve avaliação de:
 
-involução uterina;
+- involução uterina;
 
-sangramento vaginal pós-parto ([[Loquiação]]);
+- sangramento vaginal pós-parto ([[Loquiação]]);
 
-cicatrização de lacerações ou cesariana;
+- cicatrização de lacerações ou cesariana;
 
-estabelecimento da [[Lactogênese]];
+- estabelecimento da [[Lactogênese]];
 
-dificuldades de [[Pega adequada]];
+- dificuldades de [[Pega adequada]];
 
-[[Estado nutricional materno|estado nutricional materno]];
+- [[Estado nutricional materno|estado nutricional materno]];
 
-saúde mental;
+- saúde mental;
 
-planejamento reprodutivo;
+- planejamento reprodutivo;
 
-recuperação metabólica.
+- recuperação metabólica.
 
 Alterações fisiológicas esperadas incluem:
 
-redução progressiva do tamanho uterino;
+- redução progressiva do tamanho uterino;
 
-queda dos hormônios placentários;
+- queda dos hormônios placentários;
 
-reorganização do [[Metabolismo|metabolismo]] materno;
+- reorganização do [[Metabolismo|metabolismo]] materno;
 
-estabelecimento da produção de leite;
+- estabelecimento da produção de leite;
 
-mudanças no padrão de sono e demanda energética.
+- mudanças no padrão de sono e demanda energética.
 
 Algumas condições merecem atenção clínica por apresentarem maior risco nesse período:
 
-hemorragia pós-parto;
+- hemorragia pós-parto;
 
-infecções puerperais;
+- infecções puerperais;
 
-hipertensão pós-parto;
+- hipertensão pós-parto;
 
-tromboembolismo;
+- tromboembolismo;
 
-depressão pós-parto;
+- depressão pós-parto;
 
-dificuldades importantes de amamentação.
+- dificuldades importantes de amamentação.
 
 Do ponto de vista nutricional, o puerpério é relevante porque a mulher precisa lidar simultaneamente com:
 
-recuperação dos estoques nutricionais utilizados durante a gestação;
+- recuperação dos estoques nutricionais utilizados durante a gestação;
 
-demanda energética e proteica da lactação;
+- demanda energética e proteica da lactação;
 
-adaptação à nova rotina;
+- adaptação à nova rotina;
 
-possíveis restrições alimentares culturais ou familiares.
+- possíveis restrições alimentares culturais ou familiares.
 
 A recomendação nutricional não deve ser baseada em aumentar indiscriminadamente a ingestão para “produzir mais leite”. A produção láctea depende principalmente da regulação hormonal e da remoção adequada do leite, embora a adequação nutricional materna seja importante para saúde e composição corporal.
 
@@ -96,11 +96,11 @@ Alterações hormonais
 
 Após o parto ocorre queda acentuada de:
 
-estrogênio;
+- estrogênio;
 
-progesterona;
+- progesterona;
 
-lactogênio placentário humano.
+- lactogênio placentário humano.
 
 Essa redução permite a ativação plena da secreção láctea, caracterizando a transição para a [[Lactogênese II]].
 
@@ -110,11 +110,11 @@ Involução uterina
 
 Após o nascimento da placenta, o útero inicia processo de involução, envolvendo:
 
-contração das fibras musculares uterinas;
+- contração das fibras musculares uterinas;
 
-redução do volume uterino;
+- redução do volume uterino;
 
-remodelamento vascular.
+- remodelamento vascular.
 
 As contrações uterinas auxiliam no controle do sangramento pós-parto.
 
@@ -124,11 +124,11 @@ A gestação produz adaptações metabólicas destinadas a garantir [[Disponibil
 
 Mulheres que desenvolveram:
 
-[[Diabetes mellitus gestacional]];
+- [[Diabetes mellitus gestacional]];
 
-[[Resistência à insulina fisiológica na gestação]];
+- [[Resistência à insulina fisiológica na gestação]];
 
-[[Ganho de peso gestacional|ganho de peso gestacional]] elevado;
+- [[Ganho de peso gestacional|ganho de peso gestacional]] elevado;
 
 necessitam acompanhamento porque algumas alterações metabólicas podem persistir ou indicar maior risco futuro.
 
@@ -140,15 +140,15 @@ Em condições de ingestão inadequada grave, reservas maternas e composição d
 
 A evidência sobre necessidades nutricionais no puerpério deve considerar:
 
-estado nutricional pré-gestacional;
+- estado nutricional pré-gestacional;
 
-ganho de peso durante a gestação;
+- ganho de peso durante a gestação;
 
-composição corporal;
+- composição corporal;
 
-intensidade da amamentação;
+- intensidade da amamentação;
 
-contexto socioeconômico.
+- contexto socioeconômico.
 
 ## Limitações e controvérsias
 
@@ -156,29 +156,29 @@ Uma limitação importante é considerar o puerpério como um período uniforme 
 
 A recuperação pós-parto varia amplamente conforme:
 
-tipo de parto;
+- tipo de parto;
 
-complicações obstétricas;
+- complicações obstétricas;
 
-sono;
+- sono;
 
-suporte social;
+- suporte social;
 
-saúde mental;
+- saúde mental;
 
-condições prévias.
+- condições prévias.
 
 Outra controvérsia envolve a ideia de “retorno ao normal”. O organismo materno não simplesmente retorna ao estado pré-gestacional; algumas alterações podem persistir e a mulher pode apresentar novas demandas fisiológicas, especialmente durante a lactação.
 
 Também existe risco de simplificação nutricional. Recomendações genéricas de aumento calórico ou uso de suplementos sem indicação podem ignorar:
 
-reservas maternas;
+- reservas maternas;
 
-qualidade da dieta;
+- qualidade da dieta;
 
-necessidades individuais;
+- necessidades individuais;
 
-condições clínicas.
+- condições clínicas.
 
 A saúde mental no puerpério é outro aspecto frequentemente subestimado. Alterações emocionais transitórias são comuns, mas sintomas persistentes ou intensos podem indicar condições como depressão ou ansiedade pós-parto, que exigem avaliação adequada.
 

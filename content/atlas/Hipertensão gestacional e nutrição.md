@@ -18,15 +18,15 @@ A fisiopatologia é complexa e envolve alterações vasculares, inflamatórias, 
 
 Diversos fatores nutricionais foram investigados, incluindo:
 
-cálcio;
+- cálcio;
 
-sódio;
+- sódio;
 
-antioxidantes;
+- antioxidantes;
 
-padrão alimentar;
+- padrão alimentar;
 
-excesso de peso.
+- excesso de peso.
 
 As evidências mais consistentes para prevenção envolvem suplementação de cálcio em populações com baixa ingestão habitual.
 

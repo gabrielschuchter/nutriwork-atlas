@@ -18,21 +18,21 @@ A leitura básica é:
 
 Na avaliação nutricional infantil, os escores Z são utilizados principalmente para interpretar:
 
-[[Peso para idade]];
+- [[Peso para idade]];
 
-[[Comprimento para idade]];
+- [[Comprimento para idade]];
 
-[[Estatura para idade]];
+- [[Estatura para idade]];
 
-[[Peso para comprimento]];
+- [[Peso para comprimento]];
 
-[[Índice de massa corporal (IMC) para idade]].
+- [[Índice de massa corporal (IMC) para idade]].
 
 O conceito deve ser diferenciado de percentil:
 
-percentil indica a posição relativa da criança em uma distribuição;
+- percentil indica a posição relativa da criança em uma distribuição;
 
-escore Z quantifica essa distância em relação à mediana e permite análises estatísticas mais precisas.
+- escore Z quantifica essa distância em relação à mediana e permite análises estatísticas mais precisas.
 
 Também não deve ser confundido com diagnóstico nutricional isolado. Um escore Z é uma medida antropométrica interpretada dentro de um contexto clínico, epidemiológico e de trajetória de crescimento.
 
@@ -42,13 +42,13 @@ O escore Z é uma das principais ferramentas para acompanhamento do crescimento 
 
 Na prática clínica, ele auxilia decisões como:
 
-identificar crianças com possível déficit de crescimento;
+- identificar crianças com possível déficit de crescimento;
 
-avaliar excesso de peso;
+- avaliar excesso de peso;
 
-acompanhar resposta a intervenções nutricionais;
+- acompanhar resposta a intervenções nutricionais;
 
-interpretar trajetória de crescimento ao longo do tempo.
+- interpretar trajetória de crescimento ao longo do tempo.
 
 Os indicadores mais utilizados variam conforme a idade:
 
@@ -56,21 +56,21 @@ Crianças menores de 5 anos
 
 São frequentemente avaliados:
 
-peso para idade;
+- peso para idade;
 
-comprimento/estatura para idade;
+- comprimento/estatura para idade;
 
-peso para comprimento/estatura;
+- peso para comprimento/estatura;
 
-IMC para idade.
+- IMC para idade.
 
 Crianças e adolescentes
 
 Utiliza-se principalmente:
 
-IMC para idade;
+- IMC para idade;
 
-estatura para idade.
+- estatura para idade.
 
 A interpretação clínica depende de padrões de referência, como os padrões de crescimento infantil da [[Organização Mundial da Saúde (OMS)]]. Esses padrões descrevem como crianças saudáveis podem crescer em condições consideradas adequadas, não representando uma previsão individual obrigatória.
 
@@ -82,41 +82,41 @@ Da mesma forma, uma mudança rápida no escore Z pode indicar alteração releva
 
 O crescimento infantil é resultado da interação entre:
 
-potencial genético;
+- potencial genético;
 
-ingestão e utilização de nutrientes;
+- ingestão e utilização de nutrientes;
 
-estado hormonal;
+- estado hormonal;
 
-doenças agudas e crônicas;
+- doenças agudas e crônicas;
 
-ambiente familiar e social;
+- ambiente familiar e social;
 
-condições gestacionais e perinatais.
+- condições gestacionais e perinatais.
 
 O escore Z transforma uma medida antropométrica individual em uma posição comparável dentro de uma distribuição populacional.
 
 Por exemplo:
 
-uma criança com baixa estatura para idade apresenta um comprimento/estatura muito abaixo da distribuição esperada para sua idade e sexo;
+- uma criança com baixa estatura para idade apresenta um comprimento/estatura muito abaixo da distribuição esperada para sua idade e sexo;
 
-uma criança com IMC elevado para idade apresenta uma relação peso-altura acima do esperado.
+- uma criança com IMC elevado para idade apresenta uma relação peso-altura acima do esperado.
 
 A interpretação epidemiológica do escore Z permite estimar a magnitude de problemas nutricionais em populações, como:
 
-baixa estatura para idade;
+- baixa estatura para idade;
 
-baixo peso;
+- baixo peso;
 
-excesso de peso infantil.
+- excesso de peso infantil.
 
 A antropometria, entretanto, é um indicador indireto. Ela mede o resultado final de múltiplos processos biológicos, mas não identifica isoladamente a causa.
 
 Por exemplo:
 
-baixo escore Z de estatura pode estar associado a restrição nutricional prolongada, doenças crônicas, fatores genéticos ou condições ambientais;
+- baixo escore Z de estatura pode estar associado a restrição nutricional prolongada, doenças crônicas, fatores genéticos ou condições ambientais;
 
-elevado escore Z de IMC pode refletir excesso de gordura corporal, mas também pode ser influenciado por composição corporal e estágio maturacional.
+- elevado escore Z de IMC pode refletir excesso de gordura corporal, mas também pode ser influenciado por composição corporal e estágio maturacional.
 
 A evidência epidemiológica utiliza escores Z para investigar associações entre crescimento e desfechos posteriores. Entretanto, associações entre trajetória antropométrica e saúde futura precisam considerar fatores de confusão, como condições socioeconômicas, genética e ambiente alimentar.
 
@@ -130,31 +130,31 @@ Um valor extremo não explica automaticamente a causa. O escore Z identifica uma
 
 Por exemplo:
 
-um escore Z baixo de peso pode ocorrer por ingestão insuficiente, doença, prematuridade ou variação constitucional;
+- um escore Z baixo de peso pode ocorrer por ingestão insuficiente, doença, prematuridade ou variação constitucional;
 
-um escore Z elevado de IMC não informa diretamente quantidade ou distribuição de gordura corporal.
+- um escore Z elevado de IMC não informa diretamente quantidade ou distribuição de gordura corporal.
 
 Dependência da referência utilizada
 
 A escolha da curva de crescimento influencia a classificação. Curvas diferentes podem produzir interpretações distintas, especialmente em:
 
-prematuros;
+- prematuros;
 
-crianças com condições específicas;
+- crianças com condições específicas;
 
-populações com características diferentes das usadas para construir a referência.
+- populações com características diferentes das usadas para construir a referência.
 
 Problemas na interpretação de mudanças
 
 Alterações pequenas no escore Z podem refletir:
 
-variação de medida;
+- variação de medida;
 
-erro antropométrico;
+- erro antropométrico;
 
-diferença entre avaliadores;
+- diferença entre avaliadores;
 
-flutuações normais do crescimento.
+- flutuações normais do crescimento.
 
 Nem toda mudança indica deterioração ou melhora clínica.
 
@@ -164,17 +164,17 @@ O crescimento infantil possui grande variabilidade individual. Uma criança fora
 
 A interpretação deve considerar:
 
-velocidade de crescimento;
+- velocidade de crescimento;
 
-histórico familiar;
+- histórico familiar;
 
-desenvolvimento neuropsicomotor;
+- desenvolvimento neuropsicomotor;
 
-ingestão alimentar;
+- ingestão alimentar;
 
-sinais clínicos;
+- sinais clínicos;
 
-contexto socioambiental.
+- contexto socioambiental.
 
 Uso como desfecho em pesquisas
 

@@ -10,15 +10,15 @@ A [[Idade gestacional|idade gestacional]] ao nascimento influencia significativa
 
 Recém-nascidos prematuros apresentam maior risco de:
 
-restrição de crescimento extrauterino;
+- restrição de crescimento extrauterino;
 
-deficiência de micronutrientes;
+- deficiência de micronutrientes;
 
-osteopenia da prematuridade;
+- osteopenia da prematuridade;
 
-dificuldades alimentares;
+- dificuldades alimentares;
 
-morbidades associadas à imaturidade orgânica.
+- morbidades associadas à imaturidade orgânica.
 
 A [[Nutrição|nutrição]] é considerada um componente central do cuidado neonatal e tem como objetivo aproximar o crescimento pós-natal daquele esperado para a vida intrauterina, respeitando as limitações fisiológicas do prematuro.
 
@@ -36,15 +36,15 @@ O [[Leite materno]] é considerado a alimentação de escolha, embora frequentem
 
 Persistem debates sobre:
 
-metas ideais de crescimento;
+- metas ideais de crescimento;
 
-composição nutricional ideal;
+- composição nutricional ideal;
 
-velocidade adequada de recuperação ponderal;
+- velocidade adequada de recuperação ponderal;
 
-uso de fortificantes;
+- uso de fortificantes;
 
-estratégias de alimentação enteral.
+- estratégias de alimentação enteral.
 
 Embora o crescimento acelerado possa reduzir déficits nutricionais precoces, existe preocupação sobre possíveis repercussões metabólicas futuras.
 

@@ -12,15 +12,15 @@ O conceito aparece na interpretação dos efeitos do [[Estado nutricional matern
 
 Também é utilizado para compreender associações entre condições gestacionais e maior risco futuro de:
 
-obesidade;
+- obesidade;
 
-diabetes tipo 2;
+- diabetes tipo 2;
 
-hipertensão arterial;
+- hipertensão arterial;
 
-doença cardiovascular;
+- doença cardiovascular;
 
-alterações metabólicas.
+- alterações metabólicas.
 
 Na prática clínica, o conceito reforça a importância da [[Nutrição|nutrição]] pré-concepcional e gestacional, embora não permita prever individualmente o desenvolvimento de doenças.
 
@@ -28,15 +28,15 @@ Na prática clínica, o conceito reforça a importância da [[Nutrição|nutriç
 
 Diversos mecanismos têm sido propostos:
 
-alterações epigenéticas;
+- alterações epigenéticas;
 
-adaptações hormonais fetais;
+- adaptações hormonais fetais;
 
-modificações no desenvolvimento placentário;
+- modificações no desenvolvimento placentário;
 
-alterações na formação de órgãos e tecidos;
+- alterações na formação de órgãos e tecidos;
 
-mudanças permanentes em vias metabólicas.
+- mudanças permanentes em vias metabólicas.
 
 Grande parte das evidências mecanísticas provém de modelos animais.
 

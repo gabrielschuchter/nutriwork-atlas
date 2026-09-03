@@ -60,11 +60,11 @@ Esses pressupostos não são válidos para todas as gestações. Variações na 
 
 A [[Idade gestacional|idade gestacional]] é um conceito cronológico, enquanto o crescimento fetal representa um fenômeno biológico influenciado por genética, ambiente intrauterino e estado materno. Portanto, estimar corretamente a idade gestacional é necessário para diferenciar variação normal de alterações como:
 
-[[Restrição de crescimento intrauterino]];
+- [[Restrição de crescimento intrauterino]];
 
-[[Pequeno para idade gestacional (PIG)]];
+- [[Pequeno para idade gestacional (PIG)]];
 
-[[Grande para idade gestacional (GIG)]].
+- [[Grande para idade gestacional (GIG)]].
 
 ## Limitações e controvérsias
 

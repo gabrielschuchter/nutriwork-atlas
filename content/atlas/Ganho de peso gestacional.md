@@ -10,15 +10,15 @@ O monitoramento do ganho de peso é uma das práticas mais frequentes no pré-na
 
 Ganhos insuficientes ou excessivos podem estar associados a diferentes desfechos maternos e neonatais, incluindo:
 
-[[Restrição de crescimento intrauterino]];
+- [[Restrição de crescimento intrauterino]];
 
-[[Baixo peso ao nascer]];
+- [[Baixo peso ao nascer]];
 
-macrossomia fetal;
+- macrossomia fetal;
 
-complicações obstétricas;
+- complicações obstétricas;
 
-retenção de peso pós-parto.
+- retenção de peso pós-parto.
 
 O conceito auxilia na individualização das orientações nutricionais durante a gestação.
 
@@ -26,17 +26,17 @@ O conceito auxilia na individualização das orientações nutricionais durante 
 
 O ganho de peso gestacional reflete múltiplos componentes:
 
-crescimento fetal;
+- crescimento fetal;
 
-desenvolvimento placentário;
+- desenvolvimento placentário;
 
-aumento do volume sanguíneo;
+- aumento do volume sanguíneo;
 
-expansão dos líquidos corporais;
+- expansão dos líquidos corporais;
 
-crescimento uterino e mamário;
+- crescimento uterino e mamário;
 
-reservas energéticas maternas.
+- reservas energéticas maternas.
 
 A composição do ganho ponderal varia substancialmente entre gestantes e ao longo dos diferentes trimestres.
 

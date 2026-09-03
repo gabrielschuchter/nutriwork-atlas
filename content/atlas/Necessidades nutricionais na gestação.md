@@ -10,15 +10,15 @@ A avaliação das necessidades nutricionais é parte central do acompanhamento p
 
 O conceito orienta decisões relacionadas a:
 
-[[Ganho de peso gestacional|ganho de peso gestacional]];
+- [[Ganho de peso gestacional|ganho de peso gestacional]];
 
-planejamento alimentar;
+- planejamento alimentar;
 
-suplementação nutricional;
+- suplementação nutricional;
 
-prevenção de deficiências nutricionais;
+- prevenção de deficiências nutricionais;
 
-manejo de condições clínicas associadas à gestação.
+- manejo de condições clínicas associadas à gestação.
 
 É particularmente relevante em gestantes adolescentes, gestação múltipla, obesidade, desnutrição e doenças crônicas.
 

@@ -8,15 +8,15 @@ O conceito incorpora dimensões biológicas, econômicas, sociais e culturais.
 
 A insegurança alimentar durante a primeira infância está associada a maior risco de:
 
-desnutrição;
+- desnutrição;
 
-deficiência de micronutrientes;
+- deficiência de micronutrientes;
 
-atraso de crescimento;
+- atraso de crescimento;
 
-pior qualidade da dieta;
+- pior qualidade da dieta;
 
-comprometimento do desenvolvimento infantil.
+- comprometimento do desenvolvimento infantil.
 
 A primeira infância é considerada um período crítico devido à elevada velocidade de crescimento e desenvolvimento.
 

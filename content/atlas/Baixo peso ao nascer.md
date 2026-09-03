@@ -20,17 +20,17 @@ O peso ao nascer reflete a interação de fatores maternos, fetais, placentário
 
 Entre os fatores associados ao BPN destacam-se:
 
-[[Estado nutricional materno]];
+- [[Estado nutricional materno]];
 
-tabagismo;
+- tabagismo;
 
-doenças hipertensivas da gestação;
+- doenças hipertensivas da gestação;
 
-infecções;
+- infecções;
 
-[[Restrição de crescimento intrauterino]];
+- [[Restrição de crescimento intrauterino]];
 
-prematuridade.
+- prematuridade.
 
 Estudos epidemiológicos também demonstram associação entre baixo peso ao nascer e maior risco de doenças cardiometabólicas na vida adulta, hipótese frequentemente discutida no contexto da [[Programação metabólica fetal]].
 

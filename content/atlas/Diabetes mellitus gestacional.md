@@ -10,15 +10,15 @@ O DMG é uma das complicações metabólicas mais frequentes da gravidez.
 
 Está associado a maior risco de:
 
-macrossomia fetal;
+- macrossomia fetal;
 
-parto cesáreo;
+- parto cesáreo;
 
-hipoglicemia neonatal;
+- hipoglicemia neonatal;
 
-pré-eclâmpsia;
+- pré-eclâmpsia;
 
-desenvolvimento futuro de diabetes tipo 2 em mãe e filho.
+- desenvolvimento futuro de diabetes tipo 2 em mãe e filho.
 
 A terapia nutricional constitui um dos pilares do tratamento.
 

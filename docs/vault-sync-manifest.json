@@ -180,8 +180,8 @@
     {
       "source": "Baixo peso ao nascer.md",
       "destination": "Baixo peso ao nascer.md",
-      "bytes": 2605,
-      "sha256": "e29d05647d64407a7a4c988b67eecbacb581a1240da9f11ae5b3475a398f6a4e"
+      "bytes": 2611,
+      "sha256": "9564a049d15a31aafa81ff1fe85bf0755b377aa892cb54ef5e73a0d789a53767"
     },
     {
       "source": "Balanço energético.md",
@@ -504,14 +504,14 @@
     {
       "source": "Data provável do parto (DPP).md",
       "destination": "Data provável do parto (DPP).md",
-      "bytes": 6718,
-      "sha256": "8baa74d8e0afccbc4f2ed59536012121455c0de0e892562b238d7aa6b7070709"
+      "bytes": 6721,
+      "sha256": "4045e5038c3f935e10f912c0070e65119481ad747f9348eac6de8a508aeca999"
     },
     {
       "source": "Deficiência de micronutrientes na infância.md",
       "destination": "Deficiência de micronutrientes na infância.md",
-      "bytes": 2325,
-      "sha256": "3088953c9d169bafb7a6b331edc4de8e9d6b45f04a25ab5bad298d3dcae50f0b"
+      "bytes": 2345,
+      "sha256": "a809842a43f282df4e088622dd8c33d97f24df94d0195884c26b589ac65545d8"
     },
     {
       "source": "Deglutição.md",
@@ -552,8 +552,8 @@
     {
       "source": "Diabetes mellitus gestacional.md",
       "destination": "Diabetes mellitus gestacional.md",
-      "bytes": 2570,
-      "sha256": "8a09271f6efbbc5b34b08bffe2b9f258c3aa3e0b72ee911d543478812b0845bb"
+      "bytes": 2580,
+      "sha256": "54822435f52abe98e3fa440322a0f95ce726385c64b47763f0df93ee243916aa"
     },
     {
       "source": "Diagrama Acíclico Direcionado (DAG).md",
@@ -642,8 +642,8 @@
     {
       "source": "Escore Z de crescimento infantil.md",
       "destination": "Escore Z de crescimento infantil.md",
-      "bytes": 7406,
-      "sha256": "0c718f2880d9610f2f71b4a547833cd4b84e2d18d1f666a62742729becbcde8e"
+      "bytes": 7496,
+      "sha256": "b1a686ad79b876671cb3d4064ffc61c5bf5d3ee55769491a087f00af4561971f"
     },
     {
       "source": "Espécies reativas de oxigênio (EROs).md",
@@ -810,8 +810,8 @@
     {
       "source": "Ganho de peso gestacional.md",
       "destination": "Ganho de peso gestacional.md",
-      "bytes": 2512,
-      "sha256": "4fd5486b878298e02d1251f29c4eb219b7f74f9046e9d61ccd5f79e145bbadad"
+      "bytes": 2534,
+      "sha256": "d47490bdd97af718c62b98a5e0a160d6ac4f768b42f486a6081876f793278f71"
     },
     {
       "source": "GIP.md",
@@ -948,8 +948,8 @@
     {
       "source": "Hipertensão gestacional e nutrição.md",
       "destination": "Hipertensão gestacional e nutrição.md",
-      "bytes": 2359,
-      "sha256": "4a952374295a37b46280bb2e08619a91e36f4dc708f17ebf3638e77c019d24c8"
+      "bytes": 2369,
+      "sha256": "af8309c89eb58423881d8fdd4b97a66948755a1b388767f94f73d23e56447bc4"
     },
     {
       "source": "Hiponatremia.md",
@@ -1218,8 +1218,8 @@
     {
       "source": "Necessidades nutricionais na gestação.md",
       "destination": "Necessidades nutricionais na gestação.md",
-      "bytes": 2645,
-      "sha256": "2e6cd77985d38a20f5085c65035a44769d6a07d9dea85d70e7a1702f1c743c39"
+      "bytes": 2655,
+      "sha256": "03bd7e5000da63230cc75335f06415857225266f9b19daffe132c9982334d61c"
     },
     {
       "source": "Nutrição.md",
@@ -1230,8 +1230,8 @@
     {
       "source": "Obesidade infantil.md",
       "destination": "Obesidade infantil.md",
-      "bytes": 7875,
-      "sha256": "76e403d327fbe3ac90b216df3cd230b6a12e0ef6e5e25c4e089f1e6944f5031e"
+      "bytes": 7987,
+      "sha256": "7b16dd37160130c48e422fbed0c66f89d3e902cf324df6a53d6ff408c8f315cf"
     },
     {
       "source": "Obesidade sarcopênica.md",
@@ -1296,8 +1296,8 @@
     {
       "source": "Pequeno para idade gestacional (PIG).md",
       "destination": "Pequeno para idade gestacional (PIG).md",
-      "bytes": 9751,
-      "sha256": "25ce21fc9a9ff6384aa02f656753d824a63430c1b53b6bb604269a282a6ab00d"
+      "bytes": 9753,
+      "sha256": "aaef10b05983e2fd070a6fb078e91e15c7d1256aa47d08f4f625d1228d8ae9a1"
     },
     {
       "source": "Peristaltismo.md",
@@ -1338,8 +1338,8 @@
     {
       "source": "Prematuridade e nutrição.md",
       "destination": "Prematuridade e nutrição.md",
-      "bytes": 2745,
-      "sha256": "f19f4b54b2d8c6f78b1603ca5cd3e3960dc79c562e86a3d17253ed33662c21bd"
+      "bytes": 2765,
+      "sha256": "da6f9ee073934d949434cfaa29a60a6c7e037225f26e16ea2568902af9bfa097"
     },
     {
       "source": "Probióticos.md",
@@ -1350,8 +1350,8 @@
     {
       "source": "Programação metabólica fetal.md",
       "destination": "Programação metabólica fetal.md",
-      "bytes": 3698,
-      "sha256": "872ae1621e507dfe009e7b0823bded02971f605ce19e5cfcc726219253102ca7"
+      "bytes": 3718,
+      "sha256": "2df8fbc9537b2b3f41c847e564863cdcf03b4744d84449636e17ac3da22078cf"
     },
     {
       "source": "Proteína de alto valor biológico.md",
@@ -1380,8 +1380,8 @@
     {
       "source": "Puerpério.md",
       "destination": "Puerpério.md",
-      "bytes": 8554,
-      "sha256": "fbf51c205d5ed547f7e4b26203033f477479c4d7f7d0c4bbe85a22f3b31a1d5c"
+      "bytes": 8650,
+      "sha256": "1f45e73e5f194d3f2317c87ba4fc1b6a3f83ddab2a76de8f497a69b1f64b8762"
     },
     {
       "source": "Punição.md",
@@ -1470,8 +1470,8 @@
     {
       "source": "Restrição de crescimento intrauterino.md",
       "destination": "Restrição de crescimento intrauterino.md",
-      "bytes": 2782,
-      "sha256": "e4a6ae441e20f5ed4b8261ec2bfcdcc1443559b9ebb862cd1a896ad895415ed7"
+      "bytes": 2800,
+      "sha256": "a5fd84d1ba33a0b8102368f200ee97fc1fb269439b4d30a7f7bd3750d22df154"
     },
     {
       "source": "Risco basal.md",
@@ -1524,8 +1524,8 @@
     {
       "source": "Segurança alimentar e nutricional na primeira infância.md",
       "destination": "Segurança alimentar e nutricional na primeira infância.md",
-      "bytes": 2325,
-      "sha256": "c6192cbe2011951bd7f6a2cdcd4f4f7e79e1ca7ad65f18f605b8cc82429aaf21"
+      "bytes": 2335,
+      "sha256": "e59f095f75b0ad7ebb176f8dba16fcec6080dbfa31948d5f9614c3cec0683fb9"
     },
     {
       "source": "Seleção cultural.md",
@@ -1602,8 +1602,8 @@
     {
       "source": "Suplementação de ácido fólico.md",
       "destination": "Suplementação de ácido fólico.md",
-      "bytes": 2728,
-      "sha256": "c9ab2876ade523ac4af3fb49897831d14b655dbcdaf95bb35ad8050e83a9d75c"
+      "bytes": 2736,
+      "sha256": "fa18e0710eca7393ecf04cf3e35a7d2a6e2adb0d19ebcd250e76cd2be3c5c3b3"
     },
     {
       "source": "Suplementação de ferro na gestação.md",
@@ -1632,8 +1632,8 @@
     {
       "source": "Teste oral de tolerância à glicose (TOTG).md",
       "destination": "Teste oral de tolerância à glicose (TOTG).md",
-      "bytes": 7853,
-      "sha256": "e69ff0e026c147e34f64d6fcde92835cfe541824b4bf7a605e7a7f7903ce2c99"
+      "bytes": 7913,
+      "sha256": "f6788387caa7d4aa29c53c37f9f23787bd401b829de22279e837f3f8b3504137"
     },
     {
       "source": "Transaminação.md",

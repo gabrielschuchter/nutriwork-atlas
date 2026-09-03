@@ -30,13 +30,13 @@ O benefício na prevenção dos defeitos do tubo neural apresenta elevado grau d
 
 Entretanto, persistem debates sobre:
 
-doses ideais para grupos específicos;
+- doses ideais para grupos específicos;
 
-duração da suplementação;
+- duração da suplementação;
 
-possíveis efeitos do consumo excessivo;
+- possíveis efeitos do consumo excessivo;
 
-interpretação de concentrações séricas de folato.
+- interpretação de concentrações séricas de folato.
 
 Além disso, diversos benefícios frequentemente atribuídos ao ácido fólico apresentam suporte científico menos robusto que a prevenção dos defeitos do tubo neural.
 

@@ -10,25 +10,25 @@ O diagnóstico geralmente envolve avaliação do crescimento fetal por ultrasson
 
 A RCIU está associada a aumento do risco de:
 
-mortalidade perinatal;
+- mortalidade perinatal;
 
-complicações neonatais;
+- complicações neonatais;
 
-déficits de crescimento;
+- déficits de crescimento;
 
-alterações metabólicas futuras.
+- alterações metabólicas futuras.
 
 Entre os fatores relacionados destacam-se:
 
-insuficiência placentária;
+- insuficiência placentária;
 
-hipertensão materna;
+- hipertensão materna;
 
-tabagismo;
+- tabagismo;
 
-infecções;
+- infecções;
 
-alterações nutricionais maternas.
+- alterações nutricionais maternas.
 
 A identificação precoce influencia o acompanhamento obstétrico e neonatal.
 
