@@ -1055,7 +1055,9 @@ canvas:focus-visible {
 
 .atlas-graph-surface {
   box-sizing: border-box;
+  contain: layout paint;
   height: 100%;
+  isolation: isolate;
   min-height: 100%;
   position: relative;
   width: 100%;
