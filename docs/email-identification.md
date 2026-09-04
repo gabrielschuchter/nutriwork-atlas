@@ -34,7 +34,7 @@ Planilha criada: **Atlas — Identificação e acessos**, em `ChatGPT` no Drive.
 
 - Apps Script `getScriptLock` serializa busca/inserção/atualização; `flush` ocorre antes de liberar o lock. Isso evita linhas duplicadas e perda de incrementos em execuções concorrentes.
 - `visitId` aleatório é reaproveitado no retry. Cache Google de até seis horas evita incremento repetido após resposta perdida; é proteção de melhor esforço, sujeita à expiração/evicção do CacheService, não garantia de exactly-once.
-- Payload de até 1 KiB na função (2 KiB no webhook autenticado), JSON e verificação same-origin no navegador; timeout de 15 s no upstream e 20 s no cliente.
+- Payload de até 1 KiB na função (2 KiB no webhook autenticado), JSON e verificação same-origin no navegador; timeout de 25 s no upstream e 30 s no cliente para tolerar cold starts do Apps Script.
 - Limite por instância: 30 tentativas por IP em dez minutos, armazenando apenas hash efêmero em mapa limitado. Não é um limitador distribuído nem identificação confiável. Apps Script também limita a 120 gravações por minuto via cache sob lock. Nenhum IP vai para a planilha.
 - O Apps Script pede escopo Google Sheets para a conta proprietária; o código acessa somente o ID configurado. Publicar a função não torna a planilha pública. O segredo autentica chamadas Vercel → Google, não usuários.
 
