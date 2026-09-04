@@ -267,6 +267,7 @@
       '[data-atlas-action="expand-graph"].atlas-mobile-note-action',
     )
     const onboarding = document.getElementById("atlas-onboarding-open")
+    const dailyTask = document.getElementById("atlas-daily-task-open")
     const help = document.getElementById("atlas-help-open")
     const report = document.querySelector('[data-atlas-action="open-report"]')
     if (back) back.hidden = graph || roadmap
@@ -279,6 +280,7 @@
     if (!graph) closeAreaMenu()
     if (!graph) closeAreaSheet(false)
     if (onboarding) onboarding.hidden = !isUnlocked() || roadmap
+    if (dailyTask) dailyTask.hidden = roadmap
     if (help) help.hidden = !isUnlocked()
     if (report) report.hidden = graph || roadmap || !isUnlocked()
 

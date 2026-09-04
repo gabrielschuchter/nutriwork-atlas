@@ -264,33 +264,6 @@ export const AtlasFrame: PageFrame = {
                 <span class="atlas-control-label">Roadmap</span>
               </a>
               <button
-                id="atlas-daily-task-open"
-                class="atlas-nav-button"
-                type="button"
-                data-atlas-daily-action="open"
-                aria-haspopup="dialog"
-                aria-controls="atlas-daily-task-panel"
-                aria-label="Abrir tarefa do dia"
-                title="Tarefa do dia"
-                hidden={isRoadmap}
-              >
-                <svg
-                  class="atlas-icon"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.7"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                  focusable="false"
-                >
-                  <rect x="4" y="5" width="16" height="15" rx="2" />
-                  <path d="M8 3v4M16 3v4M4 10h16M8 14h.01M12 14h.01M16 14h.01M8 17h.01M12 17h.01" />
-                </svg>
-                <span class="atlas-control-label">Tarefa do dia</span>
-              </button>
-              <button
                 id="atlas-onboarding-open"
                 class="atlas-nav-button"
                 type="button"
@@ -522,6 +495,33 @@ export const AtlasFrame: PageFrame = {
           <span class="atlas-visually-hidden">Mostrar navegação</span>
         </button>
 
+        <button
+          id="atlas-daily-task-open"
+          class="atlas-daily-task-trigger"
+          type="button"
+          data-atlas-daily-action="open"
+          aria-haspopup="dialog"
+          aria-controls="atlas-daily-task-panel"
+          aria-label="Abrir tarefa do dia"
+          title="Tarefa do dia"
+          hidden={isRoadmap}
+        >
+          <svg
+            class="atlas-icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.7"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <rect x="4" y="5" width="16" height="15" rx="2" />
+            <path d="M8 3v4M16 3v4M4 10h16M8 14h.01M12 14h.01M16 14h.01M8 17h.01M12 17h.01" />
+          </svg>
+        </button>
+
         <main
           id="main-content"
           class="atlas-main"
@@ -619,26 +619,50 @@ export const AtlasFrame: PageFrame = {
                     já chegou ao Atlas.
                   </p>
                 </div>
-                <button
-                  class="atlas-roadmap-suggest-button"
-                  type="button"
-                  data-atlas-roadmap-action="open-suggestion"
-                >
-                  <svg
-                    class="atlas-icon"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.7"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    aria-hidden="true"
-                    focusable="false"
+                <div class="atlas-roadmap-intro-actions">
+                  <button
+                    class="atlas-roadmap-back"
+                    type="button"
+                    data-atlas-action="go-home"
+                    aria-label="Voltar ao Atlas"
                   >
-                    <path d="M12 5v14M5 12h14" />
-                  </svg>
-                  <span>Enviar sugestão</span>
-                </button>
+                    <svg
+                      class="atlas-icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.7"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                      focusable="false"
+                    >
+                      <path d="m15 18-6-6 6-6" />
+                      <path d="M9 12h10" />
+                    </svg>
+                    <span>Voltar ao Atlas</span>
+                  </button>
+                  <button
+                    class="atlas-roadmap-suggest-button"
+                    type="button"
+                    data-atlas-roadmap-action="open-suggestion"
+                  >
+                    <svg
+                      class="atlas-icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.7"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                      focusable="false"
+                    >
+                      <path d="M12 5v14M5 12h14" />
+                    </svg>
+                    <span>Enviar sugestão</span>
+                  </button>
+                </div>
               </header>
               <div class="atlas-roadmap-columns">
                 {roadmapColumns.map((column) => (
@@ -1300,8 +1324,39 @@ canvas:focus-visible {
   z-index: 7000;
 }
 
+.atlas-daily-task-trigger {
+  align-items: center;
+  -webkit-backdrop-filter: var(--atlas-glass-filter);
+  backdrop-filter: var(--atlas-glass-filter);
+  background: linear-gradient(145deg, rgba(255, 255, 255, .1), transparent 48%), var(--atlas-glass);
+  border: 1px solid var(--atlas-glass-line);
+  border-radius: 999px;
+  box-shadow: var(--atlas-glass-shadow);
+  color: var(--atlas-ink);
+  cursor: pointer;
+  display: flex;
+  height: 2.8rem;
+  justify-content: center;
+  opacity: .86;
+  position: fixed;
+  right: 4.25rem;
+  top: 1rem;
+  transition: opacity 220ms ease, background-color 160ms ease, border-color 160ms ease, transform 220ms ease;
+  width: 2.8rem;
+  z-index: 7000;
+}
+
+.atlas-daily-task-trigger:hover,
+.atlas-daily-task-trigger:focus-visible {
+  opacity: 1;
+  background: linear-gradient(145deg, rgba(255, 255, 255, .16), transparent 48%), var(--atlas-glass);
+  border-color: var(--atlas-line-strong);
+  transform: translateY(-1px);
+}
+
 .atlas-reopen-nav[hidden],
-.atlas-navbar [hidden] {
+.atlas-navbar [hidden],
+.atlas-daily-task-trigger[hidden] {
   display: none;
 }
 
@@ -1322,11 +1377,22 @@ canvas:focus-visible {
   box-sizing: border-box;
   min-height: 100dvh;
   padding: 7.25rem clamp(1rem, 4vw, 4.5rem) 4rem;
-  position: relative;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  transform: scale(.988);
+  transform-origin: top center;
+  transition: opacity 300ms ease, transform 360ms cubic-bezier(.22, .8, .2, 1), visibility 300ms ease;
+  visibility: hidden;
 }
 
-.atlas-roadmap-view:not(.is-active) {
-  display: none;
+.atlas-roadmap-view.is-active {
+  opacity: 1;
+  pointer-events: auto;
+  position: relative;
+  transform: none;
+  visibility: visible;
 }
 
 .atlas-roadmap-shell {
@@ -1341,6 +1407,39 @@ canvas:focus-visible {
   justify-content: space-between;
   margin: 0 auto 2.8rem;
   max-width: 82rem;
+}
+
+.atlas-roadmap-intro-actions {
+  align-items: center;
+  display: flex;
+  flex: 0 0 auto;
+  flex-wrap: wrap;
+  gap: .6rem;
+}
+
+.atlas-roadmap-back {
+  align-items: center;
+  background: color-mix(in srgb, var(--atlas-glass-soft) 70%, transparent);
+  border: 1px solid var(--atlas-glass-line);
+  border-radius: 999px;
+  color: var(--atlas-copy);
+  cursor: pointer;
+  display: inline-flex;
+  font: inherit;
+  font-size: .78rem;
+  gap: .4rem;
+  justify-content: center;
+  min-height: 2.75rem;
+  padding: .55rem .9rem;
+  transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease, transform 160ms ease;
+}
+
+.atlas-roadmap-back:hover,
+.atlas-roadmap-back:focus-visible {
+  background: color-mix(in srgb, var(--atlas-glass-highlight) 42%, transparent);
+  border-color: var(--atlas-line-strong);
+  color: var(--atlas-ink);
+  transform: translateY(-1px);
 }
 
 .atlas-roadmap-kicker {
@@ -1802,12 +1901,14 @@ canvas:focus-visible {
   overflow: auto;
   pointer-events: auto;
   position: relative;
+  opacity: 0;
   transform: translateX(1rem);
-  transition: opacity 180ms ease, transform 240ms cubic-bezier(.22, .8, .2, 1);
+  transition: opacity 240ms ease, transform 360ms cubic-bezier(.22, .8, .2, 1);
   width: min(24rem, calc(100vw - 2rem));
 }
 
 #atlas-daily-task-panel.is-open .atlas-daily-task-card {
+  opacity: 1;
   transform: translateX(0);
 }
 
@@ -2620,6 +2721,15 @@ canvas:focus-visible {
     max-width: 44rem;
   }
 
+  .atlas-roadmap-intro-actions {
+    width: 100%;
+  }
+
+  .atlas-roadmap-back,
+  .atlas-roadmap-suggest-button {
+    flex: 1 1 0;
+  }
+
   .atlas-roadmap-columns {
     grid-template-columns: minmax(0, 1fr);
     max-width: 44rem;
@@ -2627,6 +2737,11 @@ canvas:focus-visible {
 
   .atlas-reopen-nav {
     right: calc(.75rem + var(--atlas-safe-right));
+    top: calc(.75rem + var(--atlas-safe-top));
+  }
+
+  .atlas-daily-task-trigger {
+    right: calc(4rem + var(--atlas-safe-right));
     top: calc(.75rem + var(--atlas-safe-top));
   }
 
@@ -2943,6 +3058,7 @@ canvas:focus-visible {
   }
 
   #atlas-daily-task-panel.is-open .atlas-daily-task-card {
+    opacity: 1;
     transform: translateY(0);
   }
 
