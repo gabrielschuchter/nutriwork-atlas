@@ -19,6 +19,9 @@
   let opener = null
   let toastTimer = 0
   let submitting = false
+  let flushing = null
+  let automaticRetryUsed = false
+  const suggestionQueueKey = "nutriwork-atlas-roadmap-suggestions-v1"
 
   function setStatus(message, stateName = "") {
     if (!status) return
@@ -71,7 +74,111 @@
   }
 
   function submissionId() {
-    return window.crypto?.randomUUID?.() || `${Date.now()}-${Math.random().toString(16).slice(2)}`
+    return (
+      window.crypto?.randomUUID?.() ||
+      `00000000-0000-4000-8000-${Date.now().toString(16).padStart(12, "0").slice(-12)}`
+    )
+  }
+
+  function readSuggestionQueue() {
+    try {
+      const saved = JSON.parse(window.localStorage.getItem(suggestionQueueKey) || "[]")
+      return Array.isArray(saved)
+        ? saved.filter(
+            (item) =>
+              item &&
+              typeof item.title === "string" &&
+              typeof item.description === "string" &&
+              typeof item.submissionId === "string",
+          )
+        : []
+    } catch {
+      return []
+    }
+  }
+
+  function writeSuggestionQueue(items) {
+    try {
+      if (items.length) window.localStorage.setItem(suggestionQueueKey, JSON.stringify(items))
+      else window.localStorage.removeItem(suggestionQueueKey)
+    } catch {
+      // The request still runs when storage is unavailable.
+    }
+  }
+
+  function enqueueSuggestion(item) {
+    const queue = readSuggestionQueue().filter(
+      (queued) => queued.submissionId !== item.submissionId,
+    )
+    queue.push(item)
+    writeSuggestionQueue(queue)
+  }
+
+  function removeQueuedSuggestion(submissionId) {
+    writeSuggestionQueue(readSuggestionQueue().filter((item) => item.submissionId !== submissionId))
+  }
+
+  async function sendSuggestion(item) {
+    const response = await fetch("/api/atlas-suggestions", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      credentials: "same-origin",
+      body: JSON.stringify(item),
+      keepalive: true,
+      signal: AbortSignal.timeout(25000),
+    })
+    let result = null
+    try {
+      result = await response.json()
+    } catch {
+      // The caller handles malformed upstream responses as a failed submission.
+    }
+    if (!response.ok || result?.ok !== true) throw new Error(result?.code || "failed")
+  }
+
+  function scheduleSuggestionRetry() {
+    if (automaticRetryUsed || !readSuggestionQueue().length) return
+    automaticRetryUsed = true
+    window.setTimeout(() => void flushSuggestionQueue(), 5000)
+  }
+
+  function flushSuggestionQueue(currentSubmissionId = "") {
+    if (flushing) return flushing
+    flushing = (async () => {
+      const queue = readSuggestionQueue()
+      const current = queue.find((item) => item.submissionId === currentSubmissionId)
+      const items = current
+        ? [current, ...queue.filter((item) => item.submissionId !== currentSubmissionId)]
+        : queue
+      for (const item of items) {
+        try {
+          await sendSuggestion(item)
+          removeQueuedSuggestion(item.submissionId)
+          if (item.submissionId === currentSubmissionId) {
+            showToast(
+              "success",
+              "Sugestão recebida!",
+              "Obrigado por contribuir com o Atlas. Sua sugestão será considerada em futuras melhorias.",
+            )
+          }
+        } catch (error) {
+          if (item.submissionId === currentSubmissionId) {
+            showToast(
+              "error",
+              "Envio não concluído",
+              error?.message === "rate_limited"
+                ? "Muitas tentativas. Aguarde alguns minutos e tente novamente."
+                : "Não foi possível confirmar o envio agora. Vamos tentar novamente em segundo plano.",
+            )
+          }
+          scheduleSuggestionRetry()
+          break
+        }
+      }
+    })().finally(() => {
+      flushing = null
+    })
+    return flushing
   }
 
   document.addEventListener("click", (event) => {
@@ -112,57 +219,28 @@
       submit.disabled = true
       submit.textContent = "Enviando…"
     }
-    setStatus("Enviando…", "loading")
-    try {
-      const response = await fetch("/api/atlas-suggestions", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        credentials: "same-origin",
-        body: JSON.stringify({
-          title: cleanTitle,
-          description: cleanDescription,
-          submissionId: submissionId(),
-        }),
-        signal: AbortSignal.timeout(30000),
-      })
-      let result = null
-      try {
-        result = await response.json()
-      } catch {
-        // The user-facing error below is enough when the upstream is malformed.
-      }
-      if (!response.ok || result?.ok !== true) throw new Error(result?.code || "failed")
-      form.reset()
-      setStatus("")
-      setModalOpen(false)
-      showToast(
-        "success",
-        "Sugestão recebida!",
-        "Obrigado por contribuir com o Atlas. Sua sugestão será considerada em futuras melhorias.",
-      )
-    } catch (error) {
-      setStatus(
-        error?.message === "rate_limited"
-          ? "Muitas tentativas. Aguarde alguns minutos e tente novamente."
-          : "Não foi possível concluir o envio. Tente novamente em instantes.",
-        "error",
-      )
-      showToast(
-        "error",
-        "Envio não concluído",
-        "Não foi possível enviar sua sugestão. Tente novamente em instantes.",
-      )
-    } finally {
-      submitting = false
-      if (submit) {
-        submit.disabled = false
-        submit.textContent = "Enviar sugestão"
-      }
+    const item = {
+      title: cleanTitle,
+      description: cleanDescription,
+      submissionId: submissionId(),
     }
+    enqueueSuggestion(item)
+    form.reset()
+    setStatus("")
+    setModalOpen(false)
+    submitting = false
+    if (submit) {
+      submit.disabled = false
+      submit.textContent = "Enviar sugestão"
+    }
+    showToast("loading", "Sugestão em envio", "Estamos encaminhando sua sugestão em segundo plano.")
+    void flushSuggestionQueue(item.submissionId)
   })
 
   document.addEventListener("keydown", (event) => {
     if (event.key !== "Escape" || !overlay || overlay.hidden || submitting) return
     setModalOpen(false)
   })
+
+  void flushSuggestionQueue()
 })()

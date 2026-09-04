@@ -5,6 +5,8 @@ const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{1
 const TITLE_MAX = 160
 const DESCRIPTION_MAX = 2000
 const BODY_MAX = 4096
+const WEBHOOK_REDIRECT_STATUSES = new Set([301, 302, 307, 308])
+const WEBHOOK_REDIRECT_HOSTS = new Set(["script.google.com", "script.googleusercontent.com"])
 
 function reply(res, status, payload) {
   res.statusCode = status
@@ -18,6 +20,28 @@ function readText(value, maximum) {
   if (typeof value !== "string") return null
   const text = value.trim()
   return text && text.length <= maximum ? text : null
+}
+
+async function postToWebhook(url, payload, fetcher) {
+  const request = {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+    signal: AbortSignal.timeout(25000),
+    redirect: "manual",
+  }
+  let target = url
+  for (let attempt = 0; attempt < 2; attempt += 1) {
+    const response = await fetcher(target, request)
+    if (!WEBHOOK_REDIRECT_STATUSES.has(response.status)) return response
+    const location = response.headers?.get?.("location")
+    if (!location) throw new Error("webhook_redirect_missing")
+    const redirected = new URL(location, target)
+    if (redirected.protocol !== "https:" || !WEBHOOK_REDIRECT_HOSTS.has(redirected.hostname))
+      throw new Error("webhook_redirect_invalid")
+    target = redirected.toString()
+  }
+  throw new Error("webhook_redirect_limit")
 }
 
 export function createSuggestionHandler({
@@ -87,19 +111,17 @@ export function createSuggestionHandler({
       return reply(res, 503, { ok: false, code: "submission_unavailable" })
 
     try {
-      const response = await fetcher(url, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
+      const response = await postToWebhook(
+        url,
+        {
           type: "suggestion",
           title,
           description,
           submissionId: body.submissionId,
           secret,
-        }),
-        signal: AbortSignal.timeout(25000),
-        redirect: "follow",
-      })
+        },
+        fetcher,
+      )
       if (!response.ok) throw new Error("upstream")
       const result = await response.json()
       if (result?.ok !== true)

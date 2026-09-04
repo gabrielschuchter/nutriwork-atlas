@@ -8,6 +8,9 @@
   "functions": {
     "api/atlas-identify.js": {
       "maxDuration": 30
+    },
+    "api/atlas-suggestions.js": {
+      "maxDuration": 30
     }
   },
   "headers": [

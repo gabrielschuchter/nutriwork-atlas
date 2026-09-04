@@ -63,6 +63,30 @@ describe("sugestões do roadmap", () => {
     assert.equal(result.headers["Cache-Control"], "no-store")
   })
 
+  it("preserva o POST quando o Apps Script redireciona a requisição", async () => {
+    const calls = []
+    const result = await request({
+      body: { title: "Nova relação", description: "Mostrar mais contexto." },
+      fetcher: async (url, options) => {
+        calls.push({ url, options })
+        if (calls.length === 1)
+          return {
+            status: 302,
+            ok: false,
+            headers: {
+              get: (name) =>
+                name === "location" ? "https://script.googleusercontent.com/echo" : null,
+            },
+          }
+        return { status: 200, ok: true, json: async () => ({ ok: true }) }
+      },
+    })
+    assert.equal(result.status, 200)
+    assert.equal(calls.length, 2)
+    assert.equal(calls[1].options.method, "POST")
+    assert.equal(calls[1].options.redirect, "manual")
+  })
+
   it("valida título, descrição e idempotency key antes do upstream", async () => {
     for (const body of [
       { title: "", description: "Descrição" },
