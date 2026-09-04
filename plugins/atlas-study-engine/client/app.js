@@ -429,7 +429,9 @@
 
   function openAreaMenu(focusSelected = false) {
     const { trigger, menu } = areaPickerElements()
-    if (!trigger || !menu || !menu.children.length) return
+    if (!trigger || !menu) return
+    if (!menu.children.length) renderAreas()
+    if (!menu.children.length) return
     menu.hidden = false
     trigger.setAttribute("aria-expanded", "true")
     window.requestAnimationFrame(() => {
@@ -444,7 +446,9 @@
   function openAreaSheet() {
     if (!isUnlocked()) return
     const { sheet, options, trigger } = areaSheetElements()
-    if (!sheet || !options || !options.children.length) return
+    if (!sheet || !options) return
+    if (!options.children.length) renderAreas()
+    if (!options.children.length) return
     closeAreaMenu()
     closeSearch(false)
     closeMobileMenu(false)
