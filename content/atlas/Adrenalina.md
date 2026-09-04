@@ -8,17 +8,17 @@ Adrenalina, ou epinefrina, é uma catecolamina produzida principalmente pela med
 
 Adrenalina é tratamento de primeira linha para anafilaxia e pode ser usada em parada cardíaca e outras emergências. A via, a dose e o intervalo são determinantes para eficácia e segurança. Taquicardia, tremor, ansiedade e aumento da pressão podem ocorrer como efeitos farmacológicos.
 
-Estresse agudo, hipoglicemia e exercício elevam catecolaminas. Uma medida isolada é sensível ao momento, postura, dor, cafeína e coleta, e raramente identifica a resposta habitual.
+Estresse agudo, hipoglicemia e exercício elevam catecolaminas. Uma medida isolada é sensível ao momento, postura, dor, [[Cafeína|cafeína]] e coleta, e raramente identifica a resposta habitual.
 
 ## **Base fisiológica, bioquímica ou epidemiológica**
 
 A adrenalina aumenta frequência e contratilidade cardíacas por beta-1, promove broncodilatação por beta-2 e causa vasoconstrição por alfa-1 em concentrações adequadas. No fígado, estimula [[Glicogenólise]] e [[Gliconeogênese]]; no tecido adiposo, favorece [[Lipólise]].
 
-O efeito metabólico preserva glicose e ácidos graxos para tecidos com demanda aguda. Cortisol e glucagon modulam a resposta. A exposição repetida pode alterar pressão, sono e metabolismo, mas o impacto crônico depende da causa da ativação simpática.
+O efeito metabólico preserva [[Glicose|glicose]] e [[Ácidos graxos|ácidos graxos]] para tecidos com demanda aguda. [[Cortisol|Cortisol]] e [[Glucagon|glucagon]] modulam a resposta. A exposição repetida pode alterar pressão, sono e [[Metabolismo|metabolismo]], mas o impacto crônico depende da causa da ativação simpática.
 
 ## **Limitações e controvérsias**
 
-A resposta a adrenalina endógena não é equivalente à infusão ou à injeção terapêutica. Estudos de estresse agudo não predizem a consequência de estresse psicossocial crônico.
+A resposta a adrenalina endógena não é equivalente à infusão ou à injeção terapêutica. Estudos de estresse agudo não predizem a [[Consequência|consequência]] de estresse psicossocial crônico.
 
 Palpitação ou tremor após alimento ou suplemento não confirma excesso de adrenalina. Diagnóstico de feocromocitoma exige testes bioquímicos e imagem conforme protocolo.
 

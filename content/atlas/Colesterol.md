@@ -6,15 +6,15 @@ Colesterol é um esterol presente nas membranas celulares e no plasma. O organis
 
 ## **Contexto clínico**
 
-Colesterol total, LDL-C, HDL-C, não HDL-C e apoB são medidas relacionadas, porém não intercambiáveis. LDL-C elevado por exposição prolongada aumenta risco de doença aterosclerótica; a magnitude clínica depende do risco basal e do tempo de exposição. Hipercolesterolemia familiar exige reconhecimento e tratamento específicos.
+Colesterol total, [[LDL|LDL]]-C, [[HDL|HDL]]-C, não HDL-C e apoB são medidas relacionadas, porém não intercambiáveis. LDL-C elevado por exposição prolongada aumenta risco de doença aterosclerótica; a magnitude clínica depende do [[Risco basal|risco basal]] e do tempo de exposição. Hipercolesterolemia familiar exige reconhecimento e tratamento específicos.
 
-Dietas e fármacos podem modificar colesterol plasmático. A decisão clínica deve integrar história, risco cardiovascular, causas secundárias, tolerabilidade e evidência do tratamento. Redução de LDL-C é um marcador conectado a benefício em ensaios de redução de risco, enquanto outras alterações lipídicas precisam de interpretação própria.
+Dietas e fármacos podem modificar colesterol plasmático. A decisão clínica deve integrar história, risco cardiovascular, causas secundárias, tolerabilidade e evidência do tratamento. Redução de [[LDL|LDL]]-C é um marcador conectado a benefício em ensaios de redução de risco, enquanto outras alterações lipídicas precisam de interpretação própria.
 
 ## **Base fisiológica, bioquímica ou epidemiológica**
 
-O colesterol livre participa da fluidez de membranas; a esterificação o direciona para armazenamento ou transporte no núcleo de lipoproteínas. O fígado regula síntese e captação por receptores de LDL. [[HDL]] participa do efluxo de colesterol celular e do transporte reverso, sem que HDL-C isolado represente toda essa função.
+O colesterol livre participa da fluidez de membranas; a esterificação o direciona para armazenamento ou transporte no núcleo de [[Lipoproteínas|lipoproteínas]]. O fígado regula síntese e captação por receptores de [[LDL|LDL]]. [[HDL]] participa do efluxo de colesterol celular e do transporte reverso, sem que HDL-C isolado represente toda essa função.
 
-O consenso da European Atherosclerosis Society integra evidência genética, epidemiológica e de ensaios clínicos para estabelecer a relação causal entre exposição a LDL e doença aterosclerótica. A associação cresce com a magnitude e a duração da exposição, seguindo a lógica dado → risco observado → evidência convergente → inferência clínica.
+O consenso da European Atherosclerosis Society integra evidência genética, epidemiológica e de ensaios clínicos para estabelecer a relação causal entre exposição a [[LDL|LDL]] e doença aterosclerótica. A associação cresce com a magnitude e a duração da exposição, seguindo a lógica dado → risco observado → evidência convergente → inferência clínica.
 
 ## **Limitações e controvérsias**
 

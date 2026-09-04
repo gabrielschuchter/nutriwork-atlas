@@ -14,13 +14,13 @@ O diagnóstico clínico raramente depende de medir uma ERO diretamente, pois mui
 
 Vazamento de elétrons na cadeia respiratória gera superóxido; superóxido dismutase produz peróxido de hidrogênio; catalase e glutationa peroxidase o convertem em água. Ferro e outras reações podem gerar radical hidroxila altamente reativo.
 
-EROs modificam lipídios, proteínas e DNA em concentrações elevadas. Em concentrações controladas, regulam quinases, fatores de transcrição e resposta imune. [[Estresse oxidativo]] surge quando a produção ultrapassa defesa e reparo com dano relevante.
+EROs modificam [[Lipídios|lipídios]], [[Proteínas|proteínas]] e DNA em concentrações elevadas. Em concentrações controladas, regulam quinases, fatores de transcrição e resposta imune. [[Estresse oxidativo]] surge quando a produção ultrapassa defesa e reparo com dano relevante.
 
 ## **Limitações e controvérsias**
 
 Exames indiretos não quantificam toda a carga de EROs. Amostras, armazenamento, tecido e método podem alterar resultados. Aumento de um marcador não prova que EROs causem o desfecho observado.
 
-Antioxidantes não devem ser usados para neutralizar indiscriminadamente toda sinalização oxidativa. Ensaios clínicos de suplementação precisam separar correção de deficiência, prevenção e tratamento.
+[[Antioxidantes|Antioxidantes]] não devem ser usados para neutralizar indiscriminadamente toda sinalização oxidativa. Ensaios clínicos de suplementação precisam separar correção de deficiência, prevenção e tratamento.
 
 ## **Conceitos relacionados**
 

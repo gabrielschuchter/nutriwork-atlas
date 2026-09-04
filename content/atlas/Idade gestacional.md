@@ -72,7 +72,7 @@ Após fases mais avançadas da gestação, a estimativa pode apresentar maior in
 
 A idade gestacional é, portanto, uma variável de classificação que permite comparar o desenvolvimento fetal observado com padrões populacionais. Ela não determina isoladamente a saúde fetal.
 
-A relação entre idade gestacional e desfechos perinatais é sustentada por dados epidemiológicos: riscos de morbidade e mortalidade neonatal variam conforme o tempo de gestação. Entretanto, a interpretação individual depende de outros fatores, como crescimento fetal, condições maternas, função placentária e presença de complicações.
+A relação entre idade gestacional e desfechos perinatais é sustentada por dados epidemiológicos: riscos de [[Morbidade|morbidade]] e [[Mortalidade|mortalidade]] neonatal variam conforme o tempo de gestação. Entretanto, a interpretação individual depende de outros fatores, como crescimento fetal, condições maternas, função placentária e presença de complicações.
 
 ## Limitações e controvérsias
 

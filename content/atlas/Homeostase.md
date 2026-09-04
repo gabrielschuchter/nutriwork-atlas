@@ -6,7 +6,7 @@ A regulação homeostática envolve sensores, centros integradores, efetores e m
 
 ## Contexto clínico
 
-O conceito aparece no controle de glicemia, temperatura, osmolaridade, pressão arterial, equilíbrio ácido-base e concentrações de eletrólitos. A interpretação clínica exige distinguir adaptação compensatória de normalidade.
+O conceito aparece no controle de glicemia, temperatura, osmolaridade, pressão arterial, equilíbrio ácido-base e concentrações de [[Eletrólitos|eletrólitos]]. A interpretação clínica exige distinguir adaptação compensatória de normalidade.
 
 Uma variável dentro da faixa laboratorial pode estar sendo mantida à custa de resposta compensatória elevada. Hiperinsulinemia com glicemia preservada, por exemplo, pode ser compatível com compensação metabólica, embora sua interpretação dependa do contexto e não permita diagnóstico isolado.
 

@@ -1,8 +1,8 @@
 ## Definição
 
-O escore Z de crescimento infantil é uma medida estatística que expressa a posição de uma medida antropométrica de uma criança em relação a uma população de referência da mesma idade e sexo.
+O escore Z de crescimento infantil é uma medida estatística que expressa a posição de uma medida antropométrica de uma criança em relação a uma [[População|população]] de referência da mesma idade e sexo.
 
-O escore Z indica quantos desvios-padrão uma medida está acima ou abaixo da mediana da população de referência.
+O escore Z indica quantos desvios-padrão uma medida está acima ou abaixo da mediana da [[População|população]] de referência.
 
 A fórmula geral é:
 
@@ -16,7 +16,7 @@ A leitura básica é:
 | `+2` | Aproximadamente dois desvios-padrão acima da mediana. |
 | `−2` | Aproximadamente dois desvios-padrão abaixo da mediana. |
 
-Na avaliação nutricional infantil, os escores Z são utilizados principalmente para interpretar:
+Na [[Avaliação nutricional|avaliação nutricional]] infantil, os escores Z são utilizados principalmente para interpretar:
 
 - [[Peso para idade]];
 

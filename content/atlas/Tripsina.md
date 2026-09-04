@@ -2,25 +2,25 @@
 
 ## **Definição**
 
-Tripsina é uma serino-protease pancreática que hidrolisa ligações peptídicas após determinados aminoácidos básicos. Ela é secretada como tripsinogênio e ativada no duodeno pela enteropeptidase.
+Tripsina é uma serino-protease pancreática que hidrolisa ligações peptídicas após determinados [[Aminoácidos|aminoácidos]] básicos. Ela é secretada como tripsinogênio e ativada no duodeno pela enteropeptidase.
 
-Além de digerir proteínas, a tripsina ativa outros zimogênios pancreáticos. Essa função explica por que ativação prematura dentro do pâncreas pode contribuir para autodigestão e pancreatite.
+Além de digerir [[Proteínas|proteínas]], a tripsina ativa outros zimogênios pancreáticos. Essa função explica por que ativação prematura dentro do pâncreas pode contribuir para autodigestão e pancreatite.
 
 ## **Contexto clínico**
 
-Insuficiência pancreática, obstrução ductal e doenças genéticas que alteram ativação de zimogênios podem comprometer proteólise. Exames de função pancreática avaliam o conjunto da secreção e não devem ser substituídos pela inferência a partir de um único mecanismo.
+Insuficiência pancreática, obstrução ductal e doenças genéticas que alteram ativação de zimogênios podem comprometer [[Proteólise|proteólise]]. Exames de função pancreática avaliam o conjunto da secreção e não devem ser substituídos pela inferência a partir de um único mecanismo.
 
-Na alimentação de pessoas com insuficiência pancreática, a tolerância e o estado nutricional orientam a reposição de enzimas e a composição da dieta. Restrição indiscriminada de proteína não decorre da existência de tripsina reduzida.
+Na alimentação de pessoas com insuficiência pancreática, a tolerância e o [[Estado nutricional|estado nutricional]] orientam a reposição de enzimas e a composição da dieta. Restrição indiscriminada de proteína não decorre da existência de tripsina reduzida.
 
 ## **Base fisiológica, bioquímica ou epidemiológica**
 
 Enteropeptidase ligada à mucosa duodenal converte tripsinogênio em tripsina. A tripsina ativa quimotripsinogênio, procarboxipeptidases e outros precursores. Inibidores intrapancreáticos e separação anatômica reduzem a ativação antes da secreção.
 
-O resultado final é uma mistura de oligopeptídeos, dipeptídeos, tripeptídeos e aminoácidos. Transportadores intestinais e peptidases da borda em escova completam a disponibilização para absorção.
+O resultado final é uma mistura de oligopeptídeos, dipeptídeos, tripeptídeos e [[Aminoácidos|aminoácidos]]. Transportadores intestinais e peptidases da borda em escova completam a disponibilização para [[Absorção|absorção]].
 
 ## **Limitações e controvérsias**
 
-Atividade proteolítica in vitro não representa a quantidade de proteína digerida em uma refeição. Matriz alimentar, desnaturação, pH, trânsito e interação com inibidores vegetais modificam a exposição da enzima.
+Atividade proteolítica in vitro não representa a quantidade de proteína digerida em uma refeição. Matriz alimentar, desnaturação, pH, trânsito e interação com inibidores vegetais modificam a exposição da [[Enzima|enzima]].
 
 A associação entre mutação em genes de tripsinogênio e pancreatite depende do variante, penetrância e contexto. Resultado genético não determina evolução individual sem avaliação clínica e familiar.
 

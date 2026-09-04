@@ -2,7 +2,7 @@
 
 Catabolismo é o conjunto de reações metabólicas responsáveis pela degradação de moléculas complexas em compostos menores, liberando energia que pode ser utilizada para síntese de [[ATP]], manutenção da [[Homeostase|homeostase]] e realização de trabalho biológico.
 
-Inclui processos como [[Glicogenólise]], [[Lipólise]], [[Proteólise]], β-oxidação de ácidos graxos e degradação de aminoácidos.
+Inclui processos como [[Glicogenólise]], [[Lipólise]], [[Proteólise]], [[Beta-oxidação|β-oxidação]] de [[Ácidos graxos|ácidos graxos]] e degradação de [[Aminoácidos|aminoácidos]].
 
 Catabolismo não significa necessariamente perda de massa muscular nem representa um processo patológico. Trata-se de um componente essencial do [[Metabolismo|metabolismo]] normal, indispensável para produção de energia e renovação celular.
 
@@ -36,7 +36,7 @@ Na terapia nutricional, compreender o grau de catabolismo auxilia na estimativa 
 
 Hormônios como [[Glucagon]], [[Adrenalina]] e [[Cortisol]] favorecem a mobilização de reservas energéticas conforme as necessidades do organismo.
 
-Durante o exercício, o catabolismo fornece [[ATP]] por meio da degradação de fosfocreatina, glicogênio e lipídios, dependendo da intensidade e duração da atividade.
+Durante o exercício, o catabolismo fornece [[ATP]] por meio da degradação de fosfocreatina, [[Glicogênio|glicogênio]] e [[Lipídios|lipídios]], dependendo da intensidade e duração da atividade.
 
 Em estados inflamatórios graves, citocinas pró-inflamatórias aumentam a [[Proteólise]] muscular e reduzem a eficiência das vias anabólicas, contribuindo para perda acelerada de massa magra.
 

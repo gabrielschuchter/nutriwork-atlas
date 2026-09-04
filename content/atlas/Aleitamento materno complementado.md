@@ -12,7 +12,7 @@ Seu objetivo é combinar os benefícios nutricionais e biológicos do [[Leite ma
 
 ## Base fisiológica, bioquímica ou epidemiológica
 
-Mesmo após os seis meses de idade, o [[Leite materno|leite materno]] continua fornecendo energia, proteínas, lipídios e diversos componentes bioativos.
+Mesmo após os seis meses de idade, o [[Leite materno|leite materno]] continua fornecendo energia, [[Proteínas|proteínas]], [[Lipídios|lipídios]] e diversos componentes bioativos.
 
 À medida que a criança cresce, sua contribuição relativa para a ingestão total de nutrientes diminui progressivamente, enquanto a participação da [[Alimentação complementar]] aumenta.
 

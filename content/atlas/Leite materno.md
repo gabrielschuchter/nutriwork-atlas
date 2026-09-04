@@ -12,7 +12,7 @@ Seu papel é especialmente relevante em recém-nascidos prematuros, lactentes de
 
 ## Base fisiológica, bioquímica ou epidemiológica
 
-Contém carboidratos, lipídios, proteínas, vitaminas, minerais, oligossacarídeos, enzimas, hormônios e fatores imunológicos.
+Contém [[Carboidratos|carboidratos]], [[Lipídios|lipídios]], [[Proteínas|proteínas]], [[Vitaminas|vitaminas]], minerais, oligossacarídeos, enzimas, hormônios e fatores imunológicos.
 
 Sua composição sofre alterações fisiológicas ao longo da lactação, incluindo a transição entre [[Colostro]], leite de transição e leite maduro.
 

@@ -6,7 +6,7 @@ Constitui um campo científico fundamentado filosoficamente no [[Behaviorismo ra
 
 Tradicionalmente, a área é organizada em três dimensões complementares:
 
-- Behaviorismo radical, que fornece os pressupostos filosóficos;
+- [[Behaviorismo radical|Behaviorismo radical]], que fornece os pressupostos filosóficos;
 
 - Análise experimental do comportamento, voltada à investigação empírica dos princípios comportamentais;
 
@@ -82,7 +82,7 @@ Também existem debates com outras tradições da psicologia acerca da melhor fo
 
 Na prática clínica, uma limitação importante é que a identificação das contingências responsáveis por um comportamento pode exigir observação sistemática, registro comportamental e acompanhamento longitudinal. Em muitos contextos assistenciais, essas informações não estão completamente disponíveis, exigindo que hipóteses funcionais sejam constantemente revistas à luz de novos dados.
 
-Além disso, embora a Análise do comportamento ofereça um modelo robusto para compreender processos de aprendizagem, comportamentos relacionados à saúde frequentemente resultam da interação entre fatores biológicos, psicológicos, sociais e culturais. Assim, sua aplicação clínica costuma ser mais eficaz quando integrada ao conhecimento produzido por outras áreas da saúde.
+Além disso, embora a Análise do comportamento ofereça um modelo robusto para compreender processos de aprendizagem, comportamentos relacionados à saúde frequentemente resultam da interação entre fatores biológicos, psicológicos, sociais e culturais. Assim, sua aplicação clínica costuma ser mais [[Eficaz|eficaz]] quando integrada ao conhecimento produzido por outras áreas da saúde.
 
 ## Conceitos relacionados
 - [[Behaviorismo radical]]

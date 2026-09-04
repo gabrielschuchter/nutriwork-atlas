@@ -74,7 +74,7 @@ Além disso, quando o comportamento previamente punido continua sendo fortemente
 
 Na prática clínica em [[Nutrição|nutrição]], estratégias baseadas em culpa, constrangimento ou ameaças relacionadas ao peso corporal podem produzir redução temporária de determinados comportamentos observáveis — ou até mesmo dos relatos verbais — sem promover mudanças sustentáveis no [[Comportamento alimentar|comportamento alimentar]]. Em alguns indivíduos, essas abordagens podem inclusive favorecer esquiva de consultas, menor adesão ao tratamento e pior relação com profissionais de saúde.
 
-Por essas razões, a Análise do Comportamento contemporânea recomenda que procedimentos punitivos sejam utilizados com extrema cautela, priorizando-se intervenções que fortaleçam repertórios alternativos por meio de [[Reforço]], especialmente em contextos clínicos e educacionais.
+Por essas razões, a [[Análise do comportamento|Análise do Comportamento]] contemporânea recomenda que procedimentos punitivos sejam utilizados com extrema cautela, priorizando-se intervenções que fortaleçam repertórios alternativos por meio de [[Reforço]], especialmente em contextos clínicos e educacionais.
 
 ## Conceitos relacionados
 - [[Consequência]]

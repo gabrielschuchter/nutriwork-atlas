@@ -2,13 +2,13 @@
 
 ## **Definição**
 
-Ferro heme é o ferro incorporado ao grupo heme de hemoglobina e mioglobina, presente principalmente em carnes e peixes. A forma química facilita a absorção intestinal em comparação com parte do ferro não heme. O ferro absorvido é usado em proteínas funcionais ou armazenado em ferritina.
+Ferro heme é o ferro incorporado ao grupo heme de hemoglobina e mioglobina, presente principalmente em carnes e peixes. A forma química facilita a [[Absorção|absorção]] intestinal em comparação com parte do [[Ferro não heme|ferro não heme]]. O ferro absorvido é usado em [[Proteínas|proteínas]] funcionais ou armazenado em ferritina.
 
 ## **Contexto clínico**
 
 A ingestão de ferro heme pode contribuir para prevenção de deficiência, especialmente quando a necessidade é alta. Gestação, crescimento, perdas menstruais, sangramento, doação de sangue e doença gastrointestinal alteram o risco. Anemia não deve ser atribuída à dieta sem confirmar deficiência e investigar perdas.
 
-Vegetarianos podem atingir a necessidade com planejamento, pois a absorção de ferro não heme é regulada e pode ser favorecida por vitamina C. Suplementação terapêutica depende de hemograma, ferritina, inflamação e causa.
+Vegetarianos podem atingir a necessidade com planejamento, pois a [[Absorção|absorção]] de [[Ferro não heme|ferro não heme]] é regulada e pode ser favorecida por vitamina C. Suplementação terapêutica depende de hemograma, ferritina, inflamação e causa.
 
 ## **Base fisiológica, bioquímica ou epidemiológica**
 
@@ -18,7 +18,7 @@ Ferro participa de hemoglobina, mioglobina e enzimas de transporte de elétrons.
 
 ## **Limitações e controvérsias**
 
-Maior biodisponibilidade não transforma carne em tratamento universal para anemia. O impacto clínico de uma fonte alimentar depende do padrão global, da quantidade e do contexto de substituição; não pode ser atribuído ao ferro isoladamente.
+Maior [[Biodisponibilidade|biodisponibilidade]] não transforma carne em tratamento universal para anemia. O impacto clínico de uma fonte alimentar depende do padrão global, da quantidade e do contexto de substituição; não pode ser atribuído ao ferro isoladamente.
 
 Ferritina é proteína de fase aguda e pode parecer normal ou elevada na inflamação. Diagnóstico requer conjunto de dados, não um marcador isolado ou a quantidade estimada de ferro dietético.
 

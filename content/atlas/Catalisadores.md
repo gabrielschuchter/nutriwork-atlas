@@ -8,17 +8,17 @@ Catalisadores não tornam uma reação termodinamicamente favorável nem alteram
 
 Nos sistemas biológicos, a maior parte da catálise é realizada por [[Enzima|enzimas]], embora algumas moléculas de RNA também apresentem atividade catalítica. Alterações na quantidade ou atividade de catalisadores biológicos podem causar doenças metabólicas e modificar a resposta a medicamentos.
 
-Na leitura de estudos, demonstração de atividade catalítica in vitro não estabelece que a reação seja relevante em uma célula, tecido ou organismo. Concentração, compartimentalização e disponibilidade do substrato precisam ser consideradas.
+Na leitura de estudos, demonstração de atividade catalítica in vitro não estabelece que a reação seja relevante em uma célula, tecido ou organismo. Concentração, compartimentalização e disponibilidade do [[Substrato|substrato]] precisam ser consideradas.
 
 ## Base fisiológica, bioquímica ou epidemiológica
 
 A catálise pode envolver orientação de substratos, estabilização do estado de transição, catálise ácido-base, catálise covalente ou participação de íons metálicos.
 
-Enzimas aumentam a velocidade sem modificar a variação de energia livre entre reagentes e produtos. A especificidade decorre da complementaridade química e dinâmica entre catalisador, substrato e estado de transição.
+Enzimas aumentam a velocidade sem modificar a variação de energia livre entre reagentes e produtos. A especificidade decorre da complementaridade química e dinâmica entre catalisador, [[Substrato|substrato]] e estado de transição.
 
 ## Limitações e controvérsias
 
-Dizer que uma enzima "inicia" uma reação pode sugerir que ela fornece espontaneamente a energia necessária. Na realidade, ela reduz a barreira cinética, enquanto a direção líquida depende da termodinâmica e das concentrações.
+Dizer que uma [[Enzima|enzima]] "inicia" uma reação pode sugerir que ela fornece espontaneamente a energia necessária. Na realidade, ela reduz a barreira cinética, enquanto a direção líquida depende da termodinâmica e das concentrações.
 
 O catalisador pode sofrer modificações transitórias durante o mecanismo. "Não ser consumido" significa ser regenerado ao final do ciclo, não permanecer fisicamente inalterado em todas as etapas.
 

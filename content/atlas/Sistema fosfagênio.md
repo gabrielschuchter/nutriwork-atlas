@@ -1,8 +1,8 @@
 ## Definição
 
-O sistema fosfagênio, também denominado sistema [[ATP]]-fosfocreatina (ATP-PCr), é a via bioenergética responsável pela ressíntese extremamente rápida de ATP durante os primeiros segundos de exercícios de alta intensidade. Utiliza como principal substrato a [[Fosfocreatina]], que doa um grupo fosfato ao [[ADP]] por meio da ação da enzima [[Creatina|creatina]] quinase, regenerando ATP quase instantaneamente.
+O sistema fosfagênio, também denominado sistema [[ATP]]-fosfocreatina (ATP-PCr), é a via [[Bioenergética|bioenergética]] responsável pela ressíntese extremamente rápida de ATP durante os primeiros segundos de exercícios de alta intensidade. Utiliza como principal [[Substrato|substrato]] a [[Fosfocreatina]], que doa um grupo fosfato ao [[ADP]] por meio da ação da [[Enzima|enzima]] [[Creatina|creatina]] quinase, regenerando ATP quase instantaneamente.
 
-É o sistema energético com maior potência de produção de ATP, porém com baixa capacidade, uma vez que os estoques intramusculares de ATP e fosfocreatina são limitados.
+É o sistema energético com maior potência de produção de [[ATP|ATP]], porém com baixa capacidade, uma vez que os estoques intramusculares de ATP e fosfocreatina são limitados.
 
 O sistema fosfagênio não deve ser confundido com [[Metabolismo|metabolismo]] anaeróbio em geral. Ele constitui apenas uma das vias anaeróbias de produção de energia, distinta da [[Glicólise anaeróbia]].
 
@@ -30,13 +30,13 @@ As reservas de [[ATP]] livre no músculo sustentam apenas poucos segundos de con
 
 A reação é catalisada pela [[Creatina|creatina]] quinase:
 
-Fosfocreatina + [[ADP]] ⇌ Creatina + ATP
+Fosfocreatina + [[ADP]] ⇌ [[Creatina|Creatina]] + [[ATP|ATP]]
 
 À medida que os estoques de fosfocreatina diminuem, aumenta progressivamente a contribuição da [[Glicólise]] e, posteriormente, do [[Metabolismo|metabolismo]] oxidativo.
 
 Durante a recuperação, a fosfocreatina é ressintetizada predominantemente por energia proveniente da [[Fosforilação oxidativa]], razão pela qual intervalos adequados entre séries favorecem sua reposição.
 
-A suplementação de Creatina aumenta o conteúdo muscular de fosfocreatina, permitindo maior capacidade de ressíntese rápida de ATP durante esforços repetidos.
+A suplementação de [[Creatina|Creatina]] aumenta o conteúdo muscular de fosfocreatina, permitindo maior capacidade de ressíntese rápida de [[ATP|ATP]] durante esforços repetidos.
 
 ## Limitações e controvérsias
 

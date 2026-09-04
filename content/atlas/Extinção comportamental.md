@@ -6,11 +6,11 @@ Para que ocorra extinção, é necessário que:
 
 - o comportamento tenha sido previamente estabelecido por [[Reforço]];
 
-- a consequência reforçadora deixe de ocorrer de forma consistente após a emissão da resposta;
+- a [[Consequência reforçadora|consequência reforçadora]] deixe de ocorrer de forma consistente após a emissão da resposta;
 
 - a redução do comportamento resulte dessa alteração na contingência.
 
-A extinção é, portanto, um processo distinto da [[Punição]]. Enquanto a punição reduz a frequência de uma resposta pela apresentação ou remoção de uma [[Consequência punitiva|consequência punitiva]], a extinção reduz essa frequência porque o reforço previamente disponível deixa de ser fornecido.
+A extinção é, portanto, um processo distinto da [[Punição]]. Enquanto a punição reduz a frequência de uma resposta pela apresentação ou remoção de uma [[Consequência punitiva|consequência punitiva]], a extinção reduz essa frequência porque o [[Reforço|reforço]] previamente disponível deixa de ser fornecido.
 
 ## Contexto clínico
 
@@ -42,7 +42,7 @@ Quando uma resposta deixa repetidamente de produzir o [[Reforço|reforço]] que 
 
 Entretanto, esse processo normalmente não ocorre de maneira linear. Entre os fenômenos frequentemente observados estão:
 
-- explosão de extinção (extinction burst), caracterizada por aumento temporário da frequência ou intensidade do comportamento logo após a retirada do reforço;
+- explosão de extinção (extinction burst), caracterizada por aumento temporário da frequência ou intensidade do comportamento logo após a retirada do [[Reforço|reforço]];
 
 - maior variabilidade comportamental;
 
@@ -68,7 +68,7 @@ Outra simplificação comum é acreditar que basta retirar o [[Reforço|reforço
 
 - presença de outras consequências que continuam mantendo a resposta.
 
-Na prática clínica, também é importante reconhecer que procedimentos baseados exclusivamente em extinção podem gerar frustração tanto para pacientes quanto para profissionais, especialmente durante a explosão de extinção. Por esse motivo, intervenções contemporâneas costumam combinar a retirada do reforço com o fortalecimento de comportamentos alternativos por meio de Reforço.
+Na prática clínica, também é importante reconhecer que procedimentos baseados exclusivamente em extinção podem gerar frustração tanto para pacientes quanto para profissionais, especialmente durante a explosão de extinção. Por esse motivo, intervenções contemporâneas costumam combinar a retirada do [[Reforço|reforço]] com o fortalecimento de comportamentos alternativos por meio de Reforço.
 
 Finalmente, em muitos comportamentos relacionados à alimentação, identificar e eliminar completamente todas as consequências reforçadoras é inviável. Nesses casos, a modificação das contingências ambientais e a construção de novos repertórios comportamentais tendem a ser estratégias mais eficazes do que depender exclusivamente da extinção.
 

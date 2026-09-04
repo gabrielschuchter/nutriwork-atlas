@@ -12,15 +12,15 @@ Em choque, hipóxia ou falência circulatória, lactato elevado pode indicar des
 
 ## Base fisiológica, bioquímica ou epidemiológica
 
-A reação piruvato + NADH + H⁺ ⇌ lactato + NAD⁺ mantém a disponibilidade de NAD⁺ citosólico. O [[ATP]] associado à fermentação é produzido na [[Glicólise|glicólise]] por fosforilação em nível de substrato, não diretamente pela formação de lactato.
+A reação piruvato + NADH + H⁺ ⇌ lactato + NAD⁺ mantém a disponibilidade de NAD⁺ citosólico. O [[ATP]] associado à fermentação é produzido na [[Glicólise|glicólise]] por fosforilação em nível de [[Substrato|substrato]], não diretamente pela formação de lactato.
 
-O lactato pode ser oxidado em outros tecidos ou convertido em glicose no fígado pelo [[Ciclo de Cori]]. Portanto, não é apenas um resíduo metabólico (Gladden, 2004; Brooks, 2018).
+O lactato pode ser oxidado em outros tecidos ou convertido em [[Glicose|glicose]] no fígado pelo [[Ciclo de Cori]]. Portanto, não é apenas um resíduo metabólico (Gladden, 2004; Brooks, 2018).
 
 ## Limitações e controvérsias
 
 Fermentação não deve ser definida apenas como "produção de energia sem oxigênio". Lactato pode ser produzido mesmo com oxigenação adequada, e organismos diferentes apresentam diversos produtos fermentativos.
 
-Lactato não é a causa exclusiva da acidose nem explica sozinho a [[Fadiga muscular|fadiga muscular]]. Robergs e colaboradores (2004) argumentam que a formação de lactato consome prótons e que a acidose decorre de outras reações, sobretudo da hidrólise de [[ATP]]. Lindinger e colaboradores (2005) contestam o tratamento estequiométrico dessa análise e defendem uma abordagem físico-química do equilíbrio ácido-base. A questão permanece em disputa.
+Lactato não é a causa exclusiva da acidose nem explica sozinho a [[Fadiga muscular|fadiga muscular]]. Robergs e colaboradores (2004) argumentam que a formação de lactato consome prótons e que a acidose decorre de outras reações, sobretudo da [[Hidrólise|hidrólise]] de [[ATP]]. Lindinger e colaboradores (2005) contestam o tratamento estequiométrico dessa análise e defendem uma abordagem físico-química do equilíbrio ácido-base. A questão permanece em disputa.
 
 ## Conceitos relacionados
 - [[Glicólise]]

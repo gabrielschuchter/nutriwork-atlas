@@ -2,7 +2,7 @@
 
 ## **Definição**
 
-O ciclo da carnitina é o sistema que transporta ácidos graxos de cadeia longa para a matriz mitocondrial, onde podem sofrer beta-oxidação. Carnitina palmitoiltransferase 1, translocase acilcarnitina-carnitina e carnitina palmitoiltransferase 2 formam os principais componentes.
+O ciclo da carnitina é o sistema que transporta [[Ácidos graxos|ácidos graxos]] de cadeia longa para a matriz mitocondrial, onde podem sofrer [[Beta-oxidação|beta-oxidação]]. Carnitina palmitoiltransferase 1, translocase acilcarnitina-carnitina e carnitina palmitoiltransferase 2 formam os principais componentes.
 
 ## **Contexto clínico**
 
@@ -12,9 +12,9 @@ Medicamentos e doenças renais podem alterar carnitina. Suplementos têm indica�
 
 ## **Base fisiológica, bioquímica ou epidemiológica**
 
-Ácidos graxos são ativados a acil-CoA no citosol. CPT-1 transfere o grupo acil para carnitina; o complexo atravessa a membrana interna pela translocase; CPT-2 regenera acil-CoA na matriz. Carnitina retorna ao espaço intermembrana e participa de novo ciclo.
+[[Ácidos graxos|Ácidos graxos]] são ativados a acil-CoA no citosol. CPT-1 transfere o grupo acil para carnitina; o complexo atravessa a membrana interna pela translocase; CPT-2 regenera acil-CoA na matriz. Carnitina retorna ao espaço intermembrana e participa de novo ciclo.
 
-Malonil-CoA inibe CPT-1 durante lipogênese, impedindo que síntese e oxidação ocorram em fluxo máximo simultaneamente. Em jejum, menor insulina e maior lipólise favorecem entrada mitocondrial e [[Beta-oxidação]].
+Malonil-CoA inibe CPT-1 durante [[Lipogênese|lipogênese]], impedindo que síntese e oxidação ocorram em fluxo máximo simultaneamente. Em jejum, menor [[Insulina|insulina]] e maior [[Lipólise|lipólise]] favorecem entrada mitocondrial e [[Beta-oxidação]].
 
 ## **Limitações e controvérsias**
 

@@ -4,11 +4,11 @@
 
 Segmentação é um padrão de contrações alternadas em segmentos adjacentes do intestino, especialmente no intestino delgado, que mistura o quimo e aumenta seu contato com a mucosa. O deslocamento líquido do conteúdo costuma ser pequeno durante esse padrão.
 
-Ela difere do peristaltismo pela função predominante de mistura. Os dois padrões podem ocorrer na mesma região em momentos diferentes.
+Ela difere do [[Peristaltismo|peristaltismo]] pela função predominante de mistura. Os dois padrões podem ocorrer na mesma região em momentos diferentes.
 
 ## **Contexto clínico**
 
-A segmentação influencia digestão, absorção e exposição do quimo às enzimas e ao epitélio. Alterações de coordenação podem acompanhar distensão, diarreia, constipação, neuropatia autonômica ou efeitos de medicamentos.
+A segmentação influencia digestão, [[Absorção|absorção]] e exposição do quimo às enzimas e ao epitélio. Alterações de coordenação podem acompanhar distensão, diarreia, constipação, neuropatia autonômica ou efeitos de medicamentos.
 
 O nutricionista usa o conceito para interpretar tolerância a volume, distribuição de fibra e sintomas após refeições. A presença de ruídos intestinais ou sua ausência em uma ausculta não quantifica adequadamente a segmentação.
 
@@ -16,13 +16,13 @@ O nutricionista usa o conceito para interpretar tolerância a volume, distribui�
 
 Contrações circulares dividem o conteúdo e o redistribuem para frente e para trás. A atividade é modulada por distensão, composição química, sistema nervoso entérico e hormônios. A mistura mantém nutrientes próximos à camada não agitada junto à mucosa.
 
-Após a digestão, a segmentação favorece encontro de monossacarídeos, aminoácidos e produtos lipídicos com transportadores e enzimas da borda em escova. A progressão distal passa a depender de padrões propulsivos e do estado do cólon.
+Após a digestão, a segmentação favorece encontro de [[Monossacarídeos|monossacarídeos]], [[Aminoácidos|aminoácidos]] e produtos lipídicos com transportadores e enzimas da borda em escova. A progressão distal passa a depender de padrões propulsivos e do estado do cólon.
 
 ## **Limitações e controvérsias**
 
-Modelos didáticos frequentemente apresentam segmentação e peristaltismo como fenômenos exclusivos. No organismo, os padrões se sobrepõem e variam com o segmento, a refeição e o estado de jejum.
+Modelos didáticos frequentemente apresentam segmentação e [[Peristaltismo|peristaltismo]] como fenômenos exclusivos. No organismo, os padrões se sobrepõem e variam com o segmento, a refeição e o estado de jejum.
 
-A velocidade de trânsito não é um marcador direto da qualidade da absorção. Mistura prolongada pode acompanhar absorção adequada ou retenção patológica, conforme a situação.
+A velocidade de trânsito não é um marcador direto da qualidade da [[Absorção|absorção]]. Mistura prolongada pode acompanhar absorção adequada ou retenção patológica, conforme a situação.
 
 ## **Conceitos relacionados**
 

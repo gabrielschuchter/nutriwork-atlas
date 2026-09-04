@@ -34,7 +34,7 @@ Nesse processo, a seleção natural favorece organismos cujas características a
 
 No [[Comportamento alimentar|comportamento alimentar]], a filogênese fornece a base para diversos mecanismos fisiológicos envolvidos na regulação da ingestão, incluindo sistemas neuroendócrinos relacionados à fome, à saciedade e ao processamento de estímulos alimentares.
 
-Contudo, esses mecanismos não atuam isoladamente. O comportamento alimentar observado resulta da interação entre:
+Contudo, esses mecanismos não atuam isoladamente. O [[Comportamento alimentar|comportamento alimentar]] observado resulta da interação entre:
 
 - predisposições herdadas ([[Filogênese]]);
 

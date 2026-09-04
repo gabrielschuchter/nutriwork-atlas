@@ -6,7 +6,7 @@ Teste de interação avalia se o efeito de uma exposição ou tratamento varia c
 
 ## **Contexto clínico**
 
-A interação pode ser relevante quando benefício ou dano muda por idade, gravidade, sexo, biomarcador ou tratamento concomitante. A decisão deve considerar estimativas em cada grupo, intervalos, plausibilidade, risco basal e consequências clínicas.
+A interação pode ser relevante quando benefício ou dano muda por idade, gravidade, sexo, biomarcador ou tratamento concomitante. A decisão deve considerar estimativas em cada grupo, intervalos, plausibilidade, [[Risco basal|risco basal]] e consequências clínicas.
 
 Comparar p-valor de cada subgrupo é inadequado para demonstrar interação. O p da interação e a magnitude das diferenças fornecem informação complementar.
 
@@ -14,7 +14,7 @@ Comparar p-valor de cada subgrupo é inadequado para demonstrar interação. O p
 
 Em escala aditiva, interação avalia diferença de riscos ou efeitos absolutos; em escala multiplicativa, avalia razão de efeitos. Uma variável pode modificar efeito em uma escala e não em outra. A escala deve ser escolhida pela pergunta clínica.
 
-Randomização protege comparação média, mas subgrupos continuam sujeitos a acaso, baixa potência e desequilíbrio. Em estudos observacionais, interação pode ser confundida com modificação aparente por seleção ou erro de mensuração.
+[[Randomização|Randomização]] protege comparação média, mas subgrupos continuam sujeitos a acaso, baixa potência e desequilíbrio. Em estudos observacionais, interação pode ser confundida com modificação aparente por seleção ou erro de mensuração.
 
 ## **Limitações e controvérsias**
 

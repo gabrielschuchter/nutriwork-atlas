@@ -2,7 +2,7 @@
 
 O limiar anaeróbico é a intensidade de exercício a partir da qual a produção de energia por vias anaeróbias passa a contribuir de forma mais acentuada para a ressíntese de [[ATP]], acompanhada por aumento desproporcional da produção de lactato e da ventilação. Embora amplamente utilizado na fisiologia do exercício, o termo não possui uma definição única e seu significado varia conforme o método de mensuração empregado.
 
-Historicamente, foi interpretado como o ponto em que o [[Metabolismo|metabolismo]] deixaria de ser predominantemente aeróbio para tornar-se anaeróbio. Essa interpretação é considerada simplificada e fisiologicamente imprecisa, pois os sistemas aeróbio e anaeróbio contribuem simultaneamente para a produção de ATP em praticamente todas as intensidades de exercício.
+Historicamente, foi interpretado como o ponto em que o [[Metabolismo|metabolismo]] deixaria de ser predominantemente aeróbio para tornar-se anaeróbio. Essa interpretação é considerada simplificada e fisiologicamente imprecisa, pois os sistemas aeróbio e anaeróbio contribuem simultaneamente para a produção de [[ATP|ATP]] em praticamente todas as intensidades de exercício.
 
 Na literatura contemporânea, o termo frequentemente é substituído ou especificado por conceitos como [[Limiar de lactato]], [[Limiar ventilatório]] ou [[Máximo estado estável de lactato]], que representam fenômenos fisiológicos distintos e mensuráveis.
 

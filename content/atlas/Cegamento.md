@@ -6,15 +6,15 @@ Cegamento, ou mascaramento, é a restrição de informação sobre a intervenç�
 
 ## **Contexto clínico**
 
-Duplo-cego não tem definição universal e deve ser substituído pela descrição de quem foi mascarado. Cirurgia, exercício e dietas podem impedir mascaramento completo; avaliação de desfechos objetivos ou avaliadores independentes pode reduzir parte do viés.
+Duplo-cego não tem definição universal e deve ser substituído pela descrição de quem foi mascarado. Cirurgia, exercício e dietas podem impedir mascaramento completo; avaliação de desfechos objetivos ou avaliadores independentes pode reduzir parte do [[Viés|viés]].
 
 Quebra de cegamento, suspeita de alocação e diferença de cuidado concomitante devem ser relatadas. Cegamento inadequado não invalida automaticamente o estudo, mas altera a confiança em cada desfecho.
 
 ## **Base fisiológica, bioquímica ou epidemiológica**
 
-Conhecer a intervenção pode modificar adesão, relato de sintomas, intensidade de acompanhamento e classificação de eventos. Para desfechos subjetivos, esse caminho é importante. Para mortalidade, a influência direta da expectativa é menor, embora perdas e cointervenções ainda importem.
+Conhecer a intervenção pode modificar adesão, relato de sintomas, intensidade de acompanhamento e classificação de eventos. Para desfechos subjetivos, esse caminho é importante. Para [[Mortalidade|mortalidade]], a influência direta da expectativa é menor, embora perdas e cointervenções ainda importem.
 
-O cegamento atua sobre vieses após a randomização. Ele não corrige erro de geração de sequência, [[Viés de seleção]], confundimento em estudo observacional ou falta de representatividade.
+O cegamento atua sobre vieses após a [[Randomização|randomização]]. Ele não corrige erro de geração de sequência, [[Viés de seleção]], [[Confundimento|confundimento]] em estudo observacional ou falta de representatividade.
 
 ## **Limitações e controvérsias**
 

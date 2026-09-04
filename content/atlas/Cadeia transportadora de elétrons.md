@@ -6,7 +6,7 @@ A energia dessa transferência é utilizada para bombear prótons e gerar uma fo
 
 ## Contexto clínico
 
-A interrupção da cadeia reduz a regeneração de NAD⁺ e FAD, compromete vias oxidativas e pode aumentar a formação de espécies reativas de oxigênio. Isso ocorre em hipóxia, intoxicação por determinados agentes e doenças mitocondriais.
+A interrupção da cadeia reduz a regeneração de NAD⁺ e FAD, compromete vias oxidativas e pode aumentar a formação de [[Espécies reativas de oxigênio (EROs)|espécies reativas de oxigênio]]. Isso ocorre em hipóxia, intoxicação por determinados agentes e doenças mitocondriais.
 
 Mutações em componentes codificados pelo DNA nuclear ou mitocondrial podem produzir quadros heterogêneos, frequentemente com envolvimento neurológico e muscular.
 
@@ -16,11 +16,11 @@ Elétrons de NADH entram pelo complexo I, enquanto elétrons provenientes do suc
 
 Os complexos I, III e IV bombeiam prótons. O complexo II transfere elétrons, mas não bombeia prótons.
 
-A cadeia também constitui fonte fisiológica de espécies reativas de oxigênio, especialmente quando o transporte eletrônico está altamente reduzido ou parcialmente bloqueado.
+A cadeia também constitui fonte fisiológica de [[Espécies reativas de oxigênio (EROs)|espécies reativas de oxigênio]], especialmente quando o transporte eletrônico está altamente reduzido ou parcialmente bloqueado.
 
 ## Limitações e controvérsias
 
-Aumento de espécies reativas de oxigênio não implica necessariamente dano. Em níveis e contextos específicos, essas moléculas participam de sinalização celular.
+Aumento de [[Espécies reativas de oxigênio (EROs)|espécies reativas de oxigênio]] não implica necessariamente dano. Em níveis e contextos específicos, essas moléculas participam de sinalização celular.
 
 Também não é adequado avaliar "função mitocondrial" por um único marcador. Respiração, produção de [[ATP]], potencial de membrana, densidade mitocondrial e capacidade de reserva são dimensões diferentes.
 

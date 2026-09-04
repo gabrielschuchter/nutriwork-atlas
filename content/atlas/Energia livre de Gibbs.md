@@ -8,7 +8,7 @@ Uma reação com ΔG negativo é termodinamicamente favorável na direção cons
 
 ## **Contexto clínico**
 
-O conceito aparece na interpretação de produção de ATP, oxidação de nutrientes, equilíbrio ácido-base, transporte de solutos e ação de fármacos sobre vias metabólicas. Ele explica por que uma reação celular pode prosseguir quando é acoplada à hidrólise de ATP ou a uma transferência de elétrons.
+O conceito aparece na interpretação de produção de [[ATP|ATP]], oxidação de nutrientes, equilíbrio ácido-base, transporte de solutos e ação de fármacos sobre vias metabólicas. Ele explica por que uma reação celular pode prosseguir quando é acoplada à [[Hidrólise|hidrólise]] de ATP ou a uma transferência de elétrons.
 
 Na avaliação clínica, a direção termodinâmica de uma reação ajuda a explicar plausibilidade bioquímica. Ela não estima, sozinha, a taxa metabólica, a eficiência do tecido ou a magnitude de uma resposta terapêutica.
 
@@ -16,13 +16,13 @@ Na avaliação clínica, a direção termodinâmica de uma reação ajuda a expl
 
 O valor relevante dentro da célula é o ΔG nas condições reais, que depende das atividades ou concentrações de reagentes e produtos. O ΔG°' é calculado em um estado bioquímico padrão e pode diferir substancialmente do valor celular.
 
-O acoplamento mantém o ΔG total favorável. Na fosforilação oxidativa, a transferência de elétrons para o oxigênio está associada ao bombeamento de prótons e à síntese de ATP. Enzimas alteram a barreira cinética, sem mudar o ΔG entre reagentes e produtos.
+O acoplamento mantém o ΔG total favorável. Na [[Fosforilação oxidativa|fosforilação oxidativa]], a transferência de elétrons para o oxigênio está associada ao bombeamento de prótons e à síntese de [[ATP|ATP]]. Enzimas alteram a barreira cinética, sem mudar o ΔG entre reagentes e produtos.
 
 ## **Limitações e controvérsias**
 
-Uma reação termodinamicamente favorável pode ser lenta quando a barreira de ativação é alta. A observação de ΔG negativo também não prova que a reação seja dominante em um tecido, pois disponibilidade de substrato, compartimentalização e regulação determinam o fluxo.
+Uma reação termodinamicamente favorável pode ser lenta quando a barreira de ativação é alta. A observação de ΔG negativo também não prova que a reação seja dominante em um tecido, pois disponibilidade de [[Substrato|substrato]], compartimentalização e regulação determinam o fluxo.
 
-Valores tabulados não devem ser transferidos diretamente para uma população clínica. Temperatura, pH, força iônica e concentrações locais alteram a estimativa. O conceito não substitui medidas de atividade enzimática ou de desfechos clínicos.
+Valores tabulados não devem ser transferidos diretamente para uma [[População|população]] clínica. Temperatura, pH, força iônica e concentrações locais alteram a estimativa. O conceito não substitui medidas de atividade enzimática ou de desfechos clínicos.
 
 ## **Conceitos relacionados**
 

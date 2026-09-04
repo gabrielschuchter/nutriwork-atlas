@@ -8,21 +8,21 @@ Não existe uma composição única de microbiota saudável. Função, estabilid
 
 ## **Contexto clínico**
 
-Antibióticos, dieta, idade, trânsito, inflamação e doenças modificam a comunidade intestinal. A microbiota é considerada em infecções recorrentes por *C. difficile*, doenças inflamatórias, sintomas funcionais e pesquisas sobre metabolismo.
+Antibióticos, dieta, idade, trânsito, inflamação e doenças modificam a comunidade intestinal. A microbiota é considerada em infecções recorrentes por *C. difficile*, doenças inflamatórias, sintomas funcionais e pesquisas sobre [[Metabolismo|metabolismo]].
 
-Na prática, exame de fezes comercial raramente fornece uma prescrição nutricional individual completa. O resultado deve ser interpretado pela indicação, pelo método, pela qualidade da amostra e pela evidência da intervenção proposta.
+Na prática, exame de fezes comercial raramente fornece uma prescrição nutricional individual completa. O resultado deve ser interpretado pela indicação, pelo método, pela qualidade da [[Amostra|amostra]] e pela evidência da intervenção proposta.
 
 ## **Base fisiológica, bioquímica ou epidemiológica**
 
 Microrganismos fermentam substratos não digeridos e produzem metabólitos como [[Ácidos graxos de cadeia curta (AGCC)]], modificam ácidos biliares e interagem com muco, epitélio e imunidade. O hospedeiro fornece nutrientes, oxigênio em gradientes e sinais que selecionam nichos.
 
-Estudos observacionais encontram associações entre perfis microbianos e obesidade, inflamação ou doença. Experimentos de transferência, intervenção dietética e ensaios clínicos ajudam a separar associação, mediação e causalidade, mas a tradução permanece dependente do contexto.
+Estudos observacionais encontram associações entre perfis microbianos e obesidade, inflamação ou doença. Experimentos de transferência, intervenção dietética e ensaios clínicos ajudam a separar associação, [[Mediação|mediação]] e [[Causalidade|causalidade]], mas a tradução permanece dependente do contexto.
 
 ## **Limitações e controvérsias**
 
-Sequenciamento de fezes mede uma amostra parcial e não descreve necessariamente mucosa, atividade metabólica ou microrganismos vivos. Diferenças de dieta, medicamento, armazenamento e análise podem alterar a composição observada.
+Sequenciamento de fezes mede uma [[Amostra|amostra]] parcial e não descreve necessariamente mucosa, atividade metabólica ou microrganismos vivos. Diferenças de dieta, medicamento, armazenamento e análise podem alterar a composição observada.
 
-Maior diversidade não é automaticamente melhor, e aumentar um gênero bacteriano não garante melhora de sintomas ou prognóstico. Benefícios de probióticos, prebióticos e dietas precisam ser demonstrados por condição, formulação e desfecho.
+Maior diversidade não é automaticamente melhor, e aumentar um gênero bacteriano não garante melhora de sintomas ou prognóstico. Benefícios de [[Probióticos|probióticos]], [[Prebióticos|prebióticos]] e dietas precisam ser demonstrados por condição, formulação e desfecho.
 
 ## **Conceitos relacionados**
 

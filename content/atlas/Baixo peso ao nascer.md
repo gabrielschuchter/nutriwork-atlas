@@ -4,7 +4,7 @@ Baixo peso ao nascer (BPN) é definido pela Organização Mundial da Saúde como
 
 Trata-se de uma classificação antropométrica que identifica recém-nascidos com maior risco biológico, mas não determina a causa do baixo peso.
 
-O conceito não é sinônimo de [[Restrição de crescimento intrauterino]], [[Prematuridade e nutrição]] ou pequeno para idade gestacional.
+O conceito não é sinônimo de [[Restrição de crescimento intrauterino]], [[Prematuridade e nutrição]] ou [[Pequeno para idade gestacional (PIG)|pequeno para idade gestacional]].
 
 ## Contexto clínico
 
@@ -40,7 +40,7 @@ Por ser baseado exclusivamente no peso corporal, o conceito possui baixa especif
 
 Recém-nascidos com o mesmo peso podem apresentar condições clínicas muito diferentes.
 
-Além disso, nem todas as associações observadas entre BPN e doenças futuras necessariamente refletem causalidade direta, podendo existir influência de fatores genéticos, ambientais e socioeconômicos compartilhados.
+Além disso, nem todas as associações observadas entre BPN e doenças futuras necessariamente refletem [[Causalidade|causalidade]] direta, podendo existir influência de fatores genéticos, ambientais e socioeconômicos compartilhados.
 
 ## Conceitos relacionados
 - [[Restrição de crescimento intrauterino]]

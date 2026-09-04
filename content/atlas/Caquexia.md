@@ -1,6 +1,6 @@
 ## Definição
 
-Caquexia é uma síndrome metabólica associada a doenças subjacentes caracterizada por perda involuntária de peso, redução de massa muscular e alterações metabólicas que não são completamente revertidas apenas pela oferta nutricional convencional. O consenso internacional liderado por Fearon e colaboradores define a condição por critérios que incluem perda ponderal, baixo IMC e/ou [[Sarcopenia|sarcopenia]] em contexto de doença crônica. O conceito difere de desnutrição simples, jejum prolongado ou anorexia isolada.
+Caquexia é uma [[Síndrome metabólica|síndrome metabólica]] associada a doenças subjacentes caracterizada por perda involuntária de peso, redução de massa muscular e alterações metabólicas que não são completamente revertidas apenas pela oferta nutricional convencional. O consenso internacional liderado por Fearon e colaboradores define a condição por critérios que incluem perda ponderal, baixo IMC e/ou [[Sarcopenia|sarcopenia]] em contexto de doença crônica. O conceito difere de desnutrição simples, jejum prolongado ou anorexia isolada.
 
 ## Contexto clínico
 
@@ -14,7 +14,7 @@ A fisiopatologia envolve interação entre inflamação sistêmica, alterações
 
 Apesar de décadas de pesquisa, ainda existe dificuldade em estabelecer critérios diagnósticos uniformes e operacionalizáveis na rotina clínica. Muitos estudos utilizam definições diferentes, dificultando comparação entre populações e intervenções. Além disso, os limites entre caquexia, [[Desnutrição relacionada à doença|desnutrição relacionada à doença]] e [[Sarcopenia|sarcopenia]] associada ao envelhecimento nem sempre são claramente definidos.
 
-Outra questão importante é a interpretação do papel da terapia nutricional. Embora suporte nutricional adequado seja parte do manejo, a evidência disponível não sustenta a conclusão de que aumento isolado da ingestão energética seja suficiente para reverter a síndrome na maioria dos casos. A fisiopatologia envolve alterações metabólicas complexas que frequentemente persistem apesar da correção parcial do balanço energético. Muitos tratamentos promissores em estudos mecanísticos produziram resultados inconsistentes quando avaliados em desfechos clínicos relevantes.
+Outra questão importante é a interpretação do papel da terapia nutricional. Embora suporte nutricional adequado seja parte do manejo, a evidência disponível não sustenta a conclusão de que aumento isolado da ingestão energética seja suficiente para reverter a síndrome na maioria dos casos. A fisiopatologia envolve alterações metabólicas complexas que frequentemente persistem apesar da correção parcial do [[Balanço energético|balanço energético]]. Muitos tratamentos promissores em estudos mecanísticos produziram resultados inconsistentes quando avaliados em desfechos clínicos relevantes.
 ## Conceitos relacionados
 - [[Catabolismo]]
 - [[Desnutrição relacionada à doença]]

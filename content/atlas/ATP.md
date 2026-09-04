@@ -1,8 +1,8 @@
 ## Definição
 
-O trifosfato de adenosina (ATP) é um nucleotídeo formado por adenina, ribose e três grupos fosfato. Atua como intermediário central no acoplamento entre reações que liberam energia livre e processos que exigem energia, como biossíntese, transporte ativo, contração muscular e manutenção de gradientes iônicos.
+O trifosfato de adenosina (ATP) é um nucleotídeo formado por adenina, ribose e três grupos fosfato. Atua como intermediário central no acoplamento entre reações que liberam energia livre e processos que exigem energia, como biossíntese, [[Transporte ativo|transporte ativo]], contração muscular e manutenção de gradientes iônicos.
 
-A expressão "moeda energética" é útil, mas incompleta. O ATP não armazena energia por causa de uma "ligação de alta energia" isolada; a hidrólise é favorável porque os produtos apresentam maior estabilização por ressonância, hidratação e redução da repulsão eletrostática. O ATP também funciona como substrato de fosforilação e precursor de moléculas sinalizadoras.
+A expressão "moeda energética" é útil, mas incompleta. O ATP não armazena energia por causa de uma "ligação de alta energia" isolada; a [[Hidrólise|hidrólise]] é favorável porque os produtos apresentam maior estabilização por ressonância, hidratação e redução da repulsão eletrostática. O ATP também funciona como [[Substrato|substrato]] de fosforilação e precursor de moléculas sinalizadoras.
 
 ## Contexto clínico
 
@@ -12,9 +12,9 @@ Na [[Nutrição|nutrição]] e no exercício, não se deve interpretar o ATP mus
 
 ## Base fisiológica, bioquímica ou epidemiológica
 
-A hidrólise de ATP pode produzir [[ADP]] e fosfato inorgânico ou [[AMP]] e pirofosfato. O sentido e a magnitude do acoplamento dependem das concentrações reais de reagentes e produtos, do compartimento celular e da energia livre da reação associada.
+A [[Hidrólise|hidrólise]] de ATP pode produzir [[ADP]] e fosfato inorgânico ou [[AMP]] e pirofosfato. O sentido e a magnitude do acoplamento dependem das concentrações reais de reagentes e produtos, do compartimento celular e da energia livre da reação associada.
 
-O ATP é formado principalmente por fosforilação em nível de substrato e [[Fosforilação oxidativa|fosforilação oxidativa]]. Sua transferência entre compartimentos mitocondriais e citosólicos depende de transportadores específicos.
+O ATP é formado principalmente por fosforilação em nível de [[Substrato|substrato]] e [[Fosforilação oxidativa|fosforilação oxidativa]]. Sua transferência entre compartimentos mitocondriais e citosólicos depende de transportadores específicos.
 
 ## Limitações e controvérsias
 

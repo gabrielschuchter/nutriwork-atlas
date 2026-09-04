@@ -8,7 +8,7 @@ A lactogênese é geralmente dividida em três fases:
 
 - Lactogênese II (ativação secretora): ocorre após o parto, geralmente entre o segundo e quinto dia pós-nascimento, quando a queda da progesterona após a expulsão da placenta permite aumento significativo da produção de leite.
 
-- Lactogênese III ([[Galactopoiese]] ou manutenção da lactação): corresponde à fase de manutenção da produção de leite após seu estabelecimento. Nessa etapa, a produção deixa de depender predominantemente das alterações hormonais do pós-parto e passa a ser regulada principalmente pela remoção frequente e eficaz do leite. Quanto mais o bebê mama (ou quanto mais leite é retirado por ordenha), maior é o estímulo para a síntese de leite, caracterizando um mecanismo de oferta e demanda. Além disso, hormônios como a prolactina, responsável pela síntese do leite, e a [[Ocitocina]], responsável pela ejeção do leite, continuam desempenhando papel importante, juntamente com mecanismos locais da mama, como o [[Feedback Inhibitor of Lactation (FIL)]], que reduz a produção quando o leite permanece acumulado nos alvéolos.
+- Lactogênese III ([[Galactopoiese]] ou manutenção da lactação): corresponde à fase de manutenção da produção de leite após seu estabelecimento. Nessa etapa, a produção deixa de depender predominantemente das alterações hormonais do pós-parto e passa a ser regulada principalmente pela remoção frequente e [[Eficaz|eficaz]] do leite. Quanto mais o bebê mama (ou quanto mais leite é retirado por ordenha), maior é o estímulo para a síntese de leite, caracterizando um mecanismo de oferta e demanda. Além disso, hormônios como a prolactina, responsável pela síntese do leite, e a [[Ocitocina]], responsável pela ejeção do leite, continuam desempenhando papel importante, juntamente com mecanismos locais da mama, como o [[Feedback Inhibitor of Lactation (FIL)]], que reduz a produção quando o leite permanece acumulado nos alvéolos.
 
 Embora algumas classificações utilizem lactogênese III como sinônimo de galactopoiese, outros autores reservam o termo lactogênese principalmente para as fases de aquisição da capacidade secretora. A distinção depende da fonte utilizada.
 
@@ -62,13 +62,13 @@ A lactogênese resulta da interação entre desenvolvimento mamário, hormônios
 
 Durante a gestação, a ação combinada de estrogênio, progesterona, prolactina e lactogênio placentário humano promove crescimento lóbulo-alveolar e diferenciação das células epiteliais mamárias.
 
-Nesse período, a mama já consegue sintetizar alguns componentes do leite, incluindo proteínas específicas e lactose. Entretanto, a elevada concentração de progesterona produzida pela placenta exerce efeito inibitório sobre a secreção abundante.
+Nesse período, a mama já consegue sintetizar alguns componentes do leite, incluindo [[Proteínas|proteínas]] específicas e lactose. Entretanto, a elevada concentração de progesterona produzida pela placenta exerce efeito inibitório sobre a secreção abundante.
 
 - Lactogênese II: ativação secretora após o parto
 
 Após a saída da placenta ocorre queda abrupta da progesterona, mantendo-se níveis elevados de prolactina. Essa mudança hormonal permite ativação intensa das células secretoras.
 
-A prolactina estimula: síntese de lactose, produção de proteínas do leite, síntese de lipídios, atividade secretora dos alvéolos mamários.
+A prolactina estimula: síntese de lactose, produção de [[Proteínas|proteínas]] do leite, síntese de [[Lipídios|lipídios]], atividade secretora dos alvéolos mamários.
 
 A produção inicial depende também da remoção frequente do leite. A sucção pelo recém-nascido estimula liberação de prolactina e ocitocina, estabelecendo o eixo neuroendócrino da lactação.
 
@@ -76,7 +76,7 @@ A produção inicial depende também da remoção frequente do leite. A sucção
 
 Após o estabelecimento da lactação, a produção passa a depender fortemente da relação entre oferta e remoção do leite. A retirada frequente reduz mecanismos locais inibitórios e mantém estímulo para síntese, sendo que, quando o leite permanece acumulado por períodos prolongados, fatores locais podem reduzir a atividade secretora. Esse modelo explica por que a produção de leite não é determinada apenas pela quantidade de tecido glandular desenvolvido durante a gestação.
 
-A evidência fisiológica sobre os mecanismos hormonais da lactogênese é consistente. Entretanto, a magnitude do efeito de fatores individuais sobre falha ou atraso da lactação varia, e muitos estudos apresentam limitações por diferenças de definição, população e métodos de avaliação da produção láctea.
+A evidência fisiológica sobre os mecanismos hormonais da lactogênese é consistente. Entretanto, a magnitude do efeito de fatores individuais sobre falha ou atraso da lactação varia, e muitos estudos apresentam limitações por diferenças de definição, [[População|população]] e métodos de avaliação da produção láctea.
 
 ## Limitações e controvérsias
 
@@ -98,7 +98,7 @@ Também é inadequado interpretar qualquer atraso percebido na “descida do lei
 
 - Crescimento infantil.
 
-A literatura apresenta heterogeneidade na definição de “lactogênese tardia”. Alguns estudos utilizam critérios baseados em percepção materna, enquanto outros utilizam marcadores clínicos ou volume de leite produzido, o que dificulta a comparação entre os resultados.
+A literatura apresenta [[Heterogeneidade|heterogeneidade]] na definição de “lactogênese tardia”. Alguns estudos utilizam critérios baseados em percepção materna, enquanto outros utilizam marcadores clínicos ou volume de leite produzido, o que dificulta a comparação entre os resultados.
 
 Mecanismos hormonais propostos, como alterações na prolactina ou sensibilidade dos receptores hormonais, são biologicamente plausíveis, mas nem sempre explicam completamente as diferenças individuais na lactação.
 

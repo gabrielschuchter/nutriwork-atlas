@@ -12,15 +12,15 @@ Portanto, PIG não é sinônimo de [[Restrição de crescimento intrauterino|Res
 
 A diferença conceitual é:
 
-PIG: classificação baseada no tamanho ao nascimento em relação à idade gestacional.
+PIG: classificação baseada no tamanho ao nascimento em relação à [[Idade gestacional|idade gestacional]].
 
 RCIU: processo patológico em que o feto não atingiu seu potencial de crescimento devido a fatores maternos, fetais ou placentários. Esses fetos apresentam peso entre o percentil 3 e o percentil 10, associado a alterações do Doppler ou fetos que apresentam o percentil abaixo do 3.
 
 O conceito também deve ser diferenciado de:
 
-- [[Baixo peso ao nascer]]: caracteriza-se pelo nascimento de crianças com peso inferior a 2.500 g, independentemente da idade gestacional. O peso ao nascer é considerado um importante indicador das condições de saúde do recém-nascido e está associado a maior risco de morbimortalidade neonatal e infantil. O baixo peso pode estar relacionado à prematuridade, à restrição do crescimento intrauterino ou à combinação de ambos.
+- [[Baixo peso ao nascer]]: caracteriza-se pelo nascimento de crianças com peso inferior a 2.500 g, independentemente da [[Idade gestacional|idade gestacional]]. O peso ao nascer é considerado um importante indicador das condições de saúde do recém-nascido e está associado a maior risco de morbimortalidade neonatal e infantil. O baixo peso pode estar relacionado à prematuridade, à restrição do crescimento intrauterino ou à combinação de ambos.
 
-- Prematuridade: caracteriza-se pelo nascimento ocorrido antes de serem completadas 37 semanas de gestação. Segundo o Ministério da Saúde, os recém-nascidos prematuros podem ser classificados conforme a idade gestacional em prematuridade extrema (22 a < 28 semanas), severa (28 a < 32 semanas) e moderada a tardia (32 a < 37 semanas). A prematuridade está relacionada à imaturidade de órgãos e sistemas, podendo aumentar o risco de complicações respiratórias, cardíacas, gastrointestinais, imunológicas, oculares, auditivas e neurológicas.
+- Prematuridade: caracteriza-se pelo nascimento ocorrido antes de serem completadas 37 semanas de gestação. Segundo o Ministério da Saúde, os recém-nascidos prematuros podem ser classificados conforme a [[Idade gestacional|idade gestacional]] em prematuridade extrema (22 a < 28 semanas), severa (28 a < 32 semanas) e moderada a tardia (32 a < 37 semanas). A prematuridade está relacionada à imaturidade de órgãos e sistemas, podendo aumentar o risco de complicações respiratórias, cardíacas, gastrointestinais, imunológicas, oculares, auditivas e neurológicas.
 
 ## Contexto clínico
 
@@ -76,13 +76,13 @@ O crescimento fetal depende da interação entre:
 
 - Condições metabólicas maternas.
 
-A placenta possui papel central porque regula a transferência de glicose, aminoácidos, ácidos graxos, oxigênio e micronutrientes. Logo, quando há comprometimento da função placentária, pode ocorrer redução do aporte fetal, levando à [[Adaptação metabólica|adaptação metabólica]] e alteração do crescimento.
+A placenta possui papel central porque regula a transferência de [[Glicose|glicose]], [[Aminoácidos|aminoácidos]], [[Ácidos graxos|ácidos graxos]], oxigênio e micronutrientes. Logo, quando há comprometimento da função placentária, pode ocorrer redução do aporte fetal, levando à [[Adaptação metabólica|adaptação metabólica]] e alteração do crescimento.
 
 Entre fatores associados ao nascimento PIG estão:
 
 - Fatores maternos
 
-- Mal estado nutricional pré-gestacional;
+- Mal [[Estado nutricional|estado nutricional]] pré-gestacional;
 
 - [[Ganho de peso gestacional]] insuficiente;
 
@@ -118,7 +118,7 @@ Estudos epidemiológicos associam nascimento PIG a maior risco de:
 
 - Hipertensão;
 
-- Resistência à insulina;
+- [[Resistência à insulina|Resistência à insulina]];
 
 - Doença cardiovascular.
 

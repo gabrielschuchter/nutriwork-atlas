@@ -12,7 +12,7 @@ A fisiopatologia está centrada na baixa [[Disponibilidade Energética|disponibi
 
 ## Limitações e controvérsias
 
-Apesar da ampla aceitação do modelo conceitual, persistem controvérsias sobre critérios diagnósticos, prevalência e limites entre adaptação fisiológica ao treinamento intenso e doença clinicamente relevante. Muitos componentes da síndrome apresentam baixa especificidade e podem ocorrer por razões independentes da [[Disponibilidade Energética|disponibilidade energética]]. Isso dificulta a padronização diagnóstica entre estudos e serviços clínicos.
+Apesar da ampla aceitação do modelo conceitual, persistem controvérsias sobre critérios diagnósticos, prevalência e limites entre adaptação fisiológica ao treinamento intenso e doença [[Clinicamente relevante|clinicamente relevante]]. Muitos componentes da síndrome apresentam baixa especificidade e podem ocorrer por razões independentes da [[Disponibilidade Energética|disponibilidade energética]]. Isso dificulta a padronização diagnóstica entre estudos e serviços clínicos.
 
 Outra limitação importante é que parte da literatura utiliza marcadores hormonais ou ósseos intermediários como substitutos de desfechos clínicos. Embora exista plausibilidade biológica para o modelo proposto, a força da evidência varia entre os diferentes sistemas fisiológicos incluídos no constructo RED-S. Algumas associações possuem suporte experimental consistente, enquanto outras permanecem baseadas principalmente em inferência fisiológica e estudos observacionais.
 

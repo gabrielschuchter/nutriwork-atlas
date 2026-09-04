@@ -6,21 +6,21 @@ Frutose é um monossacarídeo encontrado em frutas, mel, sacarose e produtos ado
 
 ## **Contexto clínico**
 
-Má absorção de frutose pode causar dor, distensão, flatulência e diarreia quando a capacidade de absorção é excedida. Sintomas dependem da dose, da presença de glicose e de outros componentes da refeição. A frutose também aparece em bebidas e alimentos ultraprocessados, cuja ingestão frequente pode aumentar a densidade energética sem produzir saciedade proporcional.
+Má [[Absorção|absorção]] de frutose pode causar dor, distensão, flatulência e diarreia quando a capacidade de absorção é excedida. Sintomas dependem da dose, da presença de [[Glicose|glicose]] e de outros componentes da refeição. A frutose também aparece em bebidas e alimentos ultraprocessados, cuja ingestão frequente pode aumentar a densidade energética sem produzir saciedade proporcional.
 
-Em pessoas com diabetes, a frutose costuma produzir menor elevação imediata da glicemia do que quantidade isocalórica de glicose. Esse resultado agudo não demonstra vantagem metabólica global: o balanço energético, os triglicerídeos, a gordura hepática e a matriz alimentar continuam relevantes.
+Em pessoas com diabetes, a frutose costuma produzir menor elevação imediata da glicemia do que quantidade isocalórica de [[Glicose|glicose]]. Esse resultado agudo não demonstra vantagem metabólica global: o [[Balanço energético|balanço energético]], os [[Triglicerídeos|triglicerídeos]], a gordura hepática e a matriz alimentar continuam relevantes.
 
 ## **Base fisiológica, bioquímica ou epidemiológica**
 
-[[GLUT5]] transporta frutose no polo apical do enterócito; a saída basolateral envolve principalmente GLUT2. A capacidade de transporte varia ao longo do intestino e pode ser influenciada pela presença de glicose. A frutose absorvida chega ao fígado e entra em vias que contornam etapas regulatórias importantes da glicólise, formando trioses fosfato.
+[[GLUT5]] transporta frutose no polo apical do enterócito; a saída basolateral envolve principalmente [[GLUT2|GLUT2]]. A capacidade de transporte varia ao longo do intestino e pode ser influenciada pela presença de [[Glicose|glicose]]. A frutose absorvida chega ao fígado e entra em vias que contornam etapas regulatórias importantes da [[Glicólise|glicólise]], formando trioses fosfato.
 
-Em ensaios controlados, o efeito depende da comparação e do balanço energético: quando a frutose foi acrescentada em excesso calórico e em doses altas, metanálises observaram aumento de triglicerídeos e gordura intra-hepática; na troca isocalórica por outros carboidratos, esses efeitos não foram consistentes. Estudos observacionais de bebidas açucaradas também associam consumo a obesidade e diabetes, porém há confundimento por padrão alimentar e comportamento. A inferência mais segura considera dose, fonte e substituição dietética.
+Em ensaios controlados, o efeito depende da comparação e do [[Balanço energético|balanço energético]]: quando a frutose foi acrescentada em excesso calórico e em doses altas, metanálises observaram aumento de [[Triglicerídeos|triglicerídeos]] e gordura intra-hepática; na troca isocalórica por outros [[Carboidratos|carboidratos]], esses efeitos não foram consistentes. Estudos observacionais de bebidas açucaradas também associam consumo a obesidade e diabetes, porém há [[Confundimento|confundimento]] por padrão alimentar e comportamento. A inferência mais segura considera dose, fonte e substituição dietética.
 
 ## **Limitações e controvérsias**
 
-A expressão “açúcar da fruta” mistura frutose em frutas inteiras com frutose em bebidas e xaropes. Evidência de solução açucarada ou sobrealimentação não pode ser aplicada diretamente a porções usuais de fruta. A redução de frutose pode aliviar sintomas de má absorção sem justificar exclusão universal.
+A expressão “açúcar da fruta” mistura frutose em frutas inteiras com frutose em bebidas e xaropes. Evidência de solução açucarada ou sobrealimentação não pode ser aplicada diretamente a porções usuais de fruta. A redução de frutose pode aliviar sintomas de má [[Absorção|absorção]] sem justificar exclusão universal.
 
-Testes respiratórios e dietas de eliminação têm limitações de reprodutibilidade. Sintomas podem refletir fermentação de outros carboidratos, hipersensibilidade visceral ou síndrome do intestino irritável.
+Testes respiratórios e dietas de eliminação têm limitações de reprodutibilidade. Sintomas podem refletir [[Fermentação|fermentação]] de outros [[Carboidratos|carboidratos]], hipersensibilidade visceral ou síndrome do intestino irritável.
 
 ## **Conceitos relacionados**
 

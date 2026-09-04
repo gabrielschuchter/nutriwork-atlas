@@ -2,13 +2,17 @@ import http from "node:http"
 import handler from "serve-handler"
 import { existsSync } from "node:fs"
 import identify from "../api/atlas-identify.js"
+import suggestions from "../api/atlas-suggestions.js"
 
 if (existsSync(".env.local")) process.loadEnvFile(".env.local")
 const port = Number(process.env.PORT || 4321)
 http
   .createServer((req, res) => {
-    if (new URL(req.url, "http://localhost").pathname === "/api/atlas-identify") {
+    const pathname = new URL(req.url, "http://localhost").pathname
+    if (pathname === "/api/atlas-identify") {
       void identify(req, res)
+    } else if (pathname === "/api/atlas-suggestions") {
+      void suggestions(req, res)
     } else {
       void handler(req, res, { public: "public", cleanUrls: true })
     }

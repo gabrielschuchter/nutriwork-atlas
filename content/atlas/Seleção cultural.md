@@ -2,7 +2,7 @@
 
 Seleção cultural é o processo pelo qual práticas comportamentais compartilhadas por um grupo são mantidas, modificadas ou abandonadas em função de suas consequências para a coletividade. No modelo de seleção por consequências proposto por Skinner, constitui o terceiro nível de seleção, complementando a [[Filogênese]] e a [[Ontogênese]].
 
-Enquanto a filogênese atua sobre características da espécie e a ontogênese sobre o repertório comportamental do indivíduo, a seleção cultural opera sobre práticas sociais, normas, instituições e formas de organização coletiva que influenciam o comportamento humano ao longo das gerações.
+Enquanto a [[Filogênese|filogênese]] atua sobre características da espécie e a [[Ontogênese|ontogênese]] sobre o repertório comportamental do indivíduo, a seleção cultural opera sobre práticas sociais, normas, instituições e formas de organização coletiva que influenciam o comportamento humano ao longo das gerações.
 
 Na [[Análise do comportamento|Análise do Comportamento]], a cultura não é tratada como uma entidade abstrata ou causal, mas como um conjunto de contingências sociais que favorecem a manutenção de determinados padrões comportamentais dentro de uma comunidade.
 

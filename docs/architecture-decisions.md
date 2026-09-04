@@ -47,15 +47,19 @@ O gate atual calcula SHA-256 no navegador e guarda apenas o hash configurado no 
 
 A identificação por e-mail acrescenta apenas uma função Vercel e um Apps Script para registrar visitas numa planilha privada, antes do gate. Não valida assinatura nem propriedade do endereço e não substitui a senha. Credenciais e endereço do webhook são exclusivamente server-side. A sessão da senha existente é preservada após a confirmação de registro de um usuário já identificado. Contratos de contagem, falha e configuração estão em `docs/email-identification.md`.
 
-## 9. Conteúdo científico não é código de interface
+## 9. Roadmap público e sugestões
+
+A rota `/roadmap` é uma superfície pública secundária, renderizada pelo mesmo `AtlasFrame` e sem carregar o índice do grafo ou exigir o gate do Atlas. Os itens são versionados em `roadmap.ts`; não há CMS, painel ou publicação automática de sugestões. O formulário envia para `/api/atlas-suggestions`, que reutiliza o webhook do Apps Script e grava na aba privada `Sugestões` da planilha `Atlas — Identificação e acessos`. Validação same-origin, limite efêmero por IP, bloqueio de duplo clique no cliente e `submission_id` com cache no Apps Script fornecem proteção proporcional sem criar conta ou fricção.
+
+## 10. Conteúdo científico não é código de interface
 
 `content/atlas/*.md` permanece somente leitura. A classificação de áreas e o índice são derivados fora das notas. Wikilinks sem arquivo publicado viram nós de desenvolvimento, com estado e visual distintos, sem criar uma segunda lista manual e sem inventar conteúdo científico. A ausência da nota continua explícita no estado de leitura.
 
-## 10. Gates atuais
+## 11. Gates atuais
 
 As mudanças devem passar por typecheck, Prettier, testes, build, `npm run vault:check`, auditoria do diff e navegador em desktop/mobile. Publicação, commit e push são etapas separadas e exigem solicitação explícita.
 
-## 11. A interação touch é uma camada própria
+## 12. A interação touch é uma camada própria
 
 O canvas mantém o motor customizado do Atlas, mas mouse e touch seguem contratos diferentes. Touch usa uma máquina explícita (`idle`, `tapCandidate`, `pan`, `pinch`): um dedo sobre área vazia navega, um tap curto em node abre o conceito, nodes não são arrastados diretamente e dois dedos cancelam tap/drag antes de ativar a pinça.
 

@@ -14,7 +14,7 @@ A fisiopatologia varia conforme a doença subjacente. Em alguns cenários predom
 
 A principal controvérsia envolve os critérios diagnósticos. Diferentes sistemas classificatórios coexistiram por décadas, dificultando comparação entre estudos e populações. Mais recentemente, o consenso da Global Leadership Initiative on Malnutrition buscou harmonizar definições, mas questões relacionadas à implementação prática e aos pontos de corte permanecem em discussão.
 
-Outra limitação importante é a tendência de tratar todos os casos de desnutrição como equivalentes. Pacientes com baixa ingestão alimentar isolada podem responder de forma diferente daqueles com intensa atividade inflamatória sistêmica. Além disso, parte da literatura utiliza desfechos substitutos, como ganho de peso ou aumento da ingestão energética, sem demonstração consistente de benefícios proporcionais em funcionalidade, complicações clínicas ou mortalidade. A extrapolação de resultados obtidos em populações hospitalizadas para cenários ambulatoriais também deve ser feita com cautela.
+Outra limitação importante é a tendência de tratar todos os casos de desnutrição como equivalentes. Pacientes com baixa ingestão alimentar isolada podem responder de forma diferente daqueles com intensa atividade inflamatória sistêmica. Além disso, parte da literatura utiliza desfechos substitutos, como ganho de peso ou aumento da ingestão energética, sem demonstração consistente de benefícios proporcionais em funcionalidade, complicações clínicas ou [[Mortalidade|mortalidade]]. A extrapolação de resultados obtidos em populações hospitalizadas para cenários ambulatoriais também deve ser feita com cautela.
 
 ## Conceitos relacionados
 - [[Caquexia]]

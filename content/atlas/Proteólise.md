@@ -2,19 +2,19 @@
 
 ## **Definição**
 
-Proteólise é a clivagem de ligações peptídicas por proteases, produzindo peptídeos menores e aminoácidos. O processo ocorre na digestão, no turnover celular, na ativação de zimogênios e na regulação de proteínas. A especificidade da protease e o ambiente determinam quais ligações são hidrolisadas.
+Proteólise é a clivagem de ligações peptídicas por proteases, produzindo peptídeos menores e [[Aminoácidos|aminoácidos]]. O processo ocorre na digestão, no turnover celular, na ativação de zimogênios e na regulação de [[Proteínas|proteínas]]. A especificidade da protease e o ambiente determinam quais ligações são hidrolisadas.
 
 ## **Contexto clínico**
 
-Pepsina inicia a digestão gástrica; tripsina, quimotripsina e carboxipeptidases continuam no intestino delgado. Proteólise insuficiente pode reduzir absorção e ocorrer em insuficiência pancreática ou perda de superfície intestinal. Proteólise excessiva participa de perda muscular, inflamação e lesão tecidual em doenças específicas.
+[[Pepsina|Pepsina]] inicia a digestão gástrica; [[Tripsina|tripsina]], [[Quimotripsina|quimotripsina]] e carboxipeptidases continuam no intestino delgado. Proteólise insuficiente pode reduzir [[Absorção|absorção]] e ocorrer em insuficiência pancreática ou perda de superfície intestinal. Proteólise excessiva participa de perda muscular, inflamação e lesão tecidual em doenças específicas.
 
 Enzimas séricas podem indicar dano ou ativação de vias, porém não medem diretamente a proteólise total do organismo. Sintomas de má digestão exigem investigação da causa.
 
 ## **Base fisiológica, bioquímica ou epidemiológica**
 
-O ácido gástrico desnatura proteínas e converte pepsinogênio em [[Pepsina]]. No duodeno, enteropeptidase ativa tripsinogênio; [[Tripsina]] ativa outros zimogênios pancreáticos. Peptidases da borda em escova e do enterócito finalizam a hidrólise para absorção.
+O ácido gástrico desnatura [[Proteínas|proteínas]] e converte pepsinogênio em [[Pepsina]]. No duodeno, enteropeptidase ativa tripsinogênio; [[Tripsina]] ativa outros zimogênios pancreáticos. Peptidases da borda em escova e do enterócito finalizam a [[Hidrólise|hidrólise]] para [[Absorção|absorção]].
 
-No interior da célula, sistemas lisossomais e o proteassoma ubiquitina-dependente degradam proteínas danificadas ou dispensáveis. Os aminoácidos retornam ao pool e podem alimentar [[Síntese proteica muscular]], síntese de outras proteínas ou [[Catabolismo de aminoácidos]].
+No interior da célula, sistemas lisossomais e o proteassoma ubiquitina-dependente degradam [[Proteínas|proteínas]] danificadas ou dispensáveis. Os [[Aminoácidos|aminoácidos]] retornam ao pool e podem alimentar [[Síntese proteica muscular]], síntese de outras proteínas ou [[Catabolismo de aminoácidos]].
 
 ## **Limitações e controvérsias**
 

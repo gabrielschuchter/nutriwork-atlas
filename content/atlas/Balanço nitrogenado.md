@@ -2,7 +2,7 @@
 
 ## **Definição**
 
-Balanço nitrogenado é a diferença entre a quantidade de nitrogênio ingerida e a quantidade eliminada, principalmente pela urina, fezes e perdas cutâneas. Balanço positivo sugere retenção líquida; balanço negativo indica perda líquida. O cálculo é uma estimativa do metabolismo proteico corporal, não uma medição direta de músculo.
+Balanço nitrogenado é a diferença entre a quantidade de nitrogênio ingerida e a quantidade eliminada, principalmente pela urina, fezes e perdas cutâneas. Balanço positivo sugere retenção líquida; balanço negativo indica perda líquida. O cálculo é uma estimativa do [[Metabolismo|metabolismo]] proteico corporal, não uma medição direta de músculo.
 
 ## **Contexto clínico**
 
@@ -12,9 +12,9 @@ O método pode apoiar avaliação de suporte nutricional, mas requer estimativa 
 
 ## **Base fisiológica, bioquímica ou epidemiológica**
 
-Proteínas contêm nitrogênio em grupos amino. Durante turnover e [[Catabolismo de aminoácidos]], o nitrogênio é transferido por [[Transaminação]], liberado por [[Desaminação]] e convertido em ureia no [[Ciclo da ureia]]. O esqueleto de carbono segue rotas energéticas e não é representado pelo balanço nitrogenado.
+[[Proteínas|Proteínas]] contêm nitrogênio em grupos amino. Durante turnover e [[Catabolismo de aminoácidos]], o nitrogênio é transferido por [[Transaminação]], liberado por [[Desaminação]] e convertido em ureia no [[Ciclo da ureia]]. O esqueleto de carbono segue rotas energéticas e não é representado pelo balanço nitrogenado.
 
-Um balanço positivo exige substrato, energia, estímulo fisiológico e síntese proteica funcional. A simples elevação da oferta proteica não garante retenção quando inflamação, hipoperfusão ou insuficiência orgânica limitam o anabolismo.
+Um balanço positivo exige [[Substrato|substrato]], energia, estímulo fisiológico e síntese proteica funcional. A simples elevação da oferta proteica não garante retenção quando inflamação, hipoperfusão ou insuficiência orgânica limitam o [[Anabolismo|anabolismo]].
 
 ## **Limitações e controvérsias**
 

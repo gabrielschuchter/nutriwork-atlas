@@ -4,7 +4,7 @@ Evento aversivo é um estímulo ou condição ambiental cuja apresentação tend
 
 O caráter aversivo de um estímulo depende da história de aprendizagem, das [[Operações motivadoras]] e do contexto em que ocorre. Assim, um mesmo evento pode funcionar como aversivo para um indivíduo e ser neutro — ou até apetitivo — para outro.
 
-É importante distinguir evento aversivo de [[Consequência punitiva]]. Um evento aversivo pode participar de processos de [[Punição|punição]], mas também pode estar envolvido em processos de reforço negativo, além de poder ocorrer independentemente de qualquer contingência comportamental.
+É importante distinguir evento aversivo de [[Consequência punitiva]]. Um evento aversivo pode participar de processos de [[Punição|punição]], mas também pode estar envolvido em processos de [[Reforço|reforço]] negativo, além de poder ocorrer independentemente de qualquer contingência comportamental.
 
 ## Contexto clínico
 
@@ -26,7 +26,7 @@ Exemplos incluem:
 
 - ambientes considerados hostis para realizar refeições.
 
-Esses eventos podem favorecer comportamentos de fuga ou esquiva. Um paciente com disfagia pode evitar determinados alimentos para reduzir o desconforto durante a deglutição. Da mesma forma, indivíduos que vivenciam experiências repetidas de julgamento em serviços de saúde podem passar a evitar consultas nutricionais.
+Esses eventos podem favorecer comportamentos de fuga ou esquiva. Um paciente com disfagia pode evitar determinados alimentos para reduzir o desconforto durante a [[Deglutição|deglutição]]. Da mesma forma, indivíduos que vivenciam experiências repetidas de julgamento em serviços de saúde podem passar a evitar consultas nutricionais.
 
 Na prática clínica, compreender quais eventos exercem função aversiva é importante para interpretar dificuldades de adesão ao tratamento. Muitas vezes, comportamentos considerados "falta de motivação" representam tentativas de reduzir ou evitar condições percebidas como aversivas.
 
@@ -52,9 +52,9 @@ Outra confusão comum é utilizar evento aversivo, [[Punição]] e [[Reforço]] 
 
 - evento aversivo refere-se ao estímulo;
 
-- punição é um processo que reduz a frequência de um comportamento;
+- [[Punição|punição]] é um processo que reduz a frequência de um comportamento;
 
-- reforço negativo é um processo no qual a remoção de um evento aversivo aumenta a frequência de um comportamento.
+- [[Reforço|reforço]] negativo é um processo no qual a remoção de um evento aversivo aumenta a frequência de um comportamento.
 
 Na prática clínica, também é importante reconhecer que nem toda experiência desconfortável deve ser eliminada. Algumas intervenções em saúde envolvem desconfortos temporários que produzem benefícios clínicos relevantes. A questão analítico-comportamental não é se um evento é "bom" ou "ruim", mas como ele influencia o comportamento e quais contingências estabelece.
 

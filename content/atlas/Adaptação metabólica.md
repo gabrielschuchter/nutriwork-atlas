@@ -1,6 +1,6 @@
 ## Definição
 
-Adaptação metabólica refere-se à redução do gasto energético além daquela prevista pelas alterações na massa corporal, composição corporal ou tamanho corporal ocorridas durante períodos de restrição energética, perda de peso ou outras perturbações do balanço energético.
+Adaptação metabólica refere-se à redução do gasto energético além daquela prevista pelas alterações na massa corporal, composição corporal ou tamanho corporal ocorridas durante períodos de restrição energética, perda de peso ou outras perturbações do [[Balanço energético|balanço energético]].
 
 Na literatura, também pode ser denominada [[Termogênese adaptativa|termogênese adaptativa]], embora alguns autores utilizem os termos com diferenças conceituais sutis.
 
@@ -14,7 +14,7 @@ O conceito também é frequentemente utilizado em contextos de [[Disponibilidade
 
 ## Base fisiológica, bioquímica ou epidemiológica
 
-Diversos mecanismos foram propostos para explicar a adaptação metabólica, incluindo alterações em atividade simpática, hormônios tireoidianos, leptina, eficiência muscular, comportamento espontâneo e componentes do [[Gasto Energético Total]].
+Diversos mecanismos foram propostos para explicar a adaptação metabólica, incluindo alterações em atividade simpática, hormônios tireoidianos, [[Leptina|leptina]], eficiência muscular, comportamento espontâneo e componentes do [[Gasto Energético Total]].
 
 Estudos metabólicos controlados demonstram que parte dos indivíduos apresenta redução do gasto energético superior àquela prevista exclusivamente pela perda de massa corporal.
 
@@ -28,7 +28,7 @@ Grande parte da discussão pública sobre adaptação metabólica extrapola subs
 
 Uma interpretação comum é atribuir falhas no emagrecimento exclusivamente à adaptação metabólica. Embora o fenômeno exista, fatores comportamentais, ambientais, alimentares e psicológicos provavelmente explicam parcela importante da recuperação ponderal observada em longo prazo.
 
-Outra limitação refere-se à heterogeneidade metodológica. Estudos diferem em duração, magnitude da perda de peso, métodos de mensuração do gasto energético e controle de confundidores.
+Outra limitação refere-se à [[Heterogeneidade|heterogeneidade]] metodológica. Estudos diferem em duração, magnitude da perda de peso, métodos de mensuração do gasto energético e controle de confundidores.
 
 Também existe debate sobre a persistência temporal do fenômeno. Alguns estudos sugerem manutenção prolongada da adaptação metabólica, enquanto outros observam atenuação parcial ao longo do tempo.
 

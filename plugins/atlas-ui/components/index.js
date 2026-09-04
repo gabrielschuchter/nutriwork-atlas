@@ -33,8 +33,9 @@ export const AtlasAccess = (userOptions = {}) => {
     storageKey: userOptions.storageKey || DEFAULT_STORAGE_KEY,
   }
 
-  const AtlasAccessComponent = ({ fileData }) =>
-    h(
+  const AtlasAccessComponent = ({ fileData }) => {
+    if (String(fileData?.slug || "") === "roadmap") return null
+    return h(
       "section",
       {
         id: "atlas-access",
@@ -168,6 +169,7 @@ export const AtlasAccess = (userOptions = {}) => {
         ),
       ),
     )
+  }
 
   AtlasAccessComponent.css = `
 html[data-atlas-access="locked"] .atlas-frame {
@@ -870,6 +872,159 @@ html[data-atlas-access="unlocked"] #atlas-access {
   color: #6E7F95;
 }
 
+#atlas-report {
+  align-items: center;
+  display: flex;
+  inset: 0;
+  justify-content: center;
+  opacity: 0;
+  max-height: var(--atlas-visual-height, 100dvh);
+  padding: max(1rem, calc(var(--atlas-safe-top, env(safe-area-inset-top, 0px)) + .75rem)) max(1rem, calc(var(--atlas-safe-right, env(safe-area-inset-right, 0px)) + .75rem)) max(1rem, calc(var(--atlas-safe-bottom, env(safe-area-inset-bottom, 0px)) + .75rem)) max(1rem, calc(var(--atlas-safe-left, env(safe-area-inset-left, 0px)) + .75rem));
+  pointer-events: none;
+  position: fixed;
+  transition: opacity 220ms ease;
+  z-index: 8200;
+}
+
+#atlas-report.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#atlas-report[hidden] {
+  display: none;
+}
+
+.atlas-report-backdrop {
+  background: rgba(1, 2, 6, .62);
+  border: 0;
+  cursor: default;
+  inset: 0;
+  padding: 0;
+  position: absolute;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.atlas-report-card {
+  -webkit-backdrop-filter: blur(28px) saturate(150%);
+  backdrop-filter: blur(28px) saturate(150%);
+  background: linear-gradient(145deg, rgba(255, 255, 255, .1), transparent 48%), var(--atlas-glass-strong, rgba(7, 16, 35, .62));
+  border: 1px solid var(--atlas-glass-line, rgba(220, 235, 255, .17));
+  border-radius: 22px;
+  box-shadow: var(--atlas-glass-shadow, 0 24px 90px rgba(0, 0, 0, .36));
+  color: #F5F7FF;
+  max-width: 27rem;
+  padding: 1.25rem;
+  position: relative;
+  transform: translateY(8px) scale(.975);
+  transition: transform 300ms cubic-bezier(.22, .8, .2, 1);
+  width: min(100%, 27rem);
+}
+
+#atlas-report.is-open .atlas-report-card {
+  transform: none;
+}
+
+.atlas-report-header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.atlas-report-kicker {
+  color: #8EB9FF;
+  font-family: var(--codeFont);
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  margin: 0;
+}
+
+.atlas-report-close {
+  align-items: center;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  color: #C8D2E5;
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 1.35rem;
+  height: 2.2rem;
+  justify-content: center;
+  line-height: 1;
+  width: 2.2rem;
+}
+
+.atlas-report-close:hover,
+.atlas-report-close:focus-visible {
+  background: rgba(255, 255, 255, .08);
+  border-color: var(--atlas-glass-line, rgba(220, 235, 255, .17));
+  color: #F5F7FF;
+}
+
+.atlas-report-card h2 {
+  font-size: clamp(1.45rem, 5vw, 2rem);
+  letter-spacing: -.035em;
+  line-height: 1.1;
+  margin: 1.2rem 0 .45rem;
+}
+
+.atlas-report-copy {
+  color: #C8D2E5;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.atlas-report-copy strong {
+  color: #F5F7FF;
+  font-weight: 700;
+}
+
+.atlas-report-link {
+  background: #1263FF;
+  border: 1px solid #1263FF;
+  border-radius: 999px;
+  color: white;
+  display: inline-flex;
+  font-weight: 700;
+  justify-content: center;
+  margin-top: 1.25rem;
+  min-height: 2.75rem;
+  padding: .7rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 160ms ease, border-color 160ms ease, transform 160ms ease;
+  width: 100%;
+}
+
+.atlas-report-link:hover,
+.atlas-report-link:focus-visible {
+  background: #29A8FF;
+  border-color: #29A8FF;
+  transform: translateY(-1px);
+}
+
+:root[data-theme="light"] .atlas-report-card {
+  color: #07152A;
+}
+
+:root[data-theme="light"] .atlas-report-kicker {
+  color: #1263FF;
+}
+
+:root[data-theme="light"] .atlas-report-close {
+  color: #526277;
+}
+
+:root[data-theme="light"] .atlas-report-copy {
+  color: #526277;
+}
+
+:root[data-theme="light"] .atlas-report-copy strong {
+  color: #07152A;
+}
+
 .atlas-visually-hidden {
   border: 0;
   clip: rect(0 0 0 0);
@@ -1155,7 +1310,8 @@ html[data-atlas-access="unlocked"] #atlas-access {
 }
 
 .atlas-area-sheet-option,
-.atlas-mobile-menu-list button {
+.atlas-mobile-menu-list button,
+.atlas-mobile-menu-list a {
   align-items: center;
   background: rgba(255, 255, 255, .045);
   border: 1px solid transparent;
@@ -1190,13 +1346,20 @@ html[data-atlas-access="unlocked"] #atlas-access {
   margin-top: 1.1rem;
 }
 
-.atlas-mobile-menu-list button {
+.atlas-mobile-menu-list button,
+.atlas-mobile-menu-list a {
   font-size: .92rem;
   gap: 1rem;
 }
 
+.atlas-mobile-menu-list a {
+  text-decoration: none;
+}
+
 .atlas-mobile-menu-list button:active,
-.atlas-mobile-menu-list button:focus-visible {
+.atlas-mobile-menu-list button:focus-visible,
+.atlas-mobile-menu-list a:active,
+.atlas-mobile-menu-list a:focus-visible {
   background: color-mix(in srgb, var(--atlas-brand-sky, #7DB5E4) 18%, transparent);
   border-color: color-mix(in srgb, var(--atlas-brand-sky, #7DB5E4) 48%, transparent);
 }
@@ -1227,6 +1390,7 @@ html.atlas-modal-open body {
 :root[data-theme="light"] .atlas-mobile-search-result,
 :root[data-theme="light"] .atlas-area-sheet-option,
 :root[data-theme="light"] .atlas-mobile-menu-list button,
+:root[data-theme="light"] .atlas-mobile-menu-list a,
 :root[data-theme="light"] .atlas-touch-hint {
   color: #07152A;
 }
@@ -1237,7 +1401,8 @@ html.atlas-modal-open body {
 
 :root[data-theme="light"] .atlas-mobile-search-result,
 :root[data-theme="light"] .atlas-area-sheet-option,
-:root[data-theme="light"] .atlas-mobile-menu-list button {
+:root[data-theme="light"] .atlas-mobile-menu-list button,
+:root[data-theme="light"] .atlas-mobile-menu-list a {
   background: rgba(255, 255, 255, .3);
 }
 
@@ -1317,6 +1482,7 @@ html.atlas-modal-open body {
 export const AtlasApp = () => {
   const AtlasAppComponent = ({ fileData }) => {
     const asset = logoPath(fileData)
+    const isRoadmap = String(fileData?.slug || "") === "roadmap"
     return h(
       Fragment,
       null,
@@ -1506,14 +1672,37 @@ export const AtlasApp = () => {
             "nav",
             { class: "atlas-mobile-menu-list", "aria-label": "Ações do Atlas" },
             h(
+              "a",
+              {
+                class: "atlas-mobile-menu-link",
+                href: resolveRelative(String(fileData?.slug || "index"), "roadmap"),
+                "data-router-ignore": "",
+                "aria-current": isRoadmap ? "page" : undefined,
+              },
+              h("span", null, "Roadmap"),
+              h("span", { class: "atlas-mobile-menu-arrow", "aria-hidden": "true" }, "→"),
+            ),
+            h(
               "button",
-              { type: "button", "data-atlas-action": "open-search" },
+              {
+                type: "button",
+                "data-atlas-daily-action": "open",
+                hidden: isRoadmap,
+                "aria-haspopup": "dialog",
+                "aria-controls": "atlas-daily-task-panel",
+              },
+              h("span", null, "Tarefa do dia"),
+              h("span", { class: "atlas-mobile-menu-arrow", "aria-hidden": "true" }, "→"),
+            ),
+            h(
+              "button",
+              { type: "button", "data-atlas-action": "open-search", hidden: isRoadmap },
               h("span", null, "Buscar conceito"),
               h("span", { class: "atlas-mobile-menu-arrow", "aria-hidden": "true" }, "→"),
             ),
             h(
               "button",
-              { type: "button", "data-atlas-action": "open-area" },
+              { type: "button", "data-atlas-action": "open-area", hidden: isRoadmap },
               h("span", null, "Filtrar por área"),
               h(
                 "span",
@@ -1523,7 +1712,7 @@ export const AtlasApp = () => {
             ),
             h(
               "button",
-              { type: "button", "data-atlas-action": "open-onboarding" },
+              { type: "button", "data-atlas-action": "open-onboarding", hidden: isRoadmap },
               h("span", null, "Como funciona?"),
               h("span", { class: "atlas-mobile-menu-arrow", "aria-hidden": "true" }, "→"),
             ),
@@ -1715,6 +1904,61 @@ export const AtlasApp = () => {
                 h("strong", null, contact.value),
               ),
             ),
+          ),
+        ),
+      ),
+      h(
+        "div",
+        {
+          id: "atlas-report",
+          role: "dialog",
+          "aria-modal": "true",
+          "aria-labelledby": "atlas-report-title",
+          "aria-hidden": "true",
+          hidden: true,
+        },
+        h("button", {
+          class: "atlas-report-backdrop",
+          type: "button",
+          "aria-label": "Fechar reporte de problema",
+          "data-atlas-action": "close-report",
+        }),
+        h(
+          "section",
+          { class: "atlas-report-card" },
+          h(
+            "header",
+            { class: "atlas-report-header" },
+            h("p", { class: "atlas-report-kicker" }, "REPORTE"),
+            h(
+              "button",
+              {
+                class: "atlas-report-close",
+                type: "button",
+                "data-atlas-action": "close-report",
+                "aria-label": "Fechar reporte de problema",
+              },
+              "×",
+            ),
+          ),
+          h("h2", { id: "atlas-report-title" }, "Encontrou um problema?"),
+          h(
+            "p",
+            { class: "atlas-report-copy" },
+            "Avise o suporte sobre o conceito ",
+            h("strong", { "data-atlas-report-concept": "" }, "desta nota"),
+            ".",
+          ),
+          h(
+            "a",
+            {
+              class: "atlas-report-link",
+              "data-atlas-report-link": "",
+              href: "https://wa.me/5512997505188",
+              target: "_blank",
+              rel: "noreferrer",
+            },
+            "Falar com o suporte no WhatsApp",
           ),
         ),
       ),

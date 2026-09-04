@@ -22,7 +22,7 @@ A resposta inflamatória ao exercício é relevante para:
 
 Na prática esportiva, seu conhecimento auxilia na interpretação de aumentos transitórios de marcadores inflamatórios, que frequentemente representam adaptação fisiológica e não doença.
 
-Na [[Nutrição|nutrição]] clínica e esportiva, também fundamenta a discussão sobre o uso de antioxidantes e anti-inflamatórios. A supressão excessiva da resposta inflamatória pode, em determinadas situações, reduzir adaptações desejáveis ao treinamento.
+Na [[Nutrição|nutrição]] clínica e esportiva, também fundamenta a discussão sobre o uso de [[Antioxidantes|antioxidantes]] e anti-inflamatórios. A supressão excessiva da resposta inflamatória pode, em determinadas situações, reduzir adaptações desejáveis ao treinamento.
 
 ## Base fisiológica, bioquímica ou epidemiológica
 
@@ -40,11 +40,11 @@ Embora muitos estudos demonstrem alterações em biomarcadores inflamatórios, e
 
 Uma interpretação frequente, mas equivocada, é considerar qualquer aumento de marcadores inflamatórios como prejudicial.
 
-Na realidade, parte da resposta inflamatória é necessária para o reparo muscular e para adaptações induzidas pelo treinamento. Estudos sugerem que o uso indiscriminado de anti-inflamatórios não esteroidais ou altas doses de antioxidantes pode atenuar algumas adaptações ao treinamento, embora os resultados sejam heterogêneos e dependam do contexto, da população e do protocolo utilizado.
+Na realidade, parte da resposta inflamatória é necessária para o reparo muscular e para adaptações induzidas pelo treinamento. Estudos sugerem que o uso indiscriminado de anti-inflamatórios não esteroidais ou altas doses de [[Antioxidantes|antioxidantes]] pode atenuar algumas adaptações ao treinamento, embora os resultados sejam heterogêneos e dependam do contexto, da [[População|população]] e do protocolo utilizado.
 
 Outro equívoco consiste em extrapolar benefícios observados sobre biomarcadores inflamatórios para benefícios sobre desempenho, hipertrofia ou recuperação clínica. Reduzir concentrações de citocinas não implica, necessariamente, melhora funcional.
 
-Também é importante diferenciar exercícios agudos muito intensos, que podem induzir imunossupressão transitória, dos efeitos do treinamento regular, geralmente associados à melhora da função imunológica e redução da inflamação crônica de baixo grau.
+Também é importante diferenciar exercícios agudos muito intensos, que podem induzir imunossupressão transitória, dos efeitos do treinamento regular, geralmente associados à melhora da função imunológica e redução da [[Inflamação crônica de baixo grau|inflamação crônica de baixo grau]].
 
 ## Conceitos relacionados
 - [[Dano muscular induzido pelo exercício]]

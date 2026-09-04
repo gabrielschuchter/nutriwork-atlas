@@ -2,7 +2,7 @@
 
 Necessidades nutricionais na gestação correspondem às demandas energéticas e nutricionais necessárias para sustentar as adaptações fisiológicas maternas, o crescimento fetal, o desenvolvimento placentário e a preparação para a lactação.
 
-Essas necessidades variam conforme [[Idade gestacional|idade gestacional]], estado nutricional pré-gestacional, nível de atividade física e condições clínicas associadas.
+Essas necessidades variam conforme [[Idade gestacional|idade gestacional]], [[Estado nutricional|estado nutricional]] pré-gestacional, nível de atividade física e condições clínicas associadas.
 
 ## Contexto clínico
 
@@ -26,7 +26,7 @@ O conceito orienta decisões relacionadas a:
 
 A gestação promove importantes alterações metabólicas, hormonais e fisiológicas.
 
-As demandas por proteínas, ferro, folato, iodo, zinco e outros micronutrientes aumentam em diferentes graus.
+As demandas por [[Proteínas|proteínas]], ferro, folato, iodo, zinco e outros micronutrientes aumentam em diferentes graus.
 
 As necessidades energéticas também aumentam progressivamente, especialmente no segundo e terceiro trimestres.
 

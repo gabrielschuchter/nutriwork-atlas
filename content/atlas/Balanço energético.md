@@ -2,7 +2,7 @@
 
 ## **Definição**
 
-Balanço energético é a relação dinâmica entre energia ingerida, energia gasta e mudança nos estoques corporais. A energia ingerida vem de alimentos, bebidas e álcool; o gasto inclui metabolismo de repouso, efeito térmico dos alimentos e atividade física. O balanço é observado ao longo do tempo, não em uma refeição isolada.
+Balanço energético é a relação dinâmica entre energia ingerida, energia gasta e mudança nos estoques corporais. A energia ingerida vem de alimentos, bebidas e álcool; o gasto inclui [[Metabolismo|metabolismo]] de repouso, efeito térmico dos alimentos e atividade física. O balanço é observado ao longo do tempo, não em uma refeição isolada.
 
 ## **Contexto clínico**
 
@@ -12,9 +12,9 @@ Prescrição energética precisa considerar objetivo, composição corporal, fun
 
 ## **Base fisiológica, bioquímica ou epidemiológica**
 
-O organismo ajusta oxidação, armazenamento, fome, gasto espontâneo e [[Termogênese]] conforme disponibilidade. Insulina, leptina, grelina e sinais intestinais modulam ingestão; tecido adiposo e músculo alteram gasto e uso de substratos. A compensação faz o déficit efetivo mudar ao longo do tempo.
+O organismo ajusta oxidação, armazenamento, fome, gasto espontâneo e [[Termogênese]] conforme disponibilidade. [[Insulina|Insulina]], [[Leptina|leptina]], [[Grelina|grelina]] e sinais intestinais modulam ingestão; tecido adiposo e músculo alteram gasto e uso de substratos. A compensação faz o déficit [[Efetivo|efetivo]] mudar ao longo do tempo.
 
-Glicogênio, triglicerídeos e proteína corporal têm funções e custos diferentes. Uma variação rápida de peso inclui água, glicogênio e conteúdo intestinal, além de gordura.
+[[Glicogênio|Glicogênio]], [[Triglicerídeos|triglicerídeos]] e proteína corporal têm funções e custos diferentes. Uma variação rápida de peso inclui água, glicogênio e conteúdo intestinal, além de gordura.
 
 ## **Limitações e controvérsias**
 

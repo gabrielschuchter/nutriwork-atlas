@@ -12,9 +12,9 @@ Do ponto de vista epidemiológico, [[Confundimento|confundimento]] ocorre quando
 
 ## Limitações e controvérsias
 
-O [[Confundimento|confundimento]] residual representa uma das razões pelas quais associações observacionais em [[Nutrição|nutrição]] frequentemente apresentam dificuldades de replicação em ensaios clínicos randomizados. Contudo, sua invocação indiscriminada também pode ser problemática. Nem toda associação observacional decorre de confundimento residual, assim como nem toda associação ajustada pode ser considerada causal. O desafio consiste em estimar a plausibilidade e a magnitude do viés remanescente.
+O [[Confundimento|confundimento]] residual representa uma das razões pelas quais associações observacionais em [[Nutrição|nutrição]] frequentemente apresentam dificuldades de replicação em ensaios clínicos randomizados. Contudo, sua invocação indiscriminada também pode ser problemática. Nem toda associação observacional decorre de confundimento residual, assim como nem toda associação ajustada pode ser considerada causal. O desafio consiste em estimar a plausibilidade e a magnitude do [[Viés|viés]] remanescente.
 
-Na literatura nutricional, esse conceito torna-se especialmente relevante quando efeitos observados são pequenos. Razões de risco próximas de 1,10 ou 1,20 podem ser compatíveis tanto com um efeito causal modesto quanto com confundimento residual não eliminado. Métodos modernos, como análises de sensibilidade quantitativa, E-values, randomização mendeliana e triangulação de evidências, foram desenvolvidos para abordar essa limitação, mas nenhum deles elimina completamente a incerteza causal.
+Na literatura nutricional, esse conceito torna-se especialmente relevante quando efeitos observados são pequenos. Razões de risco próximas de 1,10 ou 1,20 podem ser compatíveis tanto com um efeito causal modesto quanto com [[Confundimento|confundimento]] residual não eliminado. Métodos modernos, como análises de sensibilidade quantitativa, E-values, [[Randomização|randomização]] mendeliana e triangulação de evidências, foram desenvolvidos para abordar essa limitação, mas nenhum deles elimina completamente a incerteza causal.
 
 ## Conceitos relacionados
 - [[Confundimento]]

@@ -2,25 +2,25 @@
 
 ## **Definição**
 
-Termogênese é a produção de calor pelo organismo. Inclui calor derivado do metabolismo basal, processamento de nutrientes, contração muscular, atividade física e respostas adaptativas a frio, dieta e estresse. A contribuição de cada componente depende do tecido e da condição.
+Termogênese é a produção de calor pelo organismo. Inclui calor derivado do [[Metabolismo|metabolismo]] basal, processamento de nutrientes, contração muscular, atividade física e respostas adaptativas a frio, dieta e estresse. A contribuição de cada componente depende do tecido e da condição.
 
 ## **Contexto clínico**
 
 Gasto energético de repouso é influenciado por massa livre de gordura, idade, sexo, temperatura, doença e medicamentos. Febre, hipertireoidismo, queimaduras e inflamação aumentam gasto em graus variáveis; hipotireoidismo e imobilidade podem reduzi-lo.
 
-Termogênese adaptativa pode limitar ou ampliar mudança de peso após alteração de ingestão. A medição clínica é difícil, e intervenções “termogênicas” precisam demonstrar efeito sustentado e segurança.
+[[Termogênese adaptativa|Termogênese adaptativa]] pode limitar ou ampliar mudança de peso após alteração de ingestão. A medição clínica é difícil, e intervenções “termogênicas” precisam demonstrar efeito sustentado e segurança.
 
 ## **Base fisiológica, bioquímica ou epidemiológica**
 
-Mitocôndrias produzem ATP e calor durante fosforilação oxidativa. Tecido adiposo marrom usa UCP1 para dissipar gradiente de prótons; sistema simpático e hormônios tireoidianos modulam a resposta. O efeito térmico dos alimentos depende da composição, com maior custo relativo para proteína.
+Mitocôndrias produzem [[ATP|ATP]] e calor durante [[Fosforilação oxidativa|fosforilação oxidativa]]. Tecido adiposo marrom usa UCP1 para dissipar gradiente de prótons; sistema simpático e hormônios tireoidianos modulam a resposta. O efeito térmico dos alimentos depende da composição, com maior custo relativo para proteína.
 
 Calor produzido não equivale a gasto energético adicional líquido: pode acompanhar energia já utilizada para manutenção ou atividade. [[Respiração celular]], músculo e tecido adiposo participam de mecanismos distintos.
 
 ## **Limitações e controvérsias**
 
-Termogênese, metabolismo basal e gasto total não são sinônimos. Estudos de câmara metabólica, consumo de oxigênio e temperatura corporal medem dimensões diferentes.
+Termogênese, [[Metabolismo|metabolismo]] basal e gasto total não são sinônimos. Estudos de câmara metabólica, consumo de oxigênio e temperatura corporal medem dimensões diferentes.
 
-Elevar temperatura ou catecolaminas em laboratório não prova perda de gordura. Cafeína, extratos e suplementos podem ter efeitos pequenos, tolerância, interações e risco cardiovascular.
+Elevar temperatura ou catecolaminas em laboratório não prova perda de gordura. [[Cafeína|Cafeína]], extratos e suplementos podem ter efeitos pequenos, tolerância, interações e risco cardiovascular.
 
 ## **Conceitos relacionados**
 

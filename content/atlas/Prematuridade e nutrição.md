@@ -4,7 +4,7 @@ Prematuridade refere-se ao nascimento ocorrido antes de 37 semanas completas de 
 
 No contexto nutricional, o conceito abrange as necessidades específicas de nutrientes, as estratégias de alimentação e os desafios relacionados ao crescimento e desenvolvimento de recém-nascidos prematuros.
 
-A [[Idade gestacional|idade gestacional]] ao nascimento influencia significativamente o risco nutricional e as demandas metabólicas do neonato.
+A [[Idade gestacional|idade gestacional]] ao nascimento influencia significativamente o [[Risco nutricional|risco nutricional]] e as demandas metabólicas do neonato.
 
 ## Contexto clínico
 
@@ -24,7 +24,7 @@ A [[Nutrição|nutrição]] é considerada um componente central do cuidado neon
 
 ## Base fisiológica, bioquímica ou epidemiológica
 
-Grande parte da deposição fetal de proteínas, minerais e gordura ocorre no terceiro trimestre da gestação.
+Grande parte da deposição fetal de [[Proteínas|proteínas]], minerais e gordura ocorre no terceiro trimestre da gestação.
 
 Quando o nascimento ocorre precocemente, o recém-nascido perde parte desse período de acúmulo nutricional.
 

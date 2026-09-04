@@ -2,13 +2,13 @@
 
 O ptialismo gravídico é uma condição caracterizada pela percepção ou presença de produção excessiva de [[Saliva|saliva]] durante a gestação, também denominada sialorreia gravídica ou hipersalivação da gestação.
 
-O fenômeno geralmente ocorre no primeiro trimestre, podendo persistir durante toda a gravidez em alguns casos. A alteração pode envolver tanto aumento real da produção salivar quanto dificuldade de deglutir a saliva normalmente produzida, levando à sensação de excesso salivar.
+O fenômeno geralmente ocorre no primeiro trimestre, podendo persistir durante toda a gravidez em alguns casos. A alteração pode envolver tanto aumento real da produção salivar quanto dificuldade de deglutir a [[Saliva|saliva]] normalmente produzida, levando à sensação de excesso salivar.
 
 O ptialismo gravídico deve ser diferenciado de:
 
 - Hipersalivação por causas não gestacionais, como alterações neurológicas, medicamentos, doenças gastrointestinais ou intoxicações;
 
-- Sialorreia associada a náuseas e vômitos, em que o aumento da saliva pode ser uma resposta secundária ao desconforto gastrointestinal.
+- Sialorreia associada a náuseas e vômitos, em que o aumento da [[Saliva|saliva]] pode ser uma resposta secundária ao desconforto gastrointestinal.
 
 Não é uma doença das glândulas salivares em si, mas uma manifestação associada à adaptação fisiológica da gestação.
 
@@ -46,7 +46,7 @@ Hipóteses propostas incluem:
 
 - Associação com náuseas e refluxo gastroesofágico: a produção aumentada de [[Saliva|saliva]] pode representar uma resposta protetora ou compensatória diante de irritação esofagogástrica.
 
-A salivação possui funções fisiológicas como lubrificação, digestão inicial e proteção da mucosa oral. O ptialismo ocorre quando a percepção ou o volume produzido ultrapassa a capacidade habitual de manejo da saliva.
+A salivação possui funções fisiológicas como lubrificação, digestão inicial e proteção da mucosa oral. O ptialismo ocorre quando a percepção ou o volume produzido ultrapassa a capacidade habitual de manejo da [[Saliva|saliva]].
 
 A frequência exata do ptialismo gravídico é difícil de estabelecer devido à ausência de critérios diagnósticos padronizados e à subnotificação. A literatura descreve o quadro como incomum, mas sua prevalência real permanece incerta.
 

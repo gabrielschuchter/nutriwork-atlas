@@ -2,7 +2,7 @@
 
 ## **Definição**
 
-Grelina é um hormônio peptídico produzido principalmente no estômago e liberado em maior quantidade durante o jejum. A forma acilada ativa o receptor secretagogo de hormônio do crescimento e participa de circuitos de fome, recompensa alimentar e metabolismo energético.
+Grelina é um hormônio peptídico produzido principalmente no estômago e liberado em maior quantidade durante o jejum. A forma acilada ativa o receptor secretagogo de hormônio do crescimento e participa de circuitos de fome, recompensa alimentar e [[Metabolismo|metabolismo]] energético.
 
 ## **Contexto clínico**
 
@@ -12,7 +12,7 @@ O aumento percebido de fome após dieta não prova que grelina seja a causa pred
 
 ## **Base fisiológica, bioquímica ou epidemiológica**
 
-Grelina circula em formas acilada e desacilada. A forma acilada atua no hipotálamo e em vias mesolímbicas, estimulando NPY/AgRP e aumentando busca por alimento. Interage com leptina, insulina e sinais vagais. O estômago vazio e o ritmo circadiano influenciam secreção.
+Grelina circula em formas acilada e desacilada. A forma acilada atua no hipotálamo e em vias mesolímbicas, estimulando NPY/AgRP e aumentando busca por alimento. Interage com [[Leptina|leptina]], [[Insulina|insulina]] e sinais vagais. O estômago vazio e o ritmo circadiano influenciam secreção.
 
 Proteína, gordura, fibra e densidade energética alteram supressão pós-prandial em graus diferentes. A cirurgia bariátrica modifica anatomia, trânsito e incretinas, e seus efeitos não podem ser atribuídos à grelina isoladamente.
 

@@ -6,6 +6,10 @@ export function installAccessGate(expectedHash, storageKey, normalizeEmail) {
   if (window[runtimeKey]) return
   window[runtimeKey] = true
   const root = document.documentElement
+  if (document.getElementById("atlas-roadmap-view")?.classList?.contains?.("is-active")) {
+    root.dataset.atlasAccess = "unlocked"
+    return
+  }
   const identityKey = "nutriwork-atlas-identification-v1"
   let email = null
   try {
@@ -39,7 +43,7 @@ export function installAccessGate(expectedHash, storageKey, normalizeEmail) {
     const identitySubmit = byId("atlas-identification-submit")
     if (identitySubmit) {
       identitySubmit.disabled = pending
-      identitySubmit.textContent = pending ? "Preparando seu acesso…" : "Continuar"
+      identitySubmit.textContent = pending ? "Aguarde…" : "Continuar"
     }
     const input = byId("atlas-identification-email")
     if (input) input.readOnly = pending
@@ -81,7 +85,7 @@ export function installAccessGate(expectedHash, storageKey, normalizeEmail) {
     if (pending) return
     pending = true
     render()
-    announce("Preparando seu acesso…", "loading")
+    announce("Validando seu e-mail…", "loading")
     const started = Date.now()
     try {
       visitId ||= crypto.randomUUID()
@@ -99,7 +103,6 @@ export function installAccessGate(expectedHash, storageKey, normalizeEmail) {
       await new Promise((resolve) =>
         window.setTimeout(resolve, Math.max(0, 350 - (Date.now() - started))),
       )
-      announce("E-mail registrado.", "success")
       registered = true
       email = candidate
       try {

@@ -20,7 +20,7 @@ A fadiga muscular influencia diretamente:
 
 - envelhecimento.
 
-Na [[Nutrição|nutrição]] esportiva, compreender seus mecanismos auxilia na escolha de estratégias relacionadas à ingestão de carboidratos, hidratação, suplementação e recuperação.
+Na [[Nutrição|nutrição]] esportiva, compreender seus mecanismos auxilia na escolha de estratégias relacionadas à ingestão de [[Carboidratos|carboidratos]], hidratação, suplementação e recuperação.
 
 Na prática clínica, é importante diferenciar fadiga fisiológica induzida pelo exercício de fadiga persistente associada a doenças crônicas, desnutrição ou condições neurológicas.
 
@@ -44,7 +44,7 @@ A fadiga resulta da combinação de diversos mecanismos, incluindo:
 
 O lactato, anteriormente considerado a principal causa da fadiga, atualmente é reconhecido como um importante intermediário metabólico e combustível para diversos tecidos. A evidência contemporânea não sustenta que seu acúmulo seja o principal responsável pela perda de desempenho.
 
-Os mecanismos predominantes variam conforme o tipo de exercício. Em sprints, predomina a limitação relacionada ao [[Sistema fosfagênio|sistema fosfagênio]] e ao acúmulo de metabólitos; em exercícios prolongados, a disponibilidade de carboidratos e fatores centrais tornam-se mais relevantes.
+Os mecanismos predominantes variam conforme o tipo de exercício. Em sprints, predomina a limitação relacionada ao [[Sistema fosfagênio|sistema fosfagênio]] e ao acúmulo de metabólitos; em exercícios prolongados, a disponibilidade de [[Carboidratos|carboidratos]] e fatores centrais tornam-se mais relevantes.
 
 ## Limitações e controvérsias
 

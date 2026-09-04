@@ -8,13 +8,13 @@ A concentração plasmática é uma medida de distribuição em um compartimento
 
 ## **Contexto clínico**
 
-Vômitos, diarreia, perdas renais, sudorese intensa, terapia diurética, nutrição parenteral e realimentação podem alterar eletrólitos. A avaliação orienta reposição, composição de soluções, monitorização cardíaca e segurança da terapia nutricional.
+Vômitos, diarreia, perdas renais, sudorese intensa, terapia diurética, [[Nutrição|nutrição]] parenteral e realimentação podem alterar eletrólitos. A avaliação orienta reposição, composição de soluções, monitorização cardíaca e segurança da terapia nutricional.
 
-Na hiponatremia, por exemplo, a concentração de sódio precisa ser interpretada junto com tonicidade, estado volêmico, glicemia e velocidade de instalação. Uma reposição rápida pode produzir dano neurológico, enquanto a correção depende da causa.
+Na [[Hiponatremia|hiponatremia]], por exemplo, a concentração de sódio precisa ser interpretada junto com tonicidade, estado volêmico, glicemia e velocidade de instalação. Uma reposição rápida pode produzir dano neurológico, enquanto a correção depende da causa.
 
 ## **Base fisiológica, bioquímica ou epidemiológica**
 
-O sódio predomina no líquido extracelular; o potássio, no intracelular. Gradientes são mantidos por canais, transportadores e pela [[Na+K+-ATPase]], que utiliza ATP. Bicarbonato e outros tampões participam do controle ácido-base; cálcio e magnésio atuam em contração, sinalização e catálise.
+O sódio predomina no líquido extracelular; o potássio, no intracelular. Gradientes são mantidos por canais, transportadores e pela [[Na+K+-ATPase]], que utiliza [[ATP|ATP]]. Bicarbonato e outros tampões participam do controle ácido-base; cálcio e magnésio atuam em contração, sinalização e catálise.
 
 Rins, trato gastrointestinal, pele, pulmões e hormônios regulam entrada, distribuição e excreção. A osmolalidade depende principalmente de solutos efetivos, enquanto a concentração de um íon isolado fornece informação incompleta sobre o equilíbrio hídrico.
 

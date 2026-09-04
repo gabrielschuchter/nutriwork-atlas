@@ -4,7 +4,7 @@
 
 Esvaziamento gástrico é a transferência do conteúdo do estômago para o duodeno. O processo separa fases de acomodação, trituração e liberação controlada, com diferenças entre líquidos, partículas sólidas e componentes de uma refeição mista.
 
-O tempo de esvaziamento é uma medida funcional específica. Ele não resume toda a digestão e não determina isoladamente a absorção ou a intensidade dos sintomas.
+O tempo de esvaziamento é uma medida funcional específica. Ele não resume toda a digestão e não determina isoladamente a [[Absorção|absorção]] ou a intensidade dos sintomas.
 
 ## **Contexto clínico**
 
@@ -22,7 +22,7 @@ Líquidos geralmente seguem uma dinâmica diferente de sólidos. Partículas pre
 
 Um exame de esvaziamento pode não reproduzir uma refeição habitual. Métodos, composição do teste, medicamentos, glicemia e fase do ciclo menstrual podem alterar o resultado.
 
-A relação entre atraso e sintomas é imperfeita. Tratar o número do exame sem avaliar ingestão, hidratação, nutrição e qualidade de vida pode produzir uma intervenção desproporcional.
+A relação entre atraso e sintomas é imperfeita. Tratar o número do exame sem avaliar ingestão, hidratação, [[Nutrição|nutrição]] e qualidade de vida pode produzir uma intervenção desproporcional.
 
 ## **Conceitos relacionados**
 

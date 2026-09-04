@@ -1,24 +1,24 @@
 ## Definição
 
-Glicogênese é a síntese de glicogênio a partir de glicose, com formação intermediária de UDP-glicose. O processo ocorre principalmente no fígado e no músculo esquelético, embora outros tecidos mantenham pequenas reservas.
+Glicogênese é a síntese de [[Glicogênio|glicogênio]] a partir de [[Glicose|glicose]], com formação intermediária de UDP-glicose. O processo ocorre principalmente no fígado e no músculo esquelético, embora outros tecidos mantenham pequenas reservas.
 
-A via não deve ser confundida com [[Gliconeogênese]], que produz glicose a partir de precursores não glicídicos.
+A via não deve ser confundida com [[Gliconeogênese]], que produz [[Glicose|glicose]] a partir de precursores não glicídicos.
 
 ## Contexto clínico
 
-Após refeições contendo carboidratos, a ação da insulina e a maior disponibilidade de glicose favorecem o armazenamento de glicogênio. No fígado, esse estoque participa da manutenção posterior da glicemia. No músculo, fornece substrato para produção local de [[ATP]] durante contração.
+Após refeições contendo [[Carboidratos|carboidratos]], a ação da [[Insulina|insulina]] e a maior disponibilidade de [[Glicose|glicose]] favorecem o armazenamento de [[Glicogênio|glicogênio]]. No fígado, esse estoque participa da manutenção posterior da glicemia. No músculo, fornece [[Substrato|substrato]] para produção local de [[ATP]] durante contração.
 
-Na [[Nutrição|nutrição]] esportiva, ingestão de carboidratos e redução temporária da carga de treinamento podem aumentar a reposição de glicogênio. Entretanto, "supercompensação" não é necessária para todas as modalidades e não garante melhora de desempenho fora de situações nas quais o glicogênio limita a tarefa. O benefício é descrito sobretudo em exercício contínuo com duração superior a cerca de 90 minutos (Burke et al., 2011).
+Na [[Nutrição|nutrição]] esportiva, ingestão de [[Carboidratos|carboidratos]] e redução temporária da carga de treinamento podem aumentar a reposição de [[Glicogênio|glicogênio]]. Entretanto, "supercompensação" não é necessária para todas as modalidades e não garante melhora de desempenho fora de situações nas quais o glicogênio limita a tarefa. O benefício é descrito sobretudo em exercício contínuo com duração superior a cerca de 90 minutos (Burke et al., 2011).
 
 ## Base fisiológica, bioquímica ou epidemiológica
 
-A glicose é convertida em [[Glicose-6-fosfato|glicose-6-fosfato]], glicose-1-fosfato e UDP-glicose. A glicogenina fornece o iniciador estrutural, enquanto a glicogênio sintase alonga as cadeias e a enzima ramificadora cria ligações α-1,6.
+A [[Glicose|glicose]] é convertida em [[Glicose-6-fosfato|glicose-6-fosfato]], glicose-1-fosfato e UDP-glicose. A glicogenina fornece o iniciador estrutural, enquanto a [[Glicogênio|glicogênio]] sintase alonga as cadeias e a [[Enzima|enzima]] ramificadora cria ligações α-1,6.
 
-A insulina favorece a desfosforilação e ativação da glicogênio sintase. No músculo, a própria contração e a depleção prévia de glicogênio podem aumentar captação de glicose e atividade sintética.
+A [[Insulina|insulina]] favorece a desfosforilação e ativação da [[Glicogênio|glicogênio]] sintase. No músculo, a própria contração e a depleção prévia de glicogênio podem aumentar captação de [[Glicose|glicose]] e atividade sintética.
 
 ## Limitações e controvérsias
 
-Aumento da captação de glicose não significa necessariamente síntese proporcional de glicogênio; a glicose também pode seguir para [[Glicólise|glicólise]], via das pentoses-fosfato ou lipogênese.
+Aumento da captação de [[Glicose|glicose]] não significa necessariamente síntese proporcional de [[Glicogênio|glicogênio]]; a glicose também pode seguir para [[Glicólise|glicólise]], [[Via das pentoses-fosfato|via das pentoses-fosfato]] ou [[Lipogênese|lipogênese]].
 
 A capacidade de armazenamento não é ilimitada, mas não existe um valor único aplicável a todos. Massa muscular, dieta, treinamento, estado hormonal e depleção prévia alteram substancialmente o estoque.
 

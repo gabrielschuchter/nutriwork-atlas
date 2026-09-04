@@ -2,7 +2,7 @@
 
 ## **Definição**
 
-Cetogênese é a produção hepática de corpos cetônicos, principalmente acetoacetato e beta-hidroxibutirato, a partir de acetil-CoA derivado da oxidação de ácidos graxos. Ocorre na mitocôndria hepática quando a entrada de acetil-CoA excede sua utilização no ciclo de Krebs.
+Cetogênese é a produção hepática de corpos cetônicos, principalmente acetoacetato e beta-hidroxibutirato, a partir de acetil-CoA derivado da oxidação de [[Ácidos graxos|ácidos graxos]]. Ocorre na mitocôndria hepática quando a entrada de acetil-CoA excede sua utilização no [[Ciclo de Krebs|ciclo de Krebs]].
 
 ## **Contexto clínico**
 
@@ -12,9 +12,9 @@ Presença de cetonas na urina ou no sangue não distingue cetose adaptativa de c
 
 ## **Base fisiológica, bioquímica ou epidemiológica**
 
-A queda de insulina favorece [[Lipólise]], enquanto glucagon e catecolaminas coordenam a disponibilidade de substratos e a resposta hepática. Ácidos graxos entram na mitocôndria pelo [[Ciclo da carnitina]] e sofrem [[Beta-oxidação]], gerando acetil-CoA. Quando oxaloacetato é direcionado para [[Gliconeogênese]], o fígado condensa acetil-CoA em corpos cetônicos.
+A queda de [[Insulina|insulina]] favorece [[Lipólise]], enquanto [[Glucagon|glucagon]] e catecolaminas coordenam a disponibilidade de substratos e a resposta hepática. [[Ácidos graxos|Ácidos graxos]] entram na mitocôndria pelo [[Ciclo da carnitina]] e sofrem [[Beta-oxidação]], gerando acetil-CoA. Quando oxaloacetato é direcionado para [[Gliconeogênese]], o fígado condensa acetil-CoA em corpos cetônicos.
 
-Fígado produz, mas não utiliza corpos cetônicos de modo relevante por falta de uma enzima necessária para sua ativação. Músculo, coração e cérebro podem convertê-los em acetil-CoA por [[Cetólise]].
+Fígado produz, mas não utiliza corpos cetônicos de modo relevante por falta de uma [[Enzima|enzima]] necessária para sua ativação. Músculo, coração e cérebro podem convertê-los em acetil-CoA por [[Cetólise]].
 
 ## **Limitações e controvérsias**
 

@@ -2,21 +2,21 @@
 
 ## **Definição**
 
-Cofator é um componente não proteico necessário para que determinada proteína, frequentemente uma enzima, alcance atividade funcional. Pode ser um íon metálico ou uma molécula orgânica; quando o componente orgânico participa da reação, recebe o nome de [[Coenzimas|coenzima]].
+Cofator é um componente não proteico necessário para que determinada proteína, frequentemente uma [[Enzima|enzima]], alcance atividade funcional. Pode ser um íon metálico ou uma molécula orgânica; quando o componente orgânico participa da reação, recebe o nome de [[Coenzimas|coenzima]].
 
-O cofator pode permanecer firmemente ligado, como grupo prostético, ou associar-se de modo reversível durante o ciclo catalítico. A presença de um cofator não transforma qualquer proteína em enzima ativa: a interação precisa ser específica e compatível com o mecanismo da reação.
+O cofator pode permanecer firmemente ligado, como grupo prostético, ou associar-se de modo reversível durante o ciclo catalítico. A presença de um cofator não transforma qualquer proteína em [[Enzima|enzima]] ativa: a interação precisa ser específica e compatível com o mecanismo da reação.
 
 ## **Contexto clínico**
 
-Deficiências de ferro, zinco, cobre, magnésio ou vitaminas precursoras de coenzimas podem reduzir a atividade de conjuntos enzimáticos. A manifestação depende da reserva corporal, da distribuição tecidual, da demanda metabólica e da existência de vias compensatórias.
+Deficiências de ferro, zinco, cobre, magnésio ou [[Vitaminas|vitaminas]] precursoras de [[Coenzimas|coenzimas]] podem reduzir a atividade de conjuntos enzimáticos. A manifestação depende da reserva corporal, da distribuição tecidual, da demanda metabólica e da existência de vias compensatórias.
 
-Em laboratório, a atividade de uma enzima pode depender do cofator adicionado ao ensaio. Corrigir uma concentração sérica baixa também exige confirmar que o achado representa insuficiência funcional e que a intervenção é segura para aquele paciente.
+Em laboratório, a atividade de uma [[Enzima|enzima]] pode depender do cofator adicionado ao ensaio. Corrigir uma concentração sérica baixa também exige confirmar que o achado representa insuficiência funcional e que a intervenção é segura para aquele paciente.
 
 ## **Base fisiológica, bioquímica ou epidemiológica**
 
-Íons metálicos podem estabilizar cargas, orientar substratos ou participar de reações de oxidorredução. Coenzimas transferem elétrons, grupos acila, unidades de carbono ou outros grupos químicos. A forma ativa da enzima associada ao cofator é frequentemente chamada de holoenzima; a forma sem o componente é a apoenzima.
+Íons metálicos podem estabilizar cargas, orientar substratos ou participar de reações de oxidorredução. [[Coenzimas|Coenzimas]] transferem elétrons, grupos acila, unidades de carbono ou outros grupos químicos. A forma ativa da [[Enzima|enzima]] associada ao cofator é frequentemente chamada de holoenzima; a forma sem o componente é a apoenzima.
 
-O papel bioquímico do cofator é demonstrado por estudos de atividade, estrutura e mecanismo. A relação entre deficiência de um micronutriente e um desfecho clínico requer evidência na população de interesse, pois o efeito da reposição varia conforme a causa e a gravidade da deficiência.
+O papel bioquímico do cofator é demonstrado por estudos de atividade, estrutura e mecanismo. A relação entre deficiência de um micronutriente e um desfecho clínico requer evidência na [[População|população]] de interesse, pois o efeito da reposição varia conforme a causa e a gravidade da deficiência.
 
 ## **Limitações e controvérsias**
 

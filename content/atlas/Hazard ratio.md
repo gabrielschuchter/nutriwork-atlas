@@ -6,21 +6,21 @@ Hazard ratio é a razão entre as taxas instantâneas de ocorrência de um event
 
 ## **Contexto clínico**
 
-HR é comum em análises de sobrevida quando participantes têm tempos de seguimento diferentes ou censura. HR abaixo de 1 pode indicar menor taxa instantânea no grupo tratado, mas não informa diretamente a diferença absoluta de mortalidade ou a probabilidade de estar vivo em uma data.
+HR é comum em análises de sobrevida quando participantes têm tempos de seguimento diferentes ou censura. HR abaixo de 1 pode indicar menor taxa instantânea no grupo tratado, mas não informa diretamente a diferença absoluta de [[Mortalidade|mortalidade]] ou a probabilidade de estar vivo em uma data.
 
-Interpretação clínica requer curvas de sobrevivência, riscos absolutos em tempos relevantes, eventos concorrentes, censura e intervalo de confiança. A escolha do modelo deve seguir a pergunta e a estrutura dos dados.
+Interpretação clínica requer curvas de sobrevivência, riscos absolutos em tempos relevantes, eventos concorrentes, censura e [[Intervalo de Confiança|intervalo de confiança]]. A escolha do modelo deve seguir a pergunta e a estrutura dos dados.
 
 ## **Base fisiológica, bioquímica ou epidemiológica**
 
 O modelo de Cox estima uma razão de hazards sob o pressuposto de proporcionalidade, segundo o qual a razão entre grupos permanece aproximadamente constante. A hazard pode mudar em ambos os grupos mesmo quando o HR é estável.
 
-Se a proporcionalidade falha, um único HR pode resumir mal efeitos que cruzam ou variam no tempo. Randomização reduz confundimento inicial, mas perdas informativas e classificação de eventos ainda influenciam.
+Se a proporcionalidade falha, um único HR pode resumir mal efeitos que cruzam ou variam no tempo. [[Randomização|Randomização]] reduz [[Confundimento|confundimento]] inicial, mas perdas informativas e classificação de eventos ainda influenciam.
 
 ## **Limitações e controvérsias**
 
-HR não é risco relativo, odds ratio ou taxa absoluta. Com efeitos não proporcionais, a média ponderada implícita do HR pode ser difícil de interpretar.
+HR não é [[Risco Relativo|risco relativo]], odds ratio ou taxa absoluta. Com efeitos não proporcionais, a média ponderada implícita do HR pode ser difícil de interpretar.
 
-Significância estatística do HR não demonstra relevância clínica. Diferença absoluta, tempo até benefício, dano tardio e qualidade de vida precisam ser avaliados.
+[[Significância Estatística|Significância estatística]] do HR não demonstra relevância clínica. Diferença absoluta, tempo até benefício, dano tardio e qualidade de vida precisam ser avaliados.
 
 ## **Conceitos relacionados**
 

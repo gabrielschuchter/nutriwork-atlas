@@ -2,25 +2,25 @@
 
 ## **Definição**
 
-Síntese de colesterol é a rota anabólica que produz colesterol a partir de acetil-CoA, principalmente no citosol e retículo endoplasmático hepático. A etapa regulatória central é catalisada pela HMG-CoA redutase. O produto é usado em membranas, ácidos biliares, hormônios esteroides e outras estruturas.
+Síntese de [[Colesterol|colesterol]] é a rota anabólica que produz colesterol a partir de acetil-CoA, principalmente no citosol e retículo endoplasmático hepático. A etapa regulatória central é catalisada pela HMG-CoA redutase. O produto é usado em membranas, ácidos biliares, hormônios esteroides e outras estruturas.
 
 ## **Contexto clínico**
 
-A síntese endógena contribui para colesterol plasmático junto à absorção intestinal e ao transporte por lipoproteínas. Estatinas reduzem atividade da HMG-CoA redutase e diminuem LDL-C; indicação e intensidade dependem do risco cardiovascular, não de uma tentativa de zerar colesterol.
+A síntese endógena contribui para [[Colesterol|colesterol]] plasmático junto à [[Absorção|absorção]] intestinal e ao transporte por [[Lipoproteínas|lipoproteínas]]. Estatinas reduzem atividade da HMG-CoA redutase e diminuem [[LDL|LDL]]-C; indicação e intensidade dependem do risco cardiovascular, não de uma tentativa de zerar colesterol.
 
-Doenças hepáticas, hipotireoidismo, genética, medicamentos e dieta alteram o balanço. Um resultado de colesterol alto não identifica a fração de origem sem avaliação metabólica.
+Doenças hepáticas, hipotireoidismo, genética, medicamentos e dieta alteram o balanço. Um resultado de [[Colesterol|colesterol]] alto não identifica a fração de origem sem avaliação metabólica.
 
 ## **Base fisiológica, bioquímica ou epidemiológica**
 
-Acetil-CoA forma HMG-CoA, que é reduzida a mevalonato. Reações subsequentes produzem unidades de isopreno, esqualeno e colesterol. SREBP regula expressão de HMG-CoA redutase e receptor de LDL conforme o colesterol celular.
+Acetil-CoA forma HMG-CoA, que é reduzida a mevalonato. Reações subsequentes produzem unidades de isopreno, esqualeno e [[Colesterol|colesterol]]. SREBP regula expressão de HMG-CoA redutase e receptor de [[LDL|LDL]] conforme o colesterol celular.
 
-O fígado incorpora colesterol a [[VLDL]], converte parte em [[Bile]] e capta partículas por receptor de LDL. A [[Via das pentoses-fosfato]] fornece NADPH para etapas redutoras, conectando síntese lipídica e estado redox.
+O fígado incorpora [[Colesterol|colesterol]] a [[VLDL]], converte parte em [[Bile]] e capta partículas por receptor de [[LDL|LDL]]. A [[Via das pentoses-fosfato]] fornece NADPH para etapas redutoras, conectando síntese lipídica e estado redox.
 
 ## **Limitações e controvérsias**
 
-Redução de síntese celular não equivale a redução proporcional de colesterol plasmático, pois absorção intestinal e compensações aumentam. LDL-C é marcador da carga de partículas, não medida direta do fluxo sintético.
+Redução de síntese celular não equivale a redução proporcional de [[Colesterol|colesterol]] plasmático, pois [[Absorção|absorção]] intestinal e compensações aumentam. [[LDL|LDL]]-C é marcador da carga de partículas, não medida direta do fluxo sintético.
 
-Ensaios de estatinas e outros fármacos demonstram efeitos em eventos cardiovasculares em populações definidas. Esse resultado não pode ser atribuído a toda intervenção que reduza uma enzima ou um biomarcador.
+Ensaios de estatinas e outros fármacos demonstram efeitos em eventos cardiovasculares em populações definidas. Esse resultado não pode ser atribuído a toda intervenção que reduza uma [[Enzima|enzima]] ou um biomarcador.
 
 ## **Conceitos relacionados**
 

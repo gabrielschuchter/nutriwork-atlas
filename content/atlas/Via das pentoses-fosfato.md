@@ -2,19 +2,19 @@
 
 ## **Definição**
 
-A via das pentoses-fosfato é uma rota citosólica que desvia glicose-6-fosfato da glicólise para produzir NADPH e ribose-5-fosfato. Possui uma fase oxidativa, que gera NADPH e dióxido de carbono, e uma fase não oxidativa, que rearranja açúcares de diferentes comprimentos.
+A via das pentoses-fosfato é uma rota citosólica que desvia [[Glicose-6-fosfato|glicose-6-fosfato]] da [[Glicólise|glicólise]] para produzir NADPH e ribose-5-fosfato. Possui uma fase oxidativa, que gera NADPH e dióxido de carbono, e uma fase não oxidativa, que rearranja açúcares de diferentes comprimentos.
 
 ## **Contexto clínico**
 
-A via é relevante em hemácias, fígado, tecido adiposo, córtex adrenal e tecidos com síntese de lipídios ou necessidade de defesa antioxidante. Deficiência de glicose-6-fosfato desidrogenase reduz capacidade de manter glutationa reduzida e pode causar hemólise após oxidantes, infecção ou certos medicamentos.
+A via é relevante em hemácias, fígado, tecido adiposo, córtex adrenal e tecidos com síntese de [[Lipídios|lipídios]] ou necessidade de defesa antioxidante. Deficiência de [[Glicose-6-fosfato|glicose-6-fosfato]] desidrogenase reduz capacidade de manter glutationa reduzida e pode causar hemólise após oxidantes, infecção ou certos medicamentos.
 
 Atividade elevada em tumor ou inflamação pode refletir demanda de biossíntese e redox. Um marcador de fluxo da via não estabelece que inibir a rota melhore desfecho clínico.
 
 ## **Base fisiológica, bioquímica ou epidemiológica**
 
-NADPH sustenta regeneração de glutationa, síntese de ácidos graxos, colesterol e hormônios esteroides. Ribose-5-fosfato alimenta síntese de nucleotídeos. A fase não oxidativa conecta a via à [[Glicólise]] por frutose-6-fosfato e gliceraldeído-3-fosfato.
+NADPH sustenta regeneração de glutationa, síntese de [[Ácidos graxos|ácidos graxos]], [[Colesterol|colesterol]] e hormônios esteroides. Ribose-5-fosfato alimenta síntese de nucleotídeos. A fase não oxidativa conecta a via à [[Glicólise]] por [[Frutose|frutose]]-6-fosfato e gliceraldeído-3-fosfato.
 
-O fluxo varia com demanda de NADPH, ribose e energia. Em uma hemácia, a via protege contra oxidação; em hepatócitos, também apoia lipogênese. A mesma rota pode ter função diferente conforme o tecido.
+O fluxo varia com demanda de NADPH, ribose e energia. Em uma hemácia, a via protege contra oxidação; em hepatócitos, também apoia [[Lipogênese|lipogênese]]. A mesma rota pode ter função diferente conforme o tecido.
 
 ## **Limitações e controvérsias**
 

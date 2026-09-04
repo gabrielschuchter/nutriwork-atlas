@@ -2,7 +2,7 @@
 
 Colostro é a secreção produzida pelas glândulas mamárias nos primeiros dias após o parto, antecedendo o leite de transição e o [[Leite materno]] maduro.
 
-Caracteriza-se por menor volume e maior concentração de proteínas, imunoglobulinas, fatores de crescimento e diversos componentes bioativos quando comparado ao leite maduro.
+Caracteriza-se por menor volume e maior concentração de [[Proteínas|proteínas]], imunoglobulinas, fatores de crescimento e diversos componentes bioativos quando comparado ao leite maduro.
 
 A duração da fase colostral varia entre indivíduos, mas geralmente compreende os primeiros 2 a 5 dias pós-parto.
 
@@ -28,7 +28,7 @@ Embora os mecanismos biológicos sejam amplamente plausíveis, a magnitude clín
 
 Grande parte da literatura enfatiza propriedades imunológicas do colostro, mas nem todos os mecanismos observados experimentalmente possuem tradução clínica claramente demonstrada.
 
-Também existe tendência de atribuir benefícios específicos a componentes isolados sem evidências robustas de causalidade.
+Também existe tendência de atribuir benefícios específicos a componentes isolados sem evidências robustas de [[Causalidade|causalidade]].
 
 Outra questão relevante é a circulação de informações incorretas que classificam o colostro como insuficiente ou inadequado para o recém-nascido saudável.
 

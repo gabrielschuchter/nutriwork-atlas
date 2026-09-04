@@ -22,7 +22,7 @@ A mamogênese é diferente de:
 
 [[Galactopoiese]]: manutenção da produção de leite após o estabelecimento da lactação.
 
-Ou seja, a mamogênese prepara a estrutura mamária; a lactogênese inicia a secreção láctea; a galactopoiese sustenta essa produção.
+Ou seja, a mamogênese prepara a estrutura mamária; a [[Lactogênese|lactogênese]] inicia a secreção láctea; a galactopoiese sustenta essa produção.
 
 ## Contexto clínico
 

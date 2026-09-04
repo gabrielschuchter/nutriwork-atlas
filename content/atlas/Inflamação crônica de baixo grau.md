@@ -12,7 +12,7 @@ Redução de peso quando indicada, atividade física, sono, cessação do tabagi
 
 ## **Base fisiológica, bioquímica ou epidemiológica**
 
-Adipócitos hipertrofiados e macrófagos podem liberar citocinas e alterar lipólise, sinalização de insulina e função endotelial. Ácidos graxos livres e [[Estresse oxidativo]] reforçam circuitos inflamatórios. Fígado e músculo também respondem a nutrientes, infecção e dano.
+Adipócitos hipertrofiados e macrófagos podem liberar citocinas e alterar [[Lipólise|lipólise]], sinalização de [[Insulina|insulina]] e função endotelial. [[Ácidos graxos|Ácidos graxos]] livres e [[Estresse oxidativo]] reforçam circuitos inflamatórios. Fígado e músculo também respondem a nutrientes, infecção e dano.
 
 Inflamação é parte de reparo e defesa. O equilíbrio entre resolução, persistência e dano depende do estímulo. Estudos epidemiológicos relacionam marcadores a risco, mas a causa e o mediador não são definidos por associação.
 

@@ -2,11 +2,11 @@
 
 ## **Definição**
 
-Causalidade é a relação em que uma intervenção ou exposição altera a distribuição de um desfecho em uma população ou indivíduo, mantendo definidos tempo, versões da exposição e condições de comparação. A formulação contrafactual pergunta o que teria ocorrido sob exposições alternativas para a mesma unidade.
+Causalidade é a relação em que uma intervenção ou exposição altera a distribuição de um desfecho em uma [[População|população]] ou indivíduo, mantendo definidos tempo, versões da exposição e condições de comparação. A formulação contrafactual pergunta o que teria ocorrido sob exposições alternativas para a mesma unidade.
 
 ## **Contexto clínico**
 
-Afirmar que uma dieta, tratamento ou fator causa um desfecho exige avaliar desenho, temporalidade, confundimento, seleção, mensuração, adesão e precisão. Ensaios randomizados são fortes para efeitos de intervenções quando bem conduzidos; coortes e estudos de caso-controle respondem a outras perguntas.
+Afirmar que uma dieta, tratamento ou fator causa um desfecho exige avaliar desenho, temporalidade, [[Confundimento|confundimento]], seleção, mensuração, adesão e precisão. Ensaios randomizados são fortes para efeitos de intervenções quando bem conduzidos; coortes e estudos de caso-controle respondem a outras perguntas.
 
 Uma associação pode orientar hipótese e decisão quando combinada com evidência convergente. Ela não basta para recomendar uma intervenção sem magnitude, dano, aplicabilidade e desfechos relevantes.
 
@@ -18,9 +18,9 @@ Mecanismo bioquímico pode apoiar plausibilidade. A inferência precisa seguir d
 
 ## **Limitações e controvérsias**
 
-Nenhum desenho elimina todos os problemas. Randomização pode falhar por perdas e não adesão; estudos observacionais dependem de pressupostos sobre confundimento não medido; mecanismos podem ser verdadeiros sem produzir benefício clínico.
+Nenhum desenho elimina todos os problemas. [[Randomização|Randomização]] pode falhar por perdas e não adesão; estudos observacionais dependem de pressupostos sobre [[Confundimento|confundimento]] não medido; mecanismos podem ser verdadeiros sem produzir benefício clínico.
 
-Associação temporal, dose-resposta ou significância estatística não provam causalidade isoladamente. Intervenções precisam ter estimando, população, comparador e desfecho explícitos.
+Associação temporal, dose-resposta ou [[Significância Estatística|significância estatística]] não provam causalidade isoladamente. Intervenções precisam ter estimando, [[População|população]], comparador e desfecho explícitos.
 
 ## **Conceitos relacionados**
 

@@ -16,7 +16,7 @@ Essa fase é relevante para a formação de hábitos alimentares, aceitação de
 
 A prontidão para introdução alimentar depende da maturação do sistema neuromotor e gastrointestinal.
 
-O desenvolvimento do controle cervical, da coordenação oral e dos mecanismos de deglutição permite a progressão segura da alimentação.
+O desenvolvimento do controle cervical, da coordenação oral e dos mecanismos de [[Deglutição|deglutição]] permite a progressão segura da alimentação.
 
 A exposição repetida a alimentos parece influenciar a aceitação alimentar futura.
 

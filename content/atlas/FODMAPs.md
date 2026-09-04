@@ -2,7 +2,7 @@
 
 ## **Definição**
 
-FODMAPs são carboidratos de cadeia curta e polióis fermentáveis, pouco absorvidos ou absorvidos lentamente no intestino delgado. O acrônimo reúne oligossacarídeos, dissacarídeos, monossacarídeos e polióis fermentáveis. Frutanos, galacto-oligossacarídeos, lactose, excesso de frutose e sorbitol são exemplos.
+FODMAPs são [[Carboidratos|carboidratos]] de cadeia curta e polióis fermentáveis, pouco absorvidos ou absorvidos lentamente no intestino delgado. O acrônimo reúne oligossacarídeos, [[Dissacarídeos|dissacarídeos]], [[Monossacarídeos|monossacarídeos]] e polióis fermentáveis. Frutanos, galacto-oligossacarídeos, lactose, excesso de [[Frutose|frutose]] e sorbitol são exemplos.
 
 ## **Contexto clínico**
 
@@ -14,13 +14,13 @@ Restrição ampla pode reduzir fibra, cálcio, variedade e qualidade alimentar. 
 
 FODMAPs pouco absorvidos retêm água por efeito osmótico e chegam ao cólon, onde são fermentados pela [[Microbiota intestinal]]. Gás, água, distensão e hipersensibilidade visceral interagem para produzir sintomas. A resposta depende da dose, da combinação de alimentos, do trânsito e da microbiota.
 
-A intervenção testa redução de substratos fermentáveis e não uma exclusão de glúten ou de todos os carboidratos. Melhora durante eliminação e retorno na reintrodução fortalecem a atribuição individual, mas não identificam um mecanismo único.
+A intervenção testa redução de substratos fermentáveis e não uma exclusão de glúten ou de todos os [[Carboidratos|carboidratos]]. Melhora durante eliminação e retorno na reintrodução fortalecem a atribuição individual, mas não identificam um mecanismo único.
 
 ## **Limitações e controvérsias**
 
 Resposta sintomática não prova inflamação, alergia ou intolerância permanente. Ensaios variam em duração, controle dietético, adesão e definição de resposta.
 
-A dieta baixa em FODMAP pode alterar a composição microbiana e reduzir substrato fermentável. A relevância clínica dessas mudanças ainda depende de desfecho, tempo e estratégia de reintrodução.
+A dieta baixa em FODMAP pode alterar a composição microbiana e reduzir [[Substrato|substrato]] fermentável. A relevância clínica dessas mudanças ainda depende de desfecho, tempo e estratégia de reintrodução.
 
 ## **Conceitos relacionados**
 

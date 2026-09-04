@@ -4,7 +4,7 @@ Fragilidade é uma síndrome clínica caracterizada por redução das reservas f
 
 ## Contexto clínico
 
-A fragilidade é frequentemente avaliada em idosos, pacientes oncológicos, indivíduos com insuficiência cardíaca, doença renal crônica e candidatos a procedimentos invasivos. Sua identificação possui implicações prognósticas relevantes, incluindo risco aumentado de hospitalização, incapacidade, institucionalização e mortalidade. Na [[Nutrição|nutrição]] clínica, influencia decisões relacionadas à avaliação funcional, suporte nutricional e planejamento terapêutico.
+A fragilidade é frequentemente avaliada em idosos, pacientes oncológicos, indivíduos com insuficiência cardíaca, doença renal crônica e candidatos a procedimentos invasivos. Sua identificação possui implicações prognósticas relevantes, incluindo risco aumentado de hospitalização, incapacidade, institucionalização e [[Mortalidade|mortalidade]]. Na [[Nutrição|nutrição]] clínica, influencia decisões relacionadas à avaliação funcional, suporte nutricional e planejamento terapêutico.
 
 ## Base fisiológica ou epidemiológica
 

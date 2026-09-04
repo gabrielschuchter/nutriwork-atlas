@@ -54,7 +54,7 @@ Outra confusão comum é interpretar consequências segundo critérios morais. E
 
 Também é inadequado inferir a função de uma consequência apenas pela intenção de quem a aplica. Um nutricionista pode acreditar estar reforçando determinado comportamento ao elogiar um paciente; contudo, se esse elogio não aumentar a frequência futura da resposta, ele não exerceu função reforçadora naquele contexto.
 
-Da mesma forma, uma consequência inicialmente eficaz pode perder sua função ao longo do tempo em razão de mudanças nas [[Operações motivadoras]], na história de aprendizagem ou nas contingências ambientais.
+Da mesma forma, uma consequência inicialmente [[Eficaz|eficaz]] pode perder sua função ao longo do tempo em razão de mudanças nas [[Operações motivadoras]], na história de aprendizagem ou nas contingências ambientais.
 
 Na prática clínica, isso significa que estratégias comportamentais não podem ser avaliadas apenas por sua lógica aparente. Sua eficácia depende de evidências de que efetivamente modificam o comportamento na direção pretendida.
 

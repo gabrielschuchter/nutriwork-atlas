@@ -12,7 +12,7 @@ A pega envolve a interação entre:
 
 - Apreensão de parte significativa da aréola;
 
-- Coordenação entre sucção, deglutição e respiração.
+- Coordenação entre sucção, [[Deglutição|deglutição]] e respiração.
 
 Uma pega adequada não significa simplesmente que o bebê está “segurando o mamilo”. Na amamentação eficiente, o mamilo deve alcançar região mais posterior da cavidade oral, próximo à transição entre palato duro e palato mole, enquanto a língua realiza movimentos coordenados para compressão e extração do leite.
 
@@ -20,7 +20,7 @@ O conceito deve ser diferenciado de:
 
 - Posição para amamentar: refere-se à forma como mãe e bebê são organizados corporalmente antes da mamada;
 
-- Sucção eficaz: refere-se à capacidade neuromuscular do bebê de retirar leite;
+- Sucção [[Eficaz|eficaz]]: refere-se à capacidade neuromuscular do bebê de retirar leite;
 
 - Produção adequada de leite: depende de fatores hormonais, glandulares e da remoção frequente do leite.
 
@@ -56,7 +56,7 @@ Já sinais frequentemente associados a uma pega adequada incluem:
 
 - Sucções profundas e ritmadas;
 
-- Presença de deglutição audível;
+- Presença de [[Deglutição|deglutição]] audível;
 
 - Ausência ou redução de dor materna persistente.
 
@@ -80,7 +80,7 @@ Entretanto, nenhum sinal isolado confirma ou exclui transferência inadequada. A
 
 A pega adequada favorece a transferência de leite por permitir funcionamento coordenado dos mecanismos de sucção e ejeção.
 
-Durante uma mamada eficaz ocorre:
+Durante uma mamada [[Eficaz|eficaz]] ocorre:
 
 - Estimulação sensorial da mama pelo bebê
 
@@ -98,7 +98,7 @@ Do ponto de vista mecânico, a extração eficiente depende menos de “sugar o 
 
 Uma pega inadequada pode reduzir a remoção de leite. A menor remoção gera menor estímulo à produção, podendo contribuir para redução da oferta percebida ou real ao longo do tempo.
 
-A evidência apoia que intervenções de apoio à amamentação, incluindo auxílio técnico durante o início da lactação, podem aumentar a duração do aleitamento em determinados contextos. Entretanto, a magnitude do efeito depende da qualidade da intervenção, população atendida, intensidade do suporte e barreiras sociais existentes.
+A evidência apoia que intervenções de apoio à amamentação, incluindo auxílio técnico durante o início da lactação, podem aumentar a duração do aleitamento em determinados contextos. Entretanto, a magnitude do efeito depende da qualidade da intervenção, [[População|população]] atendida, intensidade do suporte e barreiras sociais existentes.
 
 A pega é um componente importante, mas não explica isoladamente todos os casos de dificuldade de amamentação.
 

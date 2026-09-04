@@ -18,7 +18,7 @@ Clinicamente, o termo ajuda a evitar uma interpretação inadequada de que o [[C
 
 A mudança do [[Colostro|colostro]] para o leite de transição ocorre durante a progressão da [[Lactogênese]], especialmente da fase de ativação secretora e manutenção da produção.
 
-O colostro apresenta maior concentração relativa de componentes imunológicos, como imunoglobulinas e fatores bioativos, além de menor volume e maior densidade proteica quando comparado ao leite produzido posteriormente. Com a evolução da lactação, observa-se tendência de aumento do volume secretado, aumento relativo de lactose e alterações nas concentrações de proteínas, lipídios, minerais e componentes imunológicos.
+O [[Colostro|colostro]] apresenta maior concentração relativa de componentes imunológicos, como imunoglobulinas e fatores bioativos, além de menor volume e maior densidade proteica quando comparado ao leite produzido posteriormente. Com a evolução da lactação, observa-se tendência de aumento do volume secretado, aumento relativo de lactose e alterações nas concentrações de [[Proteínas|proteínas]], [[Lipídios|lipídios]], minerais e componentes imunológicos.
 
 Essas mudanças refletem adaptações fisiológicas:
 
@@ -30,9 +30,9 @@ Essas mudanças refletem adaptações fisiológicas:
 
 - Ajuste da composição do leite conforme a demanda do lactente.
 
-A maior concentração de lactose no leite de transição em comparação ao colostro está relacionada ao aumento da síntese de lactose pela glândula mamária e contribui para maior volume de leite, pois a lactose exerce efeito osmótico associado à entrada de água na secreção láctea.
+A maior concentração de lactose no leite de transição em comparação ao [[Colostro|colostro]] está relacionada ao aumento da síntese de lactose pela glândula mamária e contribui para maior volume de leite, pois a lactose exerce efeito osmótico associado à entrada de água na secreção láctea.
 
-A redução relativa de proteínas e alguns componentes imunológicos não significa perda de valor biológico. O leite humano maduro, que virá a posteriori, mantém componentes imunomoduladores, enzimas, oligossacarídeos e outros fatores bioativos.
+A redução relativa de [[Proteínas|proteínas]] e alguns componentes imunológicos não significa perda de valor biológico. O leite humano maduro, que virá a posteriori, mantém componentes imunomoduladores, enzimas, oligossacarídeos e outros fatores bioativos.
 
 A evidência sustenta que a composição do leite humano é dinâmica e biologicamente adaptada ao período de desenvolvimento infantil. Entretanto, diferenças composicionais entre fases da lactação não permitem concluir isoladamente superioridade absoluta de uma fase sobre outra, ou seja, cada fase possui funções fisiológicas específicas.
 

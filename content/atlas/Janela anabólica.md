@@ -1,10 +1,10 @@
 ## Definição
 
-Janela anabólica é o período após o exercício físico durante o qual o músculo esquelético apresenta maior sensibilidade a estímulos anabólicos, especialmente à ingestão de proteínas e aminoácidos essenciais, favorecendo a [[Síntese proteica muscular]]. Tradicionalmente, o conceito foi interpretado como uma "janela" extremamente curta, frequentemente limitada aos primeiros 30–60 minutos após o treino. Essa interpretação, porém, não é sustentada pela evidência contemporânea.
+Janela anabólica é o período após o exercício físico durante o qual o músculo esquelético apresenta maior sensibilidade a estímulos anabólicos, especialmente à ingestão de [[Proteínas|proteínas]] e [[Aminoácidos essenciais|aminoácidos essenciais]], favorecendo a [[Síntese proteica muscular]]. Tradicionalmente, o conceito foi interpretado como uma "janela" extremamente curta, frequentemente limitada aos primeiros 30–60 minutos após o treino. Essa interpretação, porém, não é sustentada pela evidência contemporânea.
 
-Atualmente, o conceito é entendido de forma mais ampla: o exercício aumenta a sensibilidade do músculo aos aminoácidos por várias horas, podendo esse efeito persistir por aproximadamente 24 horas, embora com maior magnitude nas primeiras horas após o término da sessão. Assim, a janela anabólica não representa um momento único e obrigatório para ingestão proteica, mas um período de oportunidade fisiológica cuja relevância depende do contexto nutricional e do intervalo entre as refeições.
+Atualmente, o conceito é entendido de forma mais ampla: o exercício aumenta a sensibilidade do músculo aos [[Aminoácidos|aminoácidos]] por várias horas, podendo esse efeito persistir por aproximadamente 24 horas, embora com maior magnitude nas primeiras horas após o término da sessão. Assim, a janela anabólica não representa um momento único e obrigatório para ingestão proteica, mas um período de oportunidade fisiológica cuja relevância depende do contexto nutricional e do intervalo entre as refeições.
 
-O conceito também não deve ser confundido com a necessidade de consumir proteína imediatamente após qualquer exercício. Para indivíduos que realizaram uma refeição rica em proteínas pouco antes do treino, a disponibilidade de aminoácidos permanece elevada durante boa parte do período pós-exercício, reduzindo a importância do momento exato da refeição subsequente.
+O conceito também não deve ser confundido com a necessidade de consumir proteína imediatamente após qualquer exercício. Para indivíduos que realizaram uma refeição rica em [[Proteínas|proteínas]] pouco antes do treino, a disponibilidade de [[Aminoácidos|aminoácidos]] permanece elevada durante boa parte do período pós-exercício, reduzindo a importância do momento exato da refeição subsequente.
 
 ## Contexto clínico
 
@@ -14,11 +14,11 @@ Na prática clínica, o conceito influencia decisões como:
 
 - distribuição diária da ingestão proteica;
 
-- intervalo entre refeições contendo proteínas de alta qualidade;
+- intervalo entre refeições contendo [[Proteínas|proteínas]] de alta qualidade;
 
 - planejamento nutricional em atletas que realizam múltiplas sessões de treino no mesmo dia;
 
-- estratégias para indivíduos idosos ou com [[Resistência anabólica]], nos quais a resposta da [[Síntese proteica muscular]] aos aminoácidos é reduzida.
+- estratégias para indivíduos idosos ou com [[Resistência anabólica]], nos quais a resposta da [[Síntese proteica muscular]] aos [[Aminoácidos|aminoácidos]] é reduzida.
 
 Para praticantes recreacionais que consomem proteína suficiente ao longo do dia, a prioridade costuma ser atingir a ingestão proteica total diária e distribuí-la adequadamente entre as refeições. Nessa situação, antecipar ou atrasar a refeição pós-treino por uma ou duas horas provavelmente tem impacto pequeno sobre adaptações crônicas.
 
@@ -26,13 +26,13 @@ Já em situações nas quais o indivíduo treinou em jejum prolongado, realizou 
 
 ## Base fisiológica, bioquímica ou epidemiológica
 
-O exercício de força estimula diversas vias de sinalização intracelular envolvidas na [[Síntese proteica muscular]], incluindo ativação da via [[mTORC1]], aumento da tradução proteica e maior sensibilidade às concentrações plasmáticas de aminoácidos essenciais, particularmente [[Leucina]].
+O exercício de força estimula diversas vias de sinalização intracelular envolvidas na [[Síntese proteica muscular]], incluindo ativação da via [[mTORC1]], aumento da tradução proteica e maior sensibilidade às concentrações plasmáticas de [[Aminoácidos essenciais|aminoácidos essenciais]], particularmente [[Leucina]].
 
-Isoladamente, o exercício aumenta tanto a síntese quanto a degradação proteica muscular. O balanço proteico líquido permanece negativo até que aminoácidos sejam disponibilizados pela alimentação. A ingestão de proteínas após o exercício eleva a concentração plasmática de aminoácidos, potencializando a resposta da síntese proteica e favorecendo um balanço proteico positivo.
+Isoladamente, o exercício aumenta tanto a síntese quanto a degradação proteica muscular. O balanço proteico líquido permanece negativo até que [[Aminoácidos|aminoácidos]] sejam disponibilizados pela alimentação. A ingestão de [[Proteínas|proteínas]] após o exercício eleva a concentração plasmática de aminoácidos, potencializando a resposta da síntese proteica e favorecendo um balanço proteico positivo.
 
-Estudos utilizando traçadores isotópicos demonstram que a sensibilidade do músculo aos aminoácidos permanece aumentada durante várias horas após o exercício, sendo maior nas primeiras horas e diminuindo progressivamente. Esse aumento da síntese proteica representa um [[Desfecho substituto|desfecho substituto]] fisiológico, não um desfecho clínico centrado no paciente. A relação entre aumentos agudos da síntese proteica e ganhos de massa muscular ao longo de meses é plausível e apoiada por parte da literatura, mas não é perfeitamente linear.
+Estudos utilizando traçadores isotópicos demonstram que a sensibilidade do músculo aos [[Aminoácidos|aminoácidos]] permanece aumentada durante várias horas após o exercício, sendo maior nas primeiras horas e diminuindo progressivamente. Esse aumento da síntese proteica representa um [[Desfecho substituto|desfecho substituto]] fisiológico, não um desfecho clínico centrado no paciente. A relação entre aumentos agudos da síntese proteica e ganhos de massa muscular ao longo de meses é plausível e apoiada por parte da literatura, mas não é perfeitamente linear.
 
-Metanálises sugerem que o momento da ingestão proteica exerce efeito relativamente pequeno quando a ingestão proteica diária total é adequada. Parte dos efeitos atribuídos anteriormente ao timing provavelmente refletia diferenças na ingestão total de proteínas entre os grupos estudados, e não exclusivamente o horário da refeição.
+Metanálises sugerem que o momento da ingestão proteica exerce efeito relativamente pequeno quando a ingestão proteica diária total é adequada. Parte dos efeitos atribuídos anteriormente ao timing provavelmente refletia diferenças na ingestão total de [[Proteínas|proteínas]] entre os grupos estudados, e não exclusivamente o horário da refeição.
 
 ## Limitações e controvérsias
 
@@ -42,7 +42,7 @@ A ideia de uma janela extremamente estreita, na qual perder a refeição imediat
 
 Outro equívoco frequente consiste em extrapolar estudos mecanísticos para recomendações clínicas universais. Muitos experimentos utilizam marcadores agudos de síntese proteica, que constituem desfechos intermediários e não necessariamente predizem diferenças clinicamente relevantes em hipertrofia, força ou funcionalidade após meses de treinamento.
 
-Também existe heterogeneidade importante entre populações. A magnitude da resposta pode variar conforme idade, estado nutricional, treinamento prévio, tipo de exercício, ingestão proteica habitual, qualidade da proteína ingerida e intervalo desde a última refeição.
+Também existe [[Heterogeneidade|heterogeneidade]] importante entre populações. A magnitude da resposta pode variar conforme idade, [[Estado nutricional|estado nutricional]], treinamento prévio, tipo de exercício, ingestão proteica habitual, qualidade da proteína ingerida e intervalo desde a última refeição.
 
 Na prática, a evidência sustenta que o consumo de proteína próximo ao exercício é uma estratégia fisiologicamente coerente, especialmente quando há longo intervalo desde a refeição anterior ou necessidade de recuperação rápida entre sessões. Entretanto, para indivíduos saudáveis com ingestão proteica diária adequada e refeições distribuídas ao longo do dia, a prioridade continua sendo a ingestão total de proteína, enquanto o momento exato da refeição exerce influência provavelmente menor.
 

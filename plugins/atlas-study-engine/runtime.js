@@ -41,6 +41,12 @@ const clientFiles = [
   "graph-physics.js",
   "gesture-math.cjs",
   "graph.js",
+  "daily-tasks/tasks.js",
+  "daily-tasks/task-storage.js",
+  "daily-tasks/task-progress.js",
+  "daily-tasks/task-engine.js",
+  "daily-tasks.js",
+  "roadmap.js",
   "app.js",
 ]
 

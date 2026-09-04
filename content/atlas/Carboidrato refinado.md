@@ -2,7 +2,7 @@
 
 ## **Definição**
 
-Carboidrato refinado é aquele proveniente de processamento que remove, tritura ou transforma partes do alimento e altera sua estrutura física. Em cereais, a moagem e a remoção de farelo e germe podem reduzir fibra e modificar a disponibilidade do amido. O termo inclui produtos diferentes e exige especificar o alimento e o processo.
+Carboidrato refinado é aquele proveniente de processamento que remove, tritura ou transforma partes do alimento e altera sua estrutura física. Em cereais, a moagem e a remoção de farelo e germe podem reduzir fibra e modificar a disponibilidade do [[Amido|amido]]. O termo inclui produtos diferentes e exige especificar o alimento e o processo.
 
 ## **Contexto clínico**
 
@@ -12,7 +12,7 @@ Substituir parte desses produtos por cereais integrais, leguminosas, frutas e ve
 
 ## **Base fisiológica, bioquímica ou epidemiológica**
 
-A moagem reduz o tamanho das partículas e pode aumentar a superfície disponível para [[Amilase pancreática]]. A remoção de estruturas celulares e a gelatinização facilitam a hidrólise do amido. Fibra, gordura, proteína e ácidos orgânicos continuam modulando a resposta após o processamento.
+A moagem reduz o tamanho das partículas e pode aumentar a superfície disponível para [[Amilase pancreática]]. A remoção de estruturas celulares e a gelatinização facilitam a [[Hidrólise|hidrólise]] do [[Amido|amido]]. Fibra, gordura, proteína e ácidos orgânicos continuam modulando a resposta após o processamento.
 
 Diretrizes da OMS priorizam fontes com fibra naturalmente presente, especialmente cereais integrais, vegetais, frutas e leguminosas. Estudos populacionais que associam alimentos refinados a risco metabólico sofrem influência de padrão alimentar, bebidas, atividade física e condição socioeconômica.
 
@@ -20,7 +20,7 @@ Diretrizes da OMS priorizam fontes com fibra naturalmente presente, especialment
 
 Refinamento não é sinônimo de ultraprocessamento, e um alimento refinado pode ser nutricionalmente adequado dentro de uma dieta. A categoria também não informa teor de açúcar, gordura, sódio ou tamanho da porção.
 
-Intervenções com substituição de cereais integrais podem melhorar marcadores cardiometabólicos, mas a magnitude e a certeza variam. A conclusão deve seguir o desenho do estudo e o desfecho avaliado, sem converter associação em causalidade individual.
+Intervenções com substituição de cereais integrais podem melhorar marcadores cardiometabólicos, mas a magnitude e a certeza variam. A conclusão deve seguir o desenho do estudo e o desfecho avaliado, sem converter associação em [[Causalidade|causalidade]] individual.
 
 ## **Conceitos relacionados**
 

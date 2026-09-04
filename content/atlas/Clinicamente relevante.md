@@ -6,15 +6,15 @@ Um resultado clinicamente relevante é aquele cuja magnitude, direção, duraç�
 
 ## **Contexto clínico**
 
-Dor, capacidade funcional, eventos cardiovasculares, hospitalização e mortalidade costumam ter interpretação mais direta que marcadores isolados. O paciente pode valorizar benefícios e danos de forma diferente do pesquisador. Decisões devem considerar risco basal e preferência.
+Dor, capacidade funcional, eventos cardiovasculares, hospitalização e [[Mortalidade|mortalidade]] costumam ter interpretação mais direta que marcadores isolados. O paciente pode valorizar benefícios e danos de forma diferente do pesquisador. Decisões devem considerar [[Risco basal|risco basal]] e preferência.
 
-Uma diferença pequena em mortalidade pode ser relevante em uma população grande; uma mudança grande em biomarcador pode ter pouca consequência prática. A definição do desfecho antecede a leitura do p-valor.
+Uma diferença pequena em [[Mortalidade|mortalidade]] pode ser relevante em uma [[População|população]] grande; uma mudança grande em biomarcador pode ter pouca [[Consequência|consequência]] prática. A definição do desfecho antecede a leitura do p-valor.
 
 ## **Base fisiológica, bioquímica ou epidemiológica**
 
 A diferença minimamente importante pode ser estimada por âncora clínica, distribuição estatística ou julgamento de especialistas e pacientes. Cada método tem pressupostos. Intervalos de confiança mostram quais magnitudes são compatíveis com os dados.
 
-Ensaios podem detectar diferença estatística sem superar um limiar clínico. A evidência para inferência resulta da combinação entre efeito, precisão, risco de viés, consistência, aplicabilidade e certeza, como organizado pelo GRADE.
+Ensaios podem detectar diferença estatística sem superar um limiar clínico. A evidência para inferência resulta da combinação entre efeito, precisão, risco de [[Viés|viés]], consistência, aplicabilidade e certeza, como organizado pelo GRADE.
 
 ## **Limitações e controvérsias**
 

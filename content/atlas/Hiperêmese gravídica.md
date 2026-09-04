@@ -54,9 +54,9 @@ Do ponto de vista nutricional, a hiperêmese gravídica pode comprometer:
 
 - Consumo de micronutrientes;
 
-- Manutenção do ganho de peso gestacional esperado.
+- Manutenção do [[Ganho de peso gestacional|ganho de peso gestacional]] esperado.
 
-Em casos prolongados, pode aumentar o risco de deficiências nutricionais e complicações metabólicas. Entretanto, a relação entre hiperêmese e desfechos fetais depende da gravidade, duração, estado nutricional prévio e qualidade do manejo clínico.
+Em casos prolongados, pode aumentar o risco de deficiências nutricionais e complicações metabólicas. Entretanto, a relação entre hiperêmese e desfechos fetais depende da gravidade, duração, [[Estado nutricional|estado nutricional]] prévio e qualidade do manejo clínico.
 
 ## Base fisiológica, bioquímica ou epidemiológica
 
@@ -80,7 +80,7 @@ Outros fatores investigados incluem:
 
 As consequências metabólicas podem incluir:
 
-- Aumento da lipólise materna devido à baixa ingestão energética;
+- Aumento da [[Lipólise|lipólise]] materna devido à baixa ingestão energética;
 
 - Formação de corpos cetônicos;
 
@@ -102,7 +102,7 @@ Por outro lado, existe risco de medicalização excessiva de náuseas comuns da 
 
 Algumas associações epidemiológicas precisam ser interpretadas com cautela:
 
-- Hiperêmese e [[Baixo peso ao nascer|baixo peso ao nascer]] podem estar relacionadas, mas a causalidade depende da gravidade, duração e tratamento recebido;
+- Hiperêmese e [[Baixo peso ao nascer|baixo peso ao nascer]] podem estar relacionadas, mas a [[Causalidade|causalidade]] depende da gravidade, duração e tratamento recebido;
 
 - Alterações hormonais podem estar associadas ao quadro, mas não explicam todos os casos;
 
@@ -110,7 +110,7 @@ Algumas associações epidemiológicas precisam ser interpretadas com cautela:
 
 Outro ponto relevante é a avaliação de desfechos substitutos. Alterações como cetonúria ou marcadores bioquímicos podem indicar privação energética, mas não representam isoladamente desfechos clínicos centrados na paciente ou no recém-nascido.
 
-O manejo deve equilibrar controle de sintomas, manutenção do estado nutricional e segurança materno-fetal. A escolha terapêutica depende da gravidade e do contexto individual, não apenas da presença de vômitos.
+O manejo deve equilibrar controle de sintomas, manutenção do [[Estado nutricional|estado nutricional]] e segurança materno-fetal. A escolha terapêutica depende da gravidade e do contexto individual, não apenas da presença de vômitos.
 
 ## Conceitos relacionados
 - [[Náuseas e vômitos na gestação]]

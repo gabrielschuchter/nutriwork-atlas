@@ -1,6 +1,6 @@
 ## Definição
 
-Glicólise é a via citosólica que converte glicose em piruvato, produzindo [[ATP]] por fosforilação em nível de substrato e reduzindo NAD⁺ a NADH. Na conversão de uma molécula de glicose livre em duas moléculas de piruvato, o balanço líquido convencional é de dois ATP e dois NADH.
+Glicólise é a via citosólica que converte [[Glicose|glicose]] em piruvato, produzindo [[ATP]] por fosforilação em nível de [[Substrato|substrato]] e reduzindo NAD⁺ a NADH. Na conversão de uma molécula de glicose livre em duas moléculas de piruvato, o balanço líquido convencional é de dois ATP e dois NADH.
 
 A glicólise não é necessariamente "anaeróbica". Ela ocorre tanto na presença quanto na ausência de oxigênio; o destino do piruvato e do NADH é que varia conforme o contexto metabólico.
 
@@ -14,7 +14,7 @@ Alterações em enzimas glicolíticas podem causar anemias hemolíticas ou miopa
 
 ## Base fisiológica, bioquímica ou epidemiológica
 
-As principais etapas regulatórias são catalisadas por hexoquinase ou glicoquinase, fosfofrutoquinase-1 e piruvato quinase. A fosfofrutoquinase-1 integra sinais como [[ATP]], [[AMP]], citrato e frutose-2,6-bisfosfato.
+As principais etapas regulatórias são catalisadas por hexoquinase ou glicoquinase, fosfofrutoquinase-1 e piruvato quinase. A fosfofrutoquinase-1 integra sinais como [[ATP]], [[AMP]], citrato e [[Frutose|frutose]]-2,6-bisfosfato.
 
 Na presença de função mitocondrial adequada, o piruvato pode ser convertido em acetil-CoA e oxidado no [[Ciclo de Krebs]]. Quando a reoxidação mitocondrial de NADH é limitada, a lactato desidrogenase regenera NAD⁺.
 
@@ -22,7 +22,7 @@ Na presença de função mitocondrial adequada, o piruvato pode ser convertido e
 
 Concentração de lactato não é uma medida direta da taxa de glicólise, pois também depende de remoção, oxidação e redistribuição entre tecidos.
 
-O rendimento de [[ATP]] varia conforme o substrato inicial, o destino do NADH e a forma de contabilização. Glicose derivada de [[Glicogênio muscular|glicogênio muscular]] evita uma etapa de consumo de ATP.
+O rendimento de [[ATP]] varia conforme o [[Substrato|substrato]] inicial, o destino do NADH e a forma de contabilização. [[Glicose|Glicose]] derivada de [[Glicogênio muscular|glicogênio muscular]] evita uma etapa de consumo de ATP.
 
 ## Conceitos relacionados
 - [[Glicose]]

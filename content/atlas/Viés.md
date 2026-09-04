@@ -2,19 +2,19 @@
 
 ## **Definição**
 
-Viés é um desvio sistemático do efeito ou da associação estimada em relação ao alvo que o estudo pretendia medir. Pode surgir na seleção, na classificação da exposição ou do desfecho, no seguimento, na análise, no relato ou pelo confundimento. Não é sinônimo de erro aleatório.
+Viés é um desvio sistemático do efeito ou da associação estimada em relação ao alvo que o estudo pretendia medir. Pode surgir na seleção, na classificação da exposição ou do desfecho, no seguimento, na análise, no relato ou pelo [[Confundimento|confundimento]]. Não é sinônimo de erro aleatório.
 
 ## **Contexto clínico**
 
-Viés pode fazer uma intervenção parecer mais eficaz, menos eficaz ou prejudicial. Ensaios randomizados reduzem confundimento inicial, mas perdas, desvio da intervenção, mensuração e análise ainda podem distorcer resultados. Estudos observacionais exigem desenho causal explícito.
+Viés pode fazer uma intervenção parecer mais [[Eficaz|eficaz]], menos eficaz ou prejudicial. Ensaios randomizados reduzem [[Confundimento|confundimento]] inicial, mas perdas, desvio da intervenção, mensuração e análise ainda podem distorcer resultados. Estudos observacionais exigem desenho causal explícito.
 
-A avaliação deve ser feita por domínio e para cada desfecho. Um estudo pode ter baixo risco de viés para mortalidade e alto para sintomas autorrelatados.
+A avaliação deve ser feita por domínio e para cada desfecho. Um estudo pode ter baixo risco de viés para [[Mortalidade|mortalidade]] e alto para sintomas autorrelatados.
 
 ## **Base fisiológica, bioquímica ou epidemiológica**
 
-Viés de seleção altera quem entra, permanece ou é analisado; viés de informação classifica exposição ou desfecho de modo diferencial ou não; confundimento mistura efeito da exposição com uma causa comum. DAGs ajudam a definir variáveis de ajuste e evitar controle de mediadores ou colisores.
+[[Viés de seleção|Viés de seleção]] altera quem entra, permanece ou é analisado; viés de informação classifica exposição ou desfecho de modo diferencial ou não; [[Confundimento|confundimento]] mistura efeito da exposição com uma causa comum. DAGs ajudam a definir variáveis de ajuste e evitar controle de mediadores ou colisores.
 
-A direção e a magnitude raramente são conhecidas com precisão. Intervalo de confiança mede erro amostral sob o modelo e não corrige viés sistemático. Evidência resulta de desenho, dados, análise e coerência.
+A direção e a magnitude raramente são conhecidas com precisão. [[Intervalo de Confiança|Intervalo de confiança]] mede erro amostral sob o modelo e não corrige viés sistemático. Evidência resulta de desenho, dados, análise e coerência.
 
 ## **Limitações e controvérsias**
 

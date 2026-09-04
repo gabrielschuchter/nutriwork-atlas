@@ -28,7 +28,7 @@ Exemplos de eventos antecedentes incluem:
 
 - entrar em uma lanchonete.
 
-Nenhum desses eventos produz necessariamente determinado comportamento alimentar. Sua influência depende das contingências previamente estabelecidas. Para uma pessoa, passar diante de uma confeitaria pode evocar a compra de doces; para outra, pode não produzir qualquer alteração comportamental.
+Nenhum desses eventos produz necessariamente determinado [[Comportamento alimentar|comportamento alimentar]]. Sua influência depende das contingências previamente estabelecidas. Para uma pessoa, passar diante de uma confeitaria pode evocar a compra de doces; para outra, pode não produzir qualquer alteração comportamental.
 
 Na prática clínica, modificar antecedentes frequentemente constitui uma estratégia mais eficiente do que tentar controlar o comportamento apenas após sua ocorrência. Alterações na organização do ambiente alimentar, planejamento das compras, disposição dos alimentos em casa e rotinas diárias são exemplos de intervenções baseadas na manipulação de antecedentes.
 
@@ -44,7 +44,7 @@ Por exemplo, o som de uma notificação de aplicativo de entrega não possui, po
 
 Além disso, diversos antecedentes podem atuar simultaneamente. Características físicas do ambiente, presença de outras pessoas, horário do dia, regras sociais, sinais fisiológicos e estímulos condicionados frequentemente compõem um conjunto complexo de variáveis antecedentes que influenciam a probabilidade do comportamento.
 
-Por essa razão, a análise do comportamento raramente atribui o controle comportamental a um único estímulo antecedente isolado.
+Por essa razão, a [[Análise do comportamento|análise do comportamento]] raramente atribui o controle comportamental a um único estímulo antecedente isolado.
 
 ## Limitações e controvérsias
 
@@ -52,7 +52,7 @@ Um erro frequente consiste em tratar eventos antecedentes como causas suficiente
 
 Também é comum confundir eventos antecedentes com gatilhos ("triggers"), termo amplamente utilizado na linguagem cotidiana. Embora exista sobreposição parcial entre os conceitos, "gatilho" costuma sugerir uma relação causal direta e automática. Já o conceito de evento antecedente enfatiza que seu efeito depende da história de aprendizagem, das [[Operações motivadoras]] e das consequências disponíveis.
 
-Outra confusão importante envolve a distinção entre eventos antecedentes e operações motivadoras. Um horário habitual de almoço pode funcionar como evento antecedente ao sinalizar disponibilidade de alimento, enquanto um período prolongado de privação alimentar atua como operação motivadora por aumentar o valor reforçador da comida. Ambos influenciam o comportamento, mas por mecanismos diferentes.
+Outra confusão importante envolve a distinção entre eventos antecedentes e [[Operações motivadoras|operações motivadoras]]. Um horário habitual de almoço pode funcionar como evento antecedente ao sinalizar disponibilidade de alimento, enquanto um período prolongado de privação alimentar atua como operação motivadora por aumentar o valor reforçador da comida. Ambos influenciam o comportamento, mas por mecanismos diferentes.
 
 Na prática clínica, intervenções que modificam apenas antecedentes podem produzir resultados limitados quando as consequências que mantêm o comportamento permanecem inalteradas. Da mesma forma, eliminar um antecedente específico nem sempre impede a ocorrência da resposta, pois outros estímulos podem assumir função discriminativa ao longo do tempo.
 

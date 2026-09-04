@@ -6,15 +6,15 @@ Colecistocinina é um hormônio peptídico secretado por células I do duodeno e
 
 ## **Contexto clínico**
 
-CCK contrai a vesícula biliar, relaxa o esfíncter de Oddi, estimula secreção pancreática e retarda o esvaziamento gástrico. Também participa de saciedade de curta duração. Alterações em sua sinalização podem acompanhar doenças biliares e pancreáticas, mas a dosagem isolada não orienta a maioria das decisões.
+CCK contrai a vesícula biliar, relaxa o esfíncter de Oddi, estimula secreção pancreática e retarda o [[Esvaziamento gástrico|esvaziamento gástrico]]. Também participa de saciedade de curta duração. Alterações em sua sinalização podem acompanhar doenças biliares e pancreáticas, mas a dosagem isolada não orienta a maioria das decisões.
 
 Dor após refeição gordurosa exige avaliação de litíase, inflamação e outras causas. A sensação de saciedade após CCK experimental não identifica a causa de sintomas ou obesidade.
 
 ## **Base fisiológica, bioquímica ou epidemiológica**
 
-Ácidos graxos e aminoácidos no intestino estimulam células I. CCK atua em CCK1 no trato gastrointestinal e em aferentes vagais; a sinalização contrai a vesícula, promove secreção pancreática e coordena a chegada de nutrientes ao intestino.
+[[Ácidos graxos|Ácidos graxos]] e [[Aminoácidos|aminoácidos]] no intestino estimulam células I. CCK atua em CCK1 no trato gastrointestinal e em aferentes vagais; a sinalização contrai a vesícula, promove secreção pancreática e coordena a chegada de nutrientes ao intestino.
 
-A liberação de [[Bile]] e a formação de [[Micelas]] dependem da integração entre CCK, secretina, motilidade e composição da refeição. O efeito sobre ingestão é breve e interage com GLP-1, PYY, leptina e sinais de recompensa.
+A liberação de [[Bile]] e a formação de [[Micelas]] dependem da integração entre CCK, secretina, motilidade e composição da refeição. O efeito sobre ingestão é breve e interage com [[GLP-1|GLP-1]], [[Peptídeo YY (PYY)|PYY]], [[Leptina|leptina]] e sinais de recompensa.
 
 ## **Limitações e controvérsias**
 

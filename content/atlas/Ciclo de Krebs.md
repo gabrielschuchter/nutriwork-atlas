@@ -6,7 +6,7 @@ A maior parte das reações ocorre na matriz mitocondrial. A succinato desidroge
 
 ## Contexto clínico
 
-O ciclo conecta o [[Metabolismo|metabolismo]] de carboidratos, lipídios e aminoácidos. Alterações em suas enzimas ou no fornecimento de intermediários aparecem em doenças mitocondriais, erros inatos do metabolismo e alguns tumores.
+O ciclo conecta o [[Metabolismo|metabolismo]] de [[Carboidratos|carboidratos]], [[Lipídios|lipídios]] e [[Aminoácidos|aminoácidos]]. Alterações em suas enzimas ou no fornecimento de intermediários aparecem em doenças mitocondriais, erros inatos do metabolismo e alguns tumores.
 
 Durante exercício ou jejum, o fluxo não depende apenas da quantidade de acetil-CoA. Disponibilidade de oxaloacetato, estado redox, demanda de [[ATP]] e capacidade da cadeia respiratória também regulam a oxidação.
 
@@ -14,13 +14,13 @@ Durante exercício ou jejum, o fluxo não depende apenas da quantidade de acetil
 
 Cada acetil-CoA incorporado ao ciclo gera equivalentes reduzidos que alimentam a [[Cadeia transportadora de elétrons]]. A produção direta de energia na forma de GTP representa apenas uma parte pequena do rendimento total.
 
-O ciclo é anfibólico: seus intermediários participam da síntese de aminoácidos, heme, glicose e ácidos graxos. Reações anapleróticas repõem intermediários retirados para biossíntese.
+O ciclo é anfibólico: seus intermediários participam da síntese de [[Aminoácidos|aminoácidos]], heme, [[Glicose|glicose]] e [[Ácidos graxos|ácidos graxos]]. Reações anapleróticas repõem intermediários retirados para biossíntese.
 
-O oxigênio não é substrato direto do ciclo, mas sua ausência impede a reoxidação adequada de NADH e FADH₂, limitando o fluxo.
+O oxigênio não é [[Substrato|substrato]] direto do ciclo, mas sua ausência impede a reoxidação adequada de NADH e FADH₂, limitando o fluxo.
 
 ## Limitações e controvérsias
 
-A afirmação de que "gordura queima na chama dos carboidratos" é uma simplificação. O oxaloacetato pode derivar de diferentes fontes, e o fluxo depende do estado metabólico global.
+A afirmação de que "gordura queima na chama dos [[Carboidratos|carboidratos]]" é uma simplificação. O oxaloacetato pode derivar de diferentes fontes, e o fluxo depende do estado metabólico global.
 
 Concentração de um intermediário não informa necessariamente o fluxo da via. Acúmulo pode refletir produção aumentada, consumo reduzido ou bloqueio posterior.
 

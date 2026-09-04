@@ -4,13 +4,13 @@ O desmame precoce é a interrupção do aleitamento materno antes do período re
 
 O termo é dependente do referencial utilizado. Atualmente, muitas diretrizes recomendam:
 
-[[Aleitamento materno exclusivo]] até aproximadamente os 6 meses de vida, quando possível, e manutenção do aleitamento materno junto à Alimentação complementar até 2 anos ou mais, conforme desejo e possibilidade da mãe e da criança.
+[[Aleitamento materno exclusivo]] até aproximadamente os 6 meses de vida, quando possível, e manutenção do aleitamento materno junto à [[Alimentação complementar|Alimentação complementar]] até 2 anos ou mais, conforme desejo e possibilidade da mãe e da criança.
 
 Assim, o desmame antes dos 6 meses geralmente é considerado interrupção precoce do aleitamento exclusivo. A interrupção completa do aleitamento antes de 2 anos pode ser considerada precoce em relação às recomendações de saúde pública, embora a decisão individual dependa do contexto familiar, cultural e clínico.
 
 Desmame precoce não é sinônimo de:
 
-- Introdução da alimentação complementar aos 6 meses, que passa a complementar o [[Leite materno|leite materno]];
+- Introdução da [[Alimentação complementar|alimentação complementar]] aos 6 meses, que passa a complementar o [[Leite materno|leite materno]];
 
 - Interrupção do aleitamento materno por indicação médica, quando necessária;
 
@@ -52,7 +52,7 @@ A manutenção da produção de leite depende principalmente de:
 
 - Estímulo da sucção;
 
-- Remoção frequente e eficaz do leite;
+- Remoção frequente e [[Eficaz|eficaz]] do leite;
 
 - Funcionamento adequado do eixo prolactina-ocitocina;
 
@@ -72,7 +72,7 @@ Portanto:
 
 - A inferência clínica não deve transformar associação populacional em garantia de benefício individual.
 
-A fisiologia sustenta que o [[Leite materno|leite materno]] possui componentes nutricionais e imunológicos específicos. Porém, o impacto clínico da duração do aleitamento depende do contexto, da população estudada e dos desfechos avaliados.
+A fisiologia sustenta que o [[Leite materno|leite materno]] possui componentes nutricionais e imunológicos específicos. Porém, o impacto clínico da duração do aleitamento depende do contexto, da [[População|população]] estudada e dos desfechos avaliados.
 
 ## Limitações e controvérsias
 

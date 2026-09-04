@@ -100,9 +100,9 @@ A regulação do peso corporal envolve sistemas centrais e periféricos, incluin
 
 - hipotálamo;
 
-- leptina;
+- [[Leptina|leptina]];
 
-- insulina;
+- [[Insulina|insulina]];
 
 - sinais gastrointestinais de saciedade;
 

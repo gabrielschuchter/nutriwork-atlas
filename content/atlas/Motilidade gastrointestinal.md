@@ -16,7 +16,7 @@ O sintoma não localiza sozinho o segmento afetado. Avaliação clínica, medica
 
 O músculo liso gastrointestinal recebe controle do sistema nervoso entérico, sistema autonômico, células intersticiais de Cajal, hormônios e sinais mecânicos e químicos. Ondas lentas organizam a excitabilidade, enquanto potenciais em espícula geram contração quando o limiar é alcançado.
 
-Peristaltismo favorece propulsão; segmentação favorece mistura. O estômago acomoda alimento no fundo, tritura partículas no antro e regula sua liberação pelo piloro. O cólon alterna contrações locais com movimentos propulsivos de maior alcance.
+[[Peristaltismo|Peristaltismo]] favorece propulsão; [[Segmentação|segmentação]] favorece mistura. O estômago acomoda alimento no fundo, tritura partículas no antro e regula sua liberação pelo piloro. O cólon alterna contrações locais com movimentos propulsivos de maior alcance.
 
 ## **Limitações e controvérsias**
 

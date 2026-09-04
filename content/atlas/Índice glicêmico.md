@@ -2,7 +2,7 @@
 
 ## **Definição**
 
-Índice glicêmico é uma medida da resposta incremental da glicose sanguínea após o consumo de uma porção de alimento que fornece quantidade padronizada de carboidrato disponível, comparada com um alimento de referência. O resultado é relativo à resposta média observada no protocolo e não uma propriedade fixa de toda porção do alimento.
+Índice glicêmico é uma medida da resposta incremental da [[Glicose|glicose]] sanguínea após o consumo de uma porção de alimento que fornece quantidade padronizada de carboidrato disponível, comparada com um alimento de referência. O resultado é relativo à resposta média observada no protocolo e não uma propriedade fixa de toda porção do alimento.
 
 ## **Contexto clínico**
 
@@ -12,7 +12,7 @@ Em diabetes, substituições que reduzem a resposta pós-prandial podem melhorar
 
 ## **Base fisiológica, bioquímica ou epidemiológica**
 
-O resultado reflete digestibilidade do amido, gelatinização, tamanho de partícula, acidez, fibra, gordura, proteína e velocidade de [[Esvaziamento gástrico]]. A resposta inclui digestão, absorção, secreção de insulina e remoção de glicose, portanto o índice não mede apenas uma propriedade molecular.
+O resultado reflete digestibilidade do [[Amido|amido]], gelatinização, tamanho de partícula, acidez, fibra, gordura, proteína e velocidade de [[Esvaziamento gástrico]]. A resposta inclui digestão, [[Absorção|absorção]], secreção de [[Insulina|insulina]] e remoção de [[Glicose|glicose]], portanto o índice não mede apenas uma propriedade molecular.
 
 Protocolos padronizados calculam a área incremental sob a curva em relação à referência. Variabilidade entre pessoas e entre lotes do mesmo alimento pode ser relevante. A OMS usa a qualidade do carboidrato em sentido mais amplo, incluindo composição, digestibilidade e fibra, e não reduz a recomendação a uma lista universal de índices.
 
@@ -20,7 +20,7 @@ Protocolos padronizados calculam a área incremental sob a curva em relação à
 
 O índice glicêmico de um alimento isolado não prediz com precisão a resposta de uma refeição mista. Método culinário, maturação e processamento alteram o valor. Valores publicados podem divergir por variedade, laboratório e protocolo.
 
-Ensaios com melhora de índice glicêmico ou de glicemia média fornecem evidência sobre marcadores intermediários. Inferências sobre mortalidade ou prevenção de complicações exigem estudos com esses desfechos. O uso rígido do índice pode produzir escolhas nutricionalmente pobres quando ignora a matriz alimentar.
+Ensaios com melhora de índice glicêmico ou de glicemia média fornecem evidência sobre marcadores intermediários. Inferências sobre [[Mortalidade|mortalidade]] ou prevenção de complicações exigem estudos com esses desfechos. O uso rígido do índice pode produzir escolhas nutricionalmente pobres quando ignora a matriz alimentar.
 
 ## **Conceitos relacionados**
 

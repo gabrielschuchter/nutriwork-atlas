@@ -2,25 +2,25 @@
 
 ## **Definição**
 
-Carboidrato complexo é uma expressão tradicional para carboidratos com cadeias longas, sobretudo oligossacarídeos e polissacarídeos. O uso é insuficiente para caracterizar a qualidade de um alimento, porque cadeias longas podem ser rapidamente digeríveis e açúcares podem estar em matrizes com efeitos distintos.
+Carboidrato complexo é uma expressão tradicional para [[Carboidratos|carboidratos]] com cadeias longas, sobretudo oligossacarídeos e [[Polissacarídeos|polissacarídeos]]. O uso é insuficiente para caracterizar a qualidade de um alimento, porque cadeias longas podem ser rapidamente digeríveis e açúcares podem estar em matrizes com efeitos distintos.
 
 ## **Contexto clínico**
 
-O termo aparece em aconselhamento alimentar para recomendar cereais, leguminosas e tubérculos. Essas fontes podem fornecer amido, fibra, proteínas, minerais e compostos bioativos. O benefício potencial depende do alimento inteiro, do processamento, da porção e do padrão alimentar.
+O termo aparece em aconselhamento alimentar para recomendar cereais, leguminosas e tubérculos. Essas fontes podem fornecer [[Amido|amido]], fibra, [[Proteínas|proteínas]], minerais e compostos bioativos. O benefício potencial depende do alimento inteiro, do processamento, da porção e do padrão alimentar.
 
 Em diabetes, trocar produtos refinados por alimentos ricos em fibra pode melhorar a resposta glicêmica e a saciedade. A recomendação precisa ser testada na prática, pois algumas preparações classificadas como complexas têm farinha muito fina, açúcar adicionado ou grande densidade energética.
 
 ## **Base fisiológica, bioquímica ou epidemiológica**
 
-Polissacarídeos são hidrolisados em diferentes velocidades conforme cristalinidade, gelatinização, estrutura celular e interação com fibra. O amido digerível libera glicose; a fibra pode permanecer no cólon e ser fermentada em [[Ácidos graxos de cadeia curta (AGCC)]]. A digestão real é uma propriedade do alimento e da refeição.
+[[Polissacarídeos|Polissacarídeos]] são hidrolisados em diferentes velocidades conforme cristalinidade, gelatinização, estrutura celular e interação com fibra. O [[Amido|amido]] digerível libera [[Glicose|glicose]]; a fibra pode permanecer no cólon e ser fermentada em [[Ácidos graxos de cadeia curta (AGCC)]]. A digestão real é uma propriedade do alimento e da refeição.
 
-A OMS recomenda que carboidratos provenham principalmente de cereais integrais, vegetais, frutas e leguminosas. A base da recomendação é o conjunto de qualidade, fibra e matriz alimentar. A expressão “complexo” pode ser usada como ponte histórica, porém não substitui esses critérios.
+A OMS recomenda que [[Carboidratos|carboidratos]] provenham principalmente de cereais integrais, vegetais, frutas e leguminosas. A base da recomendação é o conjunto de qualidade, fibra e matriz alimentar. A expressão “complexo” pode ser usada como ponte histórica, porém não substitui esses critérios.
 
 ## **Limitações e controvérsias**
 
-O rótulo “complexo” não informa teor de fibra, grau de processamento, resposta glicêmica ou adequação energética. Ele também pode sugerir uma hierarquia química inexistente entre todos os polissacarídeos.
+O rótulo “complexo” não informa teor de fibra, grau de processamento, resposta glicêmica ou adequação energética. Ele também pode sugerir uma hierarquia química inexistente entre todos os [[Polissacarídeos|polissacarídeos]].
 
-Associações entre maior consumo de alimentos integrais e melhores desfechos são suscetíveis a confundimento residual. Ensaios de curto prazo com glicemia ou saciedade não resolvem a relação com doença cardiovascular, câncer ou mortalidade.
+Associações entre maior consumo de alimentos integrais e melhores desfechos são suscetíveis a [[Confundimento residual|confundimento residual]]. Ensaios de curto prazo com glicemia ou saciedade não resolvem a relação com doença cardiovascular, câncer ou [[Mortalidade|mortalidade]].
 
 ## **Conceitos relacionados**
 

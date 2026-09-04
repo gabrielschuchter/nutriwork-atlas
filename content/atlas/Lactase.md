@@ -2,13 +2,13 @@
 
 ## **Definição**
 
-Lactase é a beta-galactosidase da borda em escova que hidrolisa lactose em glicose e galactose. A atividade tende a ser maior na infância e pode diminuir após o desmame em pessoas com não persistência da lactase.
+Lactase é a beta-galactosidase da borda em escova que hidrolisa lactose em [[Glicose|glicose]] e [[Galactose|galactose]]. A atividade tende a ser maior na infância e pode diminuir após o desmame em pessoas com não persistência da lactase.
 
-Deficiência de lactase, má absorção de lactose e intolerância à lactose descrevem níveis diferentes: atividade enzimática reduzida, absorção incompleta e sintomas após ingestão, respectivamente.
+Deficiência de lactase, má [[Absorção|absorção]] de lactose e intolerância à lactose descrevem níveis diferentes: atividade enzimática reduzida, absorção incompleta e sintomas após ingestão, respectivamente.
 
 ## **Contexto clínico**
 
-Distensão, dor, flatulência e diarreia após lactose orientam a avaliação de intolerância. A quantidade ingerida, a matriz do alimento, o esvaziamento gástrico e a microbiota influenciam a intensidade.
+Distensão, dor, flatulência e diarreia após lactose orientam a avaliação de intolerância. A quantidade ingerida, a matriz do alimento, o [[Esvaziamento gástrico|esvaziamento gástrico]] e a microbiota influenciam a intensidade.
 
 Excluir todos os lácteos pode reduzir cálcio, vitamina D e proteína. A conduta pode envolver porções toleradas, alimentos fermentados, produtos sem lactose ou lactase suplementar, conforme a causa e a preferência da pessoa.
 
@@ -20,9 +20,9 @@ Doença celíaca, gastroenterite e inflamação podem causar deficiência secund
 
 ## **Limitações e controvérsias**
 
-Teste respiratório positivo indica chegada de hidrogênio ou metano ao ar expirado, não prova que toda exposição alimentar produzirá sintomas. Placebo, expectativa e distensão por outros carboidratos também influenciam a percepção.
+Teste respiratório positivo indica chegada de hidrogênio ou metano ao ar expirado, não prova que toda exposição alimentar produzirá sintomas. Placebo, expectativa e distensão por outros [[Carboidratos|carboidratos]] também influenciam a percepção.
 
-“Sem lactose” não é necessário para todas as pessoas com má absorção. A dose tolerada costuma ser individual, e a restrição ampla sem avaliação pode gerar inadequação nutricional.
+“Sem lactose” não é necessário para todas as pessoas com má [[Absorção|absorção]]. A dose tolerada costuma ser individual, e a restrição ampla sem avaliação pode gerar inadequação nutricional.
 
 ## **Conceitos relacionados**
 

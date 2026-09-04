@@ -2,25 +2,25 @@
 
 ## **Definição**
 
-SGLT1 é o cotransportador de sódio e glicose localizado principalmente na membrana apical dos enterócitos. Ele conduz glicose e galactose para dentro da célula usando o gradiente eletroquímico de sódio.
+SGLT1 é o cotransportador de sódio e [[Glicose|glicose]] localizado principalmente na membrana apical dos enterócitos. Ele conduz glicose e [[Galactose|galactose]] para dentro da célula usando o gradiente eletroquímico de sódio.
 
-SGLT1 difere de GLUT2 e GLUT5: o primeiro é um simporte dependente de sódio, enquanto os outros são carregadores de difusão facilitada com especificidades e localizações distintas.
+SGLT1 difere de [[GLUT2|GLUT2]] e [[GLUT5|GLUT5]]: o primeiro é um simporte dependente de sódio, enquanto os outros são carregadores de [[Difusão facilitada|difusão facilitada]] com especificidades e localizações distintas.
 
 ## **Contexto clínico**
 
-O transportador é a base fisiológica da absorção oral de glicose e sódio em soluções de reidratação. Defeitos congênitos produzem má absorção de glicose-galactose com diarreia osmótica desde o início da alimentação que contenha esses açúcares.
+O transportador é a base fisiológica da [[Absorção|absorção]] oral de [[Glicose|glicose]] e sódio em soluções de reidratação. Defeitos congênitos produzem má absorção de glicose-[[Galactose|galactose]] com diarreia osmótica desde o início da alimentação que contenha esses açúcares.
 
-A absorção preservada por SGLT1 pode ocorrer mesmo quando há secreção intestinal aumentada. A solução precisa ter composição apropriada; sucos e bebidas esportivas não têm a mesma função clínica.
+A [[Absorção|absorção]] preservada por SGLT1 pode ocorrer mesmo quando há secreção intestinal aumentada. A solução precisa ter composição apropriada; sucos e bebidas esportivas não têm a mesma função clínica.
 
 ## **Base fisiológica, bioquímica ou epidemiológica**
 
-A Na+/K+-ATPase na membrana basolateral mantém baixa concentração intracelular de sódio. Esse gradiente impulsiona a entrada apical de sódio com glicose. Glicose sai pela membrana basolateral principalmente por GLUT2, e água acompanha o gradiente osmótico resultante.
+A Na+/K+-ATPase na membrana basolateral mantém baixa concentração intracelular de sódio. Esse gradiente impulsiona a entrada apical de sódio com [[Glicose|glicose]]. Glicose sai pela membrana basolateral principalmente por [[GLUT2|GLUT2]], e água acompanha o gradiente osmótico resultante.
 
-A capacidade do transportador é limitada pelo número de proteínas, concentração luminal, integridade da mucosa e energia celular. Glicose e galactose competem pelo sistema, enquanto frutose utiliza predominantemente GLUT5.
+A capacidade do transportador é limitada pelo número de [[Proteínas|proteínas]], concentração luminal, integridade da mucosa e energia celular. [[Glicose|Glicose]] e [[Galactose|galactose]] competem pelo sistema, enquanto [[Frutose|frutose]] utiliza predominantemente [[GLUT5|GLUT5]].
 
 ## **Limitações e controvérsias**
 
-O transporte de glicose não garante que a glicemia ou a hidratação melhorem em qualquer paciente. Choque, má perfusão, hiperglicemia grave, vômitos e lesão extensa da mucosa alteram o resultado.
+O transporte de [[Glicose|glicose]] não garante que a glicemia ou a hidratação melhorem em qualquer paciente. Choque, má perfusão, hiperglicemia grave, vômitos e lesão extensa da mucosa alteram o resultado.
 
 Inibir SGLT1 pode mudar resposta glicêmica e sintomas intestinais, porém efeitos sobre desfechos clínicos precisam ser demonstrados em populações específicas. A alteração de um transportador é um mecanismo intermediário.
 

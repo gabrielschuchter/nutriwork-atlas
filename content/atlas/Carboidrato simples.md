@@ -2,7 +2,7 @@
 
 ## **Definição**
 
-Carboidrato simples é uma expressão nutricional usada para designar principalmente açúcares com uma ou duas unidades, como monossacarídeos e dissacarídeos. A terminologia é operacional e varia entre fontes. Ela descreve estrutura ou convenção de classificação, não um julgamento automático de qualidade do alimento.
+Carboidrato simples é uma expressão nutricional usada para designar principalmente açúcares com uma ou duas unidades, como [[Monossacarídeos|monossacarídeos]] e [[Dissacarídeos|dissacarídeos]]. A terminologia é operacional e varia entre fontes. Ela descreve estrutura ou convenção de classificação, não um julgamento automático de qualidade do alimento.
 
 ## **Contexto clínico**
 
@@ -12,7 +12,7 @@ Na orientação de pessoas com diabetes ou hipertrigliceridemia, o foco pode inc
 
 ## **Base fisiológica, bioquímica ou epidemiológica**
 
-Monossacarídeos e dissacarídeos são hidrolisados ou absorvidos rapidamente em comparação com estruturas menos acessíveis. [[Glicose]], frutose e galactose entram no transporte intestinal; sacarose e lactose exigem ação de [[Sacarase]] e [[Lactase]]. Fibra, gordura, proteína e viscosidade alteram a cinética real da refeição.
+[[Monossacarídeos|Monossacarídeos]] e [[Dissacarídeos|dissacarídeos]] são hidrolisados ou absorvidos rapidamente em comparação com estruturas menos acessíveis. [[Glicose]], [[Frutose|frutose]] e [[Galactose|galactose]] entram no transporte intestinal; sacarose e lactose exigem ação de [[Sacarase]] e [[Lactase]]. Fibra, gordura, proteína e viscosidade alteram a cinética real da refeição.
 
 A OMS recomenda limitar açúcares livres por sua relação com ganho de peso não saudável e cárie, apoiada por evidência sobre padrões de consumo e desfechos. Essa recomendação não equivale a declarar que o tamanho químico de uma molécula determine isoladamente doença.
 
