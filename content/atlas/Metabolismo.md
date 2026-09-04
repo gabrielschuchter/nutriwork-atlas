@@ -8,13 +8,13 @@ A divisão entre [[Catabolismo]] e [[Anabolismo]] é útil, mas incompleta. Muit
 
 O raciocínio metabólico é utilizado na interpretação de diabetes, erros inatos do metabolismo, doenças hepáticas, disfunções mitocondriais, desnutrição, jejum, exercício e resposta ao estresse.
 
-A expressão "metabolismo lento" costuma ser usada de modo impreciso. Gasto energético, atividade física, termogênese, composição corporal, ingestão, [[Adaptação metabólica|adaptação metabólica]] e [[Comportamento alimentar|comportamento alimentar]] são componentes distintos e não devem ser reduzidos a uma característica única.
+A expressão "metabolismo lento" costuma ser usada de modo impreciso. Gasto energético, atividade física, [[Termogênese|termogênese]], composição corporal, ingestão, [[Adaptação metabólica|adaptação metabólica]] e [[Comportamento alimentar|comportamento alimentar]] são componentes distintos e não devem ser reduzidos a uma característica única.
 
 ## Base fisiológica, bioquímica ou epidemiológica
 
 O metabolismo é organizado por compartimentalização celular, disponibilidade de substratos, atividade enzimática, estado redox, carga energética, regulação hormonal e expressão gênica.
 
-O fluxo de uma via não é determinado apenas pela quantidade de uma enzima ou pela concentração de um intermediário. Também depende de reações próximas do equilíbrio, etapas regulatórias, transporte entre compartimentos e demanda dos produtos.
+O fluxo de uma via não é determinado apenas pela quantidade de uma [[Enzima|enzima]] ou pela concentração de um intermediário. Também depende de reações próximas do equilíbrio, etapas regulatórias, transporte entre compartimentos e demanda dos produtos.
 
 ## Limitações e controvérsias
 

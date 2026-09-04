@@ -1,22 +1,22 @@
 ## Definição
 
-O difosfato de adenosina (ADP) é um nucleotídeo formado por adenina, ribose e dois grupos fosfato. É produzido em muitas reações que utilizam [[ATP]] e funciona como substrato para sua regeneração.
+O difosfato de adenosina (ADP) é um nucleotídeo formado por adenina, ribose e dois grupos fosfato. É produzido em muitas reações que utilizam [[ATP]] e funciona como [[Substrato|substrato]] para sua regeneração.
 
-O ADP não é apenas um produto "descarregado" do ATP. Sua concentração participa do controle do fluxo energético, especialmente na respiração mitocondrial.
+O ADP não é apenas um produto "descarregado" do [[ATP|ATP]]. Sua concentração participa do controle do fluxo energético, especialmente na respiração mitocondrial.
 
 ## Contexto clínico
 
-A disponibilidade de ADP influencia a taxa de [[Fosforilação oxidativa]]. Quando a demanda celular por [[ATP]] aumenta, sua hidrólise eleva ADP e fosfato inorgânico, favorecendo a atividade da ATP sintase e o consumo mitocondrial de oxigênio.
+A disponibilidade de ADP influencia a taxa de [[Fosforilação oxidativa]]. Quando a demanda celular por [[ATP]] aumenta, sua [[Hidrólise|hidrólise]] eleva ADP e fosfato inorgânico, favorecendo a atividade da ATP sintase e o consumo mitocondrial de oxigênio.
 
 Nas plaquetas, o ADP extracelular atua como agonista de receptores purinérgicos e contribui para ativação e agregação plaquetária. Esse papel sinalizador é distinto de sua função intracelular no [[Metabolismo|metabolismo]] energético e explica o uso clínico de antagonistas do receptor P2Y12, como o clopidogrel (Cattaneo, 2011).
 
 ## Base fisiológica, bioquímica ou epidemiológica
 
-O ADP pode ser fosforilado a [[ATP]] pela ATP sintase, por quinases em reações de fosforilação em nível de substrato ou pela [[Creatina|creatina]] quinase. Também participa da reação da adenilato quinase:
+O ADP pode ser fosforilado a [[ATP]] pela ATP sintase, por quinases em reações de fosforilação em nível de [[Substrato|substrato]] ou pela [[Creatina|creatina]] quinase. Também participa da reação da adenilato quinase:
 
-2 ADP ⇌ ATP + [[AMP]].
+2 ADP ⇌ [[ATP|ATP]] + [[AMP]].
 
-Essa reação ajuda a manter ATP e, simultaneamente, amplifica a formação de AMP quando a carga energética diminui.
+Essa reação ajuda a manter [[ATP|ATP]] e, simultaneamente, amplifica a formação de [[AMP|AMP]] quando a carga energética diminui.
 
 ## Limitações e controvérsias
 

@@ -4,7 +4,7 @@
 
 Peristaltismo é um padrão de contração coordenada no qual a musculatura circular se contrai atrás do conteúdo e relaxa à frente, promovendo propulsão. O padrão aparece no esôfago, intestino delgado e cólon, com características próprias em cada segmento.
 
-A onda peristáltica pode deslocar o conteúdo em diferentes velocidades. Ela não representa toda a motilidade gastrointestinal e não deve ser confundida com [[Segmentação]], que prioriza mistura.
+A onda peristáltica pode deslocar o conteúdo em diferentes velocidades. Ela não representa toda a [[Motilidade gastrointestinal|motilidade gastrointestinal]] e não deve ser confundida com [[Segmentação]], que prioriza mistura.
 
 ## **Contexto clínico**
 
@@ -16,7 +16,7 @@ Quando o trânsito está lento, aumentar fibra sem considerar água, dor, esteno
 
 Distensão da parede ativa reflexos do sistema nervoso entérico. Neurônios excitatórios promovem contração oral ao bolo, enquanto neurônios inibitórios facilitam relaxamento aboral. O músculo liso, as células intersticiais de Cajal e a modulação autonômica participam da onda.
 
-No esôfago, o peristaltismo primário acompanha a deglutição e o secundário remove resíduos. No intestino, reflexos locais podem produzir ondas propulsivas sem controle consciente.
+No esôfago, o peristaltismo primário acompanha a [[Deglutição|deglutição]] e o secundário remove resíduos. No intestino, reflexos locais podem produzir ondas propulsivas sem controle consciente.
 
 ## **Limitações e controvérsias**
 

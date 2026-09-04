@@ -4,11 +4,11 @@ Disponibilidade energética corresponde à quantidade de energia remanescente pa
 
 ## Contexto clínico
 
-A disponibilidade energética é utilizada principalmente na avaliação de atletas, praticantes de exercício físico intenso, militares e indivíduos submetidos a elevados volumes de treinamento. Seu uso clínico está relacionado à investigação de alterações menstruais, perda de massa óssea, comprometimento da recuperação, redução do desempenho físico e adaptações fisiológicas associadas à ingestão energética insuficiente. Nos últimos anos, passou a integrar o modelo conceitual da síndrome RED-S.
+A disponibilidade energética é utilizada principalmente na avaliação de atletas, praticantes de exercício físico intenso, militares e indivíduos submetidos a elevados volumes de treinamento. Seu uso clínico está relacionado à investigação de alterações menstruais, perda de massa óssea, comprometimento da recuperação, redução do desempenho físico e adaptações fisiológicas associadas à ingestão energética insuficiente. Nos últimos anos, passou a integrar o modelo conceitual da [[Síndrome RED-S (Relative Energy Deficiency in Sport)|síndrome RED-S]].
 
 ## Base fisiológica ou epidemiológica
 
-Quando a energia disponível após o exercício se torna insuficiente para sustentar adequadamente processos fisiológicos essenciais, o organismo passa a priorizar funções consideradas biologicamente mais importantes para a sobrevivência imediata. Evidências experimentais demonstram alterações em eixos neuroendócrinos envolvendo leptina, hormônios tireoidianos, gonadotrofinas e hormônios sexuais. Alterações na remodelação óssea, [[Síntese proteica muscular|síntese proteica muscular]], imunidade e [[Metabolismo|metabolismo]] energético também foram descritas. A magnitude dessas respostas parece depender da intensidade, duração e persistência da restrição energética, além de características individuais.
+Quando a energia disponível após o exercício se torna insuficiente para sustentar adequadamente processos fisiológicos essenciais, o organismo passa a priorizar funções consideradas biologicamente mais importantes para a sobrevivência imediata. Evidências experimentais demonstram alterações em eixos neuroendócrinos envolvendo [[Leptina|leptina]], hormônios tireoidianos, gonadotrofinas e hormônios sexuais. Alterações na remodelação óssea, [[Síntese proteica muscular|síntese proteica muscular]], imunidade e [[Metabolismo|metabolismo]] energético também foram descritas. A magnitude dessas respostas parece depender da intensidade, duração e persistência da restrição energética, além de características individuais.
 
 ## Limitações e controvérsias
 

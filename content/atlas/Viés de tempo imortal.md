@@ -1,10 +1,10 @@
 ## Definição
 
-Viés de tempo imortal é um erro metodológico que ocorre quando um período de acompanhamento durante o qual o desfecho não poderia ter ocorrido é incorretamente atribuído ao grupo exposto. Como [[Consequência|consequência]], o grupo exposto recebe artificialmente tempo adicional livre de eventos, produzindo estimativas de efeito enviesadas. Trata-se de um problema clássico em estudos observacionais longitudinais.
+[[Viés|Viés]] de tempo imortal é um erro metodológico que ocorre quando um período de acompanhamento durante o qual o desfecho não poderia ter ocorrido é incorretamente atribuído ao grupo exposto. Como [[Consequência|consequência]], o grupo exposto recebe artificialmente tempo adicional livre de eventos, produzindo estimativas de efeito enviesadas. Trata-se de um problema clássico em estudos observacionais longitudinais.
 
 ## Contexto clínico
 
-Esse viés aparece frequentemente em pesquisas que avaliam uso de medicamentos, suplementos alimentares, terapia nutricional, procedimentos clínicos e exposições iniciadas após o início do acompanhamento. Em estudos hospitalares, por exemplo, pacientes precisam sobreviver tempo suficiente para receber determinada intervenção. Se essa condição não for adequadamente considerada, a intervenção pode parecer mais benéfica do que realmente é.
+Esse [[Viés|viés]] aparece frequentemente em pesquisas que avaliam uso de medicamentos, suplementos alimentares, terapia nutricional, procedimentos clínicos e exposições iniciadas após o início do acompanhamento. Em estudos hospitalares, por exemplo, pacientes precisam sobreviver tempo suficiente para receber determinada intervenção. Se essa condição não for adequadamente considerada, a intervenção pode parecer mais benéfica do que realmente é.
 
 ## Base fisiológica ou epidemiológica
 
@@ -12,9 +12,9 @@ O mecanismo é puramente epidemiológico. Considere um estudo em que pacientes s
 
 ## Limitações e controvérsias
 
-Embora seja amplamente reconhecido na epidemiologia moderna, o viés de tempo imortal continua relativamente frequente na literatura clínica. Muitas associações aparentemente favoráveis observadas em estudos retrospectivos foram posteriormente reavaliadas após correção desse problema metodológico. A magnitude do viés pode ser substancial, especialmente quando existe atraso relevante entre entrada na coorte e início da exposição.
+Embora seja amplamente reconhecido na epidemiologia moderna, o [[Viés|viés]] de tempo imortal continua relativamente frequente na literatura clínica. Muitas associações aparentemente favoráveis observadas em estudos retrospectivos foram posteriormente reavaliadas após correção desse problema metodológico. A magnitude do viés pode ser substancial, especialmente quando existe atraso relevante entre entrada na coorte e início da exposição.
 
-Uma dificuldade prática é que o viés nem sempre é facilmente identificável durante leitura rápida dos artigos. Sua detecção exige avaliação detalhada da definição temporal de exposição, do início do seguimento e da estratégia analítica utilizada. Métodos como covariáveis dependentes do tempo e desenho de novo usuário foram desenvolvidos para reduzir esse problema, mas nem sempre são empregados adequadamente.
+Uma dificuldade prática é que o [[Viés|viés]] nem sempre é facilmente identificável durante leitura rápida dos artigos. Sua detecção exige avaliação detalhada da definição temporal de exposição, do início do seguimento e da estratégia analítica utilizada. Métodos como covariáveis dependentes do tempo e desenho de novo usuário foram desenvolvidos para reduzir esse problema, mas nem sempre são empregados adequadamente.
 
 ## Conceitos relacionados
 - [[Viés de seleção]]

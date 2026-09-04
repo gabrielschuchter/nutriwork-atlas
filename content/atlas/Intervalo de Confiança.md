@@ -8,19 +8,19 @@ Intervalo de confiança é um intervalo calculado por um procedimento estatísti
 
 O intervalo mostra precisão e magnitudes compatíveis com os dados. Para uma diferença, zero é a referência; para razões, um é a referência. A decisão clínica compara o intervalo com limiares de benefício, dano e relevância.
 
-Intervalo amplo pode decorrer de amostra pequena, poucos eventos ou alta variabilidade. Intervalo estreito pode fornecer precisão para uma população enviesada ou um desfecho mal medido.
+Intervalo amplo pode decorrer de [[Amostra|amostra]] pequena, poucos eventos ou alta variabilidade. Intervalo estreito pode fornecer precisão para uma [[População|população]] enviesada ou um desfecho mal medido.
 
 ## **Base fisiológica, bioquímica ou epidemiológica**
 
-O intervalo depende de estimativa, erro padrão, distribuição assumida, método de transformação e nível de confiança. Em metanálises, heterogeneidade e modelo alteram a incerteza do efeito combinado. Intervalos de predição respondem a pergunta diferente, incorporando variação esperada em novo estudo.
+O intervalo depende de estimativa, erro padrão, distribuição assumida, método de transformação e nível de confiança. Em metanálises, [[Heterogeneidade|heterogeneidade]] e modelo alteram a incerteza do efeito combinado. Intervalos de predição respondem a pergunta diferente, incorporando variação esperada em novo estudo.
 
-Randomização e controle de confundimento afetam validade; intervalo de confiança trata principalmente incerteza amostral sob o modelo. Ele não corrige [[Viés]], perdas ou erro de mensuração.
+[[Randomização|Randomização]] e controle de [[Confundimento|confundimento]] afetam validade; intervalo de confiança trata principalmente incerteza amostral sob o modelo. Ele não corrige [[Viés]], perdas ou erro de mensuração.
 
 ## **Limitações e controvérsias**
 
 Intervalo que cruza a nulidade não prova ausência de efeito. Intervalo que não cruza a nulidade não demonstra relevância clínica.
 
-Intervalos mal calibrados podem surgir de modelos inadequados, múltiplas comparações e dados dependentes. A interpretação deve incluir estimando, método, população e desfecho.
+Intervalos mal calibrados podem surgir de modelos inadequados, múltiplas comparações e dados dependentes. A interpretação deve incluir estimando, método, [[População|população]] e desfecho.
 
 ## **Conceitos relacionados**
 

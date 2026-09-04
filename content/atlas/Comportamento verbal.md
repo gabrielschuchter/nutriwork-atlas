@@ -2,7 +2,7 @@
 
 Comportamento verbal é o comportamento cuja eficácia depende da [[Mediação|mediação]] de outra pessoa, denominada ouvinte, que foi treinada por uma comunidade verbal para responder de maneira convencional a essa resposta. Diferentemente das definições linguísticas tradicionais, o conceito proposto por B. F. Skinner em Verbal Behavior é funcional, e não estrutural: um comportamento é verbal não pela sua forma, mas pelas contingências que controlam sua emissão e pelas consequências produzidas por intermédio de outra pessoa.
 
-Assim, falar é apenas uma das formas possíveis de comportamento verbal. Escrever, ler, gesticular, utilizar linguagem de sinais, apontar símbolos em uma prancha de comunicação ou enviar uma mensagem eletrônica também podem constituir comportamento verbal, desde que dependam da mediação de um ouvinte.
+Assim, falar é apenas uma das formas possíveis de comportamento verbal. Escrever, ler, gesticular, utilizar linguagem de sinais, apontar símbolos em uma prancha de comunicação ou enviar uma mensagem eletrônica também podem constituir comportamento verbal, desde que dependam da [[Mediação|mediação]] de um ouvinte.
 
 O conceito também não se confunde com linguagem. Enquanto a linguagem costuma ser estudada como um sistema simbólico ou uma capacidade cognitiva, o comportamento verbal é analisado como um conjunto de comportamentos aprendidos, selecionados e mantidos por contingências sociais.
 
@@ -28,7 +28,7 @@ Exemplos incluem:
 
 Sob a perspectiva da [[Análise do comportamento]], esses comportamentos podem ser analisados funcionalmente. Um paciente pode relatar seguir a dieta porque busca aprovação do profissional, evitar críticas ou encerrar rapidamente a consulta, enquanto outro pode fornecer relatos precisos porque esses foram consistentemente reforçados ao longo de sua história de aprendizagem.
 
-Essa distinção é clinicamente relevante porque o autorrelato não corresponde necessariamente ao [[Comportamento alimentar|comportamento alimentar]] efetivamente emitido. Relatos alimentares, recordatórios de 24 horas e questionários dietéticos estão sujeitos a vieses de memória, desejabilidade social e contingências presentes durante a entrevista.
+Essa distinção é [[Clinicamente relevante|clinicamente relevante]] porque o autorrelato não corresponde necessariamente ao [[Comportamento alimentar|comportamento alimentar]] efetivamente emitido. Relatos alimentares, recordatórios de 24 horas e questionários dietéticos estão sujeitos a vieses de memória, desejabilidade social e contingências presentes durante a entrevista.
 
 Assim, compreender as variáveis que controlam o comportamento verbal permite interpretar informações clínicas com maior cautela e reduzir inferências inadequadas baseadas exclusivamente no relato do paciente.
 
@@ -64,7 +64,7 @@ Por outro lado, pesquisadores da [[Análise do comportamento|Análise do Comport
 
 Na prática clínica, uma limitação frequente consiste em tratar relatos verbais como representações fiéis do comportamento. O comportamento verbal possui determinantes próprios e pode divergir do comportamento não verbal, especialmente quando existem contingências sociais que favorecem determinados relatos.
 
-Por isso, na avaliação nutricional, informações obtidas por entrevista devem ser interpretadas juntamente com outros indicadores clínicos, antropométricos, laboratoriais e observacionais, evitando assumir que o relato verbal reflita automaticamente o [[Comportamento alimentar|comportamento alimentar]] cotidiano.
+Por isso, na [[Avaliação nutricional|avaliação nutricional]], informações obtidas por entrevista devem ser interpretadas juntamente com outros indicadores clínicos, antropométricos, laboratoriais e observacionais, evitando assumir que o relato verbal reflita automaticamente o [[Comportamento alimentar|comportamento alimentar]] cotidiano.
 
 ## Conceitos relacionados
 - [[Behaviorismo radical]]

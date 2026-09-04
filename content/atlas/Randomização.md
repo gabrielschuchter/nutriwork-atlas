@@ -8,19 +8,19 @@ Randomização é a alocação de participantes a intervenções por um mecanism
 
 Ensaios randomizados são úteis para avaliar tratamentos, estratégias de cuidado e intervenções dietéticas. A alocação não garante grupos idênticos em amostras pequenas. Prognóstico, adesão, cruzamento, perdas e análise precisam ser descritos.
 
-Randomização individual, por clusters, estratificada ou em blocos responde a problemas diferentes. Ocultação da sequência até a inclusão impede que recrutadores prevejam o próximo grupo; isso é distinto de cegamento após a alocação.
+Randomização individual, por clusters, estratificada ou em blocos responde a problemas diferentes. Ocultação da sequência até a inclusão impede que recrutadores prevejam o próximo grupo; isso é distinto de [[Cegamento|cegamento]] após a alocação.
 
 ## **Base fisiológica, bioquímica ou epidemiológica**
 
 A randomização rompe, em expectativa, a associação entre tratamento e fatores prognósticos no início. Diferenças posteriores podem decorrer da intervenção, acaso, cointervenções, não adesão ou perdas. Análise por intenção de tratar preserva a comparação de grupos atribuídos para certos estimandos.
 
-O efeito causal depende de interferência limitada, definição de intervenção, consistência da alocação e seguimento. Um estudo randomizado ainda pode ter [[Viés de seleção]], mensuração inadequada ou desfecho substituto.
+O efeito causal depende de interferência limitada, definição de intervenção, consistência da alocação e seguimento. Um estudo randomizado ainda pode ter [[Viés de seleção]], mensuração inadequada ou [[Desfecho substituto|desfecho substituto]].
 
 ## **Limitações e controvérsias**
 
 Descrição “randomizado” não prova geração adequada de sequência ou ocultação. Alternância, data de nascimento e prontuário previsível não são randomização válida.
 
-Randomização não resolve falta de representatividade, baixa adesão, cegamento impossível ou seguimento curto. A validade interna pode ser alta e a [[Validade Externa]] limitada.
+Randomização não resolve falta de representatividade, baixa adesão, [[Cegamento|cegamento]] impossível ou seguimento curto. A [[Validade Interna|validade interna]] pode ser alta e a [[Validade Externa]] limitada.
 
 ## **Conceitos relacionados**
 

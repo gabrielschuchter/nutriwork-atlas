@@ -15,7 +15,7 @@ Esse conceito é particularmente importante na leitura crítica de estudos de co
 
 O mecanismo é epidemiológico e não biológico.
 
-Em um ensaio clínico randomizado, a randomização busca distribuir fatores prognósticos conhecidos e desconhecidos entre grupos. Em estudos observacionais, a exposição decorre de decisões clínicas reais. Essas decisões frequentemente incorporam informações prognósticas que podem não ser completamente mensuradas.
+Em um ensaio clínico randomizado, a [[Randomização|randomização]] busca distribuir fatores prognósticos conhecidos e desconhecidos entre grupos. Em estudos observacionais, a exposição decorre de decisões clínicas reais. Essas decisões frequentemente incorporam informações prognósticas que podem não ser completamente mensuradas.
 
 Métodos como [[Propensity Score]], pareamento, estratificação e modelos multivariáveis procuram reduzir o problema. Entretanto, tais abordagens controlam apenas confundidores medidos. O [[Confundimento residual|confundimento residual]] permanece possível mesmo em análises sofisticadas.
 

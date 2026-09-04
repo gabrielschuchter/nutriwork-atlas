@@ -2,7 +2,7 @@
 
 Fosforilação oxidativa é a síntese de [[ATP]] impulsionada pela força próton-motriz gerada durante a transferência de elétrons na membrana mitocondrial interna. O processo acopla a oxidação de NADH e FADH₂ à fosforilação de [[ADP]].
 
-Em sentido amplo, inclui a ação coordenada da [[Cadeia transportadora de elétrons]] e da ATP sintase. Em sentido mais restrito, pode designar especificamente a etapa de síntese de ATP dependente do gradiente de prótons.
+Em sentido amplo, inclui a ação coordenada da [[Cadeia transportadora de elétrons]] e da [[ATP|ATP]] sintase. Em sentido mais restrito, pode designar especificamente a etapa de síntese de ATP dependente do gradiente de prótons.
 
 ## Contexto clínico
 
@@ -16,7 +16,7 @@ Elétrons provenientes de NADH e FADH₂ percorrem complexos da cadeia respirat�
 
 O retorno dos prótons pela [[ATP]] sintase favorece a formação de ATP. O transporte de [[ADP]], ATP e fosfato através da membrana mitocondrial também é necessário.
 
-O rendimento de ATP não é uma constante absoluta. Depende do substrato, das lançadeiras citosólicas, do grau de acoplamento, do vazamento de prótons e dos custos de transporte.
+O rendimento de [[ATP|ATP]] não é uma constante absoluta. Depende do [[Substrato|substrato]], das lançadeiras citosólicas, do grau de acoplamento, do vazamento de prótons e dos custos de transporte.
 
 ## Limitações e controvérsias
 

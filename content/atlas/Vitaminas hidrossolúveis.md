@@ -2,19 +2,19 @@
 
 ## **Definição**
 
-Vitaminas hidrossolúveis são vitaminas que circulam e se dissolvem predominantemente em meio aquoso. Incluem vitamina C e vitaminas do complexo B. Muitas atuam como coenzimas em transferência de elétrons, grupos químicos e metabolismo de carboidratos, lipídios e aminoácidos.
+[[Vitaminas|Vitaminas]] hidrossolúveis são vitaminas que circulam e se dissolvem predominantemente em meio aquoso. Incluem vitamina C e vitaminas do complexo B. Muitas atuam como [[Coenzimas|coenzimas]] em transferência de elétrons, grupos químicos e [[Metabolismo|metabolismo]] de [[Carboidratos|carboidratos]], [[Lipídios|lipídios]] e [[Aminoácidos|aminoácidos]].
 
 ## **Contexto clínico**
 
-Deficiência pode surgir por baixa ingestão, alcoolismo, má absorção, doença renal, uso de medicamentos ou aumento de demanda. Folato e B12 têm importância hematológica e neurológica; tiamina é crítica em metabolismo energético; vitamina C participa de síntese de colágeno e absorção de ferro não heme.
+Deficiência pode surgir por baixa ingestão, alcoolismo, má [[Absorção|absorção]], doença renal, uso de medicamentos ou aumento de demanda. Folato e B12 têm importância hematológica e neurológica; tiamina é crítica em [[Metabolismo|metabolismo]] energético; vitamina C participa de síntese de colágeno e absorção de [[Ferro não heme|ferro não heme]].
 
-Excesso também pode ser relevante. Niacina, piridoxina e vitamina C, por exemplo, podem produzir efeitos adversos em doses farmacológicas. Excreção renal e armazenamento variam entre vitaminas; solubilidade em água não elimina toxicidade.
+Excesso também pode ser relevante. Niacina, piridoxina e vitamina C, por exemplo, podem produzir efeitos adversos em doses farmacológicas. Excreção renal e armazenamento variam entre [[Vitaminas|vitaminas]]; solubilidade em água não elimina toxicidade.
 
 ## **Base fisiológica, bioquímica ou epidemiológica**
 
-Vitaminas do complexo B formam coenzimas que permitem reações de transferência, descarboxilação, oxidação e síntese. [[Cofator]] e coenzima participam da atividade de muitas enzimas; a falta pode reduzir fluxo de uma via antes de aparecer alteração clínica evidente.
+[[Vitaminas|Vitaminas]] do complexo B formam [[Coenzimas|coenzimas]] que permitem reações de transferência, descarboxilação, oxidação e síntese. [[Cofator]] e coenzima participam da atividade de muitas enzimas; a falta pode reduzir fluxo de uma via antes de aparecer alteração clínica evidente.
 
-Absorção ocorre por transportadores e, para alguns nutrientes, por mecanismos dependentes de proteína gástrica ou íleo. O estoque corporal varia muito entre vitaminas. Excreção urinária pode aumentar quando a dose excede a retenção, mas não elimina efeitos de exposição crônica.
+[[Absorção|Absorção]] ocorre por transportadores e, para alguns nutrientes, por mecanismos dependentes de proteína gástrica ou íleo. O estoque corporal varia muito entre [[Vitaminas|vitaminas]]. Excreção urinária pode aumentar quando a dose excede a retenção, mas não elimina efeitos de exposição crônica.
 
 ## **Limitações e controvérsias**
 

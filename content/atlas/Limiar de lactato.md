@@ -50,7 +50,7 @@ O treinamento aeróbio melhora tanto a capacidade oxidativa quanto a remoção e
 
 Historicamente, o lactato foi interpretado como causa da [[Fadiga muscular|fadiga muscular]] e marcador direto de [[Metabolismo|metabolismo]] anaeróbio. Atualmente, ambas as interpretações são consideradas excessivamente simplificadas.
 
-Também existe grande heterogeneidade metodológica na determinação do limiar. Estudos podem utilizar concentrações fixas de lactato, inspeção visual da curva ou modelos matemáticos distintos, dificultando comparações.
+Também existe grande [[Heterogeneidade|heterogeneidade]] metodológica na determinação do limiar. Estudos podem utilizar concentrações fixas de lactato, inspeção visual da curva ou modelos matemáticos distintos, dificultando comparações.
 
 Na prática, é essencial especificar qual método foi utilizado para determinar o limiar de lactato.
 

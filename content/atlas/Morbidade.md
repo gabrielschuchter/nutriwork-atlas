@@ -6,7 +6,7 @@ Morbidade descreve a ocorrência, a presença ou a carga de doença e suas conse
 
 ## **Contexto clínico**
 
-Morbidade pode permanecer elevada quando mortalidade diminui e as pessoas vivem mais tempo com doença. Sintomas e função são desfechos relevantes para o paciente; exames e biomarcadores podem atuar como resultados intermediários.
+Morbidade pode permanecer elevada quando [[Mortalidade|mortalidade]] diminui e as pessoas vivem mais tempo com doença. Sintomas e função são desfechos relevantes para o paciente; exames e biomarcadores podem atuar como resultados intermediários.
 
 Em estudos, diagnóstico, autorrelato, prontuário e escala funcional têm validade e erro diferentes. Comparar morbidade sem harmonizar definição, gravidade e seguimento produz falsa equivalência.
 
@@ -20,7 +20,7 @@ Uma intervenção pode alterar sintomas, incapacidade e mortalidade por mecanism
 
 “Morbidade” é amplo demais sem especificação operacional. Desfechos compostos podem combinar eventos de gravidade distinta e dificultar a interpretação do benefício.
 
-Medir mais casos após ampliar rastreamento pode refletir detecção, e não aumento real da doença. Associação entre exposição e morbidade pode resultar de confundimento, viés de seleção ou causalidade reversa.
+Medir mais casos após ampliar rastreamento pode refletir detecção, e não aumento real da doença. Associação entre exposição e morbidade pode resultar de [[Confundimento|confundimento]], [[Viés de seleção|viés de seleção]] ou [[Causalidade|causalidade]] reversa.
 
 ## **Conceitos relacionados**
 

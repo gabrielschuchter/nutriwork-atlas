@@ -8,7 +8,7 @@ Osmose descreve água, enquanto difusão descreve movimento de solutos. Osmolari
 
 ## **Contexto clínico**
 
-O conceito aparece em diarreia osmótica, hidratação intravenosa, edema, hiponatremia, nutrição enteral e equilíbrio entre compartimentos. Soluções muito concentradas podem reter água no lúmen e causar sintomas gastrointestinais.
+O conceito aparece em diarreia osmótica, hidratação intravenosa, edema, [[Hiponatremia|hiponatremia]], [[Nutrição|nutrição]] enteral e equilíbrio entre compartimentos. Soluções muito concentradas podem reter água no lúmen e causar sintomas gastrointestinais.
 
 Na prática, corrigir sódio ou água exige definir o compartimento e a velocidade da mudança. Uma concentração sérica pode melhorar antes da recuperação celular ou acompanhar risco de correção excessiva.
 
@@ -16,11 +16,11 @@ Na prática, corrigir sódio ou água exige definir o compartimento e a velocida
 
 Água se desloca até que a diferença de potencial químico seja reduzida. Membranas celulares e aquaporinas permitem fluxo rápido; barreiras epiteliais regulam o movimento conforme junções, transportadores e gradientes.
 
-No intestino, absorção de solutos cria gradientes que favorecem absorção de água. O transporte de sódio e glicose pode manter esse processo mesmo durante secreção aumentada.
+No intestino, [[Absorção|absorção]] de solutos cria gradientes que favorecem absorção de água. O transporte de sódio e [[Glicose|glicose]] pode manter esse processo mesmo durante secreção aumentada.
 
 ## **Limitações e controvérsias**
 
-Osmolaridade total da solução não prevê sozinha tonicidade no organismo. Ureia, glicose, sódio e outros solutos têm comportamentos diferentes entre compartimentos.
+Osmolaridade total da solução não prevê sozinha tonicidade no organismo. Ureia, [[Glicose|glicose]], sódio e outros solutos têm comportamentos diferentes entre compartimentos.
 
 “Hidratar por osmose” não é uma recomendação suficiente. O balanço depende de volume, composição, perdas renais e gastrointestinais e capacidade de excreção.
 

@@ -6,13 +6,13 @@ Assim como [[Pequeno para idade gestacional (PIG)]], o conceito é uma classific
 
 O conceito deve ser diferenciado de:
 
-- Macrossomia fetal: geralmente definida por peso absoluto elevado ao nascimento, independentemente da idade gestacional. Os pontos de corte variam conforme contexto e referência utilizada, mas, historicamente, pesos ao nascer de 4.000 g ou 4.500 g têm sido usados ​​para classificar a macrossomia.
+- Macrossomia fetal: geralmente definida por peso absoluto elevado ao nascimento, independentemente da [[Idade gestacional|idade gestacional]]. Os pontos de corte variam conforme contexto e referência utilizada, mas, historicamente, pesos ao nascer de 4.000 g ou 4.500 g têm sido usados ​​para classificar a macrossomia.
 
 - Crescimento fetal excessivo: descreve uma trajetória de crescimento acima do esperado durante a gestação, geralmente avaliada por ultrassonografia.
 
 - [[Diabetes mellitus gestacional]]: condição materna que pode aumentar o risco de crescimento fetal aumentado, mas nem todo recém-nascido GIG é filho de mãe com diabetes.
 
-Portanto, GIG descreve o tamanho relativo à idade gestacional, mas não define a causa do crescimento aumentado.
+Portanto, GIG descreve o tamanho relativo à [[Idade gestacional|idade gestacional]], mas não define a causa do crescimento aumentado.
 
 ## Contexto clínico
 
@@ -28,7 +28,7 @@ Na prática clínica, o conceito aparece em situações como:
 
 - Planejamento do parto em situações de suspeita de crescimento fetal aumentado.
 
-Recém-nascidos GIG apresentam maior risco de algumas complicações, especialmente quando o crescimento aumentado está relacionado à exposição fetal elevada à glicose materna.
+Recém-nascidos GIG apresentam maior risco de algumas complicações, especialmente quando o crescimento aumentado está relacionado à exposição fetal elevada à [[Glicose|glicose]] materna.
 
 Possíveis complicações incluem:
 
@@ -70,21 +70,21 @@ Entretanto, reduzir o crescimento fetal aumentado exclusivamente ao consumo alim
 
 O crescimento fetal depende do equilíbrio entre oferta de nutrientes, capacidade placentária de transporte e resposta hormonal fetal.
 
-Um dos mecanismos mais bem estabelecidos para crescimento fetal aumentado envolve a exposição fetal a níveis elevados de glicose materna.
+Um dos mecanismos mais bem estabelecidos para crescimento fetal aumentado envolve a exposição fetal a níveis elevados de [[Glicose|glicose]] materna.
 
 Na gestação com hiperglicemia materna:
 
-- Maior quantidade de glicose atravessa a placenta;
+- Maior quantidade de [[Glicose|glicose]] atravessa a placenta;
 
-- O feto responde aumentando a secreção de insulina;
+- O feto responde aumentando a secreção de [[Insulina|insulina]];
 
-- A insulina fetal atua como hormônio anabólico;
+- A [[Insulina|insulina]] fetal atua como hormônio anabólico;
 
 - Ocorre aumento da deposição de gordura e crescimento de tecidos.
 
-A hiperinsulinemia fetal é considerada um mecanismo importante na associação entre diabetes materno e crescimento fetal excessivo. Isso porque a glicose materna atravessa a placenta por mecanismos de transporte facilitado, enquanto a insulina materna não atravessa significativamente a placenta. Assim, a regulação da glicemia materna influencia diretamente o estímulo metabólico fetal.
+A hiperinsulinemia fetal é considerada um mecanismo importante na associação entre diabetes materno e crescimento fetal excessivo. Isso porque a [[Glicose|glicose]] materna atravessa a placenta por mecanismos de transporte facilitado, enquanto a [[Insulina|insulina]] materna não atravessa significativamente a placenta. Assim, a regulação da glicemia materna influencia diretamente o estímulo metabólico fetal.
 
-Além da glicose, outros fatores podem contribuir:
+Além da [[Glicose|glicose]], outros fatores podem contribuir:
 
 - Fatores maternos
 
@@ -110,7 +110,7 @@ Além da glicose, outros fatores podem contribuir:
 
 - Alterações na função placentária.
 
-A associação entre diabetes gestacional e nascimento GIG é sustentada por estudos clínicos e epidemiológicos. Intervenções que melhoram o controle glicêmico durante a gestação reduzem o risco de alguns desfechos relacionados ao crescimento fetal excessivo. Entretanto, a magnitude desse efeito depende da população estudada, do momento da intervenção, da definição utilizada para diabetes gestacional e dos critérios de diagnóstico.
+A associação entre diabetes gestacional e nascimento GIG é sustentada por estudos clínicos e epidemiológicos. Intervenções que melhoram o controle glicêmico durante a gestação reduzem o risco de alguns desfechos relacionados ao crescimento fetal excessivo. Entretanto, a magnitude desse efeito depende da [[População|população]] estudada, do momento da intervenção, da definição utilizada para diabetes gestacional e dos critérios de diagnóstico.
 
 ## Limitações e controvérsias
 

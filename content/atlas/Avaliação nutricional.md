@@ -18,9 +18,9 @@ Escore Z é apropriado para crescimento em populações pediátricas quando refe
 
 ## **Limitações e controvérsias**
 
-Recordatório alimentar, peso, força e exames têm erros próprios. Edema e inflamação podem ocultar perda de tecido; baixa ingestão pode ser consequência da doença. Nenhum instrumento substitui julgamento clínico e confirmação de causas.
+Recordatório alimentar, peso, força e exames têm erros próprios. Edema e inflamação podem ocultar perda de tecido; baixa ingestão pode ser [[Consequência|consequência]] da doença. Nenhum instrumento substitui julgamento clínico e confirmação de causas.
 
-Critérios e ferramentas diferentes produzem classificações diferentes. A validade externa precisa ser considerada antes de aplicar um instrumento em população ou serviço distinto.
+Critérios e ferramentas diferentes produzem classificações diferentes. A [[Validade Externa|validade externa]] precisa ser considerada antes de aplicar um instrumento em [[População|população]] ou serviço distinto.
 
 ## **Conceitos relacionados**
 

@@ -2,7 +2,7 @@
 
 ## **Definição**
 
-Difusão simples é o movimento líquido de moléculas através de uma membrana ou camada sem participação de transportador específico, impulsionado por gradiente de concentração ou eletroquímico. Não requer hidrólise de ATP pela molécula transportada.
+Difusão simples é o movimento líquido de moléculas através de uma membrana ou camada sem participação de transportador específico, impulsionado por gradiente de concentração ou eletroquímico. Não requer [[Hidrólise|hidrólise]] de [[ATP|ATP]] pela molécula transportada.
 
 Substâncias lipossolúveis pequenas atravessam a bicamada com mais facilidade do que moléculas grandes, polares ou carregadas. A velocidade também depende da área, espessura e permeabilidade da barreira.
 
@@ -10,7 +10,7 @@ Substâncias lipossolúveis pequenas atravessam a bicamada com mais facilidade d
 
 O conceito ajuda a entender passagem de gases, alguns fármacos e parte dos produtos lipídicos. Alteração de pH, lipossolubilidade, membrana ou fluxo sanguíneo pode mudar a disponibilidade de uma substância.
 
-Em nutrição, a difusão efetiva depende da digestão, da camada de água não agitada, do metabolismo do enterócito e da saída para a circulação; presença luminal é apenas o primeiro requisito.
+Em [[Nutrição|nutrição]], a difusão efetiva depende da digestão, da camada de água não agitada, do [[Metabolismo|metabolismo]] do enterócito e da saída para a circulação; presença luminal é apenas o primeiro requisito.
 
 ## **Base fisiológica, bioquímica ou epidemiológica**
 
@@ -20,9 +20,9 @@ Difusão simples é diferente de [[Difusão facilitada]], que utiliza proteína 
 
 ## **Limitações e controvérsias**
 
-O modelo de difusão através de uma membrana artificial ignora proteínas, muco, fluxo e metabolismo. A taxa medida in vitro não prediz automaticamente absorção oral.
+O modelo de difusão através de uma membrana artificial ignora [[Proteínas|proteínas]], muco, fluxo e [[Metabolismo|metabolismo]]. A taxa medida in vitro não prediz automaticamente [[Absorção|absorção]] oral.
 
-A ideia de que aumentar dose sempre aumenta absorção falha quando a solubilidade, a barreira ou a toxicidade se tornam limitantes. A concentração local pode crescer sem aumento proporcional de disponibilidade sistêmica.
+A ideia de que aumentar dose sempre aumenta [[Absorção|absorção]] falha quando a solubilidade, a barreira ou a toxicidade se tornam limitantes. A concentração local pode crescer sem aumento proporcional de disponibilidade sistêmica.
 
 ## **Conceitos relacionados**
 

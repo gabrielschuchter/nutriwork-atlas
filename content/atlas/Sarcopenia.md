@@ -4,7 +4,7 @@ Sarcopenia é uma doença muscular esquelética caracterizada por redução prog
 
 ## Contexto clínico
 
-A sarcopenia é frequente em idosos, pacientes hospitalizados, indivíduos com câncer, insuficiência cardíaca, doença renal crônica e outras condições associadas a inflamação crônica ou inatividade física. Sua identificação influencia decisões relacionadas à terapia nutricional, prescrição de exercício físico, estratificação prognóstica e planejamento de reabilitação. O diagnóstico tem implicações que vão além da composição corporal, pois se relaciona com incapacidade funcional, risco de quedas, hospitalizações e mortalidade.
+A sarcopenia é frequente em idosos, pacientes hospitalizados, indivíduos com câncer, insuficiência cardíaca, doença renal crônica e outras condições associadas a inflamação crônica ou inatividade física. Sua identificação influencia decisões relacionadas à terapia nutricional, prescrição de exercício físico, estratificação prognóstica e planejamento de reabilitação. O diagnóstico tem implicações que vão além da composição corporal, pois se relaciona com incapacidade funcional, risco de quedas, hospitalizações e [[Mortalidade|mortalidade]].
 
 ## Base fisiológica ou epidemiológica
 
@@ -12,9 +12,9 @@ A fisiopatologia envolve interação entre envelhecimento biológico, [[Resistê
 
 ## Limitações e controvérsias
 
-A principal controvérsia atual envolve a própria operacionalização diagnóstica. Diferentes consensos utilizam pontos de corte distintos para força, massa muscular e desempenho físico, resultando em prevalências substancialmente diferentes em uma mesma população. Além disso, métodos de avaliação muscular como DXA, bioimpedância e tomografia computadorizada não são intercambiáveis e apresentam limitações específicas.
+A principal controvérsia atual envolve a própria operacionalização diagnóstica. Diferentes consensos utilizam pontos de corte distintos para força, massa muscular e desempenho físico, resultando em prevalências substancialmente diferentes em uma mesma [[População|população]]. Além disso, métodos de avaliação muscular como DXA, bioimpedância e tomografia computadorizada não são intercambiáveis e apresentam limitações específicas.
 
-Outra questão importante é a tendência histórica de equiparar sarcopenia à perda de massa muscular. Evidências acumuladas indicam que força e funcionalidade possuem associação mais consistente com desfechos clínicos do que massa muscular isoladamente. Apesar disso, muitos estudos de intervenção continuam utilizando aumento de massa magra como [[Desfecho substituto|desfecho substituto]] principal. A inferência de que ganhos modestos de massa muscular necessariamente se traduzem em benefícios clínicos permanece incerta em diversos contextos. Também existe heterogeneidade considerável quanto à eficácia de estratégias nutricionais isoladas, particularmente suplementação proteica sem treinamento resistido concomitante.
+Outra questão importante é a tendência histórica de equiparar sarcopenia à perda de massa muscular. Evidências acumuladas indicam que força e funcionalidade possuem associação mais consistente com desfechos clínicos do que massa muscular isoladamente. Apesar disso, muitos estudos de intervenção continuam utilizando aumento de massa magra como [[Desfecho substituto|desfecho substituto]] principal. A inferência de que ganhos modestos de massa muscular necessariamente se traduzem em benefícios clínicos permanece incerta em diversos contextos. Também existe [[Heterogeneidade|heterogeneidade]] considerável quanto à eficácia de estratégias nutricionais isoladas, particularmente suplementação proteica sem treinamento resistido concomitante.
 
 ## Conceitos relacionados
 - [[Força Muscular]]

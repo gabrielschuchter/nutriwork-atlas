@@ -48,7 +48,7 @@ Existe grande variabilidade interindividual na resposta à cafeína. Fatores com
 
 Outra controvérsia envolve a ideia de que maiores doses produzem necessariamente maior benefício. A literatura não sustenta relação linear entre dose e desempenho, enquanto doses elevadas aumentam significativamente o risco de efeitos adversos, como ansiedade, tremores, desconforto gastrointestinal, taquicardia e prejuízo do sono.
 
-Também perdeu força a crença de que a cafeína provoque desidratação clinicamente relevante durante o exercício em indivíduos habituados ao consumo. Embora apresente leve efeito diurético em repouso, esse efeito tende a ser pequeno durante o exercício.
+Também perdeu força a crença de que a cafeína provoque desidratação [[Clinicamente relevante|clinicamente relevante]] durante o exercício em indivíduos habituados ao consumo. Embora apresente leve efeito diurético em repouso, esse efeito tende a ser pequeno durante o exercício.
 
 Na prática esportiva, o prejuízo potencial ao sono deve ser considerado, especialmente em competições realizadas no período noturno ou em atletas submetidos a treinamento intenso, já que a privação de sono pode comprometer a recuperação.
 

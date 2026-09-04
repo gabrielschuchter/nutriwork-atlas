@@ -2,27 +2,27 @@
 
 ## **Definição**
 
-Lipase gástrica é uma enzima secretada no estômago que hidrolisa parte dos triglicerídeos em ácidos graxos e produtos parciais. Ela atua em meio ácido e contribui para a digestão pré-duodenal de lipídios.
+Lipase gástrica é uma [[Enzima|enzima]] secretada no estômago que hidrolisa parte dos [[Triglicerídeos|triglicerídeos]] em [[Ácidos graxos|ácidos graxos]] e produtos parciais. Ela atua em meio ácido e contribui para a digestão pré-duodenal de [[Lipídios|lipídios]].
 
-Sua contribuição varia conforme idade, composição da refeição, quantidade de enzima e função pancreática. Ela não substitui a lipase pancreática na digestão de grande parte da gordura dietética.
+Sua contribuição varia conforme idade, composição da refeição, quantidade de [[Enzima|enzima]] e função pancreática. Ela não substitui a [[Lipase pancreática|lipase pancreática]] na digestão de grande parte da gordura dietética.
 
 ## **Contexto clínico**
 
 A lipase gástrica é especialmente relevante no início da vida, quando a atividade pancreática e a composição da dieta têm características próprias. Em adultos, ganha importância relativa quando a função pancreática está comprometida.
 
-Sintomas após gordura podem decorrer de má digestão, bile, motilidade, hipersensibilidade ou outras condições. A lipase gástrica não deve ser inferida a partir de dor ou de uma única dosagem sérica.
+Sintomas após gordura podem decorrer de má digestão, [[Bile|bile]], motilidade, hipersensibilidade ou outras condições. A lipase gástrica não deve ser inferida a partir de dor ou de uma única dosagem sérica.
 
 ## **Base fisiológica, bioquímica ou epidemiológica**
 
-Glândulas gástricas produzem lipase que atua na interface das gotículas. Os produtos gerados favorecem posterior ação da lipase pancreática e contribuem para a sinalização intestinal que modula esvaziamento.
+Glândulas gástricas produzem lipase que atua na interface das gotículas. Os produtos gerados favorecem posterior ação da [[Lipase pancreática|lipase pancreática]] e contribuem para a sinalização intestinal que modula esvaziamento.
 
-A hidrólise ocorre em etapas coordenadas com emulsificação e formação de micelas. A absorção final depende da quantidade de ácidos graxos, do comprimento da cadeia, dos sais biliares e da mucosa.
+A [[Hidrólise|hidrólise]] ocorre em etapas coordenadas com [[Emulsificação|emulsificação]] e formação de [[Micelas|micelas]]. A [[Absorção|absorção]] final depende da quantidade de [[Ácidos graxos|ácidos graxos]], do comprimento da cadeia, dos [[Sais biliares|sais biliares]] e da mucosa.
 
 ## **Limitações e controvérsias**
 
 O percentual de gordura hidrolisado no estômago varia entre estudos e métodos. A medida da atividade enzimática não informa necessariamente a digestão total de uma refeição.
 
-A ideia de que estimular lipase gástrica acelera emagrecimento confunde digestão com balanço energético. A disponibilidade de ácidos graxos pode aumentar sem produzir redução sustentada de adiposidade.
+A ideia de que estimular lipase gástrica acelera emagrecimento confunde digestão com [[Balanço energético|balanço energético]]. A disponibilidade de [[Ácidos graxos|ácidos graxos]] pode aumentar sem produzir redução sustentada de adiposidade.
 
 ## **Conceitos relacionados**
 

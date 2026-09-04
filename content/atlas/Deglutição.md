@@ -16,7 +16,7 @@ Para o nutricionista, tosse durante a refeição, voz molhada, perda de peso e d
 
 Receptores orais e faríngeos informam posição, volume e características do bolo. O tronco encefálico coordena apneia breve, fechamento laríngeo, contração faríngea e relaxamento de esfíncteres. Contrações peristálticas esofágicas completam o transporte.
 
-A velocidade e a segurança dependem de saliva, mastigação, sensibilidade, força muscular, coordenação e integridade anatômica. A passagem adequada do bolo não prova que a proteção contra microaspiração esteja preservada em todos os momentos.
+A velocidade e a segurança dependem de [[Saliva|saliva]], mastigação, sensibilidade, força muscular, coordenação e integridade anatômica. A passagem adequada do bolo não prova que a proteção contra microaspiração esteja preservada em todos os momentos.
 
 ## **Limitações e controvérsias**
 

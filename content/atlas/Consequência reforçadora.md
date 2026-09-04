@@ -2,9 +2,9 @@
 
 [[Consequência]] reforçadora é uma consequência que aumenta a probabilidade futura de ocorrência da [[Resposta comportamental]] que a precedeu. Na [[Análise do comportamento]], uma consequência é considerada reforçadora exclusivamente em função de seu efeito sobre o comportamento, e não por ser agradável, desejável ou intencionalmente utilizada como recompensa.
 
-Uma consequência somente pode ser classificada como reforçadora quando há evidência de que sua ocorrência contingente à resposta torna essa resposta mais provável em ocasiões semelhantes. Assim, o caráter reforçador de um evento não é uma propriedade intrínseca do próprio evento, mas da relação funcional estabelecida entre comportamento e consequência.
+Uma [[Consequência|consequência]] somente pode ser classificada como reforçadora quando há evidência de que sua ocorrência contingente à resposta torna essa resposta mais provável em ocasiões semelhantes. Assim, o caráter reforçador de um evento não é uma propriedade intrínseca do próprio evento, mas da relação funcional estabelecida entre comportamento e consequência.
 
-O conceito é distinto de [[Reforço]]. Enquanto consequência reforçadora refere-se ao evento que exerce essa função, reforço designa o processo comportamental pelo qual a frequência da resposta aumenta em decorrência dessa consequência.
+O conceito é distinto de [[Reforço]]. Enquanto [[Consequência|consequência]] reforçadora refere-se ao evento que exerce essa função, reforço designa o processo comportamental pelo qual a frequência da resposta aumenta em decorrência dessa consequência.
 
 ## Contexto clínico
 
@@ -44,9 +44,9 @@ Entretanto, uma [[Consequência|consequência]] não possui função reforçador
 
 - a disponibilidade de outras fontes de [[Reforço|reforço]].
 
-O mesmo evento pode funcionar como consequência reforçadora para uma pessoa e não exercer qualquer efeito para outra. Da mesma forma, um alimento altamente reforçador quando o indivíduo está privado de comida pode perder essa função após uma refeição abundante.
+O mesmo evento pode funcionar como [[Consequência|consequência]] reforçadora para uma pessoa e não exercer qualquer efeito para outra. Da mesma forma, um alimento altamente reforçador quando o indivíduo está privado de comida pode perder essa função após uma refeição abundante.
 
-Por essa razão, a [[Análise do comportamento|Análise do Comportamento]] evita definir reforçadores com base em listas prévias de estímulos "naturalmente reforçadores". O critério permanece funcional: observa-se se a consequência aumenta ou não a probabilidade futura da resposta.
+Por essa razão, a [[Análise do comportamento|Análise do Comportamento]] evita definir reforçadores com base em listas prévias de estímulos "naturalmente reforçadores". O critério permanece funcional: observa-se se a [[Consequência|consequência]] aumenta ou não a probabilidade futura da resposta.
 
 ## Limitações e controvérsias
 
@@ -58,7 +58,7 @@ Também é inadequado assumir que consequências reforçadoras sejam necessariam
 
 Na prática clínica, outro equívoco frequente é acreditar que elogios, incentivos financeiros ou outras formas de recompensa produzirão necessariamente maior adesão ao tratamento. Esses eventos somente exercem função reforçadora quando efetivamente aumentam a probabilidade dos comportamentos-alvo. Caso contrário, representam apenas consequências sem função comportamental demonstrada.
 
-Além disso, comportamentos complexos, como os relacionados à alimentação, raramente são mantidos por uma única consequência reforçadora. Em geral, diferentes fontes de reforço atuam simultaneamente, tornando a análise funcional mais complexa do que modelos simplificados baseados em uma única causa.
+Além disso, comportamentos complexos, como os relacionados à alimentação, raramente são mantidos por uma única [[Consequência|consequência]] reforçadora. Em geral, diferentes fontes de [[Reforço|reforço]] atuam simultaneamente, tornando a análise funcional mais complexa do que modelos simplificados baseados em uma única causa.
 
 ## Conceitos relacionados
 - [[Consequência]]

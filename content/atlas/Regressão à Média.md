@@ -22,7 +22,7 @@ Quanto menor a correlação entre medidas sucessivas, maior tende a ser o efeito
 
 O fenômeno não depende da existência de um mecanismo fisiológico específico. Trata-se de uma propriedade estatística dos dados.
 
-Em pesquisas clínicas, randomização e grupos controle ajudam a distinguir efeitos reais da regressão à média.
+Em pesquisas clínicas, [[Randomização|randomização]] e grupos controle ajudam a distinguir efeitos reais da regressão à média.
 
 ## Limitações e controvérsias
 

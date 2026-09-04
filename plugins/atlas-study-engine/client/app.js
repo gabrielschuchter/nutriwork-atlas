@@ -25,6 +25,7 @@
   let onboardingStep = 0
   let onboardingOpener = null
   let helpOpener = null
+  let reportOpener = null
   let searchOpener = null
   let areaOpener = null
   let mobileMenuOpener = null
@@ -60,6 +61,8 @@
       "atlas-mobile-menu",
       "atlas-onboarding",
       "atlas-help",
+      "atlas-report",
+      "atlas-daily-task-panel",
     ].some(overlayIsOpen)
     root().classList.toggle("atlas-modal-open", open)
   }
@@ -160,7 +163,7 @@
 
   function isAtlasLocation() {
     const slug = locationSlug()
-    return slug === "index" || slug.startsWith("atlas/")
+    return slug === "index" || slug === "roadmap" || slug.startsWith("atlas/")
   }
 
   function graphRoot() {
@@ -218,29 +221,40 @@
   function renderViewState() {
     const graphView = document.getElementById("atlas-graph-view")
     const noteView = document.getElementById("atlas-note-view")
+    const roadmapView = document.getElementById("atlas-roadmap-view")
     const frame = document.querySelector(".atlas-frame")
     const graph = viewState.mode === "graph"
-    frame?.setAttribute("data-atlas-route", graph ? "graph" : "note")
-    frame?.setAttribute("data-atlas-view", graph ? "graph" : "note")
+    const note = viewState.mode === "note"
+    const roadmap = viewState.mode === "roadmap"
+    frame?.setAttribute("data-atlas-route", graph ? "graph" : note ? "note" : "roadmap")
+    frame?.setAttribute("data-atlas-view", graph ? "graph" : note ? "note" : "roadmap")
     graphView?.classList.toggle("is-active", graph)
-    noteView?.classList.toggle("is-active", !graph)
+    noteView?.classList.toggle("is-active", note)
+    roadmapView?.classList.toggle("is-active", roadmap)
     graphView?.setAttribute("aria-hidden", String(!graph))
-    noteView?.setAttribute("aria-hidden", String(graph))
+    noteView?.setAttribute("aria-hidden", String(!note))
+    roadmapView?.setAttribute("aria-hidden", String(!roadmap))
     if ("inert" in HTMLElement.prototype) {
       if (graphView) graphView.inert = !graph
-      if (noteView) noteView.inert = graph
+      if (noteView) noteView.inert = !note
+      if (roadmapView) roadmapView.inert = !roadmap
     }
     const node = viewState.noteSlug ? atlas.data.get(viewState.noteSlug) : null
     const title = document.getElementById("atlas-note-title")
     if (title && node) title.textContent = node.title
-    document.body.dataset.slug = graph ? "index" : viewState.noteSlug
-    document.title = graph ? "Nutriwork Atlas" : `${node?.title || "Atlas"} · Nutriwork Atlas`
+    document.body.dataset.slug = graph ? "index" : note ? viewState.noteSlug : "roadmap"
+    document.title = graph
+      ? "Nutriwork Atlas"
+      : roadmap
+        ? "Roadmap do Atlas · Nutriwork Atlas"
+        : `${node?.title || "Atlas"} · Nutriwork Atlas`
   }
 
   function renderNavState() {
     const graph = viewState.mode === "graph"
+    const roadmap = viewState.mode === "roadmap"
     const frame = document.querySelector(".atlas-frame")
-    frame?.setAttribute("data-atlas-route", graph ? "graph" : "note")
+    frame?.setAttribute("data-atlas-route", graph ? "graph" : roadmap ? "roadmap" : "note")
     const back = document.getElementById("atlas-back")
     const expand = document.getElementById("atlas-expand-graph")
     const filters = document.querySelector(".atlas-graph-filters")
@@ -254,8 +268,9 @@
     )
     const onboarding = document.getElementById("atlas-onboarding-open")
     const help = document.getElementById("atlas-help-open")
-    if (back) back.hidden = graph
-    if (expand) expand.hidden = graph
+    const report = document.querySelector('[data-atlas-action="open-report"]')
+    if (back) back.hidden = graph || roadmap
+    if (expand) expand.hidden = graph || roadmap
     if (filters) filters.hidden = !graph
     if (mobileGraphTools) mobileGraphTools.hidden = !graph
     if (mobileSearch) mobileSearch.hidden = !graph
@@ -263,8 +278,9 @@
     if (mobileExpand) mobileExpand.hidden = graph
     if (!graph) closeAreaMenu()
     if (!graph) closeAreaSheet(false)
-    if (onboarding) onboarding.hidden = !isUnlocked()
+    if (onboarding) onboarding.hidden = !isUnlocked() || roadmap
     if (help) help.hidden = !isUnlocked()
+    if (report) report.hidden = graph || roadmap || !isUnlocked()
 
     const returnButton = document.getElementById("atlas-return-note")
     const returnSlug = readSession(lastNoteKey)
@@ -874,7 +890,7 @@
     )
   }
 
-  async function openConcept(slug) {
+  async function openConcept(slug, { source = "navigation" } = {}) {
     const node = atlas.data.get(slug)
     if (!node) return
     const serial = ++navigationSerial
@@ -898,6 +914,11 @@
       renderNavState()
       atlas.graph?.setMode("minimap", node.slug)
       enhanceLinks()
+      document.dispatchEvent(
+        new CustomEvent("atlas:concept-opened", {
+          detail: { slug: node.slug, title: node.title, source },
+        }),
+      )
       setRouteLoading(false)
       window.requestAnimationFrame(() => document.getElementById("atlas-note-title")?.focus())
     } catch (error) {
@@ -978,7 +999,7 @@
       overlay,
       steps: [...overlay.querySelectorAll("[data-onboarding-step]")],
       count: overlay.querySelector("[data-onboarding-count]"),
-      progress: overlay.querySelector("[data-onboarding-progress]"),
+      progress: overlay.querySelector("[data-atlas-onboarding-progress]"),
       next: overlay.querySelector('[data-atlas-action="onboarding-next"]'),
     }
   }
@@ -993,7 +1014,7 @@
     if (elements.count)
       elements.count.textContent = number + " / " + String(elements.steps.length).padStart(2, "0")
     if (elements.progress)
-      elements.progress.style.setProperty("--atlas-onboarding-progress", number)
+      elements.progress.style.setProperty("--atlas-onboarding-progress", String(onboardingStep + 1))
     if (elements.next)
       elements.next.textContent =
         onboardingStep === elements.steps.length - 1 ? "Entrar no grafo" : "Continuar"
@@ -1076,6 +1097,55 @@
     window.requestAnimationFrame(() => opener?.focus())
   }
 
+  function reportElements() {
+    const overlay = document.getElementById("atlas-report")
+    if (!overlay) return null
+    return {
+      overlay,
+      close: overlay.querySelector('[data-atlas-action="close-report"]'),
+      link: overlay.querySelector("[data-atlas-report-link]"),
+      concept: overlay.querySelector("[data-atlas-report-concept]"),
+    }
+  }
+
+  function reportHref() {
+    const node = viewState.noteSlug ? atlas.data.get(viewState.noteSlug) : null
+    const title = node?.title || "esta nota"
+    const message = `Olá, encontrei um problema no conceito "${title}" do Atlas. Pode me ajudar?`
+    return "https://wa.me/5512997505188?text=" + encodeURIComponent(message)
+  }
+
+  function openReport() {
+    if (!isUnlocked() || viewState.mode !== "note") return
+    const elements = reportElements()
+    if (!elements) return
+    const node = viewState.noteSlug ? atlas.data.get(viewState.noteSlug) : null
+    if (elements.concept) elements.concept.textContent = node?.title || "esta nota"
+    if (elements.link) elements.link.href = reportHref()
+    reportOpener = preferredOpener(document.querySelector('[data-atlas-action="open-report"]'))
+    elements.overlay.hidden = false
+    elements.overlay.setAttribute("aria-hidden", "false")
+    root().classList.add("atlas-modal-open")
+    window.requestAnimationFrame(() => {
+      elements.overlay.classList.add("is-open")
+      elements.close?.focus()
+    })
+  }
+
+  function closeReport() {
+    const elements = reportElements()
+    if (!elements) return
+    const opener = reportOpener
+    reportOpener = null
+    elements.overlay.classList.remove("is-open")
+    elements.overlay.setAttribute("aria-hidden", "true")
+    syncModalLock()
+    window.setTimeout(() => {
+      if (!elements.overlay.classList.contains("is-open")) elements.overlay.hidden = true
+    }, 220)
+    window.requestAnimationFrame(() => opener?.focus())
+  }
+
   function handleAction(target) {
     const action = target.dataset.atlasAction
     if (action === "toggle-theme") {
@@ -1087,7 +1157,7 @@
     } else if (action === "open-search-result") {
       closeSearch(false)
       mobileSearchQuery = ""
-      openConcept(target.dataset.atlasSlug || "")
+      openConcept(target.dataset.atlasSlug || "", { source: "search" })
     } else if (action === "open-area") {
       openAreaSheet()
     } else if (action === "close-area") {
@@ -1109,7 +1179,7 @@
     } else if (action === "return-note") {
       returnToNote()
     } else if (action === "open-preview") {
-      openConcept(target.dataset.atlasSlug)
+      openConcept(target.dataset.atlasSlug, { source: "preview" })
     } else if (action === "onboarding-next") {
       advanceOnboarding()
     } else if (action === "open-onboarding") {
@@ -1122,6 +1192,10 @@
       openHelp()
     } else if (action === "close-help") {
       closeHelp()
+    } else if (action === "open-report") {
+      openReport()
+    } else if (action === "close-report") {
+      closeReport()
     }
   }
 
@@ -1177,7 +1251,7 @@
     event.preventDefault()
     event.stopPropagation()
     hidePreview(0)
-    openConcept(slug)
+    openConcept(slug, { source: "note" })
   }
 
   function handlePointerOver(event) {
@@ -1253,6 +1327,11 @@
       closeHelp()
       return
     }
+    const report = reportElements()
+    if (report && !report.overlay.hidden) {
+      closeReport()
+      return
+    }
     hidePreview(0)
     if (root().classList.contains("atlas-nav-hidden")) setNavHidden(false)
   }
@@ -1261,12 +1340,14 @@
     if (event.key !== "Tab") return
     const onboarding = onboardingElements()
     const help = helpElements()
+    const report = reportElements()
     const overlay = [
       document.getElementById("atlas-search-sheet"),
       document.getElementById("atlas-area-sheet"),
       document.getElementById("atlas-mobile-menu"),
       onboarding?.overlay,
       help?.overlay,
+      report?.overlay,
     ].find((candidate) => candidate && !candidate.hidden && candidate.classList.contains("is-open"))
     if (!overlay) return
     const items = focusable(overlay)
@@ -1307,15 +1388,22 @@
     const node = atlas.data.get(slug)
     return slug === "index"
       ? { mode: "graph", noteSlug: "", openedFromGraph: false }
-      : node
-        ? { mode: "note", noteSlug: node.slug, openedFromGraph: false }
-        : null
+      : slug === "roadmap"
+        ? { mode: "roadmap", noteSlug: "", openedFromGraph: false }
+        : node
+          ? { mode: "note", noteSlug: node.slug, openedFromGraph: false }
+          : null
   }
 
   async function renderInitialRoute() {
     const next = stateFromLocation()
     if (!next) return
     viewState = next
+    if (next.mode === "roadmap") {
+      renderViewState()
+      renderNavState()
+      return
+    }
     if (next.mode === "note") {
       const node = atlas.data.get(next.noteSlug)
       if (!node) return
@@ -1357,8 +1445,16 @@
     }
     setRouteLoading(true)
     try {
+      if (locationSlug() === "roadmap") {
+        viewState = { mode: "roadmap", noteSlug: "", openedFromGraph: false }
+        renderViewState()
+        renderNavState()
+        setRouteLoading(false)
+        return
+      }
       await atlas.data.load()
       if (serial !== refreshSerial) return
+      document.dispatchEvent(new CustomEvent("atlas:data-ready"))
       selectedArea = "all"
       renderAreas()
       await renderInitialRoute()

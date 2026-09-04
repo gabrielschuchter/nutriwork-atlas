@@ -1,8 +1,8 @@
 ## Definição
 
-Fibra alimentar insolúvel é uma classificação baseada principalmente na baixa solubilidade ou dispersão em água sob determinadas condições analíticas. É comum que inclua frações ricas em celulose, algumas hemiceluloses e lignina, mas os alimentos contêm misturas e o comportamento de uma mesma fibra pode mudar com processamento, tamanho de partícula, pH e concentração.
+[[Fibra alimentar|Fibra alimentar]] insolúvel é uma classificação baseada principalmente na baixa solubilidade ou dispersão em água sob determinadas condições analíticas. É comum que inclua frações ricas em celulose, algumas hemiceluloses e lignina, mas os alimentos contêm misturas e o comportamento de uma mesma fibra pode mudar com processamento, tamanho de partícula, pH e concentração.
 
-Em comparação com muitas fibras altamente fermentáveis, algumas frações insolúveis são pouco fermentadas ou fermentadas mais lentamente e permanecem como material não digerido no cólon. Essa tendência não é universal: insolubilidade não significa ausência de fermentação, nem determina sozinha a capacidade de reter água, aumentar a massa fecal ou modificar o trânsito intestinal.
+Em comparação com muitas fibras altamente fermentáveis, algumas frações insolúveis são pouco fermentadas ou fermentadas mais lentamente e permanecem como material não digerido no cólon. Essa tendência não é universal: insolubilidade não significa ausência de [[Fermentação|fermentação]], nem determina sozinha a capacidade de reter água, aumentar a massa fecal ou modificar o trânsito intestinal.
 
 ## Contexto clínico
 
@@ -14,9 +14,9 @@ Em pessoas com doença gastrointestinal, dor, distensão ou alteração importan
 
 Frações pouco solúveis podem reter água na matriz fecal, aumentar o volume do conteúdo e contribuir para a consistência e a passagem das fezes. A distensão e a presença de material no cólon podem participar da sinalização motora, mas o efeito final resulta da interação com a [[Motilidade gastrointestinal]], a água disponível, a microbiota, o tempo de trânsito e a composição da dieta.
 
-A classificação por solubilidade não informa, sozinha, a viscosidade ou a fermentabilidade. A literatura de terminologia de carboidratos recomenda considerar propriedades físicas e químicas em conjunto. Em ensaios clínicos, os resultados específicos para fibras insolúveis são menos consistentes do que a formulação simplificada “aumenta o volume fecal e acelera o trânsito” sugere.
+A classificação por solubilidade não informa, sozinha, a viscosidade ou a fermentabilidade. A literatura de terminologia de [[Carboidratos|carboidratos]] recomenda considerar propriedades físicas e químicas em conjunto. Em ensaios clínicos, os resultados específicos para fibras insolúveis são menos consistentes do que a formulação simplificada “aumenta o volume fecal e acelera o trânsito” sugere.
 
-Uma revisão sistemática sobre fibras na constipação idiopática encontrou resultados conflitantes para fibras insolúveis e limitações metodológicas nos estudos disponíveis. Uma metanálise mais recente de suplementação de fibras encontrou benefício global para resposta e frequência evacuatória, mas com heterogeneidade importante e maior ocorrência de flatulência; esse resultado não permite atribuir o efeito a todas as fibras insolúveis nem a todos os pacientes.
+Uma revisão sistemática sobre fibras na constipação idiopática encontrou resultados conflitantes para fibras insolúveis e limitações metodológicas nos estudos disponíveis. Uma metanálise mais recente de suplementação de fibras encontrou benefício global para resposta e frequência evacuatória, mas com [[Heterogeneidade|heterogeneidade]] importante e maior ocorrência de flatulência; esse resultado não permite atribuir o efeito a todas as fibras insolúveis nem a todos os pacientes.
 
 ## Limitações e controvérsias
 

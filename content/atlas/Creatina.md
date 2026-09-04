@@ -34,9 +34,9 @@ Durante exercícios de alta intensidade ocorre a reação:
 
 Fosfocreatina + [[ADP]] ⇌ [[ATP]] + Creatina
 
-Essa reação fornece ATP em alta velocidade durante os primeiros segundos do esforço.
+Essa reação fornece [[ATP|ATP]] em alta velocidade durante os primeiros segundos do esforço.
 
-A suplementação aumenta o conteúdo muscular de creatina e fosfocreatina, favorecendo maior capacidade de ressíntese de ATP entre esforços repetidos e permitindo maior volume total de treinamento ao longo do tempo.
+A suplementação aumenta o conteúdo muscular de creatina e fosfocreatina, favorecendo maior capacidade de ressíntese de [[ATP|ATP]] entre esforços repetidos e permitindo maior volume total de treinamento ao longo do tempo.
 
 O aumento da massa muscular observado em diversos estudos provavelmente resulta, em grande parte, da maior capacidade de treinamento e adaptação subsequente, e não de efeito anabólico direto da creatina.
 

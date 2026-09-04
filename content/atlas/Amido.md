@@ -2,7 +2,7 @@
 
 ## **Definição**
 
-Amido é um polissacarídeo vegetal formado por cadeias de glicose organizadas principalmente como amilose e amilopectina. Está presente em cereais, tubérculos, raízes e leguminosas. A proporção entre essas frações, a estrutura do alimento e o processamento influenciam sua digestibilidade.
+Amido é um polissacarídeo vegetal formado por cadeias de [[Glicose|glicose]] organizadas principalmente como amilose e amilopectina. Está presente em cereais, tubérculos, raízes e leguminosas. A proporção entre essas frações, a estrutura do alimento e o processamento influenciam sua digestibilidade.
 
 ## **Contexto clínico**
 
@@ -12,13 +12,13 @@ Amido resistente pode alcançar o cólon e ser fermentado. Isso pode modificar c
 
 ## **Base fisiológica, bioquímica ou epidemiológica**
 
-[[Amilase salivar]] e [[Amilase pancreática]] hidrolisam ligações do amido, formando maltose, maltotriose e dextrinas. [[Maltase]] e outras enzimas da borda em escova liberam glicose, que é absorvida por [[Transporte de glicose (SGLT1)]]. Parte do amido permanece protegida por estrutura celular, retrogradação ou ligações inacessíveis.
+[[Amilase salivar]] e [[Amilase pancreática]] hidrolisam ligações do amido, formando maltose, maltotriose e dextrinas. [[Maltase]] e outras enzimas da borda em escova liberam [[Glicose|glicose]], que é absorvida por [[Transporte de glicose (SGLT1)]]. Parte do amido permanece protegida por estrutura celular, retrogradação ou ligações inacessíveis.
 
-O amido resistente se comporta fisiologicamente como fração de fibra fermentável, não como glicose absorvida no intestino delgado. A resposta glicêmica depende da quantidade de amido disponível, do grau de gelatinização e dos componentes que retardam o [[Esvaziamento gástrico]].
+O amido resistente se comporta fisiologicamente como fração de fibra fermentável, não como [[Glicose|glicose]] absorvida no intestino delgado. A resposta glicêmica depende da quantidade de amido disponível, do grau de gelatinização e dos componentes que retardam o [[Esvaziamento gástrico]].
 
 ## **Limitações e controvérsias**
 
-Teor de amido não prediz sozinho índice glicêmico ou qualidade alimentar. O processamento pode aumentar a disponibilidade de glicose sem alterar o nome químico do ingrediente. Resultados de estudos com amido isolado também têm aplicabilidade limitada para refeições habituais.
+Teor de amido não prediz sozinho [[Índice glicêmico|índice glicêmico]] ou qualidade alimentar. O processamento pode aumentar a disponibilidade de [[Glicose|glicose]] sem alterar o nome químico do ingrediente. Resultados de estudos com amido isolado também têm aplicabilidade limitada para refeições habituais.
 
 O uso de amido resistente como estratégia clínica requer dose, tolerabilidade e desfecho definidos. Mudanças em glicemia, microbiota ou marcadores inflamatórios são resultados intermediários e não demonstram por si só prevenção de doença.
 

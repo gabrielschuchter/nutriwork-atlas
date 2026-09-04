@@ -10,7 +10,7 @@ O diagnóstico geralmente envolve avaliação do crescimento fetal por ultrasson
 
 A RCIU está associada a aumento do risco de:
 
-- mortalidade perinatal;
+- [[Mortalidade|mortalidade]] perinatal;
 
 - complicações neonatais;
 

@@ -12,7 +12,7 @@ Uma formulação clássica é a Regra de Naegele:
 
 - Acrescentar 1 ano.
 
-Esse cálculo deve ser ajustado quando a duração do ciclo menstrual difere significativamente de 28 dias ou quando a idade gestacional é determinada por outros métodos mais confiáveis, como a ultrassonografia obstétrica do primeiro trimestre (padrão-ouro).
+Esse cálculo deve ser ajustado quando a duração do ciclo menstrual difere significativamente de 28 dias ou quando a [[Idade gestacional|idade gestacional]] é determinada por outros métodos mais confiáveis, como a ultrassonografia obstétrica do primeiro trimestre (padrão-ouro).
 
 A DPP não significa que o parto deva ocorrer exatamente nessa data. O nascimento pode ocorrer antes ou depois da DPP dentro de uma faixa considerada compatível com a duração normal da gestação.
 
@@ -30,7 +30,7 @@ A DPP é utilizada principalmente para:
 
 - Classificar situações como prematuridade, gestação a termo ou pós-termo.
 
-A precisão da DPP influencia decisões clínicas porque muitos eventos obstétricos são interpretados em relação à idade gestacional. Exemplos incluem:
+A precisão da DPP influencia decisões clínicas porque muitos eventos obstétricos são interpretados em relação à [[Idade gestacional|idade gestacional]]. Exemplos incluem:
 
 - Avaliação de crescimento fetal;
 
@@ -40,9 +40,9 @@ A precisão da DPP influencia decisões clínicas porque muitos eventos obstétr
 
 - Acompanhamento de gestações prolongadas.
 
-A estimativa incorreta da idade gestacional pode levar a interpretações inadequadas, como considerar um feto pequeno para idade gestacional quando, na realidade, a datação está errada, ou realizar intervenções em momento inadequado.
+A estimativa incorreta da [[Idade gestacional|idade gestacional]] pode levar a interpretações inadequadas, como considerar um feto [[Pequeno para idade gestacional (PIG)|pequeno para idade gestacional]] quando, na realidade, a datação está errada, ou realizar intervenções em momento inadequado.
 
-Na prática atual, a ultrassonografia precoce, especialmente no primeiro trimestre, frequentemente apresenta maior precisão para estimar a idade gestacional quando comparada ao cálculo isolado pela DUM, particularmente quando há incerteza sobre a data menstrual, ciclos irregulares ou uso recente de contraceptivos hormonais. Isso ocorre pois a ultrassonografia utiliza medidas biométricas fetais para estimar a idade gestacional. No primeiro trimestre, determinadas medidas apresentam menor variabilidade biológica e maior precisão para datação em comparação com medidas realizadas mais tardiamente, quando diferenças de crescimento fetal normal podem interferir.
+Na prática atual, a ultrassonografia precoce, especialmente no primeiro trimestre, frequentemente apresenta maior precisão para estimar a [[Idade gestacional|idade gestacional]] quando comparada ao cálculo isolado pela DUM, particularmente quando há incerteza sobre a data menstrual, ciclos irregulares ou uso recente de contraceptivos hormonais. Isso ocorre pois a ultrassonografia utiliza medidas biométricas fetais para estimar a idade gestacional. No primeiro trimestre, determinadas medidas apresentam menor variabilidade biológica e maior precisão para datação em comparação com medidas realizadas mais tardiamente, quando diferenças de crescimento fetal normal podem interferir.
 
 ## Base fisiológica, bioquímica ou epidemiológica
 
@@ -104,7 +104,7 @@ A ultrassonografia também apresenta limitações. Embora seja uma ferramenta im
 
 - Tamanho fetal: medida biométrica influenciada por múltiplos fatores.
 
-Um feto maior ou menor não necessariamente possui idade gestacional diferente.
+Um feto maior ou menor não necessariamente possui [[Idade gestacional|idade gestacional]] diferente.
 
 ## Conceitos relacionados
 - [[Idade gestacional]]

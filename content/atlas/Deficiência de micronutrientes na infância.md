@@ -1,6 +1,6 @@
 ## Definição
 
-Deficiência de micronutrientes na infância corresponde à inadequação de vitaminas e minerais suficiente para comprometer funções fisiológicas, aumentar o risco de doenças ou produzir manifestações clínicas específicas.
+Deficiência de micronutrientes na infância corresponde à inadequação de [[Vitaminas|vitaminas]] e minerais suficiente para comprometer funções fisiológicas, aumentar o risco de doenças ou produzir manifestações clínicas específicas.
 
 As deficiências podem ser clínicas, quando produzem sinais e sintomas evidentes, ou subclínicas, detectadas apenas por avaliação laboratorial.
 
@@ -30,9 +30,9 @@ A ocorrência de deficiência depende da interação entre:
 
 - ingestão alimentar;
 
-- biodisponibilidade;
+- [[Biodisponibilidade|biodisponibilidade]];
 
-- absorção intestinal;
+- [[Absorção|absorção]] intestinal;
 
 - estado fisiológico;
 

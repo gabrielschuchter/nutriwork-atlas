@@ -2,7 +2,7 @@
 
 Anabolismo é o conjunto de reações metabólicas responsáveis pela síntese de moléculas complexas a partir de precursores mais simples, com consumo de energia química, principalmente na forma de [[ATP]]. Essas reações sustentam crescimento, manutenção, reparo tecidual, armazenamento energético e adaptação fisiológica.
 
-O conceito não se restringe ao tecido muscular. Inclui processos como síntese de proteínas, glicogênio, triglicerídeos, fosfolipídios, colesterol e ácidos nucleicos. Portanto, utilizar "anabolismo" como sinônimo de hipertrofia muscular é conceitualmente incorreto.
+O conceito não se restringe ao tecido muscular. Inclui processos como síntese de [[Proteínas|proteínas]], [[Glicogênio|glicogênio]], [[Triglicerídeos|triglicerídeos]], [[Fosfolipídios|fosfolipídios]], [[Colesterol|colesterol]] e ácidos nucleicos. Portanto, utilizar "anabolismo" como sinônimo de hipertrofia muscular é conceitualmente incorreto.
 
 Também não representa um estado permanente do organismo. O [[Metabolismo|metabolismo]] humano alterna continuamente entre processos anabólicos e catabólicos conforme [[Disponibilidade Energética|disponibilidade energética]], estímulos hormonais, atividade física e necessidades fisiológicas.
 
@@ -22,17 +22,17 @@ O conceito permeia praticamente toda a [[Nutrição|nutrição]] clínica e espo
 
 - alterações metabólicas associadas ao envelhecimento.
 
-Na nutrição esportiva, o objetivo frequentemente é favorecer processos anabólicos musculares por meio da combinação entre treinamento, ingestão adequada de proteínas, [[Disponibilidade Energética|disponibilidade energética]] suficiente e recuperação adequada.
+Na [[Nutrição|nutrição]] esportiva, o objetivo frequentemente é favorecer processos anabólicos musculares por meio da combinação entre treinamento, ingestão adequada de [[Proteínas|proteínas]], [[Disponibilidade Energética|disponibilidade energética]] suficiente e recuperação adequada.
 
 Na clínica hospitalar, a simples oferta de nutrientes não garante anabolismo. Estados inflamatórios intensos, sepse, trauma grave e neoplasias frequentemente mantêm predominância catabólica apesar do suporte nutricional.
 
 ## Base fisiológica, bioquímica ou epidemiológica
 
-As vias anabólicas utilizam energia proveniente principalmente da hidrólise do [[ATP]] e poder redutor fornecido pelo NADPH.
+As vias anabólicas utilizam energia proveniente principalmente da [[Hidrólise|hidrólise]] do [[ATP]] e poder redutor fornecido pelo NADPH.
 
 Hormônios como [[Insulina]], [[IGF-1]] e, em determinadas condições, hormônios sexuais favorecem processos biossintéticos. Entretanto, seu efeito depende da disponibilidade de substratos e do contexto fisiológico.
 
-No músculo esquelético, o [[Exercício resistido]] aumenta a atividade de vias como [[mTORC1]], promovendo aumento da [[Síntese proteica muscular]] quando aminoácidos essenciais estão disponíveis. Da mesma forma, a [[Glicogênese]] é estimulada após o exercício na presença de carboidratos.
+No músculo esquelético, o [[Exercício resistido]] aumenta a atividade de vias como [[mTORC1]], promovendo aumento da [[Síntese proteica muscular]] quando [[Aminoácidos essenciais|aminoácidos essenciais]] estão disponíveis. Da mesma forma, a [[Glicogênese]] é estimulada após o exercício na presença de [[Carboidratos|carboidratos]].
 
 Importante distinguir mecanismos celulares de adaptações clínicas. A ativação aguda de vias anabólicas representa um mecanismo fisiológico, mas não demonstra, por si só, benefício clínico sustentado.
 

@@ -2,7 +2,7 @@
 
 Diabetes mellitus gestacional (DMG) é uma condição caracterizada por hiperglicemia diagnosticada pela primeira vez durante a gestação, sem evidências prévias de diabetes manifesto.
 
-Os critérios diagnósticos variam entre organizações científicas, embora a maioria utilize testes padronizados de tolerância à glicose.
+Os critérios diagnósticos variam entre organizações científicas, embora a maioria utilize testes padronizados de tolerância à [[Glicose|glicose]].
 
 ## Contexto clínico
 
@@ -24,11 +24,11 @@ A terapia nutricional constitui um dos pilares do tratamento.
 
 ## Base fisiológica, bioquímica ou epidemiológica
 
-Durante a gestação ocorre aumento fisiológico da resistência à insulina, mediado principalmente por hormônios placentários.
+Durante a gestação ocorre aumento fisiológico da [[Resistência à insulina|resistência à insulina]], mediado principalmente por hormônios placentários.
 
 Quando a capacidade pancreática materna não compensa adequadamente essa resistência, ocorre hiperglicemia.
 
-A alimentação influencia o controle glicêmico por meio de mecanismos relacionados à [[Resposta glicêmica pós-prandial]], [[Carga glicêmica|carga glicêmica]] da dieta e distribuição dos carboidratos ao longo do dia.
+A alimentação influencia o controle glicêmico por meio de mecanismos relacionados à [[Resposta glicêmica pós-prandial]], [[Carga glicêmica|carga glicêmica]] da dieta e distribuição dos [[Carboidratos|carboidratos]] ao longo do dia.
 
 ## Limitações e controvérsias
 

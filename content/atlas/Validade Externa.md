@@ -14,13 +14,13 @@ Esse problema é particularmente relevante em [[Nutrição|nutrição]], onde di
 
 A validade externa não é um fenômeno estatístico isolado. Ela emerge da interação entre características dos participantes, contexto assistencial, exposição estudada, comparador utilizado e desfechos avaliados.
 
-A generalização exige julgamento clínico e epidemiológico. Não existe teste estatístico capaz de determinar sozinho se um resultado é transportável para outra população.
+A generalização exige julgamento clínico e epidemiológico. Não existe teste estatístico capaz de determinar sozinho se um resultado é transportável para outra [[População|população]].
 
-Abordagens modernas de [[Inferência Causal]] distinguem validade interna e transportabilidade como problemas metodológicos relacionados, mas conceitualmente diferentes.
+Abordagens modernas de [[Inferência Causal]] distinguem [[Validade Interna|validade interna]] e transportabilidade como problemas metodológicos relacionados, mas conceitualmente diferentes.
 
 ## Limitações e controvérsias
 
-Uma das interpretações equivocadas mais frequentes é assumir que estudos com alta validade interna possuem automaticamente alta validade externa. Na realidade, um ensaio extremamente controlado pode sacrificar representatividade para maximizar controle experimental.
+Uma das interpretações equivocadas mais frequentes é assumir que estudos com alta [[Validade Interna|validade interna]] possuem automaticamente alta validade externa. Na realidade, um ensaio extremamente controlado pode sacrificar representatividade para maximizar controle experimental.
 
 Outra controvérsia envolve a tendência de utilizar o termo "não generalizável" de forma excessivamente ampla. A aplicabilidade raramente é uma característica binária. Determinados resultados podem ser altamente transportáveis para algumas populações e pouco transportáveis para outras.
 

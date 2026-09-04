@@ -2,7 +2,7 @@
 
 ## **Definição**
 
-O ciclo de Cori é a circulação metabólica em que lactato produzido por tecidos com glicólise anaeróbica é transportado ao fígado, convertido em glicose por gliconeogênese e devolvido à circulação. O ciclo redistribui carbono e transfere parte do custo energético para o fígado.
+O ciclo de Cori é a circulação metabólica em que lactato produzido por tecidos com [[Glicólise|glicólise]] anaeróbica é transportado ao fígado, convertido em [[Glicose|glicose]] por [[Gliconeogênese|gliconeogênese]] e devolvido à circulação. O ciclo redistribui carbono e transfere parte do custo energético para o fígado.
 
 ## **Contexto clínico**
 
@@ -12,13 +12,13 @@ Recuperação ativa ou repouso modificam a remoção de lactato, mas uma queda d
 
 ## **Base fisiológica, bioquímica ou epidemiológica**
 
-Na glicólise, piruvato é reduzido a lactato para regenerar NAD+ e permitir continuidade da produção de ATP no citosol. O fígado converte lactato em piruvato e depois em glicose por [[Gliconeogênese]], consumindo ATP. A glicose retorna ao músculo e pode entrar novamente na [[Glicólise]].
+Na glicólise, piruvato é reduzido a lactato para regenerar NAD+ e permitir continuidade da produção de [[ATP|ATP]] no citosol. O fígado converte lactato em piruvato e depois em [[Glicose|glicose]] por [[Gliconeogênese]], consumindo ATP. A glicose retorna ao músculo e pode entrar novamente na [[Glicólise]].
 
-O ciclo não elimina o custo energético: a periferia gera dois ATP por glicose e o fígado gasta mais ATP na ressíntese. A integração entre tecidos mantém fluxo de carbono e evita acúmulo excessivo de lactato em condições fisiológicas.
+O ciclo não elimina o custo energético: a periferia gera dois [[ATP|ATP]] por [[Glicose|glicose]] e o fígado gasta mais ATP na ressíntese. A integração entre tecidos mantém fluxo de carbono e evita acúmulo excessivo de lactato em condições fisiológicas.
 
 ## **Limitações e controvérsias**
 
-Lactato não é sinônimo de falta de oxigênio. Catecolaminas, glicólise acelerada, disfunção mitocondrial, medicamentos e redução de depuração também alteram a concentração.
+Lactato não é sinônimo de falta de oxigênio. Catecolaminas, [[Glicólise|glicólise]] acelerada, disfunção mitocondrial, medicamentos e redução de depuração também alteram a concentração.
 
 O ciclo de Cori explica uma rota de carbono, não o prognóstico de uma pessoa. Ensaios de exercício e modelos bioquímicos não devem ser usados para inferir tratamento de acidose láctica sem diagnóstico.
 

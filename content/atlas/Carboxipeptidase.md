@@ -2,9 +2,9 @@
 
 ## **Definição**
 
-Carboxipeptidase é uma exopeptidase que remove aminoácidos da extremidade carboxila de peptídeos. As formas pancreáticas são secretadas como proenzimas e ativadas no duodeno por ação da tripsina.
+Carboxipeptidase é uma exopeptidase que remove [[Aminoácidos|aminoácidos]] da extremidade carboxila de peptídeos. As formas pancreáticas são secretadas como proenzimas e ativadas no duodeno por ação da [[Tripsina|tripsina]].
 
-Ela complementa endopeptidases como pepsina, tripsina e quimotripsina. A digestão proteica não transforma todas as proteínas diretamente em aminoácidos livres em uma única etapa.
+Ela complementa endopeptidases como [[Pepsina|pepsina]], [[Tripsina|tripsina]] e [[Quimotripsina|quimotripsina]]. A digestão proteica não transforma todas as [[Proteínas|proteínas]] diretamente em [[Aminoácidos|aminoácidos]] livres em uma única etapa.
 
 ## **Contexto clínico**
 
@@ -14,7 +14,7 @@ Uma dieta com proteína adequada pode ser mal tolerada por razões diferentes de
 
 ## **Base fisiológica, bioquímica ou epidemiológica**
 
-Tripsina ativa procarboxipeptidases A e B. A enzima reconhece o terminal carboxila e libera aminoácidos sucessivamente, enquanto transportadores de peptídeos e aminoácidos conduzem os produtos pelos enterócitos.
+[[Tripsina|Tripsina]] ativa procarboxipeptidases A e B. A [[Enzima|enzima]] reconhece o terminal carboxila e libera [[Aminoácidos|aminoácidos]] sucessivamente, enquanto transportadores de peptídeos e aminoácidos conduzem os produtos pelos enterócitos.
 
 A atividade requer condições luminais compatíveis e ocorre em uma rede de proteases. Mudanças no pH, na composição da refeição e no tempo de trânsito alteram a digestão observada.
 

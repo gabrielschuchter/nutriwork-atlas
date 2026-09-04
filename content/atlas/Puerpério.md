@@ -140,7 +140,7 @@ Em condições de ingestão inadequada grave, reservas maternas e composição d
 
 A evidência sobre necessidades nutricionais no puerpério deve considerar:
 
-- estado nutricional pré-gestacional;
+- [[Estado nutricional|estado nutricional]] pré-gestacional;
 
 - ganho de peso durante a gestação;
 

@@ -2,23 +2,23 @@
 
 ## **Definição**
 
-Proteína de alto valor biológico é aquela que fornece aminoácidos essenciais em proporções adequadas à necessidade de uma população de referência e apresenta boa digestibilidade e utilização. A classificação depende do método de avaliação e não se reduz à origem animal ou vegetal.
+Proteína de alto valor biológico é aquela que fornece [[Aminoácidos essenciais|aminoácidos essenciais]] em proporções adequadas à necessidade de uma [[População|população]] de referência e apresenta boa digestibilidade e utilização. A classificação depende do método de avaliação e não se reduz à origem animal ou vegetal.
 
 ## **Contexto clínico**
 
-Proteínas de ovos, leite, carnes, peixes e algumas combinações vegetais podem atingir alta qualidade segundo diferentes métodos. Dietas vegetarianas podem atender às necessidades com variedade, quantidade adequada e planejamento. Em doença, envelhecimento e crescimento, a oferta total e a distribuição das refeições importam junto ao perfil de aminoácidos.
+[[Proteínas|Proteínas]] de ovos, leite, carnes, peixes e algumas combinações vegetais podem atingir alta qualidade segundo diferentes métodos. Dietas vegetarianas podem atender às necessidades com variedade, quantidade adequada e planejamento. Em doença, envelhecimento e crescimento, a oferta total e a distribuição das refeições importam junto ao perfil de [[Aminoácidos|aminoácidos]].
 
 O rótulo “alto valor biológico” não substitui avaliação da energia, fibra, micronutrientes, sódio, gordura e tolerância. Pessoas com doença renal ou hepática precisam de metas individualizadas.
 
 ## **Base fisiológica, bioquímica ou epidemiológica**
 
-Após digestão, aminoácidos essenciais limitantes podem determinar quanto da proteína absorvida será incorporado. Digestibilidade fecal ou ileal e composição de aminoácidos são combinadas em métodos como PDCAAS e DIAAS, que respondem a perguntas metodológicas distintas.
+Após digestão, [[Aminoácidos essenciais|aminoácidos essenciais]] limitantes podem determinar quanto da proteína absorvida será incorporado. Digestibilidade fecal ou ileal e composição de [[Aminoácidos|aminoácidos]] são combinadas em métodos como PDCAAS e DIAAS, que respondem a perguntas metodológicas distintas.
 
-O organismo reutiliza aminoácidos, porém o excesso é oxidado e o nitrogênio é eliminado. A [[Síntese proteica muscular]] depende de leucina, estímulo mecânico, energia, estado anabólico e qualidade da proteína.
+O organismo reutiliza [[Aminoácidos|aminoácidos]], porém o excesso é oxidado e o nitrogênio é eliminado. A [[Síntese proteica muscular]] depende de [[Leucina|leucina]], estímulo mecânico, energia, estado anabólico e qualidade da proteína.
 
 ## **Limitações e controvérsias**
 
-Os escores dependem da população de referência, do método analítico, da digestibilidade e da unidade de comparação. Eles não predizem sozinhos ganho de músculo, força, saciedade ou saúde no longo prazo.
+Os escores dependem da [[População|população]] de referência, do método analítico, da digestibilidade e da unidade de comparação. Eles não predizem sozinhos ganho de músculo, força, saciedade ou saúde no longo prazo.
 
 Comparar uma proteína isolada com um alimento completo pode favorecer uma interpretação artificial. Qualidade proteica da dieta é uma propriedade do conjunto ingerido ao longo do tempo.
 

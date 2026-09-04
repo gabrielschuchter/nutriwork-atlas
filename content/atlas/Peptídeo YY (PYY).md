@@ -8,13 +8,13 @@ Peptídeo YY é um hormônio peptídico produzido principalmente por células L 
 
 PYY aumenta após refeições e pode reduzir ingestão em estudos experimentais. A concentração é influenciada por composição da refeição, velocidade de trânsito, cirurgia bariátrica, obesidade e estado energético. Não há uso diagnóstico rotineiro de PYY para definir fome ou obesidade.
 
-O efeito anorexígeno é breve e variável. Tratamentos que alteram PYY por cirurgia ou medicamentos produzem resultados compostos por mudanças anatômicas, GLP-1, bile, ingestão e comportamento.
+O efeito [[Anorexígeno|anorexígeno]] é breve e variável. Tratamentos que alteram PYY por cirurgia ou medicamentos produzem resultados compostos por mudanças anatômicas, [[GLP-1|GLP-1]], [[Bile|bile]], ingestão e comportamento.
 
 ## **Base fisiológica, bioquímica ou epidemiológica**
 
-Células L secretam PYY em resposta a nutrientes, especialmente gordura e proteína. PYY3-36 atua em aferentes vagais e circuitos hipotalâmicos, reduzindo motilidade e contribuindo para saciedade pós-prandial. DPP-4 participa da degradação de peptídeos relacionados.
+Células L secretam PYY em resposta a nutrientes, especialmente gordura e proteína. PYY3-36 atua em aferentes vagais e circuitos hipotalâmicos, reduzindo motilidade e contribuindo para saciedade pós-prandial. [[Data provável do parto (DPP)|DPP]]-4 participa da degradação de peptídeos relacionados.
 
-PYY integra sinais de [[Microbiota intestinal]], disponibilidade energética e trânsito intestinal, porém a contribuição causal de cada sinal depende do desenho do estudo. Mudança de PYY sérico não equivale a mudança sustentada de peso.
+PYY integra sinais de [[Microbiota intestinal]], [[Disponibilidade Energética|disponibilidade energética]] e trânsito intestinal, porém a contribuição causal de cada sinal depende do desenho do estudo. Mudança de PYY sérico não equivale a mudança sustentada de peso.
 
 ## **Limitações e controvérsias**
 

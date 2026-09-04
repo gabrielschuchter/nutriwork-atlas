@@ -2,17 +2,17 @@
 
 Coenzimas são moléculas orgânicas não proteicas necessárias para a atividade de determinadas enzimas. Podem transferir elétrons, grupos químicos ou unidades de carbono entre reações.
 
-Algumas permanecem fortemente associadas à enzima como grupos prostéticos; outras atuam como cosubstratos, ligando-se e desligando-se durante o ciclo catalítico. Coenzima não é sinônimo de vitamina: várias coenzimas derivam de vitaminas, mas as categorias não são equivalentes.
+Algumas permanecem fortemente associadas à [[Enzima|enzima]] como grupos prostéticos; outras atuam como cosubstratos, ligando-se e desligando-se durante o ciclo catalítico. Coenzima não é sinônimo de vitamina: várias coenzimas derivam de [[Vitaminas|vitaminas]], mas as categorias não são equivalentes.
 
 ## Contexto clínico
 
 Deficiências vitamínicas podem reduzir a disponibilidade de coenzimas e comprometer conjuntos de reações. Tiamina, riboflavina, niacina, ácido pantotênico, piridoxina, biotina e folato são precursores ou componentes de coenzimas relevantes.
 
-A resposta a suplementação depende de haver deficiência, demanda aumentada, alteração de absorção ou defeito metabólico responsivo. Administrar doses elevadas de precursores não aumenta indefinidamente a atividade enzimática.
+A resposta a suplementação depende de haver deficiência, demanda aumentada, alteração de [[Absorção|absorção]] ou defeito metabólico responsivo. Administrar doses elevadas de precursores não aumenta indefinidamente a atividade enzimática.
 
 ## Base fisiológica, bioquímica ou epidemiológica
 
-NAD⁺ e FAD participam de reações de oxidorredução. Coenzima A transfere grupos acila. Tiamina pirofosfato participa de descarboxilações oxidativas. Piridoxal fosfato atua em reações de aminoácidos. Derivados do folato transferem unidades de um carbono.
+NAD⁺ e FAD participam de reações de oxidorredução. Coenzima A transfere grupos acila. Tiamina pirofosfato participa de descarboxilações oxidativas. Piridoxal fosfato atua em reações de [[Aminoácidos|aminoácidos]]. Derivados do folato transferem unidades de um carbono.
 
 Durante a reação, a coenzima pode ser quimicamente modificada e posteriormente regenerada por outra etapa metabólica.
 

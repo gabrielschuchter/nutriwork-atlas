@@ -6,7 +6,7 @@ Heterogeneidade é a variação entre estimativas, populações, intervenções,
 
 ## **Contexto clínico**
 
-Estudos podem divergir porque incluem pacientes com riscos basais, doses, durações e desfechos diferentes. Essa divergência pode indicar modificação real de efeito, viés, erro ou acaso. A decisão clínica deve verificar em qual população o resultado é aplicável.
+Estudos podem divergir porque incluem pacientes com riscos basais, doses, durações e desfechos diferentes. Essa divergência pode indicar modificação real de efeito, [[Viés|viés]], erro ou acaso. A decisão clínica deve verificar em qual [[População|população]] o resultado é aplicável.
 
 I², tau² e teste Q são medidas ou testes com interpretações distintas. I² não informa direção, causa ou importância clínica da heterogeneidade.
 
@@ -20,7 +20,7 @@ Investigação usa características clínicas, [[Análise de Subgrupos]], meta-r
 
 I² baixo pode ocorrer com poucos estudos e I² alto pode acompanhar diferenças pequenas quando precisão é grande. Teste de heterogeneidade tem baixo poder em algumas situações e não deve decidir sozinho o modelo.
 
-Efeitos aparentemente consistentes podem compartilhar o mesmo viés. Efeitos divergentes não provam que intervenções sejam diferentes; avaliação de desenho e desfechos é necessária.
+Efeitos aparentemente consistentes podem compartilhar o mesmo [[Viés|viés]]. Efeitos divergentes não provam que intervenções sejam diferentes; avaliação de desenho e desfechos é necessária.
 
 ## **Conceitos relacionados**
 

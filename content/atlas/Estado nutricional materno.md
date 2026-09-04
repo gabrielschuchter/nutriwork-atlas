@@ -1,12 +1,12 @@
 ## Definição
 
-Estado nutricional materno corresponde à condição nutricional da mulher antes da concepção, durante a gestação e no período pós-parto, refletindo a interação entre ingestão alimentar, reservas corporais, [[Metabolismo|metabolismo]] e demandas fisiológicas.
+[[Estado nutricional|Estado nutricional]] materno corresponde à condição nutricional da mulher antes da concepção, durante a gestação e no período pós-parto, refletindo a interação entre ingestão alimentar, reservas corporais, [[Metabolismo|metabolismo]] e demandas fisiológicas.
 
 Sua avaliação envolve medidas antropométricas, indicadores clínicos, bioquímicos e dietéticos.
 
 ## Contexto clínico
 
-O estado nutricional materno influencia diretamente o curso da gestação e diversos desfechos perinatais.
+O [[Estado nutricional|estado nutricional]] materno influencia diretamente o curso da gestação e diversos desfechos perinatais.
 
 Tanto a desnutrição quanto o excesso de peso estão associados a riscos obstétricos e neonatais.
 
@@ -18,15 +18,15 @@ As reservas energéticas e nutricionais maternas participam do suporte ao cresci
 
 Alterações nutricionais prévias à gestação podem influenciar a disponibilidade de nutrientes críticos, como ferro, folato e iodo.
 
-Além disso, obesidade, resistência à insulina e inflamação metabólica podem modificar a fisiologia gestacional.
+Além disso, obesidade, [[Resistência à insulina|resistência à insulina]] e inflamação metabólica podem modificar a fisiologia gestacional.
 
 ## Limitações e controvérsias
 
-Indicadores isolados raramente capturam toda a complexidade do estado nutricional.
+Indicadores isolados raramente capturam toda a complexidade do [[Estado nutricional|estado nutricional]].
 
 O IMC, amplamente utilizado na prática clínica, apresenta limitações importantes por não distinguir composição corporal.
 
-Também existe debate sobre quais marcadores melhor refletem risco nutricional durante diferentes fases da gestação.
+Também existe debate sobre quais marcadores melhor refletem [[Risco nutricional|risco nutricional]] durante diferentes fases da gestação.
 
 Muitas associações observadas em estudos epidemiológicos podem ser influenciadas por fatores socioeconômicos e comportamentais.
 

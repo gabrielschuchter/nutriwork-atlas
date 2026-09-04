@@ -6,21 +6,21 @@ Risco relativo é a razão entre o risco de um evento no grupo exposto ou tratad
 
 ## **Contexto clínico**
 
-RR de 0,80 corresponde a redução relativa de 20%, desde que o desfecho e o período sejam os mesmos. Para decisão clínica, é preciso conhecer risco basal, diferença absoluta, intervalo de confiança, danos e relevância do evento.
+RR de 0,80 corresponde a redução relativa de 20%, desde que o desfecho e o período sejam os mesmos. Para decisão clínica, é preciso conhecer [[Risco basal|risco basal]], diferença absoluta, [[Intervalo de Confiança|intervalo de confiança]], danos e relevância do evento.
 
 Risco relativo pode ser estimado em coortes e ensaios com seguimento apropriado. Em caso-controle, a amostragem por desfecho geralmente permite estimar odds ratio, não risco diretamente.
 
 ## **Base fisiológica, bioquímica ou epidemiológica**
 
-O risco é probabilidade cumulativa de evento entre pessoas sob risco no início. RR compara incidências acumuladas sob duas exposições. A interpretação causal exige controle de confundimento, definição temporal e ausência de viés importante.
+O risco é probabilidade cumulativa de evento entre pessoas sob risco no início. RR compara incidências acumuladas sob duas exposições. A interpretação causal exige controle de [[Confundimento|confundimento]], definição temporal e ausência de [[Viés|viés]] importante.
 
-O mesmo RR pode representar diferenças absolutas muito diferentes: reduzir de 10% para 8% evita 2 eventos por 100; de 2% para 1,6% evita 0,4 por 100. A inferência deve ligar razão, risco basal e desfecho.
+O mesmo RR pode representar diferenças absolutas muito diferentes: reduzir de 10% para 8% evita 2 eventos por 100; de 2% para 1,6% evita 0,4 por 100. A inferência deve ligar razão, [[Risco basal|risco basal]] e desfecho.
 
 ## **Limitações e controvérsias**
 
 RR não informa duração, recorrência, severidade ou risco de eventos concorrentes. Com seguimentos diferentes, uma razão de riscos acumulados pode ocultar trajetórias distintas.
 
-RR alto em estudo observacional pode refletir confundimento ou seleção. RR próximo de 1 não exclui efeito importante em população grande nem prova equivalência.
+RR alto em estudo observacional pode refletir [[Confundimento|confundimento]] ou seleção. RR próximo de 1 não exclui efeito importante em [[População|população]] grande nem prova equivalência.
 
 ## **Conceitos relacionados**
 

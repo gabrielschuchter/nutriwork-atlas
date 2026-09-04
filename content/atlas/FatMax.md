@@ -2,7 +2,7 @@
 
 FatMax é a intensidade de exercício na qual a taxa absoluta de oxidação de gorduras atinge seu valor máximo. Geralmente é expressa como percentual do [[VO₂máx]], frequência cardíaca ou potência correspondente a essa intensidade.
 
-É importante distinguir FatMax de maior contribuição relativa de gordura. Em repouso e em exercícios muito leves, a gordura pode representar a maior proporção do combustível utilizado, mas a quantidade absoluta oxidada por minuto é relativamente baixa. À medida que a intensidade aumenta, a taxa absoluta de oxidação lipídica cresce até atingir um pico (FatMax) e, posteriormente, diminui devido ao aumento progressivo da utilização de carboidratos.
+É importante distinguir FatMax de maior contribuição relativa de gordura. Em repouso e em exercícios muito leves, a gordura pode representar a maior proporção do combustível utilizado, mas a quantidade absoluta oxidada por minuto é relativamente baixa. À medida que a intensidade aumenta, a taxa absoluta de oxidação lipídica cresce até atingir um pico (FatMax) e, posteriormente, diminui devido ao aumento progressivo da utilização de [[Carboidratos|carboidratos]].
 
 O FatMax não corresponde a uma intensidade fixa nem representa uma "zona de emagrecimento" universal.
 
@@ -22,11 +22,11 @@ O conceito é utilizado principalmente em:
 
 Em alguns centros, testes de FatMax são utilizados para individualizar a intensidade do treinamento aeróbio, especialmente em atletas de endurance ou em pesquisas.
 
-Na prática clínica, entretanto, seu uso é limitado. A intensidade correspondente ao FatMax pode ser uma referência fisiológica interessante, mas não existe evidência robusta de que treinar sistematicamente nessa intensidade produza maior perda de gordura corporal do que outras estratégias de treinamento quando o gasto energético e o balanço energético são semelhantes.
+Na prática clínica, entretanto, seu uso é limitado. A intensidade correspondente ao FatMax pode ser uma referência fisiológica interessante, mas não existe evidência robusta de que treinar sistematicamente nessa intensidade produza maior perda de gordura corporal do que outras estratégias de treinamento quando o gasto energético e o [[Balanço energético|balanço energético]] são semelhantes.
 
 ## Base fisiológica, bioquímica ou epidemiológica
 
-Durante exercícios leves a moderados ocorre aumento progressivo da oxidação de ácidos graxos provenientes do tecido adiposo e dos triglicerídeos intramusculares.
+Durante exercícios leves a moderados ocorre aumento progressivo da oxidação de [[Ácidos graxos|ácidos graxos]] provenientes do tecido adiposo e dos [[Triglicerídeos|triglicerídeos]] intramusculares.
 
 À medida que a intensidade aumenta:
 

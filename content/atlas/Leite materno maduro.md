@@ -2,11 +2,11 @@
 
 O [[Leite materno|leite materno]] maduro é a fase do leite humano produzida após o período de transição da lactação, geralmente estabelecida a partir de aproximadamente duas semanas após o parto, embora a composição apresente variações progressivas conforme a duração da lactação, [[Idade gestacional|idade gestacional]] ao nascimento, frequência das mamadas, horário do dia e características maternas e infantis.
 
-Ele representa uma secreção biologicamente dinâmica, adaptada às necessidades do lactente, composta por água, macronutrientes (proteínas, lipídios e carboidratos), micronutrientes, hormônios, fatores imunológicos, células, enzimas, oligossacarídeos e outros componentes bioativos.
+Ele representa uma secreção biologicamente dinâmica, adaptada às necessidades do lactente, composta por água, macronutrientes ([[Proteínas|proteínas]], [[Lipídios|lipídios]] e [[Carboidratos|carboidratos]]), micronutrientes, hormônios, fatores imunológicos, células, enzimas, oligossacarídeos e outros componentes bioativos.
 
 O termo maduro não significa que o leite tenha composição fixa, nem que seja nutricionalmente equivalente ao leite de outros mamíferos ou substituível por fórmulas infantis. Refere-se à fase de maturação da secreção láctea humana após o [[Colostro|colostro]] e o leite de transição.
 
-A composição do leite materno maduro difere do Colostro e do [[Leite materno de transição]], principalmente pela redução relativa de alguns componentes imunológicos concentrados nas fases iniciais e pelo aumento do volume produzido e da contribuição energética para o crescimento do lactente.
+A composição do [[Leite materno|leite materno]] maduro difere do [[Colostro|Colostro]] e do [[Leite materno de transição]], principalmente pela redução relativa de alguns componentes imunológicos concentrados nas fases iniciais e pelo aumento do volume produzido e da contribuição energética para o crescimento do lactente.
 
 ## Contexto clínico
 
@@ -30,13 +30,13 @@ A produção do [[Leite materno|leite materno]] maduro depende da interação en
 
 A transição para a lactação estabelecida envolve a passagem de uma fase predominantemente regulada por mecanismos endócrinos para uma fase em que a regulação local da mama e a remoção do leite exercem papel crescente. A [[Lactogênese]] envolve mudanças hormonais associadas à queda relativa de progesterona após a saída da placenta, manutenção da ação da prolactina e estabelecimento da produção sustentada de leite.
 
-O leite materno maduro apresenta características fisiológicas específicas:
+O [[Leite materno|leite materno]] maduro apresenta características fisiológicas específicas:
 
-- Carboidratos: a [[Lactose]] é o principal carboidrato, contribuindo para osmolaridade e fornecimento energético. A lactose também favorece a retenção de água no leite, permitindo que o leite humano tenha elevada proporção de água sem necessidade de suplementação hídrica em lactentes em aleitamento exclusivo adequado.
+- [[Carboidratos|Carboidratos]]: a [[Lactose]] é o principal carboidrato, contribuindo para osmolaridade e fornecimento energético. A lactose também favorece a retenção de água no leite, permitindo que o leite humano tenha elevada proporção de água sem necessidade de suplementação hídrica em lactentes em aleitamento exclusivo adequado.
 
-- Lipídios: representam importante fonte energética e fornecem ácidos graxos essenciais e compostos bioativos. A concentração de gordura apresenta grande variabilidade intra e interindividual.
+- [[Lipídios|Lipídios]]: representam importante fonte energética e fornecem [[Ácidos graxos|ácidos graxos]] essenciais e compostos bioativos. A concentração de gordura apresenta grande variabilidade intra e interindividual.
 
-- Proteínas: apresenta menor concentração proteica em comparação ao [[Colostro|colostro]], mas contém proteínas funcionais, como lactoferrina, imunoglobulinas e enzimas. A menor carga proteica relativa está associada à elevada eficiência metabólica do leite humano para o crescimento infantil.
+- [[Proteínas|Proteínas]]: apresenta menor concentração proteica em comparação ao [[Colostro|colostro]], mas contém proteínas funcionais, como lactoferrina, imunoglobulinas e enzimas. A menor carga proteica relativa está associada à elevada eficiência metabólica do leite humano para o crescimento infantil.
 
 - Componentes imunológicos: inclui imunoglobulina A secretora, lactoferrina, lisozima, oligossacarídeos do leite humano e células imunológicas. Esses componentes participam da proteção das mucosas e da interação com a [[Microbiota intestinal]] infantil.
 
@@ -62,17 +62,17 @@ Uma confusão frequente é tratar o [[Leite materno|leite materno]] maduro como 
 
 - Frequência e eficiência da remoção do leite.
 
-A composição do leite humano também não deve ser interpretada isoladamente como explicação completa dos benefícios associados ao aleitamento. Estudos observacionais sobre aleitamento apresentam desafios importantes de causalidade, incluindo:
+A composição do leite humano também não deve ser interpretada isoladamente como explicação completa dos benefícios associados ao aleitamento. Estudos observacionais sobre aleitamento apresentam desafios importantes de [[Causalidade|causalidade]], incluindo:
 
 - [[Confundimento]] por fatores socioeconômicos e comportamentais;
 
-- Dificuldade de randomização por questões éticas;
+- Dificuldade de [[Randomização|randomização]] por questões éticas;
 
 - Diferenças entre famílias que conseguem manter aleitamento exclusivo e aquelas que enfrentam barreiras.
 
 Outro ponto de extrapolação é assumir que adicionar componentes isolados presentes no leite humano a fórmulas infantis reproduziria seus efeitos biológicos. O leite humano é um sistema complexo no qual nutrientes, células, microrganismos, fatores imunológicos e interações entre componentes atuam simultaneamente.
 
-Quando há necessidade de suplementação ou substituição parcial do leite materno por razões clínicas, a decisão deve considerar riscos, benefícios, contexto familiar e necessidades individuais do lactente.
+Quando há necessidade de suplementação ou substituição parcial do [[Leite materno|leite materno]] por razões clínicas, a decisão deve considerar riscos, benefícios, contexto familiar e necessidades individuais do lactente.
 
 ## Conceitos relacionados
 - [[Leite materno]]

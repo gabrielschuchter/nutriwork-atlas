@@ -1,10 +1,10 @@
 ## Definição
 
-A síntese proteica muscular (SPM) é o processo celular pelo qual aminoácidos são incorporados em novas proteínas musculares, contribuindo para a renovação, reparo e remodelação do tecido muscular esquelético. Trata-se de um processo contínuo que ocorre simultaneamente à [[Proteólise]], compondo o [[Turnover proteico]] muscular.
+A síntese proteica muscular (SPM) é o processo celular pelo qual [[Aminoácidos|aminoácidos]] são incorporados em novas [[Proteínas|proteínas]] musculares, contribuindo para a renovação, reparo e remodelação do tecido muscular esquelético. Trata-se de um processo contínuo que ocorre simultaneamente à [[Proteólise]], compondo o [[Turnover proteico]] muscular.
 
 A SPM não é sinônimo de hipertrofia muscular. O aumento da massa muscular depende do balanço proteico muscular líquido, determinado pela diferença entre síntese e degradação proteica ao longo do tempo. Assim, uma elevação transitória da síntese proteica não implica, necessariamente, aumento de massa muscular se também houver aumento proporcional da degradação.
 
-O conceito também não deve ser confundido com [[Anabolismo]] de forma geral. Embora a SPM seja um processo anabólico, o anabolismo engloba diversas outras vias biossintéticas, como a síntese de glicogênio, lipídios e outros componentes celulares.
+O conceito também não deve ser confundido com [[Anabolismo]] de forma geral. Embora a SPM seja um processo anabólico, o anabolismo engloba diversas outras vias biossintéticas, como a síntese de [[Glicogênio|glicogênio]], [[Lipídios|lipídios]] e outros componentes celulares.
 
 ## Contexto clínico
 
@@ -22,19 +22,19 @@ Na prática clínica, o conceito é relevante para:
 
 - avaliação das consequências da [[Disponibilidade Energética]] reduzida;
 
-- interpretação de estudos sobre suplementos proteicos e aminoácidos.
+- interpretação de estudos sobre suplementos proteicos e [[Aminoácidos|aminoácidos]].
 
 Em pesquisas, a SPM é frequentemente utilizada como [[Desfecho substituto|desfecho substituto]], sendo medida por técnicas com traçadores isotópicos estáveis. Embora essas medidas forneçam informações importantes sobre mecanismos fisiológicos, elas não substituem desfechos clínicos como força, funcionalidade, desempenho físico ou alterações sustentadas da massa muscular.
 
 ## Base fisiológica, bioquímica ou epidemiológica
 
-A SPM depende da coordenação entre disponibilidade de aminoácidos, estímulos mecânicos, estado energético celular e sinalização hormonal.
+A SPM depende da coordenação entre disponibilidade de [[Aminoácidos|aminoácidos]], estímulos mecânicos, estado energético celular e sinalização hormonal.
 
-O [[Exercício resistido]] aumenta a sensibilidade do músculo aos aminoácidos e ativa diversas vias intracelulares, particularmente o complexo [[mTORC1]], que regula a iniciação da tradução proteica. Entre os aminoácidos essenciais, a [[Leucina]] exerce papel destacado como sinalizador metabólico dessa via, embora todos os aminoácidos essenciais sejam necessários para sustentar a síntese de novas proteínas.
+O [[Exercício resistido]] aumenta a sensibilidade do músculo aos [[Aminoácidos|aminoácidos]] e ativa diversas vias intracelulares, particularmente o complexo [[mTORC1]], que regula a iniciação da tradução proteica. Entre os [[Aminoácidos essenciais|aminoácidos essenciais]], a [[Leucina]] exerce papel destacado como sinalizador metabólico dessa via, embora todos os aminoácidos essenciais sejam necessários para sustentar a síntese de novas [[Proteínas|proteínas]].
 
-A insulina exerce principalmente efeito permissivo sobre a SPM em concentrações fisiológicas, reduzindo a degradação proteica e favorecendo um ambiente anabólico quando há disponibilidade adequada de aminoácidos. Em indivíduos saudáveis, aumentos adicionais da insulina acima de determinados níveis parecem exercer efeito limitado sobre a síntese proteica quando a oferta de aminoácidos já é suficiente.
+A [[Insulina|insulina]] exerce principalmente efeito permissivo sobre a SPM em concentrações fisiológicas, reduzindo a degradação proteica e favorecendo um ambiente anabólico quando há disponibilidade adequada de [[Aminoácidos|aminoácidos]]. Em indivíduos saudáveis, aumentos adicionais da insulina acima de determinados níveis parecem exercer efeito limitado sobre a síntese proteica quando a oferta de aminoácidos já é suficiente.
 
-Após uma refeição contendo proteínas, a SPM aumenta por algumas horas e posteriormente retorna aos níveis basais, mesmo com concentrações plasmáticas ainda elevadas de aminoácidos. Esse fenômeno é conhecido como "muscle full effect", sugerindo que existe um limite temporário para a capacidade de resposta do músculo a um mesmo estímulo nutricional.
+Após uma refeição contendo [[Proteínas|proteínas]], a SPM aumenta por algumas horas e posteriormente retorna aos níveis basais, mesmo com concentrações plasmáticas ainda elevadas de [[Aminoácidos|aminoácidos]]. Esse fenômeno é conhecido como "muscle full effect", sugerindo que existe um limite temporário para a capacidade de resposta do músculo a um mesmo estímulo nutricional.
 
 Ao longo do treinamento crônico, adaptações musculares resultam da repetição desses episódios de remodelação proteica. Entretanto, a magnitude das respostas agudas de SPM nem sempre prediz diretamente os ganhos de massa muscular observados após semanas ou meses de treinamento.
 

@@ -2,27 +2,27 @@
 
 ## **Definição**
 
-GLUT5 é um transportador de frutose localizado principalmente na membrana apical dos enterócitos. Ele realiza difusão facilitada e tem especificidade maior para frutose do que para glicose.
+GLUT5 é um transportador de [[Frutose|frutose]] localizado principalmente na membrana apical dos enterócitos. Ele realiza [[Difusão facilitada|difusão facilitada]] e tem especificidade maior para frutose do que para [[Glicose|glicose]].
 
-A capacidade de transporte varia entre pessoas e com a quantidade ingerida. Frutose não absorvida pode chegar ao cólon e ser fermentada.
+A capacidade de transporte varia entre pessoas e com a quantidade ingerida. [[Frutose|Frutose]] não absorvida pode chegar ao cólon e ser fermentada.
 
 ## **Contexto clínico**
 
-Má absorção de frutose pode contribuir para dor, distensão, flatulência e diarreia em pessoas com sintomas relacionados a carboidratos fermentáveis. A relevância clínica depende da dose e da presença de outros FODMAPs.
+Má [[Absorção|absorção]] de [[Frutose|frutose]] pode contribuir para dor, distensão, flatulência e diarreia em pessoas com sintomas relacionados a [[Carboidratos|carboidratos]] fermentáveis. A relevância clínica depende da dose e da presença de outros [[FODMAPs|FODMAPs]].
 
-Reduzir temporariamente alimentos ricos em frutose pode fazer parte de estratégia estruturada para sintomas, com reintrodução e individualização. Restrição ampla de frutas sem avaliação pode reduzir fibra e micronutrientes.
+Reduzir temporariamente alimentos ricos em [[Frutose|frutose]] pode fazer parte de estratégia estruturada para sintomas, com reintrodução e individualização. Restrição ampla de frutas sem avaliação pode reduzir fibra e micronutrientes.
 
 ## **Base fisiológica, bioquímica ou epidemiológica**
 
-GLUT5 transporta frutose através da borda em escova. A saída basolateral envolve outros transportadores, incluindo GLUT2. A glicose presente na refeição pode melhorar a absorção de parte da frutose em algumas condições, embora a resposta não seja uniforme.
+GLUT5 transporta [[Frutose|frutose]] através da borda em escova. A saída basolateral envolve outros transportadores, incluindo [[GLUT2|GLUT2]]. A [[Glicose|glicose]] presente na refeição pode melhorar a [[Absorção|absorção]] de parte da frutose em algumas condições, embora a resposta não seja uniforme.
 
-Quando a absorção é incompleta, frutose aumenta osmolaridade luminal e fornece substrato para fermentação bacteriana. Gases, água e sensibilidade visceral formam a ponte entre o fenômeno fisiológico e os sintomas.
+Quando a [[Absorção|absorção]] é incompleta, [[Frutose|frutose]] aumenta osmolaridade luminal e fornece [[Substrato|substrato]] para [[Fermentação|fermentação]] bacteriana. Gases, água e sensibilidade visceral formam a ponte entre o fenômeno fisiológico e os sintomas.
 
 ## **Limitações e controvérsias**
 
-Teste respiratório e sintomas após frutose não têm correspondência perfeita. Metano, hidrogênio, dose de teste e expectativa modificam a interpretação.
+Teste respiratório e sintomas após [[Frutose|frutose]] não têm correspondência perfeita. Metano, hidrogênio, dose de teste e expectativa modificam a interpretação.
 
-A má absorção de frutose não prova que a frutose cause doença sistêmica. A redução de sintomas após dieta baixa em FODMAPs pode decorrer de mudanças simultâneas em vários carboidratos e na carga fermentável.
+A má [[Absorção|absorção]] de [[Frutose|frutose]] não prova que a frutose cause doença sistêmica. A redução de sintomas após dieta baixa em [[FODMAPs|FODMAPs]] pode decorrer de mudanças simultâneas em vários [[Carboidratos|carboidratos]] e na carga fermentável.
 
 ## **Conceitos relacionados**
 

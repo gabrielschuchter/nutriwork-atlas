@@ -8,17 +8,17 @@ Gráfico de floresta é uma representação de estimativas de efeito e seus inte
 
 O gráfico permite comparar direção, magnitude e precisão de resultados em uma revisão sistemática. A linha de nulidade depende da medida: 1 para razões e 0 para diferenças. A leitura precisa do desfecho, do modelo e do peso atribuído.
 
-Um losango que cruza a nulidade indica que o intervalo combinado inclui ausência de diferença sob o modelo; não prova equivalência. Um marcador estreito pode refletir grande amostra, eventos frequentes ou menor variabilidade, não necessariamente melhor qualidade.
+Um losango que cruza a nulidade indica que o intervalo combinado inclui ausência de diferença sob o modelo; não prova equivalência. Um marcador estreito pode refletir grande [[Amostra|amostra]], eventos frequentes ou menor variabilidade, não necessariamente melhor qualidade.
 
 ## **Base fisiológica, bioquímica ou epidemiológica**
 
-O efeito combinado pondera estimativas conforme variância, modelo de efeitos e heterogeneidade. Estudos podem usar [[Risco Relativo]], [[Razão de Chances]], hazard ratio ou diferenças padronizadas; não se deve comparar larguras ou posições sem verificar a escala.
+O efeito combinado pondera estimativas conforme variância, modelo de efeitos e [[Heterogeneidade|heterogeneidade]]. Estudos podem usar [[Risco Relativo]], [[Razão de Chances]], [[Hazard ratio|hazard ratio]] ou diferenças padronizadas; não se deve comparar larguras ou posições sem verificar a escala.
 
-Heterogeneidade clínica, metodológica e estatística modifica a interpretação. O gráfico resume evidência; avaliação de [[Viés]], consistência, precisão e aplicabilidade determina a certeza.
+[[Heterogeneidade|Heterogeneidade]] clínica, metodológica e estatística modifica a interpretação. O gráfico resume evidência; avaliação de [[Viés]], consistência, precisão e aplicabilidade determina a certeza.
 
 ## **Limitações e controvérsias**
 
-Visualização não substitui análise do protocolo, dados e risco de viés. Modelos fixo e aleatório respondem a pressupostos diferentes, e o resultado combinado pode esconder subgrupos incompatíveis.
+Visualização não substitui análise do protocolo, dados e risco de [[Viés|viés]]. Modelos fixo e aleatório respondem a pressupostos diferentes, e o resultado combinado pode esconder subgrupos incompatíveis.
 
 Escalas logarítmicas, truncamento do eixo e tamanhos de marcador podem induzir percepção enganosa. Ausência de um estudo no gráfico pode resultar de critérios da revisão, não de ausência de pesquisa.
 

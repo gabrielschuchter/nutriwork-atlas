@@ -2,7 +2,7 @@
 
 ## **Definição**
 
-Proteínas são polímeros de aminoácidos unidos por ligações peptídicas e dobrados em estruturas que determinam função. Atuam como componentes estruturais, enzimas, transportadores, receptores, anticorpos e sinais. A função resulta da sequência, da conformação, das modificações pós-traducionais e do ambiente celular.
+Proteínas são polímeros de [[Aminoácidos|aminoácidos]] unidos por ligações peptídicas e dobrados em estruturas que determinam função. Atuam como componentes estruturais, enzimas, transportadores, receptores, anticorpos e sinais. A função resulta da sequência, da conformação, das modificações pós-traducionais e do ambiente celular.
 
 ## **Contexto clínico**
 
@@ -12,15 +12,15 @@ Avaliação clínica deve integrar ingestão, perda de peso, função, composiç
 
 ## **Base fisiológica, bioquímica ou epidemiológica**
 
-Proteínas dietéticas são desnaturadas e hidrolisadas no trato gastrointestinal. Peptídeos e aminoácidos absorvidos entram no pool corporal e podem ser usados em síntese, oxidação ou conversão metabólica. A [[Síntese proteica muscular]] depende de aminoácidos disponíveis, sinalização anabólica, estímulo mecânico e estado energético.
+Proteínas dietéticas são desnaturadas e hidrolisadas no trato gastrointestinal. Peptídeos e [[Aminoácidos|aminoácidos]] absorvidos entram no pool corporal e podem ser usados em síntese, oxidação ou conversão metabólica. A [[Síntese proteica muscular]] depende de aminoácidos disponíveis, sinalização anabólica, estímulo mecânico e estado energético.
 
-O organismo recicla aminoácidos por turnover proteico, mas não possui estoque de proteína com função equivalente a glicogênio ou triglicerídeo. O excesso de nitrogênio é transferido e eliminado principalmente como ureia; os esqueletos de carbono seguem destinos energéticos distintos.
+O organismo recicla [[Aminoácidos|aminoácidos]] por turnover proteico, mas não possui estoque de proteína com função equivalente a [[Glicogênio|glicogênio]] ou triglicerídeo. O excesso de nitrogênio é transferido e eliminado principalmente como ureia; os esqueletos de carbono seguem destinos energéticos distintos.
 
 ## **Limitações e controvérsias**
 
-Gramas de proteína ingerida não equivalem à quantidade incorporada em músculo. Digestibilidade, perfil de aminoácidos, distribuição das refeições, idade, treinamento e doença modificam a resposta.
+Gramas de proteína ingerida não equivalem à quantidade incorporada em músculo. Digestibilidade, perfil de [[Aminoácidos|aminoácidos]], distribuição das refeições, idade, treinamento e doença modificam a resposta.
 
-Marcadores de balanço nitrogenado, massa magra e síntese proteica têm horizontes diferentes. Aumento agudo de síntese muscular não prova ganho de força, função ou sobrevida. Recomendações de alta proteína exigem avaliação de doença renal, fonte alimentar e adequação global.
+Marcadores de [[Balanço nitrogenado|balanço nitrogenado]], massa magra e síntese proteica têm horizontes diferentes. Aumento agudo de síntese muscular não prova ganho de força, função ou sobrevida. Recomendações de alta proteína exigem avaliação de doença renal, fonte alimentar e adequação global.
 
 ## **Conceitos relacionados**
 

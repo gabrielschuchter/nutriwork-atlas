@@ -871,7 +871,8 @@
     const isTap = !canceled && pointer.gesture === GESTURES.TAP_CANDIDATE && !pointer.moved
     state.gesture = GESTURES.IDLE
     if (isTouchPointer(pointer.pointerType)) atlas.app?.dismissTouchHint()
-    if (isTap && pointer.node && !state.suppressTap) atlas.app?.openConcept(pointer.node.slug)
+    if (isTap && pointer.node && !state.suppressTap)
+      atlas.app?.openConcept(pointer.node.slug, { source: "graph" })
     state.suppressTap = false
     schedulePersist()
     scheduleDraw(state)

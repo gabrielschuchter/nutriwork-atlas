@@ -2,25 +2,25 @@
 
 ## **Definição**
 
-Pepsina é uma endopeptidase gástrica formada a partir do pepsinogênio. Em ambiente ácido, ela rompe ligações peptídicas internas e inicia a digestão de proteínas no estômago.
+Pepsina é uma endopeptidase gástrica formada a partir do pepsinogênio. Em ambiente ácido, ela rompe ligações peptídicas internas e inicia a digestão de [[Proteínas|proteínas]] no estômago.
 
-Pepsina não representa toda a proteólise digestiva. Proteases pancreáticas e enzimas da borda em escova participam das etapas posteriores.
+Pepsina não representa toda a [[Proteólise|proteólise]] digestiva. Proteases pancreáticas e enzimas da borda em escova participam das etapas posteriores.
 
 ## **Contexto clínico**
 
-A atividade da pepsina depende de secreção ácida, integridade da mucosa e tempo de contato. Supressão de ácido, cirurgia gástrica e doenças que alteram o estômago podem modificar a digestão de proteínas sem determinar, sozinhas, deficiência proteica.
+A atividade da pepsina depende de secreção ácida, integridade da mucosa e tempo de contato. Supressão de ácido, cirurgia gástrica e doenças que alteram o estômago podem modificar a digestão de [[Proteínas|proteínas]] sem determinar, sozinhas, deficiência proteica.
 
 Pepsina também é investigada em refluxo laringofaríngeo, mas a detecção do marcador não distingue de modo simples exposição causal, contaminação e relevância dos sintomas.
 
 ## **Base fisiológica, bioquímica ou epidemiológica**
 
-As células principais secretam pepsinogênio, um zimogênio inativo. O ácido clorídrico favorece a conversão inicial, e a própria pepsina participa da ativação adicional. A enzima funciona melhor em pH baixo e perde atividade quando o quimo é neutralizado no duodeno.
+As células principais secretam pepsinogênio, um zimogênio inativo. O ácido clorídrico favorece a conversão inicial, e a própria pepsina participa da ativação adicional. A [[Enzima|enzima]] funciona melhor em pH baixo e perde atividade quando o quimo é neutralizado no duodeno.
 
-A digestão gástrica reduz proteínas a peptídeos. Tripsina, quimotripsina e carboxipeptidases pancreáticas prosseguem a hidrólise no intestino, onde produtos menores podem ser absorvidos.
+A digestão gástrica reduz [[Proteínas|proteínas]] a peptídeos. [[Tripsina|Tripsina]], [[Quimotripsina|quimotripsina]] e carboxipeptidases pancreáticas prosseguem a [[Hidrólise|hidrólise]] no intestino, onde produtos menores podem ser absorvidos.
 
 ## **Limitações e controvérsias**
 
-A presença de pepsina em uma amostra de saliva ou tecido não prova refluxo clinicamente relevante. O valor diagnóstico depende de método, ponto de corte, sintomas e comparação com avaliação validada.
+A presença de pepsina em uma [[Amostra|amostra]] de [[Saliva|saliva]] ou tecido não prova refluxo [[Clinicamente relevante|clinicamente relevante]]. O valor diagnóstico depende de método, ponto de corte, sintomas e comparação com avaliação validada.
 
 Alterar a acidez para modificar pepsina pode produzir efeitos fora do alvo; a decisão clínica precisa pesar indicação, duração e risco individual.
 

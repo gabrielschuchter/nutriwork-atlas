@@ -8,7 +8,7 @@ Papilas filiformes, fungiformes, foliadas e circunvaladas não têm a mesma dens
 
 ## **Contexto clínico**
 
-Infecções, radioterapia, quimioterapia, medicamentos, deficiência de saliva e doenças neurológicas podem causar disgeusia. Alterações de paladar podem reduzir ingestão, mudar escolhas alimentares e interferir na recuperação nutricional.
+Infecções, radioterapia, quimioterapia, medicamentos, deficiência de [[Saliva|saliva]] e doenças neurológicas podem causar disgeusia. Alterações de paladar podem reduzir ingestão, mudar [[Escolhas alimentares|escolhas alimentares]] e interferir na recuperação nutricional.
 
 A entrevista deve diferenciar paladar, olfato, textura, temperatura e aversão aprendida. Ajustes de sabor podem melhorar aceitação em algumas pessoas, enquanto excesso de sal, açúcar ou suplementos aromatizados pode criar outros problemas.
 
@@ -22,7 +22,7 @@ O paladar contribui para detecção de nutrientes e substâncias potencialmente 
 
 O mapa popular que atribui cada sabor a uma área exclusiva da língua é incorreto. A distribuição de receptores se sobrepõe, e a percepção resulta de processamento integrado.
 
-Uma mudança de preferência alimentar não prova alteração no número de papilas ou em um receptor específico. Estudos com testes de limiar podem não predizer escolhas habituais, ingestão total ou estado nutricional.
+Uma mudança de preferência alimentar não prova alteração no número de papilas ou em um receptor específico. Estudos com testes de limiar podem não predizer escolhas habituais, ingestão total ou [[Estado nutricional|estado nutricional]].
 
 ## **Conceitos relacionados**
 

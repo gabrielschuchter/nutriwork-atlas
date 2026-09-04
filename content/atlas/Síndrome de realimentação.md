@@ -4,11 +4,11 @@ Síndrome de realimentação é um conjunto de alterações metabólicas e clín
 
 ## Contexto clínico
 
-A síndrome é mais frequentemente considerada em pacientes hospitalizados com desnutrição, anorexia nervosa, alcoolismo, neoplasias avançadas, doenças gastrointestinais graves e períodos prolongados de jejum ou baixa ingestão alimentar. Seu reconhecimento influencia a velocidade de progressão calórica, a monitorização laboratorial e a reposição profilática de eletrólitos e tiamina. O conceito é particularmente relevante em terapia nutricional enteral e parenteral.
+A síndrome é mais frequentemente considerada em pacientes hospitalizados com desnutrição, anorexia nervosa, alcoolismo, neoplasias avançadas, doenças gastrointestinais graves e períodos prolongados de jejum ou baixa ingestão alimentar. Seu reconhecimento influencia a velocidade de progressão calórica, a monitorização laboratorial e a reposição profilática de [[Eletrólitos|eletrólitos]] e tiamina. O conceito é particularmente relevante em terapia nutricional enteral e parenteral.
 
 ## Base fisiológica ou epidemiológica
 
-Durante períodos prolongados de restrição energética ocorre [[Adaptação metabólica|adaptação metabólica]] com redução da secreção de insulina e predominância de vias catabólicas. A reintrodução de carboidratos aumenta a secreção de insulina e promove captação intracelular de fósforo, potássio e magnésio. Como as reservas corporais desses eletrólitos frequentemente já se encontram reduzidas, podem surgir hipofosfatemia, hipocalemia e hipomagnesemia clinicamente relevantes. Alterações no [[Metabolismo|metabolismo]] da glicose, retenção hidrossalina e deficiência de tiamina também participam do quadro fisiopatológico.
+Durante períodos prolongados de restrição energética ocorre [[Adaptação metabólica|adaptação metabólica]] com redução da secreção de [[Insulina|insulina]] e predominância de vias catabólicas. A reintrodução de [[Carboidratos|carboidratos]] aumenta a secreção de insulina e promove captação intracelular de fósforo, potássio e magnésio. Como as reservas corporais desses [[Eletrólitos|eletrólitos]] frequentemente já se encontram reduzidas, podem surgir hipofosfatemia, hipocalemia e hipomagnesemia clinicamente relevantes. Alterações no [[Metabolismo|metabolismo]] da [[Glicose|glicose]], retenção hidrossalina e deficiência de tiamina também participam do quadro fisiopatológico.
 
 ## Limitações e controvérsias
 

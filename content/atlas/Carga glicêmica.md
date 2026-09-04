@@ -1,12 +1,12 @@
 ## Definição
 
-A carga glicêmica (CG) é um indicador que estima o impacto glicêmico de uma porção habitual de alimento, considerando simultaneamente a qualidade do carboidrato, representada pelo [[Índice glicêmico]], e a quantidade de carboidratos disponíveis consumidos.
+A carga glicêmica (CG) é um indicador que estima o impacto glicêmico de uma porção habitual de alimento, considerando simultaneamente a qualidade do carboidrato, representada pelo [[Índice glicêmico]], e a quantidade de [[Carboidratos|carboidratos]] disponíveis consumidos.
 
 É calculada pela fórmula:
 
-Carga glicêmica = (Índice glicêmico × gramas de carboidrato disponível da porção) ÷ 100
+Carga glicêmica = ([[Índice glicêmico|Índice glicêmico]] × gramas de carboidrato disponível da porção) ÷ 100
 
-Diferentemente do índice glicêmico, que compara alimentos com a mesma quantidade de carboidrato disponível, a carga glicêmica incorpora o tamanho da porção consumida.
+Diferentemente do [[Índice glicêmico|índice glicêmico]], que compara alimentos com a mesma quantidade de carboidrato disponível, a carga glicêmica incorpora o tamanho da porção consumida.
 
 A carga glicêmica não mede diretamente a resposta glicêmica individual nem deve ser interpretada como indicador isolado da qualidade global da alimentação.
 
@@ -22,15 +22,15 @@ A carga glicêmica é utilizada principalmente em:
 
 - estudos sobre risco cardiometabólico.
 
-Na prática clínica, pode auxiliar na escolha entre alimentos ou refeições com diferentes combinações de quantidade e qualidade de carboidratos, mas deve ser interpretada juntamente com composição da refeição, teor de fibras, proteínas, lipídios e contexto alimentar.
+Na prática clínica, pode auxiliar na escolha entre alimentos ou refeições com diferentes combinações de quantidade e qualidade de [[Carboidratos|carboidratos]], mas deve ser interpretada juntamente com composição da refeição, teor de fibras, [[Proteínas|proteínas]], [[Lipídios|lipídios]] e contexto alimentar.
 
-Na [[Nutrição|nutrição]] esportiva, sua utilidade depende do objetivo. Em determinadas situações, refeições com maior carga glicêmica podem ser desejáveis para acelerar a reposição de glicogênio após exercício intenso.
+Na [[Nutrição|nutrição]] esportiva, sua utilidade depende do objetivo. Em determinadas situações, refeições com maior carga glicêmica podem ser desejáveis para acelerar a reposição de [[Glicogênio|glicogênio]] após exercício intenso.
 
 ## Base fisiológica, bioquímica ou epidemiológica
 
 Quanto maior a carga glicêmica de uma refeição, maior tende a ser a exposição glicêmica pós-prandial, embora a resposta real varie conforme fatores individuais e características da refeição.
 
-Estudos observacionais sugerem associações entre dietas de elevada carga glicêmica e maior risco de algumas doenças metabólicas, mas esses estudos não permitem estabelecer causalidade devido à possibilidade de [[Confundimento residual|confundimento residual]] e outros vieses.
+Estudos observacionais sugerem associações entre dietas de elevada carga glicêmica e maior risco de algumas doenças metabólicas, mas esses estudos não permitem estabelecer [[Causalidade|causalidade]] devido à possibilidade de [[Confundimento residual|confundimento residual]] e outros vieses.
 
 Ensaios clínicos demonstram que dietas com menor carga glicêmica podem melhorar alguns biomarcadores, como glicemia pós-prandial e hemoglobina glicada em determinadas populações. Entretanto, esses são desfechos intermediários, cuja tradução em redução consistente de eventos clínicos depende do conjunto da evidência.
 

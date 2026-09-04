@@ -4,13 +4,13 @@ Operações motivadoras (OMs) são eventos, condições ambientais ou estados fi
 
 As operações motivadoras exercem dois efeitos principais:
 
-- efeito estabelecedor (establishing operation – EO): aumenta o valor reforçador ou punitivo de uma consequência e favorece a emissão de comportamentos relacionados;
+- efeito estabelecedor (establishing operation – EO): aumenta o valor reforçador ou punitivo de uma [[Consequência|consequência]] e favorece a emissão de comportamentos relacionados;
 
-- efeito abolidor (abolishing operation – AO): reduz o valor reforçador ou punitivo de uma consequência e diminui a probabilidade desses comportamentos.
+- efeito abolidor (abolishing operation – AO): reduz o valor reforçador ou punitivo de uma [[Consequência|consequência]] e diminui a probabilidade desses comportamentos.
 
 Por exemplo, um período prolongado sem alimentação aumenta temporariamente o valor reforçador da comida e torna mais provável a emissão de comportamentos relacionados à obtenção de alimento. Após uma refeição abundante, ocorre o efeito oposto.
 
-É importante distinguir operações motivadoras de Eventos antecedentes. Enquanto os eventos antecedentes sinalizam quando determinada consequência está disponível, as operações motivadoras alteram o quanto essa consequência é valiosa naquele momento.
+É importante distinguir operações motivadoras de [[Eventos antecedentes|Eventos antecedentes]]. Enquanto os eventos antecedentes sinalizam quando determinada [[Consequência|consequência]] está disponível, as operações motivadoras alteram o quanto essa consequência é valiosa naquele momento.
 
 ## Contexto clínico
 
@@ -48,9 +48,9 @@ As operações motivadoras explicam essa variabilidade ao modificar temporariame
 
 Assim, uma OM exerce dois efeitos simultâneos:
 
-- Efeito alterador de valor, aumentando ou reduzindo a eficácia reforçadora ou punitiva de uma consequência.
+- Efeito alterador de valor, aumentando ou reduzindo a eficácia reforçadora ou punitiva de uma [[Consequência|consequência]].
 
-- Efeito alterador de comportamento, aumentando ou reduzindo a probabilidade das respostas que historicamente produziram essa consequência.
+- Efeito alterador de comportamento, aumentando ou reduzindo a probabilidade das respostas que historicamente produziram essa [[Consequência|consequência]].
 
 Esse conceito é especialmente importante porque demonstra que o comportamento não depende apenas da disponibilidade de reforçadores, mas também do valor que esses reforçadores assumem em determinado contexto.
 
@@ -64,7 +64,7 @@ Outra confusão comum é considerar fome ou sede como as únicas operações mot
 
 Também é importante distinguir operações motivadoras de estímulos discriminativos. Um restaurante aberto pode funcionar como [[Eventos antecedentes|Evento antecedente]], sinalizando que alimentos estão disponíveis. Já a privação alimentar aumenta o valor reforçador desses alimentos. Ambos influenciam o [[Comportamento alimentar|comportamento alimentar]], mas por mecanismos diferentes.
 
-Na prática clínica, reconhecer operações motivadoras evita interpretações simplistas do comportamento alimentar. Episódios de ingestão excessiva, por exemplo, podem refletir alterações temporárias no valor reforçador dos alimentos, sem que isso implique necessariamente falta de conhecimento nutricional ou baixa adesão ao tratamento.
+Na prática clínica, reconhecer operações motivadoras evita interpretações simplistas do [[Comportamento alimentar|comportamento alimentar]]. Episódios de ingestão excessiva, por exemplo, podem refletir alterações temporárias no valor reforçador dos alimentos, sem que isso implique necessariamente falta de conhecimento nutricional ou baixa adesão ao tratamento.
 
 Por fim, embora o conceito seja amplamente utilizado na [[Análise do comportamento|Análise do Comportamento]] contemporânea, sua operacionalização em contextos clínicos complexos pode ser desafiadora, uma vez que múltiplas operações motivadoras frequentemente atuam simultaneamente.
 

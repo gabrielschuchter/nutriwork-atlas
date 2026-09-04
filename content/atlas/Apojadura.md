@@ -14,7 +14,7 @@ Ela deve ser diferenciada de:
 
 Ejeção do leite: liberação do leite dos alvéolos para os ductos, mediada principalmente pela [[Ocitocina]].
 
-A apojadura não significa que a lactação esteja plenamente estabelecida. A manutenção da produção dependerá da remoção frequente e eficaz do leite pelo bebê ou através da ordenha (manual ou pelas bombas mecânicas, por exemplo).
+A apojadura não significa que a lactação esteja plenamente estabelecida. A manutenção da produção dependerá da remoção frequente e [[Eficaz|eficaz]] do leite pelo bebê ou através da ordenha (manual ou pelas bombas mecânicas, por exemplo).
 
 ## Contexto clínico
 
@@ -114,7 +114,7 @@ Uma das principais limitações é a falta de uma definição completamente padr
 
 - Necessidade de suplementação.
 
-Essa heterogeneidade dificulta comparar prevalências e fatores associados.
+Essa [[Heterogeneidade|heterogeneidade]] dificulta comparar prevalências e fatores associados.
 
 Outro ponto importante é que a sensação de “leite insuficiente” após o parto pode ocorrer mesmo quando a produção é adequada. O volume inicial de [[Colostro|colostro]] é pequeno, mas biologicamente apropriado ao tamanho gástrico e às necessidades do recém-nascido nos primeiros dias.
 

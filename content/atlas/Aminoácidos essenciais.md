@@ -2,25 +2,25 @@
 
 ## **Definição**
 
-Aminoácidos essenciais são aqueles que o organismo não sintetiza em quantidade suficiente para atender à necessidade fisiológica em determinada condição. Histidina, isoleucina, leucina, lisina, metionina, fenilalanina, treonina, triptofano e valina compõem a lista usual para adultos. Necessidades mudam com idade, crescimento e estado clínico.
+[[Aminoácidos|Aminoácidos]] essenciais são aqueles que o organismo não sintetiza em quantidade suficiente para atender à necessidade fisiológica em determinada condição. Histidina, isoleucina, [[Leucina|leucina]], lisina, metionina, fenilalanina, treonina, triptofano e valina compõem a lista usual para adultos. Necessidades mudam com idade, crescimento e estado clínico.
 
 ## **Contexto clínico**
 
-A adequação depende da quantidade total, da digestibilidade da proteína e do padrão de aminoácidos absorvidos. Crianças, gestantes, pessoas com doença crítica, restrição alimentar intensa ou má absorção podem ter exigências diferentes. Deficiências graves decorrem mais frequentemente de oferta proteico-energética insuficiente do que da ausência de um único aminoácido em dietas variadas.
+A adequação depende da quantidade total, da digestibilidade da proteína e do padrão de [[Aminoácidos|aminoácidos]] absorvidos. Crianças, gestantes, pessoas com doença crítica, restrição alimentar intensa ou má [[Absorção|absorção]] podem ter exigências diferentes. Deficiências graves decorrem mais frequentemente de oferta proteico-energética insuficiente do que da ausência de um único aminoácido em dietas variadas.
 
-Leucina estimula sinalização relacionada à síntese proteica muscular, porém sua presença isolada não substitui energia, proteína completa e estímulo mecânico. Suplementos precisam ser avaliados pelo desfecho que pretendem modificar.
+[[Leucina|Leucina]] estimula sinalização relacionada à [[Síntese proteica muscular|síntese proteica muscular]], porém sua presença isolada não substitui energia, proteína completa e estímulo mecânico. Suplementos precisam ser avaliados pelo desfecho que pretendem modificar.
 
 ## **Base fisiológica, bioquímica ou epidemiológica**
 
-Aminoácidos essenciais são obtidos pela dieta, incorporados em proteínas ou oxidados quando excedem a utilização. O balanço entre oferta e demanda de cada aminoácido influencia a síntese proteica; o aminoácido menos disponível pode limitar a utilização dos demais.
+[[Aminoácidos|Aminoácidos]] essenciais são obtidos pela dieta, incorporados em [[Proteínas|proteínas]] ou oxidados quando excedem a utilização. O balanço entre oferta e demanda de cada aminoácido influencia a síntese proteica; o aminoácido menos disponível pode limitar a utilização dos demais.
 
-Durante deficiência energética, doença ou jejum, aminoácidos podem ser mobilizados de tecidos e seus esqueletos de carbono entram em rotas energéticas. O nitrogênio segue para o [[Ciclo da ureia]] após transferência e liberação controladas.
+Durante deficiência energética, doença ou jejum, [[Aminoácidos|aminoácidos]] podem ser mobilizados de tecidos e seus esqueletos de carbono entram em rotas energéticas. O nitrogênio segue para o [[Ciclo da ureia]] após transferência e liberação controladas.
 
 ## **Limitações e controvérsias**
 
 A lista de essenciais é dependente da espécie, da idade e da condição fisiológica. A classificação não informa automaticamente a qualidade de uma proteína ou a necessidade de suplementação.
 
-Medidas de resposta anabólica de curta duração não demonstram preservação de massa magra no longo prazo. Escores de qualidade proteica dependem de método, digestibilidade, população de referência e composição da dieta total.
+Medidas de resposta anabólica de curta duração não demonstram preservação de massa magra no longo prazo. Escores de qualidade proteica dependem de método, digestibilidade, [[População|população]] de referência e composição da dieta total.
 
 ## **Conceitos relacionados**
 

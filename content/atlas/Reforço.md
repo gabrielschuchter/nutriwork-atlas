@@ -2,11 +2,11 @@
 
 Reforço é o processo comportamental pelo qual a probabilidade futura de uma [[Resposta comportamental]] aumenta em função de uma [[Consequência reforçadora]] produzida de maneira contingente a essa resposta. Na [[Análise do comportamento]], o reforço é definido por seu efeito sobre o comportamento, e não pela intenção do agente, pela natureza da [[Consequência|consequência]] ou pela percepção subjetiva de recompensa.
 
-Assim, afirmar que ocorreu reforço exige demonstrar que a resposta passou a ocorrer com maior frequência após produzir determinada consequência. Se essa alteração não for observada, não houve reforço em sentido técnico, independentemente da consequência parecer agradável ou desejável.
+Assim, afirmar que ocorreu reforço exige demonstrar que a resposta passou a ocorrer com maior frequência após produzir determinada [[Consequência|consequência]]. Se essa alteração não for observada, não houve reforço em sentido técnico, independentemente da consequência parecer agradável ou desejável.
 
 O reforço pode ocorrer por dois mecanismos:
 
-- Reforço positivo, quando a resposta produz a apresentação de uma consequência que aumenta sua frequência futura.
+- Reforço positivo, quando a resposta produz a apresentação de uma [[Consequência|consequência]] que aumenta sua frequência futura.
 
 - Reforço negativo, quando a resposta produz a remoção, redução ou adiamento de um estímulo cuja retirada aumenta a frequência futura da resposta.
 
@@ -52,7 +52,7 @@ Entretanto, o reforço não é uma propriedade da [[Consequência|consequência]
 
 - a história prévia de aprendizagem.
 
-Além disso, o efeito reforçador de uma consequência pode variar ao longo do tempo. Um alimento, por exemplo, tende a exercer maior função reforçadora durante privação alimentar do que após uma refeição completa. Da mesma forma, elogios, atenção ou reconhecimento podem apresentar valores reforçadores distintos entre indivíduos e contextos.
+Além disso, o efeito reforçador de uma [[Consequência|consequência]] pode variar ao longo do tempo. Um alimento, por exemplo, tende a exercer maior função reforçadora durante privação alimentar do que após uma refeição completa. Da mesma forma, elogios, atenção ou reconhecimento podem apresentar valores reforçadores distintos entre indivíduos e contextos.
 
 Por essa razão, a [[Análise do comportamento|Análise do Comportamento]] considera o reforço um processo dinâmico, dependente das contingências específicas presentes em cada situação.
 
@@ -70,7 +70,7 @@ No reforço negativo:
 
 - isso ocorre porque remove ou evita determinado estímulo.
 
-Na punição:
+Na [[Punição|punição]]:
 
 - a resposta diminui de frequência;
 

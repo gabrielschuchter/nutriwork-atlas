@@ -1,18 +1,18 @@
 ## Definição
 
-O teste oral de tolerância à glicose (TOTG) é um exame utilizado para avaliar a capacidade do organismo de lidar com uma sobrecarga padronizada de glicose, analisando a resposta glicêmica ao longo de um período determinado.
+O teste oral de tolerância à [[Glicose|glicose]] (TOTG) é um exame utilizado para avaliar a capacidade do organismo de lidar com uma sobrecarga padronizada de glicose, analisando a resposta glicêmica ao longo de um período determinado.
 
-O teste consiste na administração oral de uma quantidade definida de glicose e na realização de medidas seriadas da glicemia, permitindo avaliar alterações na [[Homeostase|homeostase]] da glicose que podem não ser identificadas apenas pela glicemia de jejum.
+O teste consiste na administração oral de uma quantidade definida de [[Glicose|glicose]] e na realização de medidas seriadas da glicemia, permitindo avaliar alterações na [[Homeostase|homeostase]] da glicose que podem não ser identificadas apenas pela glicemia de jejum.
 
 Na gestação, o TOTG é utilizado principalmente para o diagnóstico de [[Diabetes mellitus gestacional]] (DMG), condição caracterizada por hiperglicemia diagnosticada durante a gravidez, geralmente relacionada à incapacidade das células β pancreáticas maternas de compensar adequadamente a [[Resistência à insulina fisiológica na gestação]].
 
 O TOTG deve ser diferenciado de:
 
-Glicemia de jejum: mede apenas a concentração de glicose em um momento específico, sem avaliar a resposta metabólica à sobrecarga.
+Glicemia de jejum: mede apenas a concentração de [[Glicose|glicose]] em um momento específico, sem avaliar a resposta metabólica à sobrecarga.
 
 Hemoglobina glicada (HbA1c): reflete exposição glicêmica média aproximada dos últimos meses, mas possui limitações específicas durante a gestação.
 
-Teste de rastreamento com glicose: em alguns protocolos, corresponde a uma etapa inicial que identifica risco e pode indicar realização posterior de TOTG diagnóstico.
+Teste de rastreamento com [[Glicose|glicose]]: em alguns protocolos, corresponde a uma etapa inicial que identifica risco e pode indicar realização posterior de TOTG diagnóstico.
 
 O exame avalia uma resposta fisiológica, mas seus pontos de corte são critérios diagnósticos definidos por consensos e estudos epidemiológicos, não limites biológicos universais.
 
@@ -30,7 +30,7 @@ A interpretação do exame auxilia decisões relacionadas a:
 
 - prevenção ou redução de complicações associadas à hiperglicemia materna.
 
-O TOTG geralmente é realizado no segundo trimestre da gestação, período em que a resistência fisiológica à insulina aumenta e pode revelar mulheres cuja capacidade de compensação pancreática é insuficiente.
+O TOTG geralmente é realizado no segundo trimestre da gestação, período em que a resistência fisiológica à [[Insulina|insulina]] aumenta e pode revelar mulheres cuja capacidade de compensação pancreática é insuficiente.
 
 O diagnóstico de DMG pode estar associado a maior risco de:
 
@@ -56,7 +56,7 @@ Entretanto, o resultado do TOTG não deve ser interpretado isoladamente. A decis
 
 O teste também tem importância metodológica porque exemplifica a diferença entre:
 
-- dado: valor de glicemia obtido após sobrecarga de glicose;
+- dado: valor de glicemia obtido após sobrecarga de [[Glicose|glicose]];
 
 - resultado estatístico: associação entre valores glicêmicos e risco de desfechos;
 
@@ -66,33 +66,33 @@ O teste também tem importância metodológica porque exemplifica a diferença e
 
 ## Base fisiológica, bioquímica ou epidemiológica
 
-Após a ingestão de glicose, ocorre elevação da glicemia, seguida de resposta hormonal para restaurar a [[Homeostase|homeostase]].
+Após a ingestão de [[Glicose|glicose]], ocorre elevação da glicemia, seguida de resposta hormonal para restaurar a [[Homeostase|homeostase]].
 
 O processo envolve:
 
-Absorção intestinal de glicose
+[[Absorção|Absorção]] intestinal de [[Glicose|glicose]]
 
-A glicose ingerida entra na circulação e aumenta a concentração plasmática.
+A [[Glicose|glicose]] ingerida entra na circulação e aumenta a concentração plasmática.
 
 Resposta pancreática
 
-As células β pancreáticas detectam o aumento glicêmico e liberam insulina.
+As células β pancreáticas detectam o aumento glicêmico e liberam [[Insulina|insulina]].
 
-Ação periférica da insulina
+Ação periférica da [[Insulina|insulina]]
 
-A insulina aumenta a captação de glicose principalmente em tecidos como músculo esquelético e tecido adiposo, além de reduzir produção hepática de glicose.
+A [[Insulina|insulina]] aumenta a captação de [[Glicose|glicose]] principalmente em tecidos como músculo esquelético e tecido adiposo, além de reduzir produção hepática de glicose.
 
-Durante a gestação, a placenta produz hormônios que aumentam progressivamente a resistência à insulina, incluindo:
+Durante a gestação, a placenta produz hormônios que aumentam progressivamente a [[Resistência à insulina|resistência à insulina]], incluindo:
 
 - lactogênio placentário humano;
 
-- cortisol;
+- [[Cortisol|cortisol]];
 
 - progesterona;
 
 - outros mediadores hormonais e inflamatórios.
 
-Essa resistência fisiológica favorece maior disponibilidade de glicose para o feto. A maioria das gestantes compensa essa alteração aumentando a secreção de insulina. No DMG, essa compensação é insuficiente.
+Essa resistência fisiológica favorece maior disponibilidade de [[Glicose|glicose]] para o feto. A maioria das gestantes compensa essa alteração aumentando a secreção de [[Insulina|insulina]]. No DMG, essa compensação é insuficiente.
 
 O uso do TOTG como ferramenta diagnóstica foi influenciado por estudos que demonstraram associação contínua entre níveis de glicemia materna e desfechos adversos da gestação, como crescimento fetal aumentado e complicações perinatais.
 
@@ -108,7 +108,7 @@ Dependência de critérios diagnósticos
 
 Diferentes organizações utilizaram diferentes critérios para diagnóstico de DMG, incluindo diferenças em:
 
-- quantidade de glicose administrada;
+- quantidade de [[Glicose|glicose]] administrada;
 
 - número de coletas;
 
@@ -136,9 +136,9 @@ Além disso, a glicemia apresenta variação natural, e pequenas diferenças pr�
 
 Risco de tratar biomarcador como desfecho clínico
 
-O TOTG identifica uma alteração metabólica associada a maior risco, mas o diagnóstico não representa diretamente um evento clínico. A relação entre tratar DMG e melhorar desfechos depende de intervenções específicas e da população avaliada.
+O TOTG identifica uma alteração metabólica associada a maior risco, mas o diagnóstico não representa diretamente um evento clínico. A relação entre tratar DMG e melhorar desfechos depende de intervenções específicas e da [[População|população]] avaliada.
 
-A redução da glicemia materna pode diminuir alguns riscos, como crescimento fetal excessivo, mas o benefício absoluto varia conforme o [[Risco basal|risco basal]] da população.
+A redução da glicemia materna pode diminuir alguns riscos, como crescimento fetal excessivo, mas o benefício absoluto varia conforme o [[Risco basal|risco basal]] da [[População|população]].
 
 Sobrediagnóstico e medicalização
 

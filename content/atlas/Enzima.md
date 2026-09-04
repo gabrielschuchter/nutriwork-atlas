@@ -14,7 +14,7 @@ O resultado de um ensaio enzimático precisa ser interpretado considerando tecid
 
 ## **Base fisiológica, bioquímica ou epidemiológica**
 
-A atividade enzimática depende de concentração de substrato, pH, temperatura, cofatores, inibidores, modificações pós-traducionais e compartimentalização. A velocidade pode aumentar com o substrato até atingir saturação, situação descrita por modelos como a cinética de Michaelis-Menten.
+A atividade enzimática depende de concentração de [[Substrato|substrato]], pH, temperatura, cofatores, inibidores, modificações pós-traducionais e compartimentalização. A velocidade pode aumentar com o substrato até atingir saturação, situação descrita por modelos como a cinética de Michaelis-Menten.
 
 Na célula, várias enzimas atuam em sequência e compartilham intermediários. A regulação distribuída entre etapas permite ajustar o fluxo de acordo com demanda e disponibilidade, portanto a enzima com maior velocidade máxima não é necessariamente o principal ponto de controle da via.
 

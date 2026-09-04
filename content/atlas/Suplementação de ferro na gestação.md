@@ -20,7 +20,7 @@ Durante a gestação, as necessidades aumentam progressivamente, sobretudo no se
 
 Ensaios clínicos demonstram que a suplementação reduz a ocorrência de anemia materna e melhora indicadores hematológicos.
 
-Os efeitos sobre outros desfechos clínicos podem variar conforme a população estudada e a prevalência prévia de deficiência.
+Os efeitos sobre outros desfechos clínicos podem variar conforme a [[População|população]] estudada e a prevalência prévia de deficiência.
 
 ## Limitações e controvérsias
 

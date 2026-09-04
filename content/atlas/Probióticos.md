@@ -8,7 +8,7 @@ Alimento fermentado ou produto que contém bactérias vivas não é automaticame
 
 ## **Contexto clínico**
 
-Probióticos são estudados em diarreia associada a antibióticos, infecções, doenças funcionais e condições pediátricas. A decisão depende de cepa, dose, duração, população, risco de imunossupressão e desfecho escolhido.
+Probióticos são estudados em diarreia associada a antibióticos, infecções, doenças funcionais e condições pediátricas. A decisão depende de cepa, dose, duração, [[População|população]], risco de imunossupressão e desfecho escolhido.
 
 Em pessoas gravemente enfermas, prematuras ou imunocomprometidas, segurança recebe peso especial. Um produto comercial precisa ter identidade, estabilidade, viabilidade até o fim da validade e controle de contaminantes.
 
@@ -22,7 +22,7 @@ Ensaios randomizados observam efeitos que variam entre cepas e desfechos. Meta-a
 
 “Probiótico” não é uma categoria terapêutica homogênea. Resultados de uma cepa em uma doença não sustentam uso indiscriminado para sintomas digestivos ou prevenção de qualquer infecção.
 
-Desfechos intermediários, como mudança de composição fecal, não substituem mortalidade, internação, sintomas ou qualidade de vida. Marketing costuma extrapolar o mecanismo e a evidência de um produto para outros.
+Desfechos intermediários, como mudança de composição fecal, não substituem [[Mortalidade|mortalidade]], internação, sintomas ou qualidade de vida. Marketing costuma extrapolar o mecanismo e a evidência de um produto para outros.
 
 ## **Conceitos relacionados**
 

@@ -2,7 +2,7 @@
 
 ## **Definição**
 
-Transaminação é a transferência reversível de um grupo amino de um aminoácido para um alfa-cetoácido. Aminotransferases catalisam a reação e usam fosfato de piridoxal, derivado da vitamina B6, como cofator. O processo redistribui nitrogênio e cria novos aminoácidos sem liberar amônia livre na etapa inicial.
+Transaminação é a transferência reversível de um grupo amino de um aminoácido para um alfa-cetoácido. Aminotransferases catalisam a reação e usam fosfato de piridoxal, derivado da vitamina B6, como [[Cofator|cofator]]. O processo redistribui nitrogênio e cria novos [[Aminoácidos|aminoácidos]] sem liberar amônia livre na etapa inicial.
 
 ## **Contexto clínico**
 
@@ -12,9 +12,9 @@ Deficiência de vitamina B6, doença hepática, exercício intenso, lesão muscu
 
 ## **Base fisiológica, bioquímica ou epidemiológica**
 
-O alfa-cetoglutarato recebe grupos amino e forma glutamato em muitas reações. Glutamato pode sofrer [[Desaminação]] oxidativa, liberando amônia para o [[Ciclo da ureia]], ou doar nitrogênio para síntese de outros compostos. No músculo, a transferência para piruvato forma alanina e conecta metabolismo de aminoácidos ao ciclo glicose-alanina.
+O alfa-cetoglutarato recebe grupos amino e forma glutamato em muitas reações. Glutamato pode sofrer [[Desaminação]] oxidativa, liberando amônia para o [[Ciclo da ureia]], ou doar nitrogênio para síntese de outros compostos. No músculo, a transferência para piruvato forma alanina e conecta [[Metabolismo|metabolismo]] de [[Aminoácidos|aminoácidos]] ao ciclo [[Glicose|glicose]]-alanina.
 
-A reação aproxima o metabolismo do nitrogênio e do carbono. Seu sentido depende das concentrações de substratos, produtos, cofator e estado energético; uma reação in vitro não representa automaticamente o fluxo predominante em um tecido.
+A reação aproxima o [[Metabolismo|metabolismo]] do nitrogênio e do carbono. Seu sentido depende das concentrações de substratos, produtos, [[Cofator|cofator]] e estado energético; uma reação in vitro não representa automaticamente o fluxo predominante em um tecido.
 
 ## **Limitações e controvérsias**
 

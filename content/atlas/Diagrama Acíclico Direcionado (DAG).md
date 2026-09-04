@@ -12,7 +12,7 @@ Na epidemiologia nutricional, DAGs são utilizados para identificar confundidore
 
 Sua aplicação tornou-se particularmente relevante em estudos observacionais, nos quais a identificação correta das variáveis de ajuste influencia diretamente a validade das estimativas produzidas.
 
-Também são amplamente utilizados na construção de protocolos de pesquisa, revisões sistemáticas e análises de causalidade.
+Também são amplamente utilizados na construção de protocolos de pesquisa, revisões sistemáticas e análises de [[Causalidade|causalidade]].
 
 ## Base fisiológica, bioquímica ou epidemiológica
 
@@ -20,13 +20,13 @@ A lógica dos DAGs deriva da teoria moderna da [[Inferência Causal]].
 
 Ao representar explicitamente as relações causais presumidas, torna-se possível identificar caminhos de [[Confundimento|confundimento]] que precisam ser bloqueados e caminhos causais que não devem ser interrompidos.
 
-O conceito permitiu avanços importantes na compreensão de problemas como Confundimento, [[Viés de seleção|Viés de Seleção]], [[Colisor (Collider Bias)|Colisor]] e [[Superajuste]].
+O conceito permitiu avanços importantes na compreensão de problemas como [[Confundimento|Confundimento]], [[Viés de seleção|Viés de Seleção]], [[Colisor (Collider Bias)|Colisor]] e [[Superajuste]].
 
 O valor do DAG depende inteiramente da plausibilidade das relações causais especificadas. O diagrama não produz conhecimento causal novo; ele organiza hipóteses já existentes.
 
 ## Limitações e controvérsias
 
-Uma interpretação equivocada frequente consiste em tratar DAGs como ferramentas capazes de determinar causalidade de forma automática.
+Uma interpretação equivocada frequente consiste em tratar DAGs como ferramentas capazes de determinar [[Causalidade|causalidade]] de forma automática.
 
 Na realidade, a validade de um DAG depende da qualidade do conhecimento prévio utilizado em sua construção. Um DAG incorreto pode produzir recomendações analíticas incorretas.
 

@@ -8,9 +8,9 @@ O conceito integra um espectro de doenças hipertensivas da gestação que inclu
 
 As doenças hipertensivas representam importante causa de morbimortalidade materna e perinatal.
 
-A avaliação nutricional é frequentemente incorporada ao manejo clínico devido à relação entre fatores nutricionais, estado metabólico e risco cardiovascular.
+A [[Avaliação nutricional|avaliação nutricional]] é frequentemente incorporada ao manejo clínico devido à relação entre fatores nutricionais, estado metabólico e risco cardiovascular.
 
-O acompanhamento envolve monitoramento do [[Ganho de peso gestacional]], controle de fatores de risco e avaliação do estado nutricional.
+O acompanhamento envolve monitoramento do [[Ganho de peso gestacional]], controle de fatores de risco e avaliação do [[Estado nutricional|estado nutricional]].
 
 ## Base fisiológica, bioquímica ou epidemiológica
 
@@ -22,7 +22,7 @@ Diversos fatores nutricionais foram investigados, incluindo:
 
 - sódio;
 
-- antioxidantes;
+- [[Antioxidantes|antioxidantes]];
 
 - padrão alimentar;
 

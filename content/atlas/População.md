@@ -6,21 +6,21 @@ População é o conjunto de unidades sobre o qual uma pergunta científica pret
 
 ## **Contexto clínico**
 
-Um ensaio pode incluir adultos selecionados com uma doença, enquanto a prática atende pessoas mais idosas, com comorbidades ou menor adesão. Comparar essas populações exige avaliar critérios de elegibilidade, risco basal, dose e recursos disponíveis.
+Um ensaio pode incluir adultos selecionados com uma doença, enquanto a prática atende pessoas mais idosas, com comorbidades ou menor adesão. Comparar essas populações exige avaliar critérios de elegibilidade, [[Risco basal|risco basal]], dose e recursos disponíveis.
 
-Prevalência, incidência e mortalidade dependem da população observada e de seu denominador. Mudança na composição populacional pode modificar a estimativa sem mudança real na biologia.
+Prevalência, incidência e [[Mortalidade|mortalidade]] dependem da população observada e de seu denominador. Mudança na composição populacional pode modificar a estimativa sem mudança real na biologia.
 
 ## **Base fisiológica, bioquímica ou epidemiológica**
 
 A [[Amostra]] fornece informação sobre a população sob pressupostos de seleção e medição. Populações diferem em exposição, suscetibilidade, acesso, genética, cultura e tratamento. Esses fatores influenciam efeito absoluto e aplicabilidade.
 
-Validade externa envolve transporte de um efeito para outra população, intervenção, desfecho ou contexto. Ela pode ser limitada mesmo quando a comparação original tem boa [[Validade Interna]].
+[[Validade Externa|Validade externa]] envolve transporte de um efeito para outra população, intervenção, desfecho ou contexto. Ela pode ser limitada mesmo quando a comparação original tem boa [[Validade Interna]].
 
 ## **Limitações e controvérsias**
 
 Uma população não é definida apenas por diagnóstico ou faixa etária. Critérios de recrutamento e exclusões podem retirar pessoas com maior risco ou menor capacidade de seguir o protocolo.
 
-Generalizar por semelhança superficial pode ignorar modificadores de efeito. Diferenças de risco basal mudam a magnitude absoluta sem necessariamente alterar o efeito relativo.
+Generalizar por semelhança superficial pode ignorar modificadores de efeito. Diferenças de [[Risco basal|risco basal]] mudam a magnitude absoluta sem necessariamente alterar o efeito relativo.
 
 ## **Conceitos relacionados**
 

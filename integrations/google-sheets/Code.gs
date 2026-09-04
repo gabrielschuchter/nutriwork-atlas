@@ -10,6 +10,7 @@ function doPost(event) {
     var secret = properties.getProperty("ATLAS_WEBHOOK_SECRET")
     if (!secret || secret.length < 32 || body.secret !== secret)
       return json_({ ok: false, code: "unauthorized" })
+    if (body.type === "suggestion") return appendSuggestion_(body, properties, lock)
     var email = normalizeEmail_(body.email)
     if (
       !email ||
@@ -78,6 +79,60 @@ function doPost(event) {
   } finally {
     if (lock.hasLock()) lock.releaseLock()
   }
+}
+
+function appendSuggestion_(body, properties, lock) {
+  var title = normalizeSuggestionText_(body.title, 160)
+  var description = normalizeSuggestionText_(body.description, 2000)
+  if (
+    !title ||
+    !description ||
+    !/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(
+      body.submissionId || "",
+    )
+  ) {
+    return json_({ ok: false, code: "invalid_request" })
+  }
+  if (!lock.tryLock(10000)) return json_({ ok: false, code: "busy" })
+  try {
+    var cache = CacheService.getScriptCache()
+    var idempotencyKey = "suggestion:" + body.submissionId
+    if (cache.get(idempotencyKey)) return json_({ ok: true })
+    var minuteKey = "suggestion-rate:" + Math.floor(Date.now() / 60000)
+    var count = Number(cache.get(minuteKey) || 0)
+    if (count >= 120) return json_({ ok: false, code: "rate_limited" })
+    cache.put(minuteKey, String(count + 1), 120)
+    var sheet = SpreadsheetApp.openById(properties.getProperty("ATLAS_SHEET_ID")).getSheetByName(
+      "Sugestões",
+    )
+    if (
+      !sheet ||
+      sheet.getRange(1, 1, 1, 4).getValues()[0].join(",") !==
+        "timestamp,titulo,descricao,submission_id"
+    ) {
+      return json_({ ok: false, code: "configuration" })
+    }
+    var row = sheet.getLastRow() + 1
+    sheet
+      .getRange(row, 1, 1, 4)
+      .setValues([[new Date(), literalText_(title), literalText_(description), body.submissionId]])
+    sheet.getRange(row, 1).setNumberFormat("yyyy-mm-dd hh:mm:ss")
+    SpreadsheetApp.flush()
+    cache.put(idempotencyKey, "1", 21600)
+    return json_({ ok: true })
+  } finally {
+    if (lock.hasLock()) lock.releaseLock()
+  }
+}
+
+function normalizeSuggestionText_(value, maximum) {
+  if (typeof value !== "string" || value.length > maximum) return null
+  var text = value.trim()
+  return text ? text : null
+}
+
+function literalText_(value) {
+  return /^[=+\-@]/.test(value) ? "'" + value : value
 }
 
 function json_(value) {

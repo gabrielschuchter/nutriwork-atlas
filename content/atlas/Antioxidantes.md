@@ -14,13 +14,13 @@ Frutas, vegetais, leguminosas, oleaginosas e outros alimentos fornecem compostos
 
 Antioxidantes removem radicais, quelam metais, regeneram outros antioxidantes ou aumentam defesas endógenas. [[Via das pentoses-fosfato]] produz NADPH para manter glutationa reduzida; enzimas usam cofatores e substratos específicos.
 
-EROs também participam de sinalização e defesa imune. A neutralização completa seria incompatível com algumas funções fisiológicas. A distribuição no plasma não informa o efeito em membrana, mitocôndria ou núcleo.
+[[Espécies reativas de oxigênio (EROs)|EROs]] também participam de sinalização e defesa imune. A neutralização completa seria incompatível com algumas funções fisiológicas. A distribuição no plasma não informa o efeito em membrana, mitocôndria ou núcleo.
 
 ## **Limitações e controvérsias**
 
-Capacidade antioxidante total de um alimento ou plasma não é desfecho clínico validado. Estudos observacionais de ingestão sofrem confundimento por qualidade da dieta e estilo de vida.
+Capacidade antioxidante total de um alimento ou plasma não é desfecho clínico validado. Estudos observacionais de ingestão sofrem [[Confundimento|confundimento]] por qualidade da dieta e estilo de vida.
 
-Ensaios de vitamina E, beta-caroteno e outros suplementos produziram resultados heterogêneos, incluindo dano em grupos específicos. Dose, forma química, duração e população precisam ser explicitados.
+Ensaios de vitamina E, beta-caroteno e outros suplementos produziram resultados heterogêneos, incluindo dano em grupos específicos. Dose, forma química, duração e [[População|população]] precisam ser explicitados.
 
 ## **Conceitos relacionados**
 

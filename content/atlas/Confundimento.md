@@ -20,7 +20,7 @@ Do ponto de vista epidemiológico, um confundidor deve estar associado à exposi
 
 Métodos como restrição, pareamento, estratificação, regressão multivariável e [[Propensity Score]] buscam reduzir confundimento. Entretanto, esses métodos controlam apenas confundidores medidos e adequadamente modelados.
 
-A randomização em [[Ensaio Clínico Randomizado|Ensaios Clínicos Randomizados]] constitui a estratégia mais robusta para minimizar confundimento, embora não elimine outras fontes de viés.
+A [[Randomização|randomização]] em [[Ensaio Clínico Randomizado|Ensaios Clínicos Randomizados]] constitui a estratégia mais robusta para minimizar confundimento, embora não elimine outras fontes de [[Viés|viés]].
 
 ## Limitações e controvérsias
 
@@ -28,9 +28,9 @@ A principal limitação é a impossibilidade prática de garantir controle compl
 
 Outro problema frequente consiste no chamado [[Confundimento residual|confundimento residual]]. Mesmo após ajustes estatísticos extensivos, erros de mensuração, variáveis não observadas e modelagem inadequada podem produzir associações distorcidas.
 
-Na literatura nutricional, associações observacionais modestas frequentemente apresentam risco substancial de confundimento residual. Isso é particularmente relevante quando os efeitos observados são pequenos e biologicamente difíceis de distinguir do ruído epidemiológico.
+Na literatura nutricional, associações observacionais modestas frequentemente apresentam risco substancial de [[Confundimento residual|confundimento residual]]. Isso é particularmente relevante quando os efeitos observados são pequenos e biologicamente difíceis de distinguir do ruído epidemiológico.
 
-Também existe uso inadequado do termo para desqualificar qualquer resultado observacional. Embora o confundimento seja uma ameaça real à validade interna, nem toda associação observada é necessariamente explicada por ele.
+Também existe uso inadequado do termo para desqualificar qualquer resultado observacional. Embora o confundimento seja uma ameaça real à [[Validade Interna|validade interna]], nem toda associação observada é necessariamente explicada por ele.
 
 ## Conceitos relacionados
 - [[Programação metabólica fetal]]

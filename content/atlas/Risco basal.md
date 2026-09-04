@@ -1,8 +1,8 @@
 ## Definição
 
-Risco basal corresponde à probabilidade de ocorrência de um desfecho em uma população antes da introdução da intervenção estudada. Em ensaios clínicos, geralmente é estimado pela incidência observada no grupo controle.
+Risco basal corresponde à probabilidade de ocorrência de um desfecho em uma [[População|população]] antes da introdução da intervenção estudada. Em ensaios clínicos, geralmente é estimado pela incidência observada no grupo controle.
 
-O conceito é central para a interpretação de medidas absolutas de efeito. Uma mesma redução relativa do risco pode produzir impactos clínicos substancialmente diferentes dependendo do risco basal da população.
+O conceito é central para a interpretação de medidas absolutas de efeito. Uma mesma redução relativa do risco pode produzir impactos clínicos substancialmente diferentes dependendo do risco basal da [[População|população]].
 
 Risco basal não deve ser confundido com [[Risco Relativo]], [[Razão de Chances]] ou outras medidas de associação.
 
@@ -10,11 +10,11 @@ Risco basal não deve ser confundido com [[Risco Relativo]], [[Razão de Chances
 
 Na prática clínica, a relevância de uma intervenção depende não apenas de sua eficácia relativa, mas também do risco basal do paciente.
 
-Por exemplo, uma intervenção capaz de reduzir o risco relativo de um evento em 20% pode gerar benefício absoluto expressivo em indivíduos de alto risco e benefício absoluto discreto em indivíduos de baixo risco.
+Por exemplo, uma intervenção capaz de reduzir o [[Risco Relativo|risco relativo]] de um evento em 20% pode gerar benefício absoluto expressivo em indivíduos de alto risco e benefício absoluto discreto em indivíduos de baixo risco.
 
 O conceito é particularmente importante na interpretação de [[Número Necessário para Tratar]], diretrizes clínicas, modelos prognósticos e estratégias de prevenção cardiovascular, oncológica e metabólica.
 
-A aplicação adequada da evidência frequentemente exige estimar se o risco basal do paciente se aproxima daquele observado na população estudada.
+A aplicação adequada da evidência frequentemente exige estimar se o risco basal do paciente se aproxima daquele observado na [[População|população]] estudada.
 
 ## Base fisiológica, bioquímica ou epidemiológica
 
@@ -28,13 +28,13 @@ A literatura metodológica demonstra que interpretações baseadas exclusivament
 
 ## Limitações e controvérsias
 
-Uma limitação frequente consiste em assumir que o risco basal observado em um estudo é automaticamente aplicável à população atendida na prática clínica.
+Uma limitação frequente consiste em assumir que o risco basal observado em um estudo é automaticamente aplicável à [[População|população]] atendida na prática clínica.
 
 Diferenças em critérios de inclusão, gravidade da doença, acesso ao tratamento e perfil epidemiológico podem modificar substancialmente o risco basal.
 
 Outra interpretação inadequada consiste em utilizar apenas medidas relativas de efeito sem considerar a frequência absoluta do desfecho.
 
-Em revisões sistemáticas e metanálises, heterogeneidade de risco basal entre estudos pode dificultar a extrapolação dos resultados para populações específicas.
+Em revisões sistemáticas e metanálises, [[Heterogeneidade|heterogeneidade]] de risco basal entre estudos pode dificultar a extrapolação dos resultados para populações específicas.
 
 O conceito também está no centro das discussões sobre [[Medicina Personalizada]] e estratificação de risco, áreas nas quais ainda existem limitações importantes relacionadas à calibração e validação de modelos prognósticos.
 

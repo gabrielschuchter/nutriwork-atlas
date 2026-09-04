@@ -6,19 +6,19 @@ Porcento expressa uma razão multiplicada por 100. Se 18 de 60 participantes apr
 
 ## **Contexto clínico**
 
-Porcentagens aparecem em prevalência, incidência cumulativa, adesão, resposta e distribuição de características. Um valor só é interpretável quando população, período, evento e denominador estão claros. “30% de redução” pode referir-se a redução relativa ou a diferença absoluta, que têm implicações clínicas distintas.
+Porcentagens aparecem em prevalência, incidência cumulativa, adesão, resposta e distribuição de características. Um valor só é interpretável quando [[População|população]], período, evento e denominador estão claros. “30% de redução” pode referir-se a redução relativa ou a diferença absoluta, que têm implicações clínicas distintas.
 
-Em comunicação de risco, frequência natural pode facilitar entendimento, mas não substitui intervalo de confiança, número de participantes e perdas de seguimento. Uma porcentagem pequena pode representar muitos pacientes em uma população grande, e uma porcentagem alta pode vir de amostra pequena.
+Em comunicação de risco, frequência natural pode facilitar entendimento, mas não substitui [[Intervalo de Confiança|intervalo de confiança]], número de participantes e perdas de seguimento. Uma porcentagem pequena pode representar muitos pacientes em uma [[População|população]] grande, e uma porcentagem alta pode vir de [[Amostra|amostra]] pequena.
 
 ## **Base fisiológica, bioquímica ou epidemiológica**
 
-Proporções descrevem ocorrência de uma característica em um conjunto. Prevalência usa casos existentes em determinado momento ou período; incidência usa eventos novos entre pessoas sob risco. Mortalidade e letalidade mudam conforme o denominador e o horizonte temporal.
+Proporções descrevem ocorrência de uma característica em um conjunto. Prevalência usa casos existentes em determinado momento ou período; incidência usa eventos novos entre pessoas sob risco. [[Mortalidade|Mortalidade]] e letalidade mudam conforme o denominador e o horizonte temporal.
 
-Em ensaios, o percentual de eventos permite calcular medidas como [[Risco Relativo]], diferença de riscos e [[Razão de Chances]]. A etapa estatística é descritiva; a evidência sobre causalidade depende do desenho, da randomização, do seguimento e da precisão.
+Em ensaios, o percentual de eventos permite calcular medidas como [[Risco Relativo]], diferença de riscos e [[Razão de Chances]]. A etapa estatística é descritiva; a evidência sobre [[Causalidade|causalidade]] depende do desenho, da [[Randomização|randomização]], do seguimento e da precisão.
 
 ## **Limitações e controvérsias**
 
-Percentual não informa magnitude absoluta sem o denominador. Percentuais calculados após excluir perdas podem criar viés se as perdas diferirem entre grupos.
+Percentual não informa magnitude absoluta sem o denominador. Percentuais calculados após excluir perdas podem criar [[Viés|viés]] se as perdas diferirem entre grupos.
 
 Mudança de 2% para 3% é aumento de 1 ponto percentual e aumento relativo de 50%. A escolha da forma de apresentação pode alterar percepção sem alterar os dados. Relatos responsáveis mostram o denominador e, quando útil, as duas escalas.
 

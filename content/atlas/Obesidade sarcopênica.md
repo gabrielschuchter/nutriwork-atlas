@@ -4,11 +4,11 @@ Obesidade sarcopênica refere-se à coexistência de excesso de adiposidade e co
 
 ## Contexto clínico
 
-O conceito surge principalmente na avaliação de idosos, pacientes com doenças cardiometabólicas e indivíduos com obesidade de longa duração. Na prática clínica, chama atenção para a possibilidade de um paciente apresentar IMC elevado e, simultaneamente, redução clinicamente relevante da função muscular. Essa condição está associada a maior risco de incapacidade funcional, hospitalizações e pior prognóstico em diversas populações clínicas.
+O conceito surge principalmente na avaliação de idosos, pacientes com doenças cardiometabólicas e indivíduos com obesidade de longa duração. Na prática clínica, chama atenção para a possibilidade de um paciente apresentar IMC elevado e, simultaneamente, redução [[Clinicamente relevante|clinicamente relevante]] da função muscular. Essa condição está associada a maior risco de incapacidade funcional, hospitalizações e pior prognóstico em diversas populações clínicas.
 
 ## Base fisiológica ou epidemiológica
 
-A adiposidade excessiva está associada a inflamação sistêmica de baixo grau, resistência à insulina, infiltração gordurosa intramuscular e alterações hormonais que podem favorecer perda de qualidade muscular. Paralelamente, a redução da atividade física, o envelhecimento e a [[Resistência anabólica|resistência anabólica]] contribuem para deterioração progressiva da função muscular. Evidências sugerem que a interação entre tecido adiposo e músculo esquelético produz alterações metabólicas que diferem daquelas observadas em obesidade ou [[Sarcopenia|sarcopenia]] isoladamente, embora a magnitude e relevância clínica dessa interação permaneçam parcialmente incertas.
+A adiposidade excessiva está associada a inflamação sistêmica de baixo grau, [[Resistência à insulina|resistência à insulina]], infiltração gordurosa intramuscular e alterações hormonais que podem favorecer perda de qualidade muscular. Paralelamente, a redução da atividade física, o envelhecimento e a [[Resistência anabólica|resistência anabólica]] contribuem para deterioração progressiva da função muscular. Evidências sugerem que a interação entre tecido adiposo e músculo esquelético produz alterações metabólicas que diferem daquelas observadas em obesidade ou [[Sarcopenia|sarcopenia]] isoladamente, embora a magnitude e relevância clínica dessa interação permaneçam parcialmente incertas.
 
 ## Limitações e controvérsias
 

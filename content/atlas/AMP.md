@@ -1,14 +1,14 @@
 ## Definição
 
-O monofosfato de adenosina (AMP) é um nucleotídeo composto por adenina, ribose e um grupo fosfato. Pode resultar da hidrólise de [[ATP]] a AMP e pirofosfato ou da reação catalisada pela [[Adenilato quinase]].
+O monofosfato de adenosina (AMP) é um nucleotídeo composto por adenina, ribose e um grupo fosfato. Pode resultar da [[Hidrólise|hidrólise]] de [[ATP]] a AMP e pirofosfato ou da reação catalisada pela [[Adenilato quinase]].
 
-A elevação de AMP é um sinal sensível de redução da carga energética celular. Pequenas quedas relativas de ATP podem produzir aumentos proporcionalmente maiores de AMP.
+A elevação de AMP é um sinal sensível de redução da carga energética celular. Pequenas quedas relativas de [[ATP|ATP]] podem produzir aumentos proporcionalmente maiores de AMP.
 
 ## Contexto clínico
 
 O AMP participa da ativação da [[AMPK]], uma quinase que ajusta o [[Metabolismo|metabolismo]] à baixa [[Disponibilidade Energética|disponibilidade energética]]. Sua ativação tende a favorecer vias produtoras de [[ATP]] e a restringir processos biossintéticos energeticamente dispendiosos.
 
-Esse mecanismo aparece no estudo de exercício, jejum, hipóxia, ação de fármacos e regulação da síntese de lipídios e proteínas. Entretanto, ativação de AMPK não deve ser tratada isoladamente como prova de benefício clínico.
+Esse mecanismo aparece no estudo de exercício, jejum, hipóxia, ação de fármacos e regulação da síntese de [[Lipídios|lipídios]] e [[Proteínas|proteínas]]. Entretanto, ativação de AMPK não deve ser tratada isoladamente como prova de benefício clínico.
 
 O AMP também pode ser convertido em adenosina, molécula sinalizadora envolvida em fluxo sanguíneo, neurotransmissão, inflamação e agregação plaquetária.
 

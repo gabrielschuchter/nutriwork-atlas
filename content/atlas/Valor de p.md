@@ -6,21 +6,21 @@ Valor de p é a probabilidade, sob a hipótese nula e o modelo estatístico espe
 
 ## **Contexto clínico**
 
-O valor de p pode ser usado junto com estimativa, intervalo de confiança, plano analítico e qualidade dos dados. Uma decisão clínica exige magnitude, risco basal, dano, benefício e relevância para o paciente.
+O valor de p pode ser usado junto com estimativa, [[Intervalo de Confiança|intervalo de confiança]], plano analítico e qualidade dos dados. Uma decisão clínica exige magnitude, [[Risco basal|risco basal]], dano, benefício e relevância para o paciente.
 
-P-valor pequeno em uma amostra enorme pode acompanhar diferença trivial. P-valor alto em estudo com poucos eventos pode ser compatível com benefício ou dano relevantes.
+P-valor pequeno em uma [[Amostra|amostra]] enorme pode acompanhar diferença trivial. P-valor alto em estudo com poucos eventos pode ser compatível com benefício ou dano relevantes.
 
 ## **Base fisiológica, bioquímica ou epidemiológica**
 
 O cálculo depende da estatística escolhida, distribuição sob a nulidade, independência, variância e tratamento de dados ausentes. Múltiplos desfechos, análises e subgrupos aumentam oportunidades de valores pequenos sem nova hipótese confirmatória.
 
-O valor de p não mede a magnitude do efeito. A evidência para causalidade depende do desenho, da [[Randomização]], do controle de vieses e da coerência com outros estudos.
+O valor de p não mede a magnitude do efeito. A evidência para [[Causalidade|causalidade]] depende do desenho, da [[Randomização]], do controle de vieses e da coerência com outros estudos.
 
 ## **Limitações e controvérsias**
 
 O limiar 0,05 é convenção, e significância não cria uma divisão natural entre resultados verdadeiros e falsos. “Tendência” não é categoria estatística suficiente para transformar p = 0,06 em evidência positiva.
 
-Reportar apenas p esconde precisão e direção. Intervalo de confiança, estimando e resultados pré-especificados são necessários para interpretação.
+Reportar apenas p esconde precisão e direção. [[Intervalo de Confiança|Intervalo de confiança]], estimando e resultados pré-especificados são necessários para interpretação.
 
 ## **Conceitos relacionados**
 
