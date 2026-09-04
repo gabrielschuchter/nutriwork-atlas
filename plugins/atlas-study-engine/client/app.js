@@ -1491,6 +1491,8 @@
     setRouteLoading(true)
     try {
       if (locationSlug() === "roadmap") {
+        await atlas.data.load()
+        if (serial !== refreshSerial) return
         viewState = { mode: "roadmap", noteSlug: "", openedFromGraph: false }
         renderViewState()
         renderNavState()

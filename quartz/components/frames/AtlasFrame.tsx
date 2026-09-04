@@ -2231,7 +2231,7 @@ canvas:focus-visible {
   left: 50%;
   letter-spacing: -.085em;
   line-height: .82;
-  opacity: .05;
+  opacity: .035;
   pointer-events: none;
   position: absolute;
   text-align: center;
