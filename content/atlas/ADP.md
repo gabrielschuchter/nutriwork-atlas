@@ -28,13 +28,6 @@ Não se deve atribuir automaticamente uma alteração clínica à "falta de ADP"
 - [[ATP]]
 - [[AMP]]
 - [[Adenilato quinase]]
-- [[Carga energética celular]]
-- [[Fosforilação oxidativa]]
-- [[ATP sintase]]
-- [[Creatina quinase]]
-- [[Agregação plaquetária]]
-- [[Receptor P2Y12]]
-- [[Sistema fosfagênio]]
 ## Referências de base
 
 - Nelson DL, Cox MM. Lehninger Principles of Biochemistry. 7. ed. New York: W.H. Freeman; 2017.

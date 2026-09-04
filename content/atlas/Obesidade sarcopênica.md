@@ -20,16 +20,6 @@ Outra limitação é a tendência de interpretar a obesidade sarcopênica como u
 - [[Sarcopenia]]
 - [[Obesidade]]
 - [[Composição corporal]]
-- [[Fragilidade]]
-- [[Resistência anabólica]]
-- [[Inflamação Sistêmica]]
-- [[Força Muscular]]
-- [[Massa Muscular]]
-- [[Índice de massa corporal|Índice de Massa Corporal]]
-- [[DXA]]
-- [[Bioimpedância]]
-- [[Diabetes mellitus tipo 2|Diabetes Tipo 2]]
-- [[Envelhecimento]]
 ## Referências de base
 
 - ESPEN Guideline on Clinical Nutrition and Hydration in Geriatrics.

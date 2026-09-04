@@ -32,17 +32,6 @@ Muitas controvérsias em [[Nutrição|nutrição]] derivam precisamente dessa di
 - [[Desfecho Clínico]]
 - [[Biomarcador]]
 - [[Síntese proteica muscular]]
-- [[Validade Externa]]
-- [[Validade Interna]]
-- [[Inferência Causal]]
-- [[Prática Baseada em Evidências]]
-- [[HbA1c]]
-- [[LDL-colesterol]]
-- [[Composição corporal]]
-- [[Risco Relativo]]
-- [[Ensaio Clínico Randomizado]]
-- [[Hierarquia da Evidência]]
-- [[GRADE]]
 ## Referências de base
 
 Biomarkers Definitions Working Group. Biomarkers and Surrogate Endpoints: Preferred Definitions and Conceptual Framework.

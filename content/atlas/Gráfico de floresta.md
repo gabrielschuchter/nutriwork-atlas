@@ -24,16 +24,10 @@ Escalas logarítmicas, truncamento do eixo e tamanhos de marcador podem induzir 
 
 ## **Conceitos relacionados**
 
+
 - [[Heterogeneidade]]
 - [[Viés]]
 - [[Risco Relativo]]
-- [[Razão de Chances]]
-- [[Hazard ratio]]
-- [[Intervalo de Confiança]]
-- [[Análise de Subgrupos]]
-- [[Significância Estatística]]
-- [[Clinicamente relevante]]
-
 ## **Referências de base**
 
 - Cochrane Collaboration. *Cochrane Handbook for Systematic Reviews of Interventions*, Chapter 10: Analysing data and undertaking meta-analyses. https://training.cochrane.org/handbook/current/chapter-10

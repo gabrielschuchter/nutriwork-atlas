@@ -54,14 +54,6 @@ Outra limitação importante é a dependência frequente de biomarcadores substi
 - [[Alimentação complementar]]
 - [[Introdução alimentar]]
 - [[Ferro]]
-- [[Vitamina A]]
-- [[Vitamina D]]
-- [[Zinco]]
-- [[Iodo]]
-- [[Anemia ferropriva]]
-- [[Estado nutricional]]
-- [[Crescimento e desenvolvimento infantil]]
-- [[Segurança alimentar e nutricional na primeira infância]]
 ## Referências de base
 
 - WHO Micronutrient Guidelines.

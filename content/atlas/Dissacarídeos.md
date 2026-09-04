@@ -24,13 +24,10 @@ Reduzir todos os laticínios por suspeita de intolerância pode diminuir cálcio
 
 ## **Conceitos relacionados**
 
+
 - [[Monossacarídeos]]
 - [[Lactase]]
 - [[Sacarase]]
-- [[Maltase]]
-- [[Absorção]]
-- [[Microbiota intestinal]]
-
 ## **Referências de base**
 
 - NCBI Bookshelf. *Physiology, Digestion*. https://www.ncbi.nlm.nih.gov/books/NBK544242/

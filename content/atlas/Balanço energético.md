@@ -24,16 +24,10 @@ Redução de calorias pode melhorar glicemia e peso, mas adesão, composição d
 
 ## **Conceitos relacionados**
 
+
 - [[Disponibilidade Energética]]
 - [[Termogênese]]
 - [[Termogênese adaptativa]]
-- [[Metabolismo]]
-- [[Lipólise]]
-- [[Lipogênese]]
-- [[Glicogênio]]
-- [[Obesidade infantil]]
-- [[Estado nutricional]]
-
 ## **Referências de base**
 
 - Institute of Medicine; Food and Nutrition Board. *Dietary Reference Intakes for Energy, Carbohydrate, Fiber, Fat, Fatty Acids, Cholesterol, Protein, and Amino Acids*. https://www.nationalacademies.org/publications/10490

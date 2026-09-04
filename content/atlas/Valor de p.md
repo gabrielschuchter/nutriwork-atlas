@@ -24,16 +24,10 @@ Reportar apenas p esconde precisão e direção. [[Intervalo de Confiança|Inter
 
 ## **Conceitos relacionados**
 
+
 - [[Significância Estatística]]
 - [[Intervalo de Confiança]]
 - [[Clinicamente relevante]]
-- [[Amostra]]
-- [[Análise de Subgrupos]]
-- [[Teste de interação]]
-- [[Heterogeneidade]]
-- [[Viés]]
-- [[Randomização]]
-
 ## **Referências de base**
 
 - American Statistical Association. *ASA Statement on Statistical Significance and P-Values*. https://www.amstat.org/asa/files/pdfs/P-ValueStatement.pdf

@@ -24,17 +24,10 @@ Perfil lipídico e apolipoproteínas são marcadores de risco e alvos intermedi�
 
 ## **Conceitos relacionados**
 
+
 - [[Ácidos graxos]]
 - [[Triglicerídeos]]
 - [[Fosfolipídios]]
-- [[Colesterol]]
-- [[Lipoproteínas]]
-- [[Lipólise]]
-- [[Beta-oxidação]]
-- [[Cetogênese]]
-- [[Ácidos graxos saturados]]
-- [[Ácidos graxos insaturados]]
-
 ## **Referências de base**
 
 - Feingold KR. *Introduction to Lipids and Lipoproteins*. Endotext, NCBI Bookshelf. https://www.ncbi.nlm.nih.gov/books/NBK305896/

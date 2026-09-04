@@ -24,15 +24,10 @@ Dados fisiológicos de uma refeição padronizada não quantificam risco de panc
 
 ## **Conceitos relacionados**
 
+
 - [[Lipoproteínas]]
 - [[Triglicerídeos]]
 - [[Bile]]
-- [[Sais biliares]]
-- [[Micelas]]
-- [[Lipase pancreática]]
-- [[VLDL]]
-- [[Colesterol]]
-
 ## **Referências de base**
 
 - NCBI Bookshelf. *Biochemistry, Chylomicron*. https://www.ncbi.nlm.nih.gov/books/NBK545157/

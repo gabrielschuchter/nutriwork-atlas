@@ -24,16 +24,10 @@ Digestão libera o nutriente da matriz; enzimas, [[Bile]], [[Sais biliares]], pH
 
 ## **Conceitos relacionados**
 
+
 - [[Absorção]]
 - [[Ferro heme]]
 - [[Ferro não heme]]
-- [[Quelato]]
-- [[Vitaminas lipossolúveis]]
-- [[Micelas]]
-- [[Bile]]
-- [[Sais biliares]]
-- [[Transporte ativo]]
-
 ## **Referências de base**
 
 - National Institutes of Health, Office of Dietary Supplements. *Iron: Fact Sheet for Health Professionals*. https://ods.od.nih.gov/factsheets/Iron-HealthProfessional/

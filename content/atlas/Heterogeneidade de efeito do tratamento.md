@@ -32,15 +32,6 @@ Na [[Nutrição|nutrição]], esse problema é particularmente relevante em áre
 - [[Efeito Médio do Tratamento]]
 - [[Inferência Causal]]
 - [[Validade Externa]]
-- [[Validade Interna]]
-- [[Análise de Subgrupos]]
-- [[Interação Estatística]]
-- [[Medicina Personalizada]]
-- [[Nutrição de Precisão]]
-- [[Ensaio Clínico Randomizado]]
-- [[Generalização]]
-- [[Transportabilidade]]
-- [[Modificador de efeito]]
 ## Referências de base
 
 Kent DM, Hayward RA. When Averages Hide Individual Differences in Clinical Trials. American Scientist.

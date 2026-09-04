@@ -64,16 +64,6 @@ Por fim, reduzir o comportamento humano apenas à busca de eventos apetitivos e 
 - [[Evento apetitivo]]
 - [[Punição]]
 - [[Consequência punitiva]]
-- [[Reforço]]
-- [[Consequência reforçadora]]
-- [[Operações motivadoras]]
-- [[Eventos antecedentes]]
-- [[Condicionamento pavloviano]]
-- [[Resposta comportamental]]
-- [[Comportamento alimentar]]
-- [[Análise do comportamento]]
-- [[Behaviorismo radical]]
-- [[Filogênese]]
 ## Referências de base
 
 - Skinner BF. Science and Human Behavior. New York: Macmillan; 1953.

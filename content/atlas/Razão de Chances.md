@@ -24,16 +24,10 @@ Em caso-controle, OR estima associação sob desenho apropriado; não informa in
 
 ## **Conceitos relacionados**
 
+
 - [[Risco Relativo]]
 - [[Hazard ratio]]
 - [[Amostra]]
-- [[População]]
-- [[Intervalo de Confiança]]
-- [[Viés]]
-- [[Confundimento]]
-- [[Causalidade]]
-- [[Risco basal]]
-
 ## **Referências de base**
 
 - Cochrane Collaboration. *Cochrane Handbook for Systematic Reviews of Interventions*, Chapter 6. https://training.cochrane.org/handbook/current/chapter-06

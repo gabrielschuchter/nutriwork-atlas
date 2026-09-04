@@ -66,18 +66,6 @@ Por outro lado, o reconhecimento da influência cultural não implica que todas 
 - [[Filogênese]]
 - [[Ontogênese]]
 - [[Behaviorismo radical]]
-- [[Análise do comportamento]]
-- [[Comportamento alimentar]]
-- [[Escolhas alimentares]]
-- [[Resposta comportamental]]
-- [[Classe funcional de respostas]]
-- [[Eventos antecedentes]]
-- [[Consequência]]
-- [[Reforço]]
-- [[Operações motivadoras]]
-- [[Seleção por consequências]]
-- [[Comportamento verbal]]
-- [[Evento apetitivo]]
 ## Referências de base
 
 - Skinner BF. Science and Human Behavior. Macmillan; 1953.

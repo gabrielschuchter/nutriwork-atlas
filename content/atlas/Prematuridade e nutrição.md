@@ -54,16 +54,6 @@ Muitas recomendações derivam de desfechos intermediários e não necessariamen
 - [[Idade gestacional]]
 - [[Leite materno]]
 - [[Aleitamento materno exclusivo]]
-- [[Baixo peso ao nascer]]
-- [[Restrição de crescimento intrauterino]]
-- [[Crescimento e desenvolvimento infantil]]
-- [[Necessidades nutricionais na infância]]
-- [[Fortificação do leite humano]]
-- [[Nutrição enteral]]
-- [[Saúde materno-infantil]]
-- [[Programação metabólica fetal]]
-- [[IMC pré-gestacional]]
-- [[Colostro]]
 ## Referências de base
 
 - ESPGHAN Guidelines for Preterm Nutrition.

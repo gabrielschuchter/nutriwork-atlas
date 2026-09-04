@@ -24,16 +24,10 @@ Baixa efetividade pode resultar de intervenção ineficaz, implementação inade
 
 ## **Conceitos relacionados**
 
+
 - [[Eficaz]]
 - [[Validade Externa]]
 - [[Validade Interna]]
-- [[Randomização]]
-- [[Cegamento]]
-- [[Confundimento]]
-- [[Viés de seleção]]
-- [[Clinicamente relevante]]
-- [[Risco basal]]
-
 ## **Referências de base**
 
 - Lash TL, VanderWeele TJ, Haneuse S, Rothman KJ. *Modern Epidemiology*, 4th ed. Wolters Kluwer. https://www.stata.com/bookstore/modern-epidemiology/

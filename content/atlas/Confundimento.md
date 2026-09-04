@@ -36,16 +36,6 @@ Também existe uso inadequado do termo para desqualificar qualquer resultado obs
 - [[Programação metabólica fetal]]
 - [[Inferência Causal]]
 - [[Viés]]
-- [[Validade Interna]]
-- [[Epidemiologia Nutricional]]
-- [[Propensity Score]]
-- [[Randomização]]
-- [[Ensaio Clínico Randomizado]]
-- [[Diagrama Acíclico Direcionado (DAG)]]
-- [[Regressão Multivariável]]
-- [[Modificador de efeito]]
-- [[Confundimento residual]]
-- [[Associação Estatística]]
 ## Referências de base
 
 Rothman KJ, Greenland S, Lash TL. Modern Epidemiology.

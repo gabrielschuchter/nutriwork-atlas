@@ -24,16 +24,10 @@ HR não é [[Risco Relativo|risco relativo]], odds ratio ou taxa absoluta. Com e
 
 ## **Conceitos relacionados**
 
+
 - [[Risco Relativo]]
 - [[Razão de Chances]]
 - [[Mortalidade]]
-- [[Morbidade]]
-- [[Intervalo de Confiança]]
-- [[Censura]]
-- [[Randomização]]
-- [[Clinicamente relevante]]
-- [[Risco basal]]
-
 ## **Referências de base**
 
 - Cochrane Collaboration. *Cochrane Handbook for Systematic Reviews of Interventions*, Chapter 6. https://training.cochrane.org/handbook/current/chapter-06

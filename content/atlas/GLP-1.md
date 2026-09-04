@@ -24,15 +24,10 @@ Melhora de glicemia ou perda de peso não deve ser usada como sinônimo de redu�
 
 ## **Conceitos relacionados**
 
+
 - [[GIP]]
 - [[Insulina]]
 - [[Glucagon]]
-- [[Peptídeo YY (PYY)]]
-- [[Colecistocinina (CCK)]]
-- [[Anorexígeno]]
-- [[Esvaziamento gástrico]]
-- [[Comportamento alimentar]]
-
 ## **Referências de base**
 
 - NCBI Bookshelf. *Physiology, Enteroglucagon*. https://www.ncbi.nlm.nih.gov/books/NBK553105/

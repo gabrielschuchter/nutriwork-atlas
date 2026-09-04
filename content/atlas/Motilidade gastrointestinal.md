@@ -26,15 +26,10 @@ Intervenções que aceleram o trânsito podem reduzir retenção e também aumen
 
 ## **Conceitos relacionados**
 
+
 - [[Deglutição]]
 - [[Peristaltismo]]
 - [[Segmentação]]
-- [[Esvaziamento gástrico]]
-- [[Trânsito intestinal]]
-- [[Sais biliares]]
-- [[Colecistocinina (CCK)]]
-- [[Peptídeo YY (PYY)]]
-
 ## **Referências de base**
 
 - Hall JE, Hall ME. [Guyton and Hall Textbook of Medical Physiology, 14th edition](https://www.us.elsevierhealth.com/guyton-and-hall-textbook-of-medical-physiology-9780323640060.html). Elsevier; 2021.

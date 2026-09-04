@@ -24,15 +24,10 @@ Associação entre um perfil lipídico e eventos não informa o efeito de cada t
 
 ## **Conceitos relacionados**
 
+
 - [[Lipídios]]
 - [[Quilomícrons]]
 - [[VLDL]]
-- [[LDL]]
-- [[HDL]]
-- [[Triglicerídeos]]
-- [[Colesterol]]
-- [[Ácidos graxos]]
-
 ## **Referências de base**
 
 - Feingold KR. *Introduction to Lipids and Lipoproteins*. Endotext, NCBI Bookshelf. https://www.ncbi.nlm.nih.gov/books/NBK305896/

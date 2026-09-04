@@ -80,18 +80,6 @@ Por essas razões, a [[Análise do comportamento|Análise do Comportamento]] con
 - [[Consequência]]
 - [[Consequência punitiva]]
 - [[Reforço]]
-- [[Consequência reforçadora]]
-- [[Evento aversivo]]
-- [[Resposta comportamental]]
-- [[Operações motivadoras]]
-- [[Eventos antecedentes]]
-- [[Análise do comportamento]]
-- [[Behaviorismo radical]]
-- [[Análise funcional]]
-- [[Comportamento alimentar]]
-- [[Classe funcional de respostas]]
-- [[Ontogênese]]
-- [[Extinção comportamental]]
 ## Referências de base
 
 - Skinner BF. The Behavior of Organisms: An Experimental Analysis. Appleton-Century; 1938.

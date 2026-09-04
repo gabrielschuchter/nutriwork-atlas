@@ -118,16 +118,6 @@ Embora hormônios específicos tenham papéis bem estabelecidos na mamogênese, 
 - [[Lactogênese]]
 - [[Galactopoiese]]
 - [[Leite materno]]
-- [[Colostro]]
-- [[Leite materno de transição]]
-- [[Aleitamento materno exclusivo]]
-- [[Prolactina]]
-- [[Ocitocina]]
-- [[Hormônios da gestação]]
-- [[Puerpério]]
-- [[Desmame precoce]]
-- [[Pega adequada]]
-- [[Apojadura]]
 ## Referências de base
 
 - LAWRENCE, Ruth A.; LAWRENCE, Robert M. Breastfeeding: a guide for the medical profession. 9. ed. Philadelphia: Elsevier, 2022.

@@ -26,15 +26,10 @@ Intervenções que aumentam muco em modelo experimental podem ter efeitos difere
 
 ## **Conceitos relacionados**
 
+
 - [[Saliva]]
 - [[Barreira intestinal]]
 - [[Microbiota intestinal]]
-- [[Motilidade gastrointestinal]]
-- [[Viscosidade]]
-- [[Inflamação crônica de baixo grau]]
-- [[Hidrólise]]
-- [[Absorção]]
-
 ## **Referências de base**
 
 - Johansson MEV, Hansson GC. Immunological aspects of intestinal mucus and mucins. Nature Reviews Immunology. 2016;16:639-649. https://doi.org/10.1038/nri.2016.88.

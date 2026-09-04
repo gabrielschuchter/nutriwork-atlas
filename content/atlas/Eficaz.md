@@ -24,16 +24,10 @@ Ensaios explicativos podem excluir comorbidades e pessoas vulneráveis. A aplica
 
 ## **Conceitos relacionados**
 
+
 - [[Efetivo]]
 - [[Randomização]]
 - [[Cegamento]]
-- [[Validade Interna]]
-- [[Validade Externa]]
-- [[Clinicamente relevante]]
-- [[Significância Estatística]]
-- [[Desfecho substituto]]
-- [[Risco basal]]
-
 ## **Referências de base**
 
 - Cochrane Collaboration. *Cochrane Handbook for Systematic Reviews of Interventions*. https://www.cochrane.org/authors/handbooks-and-manuals/handbook/current

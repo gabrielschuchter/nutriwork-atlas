@@ -24,16 +24,10 @@ Um p acima do limiar mantém plausíveis efeitos de benefício ou dano; o [[Inte
 
 ## **Conceitos relacionados**
 
+
 - [[Valor de p]]
 - [[Intervalo de Confiança]]
 - [[Clinicamente relevante]]
-- [[Amostra]]
-- [[Randomização]]
-- [[Teste de interação]]
-- [[Análise de Subgrupos]]
-- [[Heterogeneidade]]
-- [[Desfecho substituto]]
-
 ## **Referências de base**
 
 - American Statistical Association. *ASA Statement on Statistical Significance and P-Values*. https://www.amstat.org/asa/files/pdfs/P-ValueStatement.pdf

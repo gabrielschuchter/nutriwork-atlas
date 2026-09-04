@@ -40,14 +40,6 @@ Além disso, diferentes instrumentos de avaliação podem produzir estimativas d
 - [[Alimentação complementar]]
 - [[Introdução alimentar]]
 - [[Aleitamento materno exclusivo]]
-- [[Aleitamento materno complementado]]
-- [[Deficiência de micronutrientes na infância]]
-- [[Crescimento e desenvolvimento infantil]]
-- [[Desnutrição]]
-- [[Estado nutricional]]
-- [[Determinantes sociais da saúde]]
-- [[Políticas públicas de alimentação e nutrição]]
-- [[Desmame precoce]]
 ## Referências de base
 
 - FAO — State of Food Security and Nutrition in the World.

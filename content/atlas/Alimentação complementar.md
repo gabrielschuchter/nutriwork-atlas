@@ -28,13 +28,6 @@ A literatura atual não sustenta a necessidade de retardar sistematicamente a in
 - [[Introdução alimentar]]
 - [[Aleitamento materno exclusivo]]
 - [[Aleitamento materno complementado]]
-- [[Leite materno]]
-- [[Deficiência de micronutrientes na infância]]
-- [[Ferro]]
-- [[Zinco]]
-- [[Crescimento e desenvolvimento infantil]]
-- [[Segurança alimentar e nutricional na primeira infância]]
-- [[Desmame precoce]]
 ## Referências de base
 
 - WHO – Complementary Feeding Guidelines.

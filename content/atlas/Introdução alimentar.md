@@ -32,13 +32,6 @@ Grande parte das discussões populares sobre métodos específicos extrapola o q
 - [[Alimentação complementar]]
 - [[Aleitamento materno exclusivo]]
 - [[Leite materno]]
-- [[Deglutição]]
-- [[Desenvolvimento neuropsicomotor]]
-- [[Comportamento alimentar]]
-- [[Crescimento e desenvolvimento infantil]]
-- [[Segurança alimentar e nutricional na primeira infância]]
-- [[Deficiência de micronutrientes na infância]]
-- [[Aleitamento materno complementado]]
 ## Referências de base
 
 - WHO – Infant and Young Child Feeding.

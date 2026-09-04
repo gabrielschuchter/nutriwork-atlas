@@ -24,15 +24,10 @@ O argumento de que uma dieta rica em proteína “força” necessariamente o f�
 
 ## **Conceitos relacionados**
 
+
 - [[Proteólise]]
 - [[Transaminação]]
 - [[Desaminação]]
-- [[Ciclo da ureia]]
-- [[Ciclo de Krebs]]
-- [[Balanço nitrogenado]]
-- [[Aminoácidos essenciais]]
-- [[Aminoácidos não essenciais]]
-
 ## **Referências de base**
 
 - NCBI Bookshelf. *Biochemistry, Protein Catabolism*. https://www.ncbi.nlm.nih.gov/books/NBK556047/

@@ -110,12 +110,6 @@ Um feto maior ou menor não necessariamente possui [[Idade gestacional|idade ges
 - [[Idade gestacional]]
 - [[Data da última menstruação (DUM)]]
 - [[Desenvolvimento fetal]]
-- [[Restrição de crescimento intrauterino]]
-- [[Pequeno para idade gestacional (PIG)]]
-- [[Grande para idade gestacional (GIG)]]
-- [[Prematuridade]]
-- [[Ganho de peso gestacional]]
-- [[Pré-natal]]
 ## Referências de base
 
 - AMERICAN COLLEGE OF OBSTETRICIANS AND GYNECOLOGISTS. Methods for estimating the due date. Committee Opinion, n. 700. Washington, DC: ACOG, maio 2017.

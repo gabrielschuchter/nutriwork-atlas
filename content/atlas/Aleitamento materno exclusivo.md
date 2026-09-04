@@ -40,18 +40,6 @@ O consenso científico apoia o aleitamento materno exclusivo como recomendação
 - [[Leite materno]]
 - [[Colostro]]
 - [[Alimentação complementar]]
-- [[Introdução alimentar]]
-- [[Crescimento e desenvolvimento infantil]]
-- [[Segurança alimentar e nutricional na primeira infância]]
-- [[Leite materno de transição]]
-- [[Leite materno maduro]]
-- [[Mamogênese]]
-- [[Lactogênese]]
-- [[Desmame precoce]]
-- [[Pega adequada]]
-- [[Apojadura]]
-- [[Prematuridade e nutrição]]
-- [[Aleitamento materno complementado]]
 ## Referências de base
 
 - Organização Mundial da Saúde (WHO).

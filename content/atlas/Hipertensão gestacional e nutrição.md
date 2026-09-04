@@ -44,14 +44,6 @@ A literatura atual favorece abordagens baseadas em avaliação global de risco, 
 - [[Hipertensão arterial]]
 - [[Pré-eclâmpsia]]
 - [[Estado nutricional materno]]
-- [[Ganho de peso gestacional]]
-- [[Necessidades nutricionais na gestação]]
-- [[Cálcio]]
-- [[Placenta]]
-- [[Restrição de crescimento intrauterino]]
-- [[Programação metabólica fetal]]
-- [[Saúde materno-infantil]]
-- [[IMC pré-gestacional]]
 ## Referências de base
 
 - WHO Recommendations for Prevention and Treatment of Pre-eclampsia.

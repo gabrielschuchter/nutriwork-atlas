@@ -24,15 +24,10 @@ Deficiência diagnosticada e uso ergogênico são perguntas diferentes. Estudos 
 
 ## **Conceitos relacionados**
 
+
 - [[Beta-oxidação]]
 - [[Lipólise]]
 - [[Cetogênese]]
-- [[Cetólise]]
-- [[Lipogênese]]
-- [[Triglicerídeos]]
-- [[Ácidos graxos]]
-- [[Disponibilidade Energética]]
-
 ## **Referências de base**
 
 - NCBI Bookshelf. *Carnitine Deficiency*. https://www.ncbi.nlm.nih.gov/books/NBK559041/

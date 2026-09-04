@@ -24,15 +24,10 @@ Reduzir um marcador pode acompanhar melhora ou bloquear sinalização fisiológi
 
 ## **Conceitos relacionados**
 
+
 - [[Espécies reativas de oxigênio (EROs)]]
 - [[Antioxidantes]]
 - [[Inflamação crônica de baixo grau]]
-- [[Respiração celular]]
-- [[Cadeia transportadora de elétrons]]
-- [[Via das pentoses-fosfato]]
-- [[Resistência à insulina]]
-- [[Resposta inflamatória ao exercício]]
-
 ## **Referências de base**
 
 - Stone WL, Pham T, Mohiuddin SS. *Biochemistry, Antioxidants*. StatPearls, NCBI Bookshelf. https://www.ncbi.nlm.nih.gov/books/NBK541064/

@@ -20,7 +20,6 @@ Uma dificuldade prática é que o [[Viés|viés]] nem sempre é facilmente ident
 - [[Viés de seleção]]
 - [[Confundimento]]
 - [[Diagrama Acíclico Direcionado (DAG)]]
-- [[Causalidade]]
 ## Referências de base
 
 - Modern Epidemiology.

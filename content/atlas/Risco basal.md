@@ -42,15 +42,6 @@ O conceito também está no centro das discussões sobre [[Medicina Personalizad
 - [[Número Necessário para Tratar]]
 - [[Redução Absoluta do Risco]]
 - [[Redução Relativa do Risco]]
-- [[Risco Relativo]]
-- [[Razão de Chances]]
-- [[Tomada de Decisão Clínica]]
-- [[Validade Externa]]
-- [[Prognóstico]]
-- [[Modelo Prognóstico]]
-- [[Prática Baseada em Evidências]]
-- [[Benefício Absoluto]]
-- [[Estratificação de Risco]]
 ## Referências de base
 
 Guyatt G et al. Users' Guides to the Medical Literature.

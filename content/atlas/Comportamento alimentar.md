@@ -68,18 +68,6 @@ Por fim, é importante distinguir descrever um comportamento de explicá-lo. Diz
 - [[Behaviorismo radical]]
 - [[Análise do comportamento]]
 - [[Resposta comportamental]]
-- [[Classe funcional de respostas]]
-- [[Escolhas alimentares]]
-- [[Eventos antecedentes]]
-- [[Consequência]]
-- [[Reforço]]
-- [[Punição]]
-- [[Operações motivadoras]]
-- [[Evento apetitivo]]
-- [[Evento aversivo]]
-- [[Condicionamento pavloviano]]
-- [[Ontogênese]]
-- [[Seleção cultural]]
 ## Referências de base
 
 - Skinner BF. Science and Human Behavior. Macmillan; 1953.

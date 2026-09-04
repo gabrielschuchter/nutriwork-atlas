@@ -26,15 +26,6 @@ Também é incorreto afirmar que a quebra de qualquer ligação do ATP "libera e
 - [[ADP]]
 - [[AMP]]
 - [[Bioenergética]]
-- [[Energia livre de Gibbs]]
-- [[Fosforilação oxidativa]]
-- [[Fosforilação em nível de substrato]]
-- [[Sistema fosfagênio]]
-- [[Metabolismo]]
-- [[Homeostase energética]]
-- [[Na+K+-ATPase]]
-- [[Anabolismo]]
-- [[Creatina]]
 ## Referências de base
 
 - Nelson DL, Cox MM. Lehninger Principles of Biochemistry. 7. ed. New York: W.H. Freeman; 2017.

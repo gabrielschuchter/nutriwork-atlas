@@ -134,16 +134,6 @@ Além disso, intervenções focadas apenas na técnica podem falhar quando o pro
 - [[Aleitamento materno exclusivo]]
 - [[Desmame precoce]]
 - [[Lactogênese]]
-- [[Galactopoiese]]
-- [[Prolactina]]
-- [[Ocitocina]]
-- [[Apojadura]]
-- [[Leite materno]]
-- [[Mamogênese]]
-- [[Crescimento e desenvolvimento infantil]]
-- [[Prematuridade]]
-- [[Leite materno de transição]]
-- [[Puerpério]]
 ## Referências de base
 
 - World Health Organization (WHO). Protecting, promoting and supporting breastfeeding in facilities providing maternity and newborn services: guideline. Geneva: World Health Organization, 2017.

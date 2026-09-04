@@ -26,12 +26,6 @@ O catalisador pode sofrer modificações transitórias durante o mecanismo. "Nã
 - [[Enzima]]
 - [[Ribozima]]
 - [[Energia de ativação]]
-- [[Estado de transição]]
-- [[Energia livre de Gibbs]]
-- [[Equilíbrio químico]]
-- [[Cinética química]]
-- [[Cofator]]
-- [[Coenzimas]]
 ## Referências de base
 
 - Atkins P, de Paula J, Keeler J. Atkins' Physical Chemistry. 11. ed. Oxford: Oxford University Press; 2018.

@@ -60,17 +60,6 @@ Na prática esportiva, a percepção subjetiva de esforço também exerce papel 
 - [[Sistema fosfagênio]]
 - [[Glicogênio muscular]]
 - [[Lactato]]
-- [[VO₂máx]]
-- [[Limiar de lactato]]
-- [[Dano muscular induzido pelo exercício]]
-- [[Resposta inflamatória ao exercício]]
-- [[Creatina]]
-- [[Disponibilidade Energética]]
-- [[Exercício resistido]]
-- [[Limiar anaeróbico]]
-- [[Supercompensação de glicogênio]]
-- [[Cafeína]]
-- [[Beta-alanina]]
 ## Referências de base
 
 - Enoka RM, Duchateau J. Translating Fatigue to Human Performance.

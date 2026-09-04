@@ -52,13 +52,6 @@ Outro equívoco consiste em utilizar biomarcadores como CK isoladamente para est
 - [[Resposta inflamatória ao exercício]]
 - [[Dor muscular tardia (DOMS)]]
 - [[Síntese proteica muscular]]
-- [[Hipertrofia muscular]]
-- [[Fadiga muscular]]
-- [[Exercício resistido]]
-- [[Creatina quinase]]
-- [[Células satélite]]
-- [[Proteólise]]
-- [[Recuperação muscular]]
 ## Referências de base
 
 - Clarkson PM, Hubal MJ. Exercise-Induced Muscle Damage in Humans.

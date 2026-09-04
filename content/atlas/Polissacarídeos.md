@@ -24,15 +24,10 @@ Os efeitos epidemiológicos atribuídos a cereais integrais e leguminosas reflet
 
 ## **Conceitos relacionados**
 
+
 - [[Amido]]
 - [[Glicogênio]]
 - [[Fibra alimentar]]
-- [[Carboidrato complexo]]
-- [[Amilase salivar]]
-- [[Amilase pancreática]]
-- [[Hidrólise]]
-- [[Ácidos graxos de cadeia curta (AGCC)]]
-
 ## **Referências de base**
 
 - NCBI Bookshelf. *Physiology, Digestion*. https://www.ncbi.nlm.nih.gov/books/NBK544242/

@@ -60,18 +60,6 @@ Na prática clínica, intervenções que modificam apenas antecedentes podem pro
 - [[Resposta comportamental]]
 - [[Consequência]]
 - [[Operações motivadoras]]
-- [[Análise funcional]]
-- [[Classe funcional de respostas]]
-- [[Comportamento alimentar]]
-- [[Reforço]]
-- [[Punição]]
-- [[Condicionamento pavloviano]]
-- [[Behaviorismo radical]]
-- [[Análise do comportamento]]
-- [[Ontogênese]]
-- [[Evento apetitivo]]
-- [[Evento aversivo]]
-- [[Extinção comportamental]]
 ## Referências de base
 
 - Skinner BF. Science and Human Behavior. New York: Macmillan; 1953.

@@ -24,16 +24,10 @@ Suplementos enzimáticos podem modificar sintomas em condições definidas, como
 
 ## **Conceitos relacionados**
 
+
 - [[Proteínas]]
 - [[Desnaturação proteica]]
 - [[Pepsina]]
-- [[Tripsina]]
-- [[Quimotripsina]]
-- [[Carboxipeptidase]]
-- [[Digestão química]]
-- [[Catabolismo de aminoácidos]]
-- [[Síntese proteica muscular]]
-
 ## **Referências de base**
 
 - NCBI Bookshelf. *Biochemistry, Protein Catabolism*. https://www.ncbi.nlm.nih.gov/books/NBK556047/

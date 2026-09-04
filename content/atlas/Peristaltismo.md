@@ -26,15 +26,10 @@ Exames de motilidade usam segmentos e protocolos diferentes. Um resultado anorma
 
 ## **Conceitos relacionados**
 
+
 - [[Motilidade gastrointestinal]]
 - [[Segmentação]]
 - [[Deglutição]]
-- [[Esvaziamento gástrico]]
-- [[Trânsito intestinal]]
-- [[Fadiga muscular]]
-- [[Eletrólitos]]
-- [[Osmose]]
-
 ## **Referências de base**
 
 - Hall JE, Hall ME. [Guyton and Hall Textbook of Medical Physiology, 14th edition](https://www.us.elsevierhealth.com/guyton-and-hall-textbook-of-medical-physiology-9780323640060.html). Elsevier; 2021.

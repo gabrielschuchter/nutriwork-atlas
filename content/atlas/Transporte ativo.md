@@ -26,16 +26,10 @@ Soluções de reidratação precisam de composição e osmolaridade adequadas. A
 
 ## **Conceitos relacionados**
 
+
 - [[Difusão simples]]
 - [[Difusão facilitada]]
 - [[Cotransporte]]
-- [[Transporte de glicose (SGLT1)]]
-- [[Na+K+-ATPase]]
-- [[Osmose]]
-- [[Eletrólitos]]
-- [[Absorção]]
-- [[Membrana plasmática]]
-
 ## **Referências de base**
 
 - NCBI Bookshelf. [Physiology, Nutrient Absorption](https://www.ncbi.nlm.nih.gov/books/NBK597379/). StatPearls Publishing; updated 2025.

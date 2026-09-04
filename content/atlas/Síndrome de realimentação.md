@@ -20,7 +20,6 @@ Também existe debate sobre o grau de restrição calórica inicial mais apropri
 - [[Desnutrição relacionada à doença]]
 - [[Catabolismo]]
 - [[Anabolismo]]
-- [[Eletrólitos]]
 ## Referências de base
 
 - American Society for Parenteral and Enteral Nutrition Consensus Recommendations for Refeeding Syndrome.

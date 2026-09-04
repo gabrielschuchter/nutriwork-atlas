@@ -26,15 +26,10 @@ Desfechos intermediários, como mudança de composição fecal, não substituem 
 
 ## **Conceitos relacionados**
 
+
 - [[Microbiota intestinal]]
 - [[Prebióticos]]
 - [[Simbióticos]]
-- [[Fermentação]]
-- [[Ácidos graxos de cadeia curta (AGCC)]]
-- [[Barreira intestinal]]
-- [[Inflamação crônica de baixo grau]]
-- [[FODMAPs]]
-
 ## **Referências de base**
 
 - Hill C, Guarner F, Reid G, et al. [The ISAPP consensus statement on the scope and appropriate use of the term probiotic](https://www.nature.com/articles/nrgastro.2014.66). Nature Reviews Gastroenterology & Hepatology. 2014;11:506-514.

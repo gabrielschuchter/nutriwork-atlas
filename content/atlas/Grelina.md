@@ -24,15 +24,10 @@ Bloquear grelina pode reduzir ingestão em modelos experimentais, porém eficác
 
 ## **Conceitos relacionados**
 
+
 - [[Leptina]]
 - [[Anorexígeno]]
 - [[Orexígeno]]
-- [[Esvaziamento gástrico]]
-- [[Comportamento alimentar]]
-- [[Disponibilidade Energética]]
-- [[Obesidade infantil]]
-- [[GLP-1]]
-
 ## **Referências de base**
 
 - Parmar RM, Can AS. *Physiology, Appetite And Weight Regulation*. StatPearls, NCBI Bookshelf. https://www.ncbi.nlm.nih.gov/books/NBK574539/

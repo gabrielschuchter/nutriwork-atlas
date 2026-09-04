@@ -82,17 +82,6 @@ Na prática clínica, interpretar escolhas alimentares apenas como reflexo de co
 - [[Comportamento alimentar]]
 - [[Resposta comportamental]]
 - [[Classe funcional de respostas]]
-- [[Eventos antecedentes]]
-- [[Consequência]]
-- [[Reforço]]
-- [[Operações motivadoras]]
-- [[Evento apetitivo]]
-- [[Análise funcional]]
-- [[Ontogênese]]
-- [[Filogênese]]
-- [[Seleção cultural]]
-- [[Behaviorismo radical]]
-- [[Análise do comportamento]]
 ## Referências de base
 
 - Skinner BF. Science and Human Behavior. Macmillan; 1953.

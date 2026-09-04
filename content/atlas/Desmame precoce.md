@@ -96,17 +96,6 @@ Além disso, recomendações populacionais de promoção do aleitamento não dev
 - [[Aleitamento materno exclusivo]]
 - [[Aleitamento materno complementado]]
 - [[Leite materno]]
-- [[Leite materno maduro]]
-- [[Lactogênese]]
-- [[Galactopoiese]]
-- [[Pega adequada]]
-- [[Apojadura]]
-- [[Alimentação complementar]]
-- [[Crescimento e desenvolvimento infantil]]
-- [[Segurança alimentar e nutricional na primeira infância]]
-- [[Estado nutricional materno]]
-- [[Mamogênese]]
-- [[Puerpério]]
 ## Referências de base
 
 - World Health Organization (WHO). Protecting, promoting and supporting breastfeeding in facilities providing maternity and newborn services: guideline. Geneva: World Health Organization, 2017.

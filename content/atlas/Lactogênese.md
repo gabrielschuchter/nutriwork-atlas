@@ -108,18 +108,6 @@ Além disso, intervenções destinadas a aumentar a produção de leite devem se
 - [[Mamogênese]]
 - [[Galactopoiese]]
 - [[Leite materno]]
-- [[Colostro]]
-- [[Leite materno de transição]]
-- [[Aleitamento materno exclusivo]]
-- [[Feedback Inhibitor of Lactation (FIL)]]
-- [[Prolactina]]
-- [[Ocitocina]]
-- [[Pega adequada]]
-- [[Apojadura]]
-- [[Puerpério]]
-- [[Desmame precoce]]
-- [[Leite materno maduro]]
-- [[Ptialismo gravídico]]
 ## Referências de base
 
 - LAWRENCE, Ruth A.; LAWRENCE, Robert M. Breastfeeding: a guide for the medical profession. 9. ed. Philadelphia: Elsevier, 2022.

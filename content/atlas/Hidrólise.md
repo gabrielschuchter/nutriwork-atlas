@@ -26,16 +26,10 @@ Ensaios com enzimas comerciais ou condições extremas podem superestimar a dige
 
 ## **Conceitos relacionados**
 
+
 - [[Digestão química]]
 - [[Enzima]]
 - [[Substrato]]
-- [[Amilase salivar]]
-- [[Amilase pancreática]]
-- [[Pepsina]]
-- [[Lipase pancreática]]
-- [[Absorção]]
-- [[Fermentação]]
-
 ## **Referências de base**
 
 - Patricia JJ, Dhamoon AS. [Physiology, Digestion](https://www.ncbi.nlm.nih.gov/books/NBK544242/). StatPearls Publishing; updated 2022.

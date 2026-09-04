@@ -26,14 +26,6 @@ Nem toda resposta compensatória é benéfica indefinidamente. Mecanismos que pr
 - [[Alostase]]
 - [[Retroalimentação negativa]]
 - [[Retroalimentação positiva]]
-- [[Ponto de ajuste]]
-- [[Ritmo circadiano]]
-- [[Homeostase da glicose]]
-- [[Homeostase energética]]
-- [[Equilíbrio ácido-base]]
-- [[Osmorregulação]]
-- [[Metabolismo]]
-- [[Alosterismo]]
 ## Referências de base
 
 - Hall JE, Hall ME. Guyton and Hall Textbook of Medical Physiology. 14. ed. Philadelphia: Elsevier; 2021.

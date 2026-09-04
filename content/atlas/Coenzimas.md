@@ -26,14 +26,6 @@ O uso comercial de "coenzima" como sinônimo de composto energizante ou antienve
 - [[Enzima]]
 - [[Cofator]]
 - [[Grupo prostético]]
-- [[Vitaminas]]
-- [[NAD+]]
-- [[FAD]]
-- [[Coenzima A]]
-- [[Tiamina pirofosfato]]
-- [[Piridoxal fosfato]]
-- [[Metabolismo de um carbono]]
-- [[Catalisadores]]
 ## Referências de base
 
 - Nelson DL, Cox MM. Lehninger Principles of Biochemistry. 7. ed. New York: W.H. Freeman; 2017.

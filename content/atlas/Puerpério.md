@@ -188,17 +188,6 @@ A promoção do aleitamento deve ser acompanhada de suporte prático e respeito 
 - [[Lactogênese]]
 - [[Lactogênese II]]
 - [[Galactopoiese]]
-- [[Leite materno]]
-- [[Leite materno maduro]]
-- [[Apojadura]]
-- [[Pega adequada]]
-- [[Desmame precoce]]
-- [[Mamogênese]]
-- [[Hemorragia pós-parto]]
-- [[Depressão pós-parto]]
-- [[Diabetes mellitus gestacional]]
-- [[Ganho de peso gestacional]]
-- [[Estado nutricional materno]]
 ## Referências de base
 
 - World Health Organization (WHO). WHO recommendations on maternal and newborn care for a positive postnatal experience.

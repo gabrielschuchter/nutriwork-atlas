@@ -24,16 +24,10 @@ Intervenções que normalizam cintura ou [[Triglicerídeos|triglicerídeos]] pod
 
 ## **Conceitos relacionados**
 
+
 - [[Resistência à insulina]]
 - [[Sensibilidade à insulina]]
 - [[Triglicerídeos]]
-- [[HDL]]
-- [[LDL]]
-- [[Inflamação crônica de baixo grau]]
-- [[Balanço energético]]
-- [[Estado nutricional]]
-- [[Risco basal]]
-
 ## **Referências de base**
 
 - NCBI Bookshelf. *Metabolic Syndrome*. https://www.ncbi.nlm.nih.gov/books/NBK459248/

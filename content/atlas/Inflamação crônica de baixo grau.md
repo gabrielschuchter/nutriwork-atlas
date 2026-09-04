@@ -24,15 +24,10 @@ Suplementos que reduzem citocinas em modelos ou em ensaios curtos não demonstra
 
 ## **Conceitos relacionados**
 
+
 - [[Estresse oxidativo]]
 - [[Espécies reativas de oxigênio (EROs)]]
 - [[Resistência à insulina]]
-- [[Síndrome metabólica]]
-- [[Balanço energético]]
-- [[Lipólise]]
-- [[Antioxidantes]]
-- [[Resposta inflamatória ao exercício]]
-
 ## **Referências de base**
 
 - NCBI Bookshelf. *Metabolic Syndrome*. https://www.ncbi.nlm.nih.gov/books/NBK459248/

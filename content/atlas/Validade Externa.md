@@ -30,15 +30,6 @@ Na [[Nutrição|nutrição]] clínica, esse problema é especialmente relevante 
 - [[Validade Interna]]
 - [[Inferência Causal]]
 - [[Generalização]]
-- [[Transportabilidade]]
-- [[Aplicabilidade Clínica]]
-- [[Ensaio Clínico Randomizado]]
-- [[Estudo Pragmático]]
-- [[Estudo Explicativo]]
-- [[Prática Baseada em Evidências]]
-- [[Heterogeneidade de efeito do tratamento|Heterogeneidade de Efeito]]
-- [[População-Alvo]]
-- [[Risco de Viés]]
 ## Referências de base
 
 - Rothwell PM. External Validity of Randomised Controlled Trials. _Lancet_.

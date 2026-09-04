@@ -24,15 +24,10 @@ Associação entre estresse psicológico e obesidade não prova que cortisol sej
 
 ## **Conceitos relacionados**
 
+
 - [[Insulina]]
 - [[Glucagon]]
 - [[Adrenalina]]
-- [[Lipólise]]
-- [[Proteólise]]
-- [[Gliconeogênese]]
-- [[Resistência à insulina fisiológica na gestação]]
-- [[Homeostase]]
-
 ## **Referências de base**
 
 - NCBI Bookshelf. *Physiology, Cortisol*. https://www.ncbi.nlm.nih.gov/books/NBK538239/

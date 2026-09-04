@@ -78,18 +78,6 @@ Na prática clínica, interpretar apenas a forma da resposta pode levar a interv
 - [[Comportamento alimentar]]
 - [[Comportamento verbal]]
 - [[Classe funcional de respostas]]
-- [[Análise funcional]]
-- [[Eventos antecedentes]]
-- [[Consequência]]
-- [[Reforço]]
-- [[Punição]]
-- [[Extinção comportamental]]
-- [[Operações motivadoras]]
-- [[Behaviorismo radical]]
-- [[Análise do comportamento]]
-- [[Ontogênese]]
-- [[Seleção cultural]]
-- [[Escolhas alimentares]]
 ## Referências de base
 
 - Skinner BF. The Behavior of Organisms: An Experimental Analysis. Appleton-Century; 1938.

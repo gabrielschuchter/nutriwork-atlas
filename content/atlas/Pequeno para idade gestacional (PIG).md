@@ -148,16 +148,6 @@ Além disso, intervenções nutricionais agressivas para acelerar o crescimento 
 - [[Restrição de crescimento intrauterino]]
 - [[Grande para idade gestacional (GIG)]]
 - [[Idade gestacional]]
-- [[Peso ao nascer]]
-- [[Prematuridade]]
-- [[Crescimento fetal]]
-- [[Desenvolvimento fetal]]
-- [[Programação metabólica fetal]]
-- [[Ganho de peso gestacional]]
-- [[Hipoglicemia neonatal]]
-- [[IMC pré-gestacional]]
-- [[Data provável do parto (DPP)]]
-- [[Baixo peso ao nascer]]
 ## Referências de base
 
 - AMERICAN COLLEGE OF OBSTETRICIANS AND GYNECOLOGISTS. Fetal growth restriction: ACOG Practice Bulletin, Number 227. Obstetrics & Gynecology, v. 137, n. 2, p. e16-e28, 2021.

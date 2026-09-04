@@ -30,20 +30,10 @@ Não se deve usar saliva como substituto simples de exame clínico, [[Avaliaçã
 
 ## Conceitos relacionados
 
+
 - [[Digestão química]]
 - [[Digestão mecânica]]
 - [[Amilase salivar]]
-- [[Mucina]]
-- [[Eletrólitos]]
-- [[Deglutição]]
-- [[Capacidade Mastigatória]]
-- [[Saúde Oral]]
-- [[Papilas gustativas]]
-- [[Xerostomia]]
-- [[Hipossalivação]]
-- [[Microbiota oral]]
-- [[Hidrólise]]
-
 ## Referências de base
 
 - Dawes C et al. The functions of human saliva: a review sponsored by the World Workshop on Oral Medicine VI. *Archives of Oral Biology*. 2015;60(6):863–874. [DOI](https://doi.org/10.1016/j.archoralbio.2015.03.004). [PubMed](https://pubmed.ncbi.nlm.nih.gov/25841068/).

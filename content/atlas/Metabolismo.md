@@ -26,15 +26,6 @@ Plausibilidade metabólica não demonstra benefício clínico. Mostrar que um nu
 - [[Catabolismo]]
 - [[Anabolismo]]
 - [[Bioenergética]]
-- [[Homeostase]]
-- [[Fluxo metabólico]]
-- [[Estado redox]]
-- [[Carga energética celular]]
-- [[Compartimentalização celular]]
-- [[Flexibilidade metabólica]]
-- [[Balanço energético]]
-- [[Adaptação metabólica]]
-- [[ATP]]
 ## Referências de base
 
 - Nelson DL, Cox MM. Lehninger Principles of Biochemistry. 7. ed. New York: W.H. Freeman; 2017.

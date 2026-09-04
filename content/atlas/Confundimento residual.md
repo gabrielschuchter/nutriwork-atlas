@@ -20,7 +20,6 @@ Na literatura nutricional, esse conceito torna-se especialmente relevante quando
 - [[Confundimento]]
 - [[Viés de seleção]]
 - [[Diagrama Acíclico Direcionado (DAG)]]
-- [[Programação metabólica fetal]]
 ## Referências de base
 
 - Modern Epidemiology.

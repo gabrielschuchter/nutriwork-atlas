@@ -26,13 +26,6 @@ Resultados obtidos com [[Enzima|enzima]] purificada podem não prever efeito cel
 - [[Enzima]]
 - [[Cinética de Michaelis-Menten]]
 - [[Km]]
-- [[Vmax]]
-- [[Inibição competitiva]]
-- [[Inibição incompetitiva]]
-- [[Inibição mista]]
-- [[Inibição irreversível]]
-- [[Alosterismo]]
-- [[Interação medicamentosa]]
 ## Referências de base
 
 - Cornish-Bowden A. Fundamentals of Enzyme Kinetics. 4. ed. Weinheim: Wiley-Blackwell; 2012.

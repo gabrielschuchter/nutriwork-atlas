@@ -46,15 +46,6 @@ Existe também o risco de interpretar recomendações médias como metas rígida
 - [[Estado nutricional materno]]
 - [[Ganho de peso gestacional]]
 - [[Suplementação de ácido fólico]]
-- [[Suplementação de ferro na gestação]]
-- [[Diabetes mellitus gestacional]]
-- [[Hipertensão gestacional e nutrição]]
-- [[Programação metabólica fetal]]
-- [[Placenta]]
-- [[Saúde materno-infantil]]
-- [[Ingestão Dietética de Referência (DRI)]]
-- [[Hiperêmese gravídica]]
-- [[Restrição de crescimento intrauterino]]
 ## Referências de base
 
 - National Academies of Sciences (DRIs).

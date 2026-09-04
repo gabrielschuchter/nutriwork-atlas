@@ -26,18 +26,10 @@ Medidas de granulometria do bolo mastigado variam conforme o alimento, o protoco
 
 ## Conceitos relacionados
 
+
 - [[Digestão química]]
 - [[Capacidade Mastigatória]]
 - [[Saliva]]
-- [[Deglutição]]
-- [[Motilidade gastrointestinal]]
-- [[Peristaltismo]]
-- [[Segmentação intestinal]]
-- [[Esvaziamento gástrico]]
-- [[Disfagia]]
-- [[Absorção]]
-- [[Desnutrição relacionada à doença]]
-
 ## Referências de base
 
 - Boland M. Human digestion—a processing perspective. *Journal of the Science of Food and Agriculture*. 2016;96(7):2275–2283. [DOI](https://doi.org/10.1002/jsfa.7601). [PubMed](https://pubmed.ncbi.nlm.nih.gov/26711173/).

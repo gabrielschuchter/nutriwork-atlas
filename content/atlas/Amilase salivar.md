@@ -26,15 +26,10 @@ Não se deve usar atividade salivar isolada para classificar uma pessoa como “
 
 ## **Conceitos relacionados**
 
+
 - [[Saliva]]
 - [[Digestão química]]
 - [[Amilase pancreática]]
-- [[Amido]]
-- [[Hidrólise]]
-- [[Carboidratos]]
-- [[Mastigação]]
-- [[Resposta glicêmica]]
-
 ## **Referências de base**
 
 - Patricia JJ, Dhamoon AS. [Physiology, Digestion](https://www.ncbi.nlm.nih.gov/books/NBK544242/). StatPearls Publishing; updated 2022.

@@ -58,13 +58,6 @@ Na prática, é essencial especificar qual método foi utilizado para determinar
 - [[Lactato]]
 - [[Limiar anaeróbico]]
 - [[Máximo estado estável de lactato]]
-- [[VO₂máx]]
-- [[Glicólise]]
-- [[Fadiga muscular]]
-- [[Exercício de endurance]]
-- [[Metabolismo energético]]
-- [[Mitocôndria]]
-- [[Fermentação]]
 ## Referências de base
 
 - Faude O, Kindermann W, Meyer T. Lactate Threshold Concepts: How Valid Are They?

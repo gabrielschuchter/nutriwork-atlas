@@ -24,15 +24,10 @@ A redução de amônia após uma intervenção é um marcador de resposta aguda.
 
 ## **Conceitos relacionados**
 
+
 - [[Catabolismo de aminoácidos]]
 - [[Transaminação]]
 - [[Desaminação]]
-- [[Balanço nitrogenado]]
-- [[Ciclo de Krebs]]
-- [[Aminoácidos essenciais]]
-- [[Proteólise]]
-- [[Homeostase]]
-
 ## **Referências de base**
 
 - Barmore W, Azad F, Stone WL. *Physiology, Urea Cycle*. StatPearls, NCBI Bookshelf. https://www.ncbi.nlm.nih.gov/books/NBK513323/

@@ -66,18 +66,6 @@ Na prática clínica, conhecer a história de aprendizagem do paciente pode auxi
 - [[Filogênese]]
 - [[Seleção cultural]]
 - [[Behaviorismo radical]]
-- [[Análise do comportamento]]
-- [[Resposta comportamental]]
-- [[Classe funcional de respostas]]
-- [[Eventos antecedentes]]
-- [[Consequência]]
-- [[Reforço]]
-- [[Punição]]
-- [[Operações motivadoras]]
-- [[Condicionamento pavloviano]]
-- [[Comportamento alimentar]]
-- [[Evento apetitivo]]
-- [[Escolhas alimentares]]
 ## Referências de base
 
 - Skinner BF. Science and Human Behavior. Macmillan; 1953.

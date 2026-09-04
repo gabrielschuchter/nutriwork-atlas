@@ -26,16 +26,10 @@ Uma emulsão mais fina ou um suplemento com lipase maior pode melhorar uma etapa
 
 ## **Conceitos relacionados**
 
+
 - [[Lipase gástrica]]
 - [[Emulsificação]]
 - [[Bile]]
-- [[Sais biliares]]
-- [[Micelas]]
-- [[Triglicerídeos]]
-- [[Absorção]]
-- [[Quilomícrons]]
-- [[Colecistocinina (CCK)]]
-
 ## **Referências de base**
 
 - Patricia JJ, Dhamoon AS. [Physiology, Digestion](https://www.ncbi.nlm.nih.gov/books/NBK544242/). StatPearls Publishing; updated 2022.

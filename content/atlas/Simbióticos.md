@@ -26,15 +26,10 @@ Meta-análises que agrupam formulações diferentes podem esconder [[Heterogenei
 
 ## **Conceitos relacionados**
 
+
 - [[Probióticos]]
 - [[Prebióticos]]
 - [[Microbiota intestinal]]
-- [[Fermentação]]
-- [[Ácidos graxos de cadeia curta (AGCC)]]
-- [[Barreira intestinal]]
-- [[Fibra alimentar solúvel]]
-- [[FODMAPs]]
-
 ## **Referências de base**
 
 - Swanson KS, Gibson GR, Hutkins R, et al. [ISAPP consensus statement on the definition and scope of synbiotics](https://pubmed.ncbi.nlm.nih.gov/32826966/). Nature Reviews Gastroenterology & Hepatology. 2020;17:687-701.

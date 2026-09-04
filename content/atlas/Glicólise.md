@@ -28,18 +28,6 @@ O rendimento de [[ATP]] varia conforme o [[Substrato|substrato]] inicial, o dest
 - [[Glicose]]
 - [[Piruvato]]
 - [[Lactato]]
-- [[Fermentação]]
-- [[Fosforilação em nível de substrato]]
-- [[Ciclo de Krebs]]
-- [[Glicogênio muscular]]
-- [[Fosfofrutoquinase-1]]
-- [[Efeito Warburg]]
-- [[Limiar de lactato]]
-- [[Limiar anaeróbico]]
-- [[Sistema fosfagênio]]
-- [[Beta-alanina]]
-- [[Gliconeogênese]]
-- [[Glicose-6-fosfato]]
 ## Referências de base
 
 - Nelson DL, Cox MM. Lehninger Principles of Biochemistry. 7. ed. New York: W.H. Freeman; 2017.

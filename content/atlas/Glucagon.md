@@ -24,15 +24,10 @@ Elevação de [[Glicose|glicose]] após glucagon demonstra resposta fisiológica
 
 ## **Conceitos relacionados**
 
+
 - [[Insulina]]
 - [[Glicose]]
 - [[Glicogenólise]]
-- [[Gliconeogênese]]
-- [[Cetogênese]]
-- [[Lipólise]]
-- [[Ciclo de Cori]]
-- [[Homeostase]]
-
 ## **Referências de base**
 
 - NCBI Bookshelf. *Physiology, Glucagon*. https://www.ncbi.nlm.nih.gov/books/NBK537082/

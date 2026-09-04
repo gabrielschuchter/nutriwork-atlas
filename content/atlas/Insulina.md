@@ -24,16 +24,10 @@ Reduzir a insulina após uma dieta não prova melhora de saúde. O desfecho clí
 
 ## **Conceitos relacionados**
 
+
 - [[Glicose]]
 - [[Glucagon]]
 - [[GLP-1]]
-- [[GIP]]
-- [[Glicogênese]]
-- [[Gliconeogênese]]
-- [[Lipólise]]
-- [[Resistência à insulina fisiológica na gestação]]
-- [[Homeostase]]
-
 ## **Referências de base**
 
 - NCBI Bookshelf. *Physiology, Endocrine Hormones*. https://www.ncbi.nlm.nih.gov/books/NBK538498/

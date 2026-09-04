@@ -24,15 +24,10 @@ Estimular apetite pode elevar peso sem melhorar massa magra, força ou função.
 
 ## **Conceitos relacionados**
 
+
 - [[Anorexígeno]]
 - [[Grelina]]
 - [[Leptina]]
-- [[Insulina]]
-- [[GLP-1]]
-- [[Comportamento alimentar]]
-- [[Disponibilidade Energética]]
-- [[Desnutrição relacionada à doença]]
-
 ## **Referências de base**
 
 - Parmar RM, Can AS. *Physiology, Appetite And Weight Regulation*. https://www.ncbi.nlm.nih.gov/books/NBK574539/

@@ -24,16 +24,10 @@ Marcadores de [[Balanço nitrogenado|balanço nitrogenado]], massa magra e sínt
 
 ## **Conceitos relacionados**
 
+
 - [[Aminoácidos]]
 - [[Aminoácidos essenciais]]
 - [[Aminoácidos não essenciais]]
-- [[Proteína de alto valor biológico]]
-- [[Desnaturação proteica]]
-- [[Síntese proteica muscular]]
-- [[Proteólise]]
-- [[Balanço nitrogenado]]
-- [[Catabolismo de aminoácidos]]
-
 ## **Referências de base**
 
 - Institute of Medicine; Food and Nutrition Board. *Dietary Reference Intakes for Energy, Carbohydrate, Fiber, Fat, Fatty Acids, Cholesterol, Protein, and Amino Acids*. https://www.nationalacademies.org/publications/10490

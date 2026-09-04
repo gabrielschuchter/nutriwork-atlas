@@ -26,17 +26,10 @@ Ensaios com acetato, propionato ou butirato isolados não são equivalentes a au
 
 ## **Conceitos relacionados**
 
+
 - [[Microbiota intestinal]]
 - [[Fermentação]]
 - [[Fibra alimentar solúvel]]
-- [[Prebióticos]]
-- [[Probióticos]]
-- [[Simbióticos]]
-- [[Mucina]]
-- [[Barreira intestinal]]
-- [[FODMAPs]]
-- [[Bile]]
-
 ## **Referências de base**
 
 - Koh A, De Vadder F, Kovatcheva-Datchary P, Bäckhed F. From dietary fiber to host physiology: short-chain fatty acids as key bacterial metabolites. Cell. 2016;165:1332-1345. https://doi.org/10.1016/j.cell.2016.05.041.

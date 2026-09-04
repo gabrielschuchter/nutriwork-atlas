@@ -24,15 +24,10 @@ O termo pode ser usado de modo impreciso em marketing, confundindo complexação
 
 ## **Conceitos relacionados**
 
+
 - [[Biodisponibilidade]]
 - [[Ferro heme]]
 - [[Ferro não heme]]
-- [[Vitaminas]]
-- [[Cofator]]
-- [[Absorção]]
-- [[Transporte ativo]]
-- [[Eletrólitos]]
-
 ## **Referências de base**
 
 - National Institutes of Health, Office of Dietary Supplements. *Iron: Fact Sheet for Health Professionals*. https://ods.od.nih.gov/factsheets/Iron-HealthProfessional/

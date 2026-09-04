@@ -24,16 +24,10 @@ Dietas cetogênicas produzem respostas heterogêneas e podem exigir monitorament
 
 ## **Conceitos relacionados**
 
+
 - [[Lipólise]]
 - [[Beta-oxidação]]
 - [[Ciclo da carnitina]]
-- [[Cetólise]]
-- [[Gliconeogênese]]
-- [[Insulina]]
-- [[Glucagon]]
-- [[Ácidos graxos]]
-- [[Respiração celular]]
-
 ## **Referências de base**
 
 - NCBI Bookshelf. *Biochemistry, Ketone Metabolism*. https://www.ncbi.nlm.nih.gov/books/NBK554523/

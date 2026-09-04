@@ -24,16 +24,10 @@ Classificar um alimento pelo monossacarídeo predominante não informa sua respo
 
 ## **Conceitos relacionados**
 
+
 - [[Glicose]]
 - [[Frutose]]
 - [[Galactose]]
-- [[Dissacarídeos]]
-- [[Transporte de glicose (SGLT1)]]
-- [[GLUT2]]
-- [[GLUT5]]
-- [[Absorção]]
-- [[Carboidratos]]
-
 ## **Referências de base**
 
 - NCBI Bookshelf. *Physiology, Digestion*. https://www.ncbi.nlm.nih.gov/books/NBK544242/

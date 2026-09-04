@@ -44,15 +44,6 @@ Além disso, a distinção entre mediador e [[Colisor (Collider Bias)|Colisor]] 
 - [[Inferência Causal]]
 - [[Fator de Confusão]]
 - [[Colisor (Collider Bias)]]
-- [[Viés de Confundimento]]
-- [[Epidemiologia Nutricional]]
-- [[Modelo Contrafactual]]
-- [[Plausibilidade Biológica]]
-- [[Desfecho substituto]]
-- [[Causalidade de Bradford Hill]]
-- [[Validade Interna]]
-- [[Associação]]
-- [[Causalidade]]
 ## Referências de base
 
 - VanderWeele TJ. Explanation in Causal Inference: Methods for Mediation and Interaction.

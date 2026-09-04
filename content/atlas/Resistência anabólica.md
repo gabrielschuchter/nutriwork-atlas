@@ -20,13 +20,6 @@ Outra limitação é a extrapolação excessiva de estudos mecanísticos para re
 - [[Síntese proteica muscular]]
 - [[Sarcopenia]]
 - [[Caquexia]]
-- [[Obesidade sarcopênica]]
-- [[Anabolismo]]
-- [[Catabolismo]]
-- [[Proteólise]]
-- [[Disponibilidade Energética]]
-- [[Janela anabólica]]
-- [[Leucina]]
 ## Referências de base
 
 - ESPEN Guideline on Clinical Nutrition and Hydration in Geriatrics.

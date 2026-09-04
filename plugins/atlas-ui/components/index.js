@@ -192,7 +192,7 @@ html[data-atlas-access="locked"] .atlas-frame {
   touch-action: manipulation;
   visibility: visible;
   z-index: 10000;
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(12px);
 }
 
 html[data-atlas-access="unlocked"] #atlas-access {
@@ -473,8 +473,8 @@ html[data-atlas-access="unlocked"] #atlas-access {
 }
 
 #atlas-preview {
-  -webkit-backdrop-filter: blur(26px) saturate(148%);
-  backdrop-filter: blur(26px) saturate(148%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  backdrop-filter: blur(18px) saturate(140%);
   background: linear-gradient(145deg, rgba(255, 255, 255, .075), transparent 46%), var(--atlas-glass, rgba(7, 16, 35, .4));
   border: 1px solid var(--atlas-glass-line, rgba(220, 235, 255, .16));
   border-radius: 18px;
@@ -578,8 +578,8 @@ html[data-atlas-access="unlocked"] #atlas-access {
 }
 
 .atlas-onboarding-card {
-  -webkit-backdrop-filter: blur(28px) saturate(145%);
-  backdrop-filter: blur(28px) saturate(145%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  backdrop-filter: blur(20px) saturate(140%);
   background: linear-gradient(145deg, rgba(255, 255, 255, .075), transparent 46%), var(--atlas-glass-strong, rgba(7, 16, 35, .58));
   border: 1px solid var(--atlas-glass-line, rgba(220, 235, 255, .16));
   border-radius: 24px;
@@ -737,8 +737,8 @@ html[data-atlas-access="unlocked"] #atlas-access {
 }
 
 .atlas-help-card {
-  -webkit-backdrop-filter: blur(28px) saturate(150%);
-  backdrop-filter: blur(28px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  backdrop-filter: blur(20px) saturate(140%);
   background: linear-gradient(145deg, rgba(255, 255, 255, .1), transparent 48%), var(--atlas-glass-strong, rgba(7, 16, 35, .62));
   border: 1px solid var(--atlas-glass-line, rgba(220, 235, 255, .17));
   border-radius: 22px;
@@ -874,6 +874,7 @@ html[data-atlas-access="unlocked"] #atlas-access {
 
 #atlas-report {
   align-items: center;
+  box-sizing: border-box;
   display: flex;
   inset: 0;
   justify-content: center;
@@ -907,19 +908,22 @@ html[data-atlas-access="unlocked"] #atlas-access {
 }
 
 .atlas-report-card {
-  -webkit-backdrop-filter: blur(28px) saturate(150%);
-  backdrop-filter: blur(28px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  backdrop-filter: blur(20px) saturate(140%);
   background: linear-gradient(145deg, rgba(255, 255, 255, .1), transparent 48%), var(--atlas-glass-strong, rgba(7, 16, 35, .62));
   border: 1px solid var(--atlas-glass-line, rgba(220, 235, 255, .17));
   border-radius: 22px;
+  box-sizing: border-box;
   box-shadow: var(--atlas-glass-shadow, 0 24px 90px rgba(0, 0, 0, .36));
   color: #F5F7FF;
-  max-width: 27rem;
-  padding: 1.25rem;
+  max-height: calc(var(--atlas-visual-height, 100dvh) - var(--atlas-safe-top, env(safe-area-inset-top, 0px)) - var(--atlas-safe-bottom, env(safe-area-inset-bottom, 0px)) - 1rem);
+  max-width: 25rem;
+  overflow: auto;
+  padding: 1.25rem 1.35rem 1.35rem;
   position: relative;
   transform: translateY(8px) scale(.975);
   transition: transform 300ms cubic-bezier(.22, .8, .2, 1);
-  width: min(100%, 27rem);
+  width: min(100%, 25rem);
 }
 
 #atlas-report.is-open .atlas-report-card {
@@ -929,7 +933,9 @@ html[data-atlas-access="unlocked"] #atlas-access {
 .atlas-report-header {
   align-items: center;
   display: flex;
+  gap: 1rem;
   justify-content: space-between;
+  margin-bottom: .9rem;
 }
 
 .atlas-report-kicker {
@@ -949,11 +955,11 @@ html[data-atlas-access="unlocked"] #atlas-access {
   color: #C8D2E5;
   cursor: pointer;
   display: inline-flex;
-  font-size: 1.35rem;
-  height: 2.2rem;
+  font-size: 1.2rem;
+  height: 2rem;
   justify-content: center;
   line-height: 1;
-  width: 2.2rem;
+  width: 2rem;
 }
 
 .atlas-report-close:hover,
@@ -964,14 +970,16 @@ html[data-atlas-access="unlocked"] #atlas-access {
 }
 
 .atlas-report-card h2 {
-  font-size: clamp(1.45rem, 5vw, 2rem);
+  color: var(--atlas-ink, #F5F7FF);
+  font-size: clamp(1.35rem, 4vw, 1.7rem);
   letter-spacing: -.035em;
-  line-height: 1.1;
-  margin: 1.2rem 0 .45rem;
+  line-height: 1.12;
+  margin: 0 0 .5rem;
 }
 
 .atlas-report-copy {
   color: #C8D2E5;
+  font-size: .9rem;
   line-height: 1.5;
   margin: 0;
 }
@@ -982,20 +990,24 @@ html[data-atlas-access="unlocked"] #atlas-access {
 }
 
 .atlas-report-link {
+  align-items: center;
   background: #1263FF;
   border: 1px solid #1263FF;
   border-radius: 999px;
+  box-sizing: border-box;
   color: white;
   display: inline-flex;
+  font-size: .84rem;
   font-weight: 700;
   justify-content: center;
-  margin-top: 1.25rem;
-  min-height: 2.75rem;
-  padding: .7rem 1rem;
+  margin-top: 1.15rem;
+  min-height: 2.6rem;
+  max-width: 100%;
+  padding: .62rem 1rem;
   text-align: center;
   text-decoration: none;
   transition: background-color 160ms ease, border-color 160ms ease, transform 160ms ease;
-  width: 100%;
+  width: auto;
 }
 
 .atlas-report-link:hover,
@@ -1128,8 +1140,8 @@ html[data-atlas-access="unlocked"] #atlas-access {
 }
 
 .atlas-mobile-sheet-card {
-  -webkit-backdrop-filter: blur(24px) saturate(145%);
-  backdrop-filter: blur(24px) saturate(145%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  backdrop-filter: blur(18px) saturate(140%);
   background: linear-gradient(145deg, rgba(255, 255, 255, .1), transparent 48%), var(--atlas-glass-strong, rgba(7, 16, 35, .8));
   border: 1px solid var(--atlas-glass-line, rgba(220, 235, 255, .18));
   border-radius: 26px 26px 20px 20px;

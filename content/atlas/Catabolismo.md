@@ -54,17 +54,6 @@ Outro equívoco comum é atribuir ao [[Cortisol]] isoladamente a perda muscular.
 - [[Anabolismo]]
 - [[Metabolismo]]
 - [[Proteólise]]
-- [[Lipólise]]
-- [[Glicogenólise]]
-- [[Beta-oxidação]]
-- [[Cortisol]]
-- [[Glucagon]]
-- [[Adrenalina]]
-- [[Disponibilidade Energética]]
-- [[Caquexia]]
-- [[Balanço nitrogenado]]
-- [[Janela anabólica]]
-- [[Síntese proteica muscular]]
 ## Referências de base
 
 - Guyton & Hall. Textbook of Medical Physiology.

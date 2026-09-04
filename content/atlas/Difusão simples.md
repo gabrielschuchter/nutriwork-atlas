@@ -26,15 +26,10 @@ A ideia de que aumentar dose sempre aumenta [[Absorção|absorção]] falha quan
 
 ## **Conceitos relacionados**
 
+
 - [[Difusão facilitada]]
 - [[Transporte ativo]]
 - [[Osmose]]
-- [[Cotransporte]]
-- [[Membrana plasmática]]
-- [[Absorção]]
-- [[Biodisponibilidade]]
-- [[Micelas]]
-
 ## **Referências de base**
 
 - Boron WF, Boulpaep EL. [Medical Physiology, 3rd edition](https://www.us.elsevierhealth.com/medical-physiology-9781455743773.html). Elsevier; 2017.

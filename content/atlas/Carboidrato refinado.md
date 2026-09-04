@@ -24,15 +24,10 @@ Intervenções com substituição de cereais integrais podem melhorar marcadores
 
 ## **Conceitos relacionados**
 
+
 - [[Carboidrato integral]]
 - [[Carboidrato complexo]]
 - [[Carboidrato simples]]
-- [[Amido]]
-- [[Índice glicêmico]]
-- [[Fibra alimentar]]
-- [[Polissacarídeos]]
-- [[Amilase pancreática]]
-
 ## **Referências de base**
 
 - World Health Organization. *Carbohydrate intake for adults and children: WHO guideline*. https://www.who.int/publications/i/item/9789240073593

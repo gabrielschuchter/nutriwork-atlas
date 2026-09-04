@@ -44,12 +44,6 @@ Na prática clínica, diferenciar hiponatremia de desidratação é essencial, p
 - [[Hidratação]]
 - [[Eletrólitos]]
 - [[Sódio]]
-- [[Hormônio antidiurético (ADH)]]
-- [[Desidratação]]
-- [[Exercício de endurance]]
-- [[Equilíbrio hídrico]]
-- [[Osmolalidade]]
-- [[Nutrição esportiva]]
 ## Referências de base
 
 - International Olympic Committee (IOC). Consensus Statement on Dietary Supplements and the High-Performance Athlete.

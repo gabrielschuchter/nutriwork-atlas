@@ -26,16 +26,10 @@ A ideia de bloquear GLUT2 para controlar glicemia é uma hipótese farmacológic
 
 ## **Conceitos relacionados**
 
+
 - [[Difusão facilitada]]
 - [[Transporte de glicose (SGLT1)]]
 - [[GLUT5]]
-- [[Insulina]]
-- [[Glicose]]
-- [[Galactose]]
-- [[Frutose]]
-- [[Absorção]]
-- [[Glicogênese]]
-
 ## **Referências de base**
 
 - Mueckler M, Thorens B. The SLC2 (GLUT) family of membrane transporters. Molecular Aspects of Medicine. 2013;34:121-138. https://doi.org/10.1016/j.mam.2012.07.001.

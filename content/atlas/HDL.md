@@ -24,15 +24,10 @@ Ensaios de função de HDL são majoritariamente experimentais e não têm padro
 
 ## **Conceitos relacionados**
 
+
 - [[Lipoproteínas]]
 - [[LDL]]
 - [[VLDL]]
-- [[Triglicerídeos]]
-- [[Colesterol]]
-- [[Fosfolipídios]]
-- [[Ácidos graxos insaturados]]
-- [[Risco basal]]
-
 ## **Referências de base**
 
 - Feingold KR. *Introduction to Lipids and Lipoproteins*. Endotext, NCBI Bookshelf. https://www.ncbi.nlm.nih.gov/books/NBK305896/

@@ -24,17 +24,10 @@ Categorias contínuas cortadas em pontos arbitrários podem perder informação.
 
 ## **Conceitos relacionados**
 
+
 - [[Teste de interação]]
 - [[Modificador de efeito]]
 - [[Heterogeneidade]]
-- [[Heterogeneidade de efeito do tratamento]]
-- [[Significância Estatística]]
-- [[Valor de p]]
-- [[Randomização]]
-- [[Validade Interna]]
-- [[Validade Externa]]
-- [[Risco basal]]
-
 ## **Referências de base**
 
 - Cochrane Collaboration. *Cochrane Handbook for Systematic Reviews of Interventions*, Chapter 10. https://training.cochrane.org/handbook/current/chapter-10

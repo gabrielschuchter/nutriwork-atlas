@@ -24,16 +24,10 @@ Intervalos mal calibrados podem surgir de modelos inadequados, múltiplas compar
 
 ## **Conceitos relacionados**
 
+
 - [[Valor de p]]
 - [[Significância Estatística]]
 - [[Clinicamente relevante]]
-- [[Risco Relativo]]
-- [[Razão de Chances]]
-- [[Hazard ratio]]
-- [[Amostra]]
-- [[Heterogeneidade]]
-- [[Viés]]
-
 ## **Referências de base**
 
 - Cochrane Collaboration. *Cochrane Handbook for Systematic Reviews of Interventions*, Chapter 6. https://training.cochrane.org/handbook/current/chapter-06

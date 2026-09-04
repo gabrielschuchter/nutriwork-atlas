@@ -44,11 +44,6 @@ Embora aumente a capacidade tamponante muscular, isso não significa que elimine
 - [[Carnosina]]
 - [[Sistema fosfagênio]]
 - [[Glicólise]]
-- [[Fadiga muscular]]
-- [[Lactato]]
-- [[Bioenergética]]
-- [[Cafeína]]
-- [[Nutrição esportiva]]
 ## Referências de base
 
 - International Society of Sports Nutrition. Position Stand: Beta-Alanine.

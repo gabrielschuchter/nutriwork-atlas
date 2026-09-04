@@ -50,16 +50,6 @@ Na prática clínica, promover anabolismo depende não apenas da oferta nutricio
 - [[Catabolismo]]
 - [[Metabolismo]]
 - [[Bioenergética]]
-- [[ATP]]
-- [[Síntese proteica muscular]]
-- [[Proteólise]]
-- [[Balanço nitrogenado]]
-- [[Insulina]]
-- [[mTORC1]]
-- [[Hipertrofia muscular]]
-- [[Disponibilidade Energética]]
-- [[Glicogênese]]
-- [[Janela anabólica]]
 ## Referências de base
 
 - Murray RK, et al. Harper's Illustrated Biochemistry.

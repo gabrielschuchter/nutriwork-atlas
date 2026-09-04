@@ -24,15 +24,10 @@ Ensaios de megadose em pessoas sem deficiência frequentemente não reproduzem o
 
 ## **Conceitos relacionados**
 
+
 - [[Vitaminas]]
 - [[Vitaminas lipossolúveis]]
 - [[Cofator]]
-- [[Coenzimas]]
-- [[Biodisponibilidade]]
-- [[Transaminação]]
-- [[Glicólise]]
-- [[Ciclo de Krebs]]
-
 ## **Referências de base**
 
 - National Institutes of Health, Office of Dietary Supplements. *Vitamin and Mineral Fact Sheets*. https://ods.od.nih.gov/factsheets/list-VitaminsMinerals/

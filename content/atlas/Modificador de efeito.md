@@ -32,15 +32,6 @@ Existe ainda uma tendência crescente de utilizar achados exploratórios para ju
 - [[Heterogeneidade de efeito do tratamento]]
 - [[Interação Estatística]]
 - [[Confundimento]]
-- [[Inferência Causal]]
-- [[Análise de Subgrupos]]
-- [[Validade Externa]]
-- [[Nutrição de Precisão]]
-- [[Medicina Personalizada]]
-- [[Ensaio Clínico Randomizado]]
-- [[Efeito Médio do Tratamento]]
-- [[Propensity Score]]
-- [[Prática Baseada em Evidências]]
 ## Referências de base
 
 Rothman KJ, Greenland S, Lash TL. Modern Epidemiology.

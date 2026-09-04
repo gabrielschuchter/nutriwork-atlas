@@ -58,18 +58,6 @@ Além disso, o behaviorismo radical constitui uma entre várias tradições teó
 - [[Análise do comportamento]]
 - [[Comportamento alimentar]]
 - [[Comportamento verbal]]
-- [[Resposta comportamental]]
-- [[Eventos antecedentes]]
-- [[Consequência]]
-- [[Reforço]]
-- [[Punição]]
-- [[Operações motivadoras]]
-- [[Classe funcional de respostas]]
-- [[Ontogênese]]
-- [[Filogênese]]
-- [[Seleção cultural]]
-- [[Análise funcional]]
-- [[Extinção comportamental]]
 ## Referências de base
 
 - Skinner BF. Science and Human Behavior. New York: Macmillan; 1953.

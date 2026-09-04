@@ -24,15 +24,10 @@ Exames indiretos não quantificam toda a carga de EROs. Amostras, armazenamento,
 
 ## **Conceitos relacionados**
 
+
 - [[Estresse oxidativo]]
 - [[Antioxidantes]]
 - [[Respiração celular]]
-- [[Cadeia transportadora de elétrons]]
-- [[Fosforilação oxidativa]]
-- [[Via das pentoses-fosfato]]
-- [[Inflamação crônica de baixo grau]]
-- [[Resposta inflamatória ao exercício]]
-
 ## **Referências de base**
 
 - Stone WL, Pham T, Mohiuddin SS. *Biochemistry, Antioxidants*. https://www.ncbi.nlm.nih.gov/books/NBK541064/

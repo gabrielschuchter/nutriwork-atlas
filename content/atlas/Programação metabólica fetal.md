@@ -60,18 +60,6 @@ A literatura apoia a existência do fenômeno, mas a relevância quantitativa de
 - [[Estado nutricional materno]]
 - [[Necessidades nutricionais na gestação]]
 - [[Ganho de peso gestacional]]
-- [[Diabetes mellitus gestacional]]
-- [[Hipertensão gestacional e nutrição]]
-- [[Restrição de crescimento intrauterino]]
-- [[Baixo peso ao nascer]]
-- [[Epigenética nutricional]]
-- [[DOHaD]]
-- [[Confundimento]]
-- [[Resistência à insulina fisiológica na gestação]]
-- [[Pequeno para idade gestacional (PIG)]]
-- [[Grande para idade gestacional (GIG)]]
-- [[Obesidade infantil]]
-- [[Crescimento e desenvolvimento infantil]]
 ## Referências de base
 
 - Barker DJP. Publicações originais sobre DOHaD.

@@ -24,15 +24,10 @@ Intervenções com melhora do marcador podem agir por perda de peso, exercício,
 
 ## **Conceitos relacionados**
 
+
 - [[Resistência à insulina]]
 - [[Insulina]]
 - [[Glicose]]
-- [[Glicogênese]]
-- [[Lipólise]]
-- [[Balanço energético]]
-- [[Síndrome metabólica]]
-- [[Resistência à insulina fisiológica na gestação]]
-
 ## **Referências de base**
 
 - NCBI Bookshelf. *Insulin Resistance*. https://www.ncbi.nlm.nih.gov/books/NBK507839/

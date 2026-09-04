@@ -26,16 +26,10 @@ Estudos curtos podem detectar mudança de fezes ou gases sem informar efeitos su
 
 ## **Conceitos relacionados**
 
+
 - [[Microbiota intestinal]]
 - [[Probióticos]]
 - [[Simbióticos]]
-- [[Fibra alimentar]]
-- [[Fermentação]]
-- [[Ácidos graxos de cadeia curta (AGCC)]]
-- [[FODMAPs]]
-- [[Mucina]]
-- [[Barreira intestinal]]
-
 ## **Referências de base**
 
 - Gibson GR, Hutkins R, Sanders ME, et al. [ISAPP consensus statement on the definition and scope of prebiotics](https://pubmed.ncbi.nlm.nih.gov/28611480/). Nature Reviews Gastroenterology & Hepatology. 2017;14:491-502.

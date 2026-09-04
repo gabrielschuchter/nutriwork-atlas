@@ -54,18 +54,6 @@ Por fim, muitos suplementos comercializados alegam aumentar a SPM com base em es
 - [[Anabolismo]]
 - [[Catabolismo]]
 - [[Proteólise]]
-- [[Turnover proteico]]
-- [[Balanço nitrogenado]]
-- [[Hipertrofia muscular]]
-- [[Resistência anabólica]]
-- [[Leucina]]
-- [[BCAA]]
-- [[Aminoácidos essenciais]]
-- [[mTORC1]]
-- [[Janela anabólica]]
-- [[Exercício resistido]]
-- [[Disponibilidade Energética]]
-- [[Desfecho substituto]]
 ## Referências de base
 
 - International Society of Sports Nutrition (ISSN). Position Stand: Protein and Exercise.

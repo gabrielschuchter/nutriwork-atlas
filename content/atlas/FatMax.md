@@ -72,13 +72,6 @@ Além disso, muitos estudos avaliam apenas oxidação de gordura durante uma ses
 - [[VO₂máx]]
 - [[Flexibilidade metabólica]]
 - [[Beta-oxidação]]
-- [[Lipólise]]
-- [[Glicogênio muscular]]
-- [[Balanço energético]]
-- [[Exercício aeróbio]]
-- [[Oxidação de gorduras]]
-- [[Carboidratos]]
-- [[Metabolismo energético]]
 ## Referências de base
 
 - Achten J, Jeukendrup AE. Maximal Fat Oxidation During Exercise ("Fatmax").

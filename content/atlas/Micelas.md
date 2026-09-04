@@ -26,16 +26,10 @@ Produtos que prometem “micelização” de um suplemento podem melhorar dissol
 
 ## **Conceitos relacionados**
 
+
 - [[Bile]]
 - [[Sais biliares]]
 - [[Emulsificação]]
-- [[Lipase pancreática]]
-- [[Absorção]]
-- [[Lipídios]]
-- [[Vitaminas lipossolúveis]]
-- [[Quilomícrons]]
-- [[Biodisponibilidade]]
-
 ## **Referências de base**
 
 - NCBI Bookshelf. [Physiology, Nutrient Absorption](https://www.ncbi.nlm.nih.gov/books/NBK597379/). StatPearls Publishing; updated 2025.

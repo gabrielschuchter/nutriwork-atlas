@@ -26,15 +26,10 @@ Suplementos enzimáticos precisam de evidência para a indicação específica. 
 
 ## **Conceitos relacionados**
 
+
 - [[Tripsina]]
 - [[Quimotripsina]]
 - [[Pepsina]]
-- [[Proteólise]]
-- [[Proteínas]]
-- [[Hidrólise]]
-- [[Absorção]]
-- [[Insuficiência pancreática]]
-
 ## **Referências de base**
 
 - Patricia JJ, Dhamoon AS. [Physiology, Digestion](https://www.ncbi.nlm.nih.gov/books/NBK544242/). StatPearls Publishing; updated 2022.

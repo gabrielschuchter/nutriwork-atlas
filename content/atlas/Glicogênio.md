@@ -24,15 +24,10 @@ Maior [[Glicogênio muscular|glicogênio muscular]] pode melhorar uma tarefa esp
 
 ## **Conceitos relacionados**
 
+
 - [[Polissacarídeos]]
 - [[Glicogênese]]
 - [[Glicogenólise]]
-- [[Glicogênio muscular]]
-- [[Glicose-6-fosfato]]
-- [[Gliconeogênese]]
-- [[Ciclo de Cori]]
-- [[Disponibilidade Energética]]
-
 ## **Referências de base**
 
 - Guyton and Hall. *Textbook of Medical Physiology*, 14th ed. Elsevier. https://www.us.elsevierhealth.com/guyton-and-hall-textbook-of-medical-physiology-9780323640060.html

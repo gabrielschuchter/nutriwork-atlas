@@ -26,16 +26,10 @@ Também é inadequado inferir seletividade clínica a partir de uma única conce
 
 ## **Conceitos relacionados**
 
+
 - [[Enzima]]
 - [[Substrato]]
 - [[Sítio alostérico]]
-- [[Alosterismo]]
-- [[Km]]
-- [[Vmax]]
-- [[Inibição competitiva]]
-- [[Cofator]]
-- [[Regulação enzimática]]
-
 ## **Referências de base**
 
 - Kennelly PJ, Botham KM, McGuinness O, Rodwell VW, Weil PA. [Harper's Illustrated Biochemistry, 32nd edition](https://accessmedicine.mhmedical.com/content.aspx?bookId=3220&sectionId=268188332). McGraw Hill; 2023.

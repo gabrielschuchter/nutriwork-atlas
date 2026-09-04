@@ -24,17 +24,10 @@ Randomização não resolve falta de representatividade, baixa adesão, [[Cegame
 
 ## **Conceitos relacionados**
 
+
 - [[Cegamento]]
 - [[Amostra]]
 - [[População]]
-- [[Validade Interna]]
-- [[Validade Externa]]
-- [[Confundimento]]
-- [[Viés de seleção]]
-- [[Efetivo]]
-- [[Eficaz]]
-- [[Intervalo de Confiança]]
-
 ## **Referências de base**
 
 - Schulz KF, Altman DG, Moher D. *CONSORT 2010 Statement: updated guidelines for reporting parallel group randomised trials*. BMJ. https://www.bmj.com/content/340/bmj.c332

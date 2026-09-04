@@ -20,9 +20,6 @@ Outra controvérsia envolve a persistência temporal do fenômeno. Alguns estudo
 - [[Adaptação metabólica]]
 - [[Flexibilidade metabólica]]
 - [[Particionamento energético]]
-- [[Disponibilidade Energética]]
-- [[Metabolismo]]
-- [[Homeostase]]
 ## Referências de base
 
 - Hall KD, Kahan S. Maintenance of Lost Weight and Long-Term Management of Obesity. Medical Clinics of North America. 2018.

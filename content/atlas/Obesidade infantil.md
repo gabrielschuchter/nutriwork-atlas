@@ -184,17 +184,6 @@ A evidência sustenta que intervenções familiares e multicomponentes podem mel
 - [[Índice de massa corporal (IMC) para idade]]
 - [[Escore Z de crescimento infantil]]
 - [[Excesso de peso infantil]]
-- [[Crescimento infantil]]
-- [[Resistência à insulina]]
-- [[Síndrome metabólica]]
-- [[Tecido adiposo]]
-- [[Programação metabólica fetal]]
-- [[Grande para idade gestacional (GIG)]]
-- [[Diabetes mellitus gestacional]]
-- [[Ambiente alimentar]]
-- [[Alimentos ultraprocessados]]
-- [[Atividade física na infância]]
-- [[Sono infantil]]
 ## Referências de base
 
 - World Health Organization (WHO). WHO Child Growth Standards. 2006.

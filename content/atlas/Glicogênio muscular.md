@@ -46,15 +46,6 @@ Além disso, protocolos de restrição deliberada de [[Carboidratos|carboidratos
 - [[Glicogênio]]
 - [[Glicogênese]]
 - [[Glicogenólise]]
-- [[Carboidratos]]
-- [[Glicólise]]
-- [[Supercompensação de glicogênio]]
-- [[Disponibilidade Energética]]
-- [[Fadiga muscular]]
-- [[Insulina]]
-- [[Nutrição esportiva]]
-- [[Carga glicêmica]]
-- [[FatMax]]
 ## Referências de base
 
 

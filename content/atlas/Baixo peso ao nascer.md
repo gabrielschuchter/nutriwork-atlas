@@ -46,13 +46,6 @@ Além disso, nem todas as associações observadas entre BPN e doenças futuras 
 - [[Restrição de crescimento intrauterino]]
 - [[Prematuridade e nutrição]]
 - [[Programação metabólica fetal]]
-- [[Estado nutricional materno]]
-- [[Ganho de peso gestacional]]
-- [[Pequeno para idade gestacional (PIG)]]
-- [[Saúde materno-infantil]]
-- [[Crescimento e desenvolvimento infantil]]
-- [[Antropometria]]
-- [[Suplementação de ferro na gestação]]
 ## Referências de base
 
 - WHO — Low Birth Weight Policy Brief.

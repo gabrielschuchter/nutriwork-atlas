@@ -150,15 +150,6 @@ A questão central não é apenas “detectar mais alterações”, mas determin
 - [[Diabetes mellitus gestacional]]
 - [[Resistência à insulina fisiológica na gestação]]
 - [[Resistência à insulina]]
-- [[Insulina]]
-- [[Homeostase da glicose|Homeostase glicêmica]]
-- [[Hiperglicemia materna]]
-- [[Grande para idade gestacional (GIG)]]
-- [[Macrossomia fetal]]
-- [[Programação metabólica fetal]]
-- [[Ganho de peso gestacional]]
-- [[Estado nutricional materno]]
-- [[Curva glicêmica]]
 ## Referências de base
 
 - Hyperglycemia and Adverse Pregnancy Outcome (HAPO) Study Cooperative Research Group. Hyperglycemia and adverse pregnancy outcomes. New England Journal of Medicine. 2008.

@@ -24,16 +24,10 @@ Uma intervenção pode reduzir mortalidade por uma causa e aumentar outra sem al
 
 ## **Conceitos relacionados**
 
+
 - [[Morbidade]]
 - [[Porcento]]
 - [[Pontos percentuais]]
-- [[Risco Relativo]]
-- [[Hazard ratio]]
-- [[Intervalo de Confiança]]
-- [[População]]
-- [[Risco basal]]
-- [[Clinicamente relevante]]
-
 ## **Referências de base**
 
 - Bonita R, Beaglehole R, Kjellström T. *Basic epidemiology*, 2nd ed. Geneva: World Health Organization; 2006. https://iris.who.int/handle/10665/43541

@@ -76,16 +76,6 @@ Finalmente, em muitos comportamentos relacionados à alimentação, identificar 
 - [[Reforço]]
 - [[Consequência reforçadora]]
 - [[Punição]]
-- [[Consequência punitiva]]
-- [[Resposta comportamental]]
-- [[Classe funcional de respostas]]
-- [[Análise funcional]]
-- [[Operações motivadoras]]
-- [[Eventos antecedentes]]
-- [[Comportamento alimentar]]
-- [[Behaviorismo radical]]
-- [[Análise do comportamento]]
-- [[Condicionamento pavloviano]]
 ## Referências de base
 
 - Skinner BF. The Behavior of Organisms: An Experimental Analysis. Appleton-Century; 1938.

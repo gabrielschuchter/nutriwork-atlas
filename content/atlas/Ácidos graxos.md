@@ -24,16 +24,10 @@ Ensaios dietéticos frequentemente substituem um nutriente por outro, e esse con
 
 ## **Conceitos relacionados**
 
+
 - [[Ácidos graxos saturados]]
 - [[Ácidos graxos insaturados]]
 - [[Ácidos graxos trans]]
-- [[Triglicerídeos]]
-- [[Fosfolipídios]]
-- [[Lipólise]]
-- [[Beta-oxidação]]
-- [[Ômega-3]]
-- [[Ômega-6]]
-
 ## **Referências de base**
 
 - Institute of Medicine; Food and Nutrition Board. *Dietary Reference Intakes for Energy, Carbohydrate, Fiber, Fat, Fatty Acids, Cholesterol, Protein, and Amino Acids*. https://www.nationalacademies.org/publications/10490

@@ -48,15 +48,6 @@ Na [[Nutrição|nutrição]] clínica, abordagens baseadas predominantemente em 
 - [[Consequência]]
 - [[Punição]]
 - [[Consequência reforçadora]]
-- [[Reforço]]
-- [[Evento aversivo]]
-- [[Resposta comportamental]]
-- [[Operações motivadoras]]
-- [[Eventos antecedentes]]
-- [[Análise do comportamento]]
-- [[Behaviorismo radical]]
-- [[Análise funcional]]
-- [[Extinção comportamental]]
 ## Referências de base
 
 - Skinner BF. Science and Human Behavior. Macmillan; 1953.

@@ -26,17 +26,10 @@ A constância do [[Km|Km]] no modelo não equivale à preservação da afinidade
 
 ## **Conceitos relacionados**
 
+
 - [[Inibição enzimática]]
 - [[Inibição competitiva]]
 - [[Inibição incompetitiva]]
-- [[Inibição mista]]
-- [[Enzima]]
-- [[Substrato]]
-- [[Km]]
-- [[Vmax]]
-- [[Alosterismo]]
-- [[Sítio alostérico]]
-
 ## **Referências de base**
 
 - NCBI Bookshelf. [Biochemistry, Proteins Enzymes](https://www.ncbi.nlm.nih.gov/books/NBK554481/). StatPearls Publishing; updated 2023 Apr 24.

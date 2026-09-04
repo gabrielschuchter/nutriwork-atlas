@@ -25,6 +25,7 @@
   const EMPTY_DASH = []
   const DEVELOPMENT_DASH = [3, 4]
   const GRAPH_FONT = "600 12px Poppins, Arial, sans-serif"
+  const PHYSICS_DRAW_INTERVAL = 1000 / 30
   let darkTheme = document.documentElement.dataset.theme !== "light"
 
   let storedLayout = readSession(layoutKey)
@@ -206,7 +207,7 @@
     const previousWidth = state.width
     const previousHeight = state.height
     const measured = measureDimensions(state)
-    const ratio = Math.min(2, Math.max(1, window.devicePixelRatio || 1))
+    const ratio = Math.min(1.5, Math.max(1, window.devicePixelRatio || 1))
     const sizeChanged =
       Math.abs(measured.width - previousWidth) > 0.01 ||
       Math.abs(measured.height - previousHeight) > 0.01
@@ -501,6 +502,7 @@
     ctx.font = GRAPH_FONT
     ctx.textBaseline = "middle"
     for (const node of state.nodes) drawNode(state, node)
+    state.lastDrawAt = performance.now()
     if (perf) perf.sample("draw", performance.now() - startedAt)
   }
 
@@ -509,12 +511,26 @@
     state.needsDraw = true
     if (state.frame || state.suspended) return
     perf?.count("graphRafScheduled")
-    state.frame = window.requestAnimationFrame(() => {
+    state.frame = window.requestAnimationFrame((now) => {
       state.frame = 0
       if (state.suspended) return
       perf?.count("graphRafCallbacks")
-      flushPointerMoves(state)
-      flushWheel(state)
+      const pointerChanged = flushPointerMoves(state)
+      const wheelChanged = flushWheel(state)
+      const isInteractive = Boolean(
+        pointerChanged || wheelChanged || state.pointer || state.pinch || state.wheelQueued,
+      )
+      const physicsRunning = state.physics?.isRunning?.() === true
+      if (
+        physicsRunning &&
+        !isInteractive &&
+        state.lastDrawAt > 0 &&
+        now - state.lastDrawAt < PHYSICS_DRAW_INTERVAL
+      ) {
+        perf?.count("graphRafThrottled")
+        scheduleDraw(state)
+        return
+      }
       state.needsDraw = false
       draw(state)
     })
@@ -1160,8 +1176,8 @@
     state.allEdges = allEdges
     state.nodeBySlug = allBySlug
     state.relatedBySlug = relatedBySlug
-    state.screenX = new Float64Array(allNodes.length)
-    state.screenY = new Float64Array(allNodes.length)
+    state.screenX = new Float32Array(allNodes.length)
+    state.screenY = new Float32Array(allNodes.length)
     prepareNodeStyles(state)
     state.currentSlug = state.mount.dataset.atlasCurrent || ""
     applyFilter(state, false)
@@ -1173,8 +1189,14 @@
         state.layoutDirty = true
         state.screenPositionsDirty = true
         if (!state.userCamera && state.initialFitTicks > 0) {
-          state.camera = calculateFit(state)
-          state.cameraDirty = true
+          if (
+            state.initialFitTicks === 36 ||
+            state.initialFitTicks % 3 === 0 ||
+            state.initialFitTicks === 1
+          ) {
+            state.camera = calculateFit(state)
+            state.cameraDirty = true
+          }
           state.initialFitTicks -= 1
         }
         scheduleDraw(state)
@@ -1252,7 +1274,8 @@
       surfaceActive: true,
       documentHidden: document.hidden,
       intersectionVisible: true,
-      initialFitTicks: 60,
+      initialFitTicks: 36,
+      lastDrawAt: 0,
       destroyed: false,
       cleanups: [],
       emptyMessage: null,
@@ -1272,7 +1295,7 @@
     canvas.setAttribute("role", "img")
     canvas.setAttribute("data-atlas-graph-canvas", "")
     state.canvas = canvas
-    state.ctx = canvas.getContext("2d")
+    state.ctx = canvas.getContext("2d", { desynchronized: true })
     if (!state.ctx) return state
 
     const transitionViews = [
@@ -1538,8 +1561,8 @@
       state.nodes = syntheticNodes
       state.edges = syntheticEdges
       state.nodeStyles = syntheticStyles
-      state.screenX = new Float64Array(syntheticNodes.length)
-      state.screenY = new Float64Array(syntheticNodes.length)
+      state.screenX = new Float32Array(syntheticNodes.length)
+      state.screenY = new Float32Array(syntheticNodes.length)
       state.screenPositionsDirty = true
       perf.reset()
       for (let frameIndex = 0; frameIndex < frames; frameIndex += 1) {

@@ -24,15 +24,10 @@ Comparar uma proteína isolada com um alimento completo pode favorecer uma inter
 
 ## **Conceitos relacionados**
 
+
 - [[Proteínas]]
 - [[Aminoácidos essenciais]]
 - [[Aminoácidos não essenciais]]
-- [[Síntese proteica muscular]]
-- [[Digestão química]]
-- [[Absorção]]
-- [[Balanço nitrogenado]]
-- [[Biodisponibilidade]]
-
 ## **Referências de base**
 
 - Food and Agriculture Organization. *Dietary protein quality evaluation in human nutrition*. FAO Food and Nutrition Paper 92, 2013. https://www.fao.org/4/i3124e/i3124e.pdf

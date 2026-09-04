@@ -48,13 +48,6 @@ Na prática clínica, a carga glicêmica deve complementar, e não substituir, a
 - [[Índice glicêmico]]
 - [[Carboidratos]]
 - [[Glicose]]
-- [[Insulina]]
-- [[Glicemia pós-prandial]]
-- [[Resistência à insulina]]
-- [[Diabetes mellitus tipo 2]]
-- [[Fibra alimentar]]
-- [[Glicogênio muscular]]
-- [[Resposta glicêmica]]
 ## Referências de base
 
 - International Organization for Standardization (ISO). Método para determinação do índice glicêmico.

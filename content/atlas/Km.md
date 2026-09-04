@@ -26,17 +26,10 @@ A estimativa pode ser instável quando a faixa de concentrações não cobre a r
 
 ## **Conceitos relacionados**
 
+
 - [[Vmax]]
 - [[Enzima]]
 - [[Substrato]]
-- [[Inibição competitiva]]
-- [[Inibição não competitiva]]
-- [[Inibição incompetitiva]]
-- [[Inibição mista]]
-- [[Especificidade enzimática]]
-- [[Cinética de Michaelis-Menten]]
-- [[Regulação enzimática]]
-
 ## **Referências de base**
 
 - NCBI Bookshelf. [Protein Function](https://www.ncbi.nlm.nih.gov/books/NBK26911/). In: Molecular Biology of the Cell. 4th ed.; 2002.

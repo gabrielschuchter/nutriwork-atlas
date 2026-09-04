@@ -34,18 +34,6 @@ Muitas associações observadas em estudos epidemiológicos podem ser influencia
 - [[Necessidades nutricionais na gestação]]
 - [[Ganho de peso gestacional]]
 - [[Suplementação de ácido fólico]]
-- [[Suplementação de ferro na gestação]]
-- [[Diabetes mellitus gestacional]]
-- [[Hipertensão gestacional e nutrição]]
-- [[Programação metabólica fetal]]
-- [[Restrição de crescimento intrauterino]]
-- [[Baixo peso ao nascer]]
-- [[Avaliação nutricional]]
-- [[IMC pré-gestacional]]
-- [[Resistência à insulina fisiológica na gestação]]
-- [[Idade gestacional]]
-- [[Hiperêmese gravídica]]
-- [[Puerpério]]
 ## Referências de base
 
 - WHO Recommendations on Antenatal Care.

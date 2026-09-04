@@ -26,16 +26,10 @@ Reduzir sacarose pode diminuir sintomas e também diminuir ingestão energética
 
 ## **Conceitos relacionados**
 
+
 - [[Lactase]]
 - [[Maltase]]
 - [[Hidrólise]]
-- [[Absorção]]
-- [[Carboidratos]]
-- [[Frutose]]
-- [[Glicose]]
-- [[FODMAPs]]
-- [[Microbiota intestinal]]
-
 ## **Referências de base**
 
 - Henström M, Diekmann L, Bonfiglio F, et al. Functional variants in the sucrase-isomaltase gene associate with increased risk of irritable bowel syndrome. Gut. 2018;67:263-270. https://doi.org/10.1136/gutjnl-2016-312456.

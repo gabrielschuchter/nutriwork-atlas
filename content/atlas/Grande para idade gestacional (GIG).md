@@ -132,18 +132,6 @@ Portanto, o nascimento GIG é um marcador de contexto intrauterino, não uma det
 - [[Pequeno para idade gestacional (PIG)]]
 - [[Macrossomia fetal]]
 - [[Diabetes mellitus gestacional]]
-- [[Resistência à insulina fisiológica na gestação]]
-- [[Hiperglicemia materna]]
-- [[Insulina]]
-- [[Crescimento fetal]]
-- [[Idade gestacional]]
-- [[Peso ao nascer]]
-- [[Programação metabólica fetal]]
-- [[Ganho de peso gestacional]]
-- [[Estado nutricional materno]]
-- [[IMC pré-gestacional]]
-- [[Teste oral de tolerância à glicose (TOTG)]]
-- [[Obesidade infantil]]
 ## Referências de base
 
 - American College of Obstetricians and Gynecologists (ACOG). Macrosomia.

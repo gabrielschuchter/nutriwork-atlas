@@ -46,13 +46,6 @@ Em idosos e indivíduos com [[Resistência anabólica|resistência anabólica]],
 - [[BCAA]]
 - [[Aminoácidos essenciais]]
 - [[Proteínas]]
-- [[Síntese proteica muscular]]
-- [[mTORC1]]
-- [[Hipertrofia muscular]]
-- [[Resistência anabólica]]
-- [[Janela anabólica]]
-- [[Proteína de alto valor biológico]]
-- [[Exercício resistido]]
 ## Referências de base
 
 - Wolfe RR. Branched-chain amino acids and muscle protein synthesis in humans.

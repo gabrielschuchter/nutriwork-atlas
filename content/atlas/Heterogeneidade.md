@@ -24,16 +24,10 @@ Efeitos aparentemente consistentes podem compartilhar o mesmo [[Viés|viés]]. E
 
 ## **Conceitos relacionados**
 
+
 - [[Gráfico de floresta]]
 - [[Análise de Subgrupos]]
 - [[Teste de interação]]
-- [[Viés]]
-- [[Risco Relativo]]
-- [[Razão de Chances]]
-- [[Intervalo de Confiança]]
-- [[Clinicamente relevante]]
-- [[Heterogeneidade de efeito do tratamento]]
-
 ## **Referências de base**
 
 - Cochrane Collaboration. *Cochrane Handbook for Systematic Reviews of Interventions*, Chapter 10. https://training.cochrane.org/handbook/current/chapter-10

@@ -40,15 +40,6 @@ Embora amplamente reconhecida na metodologia científica, seu impacto ainda é f
 - [[Erro Aleatório]]
 - [[Validade Interna]]
 - [[Ensaio Clínico Randomizado]]
-- [[Grupo Controle]]
-- [[Viés]]
-- [[Efeito Hawthorne]]
-- [[História Natural da Doença]]
-- [[Erro de Medição]]
-- [[Significância Estatística]]
-- [[Mudança Clínica]]
-- [[Variabilidade Biológica]]
-- [[Inferência Causal]]
 ## Referências de base
 
 - Bland JM, Altman DG. Statistics Notes.

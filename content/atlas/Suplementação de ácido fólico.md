@@ -44,12 +44,6 @@ Além disso, diversos benefícios frequentemente atribuídos ao ácido fólico a
 - [[Folato]]
 - [[Necessidades nutricionais na gestação]]
 - [[Estado nutricional materno]]
-- [[Planejamento reprodutivo]]
-- [[Defeitos do tubo neural]]
-- [[Gestação]]
-- [[Saúde materno-infantil]]
-- [[Suplementação nutricional]]
-- [[Programação metabólica fetal]]
 ## Referências de base
 
 - WHO Guideline: Folic Acid Supplementation in Pregnant Women.

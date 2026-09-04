@@ -24,16 +24,10 @@ RR alto em estudo observacional pode refletir [[Confundimento|confundimento]] ou
 
 ## **Conceitos relacionados**
 
+
 - [[Razão de Chances]]
 - [[Hazard ratio]]
 - [[Porcento]]
-- [[Pontos percentuais]]
-- [[Mortalidade]]
-- [[Morbidade]]
-- [[Risco basal]]
-- [[Intervalo de Confiança]]
-- [[Causalidade]]
-
 ## **Referências de base**
 
 - Cochrane Collaboration. *Cochrane Handbook for Systematic Reviews of Interventions*, Chapter 6. https://training.cochrane.org/handbook/current/chapter-06

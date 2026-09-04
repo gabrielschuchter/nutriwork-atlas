@@ -28,15 +28,6 @@ Oxidar mais gordura durante uma sessão não implica necessariamente perder mais
 - [[Lipólise]]
 - [[Ácidos graxos]]
 - [[Acil-CoA]]
-- [[Ciclo da carnitina]]
-- [[Acetil-CoA]]
-- [[Cetogênese]]
-- [[Ciclo de Krebs]]
-- [[Fosforilação oxidativa]]
-- [[Peroxissomo]]
-- [[FatMax]]
-- [[Lipólise aumentada na gestação]]
-- [[Catabolismo]]
 ## Referências de base
 
 - Nelson DL, Cox MM. Lehninger Principles of Biochemistry. 7. ed. New York: W.H. Freeman; 2017.

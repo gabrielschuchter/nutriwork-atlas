@@ -26,17 +26,10 @@ Maior diversidade não é automaticamente melhor, e aumentar um gênero bacteria
 
 ## **Conceitos relacionados**
 
+
 - [[Probióticos]]
 - [[Prebióticos]]
 - [[Simbióticos]]
-- [[Ácidos graxos de cadeia curta (AGCC)]]
-- [[Fermentação]]
-- [[Mucina]]
-- [[Barreira intestinal]]
-- [[FODMAPs]]
-- [[Bile]]
-- [[Inflamação crônica de baixo grau]]
-
 ## **Referências de base**
 
 - Thursby E, Juge N. Introduction to the human gut microbiota. Biochemical Journal. 2017;474:1823-1836. https://doi.org/10.1042/BCJ20160510.

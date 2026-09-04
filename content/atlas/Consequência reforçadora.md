@@ -64,17 +64,6 @@ Além disso, comportamentos complexos, como os relacionados à alimentação, ra
 - [[Consequência]]
 - [[Reforço]]
 - [[Consequência punitiva]]
-- [[Punição]]
-- [[Evento apetitivo]]
-- [[Resposta comportamental]]
-- [[Operações motivadoras]]
-- [[Eventos antecedentes]]
-- [[Classe funcional de respostas]]
-- [[Análise do comportamento]]
-- [[Behaviorismo radical]]
-- [[Análise funcional]]
-- [[Evento aversivo]]
-- [[Extinção comportamental]]
 ## Referências de base
 
 - Skinner BF. The Behavior of Organisms: An Experimental Analysis. Appleton-Century; 1938.

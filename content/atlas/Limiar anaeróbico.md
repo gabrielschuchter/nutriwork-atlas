@@ -46,12 +46,6 @@ Por essas razões, muitos pesquisadores preferem utilizar termos mais específic
 - [[Limiar de lactato]]
 - [[VO₂máx]]
 - [[Limiar ventilatório]]
-- [[Máximo estado estável de lactato]]
-- [[Lactato]]
-- [[Glicólise]]
-- [[Fadiga muscular]]
-- [[Exercício aeróbio]]
-- [[Exercício anaeróbio]]
 ## Referências de base
 
 - American College of Sports Medicine. ACSM's Guidelines for Exercise Testing and Prescription.

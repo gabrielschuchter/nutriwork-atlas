@@ -24,15 +24,10 @@ O ciclo de Cori explica uma rota de carbono, não o prognóstico de uma pessoa. 
 
 ## **Conceitos relacionados**
 
+
 - [[Glicólise]]
 - [[Gliconeogênese]]
 - [[Respiração celular]]
-- [[Ciclo de Krebs]]
-- [[Adrenalina]]
-- [[Cortisol]]
-- [[Glicogênio]]
-- [[Metabolismo]]
-
 ## **Referências de base**
 
 - NCBI Bookshelf. *Physiology, Metabolism*. https://www.ncbi.nlm.nih.gov/books/NBK546690/

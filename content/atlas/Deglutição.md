@@ -26,15 +26,10 @@ Espessar líquidos pode reduzir episódios de aspiração em alguns cenários, p
 
 ## **Conceitos relacionados**
 
+
 - [[Capacidade Mastigatória]]
 - [[Digestão mecânica]]
 - [[Saliva]]
-- [[Motilidade gastrointestinal]]
-- [[Peristaltismo]]
-- [[Absorção]]
-- [[Estado nutricional]]
-- [[Risco nutricional]]
-
 ## **Referências de base**
 
 - Patricia JJ, Dhamoon AS. [Physiology, Digestion](https://www.ncbi.nlm.nih.gov/books/NBK544242/). StatPearls Publishing; updated 2022.

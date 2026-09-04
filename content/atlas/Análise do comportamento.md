@@ -88,18 +88,6 @@ Além disso, embora a Análise do comportamento ofereça um modelo robusto para 
 - [[Behaviorismo radical]]
 - [[Análise funcional]]
 - [[Resposta comportamental]]
-- [[Classe funcional de respostas]]
-- [[Eventos antecedentes]]
-- [[Consequência]]
-- [[Reforço]]
-- [[Punição]]
-- [[Operações motivadoras]]
-- [[Comportamento alimentar]]
-- [[Comportamento verbal]]
-- [[Filogênese]]
-- [[Ontogênese]]
-- [[Seleção cultural]]
-- [[Extinção comportamental]]
 ## Referências de base
 
 - Skinner BF. Science and Human Behavior. New York: Macmillan; 1953.

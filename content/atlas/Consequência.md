@@ -62,18 +62,6 @@ Na prática clínica, isso significa que estratégias comportamentais não podem
 - [[Reforço]]
 - [[Punição]]
 - [[Consequência reforçadora]]
-- [[Consequência punitiva]]
-- [[Resposta comportamental]]
-- [[Eventos antecedentes]]
-- [[Operações motivadoras]]
-- [[Análise do comportamento]]
-- [[Behaviorismo radical]]
-- [[Classe funcional de respostas]]
-- [[Análise funcional]]
-- [[Comportamento alimentar]]
-- [[Ontogênese]]
-- [[Seleção cultural]]
-- [[Escolhas alimentares]]
 ## Referências de base
 
 - Skinner BF. Science and Human Behavior. New York: Macmillan; 1953.

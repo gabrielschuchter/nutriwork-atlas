@@ -20,7 +20,6 @@ Na epidemiologia nutricional, o tema é particularmente complexo porque comporta
 - [[Confundimento]]
 - [[Viés de seleção]]
 - [[Diagrama Acíclico Direcionado (DAG)]]
-- [[Causalidade]]
 ## Referências de base
 
 - Rothman KJ, Greenland S, Lash TL. Modern Epidemiology. 4ª edição.

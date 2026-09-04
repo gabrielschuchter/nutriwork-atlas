@@ -100,14 +100,6 @@ A idade gestacional é uma ferramenta indispensável para o cuidado obstétrico,
 - [[Data provável do parto (DPP)]]
 - [[Data da última menstruação (DUM)]]
 - [[Desenvolvimento fetal]]
-- [[Prematuridade]]
-- [[Prematuridade e nutrição]]
-- [[Restrição de crescimento intrauterino]]
-- [[Pequeno para idade gestacional (PIG)]]
-- [[Grande para idade gestacional (GIG)]]
-- [[Ganho de peso gestacional]]
-- [[Estado nutricional materno]]
-- [[IMC pré-gestacional]]
 ## Referências de base
 
 - AMERICAN COLLEGE OF OBSTETRICIANS AND GYNECOLOGISTS. Methods for estimating the due date. Committee Opinion, n. 700. Washington, DC: ACOG, maio 2017.

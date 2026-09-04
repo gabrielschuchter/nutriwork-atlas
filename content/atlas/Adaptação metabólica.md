@@ -38,16 +38,6 @@ A existência da adaptação metabólica é sustentada pela evidência. Sua util
 - [[Metabolismo]]
 - [[Balanço energético]]
 - [[Gasto Energético Total]]
-- [[Taxa Metabólica de Repouso]]
-- [[Termogênese adaptativa]]
-- [[Leptina]]
-- [[Obesidade]]
-- [[Perda de Peso]]
-- [[Reganho de Peso]]
-- [[Disponibilidade Energética]]
-- [[Composição corporal]]
-- [[Homeostase energética]]
-- [[Restrição Energética]]
 ## Referências de base
 
 Müller MJ, Bosy-Westphal A. Adaptive Thermogenesis with Weight Loss.

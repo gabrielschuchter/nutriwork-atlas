@@ -26,16 +26,10 @@ Resultados com vesículas ou células isoladas não definem o efeito de uma diet
 
 ## **Conceitos relacionados**
 
+
 - [[Difusão simples]]
 - [[Transporte ativo]]
 - [[Cotransporte]]
-- [[Transporte de glicose (SGLT1)]]
-- [[GLUT2]]
-- [[GLUT5]]
-- [[Insulina]]
-- [[Membrana plasmática]]
-- [[Absorção]]
-
 ## **Referências de base**
 
 - NCBI Bookshelf. [Physiology, Nutrient Absorption](https://www.ncbi.nlm.nih.gov/books/NBK597379/). StatPearls Publishing; updated 2025.

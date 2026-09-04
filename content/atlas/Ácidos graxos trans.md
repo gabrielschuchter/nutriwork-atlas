@@ -24,15 +24,10 @@ Estudos observacionais dependem de estimativa dietética e composição dos alim
 
 ## **Conceitos relacionados**
 
+
 - [[Ácidos graxos]]
 - [[Ácidos graxos saturados]]
 - [[Ácidos graxos insaturados]]
-- [[Lipoproteínas]]
-- [[LDL]]
-- [[HDL]]
-- [[Carboidrato refinado]]
-- [[Colesterol]]
-
 ## **Referências de base**
 
 - World Health Organization. *Saturated fatty acid and trans-fatty acid intake for adults and children: WHO guideline*. https://www.who.int/publications/i/item/9789240073630

@@ -26,17 +26,10 @@ Comparar Vmax entre estudos sem padronizar quantidade de [[Enzima|enzima]], temp
 
 ## **Conceitos relacionados**
 
+
 - [[Km]]
 - [[Enzima]]
 - [[Substrato]]
-- [[Inibição competitiva]]
-- [[Inibição não competitiva]]
-- [[Especificidade enzimática]]
-- [[Cofator]]
-- [[Alosterismo]]
-- [[Bioenergética]]
-- [[Regulação enzimática]]
-
 ## **Referências de base**
 
 - NCBI Bookshelf. [Protein Function](https://www.ncbi.nlm.nih.gov/books/NBK26911/). In: Molecular Biology of the Cell. 4th ed.; 2002.

@@ -20,10 +20,6 @@ Outra limitação importante é a tendência de tratar todos os casos de desnutr
 - [[Caquexia]]
 - [[Sarcopenia]]
 - [[Resistência anabólica]]
-- [[Síndrome de realimentação]]
-- [[Proteólise]]
-- [[Catabolismo]]
-- [[Nutrição]]
 ## Referências de base
 
 - Global Leadership Initiative on Malnutrition Consensus Report for the Diagnosis of Malnutrition.

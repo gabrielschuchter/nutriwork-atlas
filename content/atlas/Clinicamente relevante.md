@@ -24,16 +24,10 @@ Diferença minimamente importante não é uma constante do instrumento e não su
 
 ## **Conceitos relacionados**
 
+
 - [[Significância Estatística]]
 - [[Valor de p]]
 - [[Intervalo de Confiança]]
-- [[Desfecho substituto]]
-- [[Mortalidade]]
-- [[Morbidade]]
-- [[Risco basal]]
-- [[Eficaz]]
-- [[Efetivo]]
-
 ## **Referências de base**
 
 - Cochrane Collaboration. *Cochrane Handbook for Systematic Reviews of Interventions*, Chapter 14: Completing “Summary of findings” tables and grading the certainty of the evidence. https://training.cochrane.org/handbook/current/chapter-14

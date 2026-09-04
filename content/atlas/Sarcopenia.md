@@ -20,17 +20,6 @@ Outra questão importante é a tendência histórica de equiparar sarcopenia à 
 - [[Força Muscular]]
 - [[Massa Muscular]]
 - [[Qualidade Muscular]]
-- [[Fragilidade]]
-- [[Obesidade sarcopênica]]
-- [[Caquexia]]
-- [[Desnutrição relacionada à doença]]
-- [[Resistência anabólica]]
-- [[Síntese proteica muscular]]
-- [[Envelhecimento]]
-- [[Composição corporal]]
-- [[DXA]]
-- [[Bioimpedância]]
-- [[Velocidade de Marcha]]
 ## Referências de base
 
 - European Working Group on Sarcopenia in Older People. Sarcopenia: revised European consensus on definition and diagnosis. Age and Ageing. 2019.

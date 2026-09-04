@@ -24,12 +24,10 @@ O teor de galactose liberada depende da [[Hidrólise|hidrólise]] da lactose, da
 
 ## **Conceitos relacionados**
 
+
 - [[Monossacarídeos]]
 - [[Lactase]]
 - [[Transporte de glicose (SGLT1)]]
-- [[Dissacarídeos]]
-- [[Absorção]]
-
 ## **Referências de base**
 
 - NCBI Bookshelf. *Physiology, Digestion*. https://www.ncbi.nlm.nih.gov/books/NBK544242/

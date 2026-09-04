@@ -24,15 +24,10 @@ Ensaios com suplementos de [[Ácidos graxos|ácidos graxos]] e ensaios com alime
 
 ## **Conceitos relacionados**
 
+
 - [[Ácidos graxos]]
 - [[Ácidos graxos saturados]]
 - [[Ácidos graxos trans]]
-- [[Ômega-3]]
-- [[Ômega-6]]
-- [[Triglicerídeos]]
-- [[Fosfolipídios]]
-- [[LDL]]
-
 ## **Referências de base**
 
 - World Health Organization. *Saturated fatty acid and trans-fatty acid intake for adults and children: WHO guideline*. https://www.who.int/publications/i/item/9789240073630

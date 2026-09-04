@@ -40,15 +40,6 @@ Questões relacionadas à seleção permanecem entre os principais motivos pelos
 - [[Confundimento]]
 - [[Validade Interna]]
 - [[Inferência Causal]]
-- [[Colisor (Collider Bias)]]
-- [[Diagrama Acíclico Direcionado (DAG)]]
-- [[Perda de Seguimento]]
-- [[Amostragem]]
-- [[Viés]]
-- [[Estudo de Coorte]]
-- [[Ensaio Clínico Randomizado]]
-- [[Propensity Score]]
-- [[Risco de Viés]]
 ## Referências de base
 
 Hernán MA, Robins JM. Causal Inference: What If.

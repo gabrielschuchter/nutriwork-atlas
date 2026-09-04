@@ -30,18 +30,6 @@ Além disso, existe considerável variabilidade individual na composição do le
 - [[Aleitamento materno exclusivo]]
 - [[Aleitamento materno complementado]]
 - [[Colostro]]
-- [[Lactação]]
-- [[Necessidades nutricionais na infância]]
-- [[Prematuridade e nutrição]]
-- [[Crescimento e desenvolvimento infantil]]
-- [[Leite materno de transição]]
-- [[Leite materno maduro]]
-- [[Mamogênese]]
-- [[Lactogênese]]
-- [[Puerpério]]
-- [[Desmame precoce]]
-- [[Pega adequada]]
-- [[Alimentação complementar]]
 ## Referências de base
 
 - WHO – Infant and Young Child Feeding.

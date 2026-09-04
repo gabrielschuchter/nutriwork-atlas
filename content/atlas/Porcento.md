@@ -24,16 +24,10 @@ Mudança de 2% para 3% é aumento de 1 ponto percentual e aumento relativo de 50
 
 ## **Conceitos relacionados**
 
+
 - [[Pontos percentuais]]
 - [[Risco Relativo]]
 - [[Razão de Chances]]
-- [[Mortalidade]]
-- [[Morbidade]]
-- [[Intervalo de Confiança]]
-- [[Amostra]]
-- [[População]]
-- [[Valor de p]]
-
 ## **Referências de base**
 
 - Cochrane Collaboration. *Cochrane Handbook for Systematic Reviews of Interventions*, Chapter 6: Choosing effect measures and computing estimates of effect. https://training.cochrane.org/handbook/current/chapter-06

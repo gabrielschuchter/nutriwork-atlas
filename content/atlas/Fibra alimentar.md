@@ -30,22 +30,10 @@ Aumentar fibra pode ser útil em alguns cenários, mas também pode produzir gas
 
 ## Conceitos relacionados
 
+
 - [[Fibra alimentar solúvel]]
 - [[Fibra alimentar insolúvel]]
 - [[Microbiota intestinal]]
-- [[Fermentação]]
-- [[Ácidos graxos de cadeia curta (AGCC)]]
-- [[Carboidratos]]
-- [[Amido resistente]]
-- [[Viscosidade]]
-- [[Motilidade gastrointestinal]]
-- [[Carga glicêmica]]
-- [[Índice glicêmico]]
-- [[Constipação]]
-- [[Digestão química]]
-- [[Desfecho substituto]]
-- [[Densidade Nutricional]]
-
 ## Referências de base
 
 - Codex Alimentarius Commission. Guidelines on Nutrition Labelling: CXG 2-1985, seção sobre definição de fibra alimentar. [Documento oficial](https://workspace.fao.org/sites/codex/Standards/CXG%202-1985/CXG_002e.pdf).

@@ -24,16 +24,10 @@ Melhorar calorias, proteína ou um marcador não garante redução de infecção
 
 ## **Conceitos relacionados**
 
+
 - [[Avaliação nutricional]]
 - [[Estado nutricional]]
 - [[Desnutrição relacionada à doença]]
-- [[Balanço energético]]
-- [[Balanço nitrogenado]]
-- [[Resistência anabólica]]
-- [[Sarcopenia]]
-- [[Fragilidade]]
-- [[Segurança alimentar e nutricional na primeira infância]]
-
 ## **Referências de base**
 
 - World Health Organization. *Malnutrition: nutritional assessment, risk screening and diagnosis*. https://www.who.int/docs/librariesprovider2/default-document-library/booklet_200424.pdf

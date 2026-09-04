@@ -54,12 +54,6 @@ A retenção hídrica intracelular observada no início da suplementação repre
 - [[Sistema fosfagênio]]
 - [[Fosfocreatina]]
 - [[ATP]]
-- [[Bioenergética]]
-- [[Hipertrofia muscular]]
-- [[Exercício resistido]]
-- [[Fadiga muscular]]
-- [[Potência muscular]]
-- [[Nutrição esportiva]]
 ## Referências de base
 
 - Kreider RB, et al. International Society of Sports Nutrition Position Stand: Creatine Supplementation and Exercise.

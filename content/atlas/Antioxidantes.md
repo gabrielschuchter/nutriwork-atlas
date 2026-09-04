@@ -24,15 +24,10 @@ Ensaios de vitamina E, beta-caroteno e outros suplementos produziram resultados 
 
 ## **Conceitos relacionados**
 
+
 - [[Estresse oxidativo]]
 - [[Espécies reativas de oxigênio (EROs)]]
 - [[Vitaminas lipossolúveis]]
-- [[Vitaminas hidrossolúveis]]
-- [[Via das pentoses-fosfato]]
-- [[Cofator]]
-- [[Respiração celular]]
-- [[Inflamação crônica de baixo grau]]
-
 ## **Referências de base**
 
 - Stone WL, Pham T, Mohiuddin SS. *Biochemistry, Antioxidants*. https://www.ncbi.nlm.nih.gov/books/NBK541064/

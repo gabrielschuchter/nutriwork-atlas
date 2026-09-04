@@ -26,16 +26,10 @@ Estudos que medem [[Hidrólise|hidrólise]] em uma preparação de [[Amido|amido
 
 ## **Conceitos relacionados**
 
+
 - [[Amilase salivar]]
 - [[Digestão química]]
 - [[Hidrólise]]
-- [[Amido]]
-- [[Sacarase]]
-- [[Maltase]]
-- [[Lipase pancreática]]
-- [[Absorção]]
-- [[Insuficiência pancreática]]
-
 ## **Referências de base**
 
 - Patricia JJ, Dhamoon AS. [Physiology, Digestion](https://www.ncbi.nlm.nih.gov/books/NBK544242/). StatPearls Publishing; updated 2022.

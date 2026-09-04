@@ -28,22 +28,10 @@ Não se deve prometer redução de peso, reversão de [[Resistência à insulina
 
 ## Conceitos relacionados
 
+
 - [[Fibra alimentar]]
 - [[Fibra alimentar insolúvel]]
 - [[Viscosidade]]
-- [[Fermentação]]
-- [[Microbiota intestinal]]
-- [[Ácidos graxos de cadeia curta (AGCC)]]
-- [[Carga glicêmica]]
-- [[Índice glicêmico]]
-- [[Glicemia pós-prandial]]
-- [[Colesterol]]
-- [[LDL-colesterol]]
-- [[Constipação]]
-- [[Motilidade gastrointestinal]]
-- [[Esvaziamento gástrico]]
-- [[Resistência à insulina]]
-
 ## Referências de base
 
 - Cummings JH, Stephen A. Carbohydrate terminology and classification. *European Journal of Clinical Nutrition*. 2007;61 Suppl 1:S5–S18. [DOI](https://doi.org/10.1038/sj.ejcn.1602936). [PubMed](https://pubmed.ncbi.nlm.nih.gov/17992187/).

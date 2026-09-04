@@ -72,18 +72,6 @@ Por fim, embora o conceito seja amplamente utilizado na [[Análise do comportame
 - [[Eventos antecedentes]]
 - [[Resposta comportamental]]
 - [[Consequência]]
-- [[Reforço]]
-- [[Punição]]
-- [[Evento apetitivo]]
-- [[Evento aversivo]]
-- [[Comportamento alimentar]]
-- [[Escolhas alimentares]]
-- [[Análise funcional]]
-- [[Behaviorismo radical]]
-- [[Análise do comportamento]]
-- [[Classe funcional de respostas]]
-- [[Ontogênese]]
-- [[Extinção comportamental]]
 ## Referências de base
 
 - Michael J. Distinguishing Between Discriminative and Motivational Functions of Stimuli. Journal of the Experimental Analysis of Behavior. 1982;37(1):149–155.

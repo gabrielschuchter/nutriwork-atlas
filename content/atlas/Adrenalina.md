@@ -24,15 +24,10 @@ Palpitação ou tremor após alimento ou suplemento não confirma excesso de adr
 
 ## **Conceitos relacionados**
 
+
 - [[Cortisol]]
 - [[Glucagon]]
 - [[Insulina]]
-- [[Glicogenólise]]
-- [[Gliconeogênese]]
-- [[Lipólise]]
-- [[Cafeína]]
-- [[Homeostase]]
-
 ## **Referências de base**
 
 - NCBI Bookshelf. *Physiology, Adrenal Gland*. https://www.ncbi.nlm.nih.gov/books/NBK537260/

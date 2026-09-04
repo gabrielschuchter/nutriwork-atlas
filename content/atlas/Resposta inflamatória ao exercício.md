@@ -50,16 +50,6 @@ Também é importante diferenciar exercícios agudos muito intensos, que podem i
 - [[Dano muscular induzido pelo exercício]]
 - [[Inflamação crônica de baixo grau]]
 - [[Citocinas]]
-- [[Miocinas]]
-- [[Interleucina-6 (IL-6)]]
-- [[Macrófagos]]
-- [[Neutrófilos]]
-- [[Células satélite]]
-- [[Estresse oxidativo]]
-- [[Espécies reativas de oxigênio|Espécies reativas de oxigênio (EROs)]]
-- [[Recuperação muscular]]
-- [[Exercício resistido]]
-- [[Fadiga muscular]]
 ## Referências de base
 
 - Peake JM, Neubauer O, Della Gatta PA, Nosaka K. Muscle Damage and Inflammation during Recovery from Exercise.

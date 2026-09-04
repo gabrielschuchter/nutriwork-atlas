@@ -72,10 +72,6 @@ O manejo geralmente é baseado em controle de sintomas e suporte, pois não há 
 - [[Náuseas e vômitos na gestação]]
 - [[Hiperêmese gravídica]]
 - [[Lactogênese]]
-- [[Alterações gastrointestinais na gestação]]
-- [[Hormônios da gestação]]
-- [[Gonadotrofina coriônica humana (hCG)]]
-- [[Estado nutricional materno]]
 ## Referências de base
 
 - AMERICAN COLLEGE OF OBSTETRICIANS AND GYNECOLOGISTS. Nausea and vomiting of pregnancy. Practice Bulletin, n. 189. Obstetrics & Gynecology, Philadelphia, v. 131, n. 1, p. e15–e30, 2018.

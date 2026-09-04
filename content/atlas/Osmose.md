@@ -26,15 +26,10 @@ Osmolaridade total da solução não prevê sozinha tonicidade no organismo. Ure
 
 ## **Conceitos relacionados**
 
+
 - [[Osmolalidade]]
 - [[Eletrólitos]]
 - [[Equilíbrio hídrico]]
-- [[Transporte ativo]]
-- [[Cotransporte]]
-- [[Difusão simples]]
-- [[Hiponatremia]]
-- [[Absorção]]
-
 ## **Referências de base**
 
 - Boron WF, Boulpaep EL. [Medical Physiology, 3rd edition](https://www.us.elsevierhealth.com/medical-physiology-9781455743773.html). Elsevier; 2017.

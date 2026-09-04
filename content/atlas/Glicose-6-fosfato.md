@@ -28,12 +28,6 @@ Também é incorreto tratar a fosforilação como aprisionamento absolutamente i
 - [[Glicose]]
 - [[Hexoquinase]]
 - [[Glicoquinase]]
-- [[Glicólise]]
-- [[Glicogênese]]
-- [[Glicogenólise]]
-- [[Via das pentoses-fosfato]]
-- [[Glicose-6-fosfatase]]
-- [[Glicose-6-fosfato desidrogenase]]
 ## Referências de base
 
 - Nelson DL, Cox MM. Lehninger Principles of Biochemistry. 7. ed. New York: W.H. Freeman; 2017.

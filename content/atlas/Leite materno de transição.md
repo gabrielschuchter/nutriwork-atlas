@@ -50,12 +50,6 @@ Na prática clínica, a classificação do leite como “de transição” não 
 - [[Colostro]]
 - [[Leite materno maduro]]
 - [[Leite materno]]
-- [[Lactogênese]]
-- [[Aleitamento materno exclusivo]]
-- [[Apojadura]]
-- [[Pega adequada]]
-- [[Crescimento e desenvolvimento infantil]]
-- [[Mamogênese]]
 ## Referências de base
 
 - World Health Organization (WHO). Infant and young child feeding: model chapter for textbooks for medical students and allied health professionals.

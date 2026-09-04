@@ -24,15 +24,10 @@ Alteração de [[Insulina|insulina]] ou peso em um ensaio não define benefício
 
 ## **Conceitos relacionados**
 
+
 - [[GLP-1]]
 - [[Insulina]]
 - [[Glucagon]]
-- [[Colecistocinina (CCK)]]
-- [[Peptídeo YY (PYY)]]
-- [[Carboidratos]]
-- [[Glicose]]
-- [[Anorexígeno]]
-
 ## **Referências de base**
 
 - NCBI Bookshelf. *Physiology, Gastrointestinal Hormonal Control*. https://www.ncbi.nlm.nih.gov/books/NBK537284/

@@ -92,14 +92,6 @@ Também existe risco de extrapolação ao interpretar mecanismos fisiológicos c
 - [[Resistência à insulina fisiológica na gestação]]
 - [[Metabolismo materno-fetal]]
 - [[Lipólise]]
-- [[Ácidos graxos livres]]
-- [[Beta-oxidação]]
-- [[Cetogênese]]
-- [[Ganho de peso gestacional]]
-- [[Estado nutricional materno]]
-- [[Diabetes mellitus gestacional]]
-- [[Programação metabólica fetal]]
-- [[Hiperêmese gravídica]]
 ## Referências de base
 
 - Herrera E. Metabolic adaptations in pregnancy and their implications for the availability of substrates to the fetus. European Journal of Clinical Nutrition, London, v. 54, supl. 1, p. S47–S51, 2000. DOI: 10.1038/sj.ejcn.1600984.

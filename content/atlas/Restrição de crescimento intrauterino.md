@@ -56,18 +56,6 @@ Muitas associações de longo prazo são derivadas de estudos observacionais, ex
 - [[Programação metabólica fetal]]
 - [[Baixo peso ao nascer]]
 - [[Prematuridade e nutrição]]
-- [[Estado nutricional materno]]
-- [[Necessidades nutricionais na gestação]]
-- [[Ganho de peso gestacional]]
-- [[Diabetes mellitus gestacional]]
-- [[Hipertensão gestacional e nutrição]]
-- [[Placenta]]
-- [[Saúde materno-infantil]]
-- [[DOHaD]]
-- [[Crescimento e desenvolvimento infantil]]
-- [[Data provável do parto (DPP)]]
-- [[Idade gestacional]]
-- [[Pequeno para idade gestacional (PIG)]]
 ## Referências de base
 
 - WHO Recommendations on Maternal Nutrition.

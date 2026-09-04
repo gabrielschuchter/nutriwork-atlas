@@ -26,13 +26,6 @@ As categorias clássicas são simplificações. [[Proteínas|Proteínas]] reais 
 - [[Enzima]]
 - [[Cooperatividade]]
 - [[Regulação enzimática]]
-- [[Sítio alostérico]]
-- [[Cinética enzimática]]
-- [[Inibição enzimática]]
-- [[Hemoglobina]]
-- [[Fosfofrutoquinase-1]]
-- [[Homeostase]]
-- [[AMP]]
 ## Referências de base
 
 - Monod J, Wyman J, Changeux JP. On the nature of allosteric transitions: a plausible model. J Mol Biol. 1965;12(1):88-118. https://doi.org/10.1016/S0022-2836(65)80285-6

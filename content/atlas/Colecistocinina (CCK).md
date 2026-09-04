@@ -24,15 +24,10 @@ Resultados com injeção de CCK em laboratório podem exagerar a exposição fis
 
 ## **Conceitos relacionados**
 
+
 - [[Bile]]
 - [[Sais biliares]]
 - [[Micelas]]
-- [[Esvaziamento gástrico]]
-- [[GLP-1]]
-- [[GIP]]
-- [[Peptídeo YY (PYY)]]
-- [[Anorexígeno]]
-
 ## **Referências de base**
 
 - NCBI Bookshelf. *Physiology, Gastrointestinal Hormonal Control*. https://www.ncbi.nlm.nih.gov/books/NBK537284/

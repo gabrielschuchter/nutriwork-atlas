@@ -26,15 +26,10 @@ A velocidade de trânsito não é um marcador direto da qualidade da [[Absorçã
 
 ## **Conceitos relacionados**
 
+
 - [[Motilidade gastrointestinal]]
 - [[Peristaltismo]]
 - [[Absorção]]
-- [[Digestão química]]
-- [[Esvaziamento gástrico]]
-- [[Trânsito intestinal]]
-- [[Sais biliares]]
-- [[Microbiota intestinal]]
-
 ## **Referências de base**
 
 - Hall JE, Hall ME. [Guyton and Hall Textbook of Medical Physiology, 14th edition](https://www.us.elsevierhealth.com/guyton-and-hall-textbook-of-medical-physiology-9780323640060.html). Elsevier; 2021.

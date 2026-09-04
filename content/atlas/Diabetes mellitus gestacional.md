@@ -44,18 +44,6 @@ Embora o controle glicêmico seja um objetivo importante, muitas intervenções 
 - [[Resposta glicêmica pós-prandial]]
 - [[Resistência à insulina]]
 - [[Hiperglicemia]]
-- [[Macrossomia fetal]]
-- [[Estado nutricional materno]]
-- [[Ganho de peso gestacional]]
-- [[Programação metabólica fetal]]
-- [[Diabetes mellitus tipo 2]]
-- [[Terapia nutricional]]
-- [[IMC pré-gestacional]]
-- [[Resistência à insulina fisiológica na gestação]]
-- [[Lipólise aumentada na gestação]]
-- [[Grande para idade gestacional (GIG)]]
-- [[Teste oral de tolerância à glicose (TOTG)]]
-- [[Puerpério]]
 ## Referências de base
 
 - American Diabetes Association (Standards of Care).

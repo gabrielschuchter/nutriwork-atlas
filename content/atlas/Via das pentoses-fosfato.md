@@ -24,15 +24,10 @@ Modelos celulares e animais ajudam a explicar vulnerabilidade oxidativa, porém 
 
 ## **Conceitos relacionados**
 
+
 - [[Glicose-6-fosfato]]
 - [[Glicólise]]
 - [[Lipogênese]]
-- [[Síntese de colesterol]]
-- [[Cofator]]
-- [[Enzima]]
-- [[Metabolismo]]
-- [[Respiração celular]]
-
 ## **Referências de base**
 
 - Aziz H, Mohiuddin SS. *Biochemistry, Hexose Monophosphate Pathway*. StatPearls, NCBI Bookshelf. https://www.ncbi.nlm.nih.gov/books/NBK551687/

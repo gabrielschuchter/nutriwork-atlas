@@ -19,18 +19,6 @@ Outra controvérsia envolve a interpretação causal das associações observada
 - [[Síntese proteica muscular]]
 - [[Anabolismo]]
 - [[Catabolismo]]
-- [[Fadiga muscular]]
-- [[Glicogênio muscular]]
-- [[Balanço energético]]
-- [[Síndrome RED-S (Relative Energy Deficiency in Sport)]]
-- [[Massa Livre de Gordura]]
-- [[Adaptação metabólica]]
-- [[Leptina]]
-- [[Amenorreia Hipotalâmica Funcional]]
-- [[Saúde Óssea]]
-- [[Gasto Energético]]
-- [[Composição corporal]]
-- [[Exercício Físico]]
 ## Referências de base
 
 - International Olympic Committee Consensus Statement on Relative Energy Deficiency in Sport (2018; atualização de 2023).

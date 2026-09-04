@@ -26,16 +26,10 @@ Valores tabulados não devem ser transferidos diretamente para uma [[População
 
 ## **Conceitos relacionados**
 
+
 - [[Bioenergética]]
 - [[ATP]]
 - [[ADP]]
-- [[Enzima]]
-- [[Energia de ativação]]
-- [[Equilíbrio químico]]
-- [[Fosforilação oxidativa]]
-- [[Cadeia transportadora de elétrons]]
-- [[Catalisadores]]
-
 ## **Referências de base**
 
 - International Union of Pure and Applied Chemistry. [Gibbs energy](https://goldbook.iupac.org/terms/view/G02629). IUPAC Compendium of Chemical Terminology, 5th ed.; 2025.

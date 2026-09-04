@@ -56,10 +56,6 @@ Na prática esportiva, o prejuízo potencial ao sono deve ser considerado, espec
 - [[Fadiga muscular]]
 - [[Percepção subjetiva de esforço]]
 - [[Sistema nervoso central]]
-- [[Adenosina]]
-- [[Nutrição esportiva]]
-- [[Exercício de endurance]]
-- [[Recuperação]]
 ## Referências de base
 
 - International Society of Sports Nutrition. Position Stand: Caffeine and Exercise Performance.

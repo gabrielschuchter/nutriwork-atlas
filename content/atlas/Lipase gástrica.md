@@ -26,15 +26,10 @@ A ideia de que estimular lipase gástrica acelera emagrecimento confunde digest�
 
 ## **Conceitos relacionados**
 
+
 - [[Lipase pancreática]]
 - [[Emulsificação]]
 - [[Bile]]
-- [[Sais biliares]]
-- [[Triglicerídeos]]
-- [[Hidrólise]]
-- [[Absorção]]
-- [[Esvaziamento gástrico]]
-
 ## **Referências de base**
 
 - Patricia JJ, Dhamoon AS. [Physiology, Digestion](https://www.ncbi.nlm.nih.gov/books/NBK544242/). StatPearls Publishing; updated 2022.

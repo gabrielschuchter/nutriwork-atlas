@@ -40,15 +40,6 @@ Apesar dessas limitações, representam atualmente uma das ferramentas conceitua
 - [[Inferência Causal]]
 - [[Confundimento]]
 - [[Viés de seleção]]
-- [[Colisor (Collider Bias)]]
-- [[Superajuste]]
-- [[Variável Mediadora]]
-- [[Propensity Score]]
-- [[Regressão Multivariável]]
-- [[Validade Interna]]
-- [[Epidemiologia Nutricional]]
-- [[Associação Estatística]]
-- [[Causalidade]]
 ## Referências de base
 
 Hernán MA, Robins JM. Causal Inference: What If.

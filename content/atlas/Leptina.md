@@ -24,15 +24,10 @@ Alterar leptina em animais ou um marcador em humanos não demonstra redução su
 
 ## **Conceitos relacionados**
 
+
 - [[Grelina]]
 - [[Anorexígeno]]
 - [[Orexígeno]]
-- [[Insulina]]
-- [[Comportamento alimentar]]
-- [[Obesidade infantil]]
-- [[Termogênese adaptativa]]
-- [[Disponibilidade Energética]]
-
 ## **Referências de base**
 
 - Parmar RM, Can AS. *Physiology, Appetite And Weight Regulation*. StatPearls, NCBI Bookshelf. https://www.ncbi.nlm.nih.gov/books/NBK574539/

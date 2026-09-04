@@ -20,9 +20,6 @@ Outra limitação é a extrapolação de mecanismos fisiológicos para inferênc
 - [[Disponibilidade Energética]]
 - [[Adaptação metabólica]]
 - [[Termogênese adaptativa]]
-- [[Metabolismo]]
-- [[Homeostase]]
-- [[Composição corporal]]
 ## Referências de base
 
 - Hall KD. Dynamics of Human Body Weight Change. Advances in Nutrition.

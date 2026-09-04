@@ -24,15 +24,10 @@ Reduzir LDL-C é parte de prevenção; não elimina risco residual por pressão 
 
 ## **Conceitos relacionados**
 
+
 - [[Lipoproteínas]]
 - [[VLDL]]
 - [[HDL]]
-- [[Colesterol]]
-- [[Triglicerídeos]]
-- [[Ácidos graxos saturados]]
-- [[Risco basal]]
-- [[Desfecho substituto]]
-
 ## **Referências de base**
 
 - Ference BA, et al. *Low-density lipoproteins cause atherosclerotic cardiovascular disease. 1. Evidence from genetic, epidemiologic, and clinical studies*. European Heart Journal. https://doi.org/10.1093/eurheartj/ehx144

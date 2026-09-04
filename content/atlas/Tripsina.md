@@ -26,16 +26,10 @@ A associação entre mutação em genes de tripsinogênio e pancreatite depende 
 
 ## **Conceitos relacionados**
 
+
 - [[Pepsina]]
 - [[Quimotripsina]]
 - [[Carboxipeptidase]]
-- [[Proteólise]]
-- [[Hidrólise]]
-- [[Proteínas]]
-- [[Absorção]]
-- [[Insuficiência pancreática]]
-- [[Pancreatite]]
-
 ## **Referências de base**
 
 - Patricia JJ, Dhamoon AS. [Physiology, Digestion](https://www.ncbi.nlm.nih.gov/books/NBK544242/). StatPearls Publishing; updated 2022.

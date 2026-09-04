@@ -58,15 +58,6 @@ Na prática clínica, reconhecer influências filogenéticas pode favorecer inte
 - [[Ontogênese]]
 - [[Seleção cultural]]
 - [[Behaviorismo radical]]
-- [[Análise do comportamento]]
-- [[Comportamento alimentar]]
-- [[Escolhas alimentares]]
-- [[Evento apetitivo]]
-- [[Evento aversivo]]
-- [[Operações motivadoras]]
-- [[Reforço]]
-- [[Resposta comportamental]]
-- [[Seleção por consequências]]
 ## Referências de base
 
 - Skinner BF. Selection by Consequences. Science. 1981;213(4507):501–504.

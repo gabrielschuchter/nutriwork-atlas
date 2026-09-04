@@ -34,33 +34,29 @@
       }))
   }
 
-  function selectTask({ date, installationId, visited, history, concepts }) {
+  function selectTask({ date, installationId, visited, history, concepts, streak = 0 }) {
     const templates = atlas.dailyTaskTemplates || []
     const visitedCount = Object.keys(visited || {}).length
     const recentIds = (Array.isArray(history) ? history : []).slice(-2).map((item) => item.id)
-    let preferred
-    if (!visitedCount) preferred = ["open-concepts-2", "graph-node-1", "open-concepts-3"]
-    else if (visitedCount < 8)
-      preferred = ["discover-new-2", "specific-concept", "open-concepts-3", "graph-nodes-3"]
-    else
-      preferred = [
-        "connected-3",
-        "search-result",
-        "specific-concept",
-        "revisit-3",
-        "connected-2",
-        "revisit-2",
-      ]
-
-    const preferredTemplates = preferred
-      .map((id) => templates.find((template) => template.id === id))
-      .filter(Boolean)
-    const candidates = preferredTemplates.length ? preferredTemplates : templates
+    const targetFloor = streak >= 30 ? 5 : streak >= 14 ? 4 : streak >= 7 ? 3 : streak >= 3 ? 2 : 1
+    const targetCeiling = Math.min(5, targetFloor + 1)
+    const isProgressionEligible = (template) => {
+      if (template.kind === "specific") return targetFloor === 1
+      return template.target >= targetFloor && template.target <= targetCeiling
+    }
+    const contextualKinds = !visitedCount
+      ? ["open", "source"]
+      : visitedCount < 8
+        ? ["discover", "open", "source", "specific"]
+        : ["connected", "revisit", "source", "open"]
+    const eligible = templates.filter(isProgressionEligible)
+    const contextual = eligible.filter((template) => contextualKinds.includes(template.kind))
+    const candidates = contextual.length ? contextual : eligible.length ? eligible : templates
     const withoutRecent = candidates.filter((template) => !recentIds.includes(template.id))
     const pool = withoutRecent.length ? withoutRecent : candidates
     const chosen = pool[hash(`${date}:${installationId}`) % pool.length] || templates[0]
     const task = { ...chosen }
-    if (task.id === "specific-concept") {
+    if (task.kind === "specific") {
       const available = conceptsList(concepts)
       const target =
         available[hash(`${date}:${installationId}:${task.id}`) % Math.max(1, available.length)]
@@ -91,6 +87,7 @@
       visited: current.visited || {},
       history: history.slice(-7),
       concepts,
+      streak: current.streak?.count || 0,
     })
     const daily = { date: today, task }
     storage().write(storage().keys.daily, daily)

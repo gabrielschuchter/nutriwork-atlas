@@ -19,16 +19,6 @@ Outra questão importante é a interpretação do papel da terapia nutricional. 
 - [[Catabolismo]]
 - [[Desnutrição relacionada à doença]]
 - [[Sarcopenia]]
-- [[Fragilidade]]
-- [[Resistência anabólica]]
-- [[Inflamação Sistêmica]]
-- [[Composição corporal]]
-- [[Massa Muscular]]
-- [[Perda de Peso Involuntária]]
-- [[Câncer]]
-- [[Insuficiência Cardíaca]]
-- [[Doença Renal Crônica]]
-- [[Estado Catabólico]]
 ## Referências de base
 
 - Fearon K, Strasser F, Anker SD, et al. Definition and Classification of Cancer Cachexia: An International Consensus. Lancet Oncology. 2011.

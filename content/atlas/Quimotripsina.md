@@ -26,15 +26,10 @@ A relevância nutricional da quimotripsina depende da função global do pâncre
 
 ## **Conceitos relacionados**
 
+
 - [[Tripsina]]
 - [[Pepsina]]
 - [[Carboxipeptidase]]
-- [[Proteólise]]
-- [[Especificidade enzimática]]
-- [[Hidrólise]]
-- [[Proteínas]]
-- [[Absorção]]
-
 ## **Referências de base**
 
 - Patricia JJ, Dhamoon AS. [Physiology, Digestion](https://www.ncbi.nlm.nih.gov/books/NBK544242/). StatPearls Publishing; updated 2022.

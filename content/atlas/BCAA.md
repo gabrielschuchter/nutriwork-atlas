@@ -42,12 +42,6 @@ Assim, a evidência atual favorece a ingestão adequada de proteína de alta qua
 - [[Leucina]]
 - [[Isoleucina]]
 - [[Valina]]
-- [[Aminoácidos essenciais]]
-- [[Proteínas]]
-- [[Síntese proteica muscular]]
-- [[mTORC1]]
-- [[Hipertrofia muscular]]
-- [[Proteína de alto valor biológico]]
 ## Referências de base
 
 - International Society of Sports Nutrition. Position Stand: Protein and Exercise.

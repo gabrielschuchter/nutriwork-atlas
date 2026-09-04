@@ -24,15 +24,10 @@ Marcadores de VLDL podem melhorar com intervenção sem provar redução de even
 
 ## **Conceitos relacionados**
 
+
 - [[Lipoproteínas]]
 - [[LDL]]
 - [[HDL]]
-- [[Quilomícrons]]
-- [[Triglicerídeos]]
-- [[Colesterol]]
-- [[Ácidos graxos]]
-- [[Lipólise]]
-
 ## **Referências de base**
 
 - Feingold KR. *Introduction to Lipids and Lipoproteins*. Endotext, NCBI Bookshelf. https://www.ncbi.nlm.nih.gov/books/NBK305896/

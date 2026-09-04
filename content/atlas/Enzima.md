@@ -26,17 +26,10 @@ Uma alteração em atividade enzimática ou em biomarcador não estabelece, por 
 
 ## **Conceitos relacionados**
 
+
 - [[Catalisadores]]
 - [[Substrato]]
 - [[Especificidade enzimática]]
-- [[Cofator]]
-- [[Coenzimas]]
-- [[Inibição enzimática]]
-- [[Km]]
-- [[Vmax]]
-- [[Alosterismo]]
-- [[Regulação enzimática]]
-
 ## **Referências de base**
 
 - Kennelly PJ, Botham KM, McGuinness O, Rodwell VW, Weil PA. [Harper's Illustrated Biochemistry, 32nd edition](https://accessmedicine.mhmedical.com/content.aspx?bookId=3220&sectionId=268188332). McGraw Hill; 2023.

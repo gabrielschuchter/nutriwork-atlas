@@ -26,16 +26,10 @@ Concentração fecal aumentada não identifica sozinha o mecanismo da diarreia. 
 
 ## **Conceitos relacionados**
 
+
 - [[Bile]]
 - [[Emulsificação]]
 - [[Micelas]]
-- [[Absorção]]
-- [[Lipase pancreática]]
-- [[Colesterol]]
-- [[Microbiota intestinal]]
-- [[Motilidade gastrointestinal]]
-- [[Ácidos graxos de cadeia curta (AGCC)]]
-
 ## **Referências de base**
 
 - Patel A, et al. [Physiology, Bile Secretion](https://www.ncbi.nlm.nih.gov/books/NBK470209/). StatPearls Publishing; updated 2022 Sep 26.

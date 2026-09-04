@@ -36,13 +36,6 @@ Também há discussões sobre biomarcadores ideais para diagnóstico de deficiê
 - [[Ferro]]
 - [[Anemia ferropriva]]
 - [[Necessidades nutricionais na gestação]]
-- [[Estado nutricional materno]]
-- [[Hemoglobina]]
-- [[Ferritina]]
-- [[Suplementação nutricional]]
-- [[Gestação]]
-- [[Baixo peso ao nascer]]
-- [[Saúde materno-infantil]]
 ## Referências de base
 
 - WHO Guideline: Daily Iron Supplementation in Pregnant Women.

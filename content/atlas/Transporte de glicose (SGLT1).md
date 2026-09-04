@@ -26,16 +26,10 @@ Inibir SGLT1 pode mudar resposta glicêmica e sintomas intestinais, porém efeit
 
 ## **Conceitos relacionados**
 
+
 - [[Cotransporte]]
 - [[Transporte ativo]]
 - [[GLUT2]]
-- [[GLUT5]]
-- [[Na+K+-ATPase]]
-- [[Glicose]]
-- [[Galactose]]
-- [[Absorção]]
-- [[Osmose]]
-
 ## **Referências de base**
 
 - Wright EM, Loo DDF, Hirayama BA. Biology of human sodium glucose transporters. Physiological Reviews. 2011;91:733-794. https://doi.org/10.1152/physrev.00055.2009.

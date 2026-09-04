@@ -184,16 +184,6 @@ Em estudos nutricionais, alterações no escore Z frequentemente são utilizadas
 - [[Crescimento e desenvolvimento infantil]]
 - [[Crescimento infantil]]
 - [[Antropometria]]
-- [[Curvas de crescimento]]
-- [[Organização Mundial da Saúde (OMS)]]
-- [[Peso para idade]]
-- [[Estatura para idade]]
-- [[Índice de massa corporal (IMC) para idade]]
-- [[Baixa estatura para idade]]
-- [[Desnutrição infantil]]
-- [[Excesso de peso infantil]]
-- [[Velocidade de crescimento]]
-- [[Obesidade infantil]]
 ## Referências de base
 
 - World Health Organization (WHO). WHO Child Growth Standards: Length/height-for-age, weight-for-age, weight-for-length, weight-for-height and body mass index-for-age. 2006.

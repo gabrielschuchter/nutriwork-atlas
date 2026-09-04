@@ -24,16 +24,10 @@ Generalizar por semelhança superficial pode ignorar modificadores de efeito. Di
 
 ## **Conceitos relacionados**
 
+
 - [[Amostra]]
 - [[Validade Interna]]
 - [[Validade Externa]]
-- [[Risco basal]]
-- [[Modificador de efeito]]
-- [[Análise de Subgrupos]]
-- [[Randomização]]
-- [[Mortalidade]]
-- [[Morbidade]]
-
 ## **Referências de base**
 
 - Lash TL, VanderWeele TJ, Haneuse S, Rothman KJ. *Modern Epidemiology*, 4th ed. Wolters Kluwer. https://www.stata.com/bookstore/modern-epidemiology/

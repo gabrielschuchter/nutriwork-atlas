@@ -28,18 +28,10 @@ Não existe base para uma dose única aplicável a todas as situações nesta no
 
 ## Conceitos relacionados
 
+
 - [[Fibra alimentar]]
 - [[Fibra alimentar solúvel]]
 - [[Fermentação]]
-- [[Microbiota intestinal]]
-- [[Motilidade gastrointestinal]]
-- [[Trânsito intestinal]]
-- [[Massa fecal]]
-- [[Constipação]]
-- [[Viscosidade]]
-- [[Digestão química]]
-- [[Esvaziamento gástrico]]
-
 ## Referências de base
 
 - Cummings JH, Stephen A. Carbohydrate terminology and classification. *European Journal of Clinical Nutrition*. 2007;61 Suppl 1:S5–S18. [DOI](https://doi.org/10.1038/sj.ejcn.1602936). [PubMed](https://pubmed.ncbi.nlm.nih.gov/17992187/).

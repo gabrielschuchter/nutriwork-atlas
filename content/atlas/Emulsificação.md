@@ -26,16 +26,10 @@ Melhorar a emulsificação in vitro pode aumentar a velocidade de digestão em u
 
 ## **Conceitos relacionados**
 
+
 - [[Bile]]
 - [[Sais biliares]]
 - [[Lipase pancreática]]
-- [[Micelas]]
-- [[Absorção]]
-- [[Lipídios]]
-- [[Triglicerídeos]]
-- [[Quilomícrons]]
-- [[Motilidade gastrointestinal]]
-
 ## **Referências de base**
 
 - Patricia JJ, Dhamoon AS. [Physiology, Digestion](https://www.ncbi.nlm.nih.gov/books/NBK544242/). StatPearls Publishing; updated 2022.

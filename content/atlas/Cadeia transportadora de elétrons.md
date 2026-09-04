@@ -28,14 +28,6 @@ Também não é adequado avaliar "função mitocondrial" por um único marcador.
 - [[Fosforilação oxidativa]]
 - [[Complexo I]]
 - [[Complexo II]]
-- [[Complexo III]]
-- [[Complexo IV]]
-- [[Coenzima Q]]
-- [[Citocromo c]]
-- [[Força próton-motriz]]
-- [[Espécies reativas de oxigênio (EROs)]]
-- [[Oxigênio]]
-- [[Ciclo de Krebs]]
 ## Referências de base
 
 - Nicholls DG, Ferguson SJ. Bioenergetics. 4. ed. London: Academic Press; 2013.

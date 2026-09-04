@@ -26,16 +26,10 @@ Alterar a acidez para modificar pepsina pode produzir efeitos fora do alvo; a de
 
 ## **Conceitos relacionados**
 
+
 - [[Digestão química]]
 - [[Hidrólise]]
 - [[Proteínas]]
-- [[Tripsina]]
-- [[Quimotripsina]]
-- [[Carboxipeptidase]]
-- [[Bile]]
-- [[Absorção]]
-- [[Esvaziamento gástrico]]
-
 ## **Referências de base**
 
 - Patricia JJ, Dhamoon AS. [Physiology, Digestion](https://www.ncbi.nlm.nih.gov/books/NBK544242/). StatPearls Publishing; updated 2022.

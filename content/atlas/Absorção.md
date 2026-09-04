@@ -26,16 +26,10 @@ A permeabilidade intestinal é um aspecto da barreira, enquanto absorção é tr
 
 ## **Conceitos relacionados**
 
+
 - [[Digestão química]]
 - [[Hidrólise]]
 - [[Difusão simples]]
-- [[Difusão facilitada]]
-- [[Transporte ativo]]
-- [[Micelas]]
-- [[Microbiota intestinal]]
-- [[Má absorção]]
-- [[Biodisponibilidade]]
-
 ## **Referências de base**
 
 - NCBI Bookshelf. [Physiology, Nutrient Absorption](https://www.ncbi.nlm.nih.gov/books/NBK597379/). StatPearls Publishing; updated 2025.

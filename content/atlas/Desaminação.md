@@ -24,15 +24,10 @@ Modelos bioquímicos explicam a rota, mas não estabelecem a causa de encefalopa
 
 ## **Conceitos relacionados**
 
+
 - [[Aminoácidos]]
 - [[Transaminação]]
 - [[Catabolismo de aminoácidos]]
-- [[Ciclo da ureia]]
-- [[Ciclo de Krebs]]
-- [[Balanço nitrogenado]]
-- [[Proteólise]]
-- [[Cofator]]
-
 ## **Referências de base**
 
 - NCBI Bookshelf. *Biochemistry, Ammonia*. https://www.ncbi.nlm.nih.gov/books/NBK541039/

@@ -68,17 +68,6 @@ Na prática clínica, identificar corretamente quais eventos exercem função ap
 - [[Evento aversivo]]
 - [[Reforço]]
 - [[Consequência reforçadora]]
-- [[Operações motivadoras]]
-- [[Resposta comportamental]]
-- [[Eventos antecedentes]]
-- [[Comportamento alimentar]]
-- [[Condicionamento pavloviano]]
-- [[Análise do comportamento]]
-- [[Behaviorismo radical]]
-- [[Filogênese]]
-- [[Ontogênese]]
-- [[Seleção cultural]]
-- [[Escolhas alimentares]]
 ## Referências de base
 
 - Skinner BF. Science and Human Behavior. New York: Macmillan; 1953.

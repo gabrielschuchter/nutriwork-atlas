@@ -50,13 +50,6 @@ Embora a suplementação de [[Creatina|creatina]] aumente a disponibilidade de f
 - [[ATP]]
 - [[ADP]]
 - [[Fosfocreatina]]
-- [[Creatina]]
-- [[Bioenergética]]
-- [[Glicólise]]
-- [[Fosforilação oxidativa]]
-- [[Fadiga muscular]]
-- [[Exercício de alta intensidade]]
-- [[Beta-alanina]]
 ## Referências de base
 
 - Brooks GA, Fahey TD, Baldwin KM. Exercise Physiology: Human Bioenergetics and Its Applications.

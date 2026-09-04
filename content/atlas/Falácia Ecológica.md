@@ -20,7 +20,6 @@ Por outro lado, rejeitar completamente estudos ecológicos também constitui sim
 - [[Validade Externa]]
 - [[Confundimento]]
 - [[Viés de seleção]]
-- [[Risco basal]]
 ## Referências de base
 
 - Modern Epidemiology.

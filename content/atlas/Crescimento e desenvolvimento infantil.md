@@ -34,18 +34,6 @@ Além disso, muitos estudos que investigam efeitos nutricionais sobre desenvolvi
 - [[Aleitamento materno exclusivo]]
 - [[Aleitamento materno complementado]]
 - [[Leite materno]]
-- [[Alimentação complementar]]
-- [[Introdução alimentar]]
-- [[Deficiência de micronutrientes na infância]]
-- [[Escore Z de crescimento infantil]]
-- [[Prematuridade e nutrição]]
-- [[Baixo peso ao nascer]]
-- [[Curvas de crescimento]]
-- [[Antropometria]]
-- [[Desmame precoce]]
-- [[Pega adequada]]
-- [[Restrição de crescimento intrauterino]]
-- [[Segurança alimentar e nutricional na primeira infância]]
 ## Referências de base
 
 - WHO Child Growth Standards.

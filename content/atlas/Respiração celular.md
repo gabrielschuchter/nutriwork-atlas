@@ -24,16 +24,10 @@ Melhorar uma variável respiratória em laboratório não demonstra aumento de s
 
 ## **Conceitos relacionados**
 
+
 - [[ATP]]
 - [[ADP]]
 - [[Cadeia transportadora de elétrons]]
-- [[Fosforilação oxidativa]]
-- [[Glicólise]]
-- [[Ciclo de Krebs]]
-- [[Beta-oxidação]]
-- [[Ciclo de Cori]]
-- [[Metabolismo]]
-
 ## **Referências de base**
 
 - NCBI Bookshelf. *The Mechanism of Oxidative Phosphorylation*. https://www.ncbi.nlm.nih.gov/books/NBK9885/

@@ -24,15 +24,10 @@ Associações entre níveis mais altos e menor doença podem refletir saúde glo
 
 ## **Conceitos relacionados**
 
+
 - [[Vitaminas]]
 - [[Vitaminas hidrossolúveis]]
 - [[Biodisponibilidade]]
-- [[Bile]]
-- [[Sais biliares]]
-- [[Micelas]]
-- [[Quilomícrons]]
-- [[Ferro heme]]
-
 ## **Referências de base**
 
 - National Institutes of Health, Office of Dietary Supplements. *Vitamin A and Carotenoids: Fact Sheet for Health Professionals*. https://ods.od.nih.gov/factsheets/VitaminA-HealthProfessional/

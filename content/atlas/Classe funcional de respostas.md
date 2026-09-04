@@ -96,14 +96,6 @@ Na prática clínica, esse conceito reforça a importância da [[Análise funcio
 - [[Resposta comportamental]]
 - [[Análise funcional]]
 - [[Eventos antecedentes]]
-- [[Consequência]]
-- [[Reforço]]
-- [[Punição]]
-- [[Operações motivadoras]]
-- [[Behaviorismo radical]]
-- [[Análise do comportamento]]
-- [[Extinção comportamental]]
-- [[Comportamento alimentar]]
 ## Referências de base
 
 - Skinner BF. Science and Human Behavior. New York: Macmillan; 1953.

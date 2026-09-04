@@ -26,15 +26,10 @@ Uma mudança de preferência alimentar não prova alteração no número de papi
 
 ## **Conceitos relacionados**
 
+
 - [[Saliva]]
 - [[Comportamento alimentar]]
 - [[Escolhas alimentares]]
-- [[Evento apetitivo]]
-- [[Evento aversivo]]
-- [[Análise do comportamento]]
-- [[Deglutição]]
-- [[Capacidade Mastigatória]]
-
 ## **Referências de base**
 
 - Roper SD, Chaudhari N. Taste buds: cells, signals and synapses. Nature Reviews Neuroscience. 2017;18:485-497. https://doi.org/10.1038/nrn.2017.68.

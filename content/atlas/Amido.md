@@ -24,14 +24,10 @@ O uso de amido resistente como estratégia clínica requer dose, tolerabilidade 
 
 ## **Conceitos relacionados**
 
+
 - [[Polissacarídeos]]
 - [[Amilase salivar]]
 - [[Amilase pancreática]]
-- [[Maltase]]
-- [[Índice glicêmico]]
-- [[Carboidrato integral]]
-- [[Ácidos graxos de cadeia curta (AGCC)]]
-
 ## **Referências de base**
 
 - NCBI Bookshelf. *Physiology, Digestion*. https://www.ncbi.nlm.nih.gov/books/NBK544242/

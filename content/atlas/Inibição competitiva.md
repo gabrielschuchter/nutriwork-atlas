@@ -26,17 +26,10 @@ A reversão pelo aumento do [[Substrato|substrato]] é uma previsão de um model
 
 ## **Conceitos relacionados**
 
+
 - [[Inibição enzimática]]
 - [[Enzima]]
 - [[Substrato]]
-- [[Km]]
-- [[Vmax]]
-- [[Inibição não competitiva]]
-- [[Inibição incompetitiva]]
-- [[Inibição mista]]
-- [[Inibição irreversível]]
-- [[Interação medicamentosa]]
-
 ## **Referências de base**
 
 - NCBI Bookshelf. [Biochemistry, Proteins Enzymes](https://www.ncbi.nlm.nih.gov/books/NBK554481/). StatPearls Publishing; updated 2023 Apr 24.

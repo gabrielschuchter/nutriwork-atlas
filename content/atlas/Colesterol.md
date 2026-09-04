@@ -24,16 +24,10 @@ Diretrizes podem atualizar metas e estratégias conforme novas evidências. Valo
 
 ## **Conceitos relacionados**
 
+
 - [[Lipídios]]
 - [[Lipoproteínas]]
 - [[LDL]]
-- [[HDL]]
-- [[VLDL]]
-- [[Triglicerídeos]]
-- [[Ácidos graxos saturados]]
-- [[Fosfolipídios]]
-- [[Bile]]
-
 ## **Referências de base**
 
 - Feingold KR. *Introduction to Lipids and Lipoproteins*. Endotext, NCBI Bookshelf. https://www.ncbi.nlm.nih.gov/books/NBK305896/

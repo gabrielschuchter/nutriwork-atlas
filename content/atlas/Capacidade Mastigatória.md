@@ -42,16 +42,6 @@ A literatura sugere plausibilidade biológica para uma relação causal entre fu
 - [[Digestão mecânica]]
 - [[Saúde Oral]]
 - [[Fragilidade]]
-- [[Sarcopenia]]
-- [[Desnutrição]]
-- [[Desnutrição relacionada à doença]]
-- [[Envelhecimento]]
-- [[Ingestão Alimentar]]
-- [[Densidade Nutricional]]
-- [[Avaliação nutricional|Avaliação Nutricional]]
-- [[Estado Funcional]]
-- [[Disfagia]]
-- [[Qualidade da Dieta]]
 ## Referências de base
 
 - ESPEN Guideline on Clinical Nutrition and Hydration in Geriatrics.

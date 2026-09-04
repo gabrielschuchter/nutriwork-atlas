@@ -24,15 +24,10 @@ O efeito do cozimento depende de tempo, temperatura, matriz e proteína. General
 
 ## **Conceitos relacionados**
 
+
 - [[Proteínas]]
 - [[Pepsina]]
 - [[Tripsina]]
-- [[Quimotripsina]]
-- [[Hidrólise]]
-- [[Digestão química]]
-- [[Enzima]]
-- [[Especificidade enzimática]]
-
 ## **Referências de base**
 
 - NCBI Bookshelf. *Biochemistry, Proteins Enzymes*. https://www.ncbi.nlm.nih.gov/books/NBK554481/

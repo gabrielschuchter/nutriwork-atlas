@@ -24,16 +24,10 @@ Dietas ou suplementos que elevam catecolaminas e lipólise não demonstram, por 
 
 ## **Conceitos relacionados**
 
+
 - [[Triglicerídeos]]
 - [[Ácidos graxos]]
 - [[Beta-oxidação]]
-- [[Cetogênese]]
-- [[Gliconeogênese]]
-- [[Insulina]]
-- [[Glucagon]]
-- [[Adrenalina]]
-- [[Disponibilidade Energética]]
-
 ## **Referências de base**
 
 - Feingold KR. *Introduction to Lipids and Lipoproteins*. Endotext, NCBI Bookshelf. https://www.ncbi.nlm.nih.gov/books/NBK305896/

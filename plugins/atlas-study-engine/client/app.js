@@ -31,6 +31,9 @@
   let mobileMenuOpener = null
   let touchHintTimer = 0
   let touchHintShown = false
+  let filterTimer = 0
+  let mobileSearchTimer = 0
+  let viewportMetricsFrame = 0
   let mobileSearchQuery = ""
   let refreshSerial = 0
   let navigationSerial = 0
@@ -507,6 +510,26 @@
     atlas.graph?.setFilter(search.value, selectedArea)
   }
 
+  function cancelFilterTimer() {
+    if (!filterTimer) return
+    window.clearTimeout(filterTimer)
+    filterTimer = 0
+  }
+
+  function cancelMobileSearchTimer() {
+    if (!mobileSearchTimer) return
+    window.clearTimeout(mobileSearchTimer)
+    mobileSearchTimer = 0
+  }
+
+  function scheduleFilterApply() {
+    cancelFilterTimer()
+    filterTimer = window.setTimeout(() => {
+      filterTimer = 0
+      applyFilters()
+    }, 80)
+  }
+
   function rememberLastNote(node) {
     if (node?.slug) writeSession(lastNoteKey, node.slug)
   }
@@ -576,6 +599,7 @@
   }
 
   function closeSearch(focusTrigger = true) {
+    cancelMobileSearchTimer()
     const { sheet, input } = searchSheetElements()
     if (!sheet) return
     mobileSearchQuery = input?.value ?? mobileSearchQuery
@@ -739,7 +763,21 @@
     }
   }
 
+  const automaticHeadingAnchorSelector = [
+    '.atlas-note-content article h1 > a[role="anchor"]',
+    '.atlas-note-content article h2 > a[role="anchor"]',
+    '.atlas-note-content article h3 > a[role="anchor"]',
+    '.atlas-note-content article h4 > a[role="anchor"]',
+    '.atlas-note-content article h5 > a[role="anchor"]',
+    '.atlas-note-content article h6 > a[role="anchor"]',
+  ].join(",")
+
+  function removeAutomaticHeadingAnchors() {
+    document.querySelectorAll(automaticHeadingAnchorSelector).forEach((anchor) => anchor.remove())
+  }
+
   function enhanceLinks() {
+    removeAutomaticHeadingAnchors()
     const anchors = document.querySelectorAll("a.internal, a[data-atlas-target]")
     for (const anchor of anchors) {
       const slug = targetFromAnchor(anchor)
@@ -1370,19 +1408,24 @@
     const area = document.getElementById("atlas-area-filter")
     if (!search || !area) return
     if (event?.target === area) {
+      cancelFilterTimer()
       selectedArea = area.value
       setAreaPickerValue(selectedArea)
       applyFilters()
       return
     }
     if (event?.target !== search) return
-    applyFilters()
+    scheduleFilterApply()
   }
 
   function handleMobileSearchInput(event) {
     if (event?.target?.id !== "atlas-mobile-search") return
     mobileSearchQuery = event.target.value
-    renderMobileSearchResults(mobileSearchQuery)
+    cancelMobileSearchTimer()
+    mobileSearchTimer = window.setTimeout(() => {
+      mobileSearchTimer = 0
+      renderMobileSearchResults(mobileSearchQuery)
+    }, 80)
   }
 
   function stateFromLocation() {
@@ -1518,6 +1561,8 @@
   document.addEventListener("input", handleMobileSearchInput)
   document.addEventListener("change", handleFilters)
   document.addEventListener("prenav", () => {
+    cancelFilterTimer()
+    cancelMobileSearchTimer()
     setRouteLoading(true)
     hidePreview(0)
     atlas.graph?.persist()
@@ -1528,7 +1573,13 @@
     refresh()
   })
   window.addEventListener("popstate", handlePopState)
-  const onViewportChange = () => syncViewportMetrics()
+  const onViewportChange = () => {
+    if (viewportMetricsFrame) return
+    viewportMetricsFrame = window.requestAnimationFrame(() => {
+      viewportMetricsFrame = 0
+      syncViewportMetrics()
+    })
+  }
   window.addEventListener("resize", onViewportChange)
   window.addEventListener("orientationchange", onViewportChange)
   if (window.visualViewport) {
@@ -1536,7 +1587,15 @@
     window.visualViewport.addEventListener("scroll", onViewportChange)
   }
   syncViewportMetrics()
-  window.addEventListener("pagehide", () => atlas.graph?.persist())
+  window.addEventListener("pagehide", () => {
+    cancelFilterTimer()
+    cancelMobileSearchTimer()
+    if (viewportMetricsFrame) {
+      window.cancelAnimationFrame(viewportMetricsFrame)
+      viewportMetricsFrame = 0
+    }
+    atlas.graph?.persist()
+  })
   document.addEventListener("atlas-access", refresh)
 
   setTheme(currentTheme())

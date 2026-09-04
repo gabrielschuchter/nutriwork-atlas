@@ -26,16 +26,10 @@ Teste respiratório positivo indica chegada de hidrogênio ou metano ao ar expir
 
 ## **Conceitos relacionados**
 
+
 - [[Lactose]]
 - [[Hidrólise]]
 - [[Absorção]]
-- [[Microbiota intestinal]]
-- [[FODMAPs]]
-- [[Mucina]]
-- [[Sacarase]]
-- [[Maltase]]
-- [[Biodisponibilidade]]
-
 ## **Referências de base**
 
 - Misselwitz B, Butter M, Verbeke K, Fox MR. Update on lactose malabsorption and intolerance: pathogenesis, diagnosis and clinical management. Gut. 2019;68:2080-2091. https://doi.org/10.1136/gutjnl-2019-318404.

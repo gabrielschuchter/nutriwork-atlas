@@ -26,15 +26,10 @@ A relação entre atraso e sintomas é imperfeita. Tratar o número do exame sem
 
 ## **Conceitos relacionados**
 
+
 - [[Motilidade gastrointestinal]]
 - [[Peristaltismo]]
 - [[Segmentação]]
-- [[Colecistocinina (CCK)]]
-- [[Peptídeo YY (PYY)]]
-- [[Glicemia pós-prandial]]
-- [[FODMAPs]]
-- [[Náuseas e vômitos na gestação]]
-
 ## **Referências de base**
 
 - Camilleri M, Chedid V, Ford AC, et al. Gastroparesis. Nature Reviews Disease Primers. 2018;4:41. https://doi.org/10.1038/s41572-018-0038-z.

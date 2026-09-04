@@ -26,15 +26,10 @@ Bebidas esportivas ou soluções comerciais não são intercambiáveis com fluid
 
 ## **Conceitos relacionados**
 
+
 - [[Sódio]]
 - [[Hiponatremia]]
 - [[Osmose]]
-- [[Osmolalidade]]
-- [[Equilíbrio hídrico]]
-- [[Equilíbrio ácido-base]]
-- [[Transporte ativo]]
-- [[Síndrome de realimentação]]
-
 ## **Referências de base**
 
 - Hall JE, Hall ME. [Guyton and Hall Textbook of Medical Physiology, 14th edition](https://www.us.elsevierhealth.com/guyton-and-hall-textbook-of-medical-physiology-9780323640060.html). Elsevier; 2021.

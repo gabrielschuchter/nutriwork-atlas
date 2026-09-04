@@ -24,15 +24,10 @@ Melhora de utilização de cetonas em um estudo de exercício ou dieta não demo
 
 ## **Conceitos relacionados**
 
+
 - [[Cetogênese]]
 - [[Beta-oxidação]]
 - [[Ciclo de Krebs]]
-- [[Respiração celular]]
-- [[Lipólise]]
-- [[Gliconeogênese]]
-- [[Insulina]]
-- [[Glucagon]]
-
 ## **Referências de base**
 
 - NCBI Bookshelf. *Biochemistry, Ketone Metabolism*. https://www.ncbi.nlm.nih.gov/books/NBK554523/

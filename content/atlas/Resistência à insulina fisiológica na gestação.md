@@ -82,15 +82,6 @@ Do ponto de vista clínico, reduzir a [[Resistência à insulina|resistência à
 - [[Diabetes mellitus gestacional]]
 - [[Resistência à insulina]]
 - [[Sensibilidade à insulina]]
-- [[Insulina]]
-- [[Lipólise aumentada na gestação]]
-- [[Metabolismo materno-fetal]]
-- [[Programação metabólica fetal]]
-- [[Estado nutricional materno]]
-- [[Ganho de peso gestacional]]
-- [[IMC pré-gestacional]]
-- [[Grande para idade gestacional (GIG)]]
-- [[Teste oral de tolerância à glicose (TOTG)]]
 ## Referências de base
 
 - Management of Diabetes in Pregnancy: Standards of Care in Diabetes—2026. Diabetes Care, Alexandria, v. 49, supl. 1, p. S321–S338, 2026. DOI: 10.2337/dc26-S015.

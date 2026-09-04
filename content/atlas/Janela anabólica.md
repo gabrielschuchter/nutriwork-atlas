@@ -50,14 +50,6 @@ Na prática, a evidência sustenta que o consumo de proteína próximo ao exerc�
 - [[Síntese proteica muscular]]
 - [[Anabolismo]]
 - [[Catabolismo]]
-- [[Resistência anabólica]]
-- [[Leucina]]
-- [[Proteínas]]
-- [[Aminoácidos essenciais]]
-- [[mTORC1]]
-- [[Hipertrofia muscular]]
-- [[Balanço nitrogenado]]
-- [[Exercício resistido]]
 ## Referências de base
 
 - International Society of Sports Nutrition (ISSN). Position Stand: Protein and Exercise.

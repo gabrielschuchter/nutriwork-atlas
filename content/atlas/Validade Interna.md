@@ -24,16 +24,10 @@ Ferramentas de risco de [[Viés|viés]] organizam julgamento, mas não produzem 
 
 ## **Conceitos relacionados**
 
+
 - [[Validade Externa]]
 - [[Viés]]
 - [[Randomização]]
-- [[Cegamento]]
-- [[Confundimento]]
-- [[Confundimento residual]]
-- [[Viés de seleção]]
-- [[Intervalo de Confiança]]
-- [[Causalidade]]
-
 ## **Referências de base**
 
 - Sterne JAC, et al. *RoB 2: a revised tool for assessing risk of bias in randomised trials*. BMJ. https://www.bmj.com/content/366/bmj.l4898.short

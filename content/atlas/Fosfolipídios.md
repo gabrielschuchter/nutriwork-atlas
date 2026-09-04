@@ -24,15 +24,10 @@ Atribuir benefícios a um alimento pelo teor de fosfolipídios ignora [[Proteín
 
 ## **Conceitos relacionados**
 
+
 - [[Lipídios]]
 - [[Ácidos graxos]]
 - [[Lipoproteínas]]
-- [[Quilomícrons]]
-- [[Micelas]]
-- [[Bile]]
-- [[Membrana plasmática]]
-- [[Biodisponibilidade]]
-
 ## **Referências de base**
 
 - Feingold KR. *Introduction to Lipids and Lipoproteins*. Endotext, NCBI Bookshelf. https://www.ncbi.nlm.nih.gov/books/NBK305896/

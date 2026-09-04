@@ -24,15 +24,10 @@ Suplementar B6 para reduzir transaminases sem deficiência comprovada não é um
 
 ## **Conceitos relacionados**
 
+
 - [[Aminoácidos]]
 - [[Desaminação]]
 - [[Catabolismo de aminoácidos]]
-- [[Ciclo da ureia]]
-- [[Ciclo de Krebs]]
-- [[Cofator]]
-- [[Vitaminas hidrossolúveis]]
-- [[Balanço nitrogenado]]
-
 ## **Referências de base**
 
 - NCBI Bookshelf. *Biochemistry, Amino Acid Synthesis and Degradation*. https://www.ncbi.nlm.nih.gov/books/NBK559250/

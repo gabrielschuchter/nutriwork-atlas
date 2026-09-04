@@ -24,16 +24,10 @@ Comparar pontos percentuais entre estudos exige verificar [[População|populaç
 
 ## **Conceitos relacionados**
 
+
 - [[Porcento]]
 - [[Risco Relativo]]
 - [[Razão de Chances]]
-- [[Intervalo de Confiança]]
-- [[Risco basal]]
-- [[Mortalidade]]
-- [[Morbidade]]
-- [[Clinicamente relevante]]
-- [[Amostra]]
-
 ## **Referências de base**
 
 - Cochrane Collaboration. *Cochrane Handbook for Systematic Reviews of Interventions*, Chapter 6. https://training.cochrane.org/handbook/current/chapter-06

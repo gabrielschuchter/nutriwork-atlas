@@ -4,6 +4,7 @@
 
   let opener = null
   let toastTimer = 0
+  let completionAudio = null
 
   function panel() {
     return document.getElementById("atlas-daily-task-panel")
@@ -21,6 +22,8 @@
       streak: document.getElementById("atlas-daily-task-streak"),
       sound: document.querySelector('[data-atlas-daily-action="toggle-sound"]'),
       close: document.querySelector('[data-atlas-daily-action="close"]'),
+      streakFire: document.querySelector("[data-atlas-daily-streak-fire]"),
+      streakLabel: document.querySelector("[data-atlas-daily-streak-label]"),
       toast: document.getElementById("atlas-daily-task-toast"),
       toastTitle: document.querySelector("[data-atlas-daily-toast-title]"),
       toastCopy: document.querySelector("[data-atlas-daily-toast-copy]"),
@@ -55,8 +58,12 @@
       item.state.textContent = current.completed ? "Concluída" : "Em andamento"
       item.state.dataset.state = current.completed ? "complete" : "active"
     }
-    if (item.streak)
-      item.streak.textContent = `Sequência: ${current.streak?.visibleCount || 0} dias`
+    const visibleStreak = Number(current.streak?.visibleCount || 0)
+    if (item.streakLabel) item.streakLabel.textContent = `Sequência: ${visibleStreak} dias`
+    if (item.streakFire) {
+      item.streakFire.hidden = visibleStreak < 1
+      item.streakFire.dataset.level = String(Math.min(5, Math.max(1, Math.ceil(visibleStreak / 3))))
+    }
     if (item.sound) {
       const enabled = current.soundEnabled !== false
       item.sound.textContent = `Som de conclusão: ${enabled ? "ligado" : "desligado"}`
@@ -114,29 +121,51 @@
     opener = null
   }
 
+  function prepareCompletionSound() {
+    const current = currentSnapshot()
+    if (current?.soundEnabled === false || completionAudio) return
+    try {
+      const AudioContext = window.AudioContext || window.webkitAudioContext
+      if (!AudioContext) return
+      completionAudio = new AudioContext()
+      void completionAudio.resume().catch(() => {})
+    } catch {
+      completionAudio = null
+    }
+  }
+
   function playCompletionSound() {
     const current = currentSnapshot()
     if (current?.soundEnabled === false) return
     try {
       const AudioContext = window.AudioContext || window.webkitAudioContext
       if (!AudioContext) return
-      const context = new AudioContext()
-      const oscillator = context.createOscillator()
-      const gain = context.createGain()
-      const now = context.currentTime
-      oscillator.type = "sine"
-      oscillator.frequency.setValueAtTime(660, now)
-      oscillator.frequency.exponentialRampToValueAtTime(880, now + 0.12)
-      gain.gain.setValueAtTime(0.0001, now)
-      gain.gain.exponentialRampToValueAtTime(0.026, now + 0.012)
-      gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.16)
-      oscillator.connect(gain)
-      gain.connect(context.destination)
-      oscillator.start(now)
-      oscillator.stop(now + 0.17)
-      oscillator.addEventListener("ended", () => context.close().catch(() => {}), { once: true })
+      const context = completionAudio || new AudioContext()
+      completionAudio = context
+      const playTone = () => {
+        const oscillator = context.createOscillator()
+        const gain = context.createGain()
+        const now = context.currentTime
+        oscillator.type = "sine"
+        oscillator.frequency.setValueAtTime(660, now)
+        oscillator.frequency.exponentialRampToValueAtTime(880, now + 0.12)
+        gain.gain.setValueAtTime(0.0001, now)
+        gain.gain.exponentialRampToValueAtTime(0.026, now + 0.012)
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.16)
+        oscillator.connect(gain)
+        gain.connect(context.destination)
+        oscillator.start(now)
+        oscillator.stop(now + 0.17)
+      }
+      if (context.state === "suspended")
+        void context
+          .resume()
+          .then(playTone)
+          .catch(() => {})
+      else playTone()
     } catch {
       // Audio is a progressive enhancement and never affects completion.
+      completionAudio = null
     }
   }
 
@@ -175,6 +204,7 @@
   }
 
   function handleClick(event) {
+    prepareCompletionSound()
     const target =
       event.target instanceof Element ? event.target.closest("[data-atlas-daily-action]") : null
     if (!target) return
@@ -191,6 +221,7 @@
   }
 
   function handleKeydown(event) {
+    if (event.key === "Enter" || event.key === " ") prepareCompletionSound()
     if (event.key === "Escape" && panel()?.classList.contains("is-open")) {
       event.preventDefault()
       close()

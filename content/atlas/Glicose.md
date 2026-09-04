@@ -24,15 +24,10 @@ Reduzir a discussão alimentar à glicemia pode ignorar fibras, saciedade, adequ
 
 ## **Conceitos relacionados**
 
+
 - [[Monossacarídeos]]
 - [[Transporte de glicose (SGLT1)]]
 - [[GLUT2]]
-- [[Glicólise]]
-- [[Glicogênese]]
-- [[Gliconeogênese]]
-- [[Índice glicêmico]]
-- [[Resistência à insulina fisiológica na gestação]]
-
 ## **Referências de base**
 
 - NCBI Bookshelf. *Physiology, Nutrient Absorption*. https://www.ncbi.nlm.nih.gov/books/NBK597379/

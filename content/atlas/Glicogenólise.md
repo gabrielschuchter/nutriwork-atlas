@@ -28,15 +28,6 @@ A redução do [[Glicogênio|glicogênio]] durante exercício não informa, isol
 - [[Glicogênio]]
 - [[Glicogênio hepático]]
 - [[Glicogênio muscular]]
-- [[Glicose-6-fosfato]]
-- [[Glicogênio fosforilase]]
-- [[Glicogênese]]
-- [[Glucagon]]
-- [[Adrenalina]]
-- [[Doenças de armazenamento de glicogênio]]
-- [[Catabolismo]]
-- [[Supercompensação de glicogênio]]
-- [[Gliconeogênese]]
 ## Referências de base
 
 - Nelson DL, Cox MM. Lehninger Principles of Biochemistry. 7. ed. New York: W.H. Freeman; 2017.

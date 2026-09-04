@@ -20,8 +20,6 @@ Outra controvérsia envolve a interpretação causal. Frequentemente assume-se q
 - [[Adaptação metabólica]]
 - [[Termogênese adaptativa]]
 - [[Metabolismo]]
-- [[Homeostase]]
-- [[FatMax]]
 ## Referências de base
 
 - Kelley DE, Goodpaster BH. Skeletal Muscle Triglyceride. An Aspect of Regional Adiposity and Insulin Resistance. Diabetes Care.

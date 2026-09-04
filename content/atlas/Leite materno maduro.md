@@ -78,15 +78,6 @@ Quando há necessidade de suplementação ou substituição parcial do [[Leite m
 - [[Leite materno]]
 - [[Colostro]]
 - [[Leite materno de transição]]
-- [[Aleitamento materno exclusivo]]
-- [[Lactogênese]]
-- [[Lactação]]
-- [[Composição corporal infantil]]
-- [[Crescimento e desenvolvimento infantil]]
-- [[Microbiota intestinal]]
-- [[Desmame precoce]]
-- [[Apojadura]]
-- [[Puerpério]]
 ## Referências de base
 
 - World Health Organization (WHO). Guideline: Protecting, promoting and supporting breastfeeding in facilities providing maternity and newborn services.

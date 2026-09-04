@@ -24,15 +24,10 @@ Triglicerídeos são parte do risco aterogênico, porém não substituem [[LDL|L
 
 ## **Conceitos relacionados**
 
+
 - [[Lipídios]]
 - [[Ácidos graxos]]
 - [[Quilomícrons]]
-- [[VLDL]]
-- [[Lipoproteínas]]
-- [[Lipólise]]
-- [[Beta-oxidação]]
-- [[Colesterol]]
-
 ## **Referências de base**
 
 - Feingold KR. *Introduction to Lipids and Lipoproteins*. Endotext, NCBI Bookshelf. https://www.ncbi.nlm.nih.gov/books/NBK305896/

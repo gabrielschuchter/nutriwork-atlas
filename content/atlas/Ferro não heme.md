@@ -24,14 +24,10 @@ Ensaios de [[Absorção|absorção]] aguda não demonstram prevenção de anemia
 
 ## **Conceitos relacionados**
 
+
 - [[Ferro heme]]
 - [[Biodisponibilidade]]
 - [[Vitaminas hidrossolúveis]]
-- [[Quelato]]
-- [[Absorção]]
-- [[Transporte ativo]]
-- [[Eletrólitos]]
-
 ## **Referências de base**
 
 - National Institutes of Health, Office of Dietary Supplements. *Iron: Fact Sheet for Health Professionals*. https://ods.od.nih.gov/factsheets/Iron-HealthProfessional/

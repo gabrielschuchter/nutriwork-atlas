@@ -24,16 +24,10 @@ Muitos subgrupos aumentam falsos positivos. Pré-especificação, poucas hipóte
 
 ## **Conceitos relacionados**
 
+
 - [[Análise de Subgrupos]]
 - [[Modificador de efeito]]
 - [[Heterogeneidade]]
-- [[Heterogeneidade de efeito do tratamento]]
-- [[Valor de p]]
-- [[Intervalo de Confiança]]
-- [[Risco Relativo]]
-- [[Razão de Chances]]
-- [[Risco basal]]
-
 ## **Referências de base**
 
 - Cochrane Collaboration. *Cochrane Handbook for Systematic Reviews of Interventions*, Chapter 10. https://training.cochrane.org/handbook/current/chapter-10

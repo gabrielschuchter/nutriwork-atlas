@@ -140,15 +140,6 @@ Intervenções para acelerar a apojadura devem ser interpretadas com cautela. Me
 - [[Lactogênese]]
 - [[Galactopoiese]]
 - [[Colostro]]
-- [[Leite materno de transição]]
-- [[Leite materno maduro]]
-- [[Pega adequada]]
-- [[Prolactina]]
-- [[Ocitocina]]
-- [[Aleitamento materno exclusivo]]
-- [[Desmame precoce]]
-- [[Mamogênese]]
-- [[Puerpério]]
 ## Referências de base
 
 - Pang WW, Hartmann PE. Initiation of human lactation: secretory differentiation and secretory activation. Journal of Mammary Gland Biology and Neoplasia. 2007.

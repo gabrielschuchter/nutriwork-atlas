@@ -26,13 +26,6 @@ A presença de um [[Substrato|substrato]] gliconeogênico não demonstra que ele
 - [[Glicólise]]
 - [[Glicogenólise]]
 - [[Glicose-6-fosfatase]]
-- [[Ciclo de Cori]]
-- [[Ciclo da alanina]]
-- [[Lactato]]
-- [[Glicerol]]
-- [[Glucagon]]
-- [[Insulina]]
-- [[Produção endógena de glicose]]
 ## Referências de base
 
 - Nelson DL, Cox MM. Lehninger Principles of Biochemistry. 7. ed. New York: W.H. Freeman; 2017.

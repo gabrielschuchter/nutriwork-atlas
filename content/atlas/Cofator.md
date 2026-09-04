@@ -26,16 +26,10 @@ Concentrações plasmáticas podem não refletir a disponibilidade intracelular.
 
 ## **Conceitos relacionados**
 
+
 - [[Enzima]]
 - [[Coenzimas]]
 - [[Grupo prostético]]
-- [[Catalisadores]]
-- [[Vitaminas]]
-- [[Ferro heme]]
-- [[Ferro não heme]]
-- [[Biodisponibilidade]]
-- [[Inibição enzimática]]
-
 ## **Referências de base**
 
 - Kennelly PJ, Botham KM, McGuinness O, Rodwell VW, Weil PA. [Harper's Illustrated Biochemistry, 32nd edition](https://accessmedicine.mhmedical.com/content.aspx?bookId=3220&sectionId=268188332). McGraw Hill; 2023.

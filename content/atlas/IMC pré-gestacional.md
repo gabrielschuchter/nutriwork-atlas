@@ -38,15 +38,6 @@ Também há risco de uso moralizante do conceito. A classificação do IMC não 
 - [[Índice de massa corporal]]
 - [[Ganho de peso gestacional]]
 - [[Estado nutricional materno]]
-- [[Avaliação nutricional]]
-- [[Idade gestacional]]
-- [[Diabetes mellitus gestacional]]
-- [[Resistência à insulina fisiológica na gestação]]
-- [[Hipertensão gestacional e nutrição]]
-- [[Pequeno para idade gestacional (PIG)]]
-- [[Grande para idade gestacional (GIG)]]
-- [[Macrossomia fetal]]
-- [[Prematuridade e nutrição]]
 ## Referências de base
 
 - Brasil. Ministério da Saúde. **Caderneta Brasileira da Gestante**. Seção de avaliação nutricional e acompanhamento do ganho de peso na gestação.

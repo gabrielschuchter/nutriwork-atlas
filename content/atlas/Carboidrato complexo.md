@@ -24,15 +24,10 @@ Associações entre maior consumo de alimentos integrais e melhores desfechos s�
 
 ## **Conceitos relacionados**
 
+
 - [[Polissacarídeos]]
 - [[Carboidrato simples]]
 - [[Amido]]
-- [[Carboidrato refinado]]
-- [[Carboidrato integral]]
-- [[Fibra alimentar]]
-- [[Índice glicêmico]]
-- [[Ácidos graxos de cadeia curta (AGCC)]]
-
 ## **Referências de base**
 
 - G. Nantel. *Carbohydrates in human nutrition*. Food and Agriculture Organization. https://www.fao.org/docrep/pdf/X2650t/X2650t02.pdf

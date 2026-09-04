@@ -30,13 +30,6 @@ Grande parte das evidências disponíveis permanece observacional, o que exige c
 - [[Aleitamento materno exclusivo]]
 - [[Leite materno]]
 - [[Colostro]]
-- [[Alimentação complementar]]
-- [[Introdução alimentar]]
-- [[Necessidades nutricionais na infância]]
-- [[Crescimento e desenvolvimento infantil]]
-- [[Segurança alimentar e nutricional na primeira infância]]
-- [[Saúde materno-infantil]]
-- [[Desmame precoce]]
 ## Referências de base
 
 - WHO — Infant and Young Child Feeding.

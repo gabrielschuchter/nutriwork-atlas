@@ -24,16 +24,10 @@ Ensaios de estatinas e outros fármacos demonstram efeitos em eventos cardiovasc
 
 ## **Conceitos relacionados**
 
+
 - [[Colesterol]]
 - [[LDL]]
 - [[VLDL]]
-- [[Lipoproteínas]]
-- [[Bile]]
-- [[Via das pentoses-fosfato]]
-- [[Lipogênese]]
-- [[Ácidos graxos]]
-- [[Desfecho substituto]]
-
 ## **Referências de base**
 
 - Feingold KR. *Introduction to Lipids and Lipoproteins*. Endotext, NCBI Bookshelf. https://www.ncbi.nlm.nih.gov/books/NBK305896/

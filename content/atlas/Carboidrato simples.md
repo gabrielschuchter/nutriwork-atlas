@@ -24,15 +24,10 @@ Estudos que comparam dietas precisam especificar o que foi substituído. Reduzir
 
 ## **Conceitos relacionados**
 
+
 - [[Monossacarídeos]]
 - [[Dissacarídeos]]
 - [[Carboidratos]]
-- [[Carboidrato refinado]]
-- [[Carboidrato integral]]
-- [[Índice glicêmico]]
-- [[Carga glicêmica]]
-- [[Sacarose]]
-
 ## **Referências de base**
 
 - World Health Organization. *Guideline: sugars intake for adults and children*. https://www.who.int/publications/i/item/9789241549028/

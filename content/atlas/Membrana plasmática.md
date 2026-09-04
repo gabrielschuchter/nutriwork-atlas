@@ -28,14 +28,6 @@ A composição de [[Ácidos graxos|ácidos graxos]] da dieta pode influenciar me
 - [[Bicamada lipídica]]
 - [[Fosfolipídios]]
 - [[Colesterol]]
-- [[Proteína de membrana]]
-- [[Difusão facilitada]]
-- [[Transporte ativo]]
-- [[Potencial de membrana]]
-- [[Na+K+-ATPase]]
-- [[GLUT4]]
-- [[Receptor de membrana]]
-- [[Endocitose]]
 ## Referências de base
 
 - Alberts B, Johnson A, Lewis J, Morgan D, Raff M, Roberts K, Walter P. Molecular Biology of the Cell. 6. ed. New York: Garland Science; 2015.

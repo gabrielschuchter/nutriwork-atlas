@@ -24,16 +24,10 @@ Medir mais casos após ampliar rastreamento pode refletir detecção, e não aum
 
 ## **Conceitos relacionados**
 
+
 - [[Mortalidade]]
 - [[Porcento]]
 - [[Pontos percentuais]]
-- [[Risco Relativo]]
-- [[Hazard ratio]]
-- [[Desfecho substituto]]
-- [[Amostra]]
-- [[População]]
-- [[Validade Interna]]
-
 ## **Referências de base**
 
 - Bonita R, Beaglehole R, Kjellström T. *Basic epidemiology*, 2nd ed. Geneva: World Health Organization; 2006. https://iris.who.int/handle/10665/43541

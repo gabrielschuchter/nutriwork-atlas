@@ -28,18 +28,6 @@ Maior consumo de oxigênio não significa necessariamente maior produção de [[
 - [[Cadeia transportadora de elétrons]]
 - [[ATP sintase]]
 - [[Força próton-motriz]]
-- [[Quimiosmose]]
-- [[NADH]]
-- [[FADH2]]
-- [[Oxigênio]]
-- [[Desacoplamento mitocondrial]]
-- [[Bioenergética]]
-- [[Mitocôndria]]
-- [[VO₂máx]]
-- [[ATP]]
-- [[ADP]]
-- [[Ciclo de Krebs]]
-- [[Beta-oxidação]]
 ## Referências de base
 
 - Mitchell P. Coupling of phosphorylation to electron and hydrogen transfer by a chemi-osmotic type of mechanism. Nature. 1961;191(4784):144-8. https://doi.org/10.1038/191144a0

@@ -28,12 +28,6 @@ Resultados mecanísticos envolvendo AMPK podem sustentar plausibilidade biológi
 - [[ATP]]
 - [[ADP]]
 - [[AMPK]]
-- [[Adenilato quinase]]
-- [[Carga energética celular]]
-- [[Adenosina]]
-- [[Metabolismo de purinas]]
-- [[Homeostase energética]]
-- [[Alosterismo]]
 ## Referências de base
 
 - Nelson DL, Cox MM. Lehninger Principles of Biochemistry. 7. ed. New York: W.H. Freeman; 2017.

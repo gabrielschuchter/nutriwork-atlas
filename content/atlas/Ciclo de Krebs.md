@@ -28,14 +28,6 @@ Concentração de um intermediário não informa necessariamente o fluxo da via.
 - [[Acetil-CoA]]
 - [[Oxaloacetato]]
 - [[Cadeia transportadora de elétrons]]
-- [[Fosforilação oxidativa]]
-- [[Anaplerose]]
-- [[Cataplerose]]
-- [[Piruvato desidrogenase]]
-- [[Beta-oxidação]]
-- [[NADH]]
-- [[Mitocôndria]]
-- [[Glicólise]]
 ## Referências de base
 
 - Krebs HA, Johnson WA. The role of citric acid in intermediate metabolism in animal tissues. Enzymologia. 1937;4:148-56. Reimpresso em: FEBS Lett. 1980;117(Suppl):K1-K10. https://pubmed.ncbi.nlm.nih.gov/6998725/

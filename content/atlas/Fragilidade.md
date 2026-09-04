@@ -20,9 +20,6 @@ Outra controvérsia envolve a natureza causal da fragilidade. Ainda existe debat
 - [[Sarcopenia]]
 - [[Caquexia]]
 - [[Obesidade sarcopênica]]
-- [[Desnutrição relacionada à doença]]
-- [[Resistência anabólica]]
-- [[Nutrição]]
 ## Referências de base
 
 - Linda Fried et al. Frailty in Older Adults: Evidence for a Phenotype. Journals of Gerontology Series A. 2001.

@@ -60,13 +60,6 @@ Na prática clínica, o VO₂máx constitui excelente marcador funcional, mas de
 - [[Limiar anaeróbico]]
 - [[Limiar de lactato]]
 - [[Consumo de oxigênio]]
-- [[Débito cardíaco]]
-- [[Economia de movimento]]
-- [[Exercício aeróbio]]
-- [[Mitocôndria]]
-- [[Fosforilação oxidativa]]
-- [[Fadiga muscular]]
-- [[FatMax]]
 ## Referências de base
 
 - American College of Sports Medicine. ACSM's Guidelines for Exercise Testing and Prescription.

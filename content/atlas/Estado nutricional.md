@@ -24,16 +24,10 @@ Critérios de desnutrição e [[Sarcopenia|sarcopenia]] variam entre sociedades.
 
 ## **Conceitos relacionados**
 
+
 - [[Avaliação nutricional]]
 - [[Risco nutricional]]
 - [[Balanço energético]]
-- [[Balanço nitrogenado]]
-- [[Sarcopenia]]
-- [[Obesidade sarcopênica]]
-- [[Desnutrição relacionada à doença]]
-- [[Deficiência de micronutrientes na infância]]
-- [[Disponibilidade Energética]]
-
 ## **Referências de base**
 
 - World Health Organization. *Malnutrition: nutritional assessment, risk screening and diagnosis*. https://www.who.int/docs/librariesprovider2/default-document-library/booklet_200424.pdf

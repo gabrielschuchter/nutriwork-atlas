@@ -14,7 +14,8 @@
     const charge = d3
       .forceManyBody()
       .strength((node) => -150 - Math.min(30, Number(node.degree || 0)) * 3.2)
-      .distanceMax(1250)
+      .distanceMax(1000)
+      .theta(1.05)
     const link = d3
       .forceLink(links)
       .id((node) => node.id || node.slug)
@@ -23,7 +24,7 @@
     const collide = d3
       .forceCollide()
       .radius((node) => 8 + Math.min(12, Math.sqrt(Number(node.degree || 0) + 1) * 1.5))
-      .iterations(3)
+      .iterations(1)
     const gravityX = d3.forceX(WORLD.width / 2).strength(0.018)
     const gravityY = d3.forceY(WORLD.height / 2).strength(0.018)
     const center = d3.forceCenter(WORLD.width / 2, WORLD.height / 2).strength(0.06)
@@ -37,7 +38,7 @@
       .force("gravityY", gravityY)
       .force("center", center)
       .velocityDecay(0.48)
-      .alphaDecay(0.035)
+      .alphaDecay(0.05)
       .alphaMin(0.001)
       .alphaTarget(0)
       .alpha(0.82)

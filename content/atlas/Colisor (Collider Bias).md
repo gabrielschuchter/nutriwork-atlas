@@ -20,8 +20,6 @@ Além disso, embora o [[Viés|viés]] de colisor seja teoricamente bem estabelec
 - [[Diagrama Acíclico Direcionado (DAG)]]
 - [[Confundimento]]
 - [[Viés de seleção]]
-- [[Mediação]]
-- [[Modificador de efeito]]
 ## Referências de base
 
 - Causal Inference: What If.

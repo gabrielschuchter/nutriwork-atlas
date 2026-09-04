@@ -26,13 +26,6 @@ Lactato não é a causa exclusiva da acidose nem explica sozinho a [[Fadiga musc
 - [[Glicólise]]
 - [[Lactato]]
 - [[Piruvato]]
-- [[Lactato desidrogenase]]
-- [[NAD+]]
-- [[Ciclo de Cori]]
-- [[Fosforilação em nível de substrato]]
-- [[Hiperlactatemia]]
-- [[Limiar de lactato]]
-- [[Metabolismo anaeróbio]]
 ## Referências de base
 
 - Brooks GA. The science and translation of lactate shuttle theory. Cell Metab. 2018;27(4):757-85. https://doi.org/10.1016/j.cmet.2018.03.008

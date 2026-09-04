@@ -21,7 +21,7 @@ export const AtlasFrame: PageFrame = {
     const title = componentData.fileData.frontmatter?.title || labelFromSlug(current)
     const homeHref = isGraph ? "." : resolveRelative(current, "index" as FullSlug)
     const roadmapHref = resolveRelative(current, "roadmap" as FullSlug)
-    const logoHref = resolveRelative(current, "static/atlas-wordmark.png" as FullSlug)
+    const logoHref = resolveRelative(current, "static/atlas-symbol.png" as FullSlug)
 
     return (
       <div
@@ -283,9 +283,8 @@ export const AtlasFrame: PageFrame = {
                   aria-hidden="true"
                   focusable="false"
                 >
-                  <circle cx="12" cy="12" r="9" />
-                  <path d="M9.8 9a2.4 2.4 0 1 1 3.9 1.9c-1.1.8-1.7 1.2-1.7 2.6" />
-                  <path d="M12 17h.01" />
+                  <path d="M12 3 14.8 9.2 21 12l-6.2 2.8L12 21l-2.8-6.2L3 12l6.2-2.8L12 3Z" />
+                  <circle cx="12" cy="12" r="2.1" />
                 </svg>
                 <span class="atlas-control-label">Como funciona?</span>
               </button>
@@ -308,9 +307,8 @@ export const AtlasFrame: PageFrame = {
                   aria-hidden="true"
                   focusable="false"
                 >
-                  <circle cx="12" cy="12" r="9" />
-                  <path d="M9.8 9a2.4 2.4 0 1 1 3.9 1.9c-1.1.8-1.7 1.2-1.7 2.6" />
-                  <path d="M12 17h.01" />
+                  <path d="M20 11.5a7.5 7.5 0 0 1-10.8 6.7L5 20l1.2-4.2A7.5 7.5 0 1 1 20 11.5Z" />
+                  <path d="M9.8 10a2.3 2.3 0 1 1 3.8 1.8c-1 .7-1.6 1.1-1.6 2.2M12 16.9h.01" />
                 </svg>
                 <span class="atlas-control-label">Ajuda</span>
               </button>
@@ -560,7 +558,6 @@ export const AtlasFrame: PageFrame = {
             <section class="atlas-reading-shell">
               <header class="atlas-reading-header">
                 <div class="atlas-reading-heading">
-                  <p class="atlas-reading-kicker">CONCEITO NO GRAFO</p>
                   <h1 id="atlas-note-title" tabindex={-1}>
                     {title}
                   </h1>
@@ -826,7 +823,28 @@ export const AtlasFrame: PageFrame = {
               </p>
             </div>
             <footer class="atlas-daily-task-footer">
-              <span id="atlas-daily-task-streak">Sequência: 0 dias</span>
+              <span id="atlas-daily-task-streak" class="atlas-daily-task-streak">
+                <span
+                  class="atlas-daily-task-streak-fire"
+                  data-atlas-daily-streak-fire
+                  aria-hidden="true"
+                  hidden
+                >
+                  <svg
+                    class="atlas-icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    focusable="false"
+                  >
+                    <path d="M12.3 3.5c.4 3.1-1.8 4.4-3.1 6.1-1 1.2-1.5 2.5-1.5 3.9a4.3 4.3 0 0 0 8.6 0c0-1.8-.8-3.2-2.1-4.6.1 1.6-.4 2.5-1.2 3.1.2-2.8-.8-5.5-.7-8.5Z" />
+                  </svg>
+                </span>
+                <span data-atlas-daily-streak-label>Sequência: 0 dias</span>
+              </span>
               <button
                 class="atlas-daily-task-sound"
                 type="button"
@@ -892,7 +910,7 @@ AtlasFrame.css = `
   --atlas-glass-strong: rgba(7, 16, 35, .48);
   --atlas-glass-line: rgba(220, 235, 255, .18);
   --atlas-glass-highlight: rgba(255, 255, 255, .16);
-  --atlas-glass-filter: blur(28px) saturate(158%);
+  --atlas-glass-filter: blur(18px) saturate(145%);
   --atlas-glass-shadow: 0 22px 58px rgba(0, 0, 0, .28), inset 0 1px 0 rgba(255, 255, 255, .15), inset 1px 0 0 rgba(255, 255, 255, .065);
   --atlas-brand-navy: #0C2D57;
   --atlas-brand-blue: #1E5FAF;
@@ -922,7 +940,7 @@ AtlasFrame.css = `
   --atlas-glass-strong: rgba(247, 250, 255, .52);
   --atlas-glass-line: rgba(255, 255, 255, .58);
   --atlas-glass-highlight: rgba(255, 255, 255, .82);
-  --atlas-glass-filter: blur(28px) saturate(145%);
+  --atlas-glass-filter: blur(18px) saturate(135%);
   --atlas-glass-shadow: 0 22px 58px rgba(30, 62, 110, .16), inset 0 1px 0 rgba(255, 255, 255, .82), inset 1px 0 0 rgba(255, 255, 255, .46);
   --atlas-shadow: 0 18px 45px rgba(30, 62, 110, .12);
   --atlas-brand-navy: #0C2D57;
@@ -1036,7 +1054,7 @@ canvas:focus-visible {
   max-width: calc(100vw - 2rem);
   min-height: 3rem;
   overflow: visible;
-  padding: .28rem .36rem .28rem .48rem;
+  padding: .42rem .72rem .42rem .82rem;
   position: fixed;
   top: 1rem;
   transform: translateX(-50%);
@@ -1049,15 +1067,16 @@ canvas:focus-visible {
   align-items: center;
   display: inline-flex;
   flex: 0 0 auto;
-  height: 2.7rem;
+  height: 2.35rem;
+  padding: .08rem .22rem;
   text-decoration: none;
 }
 
 .atlas-brand-logo {
   display: block;
-  height: 2.7rem;
+  height: 2.1rem;
   object-fit: contain;
-  width: 7.2rem;
+  width: 2.1rem;
 }
 
 :root:not([data-theme="light"]) .atlas-brand-logo {
@@ -1082,7 +1101,7 @@ canvas:focus-visible {
   box-shadow: inset 0 1px 0 color-mix(in srgb, var(--atlas-glass-highlight) 72%, transparent);
   display: flex;
   flex: 1 1 15.5rem;
-  min-width: 7rem;
+  min-width: 12rem;
 }
 
 :root[data-theme="light"] .atlas-search-field {
@@ -1104,6 +1123,7 @@ canvas:focus-visible {
   min-width: 0;
   outline: 0;
   padding: .35rem .68rem .35rem .38rem;
+  text-overflow: ellipsis;
   width: 100%;
 }
 
@@ -1170,8 +1190,8 @@ canvas:focus-visible {
 }
 
 .atlas-area-menu {
-  -webkit-backdrop-filter: blur(26px) saturate(150%);
-  backdrop-filter: blur(26px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(145%);
+  backdrop-filter: blur(20px) saturate(145%);
   background: linear-gradient(145deg, rgba(255, 255, 255, .09), transparent 52%), var(--atlas-glass-strong);
   border: 1px solid var(--atlas-glass-line);
   border-radius: .85rem;
@@ -1901,6 +1921,7 @@ canvas:focus-visible {
   overflow: auto;
   pointer-events: auto;
   position: relative;
+  min-width: 0;
   opacity: 0;
   transform: translateX(1rem);
   transition: opacity 240ms ease, transform 360ms cubic-bezier(.22, .8, .2, 1);
@@ -2030,12 +2051,48 @@ canvas:focus-visible {
 .atlas-daily-task-footer {
   border-top: 1px solid var(--atlas-line);
   gap: .8rem;
+  min-width: 0;
   padding: .85rem 1.2rem 1rem;
+}
+
+.atlas-daily-task-streak {
+  align-items: center;
+  display: inline-flex;
+  gap: .34rem;
+}
+
+.atlas-daily-task-streak-fire {
+  align-items: center;
+  color: #F0A45D;
+  display: inline-flex;
+  filter: drop-shadow(0 0 5px rgba(240, 164, 93, .22));
+}
+
+.atlas-daily-task-streak-fire[data-level="2"] {
+  color: #F28B52;
+  filter: drop-shadow(0 0 6px rgba(242, 139, 82, .3));
+}
+
+.atlas-daily-task-streak-fire[data-level="3"],
+.atlas-daily-task-streak-fire[data-level="4"],
+.atlas-daily-task-streak-fire[data-level="5"] {
+  color: #FF7048;
+  filter: drop-shadow(0 0 7px rgba(255, 112, 72, .38));
+}
+
+.atlas-daily-task-streak-fire .atlas-icon {
+  height: .88rem;
+  width: .88rem;
+}
+
+.atlas-daily-task-streak-fire[hidden] {
+  display: none;
 }
 
 .atlas-daily-task-footer > span {
   color: var(--atlas-copy);
   font-size: .72rem;
+  min-width: 0;
 }
 
 .atlas-daily-task-sound {
@@ -2045,8 +2102,13 @@ canvas:focus-visible {
   cursor: pointer;
   font: inherit;
   font-size: .66rem;
+  max-width: 100%;
+  min-width: 0;
+  overflow: hidden;
   padding: .3rem 0;
   text-align: right;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .atlas-daily-task-sound:hover,
@@ -2160,6 +2222,26 @@ canvas:focus-visible {
   z-index: 1;
 }
 
+.atlas-graph-view::before {
+  color: var(--atlas-ink);
+  content: "Atlas.";
+  font-family: var(--headerFont), Poppins, sans-serif;
+  font-size: clamp(7rem, 24vw, 24rem);
+  font-weight: 700;
+  left: 50%;
+  letter-spacing: -.085em;
+  line-height: .82;
+  opacity: .05;
+  pointer-events: none;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  user-select: none;
+  white-space: nowrap;
+  z-index: 0;
+}
+
 .atlas-note-view {
   box-sizing: border-box;
   min-height: 100dvh;
@@ -2198,6 +2280,7 @@ canvas:focus-visible {
   min-height: 100%;
   position: relative;
   width: 100%;
+  z-index: 1;
 }
 
 .atlas-graph-view > .atlas-graph-surface {
@@ -2261,8 +2344,8 @@ canvas:focus-visible {
 
 .atlas-graph-list summary {
   align-items: center;
-  -webkit-backdrop-filter: blur(24px) saturate(150%);
-  backdrop-filter: blur(24px) saturate(150%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  backdrop-filter: blur(18px) saturate(140%);
   background: linear-gradient(145deg, rgba(255, 255, 255, .09), transparent 48%), var(--atlas-glass);
   border: 1px solid var(--atlas-glass-line);
   border-radius: 999px;
@@ -2288,8 +2371,8 @@ canvas:focus-visible {
 }
 
 .atlas-graph-list-items {
-  -webkit-backdrop-filter: blur(24px) saturate(150%);
-  backdrop-filter: blur(24px) saturate(150%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  backdrop-filter: blur(18px) saturate(140%);
   background: linear-gradient(145deg, rgba(255, 255, 255, .06), transparent 50%), var(--atlas-glass-strong);
   border: 1px solid var(--atlas-glass-line);
   border-top: 0;
@@ -2447,15 +2530,6 @@ canvas:focus-visible {
   display: none;
 }
 
-.atlas-reading-kicker {
-  color: var(--atlas-blue);
-  font-family: var(--codeFont);
-  font-size: .68rem;
-  font-weight: 700;
-  letter-spacing: .14em;
-  margin: 0 0 .8rem;
-}
-
 .atlas-reading-header h1 {
   color: var(--atlas-ink);
   font-size: clamp(2.3rem, 6vw, 5.6rem);
@@ -2477,7 +2551,9 @@ canvas:focus-visible {
 
 .atlas-note-content .article-title,
 .atlas-note-content .content-meta,
-.atlas-note-content .breadcrumbs {
+.atlas-note-content .breadcrumbs,
+.atlas-note-content article > h1:first-child,
+.atlas-note-content article > .markdown-preview-view > h1:first-child {
   display: none;
 }
 
@@ -2486,6 +2562,15 @@ canvas:focus-visible {
 .atlas-note-content article h4 {
   color: var(--atlas-ink);
   letter-spacing: -.025em;
+}
+
+.atlas-note-content article h1 > a[role="anchor"],
+.atlas-note-content article h2 > a[role="anchor"],
+.atlas-note-content article h3 > a[role="anchor"],
+.atlas-note-content article h4 > a[role="anchor"],
+.atlas-note-content article h5 > a[role="anchor"],
+.atlas-note-content article h6 > a[role="anchor"] {
+  display: none;
 }
 
 .atlas-note-content article h2 {
@@ -2588,8 +2673,8 @@ canvas:focus-visible {
 }
 
 .atlas-minimap-shell {
-  -webkit-backdrop-filter: blur(24px) saturate(145%);
-  backdrop-filter: blur(24px) saturate(145%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  backdrop-filter: blur(18px) saturate(140%);
   background: linear-gradient(145deg, rgba(255, 255, 255, .07), transparent 48%), var(--atlas-glass-strong);
   border: 1px solid var(--atlas-line);
   border-radius: 20px;
@@ -2752,19 +2837,20 @@ canvas:focus-visible {
     left: calc(50% + (var(--atlas-safe-left) - var(--atlas-safe-right)) / 2);
     max-width: calc(100vw - 2rem - var(--atlas-safe-left) - var(--atlas-safe-right));
     min-height: 3.35rem;
-    padding: .28rem .34rem .28rem .58rem;
+    padding: .42rem .58rem .42rem .72rem;
     top: calc(.65rem + var(--atlas-safe-top));
     width: calc(100vw - 2rem - var(--atlas-safe-left) - var(--atlas-safe-right));
   }
 
   .atlas-brand {
     flex: 0 0 auto;
-    height: 2.75rem;
+    height: 2.35rem;
+    padding-inline: .14rem;
   }
 
   .atlas-brand-logo {
-    height: 2.55rem;
-    width: 4.35rem;
+    height: 2rem;
+    width: 2rem;
   }
 
   .atlas-graph-filters,
@@ -2949,18 +3035,19 @@ canvas:focus-visible {
   .atlas-navbar {
     max-width: calc(100vw - 1rem - var(--atlas-safe-left) - var(--atlas-safe-right));
     min-height: 3.4rem;
-    padding-left: .5rem;
+    padding-left: .72rem;
+    padding-right: .58rem;
     top: calc(.5rem + var(--atlas-safe-top));
     width: calc(100vw - 1rem - var(--atlas-safe-left) - var(--atlas-safe-right));
   }
 
   .atlas-brand {
-    height: 2.7rem;
+    height: 2.35rem;
   }
 
   .atlas-brand-logo {
     height: 2rem;
-    width: 5.55rem;
+    width: 2rem;
   }
 
   .atlas-mobile-actions {

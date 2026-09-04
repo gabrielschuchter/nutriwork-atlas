@@ -20,8 +20,6 @@ Entretanto, atribuir automaticamente associações observacionais a esse [[Viés
 - [[Viés de seleção]]
 - [[Confundimento]]
 - [[Risco basal]]
-- [[Validade Externa]]
-- [[Prática Baseada em Evidências]]
 ## Referências de base
 
 - Modern Epidemiology.

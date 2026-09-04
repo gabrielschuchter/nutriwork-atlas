@@ -24,15 +24,10 @@ Recomendações populacionais não definem automaticamente a meta individual. Hi
 
 ## **Conceitos relacionados**
 
+
 - [[Ácidos graxos]]
 - [[Ácidos graxos insaturados]]
 - [[Ácidos graxos trans]]
-- [[LDL]]
-- [[Colesterol]]
-- [[Lipoproteínas]]
-- [[Carboidrato refinado]]
-- [[Triglicerídeos]]
-
 ## **Referências de base**
 
 - World Health Organization. *Saturated fatty acid and trans-fatty acid intake for adults and children: WHO guideline*. https://www.who.int/publications/i/item/9789240073630

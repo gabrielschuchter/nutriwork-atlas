@@ -24,15 +24,10 @@ Ensaios com melhora de índice glicêmico ou de glicemia média fornecem evidên
 
 ## **Conceitos relacionados**
 
+
 - [[Carga glicêmica]]
 - [[Glicose]]
 - [[Amido]]
-- [[Carboidrato refinado]]
-- [[Carboidrato integral]]
-- [[Esvaziamento gástrico]]
-- [[Glicogênio]]
-- [[Desfecho substituto]]
-
 ## **Referências de base**
 
 - World Health Organization. *Carbohydrate intake for adults and children: WHO guideline*. https://www.who.int/publications/i/item/9789240073593

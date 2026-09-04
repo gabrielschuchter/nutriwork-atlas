@@ -44,12 +44,6 @@ Além disso, o aumento do peso corporal decorrente da retenção hídrica pode s
 - [[Glicogênio muscular]]
 - [[Glicogênio]]
 - [[Carboidratos]]
-- [[Glicogênese]]
-- [[Glicogenólise]]
-- [[Disponibilidade Energética]]
-- [[Nutrição esportiva]]
-- [[Fadiga muscular]]
-- [[Exercício de endurance]]
 ## Referências de base
 
 - Thomas DT, Erdman KA, Burke LM. Nutrition and Athletic Performance. Academy of Nutrition and Dietetics, Dietitians of Canada e American College of Sports Medicine.

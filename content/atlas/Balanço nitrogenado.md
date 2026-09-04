@@ -24,15 +24,10 @@ Balanço positivo não identifica o tecido que reteve nitrogênio nem demonstra 
 
 ## **Conceitos relacionados**
 
+
 - [[Proteínas]]
 - [[Aminoácidos]]
 - [[Transaminação]]
-- [[Desaminação]]
-- [[Ciclo da ureia]]
-- [[Catabolismo de aminoácidos]]
-- [[Síntese proteica muscular]]
-- [[Desnutrição relacionada à doença]]
-
 ## **Referências de base**
 
 - Institute of Medicine; Food and Nutrition Board. *Dietary Reference Intakes for Energy, Carbohydrate, Fiber, Fat, Fatty Acids, Cholesterol, Protein, and Amino Acids*. https://www.nationalacademies.org/publications/10490

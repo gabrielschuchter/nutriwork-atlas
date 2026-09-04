@@ -36,17 +36,6 @@ Outra questão relevante é a circulação de informações incorretas que class
 - [[Leite materno]]
 - [[Aleitamento materno exclusivo]]
 - [[Aleitamento materno complementado]]
-- [[Lactação]]
-- [[Microbiota intestinal]]
-- [[Imunidade passiva]]
-- [[Recém-nascido]]
-- [[Prematuridade e nutrição]]
-- [[Saúde materno-infantil]]
-- [[Leite materno de transição]]
-- [[Leite materno maduro]]
-- [[Mamogênese]]
-- [[Lactogênese]]
-- [[Apojadura]]
 ## Referências de base
 
 - WHO – Infant and Young Child Feeding.

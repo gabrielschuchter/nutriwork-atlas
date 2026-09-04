@@ -24,16 +24,10 @@ Representatividade não é garantida por tamanho amostral. Uma amostra de conven
 
 ## **Conceitos relacionados**
 
+
 - [[População]]
 - [[Randomização]]
 - [[Intervalo de Confiança]]
-- [[Valor de p]]
-- [[Significância Estatística]]
-- [[Viés de seleção]]
-- [[Validade Interna]]
-- [[Validade Externa]]
-- [[Análise de Subgrupos]]
-
 ## **Referências de base**
 
 - Hickey GL, Grant SW, Dunning J, Siepe M. Statistical primer: sample size and power calculations—why, when and how? *European Journal of Cardio-Thoracic Surgery*. 2018;54(1):4-9. https://pmc.ncbi.nlm.nih.gov/articles/PMC6005113/. DOI: 10.1093/ejcts/ezy169.

@@ -24,15 +24,10 @@ Doses acima da necessidade não produzem necessariamente benefício adicional. E
 
 ## **Conceitos relacionados**
 
+
 - [[Vitaminas lipossolúveis]]
 - [[Vitaminas hidrossolúveis]]
 - [[Cofator]]
-- [[Biodisponibilidade]]
-- [[Ferro heme]]
-- [[Ferro não heme]]
-- [[Quelato]]
-- [[Enzima]]
-
 ## **Referências de base**
 
 - National Institutes of Health, Office of Dietary Supplements. *Vitamin and Mineral Fact Sheets*. https://ods.od.nih.gov/factsheets/list-VitaminsMinerals/

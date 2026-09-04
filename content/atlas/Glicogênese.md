@@ -26,13 +26,6 @@ A capacidade de armazenamento não é ilimitada, mas não existe um valor único
 - [[Glicogênio]]
 - [[Glicogenólise]]
 - [[Glicose-6-fosfato]]
-- [[UDP-glicose]]
-- [[Glicogênio sintase]]
-- [[Glicogenina]]
-- [[Insulina]]
-- [[Supercompensação de glicogênio]]
-- [[Glicogênio muscular]]
-- [[Anabolismo]]
 ## Referências de base
 
 - Nelson DL, Cox MM. Lehninger Principles of Biochemistry. 7. ed. New York: W.H. Freeman; 2017.

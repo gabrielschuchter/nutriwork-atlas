@@ -24,16 +24,10 @@ Elevar temperatura ou catecolaminas em laboratório não prova perda de gordura.
 
 ## **Conceitos relacionados**
 
+
 - [[Termogênese adaptativa]]
 - [[Balanço energético]]
 - [[Disponibilidade Energética]]
-- [[Respiração celular]]
-- [[Fosforilação oxidativa]]
-- [[Adrenalina]]
-- [[Cortisol]]
-- [[Lipólise]]
-- [[Metabolismo]]
-
 ## **Referências de base**
 
 - Parmar RM, Can AS. *Physiology, Appetite And Weight Regulation*. https://www.ncbi.nlm.nih.gov/books/NBK574539/

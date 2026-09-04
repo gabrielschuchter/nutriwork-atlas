@@ -24,16 +24,10 @@ Associação entre açúcar, lipogênese e esteatose depende da dose e da energi
 
 ## **Conceitos relacionados**
 
+
 - [[Ácidos graxos]]
 - [[Triglicerídeos]]
 - [[VLDL]]
-- [[Via das pentoses-fosfato]]
-- [[Lipólise]]
-- [[Beta-oxidação]]
-- [[Insulina]]
-- [[Glicose]]
-- [[Síntese de colesterol]]
-
 ## **Referências de base**
 
 - Feingold KR. *Introduction to Lipids and Lipoproteins*. Endotext, NCBI Bookshelf. https://www.ncbi.nlm.nih.gov/books/NBK305896/

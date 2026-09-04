@@ -26,15 +26,10 @@ A resposta glicêmica de um alimento não pode ser deduzida da maltase isoladame
 
 ## **Conceitos relacionados**
 
+
 - [[Amilase salivar]]
 - [[Amilase pancreática]]
 - [[Sacarase]]
-- [[Hidrólise]]
-- [[Amido]]
-- [[Glicose]]
-- [[Absorção]]
-- [[Índice glicêmico]]
-
 ## **Referências de base**
 
 - Patricia JJ, Dhamoon AS. [Physiology, Digestion](https://www.ncbi.nlm.nih.gov/books/NBK544242/). StatPearls Publishing; updated 2022.

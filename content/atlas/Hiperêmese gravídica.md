@@ -116,14 +116,6 @@ O manejo deve equilibrar controle de sintomas, manutenção do [[Estado nutricio
 - [[Náuseas e vômitos na gestação]]
 - [[Estado nutricional materno]]
 - [[Ganho de peso gestacional]]
-- [[Lipólise aumentada na gestação]]
-- [[Cetogênese]]
-- [[Balanço energético]]
-- [[Desidratação]]
-- [[Tiamina]]
-- [[Necessidades nutricionais na gestação]]
-- [[Prematuridade]]
-- [[Ptialismo gravídico]]
 ## Referências de base
 
 - AMERICAN COLLEGE OF OBSTETRICIANS AND GYNECOLOGISTS. Nausea and vomiting of pregnancy. Practice Bulletin, n. 189. Obstetrics & Gynecology, Philadelphia, v. 131, n. 1, p. e15–e30, 2018.

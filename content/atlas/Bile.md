@@ -26,16 +26,10 @@ Uma alteração na microbiota ou nas fezes pode acompanhar mudanças na circula�
 
 ## **Conceitos relacionados**
 
+
 - [[Sais biliares]]
 - [[Emulsificação]]
 - [[Micelas]]
-- [[Lipase pancreática]]
-- [[Absorção]]
-- [[Colesterol]]
-- [[Triglicerídeos]]
-- [[Colecistocinina (CCK)]]
-- [[Motilidade gastrointestinal]]
-
 ## **Referências de base**
 
 - Patel A, et al. [Physiology, Bile Secretion](https://www.ncbi.nlm.nih.gov/books/NBK470209/). StatPearls Publishing; updated 2022 Sep 26.

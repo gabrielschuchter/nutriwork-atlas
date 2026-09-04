@@ -24,15 +24,10 @@ Ensaios de curto prazo que medem ingestão não avaliam dependência, reganho de
 
 ## **Conceitos relacionados**
 
+
 - [[Orexígeno]]
 - [[Leptina]]
 - [[Grelina]]
-- [[GLP-1]]
-- [[Colecistocinina (CCK)]]
-- [[Peptídeo YY (PYY)]]
-- [[Comportamento alimentar]]
-- [[Obesidade infantil]]
-
 ## **Referências de base**
 
 - Parmar RM, Can AS. *Physiology, Appetite And Weight Regulation*. https://www.ncbi.nlm.nih.gov/books/NBK574539/

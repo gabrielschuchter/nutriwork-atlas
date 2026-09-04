@@ -26,16 +26,10 @@ Medidas de consumo de oxigênio, quociente respiratório ou concentração de me
 
 ## **Conceitos relacionados**
 
+
 - [[Metabolismo]]
 - [[Energia livre de Gibbs]]
 - [[ATP]]
-- [[ADP]]
-- [[Fosforilação oxidativa]]
-- [[Cadeia transportadora de elétrons]]
-- [[Respiração celular]]
-- [[Balanço energético]]
-- [[Flexibilidade metabólica]]
-
 ## **Referências de base**
 
 - Kennelly PJ, Botham KM, McGuinness O, Rodwell VW, Weil PA. [Harper's Illustrated Biochemistry, 32nd edition](https://accessmedicine.mhmedical.com/content.aspx?bookId=3220&sectionId=268188332). McGraw Hill; 2023.

@@ -24,16 +24,10 @@ Dietas com teor muito baixo de carboidrato podem melhorar alguns marcadores no c
 
 ## **Conceitos relacionados**
 
+
 - [[Monossacarídeos]]
 - [[Dissacarídeos]]
 - [[Polissacarídeos]]
-- [[Índice glicêmico]]
-- [[Carga glicêmica]]
-- [[Carboidrato integral]]
-- [[Fibra alimentar]]
-- [[Glicose]]
-- [[Metabolismo]]
-
 ## **Referências de base**
 
 - World Health Organization. *Carbohydrate intake for adults and children: WHO guideline*. https://www.who.int/publications/i/item/9789240073593

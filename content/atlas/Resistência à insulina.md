@@ -24,16 +24,10 @@ Redução de [[Insulina|insulina]] ou melhora de um índice não prova prevenç�
 
 ## **Conceitos relacionados**
 
+
 - [[Sensibilidade à insulina]]
 - [[Insulina]]
 - [[Glicose]]
-- [[Gliconeogênese]]
-- [[Lipólise]]
-- [[Estresse oxidativo]]
-- [[Inflamação crônica de baixo grau]]
-- [[Síndrome metabólica]]
-- [[Resistência à insulina fisiológica na gestação]]
-
 ## **Referências de base**
 
 - NCBI Bookshelf. *Insulin Resistance*. https://www.ncbi.nlm.nih.gov/books/NBK507839/

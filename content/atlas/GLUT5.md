@@ -26,16 +26,10 @@ A má [[Absorção|absorção]] de [[Frutose|frutose]] não prova que a frutose 
 
 ## **Conceitos relacionados**
 
+
 - [[Difusão facilitada]]
 - [[Frutose]]
 - [[GLUT2]]
-- [[FODMAPs]]
-- [[Absorção]]
-- [[Microbiota intestinal]]
-- [[Fermentação]]
-- [[Sacarase]]
-- [[Ácidos graxos de cadeia curta (AGCC)]]
-
 ## **Referências de base**
 
 - Mueckler M, Thorens B. The SLC2 (GLUT) family of membrane transporters. Molecular Aspects of Medicine. 2013;34:121-138. https://doi.org/10.1016/j.mam.2012.07.001.

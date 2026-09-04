@@ -86,6 +86,23 @@ test("tarefa diária é determinística e permanece igual após refresh", async 
   assert.deepEqual(one.daily.task, other.daily.task)
 })
 
+test("biblioteca contém 50 tarefas únicas e a sequência aumenta o desafio gradualmente", async () => {
+  const { atlas } = await createEnvironment()
+  assert.equal(atlas.dailyTaskTemplates.length, 50)
+  assert.equal(new Set(atlas.dailyTaskTemplates.map((task) => task.id)).size, 50)
+
+  const base = {
+    date: "2026-09-04",
+    installationId: "same-install",
+    visited: {},
+    history: [],
+    concepts: [],
+  }
+  assert.ok(atlas.dailyTaskEngine.selectTask({ ...base, streak: 0 }).target <= 2)
+  assert.ok(atlas.dailyTaskEngine.selectTask({ ...base, streak: 3 }).target >= 2)
+  assert.ok(atlas.dailyTaskEngine.selectTask({ ...base, streak: 30 }).target >= 5)
+})
+
 test("abertura de conceitos conclui automaticamente e atualiza o streak", async () => {
   const { atlas } = await createEnvironment()
   const firstDay = day("2026-09-04")

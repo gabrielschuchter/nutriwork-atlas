@@ -26,15 +26,10 @@ Estudos de transportadores em células isoladas não demonstram melhora de hidra
 
 ## **Conceitos relacionados**
 
+
 - [[Transporte ativo]]
 - [[Transporte de glicose (SGLT1)]]
 - [[GLUT2]]
-- [[Na+K+-ATPase]]
-- [[Osmose]]
-- [[Difusão facilitada]]
-- [[Eletrólitos]]
-- [[Absorção]]
-
 ## **Referências de base**
 
 - NCBI Bookshelf. [Physiology, Nutrient Absorption](https://www.ncbi.nlm.nih.gov/books/NBK597379/). StatPearls Publishing; updated 2025.

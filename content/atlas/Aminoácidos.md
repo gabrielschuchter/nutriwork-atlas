@@ -24,16 +24,10 @@ Estudos com um aminoácido isolado não reproduzem uma refeição proteica. Muda
 
 ## **Conceitos relacionados**
 
+
 - [[Proteínas]]
 - [[Aminoácidos essenciais]]
 - [[Aminoácidos não essenciais]]
-- [[Transaminação]]
-- [[Desaminação]]
-- [[Proteólise]]
-- [[Catabolismo de aminoácidos]]
-- [[Síntese proteica muscular]]
-- [[Balanço nitrogenado]]
-
 ## **Referências de base**
 
 - Institute of Medicine; Food and Nutrition Board. *Dietary Reference Intakes for Energy, Carbohydrate, Fiber, Fat, Fatty Acids, Cholesterol, Protein, and Amino Acids*. https://www.nationalacademies.org/publications/10490

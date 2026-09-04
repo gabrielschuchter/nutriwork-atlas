@@ -82,15 +82,6 @@ Também é importante reconhecer que associações pavlovianas não determinam r
 - [[Reforço]]
 - [[Punição]]
 - [[Eventos antecedentes]]
-- [[Evento apetitivo]]
-- [[Evento aversivo]]
-- [[Resposta comportamental]]
-- [[Comportamento alimentar]]
-- [[Operações motivadoras]]
-- [[Extinção comportamental]]
-- [[Análise do comportamento]]
-- [[Behaviorismo radical]]
-- [[Ontogênese]]
 ## Referências de base
 
 - Pavlov IP. Conditioned Reflexes. Oxford University Press; 1927.

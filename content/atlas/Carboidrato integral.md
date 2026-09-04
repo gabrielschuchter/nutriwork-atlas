@@ -24,15 +24,10 @@ As definições regulatórias variam entre países. Comparar estudos sem verific
 
 ## **Conceitos relacionados**
 
+
 - [[Carboidrato refinado]]
 - [[Carboidrato complexo]]
 - [[Fibra alimentar]]
-- [[Polissacarídeos]]
-- [[Amido]]
-- [[Índice glicêmico]]
-- [[Ácidos graxos de cadeia curta (AGCC)]]
-- [[Microbiota intestinal]]
-
 ## **Referências de base**
 
 - World Health Organization. *Carbohydrate intake for adults and children: WHO guideline*. https://www.who.int/publications/i/item/9789240073593

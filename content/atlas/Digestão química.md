@@ -28,21 +28,10 @@ A digestão também depende da estrutura do alimento, da composição da refeiç
 
 ## Conceitos relacionados
 
+
 - [[Digestão mecânica]]
 - [[Hidrólise]]
 - [[Amilase salivar]]
-- [[Pepsina]]
-- [[Enzimas pancreáticas]]
-- [[Lipase pancreática]]
-- [[Absorção]]
-- [[Barreira intestinal]]
-- [[Fermentação]]
-- [[Fibra alimentar]]
-- [[Bile]]
-- [[Motilidade gastrointestinal]]
-- [[Má digestão]]
-- [[Má absorção]]
-
 ## Referências de base
 
 - Boland M. Human digestion—a processing perspective. *Journal of the Science of Food and Agriculture*. 2016;96(7):2275–2283. [DOI](https://doi.org/10.1002/jsfa.7601). [PubMed](https://pubmed.ncbi.nlm.nih.gov/26711173/).

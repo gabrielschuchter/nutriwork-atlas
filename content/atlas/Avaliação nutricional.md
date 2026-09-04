@@ -24,16 +24,10 @@ Critérios e ferramentas diferentes produzem classificações diferentes. A [[Va
 
 ## **Conceitos relacionados**
 
+
 - [[Estado nutricional]]
 - [[Risco nutricional]]
 - [[Desnutrição relacionada à doença]]
-- [[Escore Z de crescimento infantil]]
-- [[Balanço energético]]
-- [[Balanço nitrogenado]]
-- [[Sarcopenia]]
-- [[Fragilidade]]
-- [[Biodisponibilidade]]
-
 ## **Referências de base**
 
 - World Health Organization. *Malnutrition: nutritional assessment, risk screening and diagnosis*. https://www.who.int/docs/librariesprovider2/default-document-library/booklet_200424.pdf

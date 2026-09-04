@@ -70,15 +70,6 @@ Por isso, na [[Avaliação nutricional|avaliação nutricional]], informações 
 - [[Behaviorismo radical]]
 - [[Análise do comportamento]]
 - [[Resposta comportamental]]
-- [[Classe funcional de respostas]]
-- [[Operações motivadoras]]
-- [[Consequência]]
-- [[Reforço]]
-- [[Eventos antecedentes]]
-- [[Comportamento alimentar]]
-- [[Ontogênese]]
-- [[Seleção cultural]]
-- [[Análise funcional]]
 ## Referências de base
 
 - Skinner BF. Verbal Behavior. Appleton-Century-Crofts; 1957.

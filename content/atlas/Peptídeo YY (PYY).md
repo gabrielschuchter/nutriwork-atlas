@@ -24,15 +24,10 @@ Associação entre PYY e obesidade pode refletir composição corporal, ingestã
 
 ## **Conceitos relacionados**
 
+
 - [[GLP-1]]
 - [[GIP]]
 - [[Colecistocinina (CCK)]]
-- [[Leptina]]
-- [[Grelina]]
-- [[Anorexígeno]]
-- [[Motilidade gastrointestinal]]
-- [[Microbiota intestinal]]
-
 ## **Referências de base**
 
 - NCBI Bookshelf. *Physiology, Gastrointestinal Hormonal Control*. https://www.ncbi.nlm.nih.gov/books/NBK537284/

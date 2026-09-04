@@ -28,22 +28,10 @@ A redução da nutrição a nutrientes isolados pode ignorar a matriz alimentar,
 
 ## Conceitos relacionados
 
+
 - [[Metabolismo]]
 - [[Estado nutricional]]
 - [[Avaliação nutricional]]
-- [[Necessidades nutricionais]]
-- [[Terapia nutricional]]
-- [[Nutrição clínica]]
-- [[Nutrição esportiva]]
-- [[Estado nutricional materno]]
-- [[Comportamento alimentar]]
-- [[Segurança alimentar e nutricional na primeira infância]]
-- [[Balanço energético]]
-- [[Densidade Nutricional]]
-- [[Digestão química]]
-- [[Absorção]]
-- [[Epidemiologia nutricional]]
-
 ## Referências de base
 
 - Food and Agriculture Organization of the United Nations. Definition of key terms in nutrition. [Documento](https://www.fao.org/4/a0775e/a0775e00.pdf).

@@ -24,16 +24,10 @@ Ensaios abertos podem ser adequados quando a intervenção é complexa ou o cega
 
 ## **Conceitos relacionados**
 
+
 - [[Randomização]]
 - [[Validade Interna]]
 - [[Viés]]
-- [[Viés de seleção]]
-- [[Clinicamente relevante]]
-- [[Mortalidade]]
-- [[Morbidade]]
-- [[Eficaz]]
-- [[Efetivo]]
-
 ## **Referências de base**
 
 - Schulz KF, Altman DG, Moher D. *CONSORT 2010 Statement: updated guidelines for reporting parallel group randomised trials*. BMJ. https://www.bmj.com/content/340/bmj.c332

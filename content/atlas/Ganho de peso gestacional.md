@@ -54,18 +54,6 @@ Além disso, o peso corporal é uma medida indireta que não distingue adequadam
 - [[Estado nutricional materno]]
 - [[Necessidades nutricionais na gestação]]
 - [[Diabetes mellitus gestacional]]
-- [[Hipertensão gestacional e nutrição]]
-- [[Restrição de crescimento intrauterino]]
-- [[Baixo peso ao nascer]]
-- [[Macrossomia fetal]]
-- [[Pré-natal]]
-- [[IMC pré-gestacional]]
-- [[Resistência à insulina fisiológica na gestação]]
-- [[Data provável do parto (DPP)]]
-- [[Idade gestacional]]
-- [[Hiperêmese gravídica]]
-- [[Pequeno para idade gestacional (PIG)]]
-- [[Grande para idade gestacional (GIG)]]
 ## Referências de base
 
 - Institute of Medicine (IOM/NASEM) Gestational Weight Gain Guidelines.

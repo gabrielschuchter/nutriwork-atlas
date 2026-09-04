@@ -31,15 +31,6 @@ O conceito também possui relação próxima com [[Viés de seleção|Viés de S
 - [[Confundimento]]
 - [[Viés de seleção]]
 - [[Viés de tempo imortal]]
-- [[Colisor (Collider Bias)]]
-- [[Inferência Causal]]
-- [[Propensity Score]]
-- [[Randomização]]
-- [[Validade Interna]]
-- [[Estudo de Coorte]]
-- [[Estudo Caso-Controle]]
-- [[Efeito de Tratamento]]
-- [[Prática Baseada em Evidências]]
 ## Referências de base
 
 - Hernán MA, Robins JM. _Causal Inference: What If_.

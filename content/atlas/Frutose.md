@@ -24,14 +24,10 @@ Testes respiratórios e dietas de eliminação têm limitações de reprodutibil
 
 ## **Conceitos relacionados**
 
+
 - [[Monossacarídeos]]
 - [[GLUT5]]
 - [[GLUT2]]
-- [[Dissacarídeos]]
-- [[Índice glicêmico]]
-- [[Absorção]]
-- [[Microbiota intestinal]]
-
 ## **Referências de base**
 
 - NCBI Bookshelf. *Physiology, Nutrient Absorption*. https://www.ncbi.nlm.nih.gov/books/NBK597379/

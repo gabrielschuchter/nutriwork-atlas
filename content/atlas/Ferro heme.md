@@ -24,15 +24,10 @@ Ferritina é proteína de fase aguda e pode parecer normal ou elevada na inflama
 
 ## **Conceitos relacionados**
 
+
 - [[Ferro não heme]]
 - [[Biodisponibilidade]]
 - [[Vitaminas hidrossolúveis]]
-- [[Quelato]]
-- [[Lipoproteínas]]
-- [[Transporte ativo]]
-- [[Absorção]]
-- [[Coenzimas]]
-
 ## **Referências de base**
 
 - National Institutes of Health, Office of Dietary Supplements. *Iron: Fact Sheet for Health Professionals*. https://ods.od.nih.gov/factsheets/Iron-HealthProfessional/

@@ -24,15 +24,10 @@ Ensaios com suplementação de glutamina, arginina ou outros [[Aminoácidos|amin
 
 ## **Conceitos relacionados**
 
+
 - [[Aminoácidos]]
 - [[Aminoácidos essenciais]]
 - [[Proteínas]]
-- [[Transaminação]]
-- [[Desaminação]]
-- [[Catabolismo de aminoácidos]]
-- [[Balanço nitrogenado]]
-- [[Ciclo da ureia]]
-
 ## **Referências de base**
 
 - Institute of Medicine; Food and Nutrition Board. *Dietary Reference Intakes for Energy, Carbohydrate, Fiber, Fat, Fatty Acids, Cholesterol, Protein, and Amino Acids*. https://www.nationalacademies.org/publications/10490

@@ -24,16 +24,10 @@ A dieta baixa em FODMAP pode alterar a composição microbiana e reduzir [[Subst
 
 ## **Conceitos relacionados**
 
+
 - [[Frutose]]
 - [[Dissacarídeos]]
 - [[Lactase]]
-- [[Microbiota intestinal]]
-- [[Probióticos]]
-- [[Prebióticos]]
-- [[Simbióticos]]
-- [[Ácidos graxos de cadeia curta (AGCC)]]
-- [[Absorção]]
-
 ## **Referências de base**
 
 - American College of Gastroenterology. *Irritable Bowel Syndrome*. https://gi.org/topics/irritable-bowel-syndrome/
