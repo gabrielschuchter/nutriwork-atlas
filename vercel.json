@@ -3,5 +3,10 @@
   "installCommand": "npm ci",
   "buildCommand": "npm run build",
   "outputDirectory": "public",
-  "cleanUrls": true
+  "cleanUrls": true,
+  "functions": {
+    "api/atlas-identify.js": {
+      "maxDuration": 30
+    }
+  }
 }

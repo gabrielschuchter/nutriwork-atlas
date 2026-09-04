@@ -5,3 +5,6 @@ public
 output
 tmp
 .playwright-cli
+.agents
+skills-lock.json
+.env*

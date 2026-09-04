@@ -12,6 +12,7 @@
     "url": "https://github.com/jackyzha0/quartz.git"
   },
   "scripts": {
+    "dev": "node scripts/serve-atlas.mjs",
     "quartz": "./quartz/bootstrap-cli.mjs",
     "build": "npx quartz build && node scripts/emit-root-static.mjs",
     "docs": "npx quartz build --serve -d docs",

@@ -45,6 +45,8 @@ Tokens de azul, tipografia Poppins, superfícies translúcidas e o símbolo ofic
 
 O gate atual calcula SHA-256 no navegador e guarda apenas o hash configurado no `localStorage`. Ele evita acesso casual a um site estático, mas não protege conteúdo contra inspeção do bundle. Qualquer requisito de autenticação real deve ser uma decisão separada, com backend e política de segurança próprios.
 
+A identificação por e-mail acrescenta apenas uma função Vercel e um Apps Script para registrar visitas numa planilha privada, antes do gate. Não valida assinatura nem propriedade do endereço e não substitui a senha. Credenciais e endereço do webhook são exclusivamente server-side. A sessão da senha existente é preservada após a confirmação de registro de um usuário já identificado. Contratos de contagem, falha e configuração estão em `docs/email-identification.md`.
+
 ## 9. Conteúdo científico não é código de interface
 
 `content/atlas/*.md` permanece somente leitura. A classificação de áreas e o índice são derivados fora das notas. Wikilinks sem arquivo publicado viram nós de desenvolvimento, com estado e visual distintos, sem criar uma segunda lista manual e sem inventar conteúdo científico. A ausência da nota continua explícita no estado de leitura.

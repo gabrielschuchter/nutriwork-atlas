@@ -1,6 +1,7 @@
 import { Fragment, h } from "preact"
 import { resolveRelative } from "@quartz-community/utils/path"
 import atlasRuntime from "../runtime.js"
+import { createAccessRuntime } from "../access-runtime.js"
 
 const DEFAULT_PASSWORD_HASH = "8546caeab1389bb18a5ffd7923802fe181434e69ca868010f83d92c65f7b4cb4"
 const DEFAULT_STORAGE_KEY = "nutriwork-atlas-access"
@@ -20,10 +21,6 @@ const SUPPORT_CONTACTS = {
     value: "@gruponutriwork",
     href: "https://www.instagram.com/gruponutriwork",
   },
-}
-
-function safeJson(value) {
-  return JSON.stringify(value).replace(/</g, "\\u003c")
 }
 
 function logoPath(fileData) {
@@ -75,7 +72,44 @@ export const AtlasAccess = (userOptions = {}) => {
         ),
         h(
           "form",
-          { id: "atlas-access-form", class: "atlas-access-form", novalidate: true },
+          { id: "atlas-identification-form", class: "atlas-access-form", novalidate: true },
+          h(
+            "label",
+            { for: "atlas-identification-email" },
+            "Digite o e-mail que você utiliza no Nutriwork+.",
+          ),
+          h("input", {
+            id: "atlas-identification-email",
+            name: "email",
+            type: "email",
+            autocomplete: "email",
+            inputmode: "email",
+            autocapitalize: "none",
+            spellcheck: false,
+            maxlength: 254,
+            required: true,
+            "aria-describedby": "atlas-identification-status atlas-identification-notice",
+          }),
+          h(
+            "button",
+            { id: "atlas-identification-submit", type: "submit", class: "atlas-access-submit" },
+            "Continuar",
+          ),
+          h("p", {
+            id: "atlas-identification-status",
+            class: "atlas-access-status",
+            role: "status",
+            "aria-live": "polite",
+          }),
+          h(
+            "p",
+            { id: "atlas-identification-notice", class: "atlas-identification-notice" },
+            "Ao continuar, seu e-mail será registrado para controle de acesso e melhoria do Atlas.",
+          ),
+        ),
+        h(
+          "form",
+          { id: "atlas-access-form", class: "atlas-access-form", novalidate: true, hidden: true },
           h("label", { for: "atlas-access-password" }, "Senha"),
           h(
             "div",
@@ -101,13 +135,36 @@ export const AtlasAccess = (userOptions = {}) => {
               h("span", { class: "atlas-password-eye", "aria-hidden": "true" }),
             ),
           ),
-          h("button", { type: "submit", class: "atlas-access-submit" }, "Entrar no Atlas"),
+          h(
+            "button",
+            { id: "atlas-access-submit", type: "submit", class: "atlas-access-submit" },
+            "Entrar no Atlas",
+          ),
           h("p", {
             id: "atlas-access-status",
             class: "atlas-access-status",
             role: "status",
             "aria-live": "polite",
           }),
+          h(
+            "button",
+            {
+              id: "atlas-identification-retry",
+              type: "button",
+              class: "atlas-access-submit",
+              hidden: true,
+            },
+            "Tentar novamente",
+          ),
+          h(
+            "button",
+            {
+              id: "atlas-identification-change",
+              type: "button",
+              class: "atlas-identification-change",
+            },
+            "Usar outro e-mail",
+          ),
         ),
       ),
     )
@@ -143,6 +200,10 @@ html[data-atlas-access="unlocked"] #atlas-access {
 }
 
 .atlas-access-card {
+  box-sizing: border-box;
+  max-height: 100%;
+  overflow-y: auto;
+  overscroll-behavior: contain;
   background: rgba(7, 16, 35, .86);
   border: 1px solid rgba(142, 185, 255, .2);
   border-radius: 26px;
@@ -238,6 +299,55 @@ html[data-atlas-access="unlocked"] #atlas-access {
   display: grid;
   gap: .6rem;
   margin-top: 1.6rem;
+}
+
+.atlas-access-form[hidden],
+.atlas-access-form button[hidden] {
+  display: none;
+}
+
+.atlas-identification-notice,
+.atlas-identification-change {
+  color: #C8D2E5;
+  font-size: .76rem;
+  line-height: 1.5;
+}
+
+.atlas-identification-notice {
+  margin: 0;
+}
+
+.atlas-identification-change {
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  font-family: inherit;
+  min-height: 44px;
+  text-decoration: underline;
+}
+
+#atlas-identification-email {
+  font-size: 1rem;
+  padding-right: .85rem;
+}
+
+.atlas-access-submit:disabled {
+  cursor: wait;
+  opacity: .65;
+  transform: none;
+}
+
+:root[data-theme="light"] .atlas-identification-notice,
+:root[data-theme="light"] .atlas-identification-change {
+  color: #526277;
+}
+
+:root[data-theme="light"] .atlas-access-status {
+  color: #1E5FAF;
+}
+
+:root[data-theme="light"] .atlas-access-status[data-state="error"] {
+  color: #A12B25;
 }
 
 .atlas-access-form label {
@@ -1194,139 +1304,12 @@ html.atlas-modal-open body {
 
 `
 
-  AtlasAccessComponent.beforeDOMLoaded =
-    "(() => {\n" +
-    "  const expectedHash = " +
-    safeJson(options.passwordHash) +
-    ";\n" +
-    "  const storageKey = " +
-    safeJson(options.storageKey) +
-    ";\n" +
-    "  let unlocked = false;\n" +
-    "  try { unlocked = window.localStorage.getItem(storageKey) === expectedHash; } catch {}\n" +
-    '  document.documentElement.dataset.atlasAccess = unlocked ? "unlocked" : "locked";\n' +
-    "})();\n"
+  AtlasAccessComponent.beforeDOMLoaded = 'document.documentElement.dataset.atlasAccess = "locked";'
 
-  AtlasAccessComponent.afterDOMLoaded = `
-(() => {
-  const expectedHash = ${safeJson(options.passwordHash)};
-  const storageKey = ${safeJson(options.storageKey)};
-  const runtimeKey = "__nutriworkAtlasAccessRuntime";
-  const root = document.documentElement;
-
-  if (window[runtimeKey]) return;
-
-  const digest = async (value) => {
-    const bytes = new TextEncoder().encode(value);
-    const buffer = await crypto.subtle.digest("SHA-256", bytes);
-    return [...new Uint8Array(buffer)]
-      .map((byte) => byte.toString(16).padStart(2, "0"))
-      .join("");
-  };
-
-  const readState = () => {
-    try {
-      return window.localStorage.getItem(storageKey) === expectedHash;
-    } catch {
-      return false;
-    }
-  };
-
-  const isMobileOrTablet = () => {
-    const userAgent = navigator.userAgent || "";
-    const userAgentData = navigator.userAgentData;
-    const iPadOs = navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1;
-
-    return Boolean(
-      userAgentData?.mobile ||
-        /Android|iPhone|iPad|iPod|Windows Phone|webOS|BlackBerry|IEMobile|Opera Mini/i.test(userAgent) ||
-        iPadOs,
-    );
-  };
-
-  const renderDeviceHint = () => {
-    const hint = document.getElementById("atlas-device-hint");
-    if (hint) hint.hidden = !isMobileOrTablet();
-  };
-
-  const announce = (message, state = "") => {
-    const status = document.getElementById("atlas-access-status");
-    if (!status) return;
-    status.textContent = message;
-    if (state) status.dataset.state = state;
-    else delete status.dataset.state;
-  };
-
-  const setState = (unlocked) => {
-    const nextState = unlocked ? "unlocked" : "locked";
-    const changed = root.dataset.atlasAccess !== nextState;
-    root.dataset.atlasAccess = nextState;
-    if (changed) document.dispatchEvent(new CustomEvent("atlas-access"));
-    if (!unlocked) {
-      window.requestAnimationFrame(() => document.getElementById("atlas-access-password")?.focus());
-    }
-  };
-
-  const onSubmit = async (event) => {
-    const form = event.target;
-    if (!(form instanceof HTMLFormElement) || form.id !== "atlas-access-form") return;
-    event.preventDefault();
-    const input = document.getElementById("atlas-access-password");
-    if (!(input instanceof HTMLInputElement) || !input.value) {
-      announce("Informe a senha.", "error");
-      input?.focus();
-      return;
-    }
-    try {
-      if ((await digest(input.value)) !== expectedHash) {
-        announce("Senha incorreta.", "error");
-        input.select();
-        return;
-      }
-      window.localStorage.setItem(storageKey, expectedHash);
-      input.value = "";
-      announce("");
-      setState(true);
-    } catch {
-      announce("Não foi possível validar a senha neste navegador.", "error");
-    }
-  };
-
-  const onClick = (event) => {
-    const toggle =
-      event.target instanceof Element ? event.target.closest("#atlas-access-password-toggle") : null;
-    if (toggle) {
-      const input = document.getElementById("atlas-access-password");
-      if (!(input instanceof HTMLInputElement)) return;
-      const visible = input.type === "text";
-      input.type = visible ? "password" : "text";
-      toggle.setAttribute("aria-pressed", String(!visible));
-      toggle.setAttribute("aria-label", visible ? "Mostrar senha" : "Ocultar senha");
-      input.focus({ preventScroll: true });
-      return;
-    }
-    const target =
-      event.target instanceof Element
-        ? event.target.closest("#atlas-access-logout, [data-atlas-logout]")
-        : null;
-    if (!target) return;
-    try {
-      window.localStorage.removeItem(storageKey);
-    } finally {
-      announce("Sessão encerrada.");
-      setState(false);
-    }
-  };
-
-  window[runtimeKey] = true;
-  renderDeviceHint();
-  document.addEventListener("submit", onSubmit);
-  document.addEventListener("click", onClick);
-  document.addEventListener("nav", () => setState(readState()));
-  if (readState()) setState(true);
-  else window.requestAnimationFrame(() => document.getElementById("atlas-access-password")?.focus());
-})();
-`
+  AtlasAccessComponent.afterDOMLoaded = createAccessRuntime(
+    options.passwordHash,
+    options.storageKey,
+  )
 
   return AtlasAccessComponent
 }

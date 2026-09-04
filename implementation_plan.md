@@ -1,5 +1,16 @@
 # Nutriwork Atlas — plano e estado do MVP
 
+## Identificação por e-mail — 4 de setembro de 2026
+
+Escopo autorizado: identificação por e-mail → Google Sheets → persistência local → gate global existente → Atlas. Preservar Quartz, hash/sessão da senha, grafo e os 292 Markdown científicos.
+
+- Reutilizar `AtlasAccess` e seus estilos, incluindo temas, safe areas e viewport dinâmica.
+- Acrescentar função Vercel `/api/atlas-identify` com validação, limite de payload, proteção simples contra abuso e timeout.
+- Registrar em planilha privada via Apps Script server-side: uma linha por e-mail normalizado, datas e contador; lock para concorrência e idempotência para tentativas repetidas.
+- Persistir identificação somente após confirmação da gravação. Registrar novas visitas sem solicitar novamente o e-mail; erros devem oferecer nova tentativa e impedir avanço silencioso.
+- Verificar estados, sessão/senha, recorrência real na planilha, responsividade e ausência de segredos no build. Depois executar gates, commit/push, deploy e fluxo em produção.
+- Snapshot local: `snapshot/pre-email-identification-2026-09-04`. Preservar `.agents/` e `skills-lock.json` preexistentes e não rastreados.
+
 **Data:** 2 de setembro de 2026
 **Produto:** o Atlas é o grafo.
 

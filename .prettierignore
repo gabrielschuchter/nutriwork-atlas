@@ -2,6 +2,7 @@
 public
 node_modules
 .quartz-cache
+.agents/
 
 # The vault and audit handoff are source/reference material. Formatting them
 # would create scientific or evidentiary diffs unrelated to the implementation.
