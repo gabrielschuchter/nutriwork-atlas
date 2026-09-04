@@ -3,7 +3,7 @@ import { resolveRelative } from "@quartz-community/utils/path"
 import atlasRuntime from "../runtime.js"
 import { createAccessRuntime } from "../access-runtime.js"
 
-const DEFAULT_PASSWORD_HASH = "8546caeab1389bb18a5ffd7923802fe181434e69ca868010f83d92c65f7b4cb4"
+const DEFAULT_PASSWORD_HASH = "e110ff65ef4db64218871ca059810de0cbca7873b38b3ff576a55adbfe6d0f34"
 const DEFAULT_STORAGE_KEY = "nutriwork-atlas-access"
 const SUPPORT_CONTACTS = {
   whatsapp: {
