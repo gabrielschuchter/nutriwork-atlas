@@ -96,7 +96,7 @@ export function createIdentificationHandler({
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, visitId: body.visitId, secret }),
-        signal: AbortSignal.timeout(15000),
+        signal: AbortSignal.timeout(25000),
         redirect: "follow",
       })
       if (!response.ok) throw new Error("upstream")

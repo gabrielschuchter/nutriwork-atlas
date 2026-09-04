@@ -90,7 +90,7 @@ export function installAccessGate(expectedHash, storageKey, normalizeEmail) {
         headers: { "Content-Type": "application/json" },
         credentials: "same-origin",
         body: JSON.stringify({ email: candidate, visitId }),
-        signal: AbortSignal.timeout(20000),
+        signal: AbortSignal.timeout(30000),
       })
       const result = await response.json()
       if (!response.ok || result?.ok !== true || result.email !== candidate) {
