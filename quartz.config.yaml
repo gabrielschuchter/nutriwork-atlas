@@ -46,7 +46,7 @@ plugins:
     options:
       # SHA-256 of the shared development phrase "nutriwork-atlas-dev".
       # This is a client-visible casual privacy gate, not strong authentication.
-      passwordHash: 8546caeab1389bb18a5ffd7923802fe181434e69ca868010f83d92c65f7b4cb4
+      passwordHash: e110ff65ef4db64218871ca059810de0cbca7873b38b3ff576a55adbfe6d0f34
       storageKey: nutriwork-atlas-access
     order: 5
     layout:
