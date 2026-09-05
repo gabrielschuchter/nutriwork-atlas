@@ -1,0 +1,4 @@
+Contact: mailto:equipenutriwork@gmail.com
+Expires: 2027-09-04T00:00:00.000Z
+Canonical: https://atlas.gruponutriwork.com.br/.well-known/security.txt
+Policy: https://atlas.gruponutriwork.com.br/seguranca/

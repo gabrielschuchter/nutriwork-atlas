@@ -10,6 +10,8 @@ function labelFromSlug(slug: FullSlug): string {
   return value ? value.charAt(0).toUpperCase() + value.slice(1) : "Nota sem título"
 }
 
+const LEGAL_SLUGS = new Set(["privacidade", "termos", "seguranca", "acessibilidade"])
+
 export const AtlasFrame: PageFrame = {
   name: "atlas",
   render({ componentData, beforeBody, pageBody: Content, afterBody }: PageFrameProps) {
@@ -17,17 +19,26 @@ export const AtlasFrame: PageFrame = {
     const isGraph = current === "index"
     const isNote = String(current).startsWith("atlas/")
     const isRoadmap = String(current) === "roadmap"
+    const isLegal = LEGAL_SLUGS.has(String(current))
     const noteSlug = isNote ? String(current) : ""
     const title = componentData.fileData.frontmatter?.title || labelFromSlug(current)
     const homeHref = isGraph ? "." : resolveRelative(current, "index" as FullSlug)
     const roadmapHref = resolveRelative(current, "roadmap" as FullSlug)
     const logoHref = resolveRelative(current, "static/atlas-symbol.png" as FullSlug)
+    const footerLinks: Array<[string, FullSlug]> = [
+      ["Privacidade", "privacidade" as FullSlug],
+      ["Termos", "termos" as FullSlug],
+      ["Segurança", "seguranca" as FullSlug],
+      ["Acessibilidade", "acessibilidade" as FullSlug],
+    ]
 
     return (
       <div
         class="atlas-frame"
-        data-atlas-route={isGraph ? "graph" : isNote ? "note" : isRoadmap ? "roadmap" : "other"}
-        data-atlas-view={isNote ? "note" : isRoadmap ? "roadmap" : "graph"}
+        data-atlas-route={
+          isGraph ? "graph" : isNote ? "note" : isRoadmap ? "roadmap" : isLegal ? "legal" : "other"
+        }
+        data-atlas-view={isNote ? "note" : isRoadmap ? "roadmap" : isLegal ? "legal" : "graph"}
       >
         <a class="atlas-skip-link" href="#main-content">
           Ir para o conteúdo
@@ -43,7 +54,7 @@ export const AtlasFrame: PageFrame = {
           <a
             class="atlas-brand"
             href={homeHref}
-            data-atlas-action={isRoadmap ? undefined : "go-home"}
+            data-atlas-action={isGraph || isNote ? "go-home" : undefined}
             data-router-ignore=""
             aria-label="Nutriwork Atlas, grafo"
           >
@@ -689,6 +700,25 @@ export const AtlasFrame: PageFrame = {
               </div>
             </div>
           </section>
+
+          <section
+            id="atlas-legal-view"
+            class={`atlas-legal-view${isLegal ? " is-active" : ""}`}
+            aria-labelledby="atlas-legal-title"
+            aria-hidden={!isLegal}
+          >
+            <div class="atlas-legal-shell">
+              <header class="atlas-legal-header">
+                <p class="atlas-legal-kicker">NUTRIWORK / ATLAS</p>
+                <h1 id="atlas-legal-title" tabindex={-1}>
+                  {title}
+                </h1>
+              </header>
+              <div class="atlas-legal-content atlas-note-content">
+                {isLegal ? <Content {...componentData} /> : null}
+              </div>
+            </div>
+          </section>
         </main>
 
         <div
@@ -890,6 +920,18 @@ export const AtlasFrame: PageFrame = {
             <BodyComponent {...componentData} />
           ))}
         </div>
+
+        <footer class="atlas-site-footer" aria-label="Informações institucionais">
+          <span>Atlas · um projeto Nutriwork</span>
+          <span>© 2026 Nutriwork</span>
+          <nav aria-label="Links institucionais">
+            {footerLinks.map(([label, slug]) => (
+              <a href={resolveRelative(current, slug)} data-router-ignore="">
+                {label}
+              </a>
+            ))}
+          </nav>
+        </footer>
       </div>
     )
   },
@@ -2201,7 +2243,8 @@ canvas:focus-visible {
 }
 
 .atlas-graph-view,
-.atlas-note-view {
+.atlas-note-view,
+.atlas-legal-view {
   box-sizing: border-box;
   opacity: 0;
   pointer-events: none;
@@ -2256,7 +2299,8 @@ canvas:focus-visible {
 }
 
 .atlas-graph-view.is-active,
-.atlas-note-view.is-active {
+.atlas-note-view.is-active,
+.atlas-legal-view.is-active {
   opacity: 1;
   pointer-events: auto;
   transform: none;
@@ -2270,6 +2314,102 @@ canvas:focus-visible {
 .atlas-note-view.is-active {
   position: relative;
   inset: auto;
+}
+
+.atlas-legal-view {
+  box-sizing: border-box;
+  min-height: 100dvh;
+  padding: 7.25rem clamp(1rem, 4vw, 4.5rem) 5rem;
+  position: absolute;
+  inset: 0;
+}
+
+.atlas-legal-view:not(.is-active) {
+  overflow: hidden;
+}
+
+.atlas-legal-view.is-active {
+  position: relative;
+  inset: auto;
+}
+
+.atlas-legal-shell {
+  margin: 0 auto;
+  max-width: 78rem;
+}
+
+.atlas-legal-header {
+  border-bottom: 1px solid var(--atlas-line);
+  margin: 0 auto 2rem;
+  max-width: 72ch;
+  padding-bottom: 1.2rem;
+}
+
+.atlas-legal-kicker {
+  color: var(--atlas-blue-soft);
+  font-family: var(--codeFont), monospace;
+  font-size: .7rem;
+  letter-spacing: .12em;
+  margin: 0 0 .65rem;
+  text-transform: uppercase;
+}
+
+.atlas-legal-header h1 {
+  color: var(--atlas-ink);
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  letter-spacing: -.045em;
+  line-height: 1;
+  margin: 0;
+}
+
+.atlas-legal-content {
+  margin-bottom: 0;
+}
+
+.atlas-legal-content article > h1:first-child {
+  display: none;
+}
+
+.atlas-site-footer {
+  align-items: center;
+  bottom: max(.55rem, var(--atlas-safe-bottom));
+  color: var(--atlas-muted);
+  display: flex;
+  flex-wrap: wrap;
+  font-size: .62rem;
+  gap: .35rem .8rem;
+  justify-content: center;
+  left: 1rem;
+  line-height: 1.4;
+  pointer-events: none;
+  position: fixed;
+  right: 1rem;
+  text-align: center;
+  z-index: 6000;
+}
+
+.atlas-site-footer nav {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: .35rem .7rem;
+  justify-content: center;
+  pointer-events: auto;
+}
+
+.atlas-site-footer a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.atlas-site-footer a:hover,
+.atlas-site-footer a:focus-visible {
+  color: var(--atlas-copy);
+  text-decoration: underline;
+  text-underline-offset: .18em;
+}
+
+:root[data-theme="light"] .atlas-site-footer {
+  color: #6E7F95;
 }
 
 .atlas-graph-surface {

@@ -35,12 +35,24 @@ export default (() => {
         ? url.toString()
         : joinSegments(url.toString(), `${canonicalSlug}/`)
 
-    const socialTitle = canonicalSlug === "index" ? "Atlas Nutriwork" : title
-    const socialSiteName = "Atlas Nutriwork"
+    const socialTitle = canonicalSlug === "index" ? "Atlas · Nutriwork" : title
+    const socialSiteName = "Atlas · Nutriwork"
     const siteBaseUrl = url.toString().replace(/\/$/, "")
     const ogImageDefaultPath = `${siteBaseUrl}/static/atlas-og-image-v2.png`
     const ogImageType = getFileExtension(ogImageDefaultPath)?.replace(/^\./, "") ?? "png"
-    const ogImageAlt = "Atlas Nutriwork"
+    const ogImageAlt = "Atlas · um projeto Nutriwork"
+    const structuredData = {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      name: "Atlas · Nutriwork",
+      alternateName: "Nutriwork Atlas",
+      description,
+      url: socialUrl,
+      author: { "@type": "Organization", name: "Nutriwork" },
+      creator: { "@type": "Organization", name: "Nutriwork" },
+      publisher: { "@type": "Organization", name: "Nutriwork" },
+    }
+    const structuredDataJson = JSON.stringify(structuredData).replace(/</g, "\\u003c")
 
     return (
       <head>
@@ -60,6 +72,10 @@ export default (() => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 
         <meta property="og:site_name" content={socialSiteName} />
+        <meta name="author" content="Nutriwork" />
+        <meta name="creator" content="Nutriwork" />
+        <meta name="publisher" content="Nutriwork" />
+        <meta name="application-name" content="Atlas · Nutriwork" />
         <meta property="og:title" content={socialTitle} />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
@@ -92,6 +108,10 @@ export default (() => {
         <link rel="apple-touch-icon" sizes="180x180" href={appleTouchIconPath} />
         <meta name="description" content={description} />
         <meta name="generator" content="Quartz" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: structuredDataJson }}
+        />
 
         {css.map((resource) => CSSResourceToStyleElement(resource, true))}
         {js

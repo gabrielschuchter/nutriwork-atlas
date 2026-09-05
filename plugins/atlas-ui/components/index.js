@@ -5,6 +5,7 @@ import { createAccessRuntime } from "../access-runtime.js"
 
 const DEFAULT_PASSWORD_HASH = "e110ff65ef4db64218871ca059810de0cbca7873b38b3ff576a55adbfe6d0f34"
 const DEFAULT_STORAGE_KEY = "nutriwork-atlas-access"
+const PUBLIC_SLUGS = new Set(["roadmap", "privacidade", "termos", "seguranca", "acessibilidade"])
 const SUPPORT_CONTACTS = {
   whatsapp: {
     label: "WhatsApp / telefone",
@@ -34,7 +35,7 @@ export const AtlasAccess = (userOptions = {}) => {
   }
 
   const AtlasAccessComponent = ({ fileData }) => {
-    if (String(fileData?.slug || "") === "roadmap") return null
+    if (PUBLIC_SLUGS.has(String(fileData?.slug || ""))) return null
     return h(
       "section",
       {
@@ -166,6 +167,29 @@ export const AtlasAccess = (userOptions = {}) => {
             },
             "Usar outro e-mail",
           ),
+        ),
+        h(
+          "p",
+          { class: "atlas-legal-consent" },
+          "Ao continuar, você declara ter lido os ",
+          h(
+            "a",
+            {
+              href: resolveRelative(String(fileData?.slug || "index"), "termos"),
+              "data-router-ignore": "",
+            },
+            "Termos de Uso",
+          ),
+          " e o ",
+          h(
+            "a",
+            {
+              href: resolveRelative(String(fileData?.slug || "index"), "privacidade"),
+              "data-router-ignore": "",
+            },
+            "Aviso de Privacidade",
+          ),
+          ".",
         ),
       ),
     )
@@ -301,6 +325,23 @@ html[data-atlas-access="unlocked"] #atlas-access {
   display: grid;
   gap: .6rem;
   margin-top: 1.6rem;
+}
+
+.atlas-legal-consent {
+  color: rgba(200, 210, 229, .66);
+  font-size: .68rem;
+  line-height: 1.45;
+  margin: .85rem 0 0;
+  text-align: center;
+}
+
+.atlas-legal-consent a {
+  color: inherit;
+  text-underline-offset: .15em;
+}
+
+:root[data-theme="light"] .atlas-legal-consent {
+  color: rgba(82, 98, 119, .76);
 }
 
 .atlas-access-form[hidden],

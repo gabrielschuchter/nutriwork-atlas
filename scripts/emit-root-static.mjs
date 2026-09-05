@@ -1,11 +1,13 @@
 #!/usr/bin/env node
 
-import { copyFile, readdir, readFile, stat, writeFile } from "node:fs/promises"
+import { copyFile, mkdir, readdir, readFile, stat, writeFile } from "node:fs/promises"
 import path from "node:path"
 
 const projectRoot = path.resolve(import.meta.dirname, "..")
 const sourcePath = path.join(projectRoot, "quartz", "static", "robots.txt")
 const targetPath = path.join(projectRoot, "public", "robots.txt")
+const securitySourcePath = path.join(projectRoot, "quartz", "static", ".well-known", "security.txt")
+const securityTargetPath = path.join(projectRoot, "public", ".well-known", "security.txt")
 
 const sourceStats = await stat(sourcePath).catch(() => null)
 if (!sourceStats?.isFile()) {
@@ -20,6 +22,15 @@ if (!publicStats?.isDirectory()) {
 await copyFile(sourcePath, targetPath)
 console.log(
   `Copied ${path.relative(projectRoot, sourcePath)} to ${path.relative(projectRoot, targetPath)}`,
+)
+
+await mkdir(path.dirname(securityTargetPath), { recursive: true })
+await copyFile(securitySourcePath, securityTargetPath).catch(async (error) => {
+  if (error.code !== "ENOENT") throw error
+  throw new Error(`Static security.txt source not found: ${securitySourcePath}`)
+})
+console.log(
+  `Copied ${path.relative(projectRoot, securitySourcePath)} to ${path.relative(projectRoot, securityTargetPath)}`,
 )
 
 async function sanitizePublicLabels(directory) {

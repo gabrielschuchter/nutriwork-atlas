@@ -6,7 +6,10 @@ export function installAccessGate(expectedHash, storageKey, normalizeEmail) {
   if (window[runtimeKey]) return
   window[runtimeKey] = true
   const root = document.documentElement
-  if (document.getElementById("atlas-roadmap-view")?.classList?.contains?.("is-active")) {
+  if (
+    document.getElementById("atlas-roadmap-view")?.classList?.contains?.("is-active") ||
+    document.getElementById("atlas-legal-view")?.classList?.contains?.("is-active")
+  ) {
     root.dataset.atlasAccess = "unlocked"
     return
   }
