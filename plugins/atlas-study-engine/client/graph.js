@@ -1,14 +1,15 @@
 ;(() => {
   const atlas = (window.__nutriworkAtlasEngine = window.__nutriworkAtlasEngine || {})
   const { WORLD, create: createPhysics } = atlas.graphPhysics
+  const graphLabels = atlas.graphLabels
   const { applyPinch: applyPinchCamera, startPinch } = atlas.graphGestureMath
   const { clamp, hash, link, make, searchMatch, searchQuery } = atlas.dom
   const perf = atlas.perf?.enabled ? atlas.perf : null
 
   const instances = new Set()
   const instanceByMount = new WeakMap()
-  const layoutKey = "nutriwork-atlas-graph-layout-v3"
-  const cameraKey = "nutriwork-atlas-graph-camera-v2"
+  const layoutKey = "nutriwork-atlas-graph-layout-v4"
+  const cameraKey = "nutriwork-atlas-graph-camera-v3"
   const filterState = { query: "", area: "all" }
   const areaColors = ["#1263FF", "#29A8FF", "#6D9DFF", "#8EB9FF", "#2D72D9", "#77C8FF", "#4D82E8"]
   const GESTURES = {
@@ -21,10 +22,13 @@
   const TOUCH_TAP_THRESHOLD = 10
   const MOUSE_DRAG_THRESHOLD = 4
   const PINCH_ACTIVATION_THRESHOLD = 8
-  const EMPTY_SET = new Set()
   const EMPTY_DASH = []
   const DEVELOPMENT_DASH = [3, 4]
   const GRAPH_FONT = "600 12px Poppins, Arial, sans-serif"
+  const LABEL_PADDING = 12
+  const LABEL_GAP = 8
+  const LABEL_CLEARANCE = 5
+  const LABEL_MAX_WIDTH = 300
   const PHYSICS_DRAW_INTERVAL = 1000 / 30
   let darkTheme = document.documentElement.dataset.theme !== "light"
 
@@ -90,7 +94,7 @@
 
   function seedPoint(node, index) {
     const angle = hash(node.slug + ":angle") * Math.PI * 2
-    const distance = 180 + hash(node.slug + ":radius") * 540 + (index % 9) * 18
+    const distance = 560 + hash(node.slug + ":radius") * 1_760 + (index % 9) * 64
     return {
       x: WORLD.width / 2 + Math.cos(angle) * distance,
       y: WORLD.height / 2 + Math.sin(angle) * distance,
@@ -194,7 +198,9 @@
   }
 
   function fitAll(state) {
-    state.camera = calculateFit(state)
+    const target = calculateFit(state)
+    if (state.mode === "explore") state.overviewScale = target.scale
+    state.camera = target
     state.userCamera = false
     state.cameraDirty = true
     state.screenPositionsDirty = true
@@ -232,12 +238,14 @@
       state.ctx.setTransform(ratio, 0, 0, ratio, 0, 0)
       if (sizeChanged) state.physics?.resize?.(measured.width, measured.height)
       state.screenPositionsDirty = true
+      state.labelLayoutDirty = true
       if (fit && sizeChanged && !state.transitioning) fitAll(state)
       perf?.count("resizeApplied")
       scheduleDraw(state)
     } else if (backingChanged) {
       state.ctx.setTransform(ratio, 0, 0, ratio, 0, 0)
       state.screenPositionsDirty = true
+      state.labelLayoutDirty = true
       scheduleDraw(state)
     }
     refreshCanvasRect(state)
@@ -311,19 +319,11 @@
     else suspendVisualWork(state)
   }
 
-  function relatedTo(state, slug) {
-    return slug ? state.relatedBySlug.get(slug) || EMPTY_SET : EMPTY_SET
-  }
-
   function prepareNodeStyles(state) {
-    const ctx = state.ctx
-    ctx.font = GRAPH_FONT
     state.nodeStyles = new Array(state.allNodes.length)
     for (const node of state.allNodes) {
       const degreeScale = Math.sqrt(node.degree + 1)
       const development = Boolean(node.isDevelopment)
-      const measuredLabelWidth = ctx.measureText(node.title).width
-      const conservativeLabelWidth = Math.max(measuredLabelWidth, node.title.length * 9)
       const color = development
         ? null
         : areaColors[
@@ -341,7 +341,6 @@
         exploreMinRadius: development ? 1.8 : 3.3,
         minimapMinRadius: development ? 1.2 : 2.2,
         hitRadiusBase: 7 + degreeScale,
-        labelExtent: conservativeLabelWidth + 48,
       }
     }
   }
@@ -357,6 +356,7 @@
       state.screenY[index] = (node.y - cameraY) * scale
     }
     state.screenPositionsDirty = false
+    state.labelLayoutDirty = true
   }
 
   function segmentVisible(state, startX, startY, endX, endY) {
@@ -376,22 +376,22 @@
   function applyEdgeStyle(state, styleIndex) {
     const ctx = state.ctx
     if (styleIndex === 2) {
-      ctx.lineWidth = 1.25
-      ctx.strokeStyle = darkTheme ? "rgba(142,185,255,.58)" : "rgba(11,99,246,.48)"
+      ctx.lineWidth = 0.9
+      ctx.strokeStyle = darkTheme ? "rgba(142,185,255,.28)" : "rgba(11,99,246,.24)"
       ctx.setLineDash(EMPTY_DASH)
       return
     }
-    ctx.lineWidth = state.mode === "minimap" ? 0.45 : 0.65
+    ctx.lineWidth = state.mode === "minimap" ? 0.35 : 0.5
     if (styleIndex === 1) {
-      ctx.strokeStyle = darkTheme ? "rgba(160,171,188,.20)" : "rgba(100,113,132,.22)"
+      ctx.strokeStyle = darkTheme ? "rgba(160,171,188,.13)" : "rgba(100,113,132,.14)"
       ctx.setLineDash(DEVELOPMENT_DASH)
     } else {
-      ctx.strokeStyle = darkTheme ? "rgba(142,185,255,.13)" : "rgba(18,99,255,.16)"
+      ctx.strokeStyle = darkTheme ? "rgba(142,185,255,.08)" : "rgba(18,99,255,.1)"
       ctx.setLineDash(EMPTY_DASH)
     }
   }
 
-  function drawEdges(state, highlighted) {
+  function drawEdges(state) {
     const ctx = state.ctx
     let activeStyle = -1
     let pathOpen = false
@@ -412,10 +412,7 @@
       }
       const highlight =
         Boolean(state.hoveredSlug) &&
-        (source.slug === state.hoveredSlug ||
-          target.slug === state.hoveredSlug ||
-          highlighted.has(source.slug) ||
-          highlighted.has(target.slug))
+        (source.slug === state.hoveredSlug || target.slug === state.hoveredSlug)
       const nextStyle = highlight ? 2 : source.isDevelopment || target.isDevelopment ? 1 : 0
       if (nextStyle !== activeStyle) {
         if (pathOpen) ctx.stroke()
@@ -431,26 +428,221 @@
     ctx.setLineDash(EMPTY_DASH)
   }
 
+  function visualRadius(state, node) {
+    const style = state.nodeStyles[node.atlasIndex]
+    return Math.max(
+      state.mode === "minimap" ? style.minimapMinRadius : style.exploreMinRadius,
+      style.radiusBase * state.camera.scale,
+    )
+  }
+
+  function rectanglesOverlap(left, right, clearance = 0) {
+    return !(
+      left.right + clearance <= right.left ||
+      left.left - clearance >= right.right ||
+      left.bottom + clearance <= right.top ||
+      left.top - clearance >= right.bottom
+    )
+  }
+
+  function labelFont(ctx, title, maximumWidth) {
+    const safeWidth = Math.max(32, maximumWidth)
+    for (let fontSize = 12; fontSize >= 8; fontSize -= 0.5) {
+      const font = `600 ${fontSize}px Poppins, Arial, sans-serif`
+      ctx.font = font
+      const width = ctx.measureText(title).width
+      if (width <= safeWidth) return { font, fontSize, width }
+    }
+
+    const minimumFont = 7
+    const minimumFontValue = `600 ${minimumFont}px Poppins, Arial, sans-serif`
+    ctx.font = minimumFontValue
+    const minimumWidth = ctx.measureText(title).width
+    if (minimumWidth > safeWidth) return null
+    return { font: minimumFontValue, fontSize: minimumFont, width: minimumWidth }
+  }
+
+  function labelTouchesNode(state, rect, candidate) {
+    for (const node of state.nodes) {
+      if (node === candidate) continue
+      const radius = visualRadius(state, node) + LABEL_CLEARANCE
+      const pointX = state.screenX[node.atlasIndex]
+      const pointY = state.screenY[node.atlasIndex]
+      const nearestX = clamp(pointX, rect.left, rect.right)
+      const nearestY = clamp(pointY, rect.top, rect.bottom)
+      if (Math.hypot(pointX - nearestX, pointY - nearestY) <= radius) return true
+    }
+    return false
+  }
+
+  function labelAnchors(state, node, font) {
+    const index = node.atlasIndex
+    const pointX = state.screenX[index]
+    const pointY = state.screenY[index]
+    const radius = visualRadius(state, node)
+    const lineHeight = Math.max(11, font.fontSize * 1.15)
+    const candidates = [
+      { align: "left", x: pointX + radius + LABEL_GAP, y: pointY },
+      { align: "right", x: pointX - radius - LABEL_GAP, y: pointY },
+      { align: "center", x: pointX, y: pointY - radius - LABEL_GAP },
+      { align: "center", x: pointX, y: pointY + radius + LABEL_GAP },
+    ]
+    return candidates.map((anchor) => {
+      const left =
+        anchor.align === "left"
+          ? anchor.x
+          : anchor.align === "right"
+            ? anchor.x - font.width
+            : anchor.x - font.width / 2
+      return {
+        ...anchor,
+        left,
+        right: left + font.width,
+        top: anchor.y - lineHeight / 2,
+        bottom: anchor.y + lineHeight / 2,
+        lineHeight,
+      }
+    })
+  }
+
+  function labelViewportBounds(state) {
+    const bounds = {
+      left: LABEL_PADDING,
+      top: LABEL_PADDING,
+      right: state.width - LABEL_PADDING,
+      bottom: state.height - LABEL_PADDING,
+    }
+    const canvasRect = state.canvas.getBoundingClientRect()
+    const blockers = [
+      document.getElementById("atlas-navbar"),
+      document.getElementById("atlas-mobile-graph-tools"),
+      document.querySelector(".atlas-site-footer"),
+    ]
+    for (const blocker of blockers) {
+      if (!blocker || blocker.hidden) continue
+      const rect = blocker.getBoundingClientRect()
+      if (
+        rect.right <= canvasRect.left ||
+        rect.left >= canvasRect.right ||
+        rect.bottom <= canvasRect.top ||
+        rect.top >= canvasRect.bottom
+      )
+        continue
+      const top = rect.top - canvasRect.top
+      const bottom = rect.bottom - canvasRect.top
+      if (top <= state.height / 2) bounds.top = Math.max(bounds.top, bottom + LABEL_GAP)
+      if (bottom >= state.height / 2) bounds.bottom = Math.min(bounds.bottom, top - LABEL_GAP)
+    }
+    return bounds
+  }
+
+  function calculateLabelPlacements(state) {
+    if (!state.labelLayoutDirty) return
+    state.labelLayoutDirty = false
+    state.labelPlacements = []
+
+    const regime =
+      state.mode === "minimap"
+        ? { ratio: Infinity, maxLabels: 1, maxDistance: Infinity }
+        : graphLabels?.regimeFor?.(state.camera.scale, state.overviewScale) || {
+            ratio: state.camera.scale / Math.max(0.001, state.overviewScale),
+            maxLabels: 0,
+            maxDistance: 0,
+          }
+    const maximum =
+      state.mode === "minimap"
+        ? 1
+        : graphLabels?.viewportBudget?.(state.width, state.height, regime.maxLabels) || 0
+    const activeSlugs = new Set([state.hoveredSlug, state.currentSlug].filter(Boolean))
+    const limit = maximum || (activeSlugs.size ? 1 : 0)
+    if (!limit) return
+
+    const centerX = state.width / 2
+    const centerY = state.height / 2
+    const radiusX = Math.max(1, centerX - LABEL_PADDING)
+    const radiusY = Math.max(1, centerY - LABEL_PADDING)
+    const viewport = labelViewportBounds(state)
+    const candidates = []
+    for (const node of state.nodes) {
+      const pointX = state.screenX[node.atlasIndex]
+      const pointY = state.screenY[node.atlasIndex]
+      const radius = visualRadius(state, node)
+      const fullyVisible =
+        pointX - radius >= 0 &&
+        pointX + radius <= state.width &&
+        pointY - radius >= 0 &&
+        pointY + radius <= state.height
+      if (!fullyVisible) continue
+      const active = activeSlugs.has(node.slug)
+      const distance = Math.hypot((pointX - centerX) / radiusX, (pointY - centerY) / radiusY)
+      if (state.mode !== "minimap" && !active && distance > regime.maxDistance) continue
+      if (state.mode !== "minimap" && !active && regime.maxLabels === 0) continue
+      candidates.push({
+        node,
+        active,
+        distance,
+        score:
+          (active ? 100000 : 0) +
+          Math.min(80, Number(node.degree || 0)) * 18 -
+          distance * 60 -
+          (node.isDevelopment ? 22 : 0),
+      })
+    }
+    candidates.sort((left, right) => right.score - left.score)
+
+    const ctx = state.ctx
+    const placements = []
+    for (const candidate of candidates) {
+      if (placements.length >= limit) break
+      const node = candidate.node
+      const style = state.nodeStyles[node.atlasIndex]
+      const pointX = state.screenX[node.atlasIndex]
+      const availableWidth = Math.min(LABEL_MAX_WIDTH, viewport.right - viewport.left)
+      const font = labelFont(ctx, node.title, availableWidth)
+      if (!font) continue
+      const anchors = labelAnchors(state, node, font)
+      let accepted = null
+      for (const anchor of anchors) {
+        if (
+          anchor.left < viewport.left ||
+          anchor.right > viewport.right ||
+          anchor.top < viewport.top ||
+          anchor.bottom > viewport.bottom
+        )
+          continue
+        if (labelTouchesNode(state, anchor, node)) continue
+        if (placements.some((placement) => rectanglesOverlap(placement, anchor, LABEL_CLEARANCE)))
+          continue
+        accepted = anchor
+        break
+      }
+      if (!accepted) continue
+      placements.push({
+        ...accepted,
+        title: node.title,
+        node,
+        style,
+        font: font.font,
+        alpha: candidate.active ? 1 : Math.min(1, 0.78 + Math.max(0, regime.ratio - 2) * 0.08),
+        pointX,
+      })
+    }
+    state.labelPlacements = placements
+  }
+
   function drawNode(state, node) {
     const index = node.atlasIndex
     const pointX = state.screenX[index]
     const pointY = state.screenY[index]
     const style = state.nodeStyles[index]
-    const radius = Math.max(
-      state.mode === "minimap" ? style.minimapMinRadius : style.exploreMinRadius,
-      style.radiusBase * state.camera.scale,
-    )
+    const radius = visualRadius(state, node)
     const active = node.slug === state.hoveredSlug || node.slug === state.currentSlug
-    const labelVisible =
-      state.mode === "minimap" ? active : active || (state.camera.scale > 0.52 && node.degree >= 18)
     const haloRadius = active && state.mode !== "minimap" ? radius * 2.25 : radius
-    const horizontalMargin = Math.max(haloRadius, labelVisible ? style.labelExtent + radius : 0)
-    const verticalMargin = Math.max(haloRadius, labelVisible ? 8 : 0)
     if (
-      pointX < -horizontalMargin ||
-      pointX > state.width + horizontalMargin ||
-      pointY < -verticalMargin ||
-      pointY > state.height + verticalMargin
+      pointX < -haloRadius ||
+      pointX > state.width + haloRadius ||
+      pointY < -haloRadius ||
+      pointY > state.height + haloRadius
     ) {
       perf?.count("nodeCulls")
       return
@@ -482,11 +674,21 @@
       ctx.strokeStyle = darkTheme ? "#F5F7FF" : "#07152A"
       ctx.stroke()
     }
+  }
 
-    if (labelVisible) {
-      ctx.fillStyle = darkTheme ? style.labelColorDark : style.labelColorLight
-      ctx.fillText(node.title, pointX + radius + 7, pointY)
+  function drawLabels(state) {
+    calculateLabelPlacements(state)
+    const ctx = state.ctx
+    ctx.textBaseline = "middle"
+    for (const placement of state.labelPlacements) {
+      ctx.font = placement.font
+      ctx.textAlign = placement.align
+      ctx.globalAlpha = placement.alpha
+      ctx.fillStyle = darkTheme ? placement.style.labelColorDark : placement.style.labelColorLight
+      ctx.fillText(placement.title, placement.x, placement.y)
     }
+    ctx.globalAlpha = 1
+    ctx.textAlign = "start"
   }
 
   function draw(state) {
@@ -497,11 +699,11 @@
     const ctx = state.ctx
     ctx.clearRect(0, 0, state.width, state.height)
     screenPositions(state)
-    const highlighted = relatedTo(state, state.hoveredSlug || state.currentSlug)
-    drawEdges(state, highlighted)
+    drawEdges(state)
     ctx.font = GRAPH_FONT
     ctx.textBaseline = "middle"
     for (const node of state.nodes) drawNode(state, node)
+    drawLabels(state)
     state.lastDrawAt = performance.now()
     if (perf) perf.sample("draw", performance.now() - startedAt)
   }
@@ -592,6 +794,7 @@
     const nextSlug = node?.slug || ""
     if (nextSlug === state.hoveredSlug) return false
     state.hoveredSlug = nextSlug
+    state.labelLayoutDirty = true
     state.canvas.style.cursor = node ? "pointer" : "grab"
     if (node && !isTouchPointer(event)) {
       atlas.app?.showGraphPreview(node, anchorFor(state, node))
@@ -987,7 +1190,9 @@
   }
 
   function animateFit(state) {
-    animateCameraTo(state, calculateFit(state), false)
+    const target = calculateFit(state)
+    if (state.mode === "explore") state.overviewScale = target.scale
+    animateCameraTo(state, target, false)
   }
 
   function flushWheel(state) {
@@ -1161,21 +1366,12 @@
       .filter((edge) => allBySlug.has(edge.source) && allBySlug.has(edge.target))
       .map((edge) => ({ source: allBySlug.get(edge.source), target: allBySlug.get(edge.target) }))
 
-    const relatedBySlug = new Map()
-    for (const node of allNodes) {
-      const related = new Set()
-      for (const slug of node.outgoing) related.add(slug)
-      for (const slug of node.incoming) related.add(slug)
-      relatedBySlug.set(node.slug, related)
-    }
-
     state.allNodes = allNodes
     state.sortedNodes = [...allNodes].sort((left, right) =>
       left.title.localeCompare(right.title, "pt-BR"),
     )
     state.allEdges = allEdges
     state.nodeBySlug = allBySlug
-    state.relatedBySlug = relatedBySlug
     state.screenX = new Float32Array(allNodes.length)
     state.screenY = new Float32Array(allNodes.length)
     prepareNodeStyles(state)
@@ -1195,6 +1391,7 @@
             state.initialFitTicks === 1
           ) {
             state.camera = calculateFit(state)
+            if (state.mode === "explore") state.overviewScale = state.camera.scale
             state.cameraDirty = true
           }
           state.initialFitTicks -= 1
@@ -1209,11 +1406,13 @@
   }
 
   function initialCamera(state) {
+    const fit = calculateFit(state)
+    if (state.mode === "explore") state.overviewScale = fit.scale
     const saved =
       validPoint(storedCamera) && Number.isFinite(storedCamera.scale)
         ? { x: storedCamera.x, y: storedCamera.y, scale: storedCamera.scale }
         : null
-    return saved && state.mount.dataset.atlasRestoreCamera === "true" ? saved : calculateFit(state)
+    return saved && state.mount.dataset.atlasRestoreCamera === "true" ? saved : fit
   }
 
   function createState(mount) {
@@ -1243,10 +1442,12 @@
       allEdges: [],
       nodeBySlug: new Map(),
       sortedNodes: [],
-      relatedBySlug: new Map(),
       screenX: null,
       screenY: null,
       screenPositionsDirty: true,
+      labelLayoutDirty: true,
+      labelPlacements: [],
+      overviewScale: 0.1,
       nodeStyles: [],
       currentSlug: "",
       hoveredSlug: "",
@@ -1398,6 +1599,7 @@
     state.camera = initialCamera(state)
     state.cameraDirty = true
     state.screenPositionsDirty = true
+    state.labelLayoutDirty = true
     if (state.mode === "minimap") fitAll(state)
     updateVisualActivity(state)
     scheduleDraw(state)
@@ -1470,6 +1672,7 @@
     invalidateCanvasRect(state)
     if (state.mode === mode) {
       state.currentSlug = nextSlug
+      state.labelLayoutDirty = true
       updateModeSurfaces(state)
       updateVisualActivity(state)
       scheduleDraw(state)
@@ -1483,12 +1686,14 @@
     }
     state.mode = mode
     state.currentSlug = nextSlug
+    state.labelLayoutDirty = true
     state.userCamera = false
     updateModeSurfaces(state)
     updateVisualActivity(state)
     resizeCanvas(state, { fit: false })
     const target =
       mode === "minimap" ? calculateFit(state) : state.cameras.explore || calculateFit(state)
+    if (mode === "explore" && !state.cameras.explore) state.overviewScale = target.scale
     animateCameraTo(state, target, false)
   }
 
@@ -1523,6 +1728,8 @@
       screenX: state.screenX,
       screenY: state.screenY,
       screenPositionsDirty: state.screenPositionsDirty,
+      labelLayoutDirty: state.labelLayoutDirty,
+      labelPlacements: state.labelPlacements,
       frame: state.frame,
     }
     const baseNodes = state.nodes
@@ -1584,6 +1791,8 @@
       state.screenX = saved.screenX
       state.screenY = saved.screenY
       state.screenPositionsDirty = true
+      state.labelLayoutDirty = true
+      state.labelPlacements = saved.labelPlacements
       if (saved.frame && !state.suspended) scheduleDraw(state)
     }
   }

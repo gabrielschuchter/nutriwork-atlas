@@ -6,11 +6,25 @@ export function installAccessGate(expectedHash, storageKey, normalizeEmail) {
   if (window[runtimeKey]) return
   window[runtimeKey] = true
   const root = document.documentElement
-  if (
+  const returnContext =
+    typeof URLSearchParams === "function"
+      ? new URLSearchParams(window.location?.search || "").get("atlasReturn")
+      : null
+  const resumeSession = returnContext !== "login"
+  const publicRoute =
     document.getElementById("atlas-roadmap-view")?.classList?.contains?.("is-active") ||
     document.getElementById("atlas-legal-view")?.classList?.contains?.("is-active")
-  ) {
+  if (publicRoute) {
     root.dataset.atlasAccess = "unlocked"
+    if (returnContext === "login" || returnContext === "atlas") {
+      for (const back of document.querySelectorAll(
+        "[data-atlas-legal-return], [data-atlas-legal-link]",
+      )) {
+        const target = new URL(back.getAttribute("href") || back.href, window.location.href)
+        target.searchParams.set("atlasReturn", returnContext)
+        back.href = target.pathname + target.search + target.hash
+      }
+    }
     return
   }
   const identityKey = "nutriwork-atlas-identification-v1"
@@ -26,7 +40,10 @@ export function installAccessGate(expectedHash, storageKey, normalizeEmail) {
   const byId = (id) => document.getElementById(id)
   const readPasswordState = () => {
     try {
-      return memoryUnlocked || window.localStorage.getItem(storageKey) === expectedHash
+      return (
+        memoryUnlocked ||
+        (resumeSession && window.localStorage.getItem(storageKey) === expectedHash)
+      )
     } catch {
       return memoryUnlocked
     }
@@ -86,6 +103,7 @@ export function installAccessGate(expectedHash, storageKey, normalizeEmail) {
   }
   const register = async (candidate, isNew = false) => {
     if (pending) return
+    const hadAccessSession = !isNew && readPasswordState()
     pending = true
     render()
     announce("Validando seu e-mail…", "loading")
@@ -120,7 +138,7 @@ export function installAccessGate(expectedHash, storageKey, normalizeEmail) {
       setState(!isNew && readPasswordState())
       if (root.dataset.atlasAccess === "locked") focusInput()
     } catch (error) {
-      registered = false
+      registered = hadAccessSession
       pending = false
       render()
       announce(
@@ -129,7 +147,7 @@ export function installAccessGate(expectedHash, storageKey, normalizeEmail) {
           : "Não foi possível registrar seu acesso agora. Tente novamente.",
         "error",
       )
-      setState(false)
+      setState(hadAccessSession)
     }
   }
   const digest = async (value) => {
@@ -231,8 +249,9 @@ export function installAccessGate(expectedHash, storageKey, normalizeEmail) {
     render()
     setState(readPasswordState())
   })
+  registered = Boolean(email && readPasswordState())
   render()
-  setState(false)
+  setState(registered)
   if (email) void register(email)
   else focusInput()
 }

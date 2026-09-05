@@ -33,6 +33,27 @@ test("Atlas physics has a zero-target steady state and explicit wake lifecycle",
   assert.match(physics, /resumeSimulationIfNeeded/)
 })
 
+test("Atlas graph reveals local labels progressively and keeps hover emphasis local", async () => {
+  const [labels, graph, physics] = await Promise.all([
+    source("./graph-labels.js"),
+    source("./graph.js"),
+    source("./graph-physics.js"),
+  ])
+  assert.match(labels, /minRatio/)
+  assert.match(labels, /viewportBudget/)
+  assert.match(graph, /calculateLabelPlacements/)
+  assert.match(graph, /labelTouchesNode/)
+  assert.match(graph, /labelLayoutDirty/)
+  assert.match(
+    graph,
+    /source\.slug === state\.hoveredSlug \|\| target\.slug === state\.hoveredSlug/,
+  )
+  assert.doesNotMatch(graph, /camera\.scale > 0\.52/)
+  assert.doesNotMatch(graph, /relatedBySlug/)
+  assert.match(physics, /width: 6400/)
+  assert.match(physics, /distance\(\(edge\).*280.*360/)
+})
+
 test("Atlas graph keeps performance instrumentation opt-in", async () => {
   const [performanceSource, runtimeSource] = await Promise.all([
     source("./performance.js"),
@@ -125,4 +146,15 @@ test("Atlas isolates legal pages from the graph runtime", async () => {
   assert.match(data, /AbortController/)
   assert.match(app, /noteTimeoutMs/)
   assert.match(app, /serial !== refreshSerial/)
+})
+
+test("Atlas headings never opt into breaking words in the middle", async () => {
+  const frame = await readFile(
+    new URL("../../../quartz/components/frames/AtlasFrame.tsx", import.meta.url),
+    "utf8",
+  )
+  assert.match(frame, /data-atlas-fit-title/)
+  assert.match(frame, /overflow-wrap: normal/)
+  assert.match(frame, /word-break: normal/)
+  assert.doesNotMatch(frame, /overflow-wrap: anywhere/)
 })

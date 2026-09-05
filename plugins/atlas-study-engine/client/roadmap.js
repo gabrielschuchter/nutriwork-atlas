@@ -1,29 +1,37 @@
 ;(() => {
-  const route = document.querySelector('.atlas-frame[data-atlas-route="roadmap"]')
-  if (!route) return
-
   const state = (window.__nutriworkAtlasRoadmap = window.__nutriworkAtlasRoadmap || {})
-  if (state.ready) return
-  state.ready = true
+  if (state.handlersInstalled) {
+    void state.flush?.()
+    return
+  }
+  state.handlersInstalled = true
 
   const root = document.documentElement
-  const overlay = document.getElementById("atlas-roadmap-suggestion")
-  const form = document.getElementById("atlas-roadmap-suggestion-form")
-  const title = document.getElementById("atlas-roadmap-suggestion-title-input")
-  const description = document.getElementById("atlas-roadmap-suggestion-description")
-  const status = document.getElementById("atlas-roadmap-suggestion-status")
-  const submit = form?.querySelector('button[type="submit"]')
-  const toast = document.getElementById("atlas-roadmap-toast")
-  const toastTitle = toast?.querySelector("[data-atlas-roadmap-toast-title]")
-  const toastCopy = toast?.querySelector("[data-atlas-roadmap-toast-copy]")
+  const suggestionQueueKey = "nutriwork-atlas-roadmap-suggestions-v1"
   let opener = null
   let toastTimer = 0
   let submitting = false
   let flushing = null
   let automaticRetryUsed = false
-  const suggestionQueueKey = "nutriwork-atlas-roadmap-suggestions-v1"
+
+  function elements() {
+    const form = document.getElementById("atlas-roadmap-suggestion-form")
+    const toast = document.getElementById("atlas-roadmap-toast")
+    return {
+      overlay: document.getElementById("atlas-roadmap-suggestion"),
+      form,
+      title: document.getElementById("atlas-roadmap-suggestion-title-input"),
+      description: document.getElementById("atlas-roadmap-suggestion-description"),
+      status: document.getElementById("atlas-roadmap-suggestion-status"),
+      submit: form?.querySelector('button[type="submit"]'),
+      toast,
+      toastTitle: toast?.querySelector("[data-atlas-roadmap-toast-title]"),
+      toastCopy: toast?.querySelector("[data-atlas-roadmap-toast-copy]"),
+    }
+  }
 
   function setStatus(message, stateName = "") {
+    const { status } = elements()
     if (!status) return
     status.textContent = message
     status.dataset.state = stateName
@@ -36,6 +44,7 @@
   }
 
   function setModalOpen(open) {
+    const { overlay, title } = elements()
     if (!overlay) return
     if (open) {
       overlay.hidden = false
@@ -45,19 +54,20 @@
         overlay.classList.add("is-open")
         title?.focus()
       })
-    } else {
-      overlay.classList.remove("is-open")
-      overlay.setAttribute("aria-hidden", "true")
-      root.classList.remove("atlas-modal-open")
-      window.setTimeout(() => {
-        if (!overlay.classList.contains("is-open")) overlay.hidden = true
-      }, 220)
-      window.requestAnimationFrame(() => opener?.focus())
-      opener = null
+      return
     }
+    overlay.classList.remove("is-open")
+    overlay.setAttribute("aria-hidden", "true")
+    root.classList.remove("atlas-modal-open")
+    window.setTimeout(() => {
+      if (!overlay.classList.contains("is-open")) overlay.hidden = true
+    }, 220)
+    window.requestAnimationFrame(() => opener?.focus?.())
+    opener = null
   }
 
   function showToast(kind, heading, copy) {
+    const { toast, toastTitle, toastCopy } = elements()
     if (!toast) return
     if (toastTimer) window.clearTimeout(toastTimer)
     toast.dataset.state = kind
@@ -114,26 +124,31 @@
     writeSuggestionQueue(queue)
   }
 
-  function removeQueuedSuggestion(submissionId) {
-    writeSuggestionQueue(readSuggestionQueue().filter((item) => item.submissionId !== submissionId))
+  function removeQueuedSuggestion(id) {
+    writeSuggestionQueue(readSuggestionQueue().filter((item) => item.submissionId !== id))
   }
 
   async function sendSuggestion(item) {
-    const response = await fetch("/api/atlas-suggestions", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      credentials: "same-origin",
-      body: JSON.stringify(item),
-      keepalive: true,
-      signal: AbortSignal.timeout(25000),
-    })
-    let result = null
+    const controller = new AbortController()
+    const timeout = window.setTimeout(() => controller.abort(), 25000)
     try {
-      result = await response.json()
-    } catch {
-      // The caller handles malformed upstream responses as a failed submission.
+      const response = await fetch("/api/atlas-suggestions", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        credentials: "same-origin",
+        body: JSON.stringify(item),
+        signal: controller.signal,
+      })
+      let result = null
+      try {
+        result = await response.json()
+      } catch {
+        // The caller handles malformed upstream responses as a failed submission.
+      }
+      if (!response.ok || result?.ok !== true) throw new Error(result?.code || "failed")
+    } finally {
+      window.clearTimeout(timeout)
     }
-    if (!response.ok || result?.ok !== true) throw new Error(result?.code || "failed")
   }
 
   function scheduleSuggestionRetry() {
@@ -177,17 +192,19 @@
       }
     })().finally(() => {
       flushing = null
+      if (readSuggestionQueue().length && !automaticRetryUsed) void flushSuggestionQueue()
     })
     return flushing
   }
 
-  document.addEventListener("click", (event) => {
+  function handleClick(event) {
     if (!(event.target instanceof Element)) return
     const trigger = event.target.closest("[data-atlas-roadmap-action]")
     if (!trigger) return
     const action = trigger.dataset.atlasRoadmapAction
     if (action === "open-suggestion") {
       event.preventDefault()
+      const { title, description } = elements()
       opener = document.activeElement instanceof HTMLElement ? document.activeElement : trigger
       setStatus("")
       setInvalid(title, false)
@@ -197,11 +214,14 @@
       event.preventDefault()
       if (!submitting) setModalOpen(false)
     }
-  })
+  }
 
-  form?.addEventListener("submit", async (event) => {
+  async function handleSubmit(event) {
+    const form = event.target instanceof HTMLFormElement ? event.target : null
+    if (!form || form.id !== "atlas-roadmap-suggestion-form") return
     event.preventDefault()
     if (submitting) return
+    const { title, description, submit } = elements()
     const cleanTitle = title?.value.trim() || ""
     const cleanDescription = description?.value.trim() || ""
     const titleInvalid = !cleanTitle || cleanTitle.length > 160
@@ -215,6 +235,7 @@
     }
 
     submitting = true
+    automaticRetryUsed = false
     if (submit) {
       submit.disabled = true
       submit.textContent = "Enviando…"
@@ -235,12 +256,18 @@
     }
     showToast("loading", "Sugestão em envio", "Estamos encaminhando sua sugestão em segundo plano.")
     void flushSuggestionQueue(item.submissionId)
-  })
+  }
 
-  document.addEventListener("keydown", (event) => {
-    if (event.key !== "Escape" || !overlay || overlay.hidden || submitting) return
-    setModalOpen(false)
-  })
+  function handleKeydown(event) {
+    const { overlay } = elements()
+    if (event.key === "Escape" && overlay && !overlay.hidden && !submitting) setModalOpen(false)
+  }
 
+  document.addEventListener("click", handleClick)
+  document.addEventListener("submit", (event) => void handleSubmit(event))
+  document.addEventListener("keydown", handleKeydown)
+  document.addEventListener("nav", () => void flushSuggestionQueue())
+  state.flush = flushSuggestionQueue
+  state.ready = true
   void flushSuggestionQueue()
 })()

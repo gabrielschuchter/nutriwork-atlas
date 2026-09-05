@@ -23,6 +23,11 @@ const SUPPORT_CONTACTS = {
   },
 }
 
+function withQuery(href, key, value) {
+  const separator = String(href).includes("?") ? "&" : "?"
+  return `${href}${separator}${encodeURIComponent(key)}=${encodeURIComponent(value)}`
+}
+
 function logoPath(fileData) {
   return "/static/atlas-symbol.png"
 }
@@ -180,7 +185,11 @@ export const AtlasAccess = (userOptions = {}) => {
           h(
             "a",
             {
-              href: resolveRelative(String(fileData?.slug || "index"), "termos"),
+              href: withQuery(
+                resolveRelative(String(fileData?.slug || "index"), "termos"),
+                "atlasReturn",
+                "login",
+              ),
               "data-router-ignore": "",
             },
             "Termos de Uso",
@@ -189,7 +198,11 @@ export const AtlasAccess = (userOptions = {}) => {
           h(
             "a",
             {
-              href: resolveRelative(String(fileData?.slug || "index"), "privacidade"),
+              href: withQuery(
+                resolveRelative(String(fileData?.slug || "index"), "privacidade"),
+                "atlasReturn",
+                "login",
+              ),
               "data-router-ignore": "",
             },
             "Aviso de Privacidade",
@@ -2031,6 +2044,24 @@ export const AtlasApp = () => {
 
   AtlasAppComponent.afterDOMLoaded = String.raw`
 ;(() => {
+  function fitNoBreakHeadings() {
+    for (const heading of document.querySelectorAll("[data-atlas-fit-title]")) {
+      if (!(heading instanceof HTMLElement)) continue
+      heading.style.fontSize = ""
+      heading.style.maxWidth = ""
+      if (!heading.clientWidth) continue
+      if (heading.scrollWidth > heading.clientWidth + 1) heading.style.maxWidth = "100%"
+      const availableWidth = heading.parentElement?.clientWidth || heading.clientWidth
+      let fontSize = Number.parseFloat(window.getComputedStyle(heading).fontSize)
+      if (!Number.isFinite(fontSize)) continue
+      const minimum = Math.max(14, Math.min(22, fontSize * 0.45))
+      while (heading.scrollWidth > availableWidth + 1 && fontSize > minimum) {
+        fontSize = Math.max(minimum, fontSize - 1)
+        heading.style.fontSize = fontSize + "px"
+      }
+    }
+  }
+  fitNoBreakHeadings()
   const mount = document.getElementById("atlas-graph-root")
   const roadmap = document.querySelector('.atlas-frame[data-atlas-route="roadmap"]')
   const source = mount
@@ -2038,7 +2069,10 @@ export const AtlasApp = () => {
     : roadmap
       ? "/static/atlas-roadmap-runtime.js"
       : ""
-  if (!source || document.querySelector("script[data-atlas-runtime]")) return
+  const alreadyLoaded = [...document.querySelectorAll("script[data-atlas-runtime]")].some(
+    (script) => script.dataset.atlasRuntime === source,
+  )
+  if (!source || alreadyLoaded) return
 
   const runtime = document.createElement("script")
   let settled = false
@@ -2063,7 +2097,7 @@ export const AtlasApp = () => {
 
   runtime.src = source
   runtime.async = false
-  runtime.dataset.atlasRuntime = "true"
+  runtime.dataset.atlasRuntime = source
   runtime.addEventListener("load", () => {
     settled = true
     if (timeout) window.clearTimeout(timeout)

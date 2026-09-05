@@ -40,6 +40,7 @@ const graphClientFiles = [
   "performance.js",
   "graph-physics.js",
   "gesture-math.cjs",
+  "graph-labels.js",
   "graph.js",
   "daily-tasks/tasks.js",
   "daily-tasks/task-storage.js",

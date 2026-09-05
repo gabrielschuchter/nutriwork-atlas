@@ -10,6 +10,11 @@ function labelFromSlug(slug: FullSlug): string {
   return value ? value.charAt(0).toUpperCase() + value.slice(1) : "Nota sem título"
 }
 
+function withQuery(href: string, key: string, value: string): string {
+  const separator = href.includes("?") ? "&" : "?"
+  return `${href}${separator}${encodeURIComponent(key)}=${encodeURIComponent(value)}`
+}
+
 const LEGAL_SLUGS = new Set(["privacidade", "termos", "seguranca", "acessibilidade"])
 
 export const AtlasFrame: PageFrame = {
@@ -37,7 +42,11 @@ export const AtlasFrame: PageFrame = {
         <span>© 2026 Nutriwork</span>
         <nav aria-label="Links institucionais">
           {footerLinks.map(([label, slug]) => (
-            <a href={resolveRelative(current, slug)} data-router-ignore="">
+            <a
+              href={withQuery(resolveRelative(current, slug), "atlasReturn", "atlas")}
+              data-router-ignore=""
+              data-atlas-legal-link=""
+            >
               {label}
             </a>
           ))}
@@ -55,7 +64,9 @@ export const AtlasFrame: PageFrame = {
           <header class="atlas-roadmap-intro">
             <div>
               <p class="atlas-roadmap-kicker">PRODUTO / ATLAS</p>
-              <h1 id="atlas-roadmap-title">Roadmap do Atlas</h1>
+              <h1 id="atlas-roadmap-title" data-atlas-fit-title="">
+                Roadmap do Atlas
+              </h1>
               <p class="atlas-roadmap-description">
                 Uma visão simples do que estamos construindo, do que está em andamento e do que já
                 chegou ao Atlas.
@@ -93,13 +104,15 @@ export const AtlasFrame: PageFrame = {
               >
                 <header class="atlas-roadmap-column-header">
                   <span class="atlas-roadmap-status" aria-hidden="true" />
-                  <h2 id={`atlas-roadmap-${column.key}`}>{column.label}</h2>
+                  <h2 id={`atlas-roadmap-${column.key}`} data-atlas-fit-title="">
+                    {column.label}
+                  </h2>
                   <span class="atlas-roadmap-count">{column.items.length}</span>
                 </header>
                 <div class="atlas-roadmap-items">
                   {column.items.map((item) => (
                     <article class="atlas-roadmap-card" key={item.title}>
-                      <h3>{item.title}</h3>
+                      <h3 data-atlas-fit-title="">{item.title}</h3>
                       <p>{item.description}</p>
                       {item.category ? (
                         <span class="atlas-roadmap-tag">{item.category}</span>
@@ -132,7 +145,9 @@ export const AtlasFrame: PageFrame = {
           />
           <section class="atlas-roadmap-suggestion-card">
             <header class="atlas-roadmap-suggestion-header">
-              <h2 id="atlas-roadmap-suggestion-title">Enviar sugestão</h2>
+              <h2 id="atlas-roadmap-suggestion-title" data-atlas-fit-title="">
+                Enviar sugestão
+              </h2>
               <button
                 class="atlas-roadmap-suggestion-close"
                 type="button"
@@ -230,11 +245,17 @@ export const AtlasFrame: PageFrame = {
               class="atlas-brand atlas-legal-brand"
               href={homeHref}
               data-router-ignore=""
+              data-atlas-legal-return=""
               aria-label="Nutriwork Atlas, voltar ao grafo"
             >
               <img class="atlas-brand-logo" src={logoHref} alt="Atlas." width="685" height="250" />
             </a>
-            <a class="atlas-roadmap-back atlas-legal-back" href={homeHref} data-router-ignore="">
+            <a
+              class="atlas-roadmap-back atlas-legal-back"
+              href={homeHref}
+              data-router-ignore=""
+              data-atlas-legal-return=""
+            >
               <svg
                 class="atlas-icon"
                 viewBox="0 0 24 24"
@@ -268,7 +289,7 @@ export const AtlasFrame: PageFrame = {
                 <div class="atlas-legal-shell">
                   <header class="atlas-legal-header">
                     <p class="atlas-legal-kicker">NUTRIWORK / ATLAS</p>
-                    <h1 id="atlas-legal-title" tabindex={-1}>
+                    <h1 id="atlas-legal-title" tabindex={-1} data-atlas-fit-title="">
                       {title}
                     </h1>
                   </header>
@@ -823,7 +844,7 @@ export const AtlasFrame: PageFrame = {
             <section class="atlas-reading-shell">
               <header class="atlas-reading-header">
                 <div class="atlas-reading-heading">
-                  <h1 id="atlas-note-title" tabindex={-1}>
+                  <h1 id="atlas-note-title" tabindex={-1} data-atlas-fit-title="">
                     {title}
                   </h1>
                 </div>
@@ -884,7 +905,9 @@ export const AtlasFrame: PageFrame = {
             <header class="atlas-daily-task-header">
               <div>
                 <p class="atlas-daily-task-kicker">NUTRIWORK / ATLAS</p>
-                <h2 id="atlas-daily-task-heading">Tarefas de hoje</h2>
+                <h2 id="atlas-daily-task-heading" data-atlas-fit-title="">
+                  Tarefas de hoje
+                </h2>
               </div>
               <button
                 class="atlas-daily-task-close"
@@ -2859,6 +2882,12 @@ canvas:focus-visible {
   max-width: 72ch;
 }
 
+.atlas-frame :where(h1, h2, h3, h4, h5, h6) {
+  hyphens: none;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
 .atlas-reading-heading {
   min-width: 0;
 }
@@ -2905,7 +2934,6 @@ canvas:focus-visible {
   line-height: .98;
   margin: 0;
   max-width: 12ch;
-  overflow-wrap: anywhere;
 }
 
 .atlas-note-content {

@@ -53,6 +53,24 @@
     return Boolean(navigator.maxTouchPoints > 0 || window.matchMedia?.("(pointer: coarse)").matches)
   }
 
+  function fitNoBreakHeadings() {
+    for (const heading of document.querySelectorAll("[data-atlas-fit-title]")) {
+      if (!(heading instanceof HTMLElement)) continue
+      heading.style.fontSize = ""
+      heading.style.maxWidth = ""
+      if (!heading.clientWidth) continue
+      if (heading.scrollWidth > heading.clientWidth + 1) heading.style.maxWidth = "100%"
+      const availableWidth = heading.parentElement?.clientWidth || heading.clientWidth
+      let fontSize = Number.parseFloat(window.getComputedStyle(heading).fontSize)
+      if (!Number.isFinite(fontSize)) continue
+      const minimum = Math.max(14, Math.min(22, fontSize * 0.45))
+      while (heading.scrollWidth > availableWidth + 1 && fontSize > minimum) {
+        fontSize = Math.max(minimum, fontSize - 1)
+        heading.style.fontSize = `${fontSize}px`
+      }
+    }
+  }
+
   function overlayIsOpen(id) {
     const overlay = document.getElementById(id)
     return Boolean(overlay && !overlay.hidden && overlay.classList.contains("is-open"))
@@ -285,6 +303,7 @@
     const node = viewState.noteSlug ? atlas.data.get(viewState.noteSlug) : null
     const title = document.getElementById("atlas-note-title")
     if (title && node) title.textContent = node.title
+    fitNoBreakHeadings()
     document.body.dataset.slug = graph ? "index" : note ? viewState.noteSlug : "roadmap"
     document.title = graph
       ? "Nutriwork Atlas"
@@ -1619,6 +1638,7 @@
   })
   document.addEventListener("nav", () => {
     setRouteLoading(false)
+    fitNoBreakHeadings()
     refresh()
   })
   window.addEventListener("popstate", handlePopState)

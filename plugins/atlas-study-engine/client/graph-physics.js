@@ -3,7 +3,7 @@
   const d3 = window.__nutriworkD3Force
   const { clamp } = atlas.dom
 
-  const WORLD = { width: 2400, height: 1600 }
+  const WORLD = { width: 6400, height: 4400 }
 
   function create(nodes, links) {
     if (!d3?.forceSimulation) {
@@ -13,21 +13,21 @@
 
     const charge = d3
       .forceManyBody()
-      .strength((node) => -150 - Math.min(30, Number(node.degree || 0)) * 3.2)
-      .distanceMax(1000)
+      .strength((node) => -520 - Math.min(55, Number(node.degree || 0)) * 8)
+      .distanceMax(2200)
       .theta(1.05)
     const link = d3
       .forceLink(links)
       .id((node) => node.id || node.slug)
-      .distance((edge) => (edge.source?.degree > 12 || edge.target?.degree > 12 ? 96 : 118))
-      .strength(0.44)
+      .distance((edge) => (edge.source?.degree > 12 || edge.target?.degree > 12 ? 280 : 360))
+      .strength(0.38)
     const collide = d3
       .forceCollide()
-      .radius((node) => 8 + Math.min(12, Math.sqrt(Number(node.degree || 0) + 1) * 1.5))
+      .radius((node) => 24 + Math.min(28, Math.sqrt(Number(node.degree || 0) + 1) * 3.3))
       .iterations(1)
-    const gravityX = d3.forceX(WORLD.width / 2).strength(0.018)
-    const gravityY = d3.forceY(WORLD.height / 2).strength(0.018)
-    const center = d3.forceCenter(WORLD.width / 2, WORLD.height / 2).strength(0.06)
+    const gravityX = d3.forceX(WORLD.width / 2).strength(0.008)
+    const gravityY = d3.forceY(WORLD.height / 2).strength(0.008)
+    const center = d3.forceCenter(WORLD.width / 2, WORLD.height / 2).strength(0.025)
 
     const simulation = d3
       .forceSimulation(nodes)
@@ -41,7 +41,7 @@
       .alphaDecay(0.05)
       .alphaMin(0.001)
       .alphaTarget(0)
-      .alpha(0.82)
+      .alpha(0.9)
 
     let suspended = false
     let running = true
@@ -101,9 +101,9 @@
         0.68,
         1.2,
       )
-      gravityX.strength(0.018 * viewportScale)
-      gravityY.strength(0.018 * viewportScale)
-      center.strength(0.06 * viewportScale)
+      gravityX.strength(0.008 * viewportScale)
+      gravityY.strength(0.008 * viewportScale)
+      center.strength(0.025 * viewportScale)
       const nextAlpha = Math.max(simulation.alpha(), 0.06)
       if (suspended) {
         pendingWakeAlpha = Math.max(pendingWakeAlpha, nextAlpha)

@@ -1,5 +1,17 @@
 # Nutriwork Atlas — plano e estado do MVP
 
+## Navegação espacial, labels progressivos e fluxos auxiliares — 5 de setembro de 2026
+
+Escopo autorizado: transformar o grafo em um mapa espacial explorável, manter as posições estáveis após a estabilização do layout, revelar labels apenas conforme zoom e viewport, suavizar conexões não interativas, corrigir o envio de sugestões, preservar o contexto de retorno das páginas legais e impedir quebra de palavras em títulos. Preservar a identidade visual, as interações do grafo, `content/atlas` e as dependências atuais.
+
+- O layout global usa um mundo significativamente maior, forças de repulsão, links, colisão e gravidade recalibrados; câmera, pan, zoom e labels não reaquece o layout.
+- O canvas calcula labels somente quando câmera, viewport, hover ou física invalidam essa camada. A seleção considera razão de zoom em relação ao fit inicial, posição no viewport, distância ao centro, grau do nó, orçamento por área, visibilidade integral, colisão com nós e sobreposição entre labels.
+- Conexões continuam sempre visíveis em ambos os temas, com traço mais discreto; apenas as arestas diretamente ligadas à bolinha sob hover recebem ênfase local.
+- A navegação SPA reinstala o runtime correto do roadmap, enfileira sugestões até confirmação da API e preserva uma sessão local válida durante falhas transitórias de identificação. Links legais carregam o contexto `login` ou `atlas` para que o retorno respeite o fluxo de origem.
+- Títulos usam `word-break: normal`, `overflow-wrap: normal` e ajuste progressivo de fonte quando não couberem, sem permitir que uma palavra seja quebrada.
+
+Gates específicos: `npm run check`, `npm test`, `npm run vault:check`, `npm run build`, inspeção visual desktop em light/dark, zoom/pan com culling e estabilidade de posições, fluxo SPA de sugestões, fluxos legais com e sem sessão e `git diff --name-only -- content/atlas` vazio.
+
 ## Revisão de acesso, carregamento e páginas auxiliares — 5 de setembro de 2026
 
 Escopo autorizado: corrigir a experiência de entrada e senha global, eliminar o carregamento infinito do grafo, separar páginas legais leves, estabilizar o asset da marca, tornar as tarefas realmente múltiplas e corrigir o feedback sonoro. Preservar `content/atlas`, o grafo, o gate client-side existente, o contrato de navegação e as dependências atuais.
