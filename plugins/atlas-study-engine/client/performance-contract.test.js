@@ -92,13 +92,37 @@ test("Atlas daily tasks stay client-side and reuse concept-opening events", asyn
     readFile(new URL("../../atlas-ui/components/index.js", import.meta.url), "utf8"),
   ])
   assert.match(runtime, /daily-tasks\/task-engine\.js/)
+  assert.match(runtime, /atlasRoadmapRuntime/)
   assert.match(frame, /data-atlas-daily-action="open"/)
+  assert.match(frame, /atlas-daily-task-list/)
   assert.match(ui, /data-atlas-daily-action.*open/)
+  assert.match(ui, /Tarefas de hoje/)
   assert.match(app, /atlas:concept-opened/)
   assert.match(graph, /source: "graph"/)
+  assert.match(daily, /pointerdown/)
+  assert.match(daily, /completedTasks/)
   assert.match(daily, /atlas:concept-opened/)
   assert.match(daily, /AudioContext/)
   assert.match(storage, /atlas_daily_tasks_v1/)
-  assert.match(engine, /selectTask/)
+  assert.match(engine, /dailyTaskCount = 3/)
+  assert.match(engine, /selectTasks/)
   assert.doesNotMatch(daily, /fetch\(/)
+})
+
+test("Atlas isolates legal pages from the graph runtime", async () => {
+  const [frame, ui, data, app] = await Promise.all([
+    readFile(new URL("../../../quartz/components/frames/AtlasFrame.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../../atlas-ui/components/index.js", import.meta.url), "utf8"),
+    source("./data.js"),
+    source("./app.js"),
+  ])
+  assert.match(frame, /if \(isLegal \|\| isRoadmap\)/)
+  assert.match(frame, /atlas-legal-document/)
+  assert.match(frame, /atlas-roadmap-document/)
+  assert.match(frame, /Voltar ao Atlas/)
+  assert.match(ui, /\/static\/atlas-runtime\.js/)
+  assert.match(ui, /\/static\/atlas-roadmap-runtime\.js/)
+  assert.match(data, /AbortController/)
+  assert.match(app, /noteTimeoutMs/)
+  assert.match(app, /serial !== refreshSerial/)
 })

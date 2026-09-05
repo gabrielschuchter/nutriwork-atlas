@@ -14,7 +14,6 @@
   "scripts": {
     "dev": "node scripts/serve-atlas.mjs",
     "quartz": "./quartz/bootstrap-cli.mjs",
-    "build": "npx quartz build && node scripts/emit-root-static.mjs",
     "docs": "npx quartz build --serve -d docs",
     "check": "tsc --noEmit && npx prettier . --check",
     "format": "npx prettier . --write",
@@ -22,9 +21,11 @@
     "vault:sync": "node scripts/sync-vault.mjs",
     "vault:check": "node scripts/sync-vault.mjs --check",
     "atlas:index": "node scripts/build-atlas-index.mjs",
+    "atlas:runtime": "node scripts/build-atlas-runtime.mjs",
     "profile": "0x -D prof ./quartz/bootstrap-cli.mjs build --concurrency=1",
     "install-plugins": "npx tsx ./quartz/plugins/loader/install-plugins.ts",
-    "prebuild": "npm run install-plugins && npm run atlas:index"
+    "prebuild": "npm run install-plugins && npm run atlas:index",
+    "build": "npx quartz build && node scripts/emit-root-static.mjs && npm run atlas:runtime"
   },
   "engines": {
     "npm": ">=10.9.2",

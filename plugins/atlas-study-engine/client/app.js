@@ -19,6 +19,7 @@
   const lastNoteKey = "nutriwork-atlas-last-note-v2"
   const themeKey = "nutriwork-atlas-theme"
   const touchHintKey = "nutriwork-atlas-touch-hint-v1"
+  const noteTimeoutMs = 15000
   let previewTimer = 0
   let previewSlug = ""
   let previewAnchor = null
@@ -173,6 +174,22 @@
     return document.getElementById("atlas-graph-root")
   }
 
+  function showGraphLoading() {
+    const mount = graphRoot()
+    if (!mount) return
+    atlas.graph?.destroyAll()
+    mount.replaceChildren(make("p", "atlas-graph-loading", "Carregando grafo…"))
+  }
+
+  function showGraphError() {
+    const mount = graphRoot()
+    if (!mount) return
+    atlas.graph?.destroyAll()
+    const message = make("p", "atlas-graph-error", "Não foi possível carregar o grafo agora.")
+    const retry = button("Tentar novamente", "retry-graph", "atlas-graph-retry")
+    mount.replaceChildren(message, retry)
+  }
+
   function placeGraphRoot(mode) {
     const graph = graphRoot()
     const target = document.getElementById(
@@ -201,6 +218,15 @@
     content.dataset.atlasSlug = node.slug
   }
 
+  function renderNoteError() {
+    const content = document.getElementById("atlas-note-content")
+    if (!content) return
+    clear(content)
+    const message = make("p", "atlas-note-error", "Não foi possível abrir esta nota agora.")
+    const back = button("Voltar ao grafo", "go-home", "atlas-development-back")
+    content.append(message, back)
+  }
+
   async function ensureNoteContent(node) {
     const content = document.getElementById("atlas-note-content")
     if (!content) return
@@ -209,9 +235,23 @@
       return
     }
     if (content.dataset.atlasSlug === node.slug && content.querySelector("article")) return
-    const response = await fetch(pathFor(node.slug), { cache: "no-cache" })
-    if (!response.ok) throw new Error("Não foi possível carregar a nota do Atlas.")
-    const html = await response.text()
+    const controller = new AbortController()
+    const timeout = window.setTimeout(() => controller.abort(), noteTimeoutMs)
+    let html
+    try {
+      const response = await fetch(pathFor(node.slug), {
+        cache: "no-cache",
+        signal: controller.signal,
+      })
+      if (!response.ok) throw new Error("Não foi possível carregar a nota do Atlas.")
+      html = await response.text()
+    } catch (error) {
+      if (controller.signal.aborted)
+        throw new Error("O carregamento da nota do Atlas demorou mais que o esperado.")
+      throw error
+    } finally {
+      window.clearTimeout(timeout)
+    }
     const parsed = new DOMParser().parseFromString(html, "text/html")
     const article = parsed.querySelector(".atlas-note-content article, article")
     if (!article) throw new Error("A nota do Atlas não possui conteúdo publicado.")
@@ -968,13 +1008,7 @@
     } catch (error) {
       console.error("O Atlas não conseguiu abrir a nota.", error)
       setRouteLoading(false)
-      const content = document.getElementById("atlas-note-content")
-      if (content) {
-        clear(content)
-        content.appendChild(
-          make("p", "atlas-note-error", "Não foi possível abrir esta nota. Tente novamente."),
-        )
-      }
+      renderNoteError()
     }
   }
 
@@ -1218,6 +1252,8 @@
       showGraph({ historyMode: "push" })
     } else if (action === "go-back") {
       goBack()
+    } else if (action === "retry-graph") {
+      void refresh()
     } else if (action === "expand-graph") {
       expandGraph()
     } else if (action === "return-note") {
@@ -1481,6 +1517,10 @@
   async function refresh() {
     const serial = ++refreshSerial
     setTheme(root().dataset.theme || currentTheme())
+    if (!graphRoot()) {
+      setRouteLoading(false)
+      return
+    }
     if (!isUnlocked()) {
       setRouteLoading(false)
       hidePreview(0)
@@ -1495,7 +1535,6 @@
     setRouteLoading(true)
     try {
       if (locationSlug() === "roadmap") {
-        await atlas.data.load()
         if (serial !== refreshSerial) return
         viewState = { mode: "roadmap", noteSlug: "", openedFromGraph: false }
         renderViewState()
@@ -1503,6 +1542,7 @@
         setRouteLoading(false)
         return
       }
+      if (locationSlug() === "index") showGraphLoading()
       await atlas.data.load()
       if (serial !== refreshSerial) return
       document.dispatchEvent(new CustomEvent("atlas:data-ready"))
@@ -1515,13 +1555,9 @@
       setRouteLoading(false)
       window.setTimeout(maybeShowTouchHint, 260)
     } catch (error) {
+      if (serial !== refreshSerial) return
       console.error("O Atlas não conseguiu carregar o grafo.", error)
-      const mount = document.querySelector("[data-atlas-graph-mount]")
-      mount?.querySelector(".atlas-graph-loading")?.remove()
-      if (mount && !mount.querySelector(".atlas-graph-error"))
-        mount.appendChild(
-          make("p", "atlas-graph-error", "Não foi possível carregar o grafo. Recarregue a página."),
-        )
+      showGraphError()
       setRouteLoading(false)
     }
   }
@@ -1553,7 +1589,12 @@
           enhanceLinks()
           setRouteLoading(false)
         })
-        .catch((error) => console.error("Não foi possível restaurar a nota do Atlas.", error))
+        .catch((error) => {
+          if (locationSlug() !== node.slug) return
+          console.error("Não foi possível restaurar a nota do Atlas.", error)
+          renderNoteError()
+          setRouteLoading(false)
+        })
     }
   }
 
@@ -1567,6 +1608,8 @@
   document.addEventListener("input", handleMobileSearchInput)
   document.addEventListener("change", handleFilters)
   document.addEventListener("prenav", () => {
+    refreshSerial += 1
+    navigationSerial += 1
     cancelFilterTimer()
     cancelMobileSearchTimer()
     setRouteLoading(true)

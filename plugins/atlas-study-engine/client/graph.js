@@ -1296,7 +1296,8 @@
     canvas.setAttribute("data-atlas-graph-canvas", "")
     state.canvas = canvas
     state.ctx = canvas.getContext("2d", { desynchronized: true })
-    if (!state.ctx) return state
+    if (!state.ctx)
+      throw new Error("O navegador não disponibilizou o canvas necessário para o grafo.")
 
     const transitionViews = [
       document.getElementById("atlas-graph-view"),
@@ -1497,12 +1498,10 @@
     for (const mount of mounts) {
       if (instanceByMount.has(mount)) continue
       const state = createState(mount)
-      if (state.ctx) {
-        instances.add(state)
-        instanceByMount.set(mount, state)
-        updateModeSurfaces(state)
-        updateVisualActivity(state)
-      }
+      instances.add(state)
+      instanceByMount.set(mount, state)
+      updateModeSurfaces(state)
+      updateVisualActivity(state)
     }
   }
 

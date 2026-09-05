@@ -1,5 +1,25 @@
 # Nutriwork Atlas — plano e estado do MVP
 
+## Revisão de acesso, carregamento e páginas auxiliares — 5 de setembro de 2026
+
+Escopo autorizado: corrigir a experiência de entrada e senha global, eliminar o carregamento infinito do grafo, separar páginas legais leves, estabilizar o asset da marca, tornar as tarefas realmente múltiplas e corrigir o feedback sonoro. Preservar `content/atlas`, o grafo, o gate client-side existente, o contrato de navegação e as dependências atuais.
+
+Diagnóstico antes da alteração:
+
+- `main`, `origin/main` e o deployment de produção estavam no commit `f2f9957`; o checkout tinha alterações locais ainda não publicadas.
+- A produção entregava `atlas-graph-root`, o painel de tarefa e o placeholder de carregamento nas quatro rotas legais. A biblioteca local já tinha 50 templates, mas a engine e a UI expunham somente uma tarefa por dia.
+- O som era preparado em `click`, enquanto a abertura de nós pelo canvas usa Pointer Events; a conclusão ainda acontecia depois do carregamento assíncrono da nota.
+- A logo usava URL relativa e o índice não tinha timeout nem cancelamento efetivo de uma transição concorrente.
+
+Implementação planejada:
+
+- Usar a URL absoluta do asset oficial e microcopy explícita de “senha global do Atlas”, disponibilizada no Nutriwork Plus, deixando claro que não é a senha do e-mail.
+- Gerar o runtime pesado em `public/static` depois do build estático, carregá-lo somente na superfície do grafo e dar ao índice/às notas limite de tempo, erro recuperável e proteção contra respostas de navegação obsoletas.
+- Renderizar rotas legais como documentos independentes, sem `AtlasApp`, mount, canvas, painel de tarefas ou onboarding, mantendo o padrão visual e o link “Voltar ao Atlas”.
+- Migrar o armazenamento local da tarefa única para três tarefas determinísticas por dia, com progresso por tarefa e conclusão visual. Preparar Web Audio em `pointerdown`, tocar um único tom curto apenas para novas conclusões e manter a preferência local.
+
+Gates de conclusão: `npm run check`, `npm test`, `npm run vault:check`, `npm run build`, inspeção do HTML gerado, navegação real em desktop e verificação da implantação final no domínio oficial. Nenhuma alteração editorial deve aparecer em `content/atlas`.
+
 ## Identificação por e-mail — 4 de setembro de 2026
 
 Escopo autorizado: identificação por e-mail → Google Sheets → persistência local → gate global existente → Atlas. Preservar Quartz, hash/sessão da senha, grafo e os 292 Markdown científicos.

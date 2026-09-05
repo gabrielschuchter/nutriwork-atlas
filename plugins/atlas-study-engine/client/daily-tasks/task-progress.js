@@ -18,11 +18,12 @@
   function add(progress, item, target) {
     if (!item || progress.items.includes(item)) return { ...progress, count: progress.items.length }
     const items = [...progress.items, item]
-    return { ...progress, items, count: Math.min(target, items.length) }
+    const limit = Math.max(1, Number(target) || 1)
+    return { ...progress, items, count: Math.min(limit, items.length) }
   }
 
   function isComplete(progress, task) {
-    return progress.count >= Number(task?.target || 1)
+    return progress.count >= Math.max(1, Number(task?.target) || 1)
   }
 
   atlas.dailyTaskProgress = { blank, normalize, add, isComplete }

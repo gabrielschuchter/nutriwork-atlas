@@ -3,6 +3,7 @@
 node_modules
 public
 quartz/static/atlas-index.json
+quartz/static/atlas-runtime.js
 prof
 tsconfig.tsbuildinfo
 .obsidian

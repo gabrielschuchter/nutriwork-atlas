@@ -8,6 +8,26 @@
     sortedConcepts: [],
     promise: null,
   }
+  const indexTimeoutMs = 15000
+
+  async function fetchIndex() {
+    const controller = new AbortController()
+    const timeout = window.setTimeout(() => controller.abort(), indexTimeoutMs)
+    try {
+      const response = await fetch(staticPath("atlas-index.json"), {
+        cache: "no-cache",
+        signal: controller.signal,
+      })
+      if (!response.ok) throw new Error("Não foi possível carregar o índice do Atlas.")
+      return await response.json()
+    } catch (error) {
+      if (controller.signal.aborted)
+        throw new Error("O carregamento do índice do Atlas demorou mais que o esperado.")
+      throw error
+    } finally {
+      window.clearTimeout(timeout)
+    }
+  }
 
   function normalizeNode(node) {
     const normalized = { ...(node || {}) }
@@ -37,11 +57,7 @@
   async function load() {
     if (data.index) return data
     if (!data.promise) {
-      data.promise = fetch(staticPath("atlas-index.json"), { cache: "no-cache" })
-        .then((response) => {
-          if (!response.ok) throw new Error("Não foi possível carregar o índice do Atlas.")
-          return response.json()
-        })
+      data.promise = fetchIndex()
         .then((index) => {
           const concepts = Array.isArray(index?.concepts) ? index.concepts.map(normalizeNode) : []
           const edges = Array.isArray(index?.edges)

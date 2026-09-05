@@ -1,6 +1,5 @@
 import { Fragment, h } from "preact"
 import { resolveRelative } from "@quartz-community/utils/path"
-import atlasRuntime from "../runtime.js"
 import { createAccessRuntime } from "../access-runtime.js"
 
 const DEFAULT_PASSWORD_HASH = "e110ff65ef4db64218871ca059810de0cbca7873b38b3ff576a55adbfe6d0f34"
@@ -25,7 +24,7 @@ const SUPPORT_CONTACTS = {
 }
 
 function logoPath(fileData) {
-  return resolveRelative(String(fileData?.slug || "index"), "static/atlas-symbol.png")
+  return "/static/atlas-symbol.png"
 }
 
 export const AtlasAccess = (userOptions = {}) => {
@@ -112,7 +111,12 @@ export const AtlasAccess = (userOptions = {}) => {
         h(
           "form",
           { id: "atlas-access-form", class: "atlas-access-form", novalidate: true, hidden: true },
-          h("label", { for: "atlas-access-password" }, "Senha"),
+          h("label", { for: "atlas-access-password" }, "Senha global do Atlas"),
+          h(
+            "p",
+            { id: "atlas-global-password-hint", class: "atlas-password-hint" },
+            "Use a senha global disponibilizada no Nutriwork Plus. Não é a senha do seu e-mail.",
+          ),
           h(
             "div",
             { class: "atlas-password-field" },
@@ -120,10 +124,11 @@ export const AtlasAccess = (userOptions = {}) => {
               id: "atlas-access-password",
               name: "password",
               type: "password",
-              autocomplete: "current-password",
+              autocomplete: "off",
+              placeholder: "Senha global do Atlas",
               required: true,
               inputmode: "text",
-              "aria-describedby": "atlas-access-status",
+              "aria-describedby": "atlas-global-password-hint atlas-access-status",
             }),
             h(
               "button",
@@ -350,7 +355,8 @@ html[data-atlas-access="unlocked"] #atlas-access {
 }
 
 .atlas-identification-notice,
-.atlas-identification-change {
+.atlas-identification-change,
+.atlas-password-hint {
   color: #C8D2E5;
   font-size: .76rem;
   line-height: 1.5;
@@ -358,6 +364,10 @@ html[data-atlas-access="unlocked"] #atlas-access {
 
 .atlas-identification-notice {
   margin: 0;
+}
+
+.atlas-password-hint {
+  margin: -.25rem 0 .1rem;
 }
 
 .atlas-identification-change {
@@ -381,7 +391,8 @@ html[data-atlas-access="unlocked"] #atlas-access {
 }
 
 :root[data-theme="light"] .atlas-identification-notice,
-:root[data-theme="light"] .atlas-identification-change {
+:root[data-theme="light"] .atlas-identification-change,
+:root[data-theme="light"] .atlas-password-hint {
   color: #526277;
 }
 
@@ -1744,7 +1755,7 @@ export const AtlasApp = () => {
                 "aria-haspopup": "dialog",
                 "aria-controls": "atlas-daily-task-panel",
               },
-              h("span", null, "Tarefa do dia"),
+              h("span", null, "Tarefas de hoje"),
               h("span", { class: "atlas-mobile-menu-arrow", "aria-hidden": "true" }, "→"),
             ),
             h(
@@ -2018,6 +2029,49 @@ export const AtlasApp = () => {
     )
   }
 
-  AtlasAppComponent.afterDOMLoaded = atlasRuntime
+  AtlasAppComponent.afterDOMLoaded = String.raw`
+;(() => {
+  const mount = document.getElementById("atlas-graph-root")
+  const roadmap = document.querySelector('.atlas-frame[data-atlas-route="roadmap"]')
+  const source = mount
+    ? "/static/atlas-runtime.js"
+    : roadmap
+      ? "/static/atlas-roadmap-runtime.js"
+      : ""
+  if (!source || document.querySelector("script[data-atlas-runtime]")) return
+
+  const runtime = document.createElement("script")
+  let settled = false
+  let timeout = 0
+  const fail = () => {
+    if (settled) return
+    settled = true
+    if (timeout) window.clearTimeout(timeout)
+    runtime.remove()
+    if (!mount) return
+    mount.replaceChildren()
+    const message = document.createElement("p")
+    message.className = "atlas-graph-error"
+    message.textContent = "Não foi possível iniciar o grafo."
+    const retry = document.createElement("button")
+    retry.type = "button"
+    retry.className = "atlas-graph-retry"
+    retry.textContent = "Tentar novamente"
+    retry.addEventListener("click", () => window.location.reload())
+    mount.append(message, retry)
+  }
+
+  runtime.src = source
+  runtime.async = false
+  runtime.dataset.atlasRuntime = "true"
+  runtime.addEventListener("load", () => {
+    settled = true
+    if (timeout) window.clearTimeout(timeout)
+  }, { once: true })
+  runtime.addEventListener("error", fail, { once: true })
+  timeout = window.setTimeout(fail, 15000)
+  document.head.append(runtime)
+})()
+`
   return AtlasAppComponent
 }

@@ -34,7 +34,7 @@ const d3ForceBundle = buildSync({
   },
 }).outputFiles[0].text
 
-const clientFiles = [
+const graphClientFiles = [
   "dom.js",
   "data.js",
   "performance.js",
@@ -46,19 +46,22 @@ const clientFiles = [
   "daily-tasks/task-progress.js",
   "daily-tasks/task-engine.js",
   "daily-tasks.js",
-  "roadmap.js",
   "app.js",
 ]
 
-const clientSource = clientFiles
+const graphClientSource = graphClientFiles
   .map((filename) => readFileSync(new URL(`./client/${filename}`, import.meta.url), "utf8"))
   .join("\n\n")
+
+const roadmapClientSource = readFileSync(new URL("./client/roadmap.js", import.meta.url), "utf8")
 
 export const atlasRuntime = String.raw`
 (() => {
 ${d3ForceBundle}
-${clientSource}
+${graphClientSource}
 })();
 `
+
+export const atlasRoadmapRuntime = roadmapClientSource
 
 export default atlasRuntime

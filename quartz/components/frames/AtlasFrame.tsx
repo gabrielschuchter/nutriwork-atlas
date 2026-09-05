@@ -24,21 +24,275 @@ export const AtlasFrame: PageFrame = {
     const title = componentData.fileData.frontmatter?.title || labelFromSlug(current)
     const homeHref = isGraph ? "." : resolveRelative(current, "index" as FullSlug)
     const roadmapHref = resolveRelative(current, "roadmap" as FullSlug)
-    const logoHref = resolveRelative(current, "static/atlas-symbol.png" as FullSlug)
+    const logoHref = "/static/atlas-symbol.png"
     const footerLinks: Array<[string, FullSlug]> = [
       ["Privacidade", "privacidade" as FullSlug],
       ["Termos", "termos" as FullSlug],
       ["Segurança", "seguranca" as FullSlug],
       ["Acessibilidade", "acessibilidade" as FullSlug],
     ]
+    const siteFooter = (
+      <footer class="atlas-site-footer" aria-label="Informações institucionais">
+        <span>Atlas · um projeto Nutriwork</span>
+        <span>© 2026 Nutriwork</span>
+        <nav aria-label="Links institucionais">
+          {footerLinks.map(([label, slug]) => (
+            <a href={resolveRelative(current, slug)} data-router-ignore="">
+              {label}
+            </a>
+          ))}
+        </nav>
+      </footer>
+    )
+
+    const roadmapView = (
+      <section
+        id="atlas-roadmap-view"
+        class="atlas-roadmap-view is-active"
+        aria-labelledby="atlas-roadmap-title"
+      >
+        <div class="atlas-roadmap-shell">
+          <header class="atlas-roadmap-intro">
+            <div>
+              <p class="atlas-roadmap-kicker">PRODUTO / ATLAS</p>
+              <h1 id="atlas-roadmap-title">Roadmap do Atlas</h1>
+              <p class="atlas-roadmap-description">
+                Uma visão simples do que estamos construindo, do que está em andamento e do que já
+                chegou ao Atlas.
+              </p>
+            </div>
+            <div class="atlas-roadmap-intro-actions">
+              <button
+                class="atlas-roadmap-suggest-button"
+                type="button"
+                data-atlas-roadmap-action="open-suggestion"
+              >
+                <svg
+                  class="atlas-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <path d="M12 5v14M5 12h14" />
+                </svg>
+                <span>Enviar sugestão</span>
+              </button>
+            </div>
+          </header>
+          <div class="atlas-roadmap-columns">
+            {roadmapColumns.map((column) => (
+              <section
+                class={`atlas-roadmap-column atlas-roadmap-column-${column.key}`}
+                aria-labelledby={`atlas-roadmap-${column.key}`}
+                key={column.key}
+              >
+                <header class="atlas-roadmap-column-header">
+                  <span class="atlas-roadmap-status" aria-hidden="true" />
+                  <h2 id={`atlas-roadmap-${column.key}`}>{column.label}</h2>
+                  <span class="atlas-roadmap-count">{column.items.length}</span>
+                </header>
+                <div class="atlas-roadmap-items">
+                  {column.items.map((item) => (
+                    <article class="atlas-roadmap-card" key={item.title}>
+                      <h3>{item.title}</h3>
+                      <p>{item.description}</p>
+                      {item.category ? (
+                        <span class="atlas-roadmap-tag">{item.category}</span>
+                      ) : null}
+                    </article>
+                  ))}
+                </div>
+              </section>
+            ))}
+          </div>
+        </div>
+      </section>
+    )
+
+    const roadmapOverlays = (
+      <>
+        <div
+          id="atlas-roadmap-suggestion"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="atlas-roadmap-suggestion-title"
+          aria-hidden="true"
+          hidden
+        >
+          <button
+            class="atlas-roadmap-suggestion-backdrop"
+            type="button"
+            aria-label="Fechar sugestão"
+            data-atlas-roadmap-action="close-suggestion"
+          />
+          <section class="atlas-roadmap-suggestion-card">
+            <header class="atlas-roadmap-suggestion-header">
+              <h2 id="atlas-roadmap-suggestion-title">Enviar sugestão</h2>
+              <button
+                class="atlas-roadmap-suggestion-close"
+                type="button"
+                aria-label="Fechar sugestão"
+                data-atlas-roadmap-action="close-suggestion"
+              >
+                ×
+              </button>
+            </header>
+            <form id="atlas-roadmap-suggestion-form" noValidate>
+              <label for="atlas-roadmap-suggestion-title-input">Título</label>
+              <input
+                id="atlas-roadmap-suggestion-title-input"
+                name="title"
+                type="text"
+                maxLength={160}
+                autocomplete="off"
+                required
+              />
+              <label for="atlas-roadmap-suggestion-description">Descrição</label>
+              <textarea
+                id="atlas-roadmap-suggestion-description"
+                name="description"
+                rows={5}
+                maxLength={2000}
+                required
+              />
+              <p
+                id="atlas-roadmap-suggestion-status"
+                class="atlas-roadmap-suggestion-status"
+                role="status"
+                aria-live="polite"
+              />
+              <button class="atlas-roadmap-submit" type="submit">
+                Enviar sugestão
+              </button>
+            </form>
+          </section>
+        </div>
+
+        <div
+          id="atlas-roadmap-toast"
+          class="atlas-roadmap-toast"
+          role="status"
+          aria-live="polite"
+          aria-atomic="true"
+          hidden
+        >
+          <span class="atlas-roadmap-toast-icon" aria-hidden="true">
+            <svg
+              class="atlas-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              focusable="false"
+            >
+              <path d="m5 12 4 4L19 6" />
+            </svg>
+          </span>
+          <span>
+            <strong data-atlas-roadmap-toast-title />
+            <span data-atlas-roadmap-toast-copy />
+          </span>
+        </div>
+      </>
+    )
+
+    if (isLegal || isRoadmap) {
+      return (
+        <div
+          class={`atlas-frame atlas-auxiliary-document ${isLegal ? "atlas-legal-document" : "atlas-roadmap-document"}`}
+          data-atlas-route={isLegal ? "legal" : "roadmap"}
+          data-atlas-view={isLegal ? "legal" : "roadmap"}
+        >
+          <a class="atlas-skip-link" href="#main-content">
+            Ir para o conteúdo
+          </a>
+
+          <div class="atlas-before-body">
+            {beforeBody.map((BodyComponent) => (
+              <BodyComponent {...componentData} />
+            ))}
+          </div>
+
+          <header
+            class="atlas-legal-navbar"
+            aria-label={
+              isLegal ? "Navegação institucional do Atlas" : "Navegação do roadmap do Atlas"
+            }
+          >
+            <a
+              class="atlas-brand atlas-legal-brand"
+              href={homeHref}
+              data-router-ignore=""
+              aria-label="Nutriwork Atlas, voltar ao grafo"
+            >
+              <img class="atlas-brand-logo" src={logoHref} alt="Atlas." width="685" height="250" />
+            </a>
+            <a class="atlas-roadmap-back atlas-legal-back" href={homeHref} data-router-ignore="">
+              <svg
+                class="atlas-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path d="m15 18-6-6 6-6" />
+                <path d="M9 12h10" />
+              </svg>
+              <span>Voltar ao Atlas</span>
+            </a>
+          </header>
+
+          <main
+            id="main-content"
+            class={`atlas-main atlas-auxiliary-main ${isLegal ? "atlas-legal-main" : "atlas-roadmap-main"}`}
+            aria-label={isLegal ? "Documento institucional do Atlas" : "Roadmap do Atlas"}
+            data-atlas-view={isLegal ? "legal" : "roadmap"}
+          >
+            {isLegal ? (
+              <section
+                id="atlas-legal-view"
+                class="atlas-legal-view is-active"
+                aria-labelledby="atlas-legal-title"
+              >
+                <div class="atlas-legal-shell">
+                  <header class="atlas-legal-header">
+                    <p class="atlas-legal-kicker">NUTRIWORK / ATLAS</p>
+                    <h1 id="atlas-legal-title" tabindex={-1}>
+                      {title}
+                    </h1>
+                  </header>
+                  <div class="atlas-legal-content atlas-note-content">
+                    <Content {...componentData} />
+                  </div>
+                </div>
+              </section>
+            ) : (
+              roadmapView
+            )}
+          </main>
+
+          {isRoadmap ? roadmapOverlays : null}
+          {siteFooter}
+        </div>
+      )
+    }
 
     return (
       <div
         class="atlas-frame"
-        data-atlas-route={
-          isGraph ? "graph" : isNote ? "note" : isRoadmap ? "roadmap" : isLegal ? "legal" : "other"
-        }
-        data-atlas-view={isNote ? "note" : isRoadmap ? "roadmap" : isLegal ? "legal" : "graph"}
+        data-atlas-route={isGraph ? "graph" : isNote ? "note" : isRoadmap ? "roadmap" : "other"}
+        data-atlas-view={isNote ? "note" : isRoadmap ? "roadmap" : "graph"}
       >
         <a class="atlas-skip-link" href="#main-content">
           Ir para o conteúdo
@@ -511,8 +765,8 @@ export const AtlasFrame: PageFrame = {
           data-atlas-daily-action="open"
           aria-haspopup="dialog"
           aria-controls="atlas-daily-task-panel"
-          aria-label="Abrir tarefa do dia"
-          title="Tarefa do dia"
+          aria-label="Abrir tarefas de hoje"
+          title="Tarefas de hoje"
           hidden={isRoadmap}
         >
           <svg
@@ -610,201 +864,7 @@ export const AtlasFrame: PageFrame = {
               </section>
             </section>
           </section>
-
-          <section
-            id="atlas-roadmap-view"
-            class={`atlas-roadmap-view${isRoadmap ? " is-active" : ""}`}
-            aria-labelledby="atlas-roadmap-title"
-            aria-hidden={!isRoadmap}
-          >
-            <div class="atlas-roadmap-shell">
-              <header class="atlas-roadmap-intro">
-                <div>
-                  <p class="atlas-roadmap-kicker">PRODUTO / ATLAS</p>
-                  <h1 id="atlas-roadmap-title">Roadmap do Atlas</h1>
-                  <p class="atlas-roadmap-description">
-                    Uma visão simples do que estamos construindo, do que está em andamento e do que
-                    já chegou ao Atlas.
-                  </p>
-                </div>
-                <div class="atlas-roadmap-intro-actions">
-                  <button
-                    class="atlas-roadmap-back"
-                    type="button"
-                    data-atlas-action="go-home"
-                    aria-label="Voltar ao Atlas"
-                  >
-                    <svg
-                      class="atlas-icon"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="1.7"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      aria-hidden="true"
-                      focusable="false"
-                    >
-                      <path d="m15 18-6-6 6-6" />
-                      <path d="M9 12h10" />
-                    </svg>
-                    <span>Voltar ao Atlas</span>
-                  </button>
-                  <button
-                    class="atlas-roadmap-suggest-button"
-                    type="button"
-                    data-atlas-roadmap-action="open-suggestion"
-                  >
-                    <svg
-                      class="atlas-icon"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="1.7"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      aria-hidden="true"
-                      focusable="false"
-                    >
-                      <path d="M12 5v14M5 12h14" />
-                    </svg>
-                    <span>Enviar sugestão</span>
-                  </button>
-                </div>
-              </header>
-              <div class="atlas-roadmap-columns">
-                {roadmapColumns.map((column) => (
-                  <section
-                    class={`atlas-roadmap-column atlas-roadmap-column-${column.key}`}
-                    aria-labelledby={`atlas-roadmap-${column.key}`}
-                    key={column.key}
-                  >
-                    <header class="atlas-roadmap-column-header">
-                      <span class="atlas-roadmap-status" aria-hidden="true" />
-                      <h2 id={`atlas-roadmap-${column.key}`}>{column.label}</h2>
-                      <span class="atlas-roadmap-count">{column.items.length}</span>
-                    </header>
-                    <div class="atlas-roadmap-items">
-                      {column.items.map((item) => (
-                        <article class="atlas-roadmap-card" key={item.title}>
-                          <h3>{item.title}</h3>
-                          <p>{item.description}</p>
-                          {item.category ? (
-                            <span class="atlas-roadmap-tag">{item.category}</span>
-                          ) : null}
-                        </article>
-                      ))}
-                    </div>
-                  </section>
-                ))}
-              </div>
-            </div>
-          </section>
-
-          <section
-            id="atlas-legal-view"
-            class={`atlas-legal-view${isLegal ? " is-active" : ""}`}
-            aria-labelledby="atlas-legal-title"
-            aria-hidden={!isLegal}
-          >
-            <div class="atlas-legal-shell">
-              <header class="atlas-legal-header">
-                <p class="atlas-legal-kicker">NUTRIWORK / ATLAS</p>
-                <h1 id="atlas-legal-title" tabindex={-1}>
-                  {title}
-                </h1>
-              </header>
-              <div class="atlas-legal-content atlas-note-content">
-                {isLegal ? <Content {...componentData} /> : null}
-              </div>
-            </div>
-          </section>
         </main>
-
-        <div
-          id="atlas-roadmap-suggestion"
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="atlas-roadmap-suggestion-title"
-          aria-hidden="true"
-          hidden
-        >
-          <button
-            class="atlas-roadmap-suggestion-backdrop"
-            type="button"
-            aria-label="Fechar sugestão"
-            data-atlas-roadmap-action="close-suggestion"
-          />
-          <section class="atlas-roadmap-suggestion-card">
-            <header class="atlas-roadmap-suggestion-header">
-              <h2 id="atlas-roadmap-suggestion-title">Enviar sugestão</h2>
-              <button
-                class="atlas-roadmap-suggestion-close"
-                type="button"
-                aria-label="Fechar sugestão"
-                data-atlas-roadmap-action="close-suggestion"
-              >
-                ×
-              </button>
-            </header>
-            <form id="atlas-roadmap-suggestion-form" noValidate>
-              <label for="atlas-roadmap-suggestion-title-input">Título</label>
-              <input
-                id="atlas-roadmap-suggestion-title-input"
-                name="title"
-                type="text"
-                maxLength={160}
-                autocomplete="off"
-                required
-              />
-              <label for="atlas-roadmap-suggestion-description">Descrição</label>
-              <textarea
-                id="atlas-roadmap-suggestion-description"
-                name="description"
-                rows={5}
-                maxLength={2000}
-                required
-              />
-              <p
-                id="atlas-roadmap-suggestion-status"
-                class="atlas-roadmap-suggestion-status"
-                role="status"
-                aria-live="polite"
-              />
-              <button class="atlas-roadmap-submit" type="submit">
-                Enviar sugestão
-              </button>
-            </form>
-          </section>
-        </div>
-
-        <div
-          id="atlas-roadmap-toast"
-          class="atlas-roadmap-toast"
-          role="status"
-          aria-live="polite"
-          aria-atomic="true"
-          hidden
-        >
-          <span class="atlas-roadmap-toast-icon" aria-hidden="true">
-            <svg
-              class="atlas-icon"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              focusable="false"
-            >
-              <path d="m5 12 4 4L19 6" />
-            </svg>
-          </span>
-          <span>
-            <strong data-atlas-roadmap-toast-title />
-            <span data-atlas-roadmap-toast-copy />
-          </span>
-        </div>
 
         <div
           id="atlas-daily-task-panel"
@@ -824,7 +884,7 @@ export const AtlasFrame: PageFrame = {
             <header class="atlas-daily-task-header">
               <div>
                 <p class="atlas-daily-task-kicker">NUTRIWORK / ATLAS</p>
-                <h2 id="atlas-daily-task-heading">Tarefa do dia</h2>
+                <h2 id="atlas-daily-task-heading">Tarefas de hoje</h2>
               </div>
               <button
                 class="atlas-daily-task-close"
@@ -836,20 +896,26 @@ export const AtlasFrame: PageFrame = {
               </button>
             </header>
             <div class="atlas-daily-task-body">
-              <p class="atlas-daily-task-label">TAREFA DO DIA</p>
-              <h3 id="atlas-daily-task-title" tabindex={-1} />
-              <p id="atlas-daily-task-description" />
+              <p class="atlas-daily-task-label">PEQUENOS CAMINHOS DE HOJE</p>
+              <p id="atlas-daily-task-summary" class="atlas-daily-task-summary" role="status">
+                0 de 3 tarefas concluídas
+              </p>
+              <ol
+                id="atlas-daily-task-list"
+                class="atlas-daily-task-list"
+                aria-label="Tarefas de hoje"
+              />
               <div class="atlas-daily-task-progress-wrap">
                 <div class="atlas-daily-task-progress-meta">
-                  <span>Progresso</span>
-                  <strong id="atlas-daily-task-progress">0 / 1</strong>
+                  <span>Progresso do dia</span>
+                  <strong id="atlas-daily-task-progress">0 / 3</strong>
                 </div>
                 <div class="atlas-daily-task-progress-track" aria-hidden="true">
                   <span id="atlas-daily-task-progress-bar" />
                 </div>
               </div>
               <p id="atlas-daily-task-state" class="atlas-daily-task-state" role="status">
-                Em andamento
+                Explore o grafo para concluir as tarefas.
               </p>
             </div>
             <footer class="atlas-daily-task-footer">
@@ -921,17 +987,7 @@ export const AtlasFrame: PageFrame = {
           ))}
         </div>
 
-        <footer class="atlas-site-footer" aria-label="Informações institucionais">
-          <span>Atlas · um projeto Nutriwork</span>
-          <span>© 2026 Nutriwork</span>
-          <nav aria-label="Links institucionais">
-            {footerLinks.map(([label, slug]) => (
-              <a href={resolveRelative(current, slug)} data-router-ignore="">
-                {label}
-              </a>
-            ))}
-          </nav>
-        </footer>
+        {siteFooter}
       </div>
     )
   },
@@ -2046,6 +2102,109 @@ canvas:focus-visible {
   margin: 0;
 }
 
+.atlas-daily-task-summary {
+  color: var(--atlas-muted) !important;
+  font-family: var(--codeFont);
+  font-size: .7rem !important;
+  letter-spacing: .02em;
+  margin-top: .3rem !important;
+}
+
+.atlas-daily-task-list {
+  display: grid;
+  gap: .62rem;
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+}
+
+.atlas-daily-task-item {
+  background: color-mix(in srgb, var(--atlas-glass-highlight) 18%, transparent);
+  border: 1px solid var(--atlas-line);
+  border-radius: .85rem;
+  padding: .75rem .8rem .68rem;
+  transition: background 180ms ease, border-color 180ms ease;
+}
+
+.atlas-daily-task-item[data-state="complete"] {
+  background: rgba(59, 167, 118, .1);
+  border-color: rgba(98, 199, 146, .34);
+}
+
+.atlas-daily-task-item-row {
+  align-items: flex-start;
+  display: flex;
+  gap: .58rem;
+}
+
+.atlas-daily-task-item-check {
+  align-items: center;
+  border: 1px solid var(--atlas-line-strong);
+  border-radius: 50%;
+  color: #72D49B;
+  display: inline-flex;
+  flex: 0 0 auto;
+  font-size: .68rem;
+  height: 1.32rem;
+  justify-content: center;
+  line-height: 1;
+  margin-top: .08rem;
+  width: 1.32rem;
+}
+
+.atlas-daily-task-item[data-state="complete"] .atlas-daily-task-item-check {
+  background: rgba(98, 199, 146, .16);
+  border-color: rgba(98, 199, 146, .46);
+}
+
+.atlas-daily-task-item-copy {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.atlas-daily-task-item h3 {
+  font-size: .84rem;
+  margin: 0;
+}
+
+.atlas-daily-task-item p {
+  color: var(--atlas-muted);
+  font-size: .72rem;
+  line-height: 1.45;
+  margin: .2rem 0 0;
+}
+
+.atlas-daily-task-item-progress {
+  color: var(--atlas-muted);
+  flex: 0 0 auto;
+  font-family: var(--codeFont);
+  font-size: .65rem;
+  padding-top: .08rem;
+}
+
+.atlas-daily-task-item[data-state="complete"] .atlas-daily-task-item-progress {
+  color: #72D49B;
+}
+
+.atlas-daily-task-item-track {
+  background: color-mix(in srgb, var(--atlas-glass-highlight) 35%, transparent);
+  border-radius: 999px;
+  height: .2rem;
+  margin: .62rem 0 0 1.9rem;
+  overflow: hidden;
+}
+
+.atlas-daily-task-item-track span {
+  background: #5EC98A;
+  border-radius: inherit;
+  display: block;
+  height: 100%;
+  transform: scaleX(var(--atlas-daily-task-item-progress, 0));
+  transform-origin: left center;
+  transition: transform 260ms ease;
+  width: 100%;
+}
+
 .atlas-daily-task-progress-wrap {
   margin-top: 1.35rem;
 }
@@ -2243,8 +2402,7 @@ canvas:focus-visible {
 }
 
 .atlas-graph-view,
-.atlas-note-view,
-.atlas-legal-view {
+.atlas-note-view {
   box-sizing: border-box;
   opacity: 0;
   pointer-events: none;
@@ -2299,8 +2457,7 @@ canvas:focus-visible {
 }
 
 .atlas-graph-view.is-active,
-.atlas-note-view.is-active,
-.atlas-legal-view.is-active {
+.atlas-note-view.is-active {
   opacity: 1;
   pointer-events: auto;
   transform: none;
@@ -2318,19 +2475,58 @@ canvas:focus-visible {
 
 .atlas-legal-view {
   box-sizing: border-box;
-  min-height: 100dvh;
-  padding: 7.25rem clamp(1rem, 4vw, 4.5rem) 5rem;
-  position: absolute;
-  inset: 0;
-}
-
-.atlas-legal-view:not(.is-active) {
-  overflow: hidden;
-}
-
-.atlas-legal-view.is-active {
+  min-height: 0;
+  padding: clamp(2rem, 5vw, 4.5rem) clamp(1rem, 4vw, 4.5rem);
   position: relative;
-  inset: auto;
+}
+
+.atlas-auxiliary-document {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+}
+
+.atlas-legal-document {
+  min-height: 100dvh;
+}
+
+.atlas-auxiliary-main {
+  flex: 1 0 auto;
+  min-height: 0;
+}
+
+.atlas-roadmap-document .atlas-roadmap-view {
+  box-sizing: border-box;
+  min-height: 0;
+  opacity: 1;
+  padding: clamp(2rem, 5vw, 4.5rem) clamp(1rem, 4vw, 4.5rem) 4rem;
+  pointer-events: auto;
+  position: relative;
+  transform: none;
+  visibility: visible;
+}
+
+.atlas-legal-navbar {
+  align-items: center;
+  border-bottom: 1px solid var(--atlas-line);
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: min(78rem, calc(100vw - 2rem));
+  padding: max(1rem, var(--atlas-safe-top)) 0 1rem;
+  width: 100%;
+}
+
+.atlas-legal-brand {
+  margin-left: -.22rem;
+}
+
+.atlas-legal-back {
+  text-decoration: none;
+}
+
+.atlas-legal-main {
+  flex: 1 0 auto;
 }
 
 .atlas-legal-shell {
@@ -2386,6 +2582,15 @@ canvas:focus-visible {
   right: 1rem;
   text-align: center;
   z-index: 6000;
+}
+
+.atlas-auxiliary-document .atlas-site-footer {
+  bottom: auto;
+  left: auto;
+  margin-top: auto;
+  padding: 1.15rem max(1rem, var(--atlas-safe-right)) max(1.15rem, var(--atlas-safe-bottom));
+  position: relative;
+  right: auto;
 }
 
 .atlas-site-footer nav {
@@ -2471,6 +2676,29 @@ canvas:focus-visible {
 
 .atlas-graph-loading {
   opacity: .8;
+}
+
+.atlas-graph-retry {
+  background: color-mix(in srgb, var(--atlas-glass-highlight) 35%, transparent);
+  border: 1px solid var(--atlas-line-strong);
+  border-radius: 999px;
+  color: var(--atlas-ink);
+  cursor: pointer;
+  font: inherit;
+  font-size: .78rem;
+  left: 50%;
+  min-height: 2.5rem;
+  padding: .45rem .85rem;
+  position: absolute;
+  top: calc(50% + 2.2rem);
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.atlas-graph-retry:hover,
+.atlas-graph-retry:focus-visible {
+  background: color-mix(in srgb, var(--atlas-glass-highlight) 55%, transparent);
+  border-color: var(--atlas-blue-soft);
 }
 
 .atlas-graph-list {
@@ -2955,6 +3183,15 @@ canvas:focus-visible {
     flex: 1 1 0;
   }
 
+  .atlas-legal-navbar {
+    max-width: calc(100vw - 2rem - var(--atlas-safe-left) - var(--atlas-safe-right));
+    padding-top: max(1rem, var(--atlas-safe-top));
+  }
+
+  .atlas-legal-back {
+    flex: 0 0 auto;
+  }
+
   .atlas-roadmap-columns {
     grid-template-columns: minmax(0, 1fr);
     max-width: 44rem;
@@ -3172,6 +3409,19 @@ canvas:focus-visible {
 }
 
 @media all and (max-width: 600px) {
+  .atlas-legal-navbar {
+    max-width: calc(100vw - 1rem - var(--atlas-safe-left) - var(--atlas-safe-right));
+  }
+
+  .atlas-legal-back {
+    min-height: 2.45rem;
+    padding-inline: .72rem;
+  }
+
+  .atlas-legal-back span {
+    font-size: .72rem;
+  }
+
   .atlas-navbar {
     max-width: calc(100vw - 1rem - var(--atlas-safe-left) - var(--atlas-safe-right));
     min-height: 3.4rem;
