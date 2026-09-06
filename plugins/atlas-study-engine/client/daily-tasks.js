@@ -149,11 +149,18 @@
     document.documentElement.classList.toggle("atlas-modal-open", open || otherOpen)
   }
 
-  function open() {
+  function open(trigger = null) {
     const item = elements()
     if (!item.view) return
     syncDay()
-    opener = document.activeElement instanceof HTMLElement ? document.activeElement : null
+    atlas.app?.closeMobileMenu?.(false)
+    const fallback =
+      document.getElementById("atlas-daily-task-open") ||
+      document.querySelector('[data-atlas-daily-action="open"]')
+    opener = trigger instanceof HTMLElement ? trigger : document.activeElement
+    if (!opener || opener === document.body) opener = fallback
+    if (opener?.closest("#atlas-mobile-menu"))
+      opener = document.querySelector('[data-atlas-action="toggle-mobile-menu"]') || fallback
     item.view.hidden = false
     item.view.setAttribute("aria-hidden", "false")
     document.documentElement.classList.add("atlas-modal-open")
@@ -172,8 +179,10 @@
     window.setTimeout(() => {
       if (!item.view.classList.contains("is-open")) item.view.hidden = true
     }, 220)
-    if (restoreFocus) window.requestAnimationFrame(() => opener?.focus())
+    const restoreTarget = opener
     opener = null
+    if (restoreFocus)
+      window.requestAnimationFrame(() => restoreTarget?.focus({ preventScroll: true }))
   }
 
   function audioContextConstructor() {
@@ -285,7 +294,7 @@
     event.preventDefault()
     event.stopPropagation()
     const action = target.dataset.atlasDailyAction
-    if (action === "open") open()
+    if (action === "open") open(target)
     else if (action === "close") close()
     else if (action === "toggle-sound") {
       const enabled = currentSnapshot()?.soundEnabled !== false

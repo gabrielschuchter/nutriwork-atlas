@@ -174,13 +174,39 @@ test("Atlas responsive surfaces follow the visual viewport and preserve graph co
   assert.match(frame, /\.atlas-frame\[data-atlas-route="note"\] \.atlas-site-footer/)
   assert.match(app, /viewport\?\.offsetLeft/)
   assert.match(app, /atlas-viewport-offset-left/)
+  assert.match(app, /atlas-compact-viewport/)
   assert.match(graph, /resizeTimer/)
-  assert.match(graph, /fit: !state\.suspended/)
+  assert.match(graph, /resizeCanvas\(state\)/)
+  assert.doesNotMatch(graph, /resizeCanvas\(state, \{ fit: !state\.suspended \}\)/)
   assert.match(graph, /atlas-map-controls-shell/)
   assert.match(graph, /atlas-site-footer/)
   assert.match(roadmap, /event\.key === "Tab"/)
   assert.match(ui, /atlas-viewport-offset-left/)
   assert.match(ui, /flex: 1 1 auto/)
+})
+
+test("Atlas keeps responsive edge cases covered by source contracts", async () => {
+  const [frame, app, access, daily, graph, roadmap, ui] = await Promise.all([
+    readFile(new URL("../../../quartz/components/frames/AtlasFrame.tsx", import.meta.url), "utf8"),
+    source("./app.js"),
+    source("../../atlas-ui/access-runtime.js"),
+    source("./daily-tasks.js"),
+    source("./graph.js"),
+    source("./roadmap.js"),
+    readFile(new URL("../../atlas-ui/components/index.js", import.meta.url), "utf8"),
+  ])
+  assert.match(frame, /AUXILIARY_VIEWPORT_SYNC/)
+  assert.match(frame, /atlas-modal-open \.atlas-roadmap-toast/)
+  assert.match(app, /activeInside/)
+  assert.match(app, /activeIsTabbable/)
+  assert.match(app, /focusable\(overlay\)\.filter\(\(item\) => item\.tabIndex >= 0\)/)
+  assert.match(app, /closeMobileMenu/)
+  assert.match(access, /document\.addEventListener\("focusin"/)
+  assert.match(access, /scrollIntoView\?\.\(\{ block: "nearest"/)
+  assert.match(daily, /restoreTarget/)
+  assert.match(roadmap, /restoreTarget/)
+  assert.match(graph, /resizeCanvas\(state\)/)
+  assert.match(ui, /\.atlas-password-eye::after[\s\S]*left: 50%/)
 })
 
 test("Atlas clean URLs keep deep-page resources addressable", async () => {

@@ -95,6 +95,13 @@ export function installAccessGate(expectedHash, storageKey, normalizeEmail) {
       }),
     )
   }
+  document.addEventListener("focusin", (event) => {
+    const target = event.target
+    if (!(target instanceof HTMLElement) || !target.closest("#atlas-access")) return
+    window.requestAnimationFrame(() => {
+      window.setTimeout(() => target.scrollIntoView?.({ block: "nearest", inline: "nearest" }), 0)
+    })
+  })
   const setState = (unlocked) => {
     const next = unlocked && registered ? "unlocked" : "locked"
     const changed = root.dataset.atlasAccess !== next

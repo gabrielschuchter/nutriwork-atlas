@@ -17,6 +17,39 @@ function withQuery(href: string, key: string, value: string): string {
 
 const LEGAL_SLUGS = new Set(["privacidade", "termos", "seguranca", "acessibilidade"])
 
+const AUXILIARY_VIEWPORT_SYNC = String.raw`
+(() => {
+  if (window.__nutriworkAtlasAuxiliaryViewportSync) return
+  window.__nutriworkAtlasAuxiliaryViewportSync = true
+  const root = document.documentElement
+  let frame = 0
+  const sync = () => {
+    const viewport = window.visualViewport
+    const width = Math.max(1, viewport?.width || window.innerWidth)
+    const height = Math.max(1, viewport?.height || window.innerHeight)
+    root.style.setProperty("--atlas-visual-width", width + "px")
+    root.style.setProperty("--atlas-visual-height", height + "px")
+    root.style.setProperty("--atlas-viewport-offset-left", (viewport?.offsetLeft || 0) + "px")
+    root.style.setProperty("--atlas-viewport-offset-top", (viewport?.offsetTop || 0) + "px")
+    root.classList.toggle("atlas-visual-constrained", width < window.innerWidth - 1)
+    root.classList.toggle("atlas-compact-viewport", width <= 1024)
+    root.classList.toggle("atlas-narrow-viewport", width <= 600)
+  }
+  const onChange = () => {
+    if (frame) return
+    frame = window.requestAnimationFrame(() => {
+      frame = 0
+      sync()
+    })
+  }
+  sync()
+  window.addEventListener("resize", onChange)
+  window.addEventListener("orientationchange", onChange)
+  window.visualViewport?.addEventListener("resize", onChange)
+  window.visualViewport?.addEventListener("scroll", onChange)
+})()
+`
+
 export const AtlasFrame: PageFrame = {
   name: "atlas",
   render({ componentData, beforeBody, pageBody: Content, afterBody }: PageFrameProps) {
@@ -305,6 +338,10 @@ export const AtlasFrame: PageFrame = {
 
           {isRoadmap ? roadmapOverlays : null}
           {siteFooter}
+          <script
+            data-atlas-viewport-sync
+            dangerouslySetInnerHTML={{ __html: AUXILIARY_VIEWPORT_SYNC }}
+          />
         </div>
       )
     }
@@ -1223,7 +1260,7 @@ canvas:focus-visible {
   box-shadow: inset 0 1px 0 color-mix(in srgb, var(--atlas-glass-highlight) 72%, transparent);
   display: flex;
   flex: 1 1 15.5rem;
-  min-width: 12rem;
+  min-width: 8rem;
 }
 
 :root[data-theme="light"] .atlas-search-field {
@@ -1953,6 +1990,11 @@ canvas:focus-visible {
   display: none;
 }
 
+html.atlas-modal-open .atlas-roadmap-toast,
+html.atlas-modal-open .atlas-daily-task-toast {
+  z-index: 7000;
+}
+
 .atlas-roadmap-toast-icon {
   align-items: center;
   background: rgba(59, 167, 118, .12);
@@ -2638,7 +2680,7 @@ canvas:focus-visible {
   left: auto;
   margin-top: auto;
   min-width: 0;
-  padding: 1.15rem max(1rem, var(--atlas-safe-right)) max(1.15rem, var(--atlas-safe-bottom));
+  padding: 1.15rem max(1rem, var(--atlas-safe-right)) max(1.15rem, var(--atlas-safe-bottom)) max(1rem, var(--atlas-safe-left));
   position: relative;
   right: auto;
   width: 100%;
@@ -2648,7 +2690,7 @@ canvas:focus-visible {
   bottom: auto;
   left: auto;
   margin-top: 0;
-  padding: 1.15rem max(1rem, var(--atlas-safe-right)) max(1.15rem, var(--atlas-safe-bottom));
+  padding: 1.15rem max(1rem, var(--atlas-safe-right)) max(1.15rem, var(--atlas-safe-bottom)) max(1rem, var(--atlas-safe-left));
   pointer-events: auto;
   position: relative;
   right: auto;
@@ -3609,10 +3651,10 @@ canvas:focus-visible {
   }
 
   .atlas-roadmap-toast {
-    bottom: max(.75rem, var(--atlas-safe-bottom));
-    left: max(.75rem, var(--atlas-safe-left));
+    bottom: calc(100vh - var(--atlas-viewport-offset-top, 0px) - var(--atlas-visual-height, 100vh) + max(.75rem, var(--atlas-safe-bottom)));
+    left: calc(var(--atlas-viewport-offset-left, 0px) + max(.75rem, var(--atlas-safe-left)));
     max-width: none;
-    right: max(.75rem, var(--atlas-safe-right));
+    right: calc(100vw - var(--atlas-viewport-offset-left, 0px) - var(--atlas-visual-width, 100vw) + max(.75rem, var(--atlas-safe-right)));
   }
 
   #atlas-daily-task-panel {
@@ -3641,10 +3683,10 @@ canvas:focus-visible {
   }
 
   .atlas-daily-task-toast {
-    bottom: max(.75rem, var(--atlas-safe-bottom));
-    left: max(.75rem, var(--atlas-safe-left));
+    bottom: calc(100vh - var(--atlas-viewport-offset-top, 0px) - var(--atlas-visual-height, 100vh) + max(.75rem, var(--atlas-safe-bottom)));
+    left: calc(var(--atlas-viewport-offset-left, 0px) + max(.75rem, var(--atlas-safe-left)));
     max-width: none;
-    right: max(.75rem, var(--atlas-safe-right));
+    right: calc(100vw - var(--atlas-viewport-offset-left, 0px) - var(--atlas-visual-width, 100vw) + max(.75rem, var(--atlas-safe-right)));
   }
 
   .atlas-reading-header {
@@ -3708,6 +3750,310 @@ canvas:focus-visible {
   .atlas-note-view {
     padding-top: calc(5.8rem + var(--atlas-safe-top));
   }
+}
+
+/*
+ * visualViewport can be narrower than the layout viewport during browser page
+ * zoom. Keep the same compact composition used by the responsive media query
+ * in that case without attempting device detection.
+ */
+:root.atlas-compact-viewport .atlas-roadmap-view {
+  padding-left: max(1rem, calc(1rem + var(--atlas-safe-left)));
+  padding-right: max(1rem, calc(1rem + var(--atlas-safe-right)));
+  padding-top: calc(5.75rem + var(--atlas-safe-top));
+}
+
+:root.atlas-visual-constrained .atlas-main,
+:root.atlas-visual-constrained .atlas-roadmap-view,
+:root.atlas-visual-constrained .atlas-legal-view,
+:root.atlas-compact-viewport .atlas-main,
+:root.atlas-compact-viewport .atlas-roadmap-view,
+:root.atlas-compact-viewport .atlas-legal-view {
+  max-width: var(--atlas-visual-width, 100vw);
+  width: var(--atlas-visual-width, 100vw);
+}
+
+:root.atlas-visual-constrained .atlas-site-footer,
+:root.atlas-compact-viewport .atlas-site-footer {
+  max-width: var(--atlas-visual-width, 100vw);
+  width: var(--atlas-visual-width, 100vw);
+}
+
+:root.atlas-visual-constrained .atlas-frame[data-atlas-route="graph"] .atlas-site-footer,
+:root.atlas-compact-viewport .atlas-frame[data-atlas-route="graph"] .atlas-site-footer {
+  width: calc(var(--atlas-visual-width, 100vw) - 2rem - var(--atlas-safe-left) - var(--atlas-safe-right));
+}
+
+:root.atlas-compact-viewport .atlas-roadmap-intro {
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+  max-width: 44rem;
+}
+
+:root.atlas-compact-viewport .atlas-roadmap-intro-actions {
+  width: 100%;
+}
+
+:root.atlas-compact-viewport .atlas-roadmap-back,
+:root.atlas-compact-viewport .atlas-roadmap-suggest-button {
+  flex: 1 1 0;
+}
+
+:root.atlas-visual-constrained .atlas-legal-navbar,
+:root.atlas-compact-viewport .atlas-legal-navbar {
+  max-width: calc(var(--atlas-visual-width, 100vw) - 2rem - var(--atlas-safe-left) - var(--atlas-safe-right));
+  margin-left: max(1rem, var(--atlas-safe-left));
+  margin-right: 0;
+  padding-top: max(1rem, var(--atlas-safe-top));
+  width: calc(var(--atlas-visual-width, 100vw) - 2rem - var(--atlas-safe-left) - var(--atlas-safe-right));
+}
+
+:root.atlas-compact-viewport .atlas-legal-shell,
+:root.atlas-compact-viewport .atlas-roadmap-shell {
+  max-width: 100%;
+  width: 100%;
+}
+
+:root.atlas-compact-viewport .atlas-roadmap-columns {
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 44rem;
+}
+
+:root.atlas-compact-viewport .atlas-reopen-nav {
+  right: calc(100vw - var(--atlas-viewport-offset-left, 0px) - var(--atlas-visual-width, 100vw) + .75rem + var(--atlas-safe-right));
+  top: calc(var(--atlas-viewport-offset-top, 0px) + .75rem + var(--atlas-safe-top));
+}
+
+:root.atlas-compact-viewport .atlas-daily-task-trigger {
+  right: calc(100vw - var(--atlas-viewport-offset-left, 0px) - var(--atlas-visual-width, 100vw) + 4rem + var(--atlas-safe-right));
+  top: calc(var(--atlas-viewport-offset-top, 0px) + .75rem + var(--atlas-safe-top));
+}
+
+:root.atlas-compact-viewport .atlas-navbar {
+  box-sizing: border-box;
+  flex-wrap: nowrap;
+  gap: .35rem;
+  left: calc(var(--atlas-viewport-offset-left, 0px) + (var(--atlas-visual-width, 100vw) + (var(--atlas-safe-left) - var(--atlas-safe-right))) / 2);
+  max-width: calc(var(--atlas-visual-width, 100vw) - 2rem - var(--atlas-safe-left) - var(--atlas-safe-right));
+  min-height: 3.35rem;
+  padding: .42rem .58rem .42rem .72rem;
+  top: calc(var(--atlas-viewport-offset-top, 0px) + .65rem + var(--atlas-safe-top));
+  width: calc(var(--atlas-visual-width, 100vw) - 2rem - var(--atlas-safe-left) - var(--atlas-safe-right));
+}
+
+:root.atlas-compact-viewport .atlas-graph-filters,
+:root.atlas-compact-viewport .atlas-navbar-actions {
+  display: none;
+}
+
+:root.atlas-compact-viewport .atlas-mobile-actions {
+  align-items: center;
+  display: flex;
+  flex: 0 0 auto;
+  gap: .08rem;
+  margin-left: auto;
+}
+
+:root.atlas-compact-viewport .atlas-mobile-action {
+  align-items: center;
+  border-radius: 999px;
+  display: inline-flex;
+  height: 2.75rem;
+  justify-content: center;
+  min-height: 2.75rem;
+  min-width: 2.75rem;
+  padding: 0;
+  touch-action: manipulation;
+}
+
+:root.atlas-compact-viewport .atlas-mobile-action:hover {
+  transform: none;
+}
+
+:root.atlas-compact-viewport .atlas-mobile-action .atlas-icon {
+  height: 1.08rem;
+  width: 1.08rem;
+}
+
+:root.atlas-compact-viewport .atlas-mobile-graph-tools {
+  align-items: center;
+  display: flex;
+  left: calc(var(--atlas-viewport-offset-left, 0px) + .75rem + var(--atlas-safe-left));
+  pointer-events: none;
+  position: fixed;
+  top: calc(var(--atlas-viewport-offset-top, 0px) + 4.55rem + var(--atlas-safe-top));
+  z-index: 6500;
+}
+
+:root.atlas-compact-viewport .atlas-mobile-area-trigger {
+  align-items: center;
+  display: inline-flex;
+  max-width: min(17rem, calc(var(--atlas-visual-width, 100vw) - 1.5rem - var(--atlas-safe-left) - var(--atlas-safe-right)));
+  min-height: 2.75rem;
+  padding: .45rem .65rem .45rem .85rem;
+  pointer-events: auto;
+  touch-action: manipulation;
+}
+
+:root.atlas-compact-viewport .atlas-graph-view {
+  left: var(--atlas-viewport-offset-left, 0px);
+  right: auto;
+  height: var(--atlas-visual-height, 100dvh);
+  min-height: var(--atlas-visual-height, 100dvh);
+  top: var(--atlas-viewport-offset-top, 0px);
+  bottom: auto;
+  width: var(--atlas-visual-width, 100vw);
+  overscroll-behavior: none;
+}
+
+:root.atlas-compact-viewport .atlas-graph-view::before {
+  font-size: clamp(5rem, calc(var(--atlas-visual-width, 100vw) * .24), 12rem);
+}
+
+:root.atlas-compact-viewport .atlas-graph-surface,
+:root.atlas-compact-viewport .atlas-graph-view > .atlas-graph-surface {
+  height: 100%;
+  left: 0;
+  right: auto;
+  width: 100%;
+}
+
+:root.atlas-compact-viewport .atlas-map-control {
+  font-size: 1.08rem;
+  height: 3rem;
+  min-height: 3rem;
+  touch-action: manipulation;
+  width: 3rem;
+}
+
+:root.atlas-compact-viewport .atlas-return-context,
+:root.atlas-compact-viewport .atlas-graph-list summary {
+  min-height: 2.75rem;
+  touch-action: manipulation;
+}
+
+:root.atlas-compact-viewport .atlas-note-view {
+  padding-left: max(1rem, calc(clamp(1rem, 5vw, 5.5rem) + var(--atlas-safe-left)));
+  padding-right: max(1rem, calc(clamp(1rem, 5vw, 5.5rem) + var(--atlas-safe-right)));
+  padding-bottom: calc(3rem + var(--atlas-safe-bottom));
+  padding-top: calc(5.75rem + var(--atlas-safe-top));
+}
+
+:root.atlas-compact-viewport .atlas-roadmap-toast,
+:root.atlas-compact-viewport .atlas-daily-task-toast {
+  bottom: calc(100vh - var(--atlas-viewport-offset-top, 0px) - var(--atlas-visual-height, 100vh) + max(.75rem, var(--atlas-safe-bottom)));
+  left: calc(var(--atlas-viewport-offset-left, 0px) + max(.75rem, var(--atlas-safe-left)));
+  right: calc(100vw - var(--atlas-viewport-offset-left, 0px) - var(--atlas-visual-width, 100vw) + max(.75rem, var(--atlas-safe-right)));
+}
+
+:root.atlas-compact-viewport #atlas-daily-task-panel {
+  align-items: flex-end;
+  padding: 0;
+}
+
+:root.atlas-compact-viewport .atlas-daily-task-card {
+  border-radius: 1.15rem 1.15rem 0 0;
+  max-height: min(32rem, calc(var(--atlas-visual-height, 100dvh) - var(--atlas-safe-top) - var(--atlas-safe-bottom)));
+  width: 100%;
+}
+
+:root.atlas-compact-viewport .atlas-daily-task-header {
+  padding-top: calc(1rem + var(--atlas-safe-top));
+}
+
+:root.atlas-compact-viewport .atlas-daily-task-footer {
+  padding-bottom: calc(.85rem + var(--atlas-safe-bottom));
+}
+
+:root.atlas-narrow-viewport .atlas-legal-navbar {
+  max-width: calc(var(--atlas-visual-width, 100vw) - 1rem - var(--atlas-safe-left) - var(--atlas-safe-right));
+}
+
+:root.atlas-narrow-viewport .atlas-navbar {
+  max-width: calc(var(--atlas-visual-width, 100vw) - 1rem - var(--atlas-safe-left) - var(--atlas-safe-right));
+  min-height: 3.4rem;
+  padding-left: .72rem;
+  padding-right: .58rem;
+  top: calc(var(--atlas-viewport-offset-top, 0px) + .5rem + var(--atlas-safe-top));
+  width: calc(var(--atlas-visual-width, 100vw) - 1rem - var(--atlas-safe-left) - var(--atlas-safe-right));
+}
+
+:root.atlas-narrow-viewport .atlas-mobile-actions {
+  gap: 0;
+}
+
+:root.atlas-narrow-viewport .atlas-mobile-action {
+  height: 2.75rem;
+  min-height: 2.75rem;
+  min-width: 2.75rem;
+}
+
+:root.atlas-narrow-viewport .atlas-mobile-action .atlas-icon {
+  height: 1rem;
+  width: 1rem;
+}
+
+:root.atlas-narrow-viewport .atlas-mobile-graph-tools {
+  left: calc(var(--atlas-viewport-offset-left, 0px) + .7rem + var(--atlas-safe-left));
+  top: calc(var(--atlas-viewport-offset-top, 0px) + 4.45rem + var(--atlas-safe-top));
+}
+
+:root.atlas-narrow-viewport .atlas-mobile-area-trigger {
+  min-height: 2.75rem;
+  padding-left: .75rem;
+}
+
+:root.atlas-narrow-viewport .atlas-map-controls-shell {
+  bottom: calc(.7rem + var(--atlas-safe-bottom));
+  right: calc(.7rem + var(--atlas-safe-right));
+}
+
+:root.atlas-narrow-viewport .atlas-map-control {
+  height: 3.05rem;
+  min-height: 3.05rem;
+  width: 3.05rem;
+}
+
+:root.atlas-narrow-viewport .atlas-graph-list {
+  bottom: calc(.7rem + var(--atlas-safe-bottom));
+  left: calc(.7rem + var(--atlas-safe-left));
+  max-width: min(12rem, calc(var(--atlas-visual-width, 100vw) - 11rem));
+}
+
+:root.atlas-narrow-viewport .atlas-frame[data-atlas-route="graph"] .atlas-graph-list,
+:root.atlas-narrow-viewport .atlas-frame[data-atlas-route="graph"] .atlas-map-controls-shell {
+  bottom: calc(4rem + var(--atlas-safe-bottom));
+}
+
+:root.atlas-narrow-viewport .atlas-note-view {
+  padding-left: max(1rem, calc(1rem + var(--atlas-safe-left)));
+  padding-right: max(1rem, calc(1rem + var(--atlas-safe-right)));
+  padding-top: calc(5.35rem + var(--atlas-safe-top));
+}
+
+:root.atlas-narrow-viewport .atlas-roadmap-view {
+  padding-bottom: calc(2.5rem + var(--atlas-safe-bottom));
+  padding-top: calc(5.35rem + var(--atlas-safe-top));
+}
+
+:root.atlas-narrow-viewport .atlas-roadmap-suggest-button {
+  width: 100%;
+}
+
+:root.atlas-narrow-viewport .atlas-roadmap-suggestion-card {
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+:root.atlas-narrow-viewport .atlas-roadmap-toast,
+:root.atlas-narrow-viewport .atlas-daily-task-toast {
+  max-width: none;
+}
+
+:root.atlas-narrow-viewport .atlas-minimap-shell .atlas-graph-canvas {
+  touch-action: pan-y;
 }
 
 

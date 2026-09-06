@@ -486,7 +486,7 @@ html[data-atlas-access="unlocked"] #atlas-access {
   border-radius: 50%;
   content: "";
   height: .28rem;
-  left: calc(var(--atlas-viewport-offset-left, 0px) + var(--atlas-visual-width, 100vw) / 2);
+  left: 50%;
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);

@@ -267,7 +267,7 @@
         state.resizeFrame = window.requestAnimationFrame(() => {
           state.resizeFrame = 0
           if (state.destroyed || !state.resizePending) return
-          resizeCanvas(state, { fit: !state.suspended })
+          resizeCanvas(state)
         })
       })
     }
@@ -277,7 +277,7 @@
         if (state.resizeFrame) window.cancelAnimationFrame(state.resizeFrame)
         state.resizeFrame = 0
         if (state.destroyed || !state.resizePending) return
-        resizeCanvas(state, { fit: !state.suspended })
+        resizeCanvas(state)
       }, 120)
     }
   }

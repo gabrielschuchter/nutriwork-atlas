@@ -62,8 +62,9 @@
     window.setTimeout(() => {
       if (!overlay.classList.contains("is-open")) overlay.hidden = true
     }, 220)
-    window.requestAnimationFrame(() => opener?.focus?.())
+    const restoreTarget = opener
     opener = null
+    window.requestAnimationFrame(() => restoreTarget?.focus?.({ preventScroll: true }))
   }
 
   function focusable(container) {

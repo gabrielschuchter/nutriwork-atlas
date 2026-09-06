@@ -521,9 +521,11 @@
     root().classList.add("atlas-modal-open")
     window.requestAnimationFrame(() => {
       sheet.classList.add("is-open")
-      areaOptions(options)
-        .find((option) => option.getAttribute("aria-selected") === "true")
-        ?.focus({ preventScroll: true })
+      window.setTimeout(() => {
+        areaOptions(options)
+          .find((option) => option.getAttribute("aria-selected") === "true")
+          ?.focus({ preventScroll: true })
+      }, 0)
     })
   }
 
@@ -743,7 +745,7 @@
     root().classList.add("atlas-modal-open")
     window.requestAnimationFrame(() => {
       sheet.classList.add("is-open")
-      close?.focus({ preventScroll: true })
+      window.setTimeout(() => close?.focus({ preventScroll: true }), 0)
       renderMobileMenuState()
     })
   }
@@ -953,6 +955,12 @@
     root().style.setProperty("--atlas-visual-width", width + "px")
     root().style.setProperty("--atlas-viewport-offset-left", (viewport?.offsetLeft || 0) + "px")
     root().style.setProperty("--atlas-viewport-offset-top", (viewport?.offsetTop || 0) + "px")
+    // CSS media queries follow the layout viewport, which can remain wide while
+    // browser page zoom shrinks the visual viewport. Mirror the effective
+    // viewport width so the compact composition still applies at high zoom.
+    root().classList.toggle("atlas-visual-constrained", width < window.innerWidth - 1)
+    root().classList.toggle("atlas-compact-viewport", width <= 1024)
+    root().classList.toggle("atlas-narrow-viewport", width <= 600)
     const active = document.activeElement
     const keyboardOpen =
       Boolean(active instanceof HTMLElement && active.matches("input, textarea, select")) &&
@@ -1155,7 +1163,7 @@
     root().classList.add("atlas-onboarding-open")
     root().classList.add("atlas-modal-open")
     renderOnboarding()
-    window.requestAnimationFrame(() => elements.next?.focus())
+    window.requestAnimationFrame(() => window.setTimeout(() => elements.next?.focus(), 0))
   }
 
   function advanceOnboarding() {
@@ -1185,7 +1193,7 @@
     window.requestAnimationFrame(() => elements.overlay.classList.add("is-open"))
     root().classList.add("atlas-help-open")
     root().classList.add("atlas-modal-open")
-    window.requestAnimationFrame(() => elements.close?.focus())
+    window.requestAnimationFrame(() => window.setTimeout(() => elements.close?.focus(), 0))
   }
 
   function closeHelp() {
@@ -1234,7 +1242,7 @@
     root().classList.add("atlas-modal-open")
     window.requestAnimationFrame(() => {
       elements.overlay.classList.add("is-open")
-      elements.close?.focus()
+      window.setTimeout(() => elements.close?.focus(), 0)
     })
   }
 
@@ -1460,10 +1468,17 @@
       dailyTask,
     ].find((candidate) => candidate && !candidate.hidden && candidate.classList.contains("is-open"))
     if (!overlay) return
-    const items = focusable(overlay)
+    const items = focusable(overlay).filter((item) => item.tabIndex >= 0)
     if (!items.length) return
     const first = items[0]
     const last = items[items.length - 1]
+    const activeInside = overlay.contains(document.activeElement)
+    const activeIsTabbable = items.includes(document.activeElement)
+    if (!activeInside || !activeIsTabbable) {
+      ;(event.shiftKey ? last : first).focus()
+      event.preventDefault()
+      return
+    }
     if (event.shiftKey && document.activeElement === first) {
       last.focus()
       event.preventDefault()
@@ -1681,6 +1696,7 @@
   setTheme(currentTheme())
   atlas.app = {
     runtimeVersion: 3,
+    closeMobileMenu,
     dismissTouchHint,
     goTo,
     hidePreview,
