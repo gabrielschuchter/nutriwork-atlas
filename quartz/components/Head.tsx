@@ -25,15 +25,14 @@ export default (() => {
     const icon64Path = joinSegments(staticDir, "atlas-favicon-64.png")
     const appleTouchIconPath = joinSegments(staticDir, "atlas-apple-touch-icon.png")
 
-    // Use clean folder URLs for virtual index pages (for example, /atlas/
-    // instead of /atlas/index) while keeping the root Home at /.
+    // Keep canonical URLs aligned with Vercel's clean, no-trailing-slash URLs.
     const canonicalSlug = fileData.slug?.endsWith("/index")
       ? fileData.slug.slice(0, -"/index".length)
       : fileData.slug
     const socialUrl =
       fileData.slug === "404" || !canonicalSlug || canonicalSlug === "index"
         ? url.toString()
-        : joinSegments(url.toString(), `${canonicalSlug}/`)
+        : joinSegments(url.toString(), canonicalSlug)
 
     const socialTitle = canonicalSlug === "index" ? "Atlas · Nutriwork" : title
     const socialSiteName = "Atlas · Nutriwork"

@@ -182,3 +182,14 @@ test("Atlas responsive surfaces follow the visual viewport and preserve graph co
   assert.match(ui, /atlas-viewport-offset-left/)
   assert.match(ui, /flex: 1 1 auto/)
 })
+
+test("Atlas clean URLs keep deep-page resources addressable", async () => {
+  const [head, vercel] = await Promise.all([
+    readFile(new URL("../../../quartz/components/Head.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../../../vercel.json", import.meta.url), "utf8"),
+  ])
+  assert.match(head, /joinSegments\(url\.toString\(\), canonicalSlug\)/)
+  assert.doesNotMatch(head, /`\$\{canonicalSlug\}\/`/)
+  assert.match(vercel, /"cleanUrls": true/)
+  assert.match(vercel, /"trailingSlash": false/)
+})
