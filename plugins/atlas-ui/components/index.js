@@ -226,11 +226,12 @@ html[data-atlas-access="locked"] .atlas-frame {
   display: flex;
   height: var(--atlas-visual-height, 100dvh);
   justify-content: center;
-  left: 0;
+  left: var(--atlas-viewport-offset-left, 0px);
   padding: max(1rem, env(safe-area-inset-top, 0px)) max(1rem, env(safe-area-inset-right, 0px)) max(1rem, env(safe-area-inset-bottom, 0px)) max(1rem, env(safe-area-inset-left, 0px));
   position: fixed;
-  right: 0;
+  right: auto;
   top: var(--atlas-viewport-offset-top, 0px);
+  width: var(--atlas-visual-width, 100vw);
   touch-action: manipulation;
   visibility: visible;
   z-index: 10000;
@@ -245,7 +246,8 @@ html[data-atlas-access="unlocked"] #atlas-access {
 
 .atlas-access-card {
   box-sizing: border-box;
-  max-height: 100%;
+  max-height: calc(var(--atlas-visual-height, 100dvh) - max(1rem, env(safe-area-inset-top, 0px)) - max(1rem, env(safe-area-inset-bottom, 0px)));
+  min-height: 0;
   overflow-y: auto;
   overscroll-behavior: contain;
   background: rgba(7, 16, 35, .86);
@@ -484,7 +486,7 @@ html[data-atlas-access="unlocked"] #atlas-access {
   border-radius: 50%;
   content: "";
   height: .28rem;
-  left: 50%;
+  left: calc(var(--atlas-viewport-offset-left, 0px) + var(--atlas-visual-width, 100vw) / 2);
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -545,7 +547,7 @@ html[data-atlas-access="unlocked"] #atlas-access {
   border-radius: 18px;
   box-shadow: var(--atlas-glass-shadow, 0 20px 50px rgba(0, 0, 0, .3));
   color: #F5F7FF;
-  max-width: calc(100vw - 2rem);
+  max-width: calc(var(--atlas-visual-width, 100vw) - 2rem);
   opacity: 0;
   padding: 1rem;
   pointer-events: none;
@@ -614,14 +616,20 @@ html[data-atlas-access="unlocked"] #atlas-access {
 
 #atlas-onboarding {
   align-items: center;
+  box-sizing: border-box;
   display: flex;
-  inset: 0;
+  top: var(--atlas-viewport-offset-top, 0px);
+  bottom: auto;
+  height: var(--atlas-visual-height, 100dvh);
+  left: var(--atlas-viewport-offset-left, 0px);
+  width: var(--atlas-visual-width, 100vw);
   justify-content: center;
   opacity: 0;
   max-height: var(--atlas-visual-height, 100dvh);
   padding: max(1rem, calc(var(--atlas-safe-top, env(safe-area-inset-top, 0px)) + .75rem)) max(1rem, calc(var(--atlas-safe-right, env(safe-area-inset-right, 0px)) + .75rem)) max(1rem, calc(var(--atlas-safe-bottom, env(safe-area-inset-bottom, 0px)) + .75rem)) max(1rem, calc(var(--atlas-safe-left, env(safe-area-inset-left, 0px)) + .75rem));
   pointer-events: none;
   position: fixed;
+  right: auto;
   z-index: 8000;
   transition: opacity 220ms ease;
 }
@@ -647,11 +655,12 @@ html[data-atlas-access="unlocked"] #atlas-access {
   backdrop-filter: blur(20px) saturate(140%);
   background: linear-gradient(145deg, rgba(255, 255, 255, .075), transparent 46%), var(--atlas-glass-strong, rgba(7, 16, 35, .58));
   border: 1px solid var(--atlas-glass-line, rgba(220, 235, 255, .16));
+  box-sizing: border-box;
   border-radius: 24px;
   box-shadow: var(--atlas-glass-shadow, 0 24px 90px rgba(0, 0, 0, .36));
   color: #F5F7FF;
   max-width: 34rem;
-  max-height: calc(var(--atlas-visual-height, 100dvh) - var(--atlas-safe-top, env(safe-area-inset-top, 0px)) - var(--atlas-safe-bottom, env(safe-area-inset-bottom, 0px)) - 1rem);
+  max-height: calc(var(--atlas-visual-height, 100dvh) - max(1rem, calc(var(--atlas-safe-top, env(safe-area-inset-top, 0px)) + .75rem)) - max(1rem, calc(var(--atlas-safe-bottom, env(safe-area-inset-bottom, 0px)) + .75rem)));
   overflow: auto;
   padding: clamp(1.2rem, 4vw, 2rem);
   position: relative;
@@ -769,14 +778,20 @@ html[data-atlas-access="unlocked"] #atlas-access {
 
 #atlas-help {
   align-items: center;
+  box-sizing: border-box;
   display: flex;
-  inset: 0;
+  top: var(--atlas-viewport-offset-top, 0px);
+  width: var(--atlas-visual-width, 100vw);
+  bottom: auto;
+  height: var(--atlas-visual-height, 100dvh);
+  left: var(--atlas-viewport-offset-left, 0px);
   justify-content: center;
   opacity: 0;
   max-height: var(--atlas-visual-height, 100dvh);
   padding: max(1rem, calc(var(--atlas-safe-top, env(safe-area-inset-top, 0px)) + .75rem)) max(1rem, calc(var(--atlas-safe-right, env(safe-area-inset-right, 0px)) + .75rem)) max(1rem, calc(var(--atlas-safe-bottom, env(safe-area-inset-bottom, 0px)) + .75rem)) max(1rem, calc(var(--atlas-safe-left, env(safe-area-inset-left, 0px)) + .75rem));
   pointer-events: none;
   position: fixed;
+  right: auto;
   transition: opacity 220ms ease;
   z-index: 8100;
 }
@@ -806,11 +821,12 @@ html[data-atlas-access="unlocked"] #atlas-access {
   backdrop-filter: blur(20px) saturate(140%);
   background: linear-gradient(145deg, rgba(255, 255, 255, .1), transparent 48%), var(--atlas-glass-strong, rgba(7, 16, 35, .62));
   border: 1px solid var(--atlas-glass-line, rgba(220, 235, 255, .17));
+  box-sizing: border-box;
   border-radius: 22px;
   box-shadow: var(--atlas-glass-shadow, 0 24px 90px rgba(0, 0, 0, .36));
   color: #F5F7FF;
   max-width: 27rem;
-  max-height: calc(var(--atlas-visual-height, 100dvh) - var(--atlas-safe-top, env(safe-area-inset-top, 0px)) - var(--atlas-safe-bottom, env(safe-area-inset-bottom, 0px)) - 1rem);
+  max-height: calc(var(--atlas-visual-height, 100dvh) - max(1rem, calc(var(--atlas-safe-top, env(safe-area-inset-top, 0px)) + .75rem)) - max(1rem, calc(var(--atlas-safe-bottom, env(safe-area-inset-bottom, 0px)) + .75rem)));
   overflow: auto;
   padding: 1.25rem;
   position: relative;
@@ -941,13 +957,18 @@ html[data-atlas-access="unlocked"] #atlas-access {
   align-items: center;
   box-sizing: border-box;
   display: flex;
-  inset: 0;
+  top: var(--atlas-viewport-offset-top, 0px);
+  width: var(--atlas-visual-width, 100vw);
+  bottom: auto;
+  height: var(--atlas-visual-height, 100dvh);
+  left: var(--atlas-viewport-offset-left, 0px);
   justify-content: center;
   opacity: 0;
   max-height: var(--atlas-visual-height, 100dvh);
   padding: max(1rem, calc(var(--atlas-safe-top, env(safe-area-inset-top, 0px)) + .75rem)) max(1rem, calc(var(--atlas-safe-right, env(safe-area-inset-right, 0px)) + .75rem)) max(1rem, calc(var(--atlas-safe-bottom, env(safe-area-inset-bottom, 0px)) + .75rem)) max(1rem, calc(var(--atlas-safe-left, env(safe-area-inset-left, 0px)) + .75rem));
   pointer-events: none;
   position: fixed;
+  right: auto;
   transition: opacity 220ms ease;
   z-index: 8200;
 }
@@ -981,7 +1002,7 @@ html[data-atlas-access="unlocked"] #atlas-access {
   box-sizing: border-box;
   box-shadow: var(--atlas-glass-shadow, 0 24px 90px rgba(0, 0, 0, .36));
   color: #F5F7FF;
-  max-height: calc(var(--atlas-visual-height, 100dvh) - var(--atlas-safe-top, env(safe-area-inset-top, 0px)) - var(--atlas-safe-bottom, env(safe-area-inset-bottom, 0px)) - 1rem);
+  max-height: calc(var(--atlas-visual-height, 100dvh) - max(1rem, calc(var(--atlas-safe-top, env(safe-area-inset-top, 0px)) + .75rem)) - max(1rem, calc(var(--atlas-safe-bottom, env(safe-area-inset-bottom, 0px)) + .75rem)));
   max-width: 25rem;
   overflow: auto;
   padding: 1.25rem 1.35rem 1.35rem;
@@ -1135,13 +1156,13 @@ html[data-atlas-access="unlocked"] #atlas-access {
   background: linear-gradient(145deg, rgba(255, 255, 255, .1), transparent 48%), var(--atlas-glass, rgba(7, 16, 35, .5));
   border: 1px solid var(--atlas-glass-line, rgba(220, 235, 255, .16));
   border-radius: 999px;
-  bottom: calc(4.8rem + var(--atlas-safe-bottom, env(safe-area-inset-bottom, 0px)));
+  bottom: calc(100vh - var(--atlas-viewport-offset-top, 0px) - var(--atlas-visual-height, 100vh) + 4.8rem + var(--atlas-safe-bottom, env(safe-area-inset-bottom, 0px)));
   box-shadow: var(--atlas-glass-shadow, 0 18px 48px rgba(0, 0, 0, .28));
   color: var(--atlas-ink, #F5F7FF);
   display: flex;
   font-size: .76rem;
   gap: .5rem;
-  left: 50%;
+  left: calc(var(--atlas-viewport-offset-left, 0px) + var(--atlas-visual-width, 100vw) / 2);
   opacity: 0;
   padding: .62rem .85rem;
   pointer-events: none;
@@ -1172,7 +1193,9 @@ html[data-atlas-access="unlocked"] #atlas-access {
   box-sizing: border-box;
   display: flex;
   height: var(--atlas-visual-height, 100dvh);
-  inset: 0;
+  left: var(--atlas-viewport-offset-left, 0px);
+  width: var(--atlas-visual-width, 100vw);
+  bottom: auto;
   justify-content: center;
   opacity: 0;
   padding: max(.75rem, calc(var(--atlas-safe-top, env(safe-area-inset-top, 0px)) + .5rem)) max(.75rem, calc(var(--atlas-safe-right, env(safe-area-inset-right, 0px)) + .5rem)) max(.75rem, calc(var(--atlas-safe-bottom, env(safe-area-inset-bottom, 0px)) + .5rem)) max(.75rem, calc(var(--atlas-safe-left, env(safe-area-inset-left, 0px)) + .5rem));
@@ -1180,6 +1203,7 @@ html[data-atlas-access="unlocked"] #atlas-access {
   position: fixed;
   top: var(--atlas-viewport-offset-top, 0px);
   bottom: auto;
+  right: auto;
   visibility: hidden;
   z-index: 9200;
   transition: opacity 180ms ease, visibility 180ms ease;
@@ -1215,7 +1239,7 @@ html[data-atlas-access="unlocked"] #atlas-access {
   color: var(--atlas-ink, #F5F7FF);
   display: flex;
   flex-direction: column;
-  max-height: calc(var(--atlas-visual-height, 100dvh) - var(--atlas-safe-top, env(safe-area-inset-top, 0px)) - .5rem);
+  max-height: calc(var(--atlas-visual-height, 100dvh) - max(.75rem, calc(var(--atlas-safe-top, env(safe-area-inset-top, 0px)) + .5rem)) - max(.75rem, calc(var(--atlas-safe-bottom, env(safe-area-inset-bottom, 0px)) + .5rem)));
   min-height: 0;
   overflow: hidden;
   padding: 1.15rem 1rem max(1rem, var(--atlas-safe-bottom, env(safe-area-inset-bottom, 0px)));
@@ -1332,6 +1356,7 @@ html[data-atlas-access="unlocked"] #atlas-access {
 .atlas-mobile-search-results,
 .atlas-area-sheet-options,
 .atlas-mobile-menu-list {
+  flex: 1 1 auto;
   list-style: none;
   margin: 0 -.35rem;
   min-height: 0;
@@ -1510,15 +1535,15 @@ html.atlas-modal-open body {
 
 @media all and (max-width: 600px) {
   .atlas-touch-hint {
-    bottom: calc(4.55rem + var(--atlas-safe-bottom, env(safe-area-inset-bottom, 0px)));
+    bottom: calc(100vh - var(--atlas-viewport-offset-top, 0px) - var(--atlas-visual-height, 100vh) + 4.55rem + var(--atlas-safe-bottom, env(safe-area-inset-bottom, 0px)));
     font-size: .7rem;
-    max-width: calc(100vw - 2rem);
+    max-width: calc(var(--atlas-visual-width, 100vw) - 2rem);
     overflow: hidden;
     text-overflow: ellipsis;
   }
 
   .atlas-mobile-sheet-card {
-    max-height: calc(var(--atlas-visual-height, 100dvh) - var(--atlas-safe-top, env(safe-area-inset-top, 0px)) - .25rem);
+    max-height: calc(var(--atlas-visual-height, 100dvh) - max(.75rem, calc(var(--atlas-safe-top, env(safe-area-inset-top, 0px)) + .5rem)) - max(.75rem, calc(var(--atlas-safe-bottom, env(safe-area-inset-bottom, 0px)) + .5rem)));
     padding-inline: .85rem;
     width: 100%;
   }
@@ -1540,7 +1565,7 @@ html.atlas-modal-open body {
     height: 100%;
     max-height: none;
     transform: translateX(14px);
-    width: min(28rem, calc(100vw - 2rem));
+    width: min(28rem, calc(var(--atlas-visual-width, 100vw) - 2rem));
   }
 }
 

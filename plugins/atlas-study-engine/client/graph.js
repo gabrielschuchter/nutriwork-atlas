@@ -209,6 +209,10 @@
 
   function resizeCanvas(state, { fit = state.mode === "minimap" || !state.userCamera } = {}) {
     perf?.count("resizeCalls")
+    if (state.resizeTimer) {
+      window.clearTimeout(state.resizeTimer)
+      state.resizeTimer = 0
+    }
     state.resizePending = false
     const previousWidth = state.width
     const previousHeight = state.height
@@ -253,12 +257,29 @@
 
   function scheduleResize(state) {
     state.resizePending = true
-    if (state.destroyed || state.suspended || state.resizeFrame) return
-    state.resizeFrame = window.requestAnimationFrame(() => {
-      state.resizeFrame = 0
-      if (state.destroyed || state.suspended || !state.resizePending) return
-      resizeCanvas(state)
-    })
+    if (state.destroyed) return
+    if (!state.resizeFrame) {
+      state.resizeFrame = window.requestAnimationFrame(() => {
+        if (state.destroyed) {
+          state.resizeFrame = 0
+          return
+        }
+        state.resizeFrame = window.requestAnimationFrame(() => {
+          state.resizeFrame = 0
+          if (state.destroyed || !state.resizePending) return
+          resizeCanvas(state, { fit: !state.suspended })
+        })
+      })
+    }
+    if (!state.resizeTimer) {
+      state.resizeTimer = window.setTimeout(() => {
+        state.resizeTimer = 0
+        if (state.resizeFrame) window.cancelAnimationFrame(state.resizeFrame)
+        state.resizeFrame = 0
+        if (state.destroyed || !state.resizePending) return
+        resizeCanvas(state, { fit: !state.suspended })
+      }, 120)
+    }
   }
 
   function pauseCameraAnimation(state) {
@@ -516,6 +537,10 @@
     const blockers = [
       document.getElementById("atlas-navbar"),
       document.getElementById("atlas-mobile-graph-tools"),
+      document.querySelector(".atlas-map-controls-shell"),
+      document.querySelector(".atlas-graph-list"),
+      document.getElementById("atlas-reopen-nav"),
+      document.getElementById("atlas-daily-task-open"),
       document.querySelector(".atlas-site-footer"),
     ]
     for (const blocker of blockers) {
@@ -1471,6 +1496,7 @@
       wheelY: 0,
       resizePending: false,
       resizeFrame: 0,
+      resizeTimer: 0,
       suspended: false,
       surfaceActive: true,
       documentHidden: document.hidden,
@@ -1612,8 +1638,10 @@
     cancelCameraAnimation(state)
     if (state.frame) window.cancelAnimationFrame(state.frame)
     if (state.resizeFrame) window.cancelAnimationFrame(state.resizeFrame)
+    if (state.resizeTimer) window.clearTimeout(state.resizeTimer)
     state.frame = 0
     state.resizeFrame = 0
+    state.resizeTimer = 0
     state.pendingPointerMoves.clear()
     state.pointers.clear()
     state.physics?.suspendSimulation?.()

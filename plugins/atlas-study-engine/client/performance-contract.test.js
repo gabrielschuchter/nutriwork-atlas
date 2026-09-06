@@ -158,3 +158,27 @@ test("Atlas headings never opt into breaking words in the middle", async () => {
   assert.match(frame, /word-break: normal/)
   assert.doesNotMatch(frame, /overflow-wrap: anywhere/)
 })
+
+test("Atlas responsive surfaces follow the visual viewport and preserve graph controls", async () => {
+  const [frame, app, graph, roadmap, ui] = await Promise.all([
+    readFile(new URL("../../../quartz/components/frames/AtlasFrame.tsx", import.meta.url), "utf8"),
+    source("./app.js"),
+    source("./graph.js"),
+    source("./roadmap.js"),
+    readFile(new URL("../../atlas-ui/components/index.js", import.meta.url), "utf8"),
+  ])
+  assert.match(frame, /--atlas-viewport-offset-left/)
+  assert.match(frame, /var\(--atlas-visual-width, 100vw\)/)
+  assert.match(frame, /\.atlas-main[\s\S]*?width: 100%/)
+  assert.match(frame, /\.atlas-frame\[data-atlas-route="graph"\] \.atlas-site-footer/)
+  assert.match(frame, /\.atlas-frame\[data-atlas-route="note"\] \.atlas-site-footer/)
+  assert.match(app, /viewport\?\.offsetLeft/)
+  assert.match(app, /atlas-viewport-offset-left/)
+  assert.match(graph, /resizeTimer/)
+  assert.match(graph, /fit: !state\.suspended/)
+  assert.match(graph, /atlas-map-controls-shell/)
+  assert.match(graph, /atlas-site-footer/)
+  assert.match(roadmap, /event\.key === "Tab"/)
+  assert.match(ui, /atlas-viewport-offset-left/)
+  assert.match(ui, /flex: 1 1 auto/)
+})

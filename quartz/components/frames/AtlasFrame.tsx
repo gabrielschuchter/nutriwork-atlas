@@ -1045,6 +1045,7 @@ AtlasFrame.css = `
   --atlas-safe-right: env(safe-area-inset-right, 0px);
   --atlas-safe-bottom: env(safe-area-inset-bottom, 0px);
   --atlas-safe-left: env(safe-area-inset-left, 0px);
+  --atlas-viewport-offset-left: 0px;
 }
 
 :root[data-theme="light"] {
@@ -1146,7 +1147,7 @@ canvas:focus-visible {
   left: 1rem;
   padding: .65rem .9rem;
   position: fixed;
-  top: 0;
+  top: var(--atlas-viewport-offset-top, 0px);
   transform: translateY(-130%);
   transition: transform 160ms ease;
   z-index: 10001;
@@ -1171,16 +1172,16 @@ canvas:focus-visible {
   box-shadow: var(--atlas-glass-shadow);
   display: flex;
   gap: .68rem;
-  left: 50%;
-  max-width: calc(100vw - 2rem);
+  left: calc(var(--atlas-viewport-offset-left, 0px) + var(--atlas-visual-width, 100vw) / 2);
+  max-width: calc(var(--atlas-visual-width, 100vw) - 2rem);
   min-height: 3rem;
   overflow: visible;
   padding: .42rem .72rem .42rem .82rem;
   position: fixed;
-  top: 1rem;
+  top: calc(var(--atlas-viewport-offset-top, 0px) + 1rem);
   transform: translateX(-50%);
   transition: opacity 180ms ease, transform 220ms ease;
-  width: min(76rem, calc(100vw - 2rem));
+  width: min(76rem, calc(var(--atlas-visual-width, 100vw) - 2rem));
   z-index: 7000;
 }
 
@@ -1318,7 +1319,7 @@ canvas:focus-visible {
   border-radius: .85rem;
   box-shadow: var(--atlas-glass-shadow);
   left: 0;
-  max-height: min(22rem, calc(100dvh - 5rem));
+  max-height: min(22rem, calc(var(--atlas-visual-height, 100dvh) - 5rem));
   min-width: 100%;
   overflow-x: hidden;
   overflow-y: auto;
@@ -1459,8 +1460,8 @@ canvas:focus-visible {
   height: 2.8rem;
   justify-content: center;
   position: fixed;
-  right: 1rem;
-  top: 1rem;
+  right: calc(100vw - var(--atlas-viewport-offset-left, 0px) - var(--atlas-visual-width, 100vw) + 1rem);
+  top: calc(var(--atlas-viewport-offset-top, 0px) + 1rem);
   width: 2.8rem;
   z-index: 7000;
 }
@@ -1480,8 +1481,8 @@ canvas:focus-visible {
   justify-content: center;
   opacity: .86;
   position: fixed;
-  right: 4.25rem;
-  top: 1rem;
+  right: calc(100vw - var(--atlas-viewport-offset-left, 0px) - var(--atlas-visual-width, 100vw) + 4.25rem);
+  top: calc(var(--atlas-viewport-offset-top, 0px) + 1rem);
   transition: opacity 220ms ease, background-color 160ms ease, border-color 160ms ease, transform 220ms ease;
   width: 2.8rem;
   z-index: 7000;
@@ -1510,7 +1511,7 @@ canvas:focus-visible {
 .atlas-main {
   min-height: var(--atlas-visual-height, 100dvh);
   position: relative;
-  width: 100vw;
+  width: 100%;
   max-width: none;
 }
 
@@ -1766,11 +1767,18 @@ canvas:focus-visible {
 
 #atlas-roadmap-suggestion {
   align-items: center;
+  box-sizing: border-box;
   display: flex;
   inset: 0;
+  height: var(--atlas-visual-height, 100dvh);
+  left: var(--atlas-viewport-offset-left, 0px);
   justify-content: center;
-  padding: 1rem;
+  padding: max(1rem, calc(var(--atlas-safe-top) + .75rem)) max(1rem, calc(var(--atlas-safe-right) + .75rem)) max(1rem, calc(var(--atlas-safe-bottom) + .75rem)) max(1rem, calc(var(--atlas-safe-left) + .75rem));
   position: fixed;
+  top: var(--atlas-viewport-offset-top, 0px);
+  bottom: auto;
+  right: auto;
+  width: var(--atlas-visual-width, 100vw);
   visibility: hidden;
   z-index: 9500;
 }
@@ -1797,8 +1805,11 @@ canvas:focus-visible {
   background: linear-gradient(145deg, rgba(255, 255, 255, .12), transparent 50%), var(--atlas-surface-strong);
   border: 1px solid var(--atlas-glass-line);
   border-radius: 1.2rem;
+  box-sizing: border-box;
   box-shadow: var(--atlas-glass-shadow), 0 24px 80px rgba(0, 0, 0, .3);
   max-width: 34rem;
+  max-height: calc(var(--atlas-visual-height, 100dvh) - max(1rem, calc(var(--atlas-safe-top) + .75rem)) - max(1rem, calc(var(--atlas-safe-bottom) + .75rem)));
+  overflow: auto;
   padding: 1.25rem;
   position: relative;
   transform: translateY(.7rem) scale(.985);
@@ -1917,17 +1928,17 @@ canvas:focus-visible {
   background: linear-gradient(145deg, rgba(255, 255, 255, .1), transparent 50%), var(--atlas-surface-strong);
   border: 1px solid var(--atlas-glass-line);
   border-radius: 1rem;
-  bottom: max(1rem, var(--atlas-safe-bottom));
+  bottom: calc(100vh - var(--atlas-viewport-offset-top, 0px) - var(--atlas-visual-height, 100vh) + max(1rem, var(--atlas-safe-bottom)));
   box-shadow: var(--atlas-glass-shadow), 0 18px 46px rgba(0, 0, 0, .22);
   color: var(--atlas-copy);
   display: flex;
   gap: .7rem;
-  max-width: min(27rem, calc(100vw - 2rem));
+  max-width: min(27rem, calc(var(--atlas-visual-width, 100vw) - 2rem - var(--atlas-safe-left) - var(--atlas-safe-right)));
   opacity: 0;
   padding: .85rem .95rem;
   pointer-events: none;
   position: fixed;
-  right: max(1rem, var(--atlas-safe-right));
+  right: calc(100vw - var(--atlas-viewport-offset-left, 0px) - var(--atlas-visual-width, 100vw) + max(1rem, var(--atlas-safe-right)));
   transform: translateY(.7rem);
   transition: opacity 180ms ease, transform 220ms ease;
   z-index: 9600;
@@ -1996,12 +2007,19 @@ canvas:focus-visible {
 
 #atlas-daily-task-panel {
   align-items: flex-start;
+  box-sizing: border-box;
   display: flex;
   inset: 0;
+  height: var(--atlas-visual-height, 100dvh);
+  left: var(--atlas-viewport-offset-left, 0px);
   justify-content: flex-end;
-  padding: 1rem max(1rem, var(--atlas-safe-right));
+  padding: max(1rem, var(--atlas-safe-top)) max(1rem, var(--atlas-safe-right)) max(1rem, var(--atlas-safe-bottom)) max(1rem, var(--atlas-safe-left));
   pointer-events: none;
   position: fixed;
+  top: var(--atlas-viewport-offset-top, 0px);
+  bottom: auto;
+  right: auto;
+  width: var(--atlas-visual-width, 100vw);
   visibility: hidden;
   z-index: 9500;
 }
@@ -2036,9 +2054,10 @@ canvas:focus-visible {
   background: linear-gradient(145deg, rgba(255, 255, 255, .11), transparent 50%), var(--atlas-surface-strong);
   border: 1px solid var(--atlas-glass-line);
   border-radius: 1.15rem;
+  box-sizing: border-box;
   box-shadow: var(--atlas-glass-shadow), 0 24px 70px rgba(0, 0, 0, .28);
   color: var(--atlas-copy);
-  max-height: calc(100dvh - 2rem);
+  max-height: calc(var(--atlas-visual-height, 100dvh) - max(1rem, var(--atlas-safe-top)) - max(1rem, var(--atlas-safe-bottom)));
   overflow: auto;
   pointer-events: auto;
   position: relative;
@@ -2046,7 +2065,7 @@ canvas:focus-visible {
   opacity: 0;
   transform: translateX(1rem);
   transition: opacity 240ms ease, transform 360ms cubic-bezier(.22, .8, .2, 1);
-  width: min(24rem, calc(100vw - 2rem));
+  width: min(24rem, calc(var(--atlas-visual-width, 100vw) - 2rem - var(--atlas-safe-left) - var(--atlas-safe-right)));
 }
 
 #atlas-daily-task-panel.is-open .atlas-daily-task-card {
@@ -2347,17 +2366,17 @@ canvas:focus-visible {
   background: linear-gradient(145deg, rgba(255, 255, 255, .1), transparent 50%), var(--atlas-surface-strong);
   border: 1px solid var(--atlas-glass-line);
   border-radius: 1rem;
-  bottom: max(1rem, var(--atlas-safe-bottom));
+  bottom: calc(100vh - var(--atlas-viewport-offset-top, 0px) - var(--atlas-visual-height, 100vh) + max(1rem, var(--atlas-safe-bottom)));
   box-shadow: var(--atlas-glass-shadow), 0 18px 46px rgba(0, 0, 0, .22);
   color: var(--atlas-copy);
   display: flex;
   gap: .7rem;
-  max-width: min(23rem, calc(100vw - 2rem));
+  max-width: min(23rem, calc(var(--atlas-visual-width, 100vw) - 2rem - var(--atlas-safe-left) - var(--atlas-safe-right)));
   opacity: 0;
   padding: .85rem .95rem;
   pointer-events: none;
   position: fixed;
-  right: max(1rem, var(--atlas-safe-right));
+  right: calc(100vw - var(--atlas-viewport-offset-left, 0px) - var(--atlas-visual-width, 100vw) + max(1rem, var(--atlas-safe-right)));
   transform: translateY(.7rem);
   transition: opacity 180ms ease, transform 220ms ease;
   z-index: 9600;
@@ -2436,11 +2455,15 @@ canvas:focus-visible {
 }
 
 .atlas-graph-view {
-  height: 100dvh;
-  min-height: 100dvh;
+  height: var(--atlas-visual-height, 100dvh);
+  min-height: var(--atlas-visual-height, 100dvh);
   position: fixed;
   inset: 0;
-  width: 100vw;
+  left: var(--atlas-viewport-offset-left, 0px);
+  right: auto;
+  top: var(--atlas-viewport-offset-top, 0px);
+  bottom: auto;
+  width: var(--atlas-visual-width, 100vw);
   max-width: none;
   overflow: visible;
   z-index: 1;
@@ -2535,7 +2558,7 @@ canvas:focus-visible {
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
-  max-width: min(78rem, calc(100vw - 2rem));
+  max-width: min(78rem, calc(var(--atlas-visual-width, 100vw) - 2rem));
   padding: max(1rem, var(--atlas-safe-top)) 0 1rem;
   width: 100%;
 }
@@ -2591,7 +2614,8 @@ canvas:focus-visible {
 
 .atlas-site-footer {
   align-items: center;
-  bottom: max(.55rem, var(--atlas-safe-bottom));
+  box-sizing: border-box;
+  bottom: calc(100vh - var(--atlas-viewport-offset-top, 0px) - var(--atlas-visual-height, 100vh) + max(.55rem, var(--atlas-safe-bottom)));
   color: var(--atlas-muted);
   display: flex;
   flex-wrap: wrap;
@@ -2600,6 +2624,7 @@ canvas:focus-visible {
   justify-content: center;
   left: 1rem;
   line-height: 1.4;
+  min-width: 0;
   pointer-events: none;
   position: fixed;
   right: 1rem;
@@ -2608,12 +2633,37 @@ canvas:focus-visible {
 }
 
 .atlas-auxiliary-document .atlas-site-footer {
+  box-sizing: border-box;
   bottom: auto;
   left: auto;
   margin-top: auto;
+  min-width: 0;
   padding: 1.15rem max(1rem, var(--atlas-safe-right)) max(1.15rem, var(--atlas-safe-bottom));
   position: relative;
   right: auto;
+  width: 100%;
+}
+
+.atlas-frame[data-atlas-route="note"] .atlas-site-footer {
+  bottom: auto;
+  left: auto;
+  margin-top: 0;
+  padding: 1.15rem max(1rem, var(--atlas-safe-right)) max(1.15rem, var(--atlas-safe-bottom));
+  pointer-events: auto;
+  position: relative;
+  right: auto;
+  width: 100%;
+}
+
+.atlas-frame[data-atlas-route="graph"] .atlas-graph-list,
+.atlas-frame[data-atlas-route="graph"] .atlas-map-controls-shell {
+  bottom: calc(2rem + var(--atlas-safe-bottom));
+}
+
+.atlas-frame[data-atlas-route="graph"] .atlas-site-footer {
+  left: calc(var(--atlas-viewport-offset-left, 0px) + 1rem + var(--atlas-safe-left));
+  right: auto;
+  width: calc(var(--atlas-visual-width, 100vw) - 2rem - var(--atlas-safe-left) - var(--atlas-safe-right));
 }
 
 .atlas-site-footer nav {
@@ -2799,7 +2849,7 @@ canvas:focus-visible {
   color: var(--atlas-copy);
   cursor: pointer;
   font-size: .7rem;
-  max-width: min(18rem, calc(100vw - 2rem));
+  max-width: min(18rem, calc(var(--atlas-visual-width, 100vw) - 2rem));
   overflow: hidden;
   padding: .46rem .72rem;
   text-overflow: ellipsis;
@@ -3189,6 +3239,11 @@ canvas:focus-visible {
     font-size: 16px;
   }
 
+  #atlas-roadmap-suggestion-form input,
+  #atlas-roadmap-suggestion-form textarea {
+    font-size: 16px;
+  }
+
   .atlas-roadmap-view {
     padding-left: max(1rem, calc(1rem + var(--atlas-safe-left)));
     padding-right: max(1rem, calc(1rem + var(--atlas-safe-right)));
@@ -3212,7 +3267,7 @@ canvas:focus-visible {
   }
 
   .atlas-legal-navbar {
-    max-width: calc(100vw - 2rem - var(--atlas-safe-left) - var(--atlas-safe-right));
+    max-width: calc(var(--atlas-visual-width, 100vw) - 2rem - var(--atlas-safe-left) - var(--atlas-safe-right));
     padding-top: max(1rem, var(--atlas-safe-top));
   }
 
@@ -3226,25 +3281,25 @@ canvas:focus-visible {
   }
 
   .atlas-reopen-nav {
-    right: calc(.75rem + var(--atlas-safe-right));
-    top: calc(.75rem + var(--atlas-safe-top));
+    right: calc(100vw - var(--atlas-viewport-offset-left, 0px) - var(--atlas-visual-width, 100vw) + .75rem + var(--atlas-safe-right));
+    top: calc(var(--atlas-viewport-offset-top, 0px) + .75rem + var(--atlas-safe-top));
   }
 
   .atlas-daily-task-trigger {
-    right: calc(4rem + var(--atlas-safe-right));
-    top: calc(.75rem + var(--atlas-safe-top));
+    right: calc(100vw - var(--atlas-viewport-offset-left, 0px) - var(--atlas-visual-width, 100vw) + 4rem + var(--atlas-safe-right));
+    top: calc(var(--atlas-viewport-offset-top, 0px) + .75rem + var(--atlas-safe-top));
   }
 
   .atlas-navbar {
     box-sizing: border-box;
     flex-wrap: nowrap;
     gap: .35rem;
-    left: calc(50% + (var(--atlas-safe-left) - var(--atlas-safe-right)) / 2);
-    max-width: calc(100vw - 2rem - var(--atlas-safe-left) - var(--atlas-safe-right));
+    left: calc(var(--atlas-viewport-offset-left, 0px) + (var(--atlas-visual-width, 100vw) + (var(--atlas-safe-left) - var(--atlas-safe-right))) / 2);
+    max-width: calc(var(--atlas-visual-width, 100vw) - 2rem - var(--atlas-safe-left) - var(--atlas-safe-right));
     min-height: 3.35rem;
     padding: .42rem .58rem .42rem .72rem;
-    top: calc(.65rem + var(--atlas-safe-top));
-    width: calc(100vw - 2rem - var(--atlas-safe-left) - var(--atlas-safe-right));
+    top: calc(var(--atlas-viewport-offset-top, 0px) + .65rem + var(--atlas-safe-top));
+    width: calc(var(--atlas-visual-width, 100vw) - 2rem - var(--atlas-safe-left) - var(--atlas-safe-right));
   }
 
   .atlas-brand {
@@ -3302,10 +3357,10 @@ canvas:focus-visible {
   .atlas-mobile-graph-tools {
     align-items: center;
     display: flex;
-    left: calc(.75rem + var(--atlas-safe-left));
+    left: calc(var(--atlas-viewport-offset-left, 0px) + .75rem + var(--atlas-safe-left));
     pointer-events: none;
     position: fixed;
-    top: calc(4.55rem + var(--atlas-safe-top));
+    top: calc(var(--atlas-viewport-offset-top, 0px) + 4.55rem + var(--atlas-safe-top));
     z-index: 6500;
   }
 
@@ -3323,7 +3378,7 @@ canvas:focus-visible {
     gap: .45rem;
     justify-content: space-between;
     min-height: 2.75rem;
-    max-width: min(17rem, calc(100vw - 1.5rem - var(--atlas-safe-left) - var(--atlas-safe-right)));
+    max-width: min(17rem, calc(var(--atlas-visual-width, 100vw) - 1.5rem - var(--atlas-safe-left) - var(--atlas-safe-right)));
     padding: .45rem .65rem .45rem .85rem;
     pointer-events: auto;
     text-align: left;
@@ -3345,8 +3400,13 @@ canvas:focus-visible {
   }
 
   .atlas-graph-view {
+    left: var(--atlas-viewport-offset-left, 0px);
+    right: auto;
     height: var(--atlas-visual-height, 100dvh);
     min-height: var(--atlas-visual-height, 100dvh);
+    top: var(--atlas-viewport-offset-top, 0px);
+    bottom: auto;
+    width: var(--atlas-visual-width, 100vw);
     overscroll-behavior: none;
   }
 
@@ -3404,14 +3464,14 @@ canvas:focus-visible {
 
 @media all and (min-width: 601px) and (max-width: 1024px) {
   .atlas-navbar {
-    max-width: calc(100vw - 3rem - var(--atlas-safe-left) - var(--atlas-safe-right));
-    top: calc(1rem + var(--atlas-safe-top));
-    width: calc(100vw - 3rem - var(--atlas-safe-left) - var(--atlas-safe-right));
+    max-width: calc(var(--atlas-visual-width, 100vw) - 3rem - var(--atlas-safe-left) - var(--atlas-safe-right));
+    top: calc(var(--atlas-viewport-offset-top, 0px) + 1rem + var(--atlas-safe-top));
+    width: calc(var(--atlas-visual-width, 100vw) - 3rem - var(--atlas-safe-left) - var(--atlas-safe-right));
   }
 
   .atlas-mobile-graph-tools {
-    left: calc(1.5rem + var(--atlas-safe-left));
-    top: calc(5rem + var(--atlas-safe-top));
+    left: calc(var(--atlas-viewport-offset-left, 0px) + 1.5rem + var(--atlas-safe-left));
+    top: calc(var(--atlas-viewport-offset-top, 0px) + 5rem + var(--atlas-safe-top));
   }
 
   .atlas-mobile-area-trigger {
@@ -3438,7 +3498,7 @@ canvas:focus-visible {
 
 @media all and (max-width: 600px) {
   .atlas-legal-navbar {
-    max-width: calc(100vw - 1rem - var(--atlas-safe-left) - var(--atlas-safe-right));
+    max-width: calc(var(--atlas-visual-width, 100vw) - 1rem - var(--atlas-safe-left) - var(--atlas-safe-right));
   }
 
   .atlas-legal-back {
@@ -3451,12 +3511,12 @@ canvas:focus-visible {
   }
 
   .atlas-navbar {
-    max-width: calc(100vw - 1rem - var(--atlas-safe-left) - var(--atlas-safe-right));
+    max-width: calc(var(--atlas-visual-width, 100vw) - 1rem - var(--atlas-safe-left) - var(--atlas-safe-right));
     min-height: 3.4rem;
     padding-left: .72rem;
     padding-right: .58rem;
-    top: calc(.5rem + var(--atlas-safe-top));
-    width: calc(100vw - 1rem - var(--atlas-safe-left) - var(--atlas-safe-right));
+    top: calc(var(--atlas-viewport-offset-top, 0px) + .5rem + var(--atlas-safe-top));
+    width: calc(var(--atlas-visual-width, 100vw) - 1rem - var(--atlas-safe-left) - var(--atlas-safe-right));
   }
 
   .atlas-brand {
@@ -3484,8 +3544,8 @@ canvas:focus-visible {
   }
 
   .atlas-mobile-graph-tools {
-    left: calc(.7rem + var(--atlas-safe-left));
-    top: calc(4.45rem + var(--atlas-safe-top));
+    left: calc(var(--atlas-viewport-offset-left, 0px) + .7rem + var(--atlas-safe-left));
+    top: calc(var(--atlas-viewport-offset-top, 0px) + 4.45rem + var(--atlas-safe-top));
   }
 
   .atlas-mobile-area-trigger {
@@ -3506,13 +3566,18 @@ canvas:focus-visible {
   }
 
   .atlas-return-context {
-    max-width: min(16rem, calc(100vw - 1.4rem - var(--atlas-safe-left) - var(--atlas-safe-right)));
+    max-width: min(16rem, calc(var(--atlas-visual-width, 100vw) - 1.4rem - var(--atlas-safe-left) - var(--atlas-safe-right)));
   }
 
   .atlas-graph-list {
     bottom: calc(.7rem + var(--atlas-safe-bottom));
     left: calc(.7rem + var(--atlas-safe-left));
-    max-width: min(12rem, calc(100vw - 11rem));
+    max-width: min(12rem, calc(var(--atlas-visual-width, 100vw) - 11rem));
+  }
+
+  .atlas-frame[data-atlas-route="graph"] .atlas-graph-list,
+  .atlas-frame[data-atlas-route="graph"] .atlas-map-controls-shell {
+    bottom: calc(4rem + var(--atlas-safe-bottom));
   }
 
   .atlas-note-view {
@@ -3557,7 +3622,7 @@ canvas:focus-visible {
 
   .atlas-daily-task-card {
     border-radius: 1.15rem 1.15rem 0 0;
-    max-height: min(32rem, calc(100dvh - var(--atlas-safe-top) - 1rem));
+    max-height: min(32rem, calc(var(--atlas-visual-height, 100dvh) - var(--atlas-safe-top) - var(--atlas-safe-bottom)));
     transform: translateY(1rem);
     width: 100%;
   }
@@ -3598,6 +3663,10 @@ canvas:focus-visible {
     font-size: 1rem;
   }
 
+  .atlas-note-content article p {
+    text-align: start;
+  }
+
   .atlas-note-content article p,
   .atlas-note-content article li {
     line-height: 1.65;
@@ -3632,8 +3701,8 @@ canvas:focus-visible {
 
 @media all and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
   .atlas-mobile-graph-tools {
-    left: calc(1.25rem + var(--atlas-safe-left));
-    top: calc(5.2rem + var(--atlas-safe-top));
+    left: calc(var(--atlas-viewport-offset-left, 0px) + 1.25rem + var(--atlas-safe-left));
+    top: calc(var(--atlas-viewport-offset-top, 0px) + 5.2rem + var(--atlas-safe-top));
   }
 
   .atlas-note-view {

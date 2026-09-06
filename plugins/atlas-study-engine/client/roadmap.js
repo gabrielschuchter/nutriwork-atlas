@@ -66,6 +66,16 @@
     opener = null
   }
 
+  function focusable(container) {
+    return [...container.querySelectorAll("button, input, textarea, select, a[href]")].filter(
+      (element) =>
+        !element.disabled &&
+        !element.hidden &&
+        element.getAttribute("aria-hidden") !== "true" &&
+        element.getClientRects().length > 0,
+    )
+  }
+
   function showToast(kind, heading, copy) {
     const { toast, toastTitle, toastCopy } = elements()
     if (!toast) return
@@ -260,6 +270,25 @@
 
   function handleKeydown(event) {
     const { overlay } = elements()
+    if (
+      event.key === "Tab" &&
+      overlay &&
+      !overlay.hidden &&
+      overlay.classList.contains("is-open")
+    ) {
+      const items = focusable(overlay)
+      if (items.length) {
+        const first = items[0]
+        const last = items[items.length - 1]
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault()
+          last.focus()
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault()
+          first.focus()
+        }
+      }
+    }
     if (event.key === "Escape" && overlay && !overlay.hidden && !submitting) setModalOpen(false)
   }
 

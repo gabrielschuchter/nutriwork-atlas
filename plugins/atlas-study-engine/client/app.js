@@ -429,8 +429,11 @@
   function positionAreaMenu() {
     const { trigger, menu } = areaPickerElements()
     if (!trigger || !menu || menu.hidden) return
-    const viewportWidth = window.visualViewport?.width || window.innerWidth
-    const viewportHeight = window.visualViewport?.height || window.innerHeight
+    const viewport = window.visualViewport
+    const viewportWidth = viewport?.width || window.innerWidth
+    const viewportHeight = viewport?.height || window.innerHeight
+    const viewportLeft = viewport?.offsetLeft || 0
+    const viewportTop = viewport?.offsetTop || 0
     const gutter = 12
     const triggerRect = trigger.getBoundingClientRect()
     menu.style.bottom = "auto"
@@ -440,8 +443,8 @@
     menu.dataset.menuPlacement = "below"
 
     const belowRect = menu.getBoundingClientRect()
-    const spaceBelow = viewportHeight - triggerRect.bottom - gutter
-    const spaceAbove = triggerRect.top - gutter
+    const spaceBelow = viewportTop + viewportHeight - triggerRect.bottom - gutter
+    const spaceAbove = triggerRect.top - viewportTop - gutter
     if (belowRect.height > spaceBelow && spaceAbove > spaceBelow) {
       menu.style.bottom = "calc(100% + .45rem)"
       menu.style.top = "auto"
@@ -449,10 +452,10 @@
     }
 
     const horizontalRect = menu.getBoundingClientRect()
-    if (horizontalRect.right > viewportWidth - gutter) {
+    if (horizontalRect.right > viewportLeft + viewportWidth - gutter) {
       menu.style.left = "auto"
       menu.style.right = "0"
-    } else if (horizontalRect.left < gutter) {
+    } else if (horizontalRect.left < viewportLeft + gutter) {
       menu.style.left = "0"
       menu.style.right = "auto"
     }
@@ -856,17 +859,22 @@
     const preview = document.getElementById(previewId)
     if (!preview || !anchor) return
     const margin = 16
-    const viewportWidth = window.visualViewport?.width || window.innerWidth
-    const viewportHeight = window.visualViewport?.height || window.innerHeight
+    const viewport = window.visualViewport
+    const viewportWidth = viewport?.width || window.innerWidth
+    const viewportHeight = viewport?.height || window.innerHeight
+    const viewportLeft = viewport?.offsetLeft || 0
+    const viewportTop = viewport?.offsetTop || 0
     const previewWidth = Math.min(360, viewportWidth - margin * 2)
     preview.style.width = previewWidth + "px"
     const previewHeight = preview.offsetHeight || 190
     let left = anchor.left
     let top = anchor.bottom + margin
-    if (left + previewWidth > viewportWidth - margin) left = viewportWidth - previewWidth - margin
-    if (left < margin) left = margin
-    if (top + previewHeight > viewportHeight - margin) top = anchor.top - previewHeight - margin
-    if (top < margin) top = margin
+    if (left + previewWidth > viewportLeft + viewportWidth - margin)
+      left = viewportLeft + viewportWidth - previewWidth - margin
+    if (left < viewportLeft + margin) left = viewportLeft + margin
+    if (top + previewHeight > viewportTop + viewportHeight - margin)
+      top = anchor.top - previewHeight - margin
+    if (top < viewportTop + margin) top = viewportTop + margin
     preview.style.left = Math.round(left) + "px"
     preview.style.top = Math.round(top) + "px"
   }
@@ -943,6 +951,7 @@
     const width = Math.max(1, viewport?.width || window.innerWidth)
     root().style.setProperty("--atlas-visual-height", height + "px")
     root().style.setProperty("--atlas-visual-width", width + "px")
+    root().style.setProperty("--atlas-viewport-offset-left", (viewport?.offsetLeft || 0) + "px")
     root().style.setProperty("--atlas-viewport-offset-top", (viewport?.offsetTop || 0) + "px")
     const active = document.activeElement
     const keyboardOpen =
@@ -1440,6 +1449,7 @@
     const onboarding = onboardingElements()
     const help = helpElements()
     const report = reportElements()
+    const dailyTask = document.getElementById("atlas-daily-task-panel")
     const overlay = [
       document.getElementById("atlas-search-sheet"),
       document.getElementById("atlas-area-sheet"),
@@ -1447,6 +1457,7 @@
       onboarding?.overlay,
       help?.overlay,
       report?.overlay,
+      dailyTask,
     ].find((candidate) => candidate && !candidate.hidden && candidate.classList.contains("is-open"))
     if (!overlay) return
     const items = focusable(overlay)
