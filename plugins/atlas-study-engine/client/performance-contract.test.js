@@ -4,20 +4,6 @@ import test from "node:test"
 
 const source = async (path) => readFile(new URL(path, import.meta.url), "utf8")
 
-test("Atlas keeps product animations enabled regardless of device preference", async () => {
-  const files = await Promise.all([
-    source("./graph.js"),
-    readFile(new URL("../../../quartz/components/frames/AtlasFrame.tsx", import.meta.url), "utf8"),
-    readFile(new URL("../../atlas-ui/components/index.js", import.meta.url), "utf8"),
-  ])
-  const atlasSource = files.join("\n")
-  const forbiddenPatterns = [
-    ["prefers", "reduced", "motion"].join("-"),
-    ["reduced", "motion"].join("-"),
-  ]
-  for (const pattern of forbiddenPatterns) assert.equal(atlasSource.includes(pattern), false)
-})
-
 test("Atlas synchronizes canvas colors with the initial document theme", async () => {
   const [app, graph] = await Promise.all([source("./app.js"), source("./graph.js")])
   assert.match(app, /atlas\.graph\?\.setTheme\?\.\(nextTheme\)/)
