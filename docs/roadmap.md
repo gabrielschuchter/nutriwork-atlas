@@ -2,7 +2,9 @@
 
 ## Conteúdo
 
-Os itens publicados vivem em [`roadmap.ts`](../roadmap.ts). O agrupamento em `planned`, `in-progress` e `completed` define as três colunas; cada item tem somente título, descrição e categoria opcional. Sugestões recebidas nunca são inseridas automaticamente nessa lista.
+Os itens publicados vivem em [`roadmap.ts`](../roadmap.ts), na lista `roadmapItems`. Ela começa vazia de propósito: sugestões recebidas nunca são inseridas automaticamente nessa lista. Quando um item real e curado for adicionado, seu campo `column` o posicionará em `planned`, `in-progress` ou `completed`, e a página voltará automaticamente às três colunas tradicionais.
+
+Enquanto `roadmapItems` estiver vazia, `/roadmap` exibe o estado de abertura do roadmap e o convite para enviar sugestões; não exibe colunas ou contadores zerados.
 
 ## Sugestões
 

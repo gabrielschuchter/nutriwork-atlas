@@ -1,5 +1,16 @@
 # Nutriwork Atlas — plano e estado do MVP
 
+## Estado de lançamento do roadmap — 7 de setembro de 2026
+
+Escopo autorizado: remover os itens demonstrativos do roadmap e transformar a rota `/roadmap` em um convite público para sugestões até que exista o primeiro item real. Preservar a identidade visual, as rotas, a integração `/api/atlas-suggestions` e o layout tradicional para o futuro.
+
+- `roadmapItems` começa como lista vazia; `buildRoadmapColumns` continua preparando as três colunas apenas quando itens reais forem curados na fonte.
+- A UI escolhe automaticamente entre o estado de abertura e as colunas tradicionais a partir de `roadmapHasItems`; o estado vazio não renderiza contadores nem colunas vazias.
+- O estado de abertura usa um cabeçalho, um convite central, três provocações clicáveis, a nota de avaliação da equipe e CTAs que reutilizam o mesmo formulário.
+- O formulário mantém somente título e descrição, com placeholders orientativos, loading visível em `Enviando…` e feedback de sucesso `Sugestão recebida` após confirmação do envio.
+
+Gates específicos: `npm run check`, `npm test`, `npm run vault:check`, `npm run atlas:index`, `npm run build`, `npm audit --audit-level=high`, `git diff --check`, inspeção do HTML sem dados fictícios, QA dos seis CTAs, fluxo de envio e teste temporário do layout tradicional com um item real removido ao final.
+
 ## Engine real de Tarefas de hoje — 6 de setembro de 2026
 
 Escopo autorizado: substituir as aproximadamente 50 tarefas textuais por uma lista pequena de tarefas declarativas, objetivamente detectáveis e localmente persistentes. Preservar o grafo, busca, filtros, navegação, access gate, responsividade e a arquitetura sem backend.

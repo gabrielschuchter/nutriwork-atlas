@@ -169,22 +169,24 @@
   }
 
   function flushSuggestionQueue(currentSubmissionId = "") {
-    if (flushing) return flushing
+    if (flushing) return flushing.then(() => flushSuggestionQueue(currentSubmissionId))
     flushing = (async () => {
       const queue = readSuggestionQueue()
       const current = queue.find((item) => item.submissionId === currentSubmissionId)
       const items = current
         ? [current, ...queue.filter((item) => item.submissionId !== currentSubmissionId)]
         : queue
+      let currentSucceeded = !currentSubmissionId
       for (const item of items) {
         try {
           await sendSuggestion(item)
           removeQueuedSuggestion(item.submissionId)
           if (item.submissionId === currentSubmissionId) {
+            currentSucceeded = true
             showToast(
               "success",
-              "Sugestão recebida!",
-              "Obrigado por contribuir com o Atlas. Sua sugestão será considerada em futuras melhorias.",
+              "Sugestão recebida",
+              "Obrigado. Vamos considerar sua ideia nas próximas decisões sobre o Atlas.",
             )
           }
         } catch (error) {
@@ -193,14 +195,15 @@
               "error",
               "Envio não concluído",
               error?.message === "rate_limited"
-                ? "Muitas tentativas. Aguarde alguns minutos e tente novamente."
-                : "Não foi possível confirmar o envio agora. Vamos tentar novamente em segundo plano.",
+                ? "Muitas tentativas. Aguarde e tente novamente."
+                : "Não foi possível enviar agora. Tente novamente.",
             )
           }
           scheduleSuggestionRetry()
           break
         }
       }
+      return currentSucceeded
     })().finally(() => {
       flushing = null
       if (readSuggestionQueue().length && !automaticRetryUsed) void flushSuggestionQueue()
@@ -251,22 +254,28 @@
       submit.disabled = true
       submit.textContent = "Enviando…"
     }
+    form.setAttribute("aria-busy", "true")
+    setStatus("Enviando…")
     const item = {
       title: cleanTitle,
       description: cleanDescription,
       submissionId: submissionId(),
     }
     enqueueSuggestion(item)
-    form.reset()
-    setStatus("")
-    setModalOpen(false)
+    const delivered = await flushSuggestionQueue(item.submissionId)
     submitting = false
+    form.setAttribute("aria-busy", "false")
     if (submit) {
       submit.disabled = false
       submit.textContent = "Enviar sugestão"
     }
-    showToast("loading", "Sugestão em envio", "Estamos encaminhando sua sugestão em segundo plano.")
-    void flushSuggestionQueue(item.submissionId)
+    if (delivered) {
+      form.reset()
+      setStatus("")
+      setModalOpen(false)
+    } else {
+      setStatus("Não foi possível enviar agora. Tente novamente.", "error")
+    }
   }
 
   function handleKeydown(event) {

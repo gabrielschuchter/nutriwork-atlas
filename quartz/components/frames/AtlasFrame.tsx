@@ -1,6 +1,6 @@
 import { FullSlug, resolveRelative } from "../../util/path"
 import { PageFrame, PageFrameProps } from "./types"
-import { roadmapColumns } from "../../../roadmap"
+import { roadmapColumns, roadmapHasItems } from "../../../roadmap"
 
 function labelFromSlug(slug: FullSlug): string {
   const value = String(slug)
@@ -16,6 +16,24 @@ function withQuery(href: string, key: string, value: string): string {
 }
 
 const LEGAL_SLUGS = new Set(["privacidade", "termos", "seguranca", "acessibilidade"])
+
+const roadmapPromptCards = [
+  {
+    number: "01",
+    title: "Algo que está fazendo falta",
+    description: "Uma funcionalidade que você gostaria de ter enquanto explora o Atlas.",
+  },
+  {
+    number: "02",
+    title: "Algo que poderia funcionar melhor",
+    description: "Uma parte da experiência que poderia ser mais simples, rápida ou útil.",
+  },
+  {
+    number: "03",
+    title: "Uma ideia nova",
+    description: "Algo que você gostaria de conseguir fazer no Atlas e ainda não consegue.",
+  },
+]
 
 const AUXILIARY_VIEWPORT_SYNC = String.raw`
 (() => {
@@ -100,10 +118,21 @@ export const AtlasFrame: PageFrame = {
               <h1 id="atlas-roadmap-title" data-atlas-fit-title="">
                 Roadmap do Atlas
               </h1>
-              <p class="atlas-roadmap-description">
-                Uma visão simples do que estamos construindo, do que está em andamento e do que já
-                chegou ao Atlas.
-              </p>
+              {roadmapHasItems ? (
+                <p class="atlas-roadmap-description">
+                  Uma visão simples do que estamos construindo, do que está em andamento e do que já
+                  chegou ao Atlas.
+                </p>
+              ) : (
+                <>
+                  <p class="atlas-roadmap-description">
+                    Estamos abrindo o roadmap do Atlas para quem realmente usa a ferramenta.
+                  </p>
+                  <p class="atlas-roadmap-description atlas-roadmap-description-secondary">
+                    Tem algo que faria o Atlas ser mais útil para você? Conta pra gente.
+                  </p>
+                </>
+              )}
             </div>
             <div class="atlas-roadmap-intro-actions">
               <button
@@ -124,38 +153,107 @@ export const AtlasFrame: PageFrame = {
                 >
                   <path d="M12 5v14M5 12h14" />
                 </svg>
-                <span>Enviar sugestão</span>
+                <span>Enviar uma sugestão</span>
               </button>
             </div>
           </header>
-          <div class="atlas-roadmap-columns">
-            {roadmapColumns.map((column) => (
+          {roadmapHasItems ? (
+            <div class="atlas-roadmap-columns">
+              {roadmapColumns.map((column) => (
+                <section
+                  class={`atlas-roadmap-column atlas-roadmap-column-${column.key}`}
+                  aria-labelledby={`atlas-roadmap-${column.key}`}
+                  key={column.key}
+                >
+                  <header class="atlas-roadmap-column-header">
+                    <span class="atlas-roadmap-status" aria-hidden="true" />
+                    <h2 id={`atlas-roadmap-${column.key}`} data-atlas-fit-title="">
+                      {column.label}
+                    </h2>
+                    <span class="atlas-roadmap-count">{column.items.length}</span>
+                  </header>
+                  <div class="atlas-roadmap-items">
+                    {column.items.map((item) => (
+                      <article class="atlas-roadmap-card" key={item.title}>
+                        <h3 data-atlas-fit-title="">{item.title}</h3>
+                        <p>{item.description}</p>
+                        {item.category ? (
+                          <span class="atlas-roadmap-tag">{item.category}</span>
+                        ) : null}
+                      </article>
+                    ))}
+                  </div>
+                </section>
+              ))}
+            </div>
+          ) : (
+            <div class="atlas-roadmap-launch">
               <section
-                class={`atlas-roadmap-column atlas-roadmap-column-${column.key}`}
-                aria-labelledby={`atlas-roadmap-${column.key}`}
-                key={column.key}
+                class="atlas-roadmap-launch-card"
+                aria-labelledby="atlas-roadmap-launch-title"
               >
-                <header class="atlas-roadmap-column-header">
-                  <span class="atlas-roadmap-status" aria-hidden="true" />
-                  <h2 id={`atlas-roadmap-${column.key}`} data-atlas-fit-title="">
-                    {column.label}
+                <div class="atlas-roadmap-launch-copy">
+                  <p class="atlas-roadmap-launch-label">ABERTURA DO ROADMAP</p>
+                  <h2 id="atlas-roadmap-launch-title" data-atlas-fit-title="">
+                    O roadmap começa aqui.
                   </h2>
-                  <span class="atlas-roadmap-count">{column.items.length}</span>
-                </header>
-                <div class="atlas-roadmap-items">
-                  {column.items.map((item) => (
-                    <article class="atlas-roadmap-card" key={item.title}>
-                      <h3 data-atlas-fit-title="">{item.title}</h3>
-                      <p>{item.description}</p>
-                      {item.category ? (
-                        <span class="atlas-roadmap-tag">{item.category}</span>
-                      ) : null}
-                    </article>
+                  <p>
+                    Ainda não publicamos itens neste roadmap. Antes de preencher esta página com
+                    ideias nossas, queremos ouvir quem está explorando o Atlas.
+                  </p>
+                  <p>Sugira uma melhoria, uma funcionalidade ou algo que esteja fazendo falta.</p>
+                </div>
+                <button
+                  class="atlas-roadmap-launch-button"
+                  type="button"
+                  data-atlas-roadmap-action="open-suggestion"
+                >
+                  Quero sugerir algo
+                </button>
+              </section>
+
+              <section class="atlas-roadmap-prompts" aria-labelledby="atlas-roadmap-prompts-title">
+                <div class="atlas-roadmap-section-heading">
+                  <p class="atlas-roadmap-launch-label">PARA COMEÇAR</p>
+                  <h2 id="atlas-roadmap-prompts-title" data-atlas-fit-title="">
+                    O que você pode sugerir?
+                  </h2>
+                </div>
+                <div class="atlas-roadmap-prompt-list">
+                  {roadmapPromptCards.map((prompt) => (
+                    <button
+                      class="atlas-roadmap-prompt"
+                      type="button"
+                      data-atlas-roadmap-action="open-suggestion"
+                      key={prompt.number}
+                    >
+                      <span class="atlas-roadmap-prompt-number" aria-hidden="true">
+                        {prompt.number}
+                      </span>
+                      <span class="atlas-roadmap-prompt-copy">
+                        <strong>{prompt.title}</strong>
+                        <span>{prompt.description}</span>
+                      </span>
+                      <span class="atlas-roadmap-prompt-arrow" aria-hidden="true">
+                        →
+                      </span>
+                    </button>
                   ))}
                 </div>
+                <p class="atlas-roadmap-launch-note">
+                  As sugestões não entram automaticamente no roadmap. Elas são avaliadas pela equipe
+                  do Nutriwork antes de serem publicadas.
+                </p>
+                <button
+                  class="atlas-roadmap-final-button"
+                  type="button"
+                  data-atlas-roadmap-action="open-suggestion"
+                >
+                  Enviar minha sugestão
+                </button>
               </section>
-            ))}
-          </div>
+            </div>
+          )}
         </div>
       </section>
     )
@@ -179,7 +277,7 @@ export const AtlasFrame: PageFrame = {
           <section class="atlas-roadmap-suggestion-card">
             <header class="atlas-roadmap-suggestion-header">
               <h2 id="atlas-roadmap-suggestion-title" data-atlas-fit-title="">
-                Enviar sugestão
+                Enviar uma sugestão
               </h2>
               <button
                 class="atlas-roadmap-suggestion-close"
@@ -190,6 +288,7 @@ export const AtlasFrame: PageFrame = {
                 ×
               </button>
             </header>
+            <p class="atlas-roadmap-suggestion-intro">O que você gostaria de ver no Atlas?</p>
             <form id="atlas-roadmap-suggestion-form" noValidate>
               <label for="atlas-roadmap-suggestion-title-input">Título</label>
               <input
@@ -198,6 +297,7 @@ export const AtlasFrame: PageFrame = {
                 type="text"
                 maxLength={160}
                 autocomplete="off"
+                placeholder="Ex.: comparar dois conceitos lado a lado"
                 required
               />
               <label for="atlas-roadmap-suggestion-description">Descrição</label>
@@ -206,6 +306,7 @@ export const AtlasFrame: PageFrame = {
                 name="description"
                 rows={5}
                 maxLength={2000}
+                placeholder="Conte brevemente como isso poderia melhorar sua experiência no Atlas."
                 required
               />
               <p
@@ -1656,7 +1757,13 @@ canvas:focus-visible {
   max-width: 48rem;
 }
 
+.atlas-roadmap-description-secondary {
+  margin-top: .3rem;
+}
+
 .atlas-roadmap-suggest-button,
+.atlas-roadmap-launch-button,
+.atlas-roadmap-final-button,
 .atlas-roadmap-submit {
   align-items: center;
   background: var(--atlas-blue);
@@ -1678,6 +1785,10 @@ canvas:focus-visible {
 
 .atlas-roadmap-suggest-button:hover,
 .atlas-roadmap-suggest-button:focus-visible,
+.atlas-roadmap-launch-button:hover,
+.atlas-roadmap-launch-button:focus-visible,
+.atlas-roadmap-final-button:hover,
+.atlas-roadmap-final-button:focus-visible,
 .atlas-roadmap-submit:hover,
 .atlas-roadmap-submit:focus-visible {
   background: var(--atlas-blue-bright);
@@ -1693,6 +1804,174 @@ canvas:focus-visible {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   margin: 0 auto;
   max-width: 82rem;
+}
+
+.atlas-roadmap-launch {
+  margin: 0 auto;
+  max-width: 82rem;
+}
+
+.atlas-roadmap-launch-card {
+  align-items: center;
+  background: linear-gradient(145deg, rgba(255, 255, 255, .075), transparent 52%), var(--atlas-glass-soft);
+  border: 1px solid var(--atlas-glass-line);
+  border-radius: 1.25rem;
+  box-shadow: var(--atlas-glass-shadow);
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+  padding: clamp(1.25rem, 3.2vw, 2.4rem);
+}
+
+.atlas-roadmap-launch-copy {
+  max-width: 47rem;
+  min-width: 0;
+}
+
+.atlas-roadmap-launch-label {
+  color: var(--atlas-blue);
+  font-family: var(--codeFont);
+  font-size: .64rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  margin: 0 0 .7rem;
+}
+
+.atlas-roadmap-launch-card h2,
+.atlas-roadmap-prompts h2 {
+  color: var(--atlas-ink);
+  font-size: clamp(1.45rem, 3vw, 2.2rem);
+  letter-spacing: -.04em;
+  line-height: 1.05;
+  margin: 0;
+}
+
+.atlas-roadmap-launch-card p {
+  color: var(--atlas-copy);
+  font-size: .92rem;
+  line-height: 1.6;
+  margin: .8rem 0 0;
+  max-width: 44rem;
+}
+
+.atlas-roadmap-launch-card p + p {
+  margin-top: .35rem;
+}
+
+.atlas-roadmap-launch-button,
+.atlas-roadmap-final-button {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+.atlas-roadmap-prompts {
+  margin: 4.2rem auto 0;
+  max-width: 82rem;
+}
+
+.atlas-roadmap-section-heading {
+  border-top: 1px solid var(--atlas-line);
+  padding-top: 1.5rem;
+}
+
+.atlas-roadmap-section-heading .atlas-roadmap-launch-label {
+  margin-bottom: .55rem;
+}
+
+.atlas-roadmap-prompt-list {
+  display: grid;
+  gap: .8rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 1.25rem;
+}
+
+.atlas-roadmap-prompt {
+  align-items: start;
+  background: color-mix(in srgb, var(--atlas-glass-strong) 62%, transparent);
+  border: 1px solid color-mix(in srgb, var(--atlas-glass-line) 72%, transparent);
+  border-radius: .95rem;
+  color: var(--atlas-copy);
+  cursor: pointer;
+  display: grid;
+  font: inherit;
+  gap: .8rem;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  min-width: 0;
+  padding: 1.05rem;
+  text-align: left;
+  transition: border-color 160ms ease, background-color 160ms ease, transform 160ms ease;
+  width: 100%;
+}
+
+.atlas-roadmap-prompt:hover,
+.atlas-roadmap-prompt:focus-visible {
+  background: color-mix(in srgb, var(--atlas-glass-highlight) 34%, transparent);
+  border-color: var(--atlas-line-strong);
+  color: var(--atlas-ink);
+  outline: none;
+  transform: translateY(-1px);
+}
+
+.atlas-roadmap-prompt:focus-visible,
+.atlas-roadmap-launch-button:focus-visible,
+.atlas-roadmap-final-button:focus-visible {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--atlas-blue) 34%, transparent);
+}
+
+.atlas-roadmap-prompt-number {
+  color: var(--atlas-blue);
+  font-family: var(--codeFont);
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  line-height: 1.4;
+  padding-top: .1rem;
+}
+
+.atlas-roadmap-prompt-copy {
+  display: grid;
+  gap: .35rem;
+  min-width: 0;
+}
+
+.atlas-roadmap-prompt-copy strong {
+  color: var(--atlas-ink);
+  font-size: .84rem;
+  line-height: 1.3;
+}
+
+.atlas-roadmap-prompt-copy span {
+  font-size: .76rem;
+  line-height: 1.5;
+}
+
+.atlas-roadmap-prompt-arrow {
+  color: var(--atlas-muted);
+  font-size: 1.1rem;
+  line-height: 1;
+  padding-top: .05rem;
+}
+
+.atlas-roadmap-launch-note {
+  color: var(--atlas-muted);
+  font-size: .74rem;
+  line-height: 1.5;
+  margin: 1.25rem 0 0;
+  max-width: 54rem;
+}
+
+.atlas-roadmap-final-button {
+  background: transparent;
+  border-color: var(--atlas-line-strong);
+  color: var(--atlas-ink);
+  margin-top: 1.15rem;
+}
+
+.atlas-roadmap-final-button:hover,
+.atlas-roadmap-final-button:focus-visible {
+  background: color-mix(in srgb, var(--atlas-blue) 16%, transparent);
+  border-color: var(--atlas-blue);
+  color: var(--atlas-ink);
 }
 
 .atlas-roadmap-column {
@@ -1812,6 +2091,20 @@ canvas:focus-visible {
   border-color: rgba(30, 95, 175, .12);
 }
 
+:root[data-theme="light"] .atlas-roadmap-launch-card {
+  background: linear-gradient(145deg, rgba(255, 255, 255, .55), transparent 52%), rgba(255, 255, 255, .38);
+  border-color: rgba(30, 95, 175, .14);
+}
+
+:root[data-theme="light"] .atlas-roadmap-prompt {
+  background: rgba(255, 255, 255, .42);
+  border-color: rgba(30, 95, 175, .12);
+}
+
+:root[data-theme="light"] .atlas-roadmap-final-button {
+  background: rgba(255, 255, 255, .18);
+}
+
 #atlas-roadmap-suggestion {
   align-items: center;
   box-sizing: border-box;
@@ -1880,6 +2173,13 @@ canvas:focus-visible {
   font-size: 1.15rem;
   letter-spacing: -.025em;
   margin: 0;
+}
+
+.atlas-roadmap-suggestion-intro {
+  color: var(--atlas-copy);
+  font-size: .78rem;
+  line-height: 1.45;
+  margin: -.55rem 0 1rem;
 }
 
 .atlas-roadmap-suggestion-close {
@@ -3696,6 +3996,17 @@ html.atlas-modal-open .atlas-daily-task-toast {
     width: 100%;
   }
 
+  .atlas-roadmap-launch-card {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .atlas-roadmap-launch-button,
+  .atlas-roadmap-final-button {
+    width: 100%;
+  }
+
   .atlas-roadmap-suggestion-card {
     border-radius: 1rem;
     padding: 1rem;
@@ -3827,6 +4138,12 @@ html.atlas-modal-open .atlas-daily-task-toast {
   width: var(--atlas-visual-width, 100vw);
 }
 
+@media all and (max-width: 760px) {
+  .atlas-roadmap-prompt-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
 :root.atlas-visual-constrained .atlas-site-footer,
 :root.atlas-compact-viewport .atlas-site-footer {
   max-width: var(--atlas-visual-width, 100vw);
@@ -3847,6 +4164,17 @@ html.atlas-modal-open .atlas-daily-task-toast {
 }
 
 :root.atlas-compact-viewport .atlas-roadmap-intro-actions {
+  width: 100%;
+}
+
+:root.atlas-compact-viewport .atlas-roadmap-launch-card {
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+:root.atlas-compact-viewport .atlas-roadmap-launch-button,
+:root.atlas-compact-viewport .atlas-roadmap-final-button {
   width: 100%;
 }
 
@@ -3873,6 +4201,10 @@ html.atlas-modal-open .atlas-daily-task-toast {
 :root.atlas-compact-viewport .atlas-roadmap-columns {
   grid-template-columns: minmax(0, 1fr);
   max-width: 44rem;
+}
+
+:root.atlas-narrow-viewport .atlas-roadmap-prompt-list {
+  grid-template-columns: minmax(0, 1fr);
 }
 
 :root.atlas-compact-viewport .atlas-reopen-nav {
