@@ -1,29 +1,39 @@
 ;(() => {
   const atlas = (window.__nutriworkAtlasEngine = window.__nutriworkAtlasEngine || {})
-  if (atlas.atlasSound?.runtimeVersion === 1) return
+  if (atlas.atlasSound?.runtimeVersion === 2) return
 
-  let audioContext = null
-  let unlockPromise = null
+  const soundOptions = {
+    src: ["/static/task-complete.mp3"],
+    preload: true,
+    volume: 0.35,
+    html5: true,
+  }
+  let taskCompleteSound = null
   let enabledOverride = null
-  let lifecycleState = "ready"
+  let listenersInstalled = false
   let lastFailure = null
   let lastFailureKey = ""
-  let listenersInstalled = false
+  const pendingKinds = new Map()
 
   const metrics = {
-    contextCreations: 0,
+    soundCreations: 0,
     unlockAttempts: 0,
-    unlockSuccesses: 0,
+    unlockEvents: 0,
     confirmationRequests: 0,
     confirmationPlays: 0,
     completionRequests: 0,
     completionPlays: 0,
-    completionFailures: 0,
+    playErrors: 0,
+    unlockRetries: 0,
     lastEvent: "ready",
   }
 
-  function contextState(context = audioContext) {
-    return String(context?.state || "unavailable")
+  function howlerConstructor() {
+    return globalThis.__nutriworkHowl || window.__nutriworkHowl
+  }
+
+  function howlerGlobal() {
+    return globalThis.__nutriworkHowler || window.__nutriworkHowler
   }
 
   function enabledFromStorage() {
@@ -33,13 +43,6 @@
 
   function isEnabled() {
     return enabledOverride === null ? enabledFromStorage() : enabledOverride
-  }
-
-  function setEnabled(value) {
-    enabledOverride = Boolean(value)
-    atlas.dailyTaskEngine?.setSoundEnabled?.(enabledOverride)
-    metrics.lastEvent = enabledOverride ? "enabled" : "disabled"
-    return enabledOverride
   }
 
   function failureMessage(error) {
@@ -57,101 +60,71 @@
     if (typeof console?.warn === "function") console.warn(`[Atlas sound] ${stage}: ${message}`)
   }
 
-  function contextConstructor() {
-    const candidate = window.AudioContext || window.webkitAudioContext
-    return typeof candidate === "function" ? candidate : null
+  function onPlay(id) {
+    const kind = pendingKinds.get(id)
+    if (!kind) return
+    pendingKinds.delete(id)
+    if (kind === "confirmation") metrics.confirmationPlays += 1
+    if (kind === "completion") metrics.completionPlays += 1
+    metrics.lastEvent = `${kind}-played`
   }
 
-  function getContext() {
-    const AudioContext = contextConstructor()
-    if (!AudioContext) {
-      reportFailure("context-unavailable", "Web Audio API indisponível")
+  function createSound() {
+    if (taskCompleteSound) return taskCompleteSound
+    const Howl = howlerConstructor()
+    if (typeof Howl !== "function") {
+      reportFailure("howl-unavailable", "Howler não foi carregado")
       return null
     }
-    if (audioContext && contextState() !== "closed") return audioContext
     try {
-      audioContext = new AudioContext()
-      metrics.contextCreations += 1
-      metrics.lastEvent = "context-created"
-      return audioContext
+      taskCompleteSound = new Howl(soundOptions)
+      taskCompleteSound.on?.("play", onPlay)
+      taskCompleteSound.on?.("loaderror", (_id, error) => reportFailure("load", error))
+      metrics.soundCreations += 1
+      metrics.lastEvent = "sound-created"
+      return taskCompleteSound
     } catch (error) {
-      audioContext = null
-      reportFailure("context-create", error)
+      reportFailure("sound-create", error)
       return null
     }
   }
 
-  function resumeContext(context) {
-    metrics.unlockAttempts += 1
-    if (!context || typeof context.resume !== "function") {
-      reportFailure("resume-unavailable", "AudioContext não pode ser retomado")
-      return Promise.resolve(false)
-    }
-    let resumeResult
+  function play(kind) {
+    if (!isEnabled()) return false
+    const sound = createSound()
+    if (!sound) return false
+    let id
     try {
-      // This call is made synchronously by unlock(), which is invoked from a
-      // real pointer/touch/click/keydown handler whenever possible.
-      resumeResult = context.resume()
-    } catch (error) {
-      reportFailure("resume-throw", error)
-      return Promise.resolve(false)
-    }
-    return Promise.resolve(resumeResult)
-      .then(() => {
-        if (contextState(context) !== "running") {
-          reportFailure("resume-state", `estado após resume: ${contextState(context)}`)
-          return false
-        }
-        metrics.unlockSuccesses += 1
-        metrics.lastEvent = "unlocked"
-        lifecycleState = "unlocked"
-        return true
-      })
-      .catch((error) => {
-        reportFailure("resume-rejected", error)
+      id = sound.play()
+      if (!id) {
+        reportFailure("play", "Howler não retornou um id de reprodução")
         return false
-      })
-  }
-
-  function scheduleTone(context, type) {
-    if (!context || contextState(context) !== "running") {
-      reportFailure(`${type}-not-running`, `estado atual: ${contextState(context)}`)
-      if (type === "completion") metrics.completionFailures += 1
-      return false
-    }
-
-    const notes =
-      type === "confirmation"
-        ? [{ frequency: 520, offset: 0, duration: 0.09, amplitude: 0.028 }]
-        : [
-            { frequency: 660, offset: 0, duration: 0.17, amplitude: 0.045 },
-            { frequency: 880, offset: 0.07, duration: 0.14, amplitude: 0.034 },
-          ]
-
-    try {
-      const now = context.currentTime
-      for (const note of notes) {
-        const oscillator = context.createOscillator()
-        const gain = context.createGain()
-        const start = now + note.offset
-        const end = start + note.duration
-        oscillator.type = "sine"
-        oscillator.frequency.setValueAtTime(note.frequency, start)
-        gain.gain.setValueAtTime(0.0001, start)
-        gain.gain.linearRampToValueAtTime(note.amplitude, start + 0.012)
-        gain.gain.exponentialRampToValueAtTime(0.0001, end)
-        oscillator.connect(gain)
-        gain.connect(context.destination)
-        oscillator.start(start)
-        oscillator.stop(end + 0.005)
       }
-      if (type === "confirmation") metrics.confirmationPlays += 1
-      if (type === "completion") metrics.completionPlays += 1
-      metrics.lastEvent = `${type}-scheduled`
+      pendingKinds.set(id, kind)
+      sound.once?.(
+        "playerror",
+        () => {
+          pendingKinds.delete(id)
+          metrics.playErrors += 1
+          metrics.lastEvent = "play-error"
+          sound.once?.("unlock", () => {
+            if (!isEnabled()) return
+            metrics.unlockRetries += 1
+            pendingKinds.set(id, kind)
+            try {
+              sound.play(id)
+            } catch (error) {
+              pendingKinds.delete(id)
+              reportFailure("unlock-retry", error)
+            }
+          })
+        },
+        id,
+      )
+      metrics.lastEvent = `${kind}-requested`
       return true
     } catch (error) {
-      if (type === "completion") metrics.completionFailures += 1
-      reportFailure(`${type}-schedule`, error)
+      reportFailure("play", error)
       return false
     }
   }
@@ -161,105 +134,54 @@
       metrics.lastEvent = "unlock-skipped-disabled"
       return Promise.resolve(false)
     }
+    metrics.unlockAttempts += 1
+    const sound = createSound()
+    if (!sound) return Promise.resolve(false)
+    metrics.unlockEvents += 1
+    metrics.lastEvent = "unlock-armed"
+    if (!confirmation) return Promise.resolve(true)
+    metrics.confirmationRequests += 1
+    return Promise.resolve(play("confirmation"))
+  }
 
-    if (unlockPromise) {
-      return unlockPromise.then((unlocked) => {
-        if (unlocked && confirmation && isEnabled()) {
-          metrics.confirmationRequests += 1
-          scheduleTone(audioContext, "confirmation")
-        }
-        return unlocked
-      })
+  function setEnabled(value) {
+    enabledOverride = Boolean(value)
+    atlas.dailyTaskEngine?.setSoundEnabled?.(enabledOverride)
+    if (!enabledOverride) {
+      taskCompleteSound?.stop?.()
+      pendingKinds.clear()
     }
-
-    const context = getContext()
-    if (!context) return Promise.resolve(false)
-    const unlocked =
-      contextState(context) === "running" ? Promise.resolve(true) : resumeContext(context)
-    const pending = unlocked
-      .then((result) => {
-        if (result && confirmation && isEnabled()) {
-          metrics.confirmationRequests += 1
-          scheduleTone(context, "confirmation")
-        }
-        return result
-      })
-      .catch((error) => {
-        reportFailure("unlock", error)
-        return false
-      })
-    unlockPromise = pending
-    pending.then(() => {
-      if (unlockPromise === pending) unlockPromise = null
-    })
-    return pending
+    metrics.lastEvent = enabledOverride ? "enabled" : "disabled"
+    return enabledOverride
   }
 
-  function playTaskComplete() {
-    metrics.completionRequests += 1
-    if (!isEnabled()) {
-      metrics.lastEvent = "completion-skipped-disabled"
-      return Promise.resolve(false)
-    }
-
-    const play = () => {
-      if (!isEnabled()) return false
-      if (!audioContext) {
-        metrics.completionFailures += 1
-        reportFailure("completion-no-context", "o AudioContext não foi desbloqueado")
-        return false
-      }
-      return scheduleTone(audioContext, "completion")
-    }
-
-    // A route transition or async note load may finish after the gesture. If
-    // resume is still pending, wait for the already-started unlock instead of
-    // creating another context or attempting a late resume.
-    if (unlockPromise) return unlockPromise.then((unlocked) => (unlocked ? play() : false))
-    return Promise.resolve(play())
-  }
-
-  function markLifecycle(eventName) {
-    lifecycleState = eventName
-    metrics.lastEvent = eventName
-  }
-
-  function handleUserGesture() {
-    if (isEnabled()) void unlock()
-  }
-
-  function installListeners() {
-    if (listenersInstalled || typeof document?.addEventListener !== "function") return
+  function init() {
+    if (listenersInstalled) return
     listenersInstalled = true
-    document.addEventListener("pointerdown", handleUserGesture, true)
-    document.addEventListener("touchstart", handleUserGesture, true)
-    document.addEventListener("click", handleUserGesture, true)
-    document.addEventListener("keydown", handleUserGesture, true)
-    document.addEventListener("visibilitychange", () => {
-      markLifecycle(document.visibilityState === "visible" ? "visible" : "hidden")
-    })
-    if (typeof window?.addEventListener === "function") {
-      window.addEventListener("pageshow", () => markLifecycle("pageshow"))
-      window.addEventListener("focus", () => markLifecycle("focus"))
-    }
+    const Howler = howlerGlobal()
+    if (Howler) Howler.autoUnlock = true
+    if (isEnabled()) createSound()
   }
 
   function getDebugState() {
     return {
       ...metrics,
       enabled: isEnabled(),
-      contextState: contextState(),
-      lifecycleState,
-      unlockPending: Boolean(unlockPromise),
+      soundCreated: Boolean(taskCompleteSound),
+      soundState: taskCompleteSound?.state?.() || "unavailable",
+      autoUnlock: Boolean(howlerGlobal()?.autoUnlock),
       lastFailure: lastFailure ? { ...lastFailure } : null,
     }
   }
 
   const api = {
-    runtimeVersion: 1,
-    init: installListeners,
+    runtimeVersion: 2,
+    init,
     unlock,
-    playTaskComplete,
+    playTaskComplete: () => {
+      metrics.completionRequests += 1
+      return Promise.resolve(play("completion"))
+    },
     setEnabled,
     isEnabled,
     getDebugState,

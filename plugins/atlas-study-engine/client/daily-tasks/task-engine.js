@@ -56,72 +56,22 @@
     )
   }
 
-  function recentTaskIds(history) {
-    return new Set(
-      (Array.isArray(history) ? history : [])
-        .slice(-7)
-        .flatMap((entry) => (Array.isArray(entry?.taskIds) ? entry.taskIds : [])),
-    )
-  }
-
-  function selectTasks({ date = dateKey(), history = [] } = {}) {
+  function selectTasks({ date = dateKey() } = {}) {
     const templates = definitions()
-    const groups = [...new Set(templates.map((task) => task.selectionGroup).filter(Boolean))].sort(
-      (left, right) => {
-        const leftFamilyCount = new Set(
-          templates.filter((task) => task.selectionGroup === left).map((task) => task.family),
-        ).size
-        const rightFamilyCount = new Set(
-          templates.filter((task) => task.selectionGroup === right).map((task) => task.family),
-        ).size
-        return leftFamilyCount - rightFamilyCount || left.localeCompare(right)
-      },
-    )
-    const recent = recentTaskIds(history)
-    const selected = []
-    const selectedFamilies = new Set()
-    for (const group of groups) {
-      if (selected.length >= dailyTaskCount) break
-      const candidates = templates.filter((task) => task.selectionGroup === group)
-      const fresh = candidates.filter((task) => !recent.has(task.id))
-      const freshDistinct = fresh.filter((task) => !selectedFamilies.has(task.family))
-      const distinct = candidates.filter((task) => !selectedFamilies.has(task.family))
-      const pool = freshDistinct.length
-        ? freshDistinct
-        : distinct.length
-          ? distinct
-          : fresh.length
-            ? fresh
-            : candidates
-      if (!pool.length) continue
-      const offset = hash(`${date}:${group}`) % pool.length
-      const chosen = pool[offset]
-      if (chosen && !selected.some((task) => task.id === chosen.id)) {
-        selected.push(chosen)
-        selectedFamilies.add(chosen.family)
-      }
-    }
-    if (selected.length < dailyTaskCount) {
-      for (const task of templates) {
-        if (selected.length >= dailyTaskCount) break
-        if (!selected.some((item) => item.id === task.id)) {
-          selected.push(task)
-          selectedFamilies.add(task.family)
-        }
-      }
-    }
-    return selected.slice(0, dailyTaskCount)
+    if (templates.length <= dailyTaskCount) return templates.slice(0, dailyTaskCount)
+    const omittedIndex = hash(date) % templates.length
+    return templates.filter((_, index) => index !== omittedIndex).slice(0, dailyTaskCount)
   }
 
   function selectTask(options = {}) {
     return selectTasks(options)[0] || null
   }
 
-  function assignment(date, history) {
+  function assignment(date) {
     return {
       version: definitionVersion,
       date,
-      taskIds: selectTasks({ date, history }).map((task) => task.id),
+      taskIds: selectTasks({ date }).map((task) => task.id),
       completedAtByTask: {},
       completedAt: "",
     }
@@ -146,7 +96,7 @@
     const state = storage().snapshot()
     let changed = false
     if (!isValidAssignment(state.days?.[today])) {
-      state.days[today] = assignment(today, state.history)
+      state.days[today] = assignment(today)
       changed = true
     }
     const history = historyFromDays(state)
@@ -272,8 +222,8 @@
     return processActivity(result, effectiveNow)
   }
 
-  function recordConceptOpened({ slug, source = "direct", area = "all", now = new Date() }) {
-    return recordActivity("concept_opened", { slug, source, area }, now)
+  function recordConceptOpened({ slug, now = new Date() }) {
+    return recordActivity("concept_opened", { slug }, now)
   }
 
   function setSoundEnabled(enabled) {
@@ -284,7 +234,7 @@
   }
 
   atlas.dailyTaskEngine = {
-    runtimeVersion: 3,
+    runtimeVersion: 4,
     definitionVersion,
     dailyTaskCount,
     dateKey,

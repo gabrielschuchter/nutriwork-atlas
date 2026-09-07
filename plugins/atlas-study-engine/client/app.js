@@ -41,19 +41,6 @@
   let selectedArea = "all"
   let viewState = { mode: "graph", noteSlug: "", openedFromGraph: false }
 
-  function conceptActivitySource(source) {
-    if (
-      source === "graph" ||
-      source === "search" ||
-      source === "concept_list" ||
-      source === "history"
-    )
-      return source
-    if (source === "note") return "internal_link"
-    if (source === "preview") return "graph"
-    return "direct"
-  }
-
   function root() {
     return document.documentElement
   }
@@ -474,11 +461,28 @@
     }
   }
 
+  function finishAreaMenuClose(event) {
+    const menu = event.currentTarget
+    if (event.animationName !== "atlas-area-out" || menu.dataset.state !== "closing") return
+    menu.removeEventListener("animationend", finishAreaMenuClose)
+    menu.removeEventListener("animationcancel", finishAreaMenuClose)
+    menu.hidden = true
+    delete menu.dataset.state
+  }
+
   function closeAreaMenu(focusTrigger = false) {
     const { trigger, menu } = areaPickerElements()
     if (!trigger || !menu) return
-    menu.hidden = true
     trigger.setAttribute("aria-expanded", "false")
+    if (menu.hidden) {
+      menu.removeEventListener("animationend", finishAreaMenuClose)
+      menu.removeEventListener("animationcancel", finishAreaMenuClose)
+      delete menu.dataset.state
+    } else if (menu.dataset.state !== "closing") {
+      menu.dataset.state = "closing"
+      menu.addEventListener("animationend", finishAreaMenuClose)
+      menu.addEventListener("animationcancel", finishAreaMenuClose)
+    }
     menu.style.bottom = "auto"
     menu.style.left = "0"
     menu.style.right = "auto"
@@ -507,9 +511,13 @@
     if (!trigger || !menu) return
     if (!menu.children.length) renderAreas()
     if (!menu.children.length) return
+    menu.removeEventListener("animationend", finishAreaMenuClose)
+    menu.removeEventListener("animationcancel", finishAreaMenuClose)
     menu.hidden = false
+    menu.dataset.state = "open"
     trigger.setAttribute("aria-expanded", "true")
     window.requestAnimationFrame(() => {
+      if (menu.hidden || menu.dataset.state !== "open") return
       positionAreaMenu()
       if (focusSelected)
         areaOptions(menu)
@@ -545,7 +553,7 @@
   function toggleAreaMenu() {
     const { menu } = areaPickerElements()
     if (!menu) return
-    if (menu.hidden) openAreaMenu()
+    if (menu.hidden || menu.dataset.state === "closing") openAreaMenu()
     else closeAreaMenu(true)
   }
 
@@ -1066,15 +1074,12 @@
       renderNavState()
       atlas.graph?.setMode("minimap", node.slug)
       enhanceLinks()
-      const activitySource = conceptActivitySource(source)
       atlas.activityTracker?.recordActivity("concept_opened", {
         slug: node.slug,
-        source: activitySource,
-        area: selectedArea,
       })
       document.dispatchEvent(
         new CustomEvent("atlas:concept-opened", {
-          detail: { slug: node.slug, title: node.title, source: activitySource },
+          detail: { slug: node.slug, title: node.title, source },
         }),
       )
       setRouteLoading(false)
@@ -1690,8 +1695,6 @@
           enhanceLinks()
           atlas.activityTracker?.recordActivity("concept_opened", {
             slug: node.slug,
-            source: "history",
-            area: selectedArea,
           })
           setRouteLoading(false)
         })

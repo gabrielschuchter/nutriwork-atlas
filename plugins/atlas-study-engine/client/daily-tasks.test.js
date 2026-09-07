@@ -32,6 +32,7 @@ async function createEnvironment(values = new Map()) {
     Math,
     Number,
     Object,
+    Promise,
     Set,
     String,
     console,
@@ -44,24 +45,11 @@ async function createEnvironment(values = new Map()) {
     vm.runInContext(source, context, { filename: file })
   }
   const atlas = context.window.__nutriworkAtlasEngine
-  const concepts = [
-    { slug: "atlas/a", title: "A", outgoing: ["atlas/b"] },
-    { slug: "atlas/b", title: "B", incoming: ["atlas/a"], outgoing: ["atlas/c"] },
-    { slug: "atlas/c", title: "C", incoming: ["atlas/b"] },
-  ]
-  atlas.data = {
-    concepts: () => concepts,
-    get: (slug) => concepts.find((concept) => concept.slug === slug) || null,
-  }
   return { atlas, values }
 }
 
 function day(value, hour = 12) {
   return new Date(`${value}T${String(hour).padStart(2, "0")}:00:00`)
-}
-
-function task(atlas, id) {
-  return atlas.dailyTaskTemplates.find((item) => item.id === id)
 }
 
 function forceTasks(atlas, date, ids) {
@@ -76,38 +64,72 @@ function forceTasks(atlas, date, ids) {
   atlas.dailyTaskStorage.save(state)
 }
 
-function progress(atlas, snapshot, id) {
+function progress(snapshot, id) {
   return snapshot.progress.byTask[id]
 }
 
-test("a nova biblioteca tem dez tarefas declarativas e três grupos distintos", async () => {
+function plain(value) {
+  return JSON.parse(JSON.stringify(value))
+}
+
+test("a biblioteca contém exatamente as quatro tarefas simples do Atlas", async () => {
   const { atlas } = await createEnvironment()
-  assert.equal(atlas.dailyTaskTemplates.length, 10)
-  assert.equal(new Set(atlas.dailyTaskTemplates.map((task) => task.id)).size, 10)
-  assert.ok(atlas.dailyTaskTemplates.every((task) => task.family && task.metric && task.target))
-  assert.ok(atlas.dailyTaskTemplates.every((task) => task.description.length > 0))
   assert.deepEqual(
-    new Set(atlas.dailyTaskTemplates.map((task) => task.selectionGroup)),
-    new Set(["exploration", "discovery", "map"]),
+    plain(
+      atlas.dailyTaskTemplates.map(({ id, title, description, target, metric }) => ({
+        id,
+        title,
+        description,
+        target,
+        metric,
+      })),
+    ),
+    [
+      {
+        id: "unique-concepts-two",
+        title: "Conheça dois conceitos",
+        description: "Abra 2 conceitos diferentes.",
+        target: 2,
+        metric: "uniqueConceptsOpened",
+      },
+      {
+        id: "area-filter-one",
+        title: "Filtre o mapa",
+        description: "Escolha uma área para explorar.",
+        target: 1,
+        metric: "areaFilterChanges",
+      },
+      {
+        id: "graph-pan-one",
+        title: "Mova o mapa",
+        description: "Arraste o grafo para explorar outra região.",
+        target: 1,
+        metric: "meaningfulGraphPans",
+      },
+      {
+        id: "graph-zoom-one",
+        title: "Veja mais de perto",
+        description: "Use o zoom no grafo.",
+        target: 1,
+        metric: "meaningfulGraphZooms",
+      },
+    ],
   )
 })
 
-test("as três tarefas do dia são determinísticas e não repetem grupo", async () => {
+test("o dia escolhe três tarefas distintas de forma determinística", async () => {
   const first = await createEnvironment()
   const second = await createEnvironment()
   const date = day("2026-09-06")
   const one = first.atlas.dailyTaskEngine.ensureDay(date)
   const two = first.atlas.dailyTaskEngine.ensureDay(date)
   const other = second.atlas.dailyTaskEngine.ensureDay(date)
-  assert.equal(one.days["2026-09-06"].taskIds.length, 3)
-  assert.deepEqual(one.days["2026-09-06"].taskIds, two.days["2026-09-06"].taskIds)
-  assert.deepEqual(
-    Array.from(one.days["2026-09-06"].taskIds),
-    Array.from(other.days["2026-09-06"].taskIds),
-  )
-  const selected = one.days["2026-09-06"].taskIds.map((id) => task(first.atlas, id))
-  assert.equal(new Set(selected.map((item) => item.selectionGroup)).size, 3)
-  assert.equal(new Set(selected.map((item) => item.family)).size, 3)
+  const ids = one.days["2026-09-06"].taskIds
+  assert.equal(ids.length, 3)
+  assert.equal(new Set(ids).size, 3)
+  assert.deepEqual(plain(ids), plain(two.days["2026-09-06"].taskIds))
+  assert.deepEqual(plain(ids), plain(other.days["2026-09-06"].taskIds))
+  assert.ok(ids.every((id) => first.atlas.dailyTaskTemplates.some((task) => task.id === id)))
 })
 
 test("conceitos únicos não contam o mesmo slug duas vezes", async () => {
@@ -115,115 +137,76 @@ test("conceitos únicos não contam o mesmo slug duas vezes", async () => {
   const date = day("2026-09-06")
   forceTasks(atlas, atlas.dailyTaskEngine.dateKey(date), [
     "unique-concepts-two",
+    "area-filter-one",
     "graph-pan-one",
-    "graph-zoom-one",
   ])
-  const first = atlas.dailyTaskEngine.recordActivity(
-    "concept_opened",
-    { slug: "atlas/a", source: "direct" },
-    date,
-  )
-  assert.equal(progress(atlas, first.snapshot, "unique-concepts-two").count, 1)
+  const first = atlas.dailyTaskEngine.recordActivity("concept_opened", { slug: "atlas/a" }, date)
+  assert.equal(progress(first.snapshot, "unique-concepts-two").count, 1)
   const repeated = atlas.dailyTaskEngine.recordActivity(
-    "concept_opened",
-    { slug: "atlas/a", source: "direct" },
-    date,
-  )
-  assert.equal(progress(atlas, repeated.snapshot, "unique-concepts-two").count, 1)
-  const complete = atlas.dailyTaskEngine.recordActivity(
-    "concept_opened",
-    { slug: "atlas/b", source: "direct" },
-    date,
-  )
-  assert.equal(progress(atlas, complete.snapshot, "unique-concepts-two").count, 2)
-  assert.ok(complete.completedTasks.some((item) => item.id === "unique-concepts-two"))
-})
-
-test("abrir busca ou digitar não conclui busca; abrir resultado conclui", async () => {
-  const { atlas } = await createEnvironment()
-  const date = day("2026-09-06")
-  forceTasks(atlas, atlas.dailyTaskEngine.dateKey(date), [
-    "search-open-one",
-    "graph-pan-one",
-    "graph-zoom-one",
-  ])
-  const opened = atlas.dailyTaskEngine.snapshot(date)
-  const ignored = atlas.dailyTaskEngine.recordActivity(
-    "search_performed",
-    { query: "vitamina" },
-    date,
-  )
-  assert.equal(ignored.changed, false)
-  assert.equal(progress(atlas, opened, "search-open-one").count, 0)
-  assert.doesNotMatch(JSON.stringify(atlas.activityTracker.snapshot()), /vitamina/)
-  const result = atlas.dailyTaskEngine.recordActivity(
     "concept_opened",
     { slug: "atlas/a", source: "search" },
     date,
   )
-  assert.equal(progress(atlas, result.snapshot, "search-open-one").count, 1)
-})
-
-test("filtro só progride ao abrir conceito com área selecionada", async () => {
-  const { atlas } = await createEnvironment()
-  const date = day("2026-09-06")
-  forceTasks(atlas, atlas.dailyTaskEngine.dateKey(date), [
-    "filtered-concept-one",
-    "graph-open-one",
-    "graph-zoom-one",
-  ])
-  let result = atlas.dailyTaskEngine.recordActivity(
-    "area_filter_changed",
-    { area: "esportiva", previousArea: "all" },
-    date,
-  )
-  assert.equal(result.snapshot.activity.areaFilterChanges, 1)
-  assert.equal(progress(atlas, result.snapshot, "filtered-concept-one").count, 0)
-  result = atlas.dailyTaskEngine.recordActivity(
-    "concept_opened",
-    { slug: "atlas/a", source: "direct", area: "esportiva" },
-    date,
-  )
-  assert.equal(progress(atlas, result.snapshot, "filtered-concept-one").count, 1)
-})
-
-test("fontes de abertura distinguem link interno, lista e abertura direta", async () => {
-  const { atlas } = await createEnvironment()
-  const date = day("2026-09-06")
-  forceTasks(atlas, atlas.dailyTaskEngine.dateKey(date), [
-    "internal-link-one",
-    "concept-list-one",
-    "graph-open-one",
-  ])
-  let result = atlas.dailyTaskEngine.recordActivity(
-    "concept_opened",
-    { slug: "atlas/a", source: "direct" },
-    date,
-  )
-  assert.equal(result.snapshot.progress.completedIds.length, 0)
-  result = atlas.dailyTaskEngine.recordActivity(
+  assert.equal(progress(repeated.snapshot, "unique-concepts-two").count, 1)
+  const complete = atlas.dailyTaskEngine.recordActivity(
     "concept_opened",
     { slug: "atlas/b", source: "internal_link" },
     date,
   )
-  assert.ok(result.completedTasks.some((item) => item.id === "internal-link-one"))
-  result = atlas.dailyTaskEngine.recordActivity(
-    "concept_opened",
-    { slug: "atlas/c", source: "concept_list" },
-    date,
-  )
-  assert.ok(result.completedTasks.some((item) => item.id === "concept-list-one"))
-  assert.equal(progress(atlas, result.snapshot, "graph-open-one").count, 0)
+  assert.equal(progress(complete.snapshot, "unique-concepts-two").count, 2)
+  assert.ok(complete.completedTasks.some((item) => item.id === "unique-concepts-two"))
 })
 
-test("atividades e tarefas sobrevivem a reload", async () => {
+test("filtrar o mapa progride quando a área realmente muda", async () => {
+  const { atlas } = await createEnvironment()
+  const date = day("2026-09-06")
+  forceTasks(atlas, atlas.dailyTaskEngine.dateKey(date), [
+    "area-filter-one",
+    "unique-concepts-two",
+    "graph-zoom-one",
+  ])
+  const changed = atlas.dailyTaskEngine.recordActivity(
+    "area_filter_changed",
+    { area: "esportiva", previousArea: "all" },
+    date,
+  )
+  assert.equal(changed.snapshot.activity.areaFilterChanges, 1)
+  assert.equal(progress(changed.snapshot, "area-filter-one").count, 1)
+  assert.ok(changed.completedTasks.some((item) => item.id === "area-filter-one"))
+
+  const repeated = atlas.dailyTaskEngine.recordActivity(
+    "area_filter_changed",
+    { area: "esportiva", previousArea: "esportiva" },
+    date,
+  )
+  assert.equal(repeated.changed, false)
+  assert.equal(repeated.snapshot.activity.areaFilterChanges, 1)
+})
+
+test("pan e zoom usam as métricas significativas já emitidas pelo grafo", async () => {
+  const { atlas } = await createEnvironment()
+  const date = day("2026-09-06")
+  forceTasks(atlas, atlas.dailyTaskEngine.dateKey(date), [
+    "graph-pan-one",
+    "graph-zoom-one",
+    "unique-concepts-two",
+  ])
+  const panned = atlas.dailyTaskEngine.recordActivity("graph_panned", {}, date)
+  assert.equal(progress(panned.snapshot, "graph-pan-one").count, 1)
+  assert.ok(panned.completedTasks.some((item) => item.id === "graph-pan-one"))
+  const zoomed = atlas.dailyTaskEngine.recordActivity("graph_zoomed", {}, date)
+  assert.equal(progress(zoomed.snapshot, "graph-zoom-one").count, 1)
+  assert.ok(zoomed.completedTasks.some((item) => item.id === "graph-zoom-one"))
+})
+
+test("atividades e tarefas sobrevivem a reload sem depender da origem da abertura", async () => {
   const values = new Map()
   const first = await createEnvironment(values)
   const date = day("2026-09-06")
   forceTasks(first.atlas, first.atlas.dailyTaskEngine.dateKey(date), [
-    "graph-open-one",
-    "search-open-one",
-    "concept-list-one",
+    "unique-concepts-two",
+    "area-filter-one",
+    "graph-pan-one",
   ])
   first.atlas.dailyTaskEngine.recordActivity(
     "concept_opened",
@@ -232,109 +215,37 @@ test("atividades e tarefas sobrevivem a reload", async () => {
   )
   const second = await createEnvironment(values)
   const snapshot = second.atlas.dailyTaskEngine.snapshot(date)
-  assert.equal(snapshot.activity.graphConcepts.length, 1)
+  assert.deepEqual(plain(snapshot.activity.uniqueConceptsOpened), ["atlas/a"])
   assert.deepEqual(
-    Array.from(snapshot.daily.taskIds),
-    Array.from(first.atlas.dailyTaskEngine.snapshot(date).daily.taskIds),
+    plain(snapshot.daily.taskIds),
+    plain(first.atlas.dailyTaskEngine.snapshot(date).daily.taskIds),
   )
-  assert.equal(snapshot.progress.byTask["graph-open-one"]?.count || 0, 1)
+  assert.equal(progress(snapshot, "unique-concepts-two").count, 1)
 })
 
 test("conclusão individual e streak são idempotentes", async () => {
   const { atlas } = await createEnvironment()
   const firstDay = day("2026-09-06")
   forceTasks(atlas, atlas.dailyTaskEngine.dateKey(firstDay), [
-    "graph-open-one",
-    "search-open-one",
-    "concept-list-one",
+    "unique-concepts-two",
+    "area-filter-one",
+    "graph-pan-one",
   ])
+  atlas.dailyTaskEngine.recordActivity("concept_opened", { slug: "atlas/a" }, firstDay)
+  atlas.dailyTaskEngine.recordActivity("concept_opened", { slug: "atlas/b" }, firstDay)
   atlas.dailyTaskEngine.recordActivity(
-    "concept_opened",
-    { slug: "atlas/a", source: "graph" },
+    "area_filter_changed",
+    { area: "esportiva", previousArea: "all" },
     firstDay,
   )
-  atlas.dailyTaskEngine.recordActivity(
-    "concept_opened",
-    { slug: "atlas/b", source: "search" },
-    firstDay,
-  )
-  const complete = atlas.dailyTaskEngine.recordActivity(
-    "concept_opened",
-    { slug: "atlas/c", source: "concept_list" },
-    firstDay,
-  )
+  const complete = atlas.dailyTaskEngine.recordActivity("graph_panned", {}, firstDay)
   const completedAt = complete.snapshot.completedAt
   assert.equal(complete.snapshot.completed, true)
   assert.equal(complete.snapshot.streak.count, 1)
-  const repeated = atlas.dailyTaskEngine.recordActivity(
-    "concept_opened",
-    { slug: "atlas/c", source: "concept_list" },
-    firstDay,
-  )
+  const repeated = atlas.dailyTaskEngine.recordActivity("graph_panned", {}, firstDay)
   assert.equal(repeated.completedTasks.length, 0)
   assert.equal(repeated.snapshot.completedAt, completedAt)
   assert.equal(repeated.snapshot.streak.count, 1)
-
-  const secondDay = day("2026-09-07")
-  forceTasks(atlas, atlas.dailyTaskEngine.dateKey(secondDay), [
-    "graph-open-one",
-    "search-open-one",
-    "concept-list-one",
-  ])
-  atlas.dailyTaskEngine.recordActivity(
-    "concept_opened",
-    { slug: "atlas/a", source: "graph" },
-    secondDay,
-  )
-  atlas.dailyTaskEngine.recordActivity(
-    "concept_opened",
-    { slug: "atlas/b", source: "search" },
-    secondDay,
-  )
-  const next = atlas.dailyTaskEngine.recordActivity(
-    "concept_opened",
-    { slug: "atlas/c", source: "concept_list" },
-    secondDay,
-  )
-  assert.equal(next.snapshot.streak.count, 2)
-  assert.deepEqual(
-    Array.from(
-      next.snapshot.history.find((entry) => entry.date === "2026-09-07")?.completedTaskIds || [],
-    ),
-    ["graph-open-one", "search-open-one", "concept-list-one"],
-  )
-})
-
-test("uma atividade pode concluir um batch, e a hidratação não cria novas conclusões", async () => {
-  const values = new Map()
-  const first = await createEnvironment(values)
-  const date = day("2026-09-06")
-  forceTasks(first.atlas, first.atlas.dailyTaskEngine.dateKey(date), [
-    "graph-open-one",
-    "filtered-concept-one",
-    "graph-zoom-one",
-  ])
-
-  const batch = first.atlas.dailyTaskEngine.recordActivity(
-    "concept_opened",
-    { slug: "atlas/a", source: "graph", area: "esportiva" },
-    date,
-  )
-  assert.deepEqual(
-    Array.from(batch.completedTasks, (item) => item.id),
-    ["graph-open-one", "filtered-concept-one"],
-  )
-
-  const second = await createEnvironment(values)
-  const hydrated = second.atlas.dailyTaskEngine.snapshot(date)
-  assert.deepEqual(Array.from(hydrated.progress.completedIds), [
-    "graph-open-one",
-    "filtered-concept-one",
-  ])
-  assert.equal(
-    second.atlas.dailyTaskEngine.processActivity({ type: "concept_opened" }, date).completed,
-    false,
-  )
 })
 
 test("novo dia cria atividade nova e preserva histórico recente", async () => {
@@ -345,6 +256,7 @@ test("novo dia cria atividade nova e preserva histórico recente", async () => {
   const secondSnapshot = atlas.dailyTaskEngine.snapshot(second)
   assert.equal(secondSnapshot.activity.date, "2026-09-07")
   assert.equal(secondSnapshot.activity.conceptsOpened, 0)
+  assert.deepEqual(plain(secondSnapshot.activity.uniqueConceptsOpened), [])
   assert.ok(secondSnapshot.history.some((entry) => entry.date === "2026-09-06"))
   assert.equal(firstSnapshot.daily.date, "2026-09-06")
   assert.equal(secondSnapshot.daily.taskIds.length, 3)
@@ -370,10 +282,10 @@ test("timestamps corrompidos não fabricam conclusão nem streak", async () => {
         version: 2,
         days: {
           [date]: {
-            version: 1,
+            version: 2,
             date,
-            taskIds: ["graph-open-one", "search-open-one", "concept-list-one"],
-            completedAtByTask: { "graph-open-one": "not-a-date" },
+            taskIds: ["unique-concepts-two", "area-filter-one", "graph-pan-one"],
+            completedAtByTask: { "unique-concepts-two": "not-a-date" },
             completedAt: "also-not-a-date",
           },
         },
@@ -383,11 +295,11 @@ test("timestamps corrompidos não fabricam conclusão nem streak", async () => {
   ])
   const { atlas } = await createEnvironment(values)
   const snapshot = atlas.dailyTaskEngine.snapshot(day(date))
-  assert.deepEqual(Array.from(snapshot.progress.completedIds), [])
+  assert.deepEqual(plain(snapshot.progress.completedIds), [])
   assert.equal(snapshot.completedAt, "")
   assert.equal(snapshot.streak.visibleCount, 0)
   assert.deepEqual(
-    Object.entries(atlas.dailyTaskStorage.snapshot().days[date].completedAtByTask),
+    plain(Object.entries(atlas.dailyTaskStorage.snapshot().days[date].completedAtByTask)),
     [],
   )
 })
@@ -412,14 +324,10 @@ test("datas inválidas não quebram a atividade nem fabricam timestamp inválido
   const { atlas } = await createEnvironment()
   const invalid = new Date("not-a-date")
   assert.doesNotThrow(() =>
-    atlas.dailyTaskEngine.recordActivity(
-      "concept_opened",
-      { slug: "atlas/a", source: "direct" },
-      invalid,
-    ),
+    atlas.dailyTaskEngine.recordActivity("concept_opened", { slug: "atlas/a" }, invalid),
   )
   const snapshot = atlas.dailyTaskEngine.snapshot()
   assert.equal(snapshot.activity.conceptsOpened, 1)
   assert.ok(snapshot.daily.date)
-  assert.ok(snapshot.completedAt === "")
+  assert.equal(snapshot.completedAt, "")
 })

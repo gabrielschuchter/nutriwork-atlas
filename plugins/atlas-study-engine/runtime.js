@@ -34,6 +34,24 @@ const d3ForceBundle = buildSync({
   },
 }).outputFiles[0].text
 
+const howlerBundle = buildSync({
+  bundle: true,
+  format: "iife",
+  minify: true,
+  platform: "browser",
+  write: false,
+  stdin: {
+    contents: `
+      import { Howl, Howler } from "howler"
+
+      globalThis.__nutriworkHowl = Howl
+      globalThis.__nutriworkHowler = Howler
+    `,
+    resolveDir: process.cwd(),
+    sourcefile: "atlas-howler-entry.js",
+  },
+}).outputFiles[0].text
+
 const graphClientFiles = [
   "dom.js",
   "data.js",
@@ -61,6 +79,7 @@ const roadmapClientSource = readFileSync(new URL("./client/roadmap.js", import.m
 export const atlasRuntime = String.raw`
 (() => {
 ${d3ForceBundle}
+${howlerBundle}
 ${graphClientSource}
 })();
 `

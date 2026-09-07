@@ -5,95 +5,73 @@ import vm from "node:vm"
 
 const source = await readFile(new URL("./audio.js", import.meta.url), "utf8")
 
-function fakeAudioContext({ initialState = "suspended", resumeMode = "resolve" } = {}) {
+function fakeHowler() {
   const instances = []
-  let resolveResume = null
+  const Howler = { autoUnlock: false }
 
-  function parameter() {
-    return {
-      setValueAtTime() {},
-      linearRampToValueAtTime() {},
-      exponentialRampToValueAtTime() {},
-    }
-  }
-
-  class FakeAudioContext {
-    constructor() {
-      this.state = initialState
-      this.currentTime = 10
-      this.destination = {}
-      this.resumeCalls = 0
-      this.oscillators = []
+  class FakeHowl {
+    constructor(options) {
+      this.options = options
+      this.handlers = new Map()
+      this.onceHandlers = new Map()
+      this.playCalls = []
+      this.stopCalls = 0
+      this.nextId = 1000
       instances.push(this)
     }
 
-    resume() {
-      this.resumeCalls += 1
-      if (resumeMode === "reject") return Promise.reject(new Error("autoplay blocked"))
-      if (resumeMode === "pending")
-        return new Promise((resolve) => {
-          resolveResume = () => {
-            this.state = "running"
-            resolve()
-          }
-        })
-      this.state = "running"
-      return Promise.resolve()
+    on(event, handler) {
+      const handlers = this.handlers.get(event) || []
+      handlers.push(handler)
+      this.handlers.set(event, handlers)
+      return this
     }
 
-    createOscillator() {
-      const oscillator = {
-        type: "",
-        frequency: parameter(),
-        starts: [],
-        stops: [],
-        connect() {},
-        start: (when) => oscillator.starts.push(when),
-        stop: (when) => oscillator.stops.push(when),
+    once(event, handler, id) {
+      const handlers = this.onceHandlers.get(event) || []
+      handlers.push({ handler, id })
+      this.onceHandlers.set(event, handlers)
+      return this
+    }
+
+    play(id) {
+      const nextId = id || this.nextId++
+      this.playCalls.push(nextId)
+      return nextId
+    }
+
+    stop() {
+      this.stopCalls += 1
+      return this
+    }
+
+    state() {
+      return "loaded"
+    }
+
+    trigger(event, id, message) {
+      for (const handler of this.handlers.get(event) || []) handler(id, message)
+      const remaining = []
+      for (const entry of this.onceHandlers.get(event) || []) {
+        if (!entry.id || entry.id === id) entry.handler(id, message)
+        else remaining.push(entry)
       }
-      this.oscillators.push(oscillator)
-      return oscillator
-    }
-
-    createGain() {
-      return { gain: parameter(), connect() {} }
+      this.onceHandlers.set(event, remaining)
     }
   }
 
-  return { FakeAudioContext, instances, resolveResume: () => resolveResume?.() }
+  return { Howl: FakeHowl, Howler, instances }
 }
 
-async function load({ soundEnabled = true, audio = {}, webkit = false } = {}) {
-  const listeners = new Map()
+async function load({ soundEnabled = true, howler = fakeHowler() } = {}) {
+  let storedSoundEnabled = soundEnabled
   const warnings = []
-  const localStorage = new Map()
-  const document = {
-    visibilityState: "visible",
-    addEventListener(type, listener) {
-      const current = listeners.get(type) || []
-      current.push(listener)
-      listeners.set(type, current)
-    },
-    dispatch(type) {
-      for (const listener of listeners.get(type) || []) listener({ type })
-    },
-  }
-  const browserWindow = {
-    AudioContext: webkit ? undefined : audio.FakeAudioContext,
-    webkitAudioContext: webkit ? audio.FakeAudioContext : undefined,
-    localStorage,
-    addEventListener(type, listener) {
-      const current = listeners.get(`window:${type}`) || []
-      current.push(listener)
-      listeners.set(`window:${type}`, current)
-    },
-  }
+  const browserWindow = {}
   const context = vm.createContext({
     Array,
     Boolean,
     Date,
     Error,
-    JSON,
     Map,
     Number,
     Object,
@@ -101,128 +79,103 @@ async function load({ soundEnabled = true, audio = {}, webkit = false } = {}) {
     Set,
     String,
     console: { warn: (...args) => warnings.push(args.join(" ")) },
-    document,
     window: browserWindow,
   })
   context.globalThis = context
+  context.__nutriworkHowl = howler.Howl
+  context.__nutriworkHowler = howler.Howler
+  browserWindow.__nutriworkHowl = howler.Howl
+  browserWindow.__nutriworkHowler = howler.Howler
   context.window.__nutriworkAtlasEngine = {
-    dailyTaskStorage: { snapshot: () => ({ settings: { soundEnabled } }) },
+    dailyTaskStorage: { snapshot: () => ({ settings: { soundEnabled: storedSoundEnabled } }) },
+    dailyTaskEngine: {
+      setSoundEnabled(value) {
+        storedSoundEnabled = Boolean(value)
+      },
+    },
   }
   vm.runInContext(source, context, { filename: "daily-tasks/audio.js" })
   return {
     atlas: context.window.__nutriworkAtlasEngine,
-    audio,
-    browserWindow,
-    document,
-    listeners,
+    howler,
     warnings,
+    getStoredSoundEnabled: () => storedSoundEnabled,
   }
 }
 
-async function flush() {
-  await Promise.resolve()
-  await Promise.resolve()
-}
-
-test("primeira interação desbloqueia uma instância e a conclusão agenda um único batch sonoro", async () => {
-  const audio = fakeAudioContext()
-  const environment = await load({ audio })
+test("cria uma única Howl com o asset local e arma autoUnlock", async () => {
+  const howler = fakeHowler()
+  const environment = await load({ howler })
   const sound = environment.atlas.atlasSound
 
-  environment.document.dispatch("pointerdown")
-  await flush()
-  assert.equal(audio.instances.length, 1)
-  assert.equal(audio.instances[0].resumeCalls, 1)
-  assert.equal(sound.getDebugState().contextState, "running")
+  assert.equal(howler.instances.length, 1)
+  assert.equal(howler.instances[0].options.src[0], "/static/task-complete.mp3")
+  assert.equal(howler.instances[0].options.preload, true)
+  assert.equal(howler.instances[0].options.volume, 0.35)
+  assert.equal(howler.instances[0].options.html5, true)
+  assert.equal(howler.Howler.autoUnlock, true)
+  sound.init()
+  assert.equal(howler.instances.length, 1)
+  assert.equal(sound.getDebugState().autoUnlock, true)
+})
+
+test("a conclusão usa a mesma instância e conta reprodução somente no evento play", async () => {
+  const howler = fakeHowler()
+  const environment = await load({ howler })
+  const sound = environment.atlas.atlasSound
+  const instance = howler.instances[0]
+
+  assert.equal(await sound.playTaskComplete(), true)
+  assert.deepEqual(instance.playCalls, [1000])
+  assert.equal(sound.getDebugState().completionPlays, 0)
+  instance.trigger("play", 1000)
+  assert.equal(sound.getDebugState().completionPlays, 1)
+  await sound.playTaskComplete()
+  assert.equal(howler.instances.length, 1)
+})
+
+test("playerror aguarda unlock e repete a reprodução com o mesmo id", async () => {
+  const howler = fakeHowler()
+  const environment = await load({ howler })
+  const sound = environment.atlas.atlasSound
+  const instance = howler.instances[0]
 
   await sound.playTaskComplete()
-  assert.equal(audio.instances.length, 1)
-  assert.equal(audio.instances[0].oscillators.length, 2)
+  instance.trigger("playerror", 1000, "autoplay blocked")
+  assert.equal(sound.getDebugState().playErrors, 1)
+  instance.trigger("unlock")
+  assert.deepEqual(instance.playCalls, [1000, 1000])
+  assert.equal(sound.getDebugState().unlockRetries, 1)
+  instance.trigger("play", 1000)
   assert.equal(sound.getDebugState().completionPlays, 1)
 })
 
-test("conclusão que chega enquanto o unlock está pendente espera o mesmo contexto", async () => {
-  const audio = fakeAudioContext({ resumeMode: "pending" })
-  const environment = await load({ audio })
+test("som desligado não cria nem reproduz áudio; ligar dá confirmação curta na mesma Howl", async () => {
+  const howler = fakeHowler()
+  const environment = await load({ soundEnabled: false, howler })
   const sound = environment.atlas.atlasSound
 
-  environment.document.dispatch("pointerdown")
-  const completion = sound.playTaskComplete()
-  await flush()
-  assert.equal(audio.instances.length, 1)
-  assert.equal(audio.instances[0].oscillators.length, 0)
-
-  audio.resolveResume()
-  assert.equal(await completion, true)
-  assert.equal(audio.instances.length, 1)
-  assert.equal(audio.instances[0].oscillators.length, 2)
-})
-
-test("botão de som ligado produz confirmação curta e desligado não produz áudio", async () => {
-  const audio = fakeAudioContext()
-  const environment = await load({ audio, soundEnabled: false })
-  const sound = environment.atlas.atlasSound
-
-  environment.document.dispatch("pointerdown")
-  await flush()
-  assert.equal(audio.instances.length, 0)
-
-  sound.setEnabled(true)
-  await sound.unlock({ confirmation: true })
-  assert.equal(audio.instances.length, 1)
-  assert.equal(audio.instances[0].oscillators.length, 1)
-
-  sound.setEnabled(false)
-  await sound.playTaskComplete()
-  assert.equal(audio.instances[0].oscillators.length, 1)
-  assert.equal(sound.getDebugState().completionRequests, 1)
-})
-
-test("rejeição de resume fica observável e não cria novo contexto na conclusão", async () => {
-  const audio = fakeAudioContext({ resumeMode: "reject" })
-  const environment = await load({ audio })
-  const sound = environment.atlas.atlasSound
-
-  environment.document.dispatch("pointerdown")
-  assert.equal(await sound.unlock(), false)
   assert.equal(await sound.playTaskComplete(), false)
-  assert.equal(audio.instances.length, 1)
-  assert.equal(audio.instances[0].oscillators.length, 0)
-  assert.ok(
-    ["resume-rejected", "completion-not-running"].includes(sound.getDebugState().lastFailure.stage),
-  )
-  assert.ok(environment.warnings.some((warning) => warning.includes("resume-rejected")))
+  assert.equal(howler.instances.length, 0)
+  assert.equal(await sound.unlock({ confirmation: true }), false)
+  sound.setEnabled(true)
+  assert.equal(await sound.unlock({ confirmation: true }), true)
+  assert.equal(howler.instances.length, 1)
+  const instance = howler.instances[0]
+  instance.trigger("play", 1000)
+  assert.equal(sound.getDebugState().confirmationPlays, 1)
+  assert.equal(environment.getStoredSoundEnabled(), true)
+  sound.setEnabled(false)
+  assert.equal(environment.getStoredSoundEnabled(), false)
+  await sound.playTaskComplete()
+  assert.deepEqual(instance.playCalls, [1000])
+  assert.equal(instance.stopCalls, 1)
 })
 
-test("retomada acontece na próxima interação após visibilitychange e init é idempotente", async () => {
-  const audio = fakeAudioContext()
-  const environment = await load({ audio })
-  const sound = environment.atlas.atlasSound
-
-  sound.init()
-  assert.equal(environment.listeners.get("pointerdown").length, 1)
-  environment.document.dispatch("pointerdown")
-  await flush()
-  await sound.unlock()
-  audio.instances[0].state = "suspended"
-  environment.document.visibilityState = "hidden"
-  environment.document.dispatch("visibilitychange")
-  environment.document.visibilityState = "visible"
-  environment.document.dispatch("visibilitychange")
-  assert.equal(audio.instances[0].resumeCalls, 1)
-
-  environment.document.dispatch("pointerdown")
-  await flush()
-  assert.equal(audio.instances.length, 1)
-  assert.equal(audio.instances[0].resumeCalls, 2)
-  assert.equal(sound.getDebugState().contextState, "running")
-})
-
-test("usa webkitAudioContext quando AudioContext padrão não existe", async () => {
-  const audio = fakeAudioContext()
-  const environment = await load({ audio, webkit: true })
-  environment.document.dispatch("pointerdown")
-  await flush()
-  assert.equal(audio.instances.length, 1)
-  assert.equal(environment.atlas.atlasSound.getDebugState().contextState, "running")
+test("ausência de Howler fica observável sem quebrar o Atlas", async () => {
+  const environment = await load({ howler: { Howl: undefined, Howler: undefined } })
+  environment.atlas.atlasSound.init()
+  assert.equal(await environment.atlas.atlasSound.playTaskComplete(), false)
+  assert.equal(environment.atlas.atlasSound.getDebugState().soundCreated, false)
+  assert.ok(environment.warnings.some((warning) => warning.includes("howl-unavailable")))
 })

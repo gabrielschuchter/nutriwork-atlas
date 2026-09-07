@@ -81,6 +81,11 @@ test("Atlas roadmap is versioned, public and connected to the suggestion endpoin
   assert.match(data, /roadmapColumns/)
   assert.match(frame, /atlas-roadmap-view/)
   assert.match(frame, /atlas-roadmap-suggestion/)
+  assert.match(frame, /Enviar uma sugestão/)
+  assert.match(frame, /O roadmap começa aqui\./)
+  assert.match(frame, /Ainda não publicamos itens\./)
+  assert.match(frame, /queremos ouvir quem usa o Atlas\./)
+  assert.doesNotMatch(frame, /Quero sugerir algo|Enviar minha sugestão|atlas-roadmap-prompt/)
   assert.match(ui, /roadmap/)
   assert.match(client, /atlas-suggestions/)
   assert.match(endpoint, /submissionId/)
@@ -88,12 +93,13 @@ test("Atlas roadmap is versioned, public and connected to the suggestion endpoin
 })
 
 test("Atlas daily tasks stay client-side and use one semantic activity tracker", async () => {
-  const [runtime, app, graph, tracker, daily, audio, storage, engine, frame, ui] =
+  const [runtime, app, graph, tracker, tasks, daily, audio, storage, engine, frame, ui] =
     await Promise.all([
       source("../runtime.js"),
       source("./app.js"),
       source("./graph.js"),
       source("./daily-tasks/activity-tracker.js"),
+      source("./daily-tasks/tasks.js"),
       source("./daily-tasks.js"),
       source("./daily-tasks/audio.js"),
       source("./daily-tasks/task-storage.js"),
@@ -107,6 +113,7 @@ test("Atlas daily tasks stay client-side and use one semantic activity tracker",
   assert.match(runtime, /daily-tasks\/task-engine\.js/)
   assert.match(runtime, /daily-tasks\/activity-tracker\.js/)
   assert.match(runtime, /daily-tasks\/audio\.js/)
+  assert.match(runtime, /howler/)
   assert.match(runtime, /atlasRoadmapRuntime/)
   assert.match(frame, /data-atlas-daily-action="open"/)
   assert.match(frame, /atlas-daily-task-list/)
@@ -124,10 +131,17 @@ test("Atlas daily tasks stay client-side and use one semantic activity tracker",
   assert.match(daily, /completedTasks/)
   assert.match(daily, /atlas:activity/)
   assert.match(daily, /atlas\.atlasSound/)
-  assert.match(audio, /webkitAudioContext/)
-  assert.match(audio, /contextCreations/)
-  assert.match(audio, /resume-rejected/)
-  assert.match(audio, /confirmation/)
+  assert.match(tasks, /area-filter-one/)
+  assert.match(tasks, /uniqueConceptsOpened/)
+  assert.match(tasks, /meaningfulGraphPans/)
+  assert.match(tasks, /meaningfulGraphZooms/)
+  assert.doesNotMatch(tasks, /search-open|internal-link|concept-list|graph-open-one/)
+  assert.match(audio, /__nutriworkHowl/)
+  assert.match(audio, /autoUnlock/)
+  assert.match(audio, /task-complete\.mp3/)
+  assert.match(audio, /playerror/)
+  assert.match(audio, /unlock/)
+  assert.doesNotMatch(audio, /AudioContext|createOscillator|createGain/)
   assert.match(storage, /atlas_daily_tasks_v2/)
   assert.match(engine, /dailyTaskCount = 3/)
   assert.match(engine, /selectTasks/)
@@ -206,6 +220,8 @@ test("Atlas keeps responsive edge cases covered by source contracts", async () =
   assert.match(app, /activeIsTabbable/)
   assert.match(app, /focusable\(overlay\)\.filter\(\(item\) => item\.tabIndex >= 0\)/)
   assert.match(app, /closeMobileMenu/)
+  assert.match(app, /menu\.dataset\.state = "closing"/)
+  assert.match(app, /animationend/)
   assert.match(
     app,
     /function resetMobileSearchQuery\(\)[\s\S]*?mobileSearchQuery = ""[\s\S]*?input\.value = ""/,
@@ -237,6 +253,8 @@ test("Atlas keeps responsive edge cases covered by source contracts", async () =
     ui,
     /\.atlas-area-sheet\.is-open \.atlas-mobile-sheet-card \{[\s\S]*?transform: translate3d\(0, 0, 0\) scale\(1\)/,
   )
+  assert.match(frame, /\.atlas-area-menu\[data-state="open"\]/)
+  assert.match(frame, /@keyframes atlas-area-out/)
 })
 
 test("Atlas clean URLs keep deep-page resources addressable", async () => {

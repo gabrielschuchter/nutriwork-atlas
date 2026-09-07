@@ -1,6 +1,6 @@
 ;(() => {
   const atlas = (window.__nutriworkAtlasEngine = window.__nutriworkAtlasEngine || {})
-  if (atlas.activityTracker?.runtimeVersion === 1) return
+  if (atlas.activityTracker?.runtimeVersion === 2) return
 
   const version = 1
   const storageKey = "atlas_activity_v1"
@@ -14,7 +14,6 @@
     "graph_zoomed",
     "graph_fit",
   ])
-  const sources = new Set(["graph", "search", "internal_link", "concept_list", "direct", "history"])
   let memoryState = null
 
   function safeDate(value) {
@@ -51,11 +50,6 @@
       date,
       conceptsOpened: 0,
       uniqueConceptsOpened: [],
-      graphConcepts: [],
-      searchResultConcepts: [],
-      internalLinkConcepts: [],
-      conceptListConcepts: [],
-      filteredConcepts: [],
       areaFilterChanges: 0,
       meaningfulGraphPans: 0,
       meaningfulGraphZooms: 0,
@@ -69,11 +63,6 @@
     const day = emptyDay(date)
     day.conceptsOpened = safeNumber(source.conceptsOpened)
     day.uniqueConceptsOpened = uniqueStrings(source.uniqueConceptsOpened)
-    day.graphConcepts = uniqueStrings(source.graphConcepts)
-    day.searchResultConcepts = uniqueStrings(source.searchResultConcepts)
-    day.internalLinkConcepts = uniqueStrings(source.internalLinkConcepts)
-    day.conceptListConcepts = uniqueStrings(source.conceptListConcepts)
-    day.filteredConcepts = uniqueStrings(source.filteredConcepts)
     day.areaFilterChanges = safeNumber(source.areaFilterChanges)
     day.meaningfulGraphPans = safeNumber(source.meaningfulGraphPans)
     day.meaningfulGraphZooms = safeNumber(source.meaningfulGraphZooms)
@@ -144,11 +133,6 @@
     return true
   }
 
-  function normalizedSource(value) {
-    const source = String(value || "direct")
-    return sources.has(source) ? source : "direct"
-  }
-
   function emit(detail) {
     if (typeof document === "undefined" || typeof document.dispatchEvent !== "function") return
     document.dispatchEvent(new CustomEvent("atlas:activity", { detail }))
@@ -166,16 +150,9 @@
     if (type === "concept_opened") {
       const slug = String(data.slug || "").trim()
       if (!slug) return { changed: false, type, date }
-      const source = normalizedSource(data.source)
       day.conceptsOpened += 1
       appendUnique(day.uniqueConceptsOpened, slug)
-      if (source === "graph") appendUnique(day.graphConcepts, slug)
-      if (source === "search") appendUnique(day.searchResultConcepts, slug)
-      if (source === "internal_link") appendUnique(day.internalLinkConcepts, slug)
-      if (source === "concept_list") appendUnique(day.conceptListConcepts, slug)
-      if (String(data.area || "all") !== "all") appendUnique(day.filteredConcepts, slug)
       payload.slug = slug
-      payload.source = source
       changed = true
     } else if (type === "area_filter_changed") {
       const area = String(data.area || "all")
@@ -213,7 +190,7 @@
   }
 
   atlas.activityTracker = {
-    runtimeVersion: 1,
+    runtimeVersion: 2,
     version,
     storageKey,
     eventTypes,
