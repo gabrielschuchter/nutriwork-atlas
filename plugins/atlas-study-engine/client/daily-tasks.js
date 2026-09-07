@@ -4,7 +4,6 @@
 
   let opener = null
   let toastTimer = 0
-  let completionAudio = null
 
   function panel() {
     return document.getElementById("atlas-daily-task-panel")
@@ -186,60 +185,6 @@
       window.requestAnimationFrame(() => restoreTarget?.focus({ preventScroll: true }))
   }
 
-  function audioContextConstructor() {
-    return window.AudioContext || window.webkitAudioContext
-  }
-
-  function prepareCompletionSound() {
-    const current = currentSnapshot()
-    if (current?.soundEnabled === false) return
-    try {
-      const AudioContext = audioContextConstructor()
-      if (!AudioContext) return
-      if (!completionAudio || completionAudio.state === "closed")
-        completionAudio = new AudioContext()
-      if (completionAudio.state === "suspended") void completionAudio.resume().catch(() => {})
-    } catch {
-      completionAudio = null
-    }
-  }
-
-  function playCompletionSound() {
-    const current = currentSnapshot()
-    if (current?.soundEnabled === false) return
-    try {
-      const AudioContext = audioContextConstructor()
-      if (!AudioContext) return
-      const context = completionAudio || new AudioContext()
-      if (context.state === "closed") return
-      completionAudio = context
-      const playTone = () => {
-        const oscillator = context.createOscillator()
-        const gain = context.createGain()
-        const now = context.currentTime
-        oscillator.type = "sine"
-        oscillator.frequency.setValueAtTime(660, now)
-        oscillator.frequency.exponentialRampToValueAtTime(880, now + 0.12)
-        gain.gain.setValueAtTime(0.0001, now)
-        gain.gain.exponentialRampToValueAtTime(0.045, now + 0.012)
-        gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.16)
-        oscillator.connect(gain)
-        gain.connect(context.destination)
-        oscillator.start(now)
-        oscillator.stop(now + 0.17)
-      }
-      if (context.state === "suspended")
-        void context
-          .resume()
-          .then(playTone)
-          .catch(() => {})
-      else playTone()
-    } catch {
-      // Audio is a progressive enhancement and never affects completion.
-      completionAudio = null
-    }
-  }
-
   function showToast(completedTasks = []) {
     const item = elements()
     if (!item.toast) return
@@ -273,18 +218,14 @@
     const result = atlas.dailyTaskEngine?.processActivity(event.detail, new Date())
     render()
     if (result?.completedTasks?.length) {
-      playCompletionSound()
+      // The sound layer is unlocked during the user gesture; this semantic
+      // event only requests one chime for the completed batch.
+      void atlas.atlasSound?.playTaskComplete?.()
       showToast(result.completedTasks)
     }
   }
 
-  function handlePointerDown() {
-    // Graph nodes use Pointer Events and therefore do not emit a click to prime audio.
-    prepareCompletionSound()
-  }
-
   function handleClick(event) {
-    prepareCompletionSound()
     const target =
       event.target instanceof Element ? event.target.closest("[data-atlas-daily-action]") : null
     if (!target) return
@@ -295,13 +236,14 @@
     else if (action === "close") close()
     else if (action === "toggle-sound") {
       const enabled = currentSnapshot()?.soundEnabled !== false
-      atlas.dailyTaskEngine?.setSoundEnabled(!enabled)
+      const nextEnabled = !enabled
+      atlas.atlasSound?.setEnabled?.(nextEnabled)
       render()
+      if (nextEnabled) void atlas.atlasSound?.unlock?.({ confirmation: true })
     }
   }
 
   function handleKeydown(event) {
-    if (event.key === "Enter" || event.key === " ") prepareCompletionSound()
     if (event.key === "Escape" && panel()?.classList.contains("is-open")) {
       event.preventDefault()
       close()
@@ -312,7 +254,6 @@
     if (document.visibilityState === "visible") syncDay()
   }
 
-  document.addEventListener("pointerdown", handlePointerDown, true)
   document.addEventListener("click", handleClick, true)
   document.addEventListener("keydown", handleKeydown)
   document.addEventListener("atlas:activity", onActivity)

@@ -305,6 +305,38 @@ test("conclusão individual e streak são idempotentes", async () => {
   )
 })
 
+test("uma atividade pode concluir um batch, e a hidratação não cria novas conclusões", async () => {
+  const values = new Map()
+  const first = await createEnvironment(values)
+  const date = day("2026-09-06")
+  forceTasks(first.atlas, first.atlas.dailyTaskEngine.dateKey(date), [
+    "graph-open-one",
+    "filtered-concept-one",
+    "graph-zoom-one",
+  ])
+
+  const batch = first.atlas.dailyTaskEngine.recordActivity(
+    "concept_opened",
+    { slug: "atlas/a", source: "graph", area: "esportiva" },
+    date,
+  )
+  assert.deepEqual(
+    Array.from(batch.completedTasks, (item) => item.id),
+    ["graph-open-one", "filtered-concept-one"],
+  )
+
+  const second = await createEnvironment(values)
+  const hydrated = second.atlas.dailyTaskEngine.snapshot(date)
+  assert.deepEqual(Array.from(hydrated.progress.completedIds), [
+    "graph-open-one",
+    "filtered-concept-one",
+  ])
+  assert.equal(
+    second.atlas.dailyTaskEngine.processActivity({ type: "concept_opened" }, date).completed,
+    false,
+  )
+})
+
 test("novo dia cria atividade nova e preserva histórico recente", async () => {
   const { atlas } = await createEnvironment()
   const first = day("2026-09-06")

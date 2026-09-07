@@ -46,6 +46,7 @@ const graphClientFiles = [
   "daily-tasks/task-storage.js",
   "daily-tasks/task-progress.js",
   "daily-tasks/task-engine.js",
+  "daily-tasks/audio.js",
   "graph.js",
   "daily-tasks.js",
   "app.js",

@@ -102,19 +102,25 @@ test("Atlas roadmap is versioned, public and connected to the suggestion endpoin
 })
 
 test("Atlas daily tasks stay client-side and use one semantic activity tracker", async () => {
-  const [runtime, app, graph, tracker, daily, storage, engine, frame, ui] = await Promise.all([
-    source("../runtime.js"),
-    source("./app.js"),
-    source("./graph.js"),
-    source("./daily-tasks/activity-tracker.js"),
-    source("./daily-tasks.js"),
-    source("./daily-tasks/task-storage.js"),
-    source("./daily-tasks/task-engine.js"),
-    readFile(new URL("../../../quartz/components/frames/AtlasFrame.tsx", import.meta.url), "utf8"),
-    readFile(new URL("../../atlas-ui/components/index.js", import.meta.url), "utf8"),
-  ])
+  const [runtime, app, graph, tracker, daily, audio, storage, engine, frame, ui] =
+    await Promise.all([
+      source("../runtime.js"),
+      source("./app.js"),
+      source("./graph.js"),
+      source("./daily-tasks/activity-tracker.js"),
+      source("./daily-tasks.js"),
+      source("./daily-tasks/audio.js"),
+      source("./daily-tasks/task-storage.js"),
+      source("./daily-tasks/task-engine.js"),
+      readFile(
+        new URL("../../../quartz/components/frames/AtlasFrame.tsx", import.meta.url),
+        "utf8",
+      ),
+      readFile(new URL("../../atlas-ui/components/index.js", import.meta.url), "utf8"),
+    ])
   assert.match(runtime, /daily-tasks\/task-engine\.js/)
   assert.match(runtime, /daily-tasks\/activity-tracker\.js/)
+  assert.match(runtime, /daily-tasks\/audio\.js/)
   assert.match(runtime, /atlasRoadmapRuntime/)
   assert.match(frame, /data-atlas-daily-action="open"/)
   assert.match(frame, /atlas-daily-task-list/)
@@ -129,10 +135,13 @@ test("Atlas daily tasks stay client-side and use one semantic activity tracker",
   assert.match(graph, /WHEEL_ZOOM_DELTA_THRESHOLD/)
   assert.match(tracker, /atlas_activity_v1/)
   assert.match(tracker, /area_filter_changed/)
-  assert.match(daily, /pointerdown/)
   assert.match(daily, /completedTasks/)
   assert.match(daily, /atlas:activity/)
-  assert.match(daily, /AudioContext/)
+  assert.match(daily, /atlas\.atlasSound/)
+  assert.match(audio, /webkitAudioContext/)
+  assert.match(audio, /contextCreations/)
+  assert.match(audio, /resume-rejected/)
+  assert.match(audio, /confirmation/)
   assert.match(storage, /atlas_daily_tasks_v2/)
   assert.match(engine, /dailyTaskCount = 3/)
   assert.match(engine, /selectTasks/)
