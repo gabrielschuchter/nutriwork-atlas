@@ -1321,6 +1321,29 @@ html[data-atlas-access="unlocked"] #atlas-access {
   transform: none;
 }
 
+.atlas-area-sheet {
+  transition:
+    opacity 200ms cubic-bezier(.22, .8, .2, 1),
+    visibility 0s linear 200ms;
+}
+
+.atlas-area-sheet.is-open {
+  transition-delay: 0s, 0s;
+}
+
+.atlas-area-sheet .atlas-mobile-sheet-card {
+  opacity: 0;
+  transform: translate3d(0, 8px, 0) scale(.98);
+  transition:
+    opacity 200ms cubic-bezier(.22, .8, .2, 1),
+    transform 200ms cubic-bezier(.22, .8, .2, 1);
+}
+
+.atlas-area-sheet.is-open .atlas-mobile-sheet-card {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
 .atlas-mobile-menu .atlas-mobile-sheet-card {
   overflow-x: hidden;
   overflow-y: auto;

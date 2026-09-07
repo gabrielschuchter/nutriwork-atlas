@@ -226,6 +226,15 @@ test("Atlas keeps responsive edge cases covered by source contracts", async () =
   assert.match(roadmap, /restoreTarget/)
   assert.match(graph, /resizeCanvas\(state\)/)
   assert.match(ui, /\.atlas-password-eye::after[\s\S]*left: 50%/)
+  assert.match(ui, /\.atlas-area-sheet \{[\s\S]*?opacity 200ms cubic-bezier\(\.22, \.8, \.2, 1\)/)
+  assert.match(
+    ui,
+    /\.atlas-area-sheet \.atlas-mobile-sheet-card \{[\s\S]*?transform: translate3d\(0, 8px, 0\) scale\(\.98\)/,
+  )
+  assert.match(
+    ui,
+    /\.atlas-area-sheet\.is-open \.atlas-mobile-sheet-card \{[\s\S]*?transform: translate3d\(0, 0, 0\) scale\(1\)/,
+  )
 })
 
 test("Atlas clean URLs keep deep-page resources addressable", async () => {
