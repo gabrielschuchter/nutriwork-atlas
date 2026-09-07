@@ -278,6 +278,10 @@ html[data-atlas-access="unlocked"] #atlas-access {
   color: #142033;
 }
 
+:root[data-theme="light"] #atlas-access {
+  background: rgba(244, 247, 252, .9);
+}
+
 :root[data-theme="light"] .atlas-access-logo {
   filter: none;
 }
@@ -1191,7 +1195,7 @@ html[data-atlas-access="unlocked"] #atlas-access {
 }
 
 @media (prefers-color-scheme: light) {
-  html[data-atlas-access="locked"] #atlas-access {
+  html:not([data-theme])[data-atlas-access="locked"] #atlas-access {
     background: rgba(244, 247, 252, .9);
   }
 }
