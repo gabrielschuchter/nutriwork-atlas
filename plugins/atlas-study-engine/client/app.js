@@ -694,17 +694,6 @@
     }
   }
 
-  function resetMobileSearchQuery() {
-    const { input } = searchSheetElements()
-    mobileSearchQuery = ""
-    if (input) input.value = ""
-  }
-
-  function resetDesktopSearchQuery() {
-    const search = document.getElementById("atlas-search")
-    if (search) search.value = ""
-  }
-
   function closeSearch(focusTrigger = true) {
     cancelMobileSearchTimer()
     const { sheet, input } = searchSheetElements()
@@ -1056,7 +1045,6 @@
     atlas.graph?.persist()
     hidePreview(0)
     closeSearch(false)
-    if (source === "search") resetMobileSearchQuery()
     closeAreaSheet(false)
     closeAreaMenu()
     closeMobileMenu(false)
@@ -1094,7 +1082,6 @@
 
   function showGraph({ historyMode = "none", contextSlug = "" } = {}) {
     navigationSerial += 1
-    resetDesktopSearchQuery()
     atlas.graph?.persist()
     hidePreview(0)
     closeSearch(false)
@@ -1316,11 +1303,9 @@
     } else if (action === "close-search") {
       closeSearch(true)
     } else if (action === "open-search-result") {
-      const { input } = searchSheetElements()
-      const queryParts = searchQuery(input?.value ?? mobileSearchQuery)
-      const node = atlas.data.get(target.dataset.atlasSlug || "")
-      if (!node || !queryParts.length || !searchMatch(node, queryParts)) return
-      openConcept(node.slug, { source: "search" })
+      closeSearch(false)
+      mobileSearchQuery = ""
+      openConcept(target.dataset.atlasSlug || "", { source: "search" })
     } else if (action === "open-area") {
       openAreaSheet()
     } else if (action === "close-area") {
