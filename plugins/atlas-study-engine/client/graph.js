@@ -1285,6 +1285,10 @@
     }
   }
 
+  function graphBottomRow(state) {
+    return state.mount.parentElement?.querySelector("[data-atlas-graph-bottom-row]") || state.mount
+  }
+
   function addAccessibleList(state) {
     const details = make("details", "atlas-graph-list")
     const summary = make("summary", "", "Lista de conceitos")
@@ -1296,7 +1300,7 @@
     })
     state.list = details
     state.listItems = list
-    state.mount.appendChild(details)
+    graphBottomRow(state).appendChild(details)
   }
 
   function addMapControls(state) {
@@ -1340,7 +1344,7 @@
     )
     state.controls = controls
     shell.append(returnButton, controls)
-    state.mount.appendChild(shell)
+    graphBottomRow(state).appendChild(shell)
   }
 
   function applyFilter(state, shouldAnimate = true) {

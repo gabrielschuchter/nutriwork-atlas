@@ -1163,7 +1163,9 @@
     root().classList.add("atlas-onboarding-open")
     root().classList.add("atlas-modal-open")
     renderOnboarding()
-    window.requestAnimationFrame(() => window.setTimeout(() => elements.next?.focus(), 0))
+    window.requestAnimationFrame(() =>
+      window.setTimeout(() => elements.next?.focus({ preventScroll: true }), 0),
+    )
   }
 
   function advanceOnboarding() {

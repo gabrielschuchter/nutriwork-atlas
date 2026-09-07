@@ -760,9 +760,8 @@ export const AtlasFrame: PageFrame = {
 
         <div
           id="atlas-mobile-graph-tools"
-          class="atlas-mobile-graph-tools"
-          aria-label="Ferramentas rápidas do grafo"
-          hidden={!isGraph}
+          class={`atlas-mobile-graph-tools${isGraph ? "" : " atlas-mobile-graph-tools-note"}`}
+          aria-label="Ações rápidas do Atlas"
         >
           <button
             id="atlas-mobile-area-trigger"
@@ -787,6 +786,33 @@ export const AtlasFrame: PageFrame = {
               focusable="false"
             >
               <path d="m7 10 5 5 5-5" />
+            </svg>
+          </button>
+
+          <button
+            id="atlas-daily-task-open"
+            class="atlas-daily-task-trigger"
+            type="button"
+            data-atlas-daily-action="open"
+            aria-haspopup="dialog"
+            aria-controls="atlas-daily-task-panel"
+            aria-label="Abrir tarefas de hoje"
+            title="Tarefas de hoje"
+            hidden={isRoadmap}
+          >
+            <svg
+              class="atlas-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.7"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <rect x="4" y="5" width="16" height="15" rx="2" />
+              <path d="M8 3v4M16 3v4M4 10h16M8 14h.01M12 14h.01M16 14h.01M8 17h.01M12 17h.01" />
             </svg>
           </button>
         </div>
@@ -816,33 +842,6 @@ export const AtlasFrame: PageFrame = {
           <span class="atlas-visually-hidden">Mostrar navegação</span>
         </button>
 
-        <button
-          id="atlas-daily-task-open"
-          class="atlas-daily-task-trigger"
-          type="button"
-          data-atlas-daily-action="open"
-          aria-haspopup="dialog"
-          aria-controls="atlas-daily-task-panel"
-          aria-label="Abrir tarefas de hoje"
-          title="Tarefas de hoje"
-          hidden={isRoadmap}
-        >
-          <svg
-            class="atlas-icon"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.7"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            aria-hidden="true"
-            focusable="false"
-          >
-            <rect x="4" y="5" width="16" height="15" rx="2" />
-            <path d="M8 3v4M16 3v4M4 10h16M8 14h.01M12 14h.01M16 14h.01M8 17h.01M12 17h.01" />
-          </svg>
-        </button>
-
         <main
           id="main-content"
           class="atlas-main"
@@ -869,6 +868,17 @@ export const AtlasFrame: PageFrame = {
               <p class="atlas-graph-loading" role="status">
                 Carregando grafo…
               </p>
+            </div>
+            <div
+              id="atlas-graph-bottom-chrome"
+              class="atlas-graph-bottom-chrome"
+              aria-label="Controles e lista do grafo"
+            >
+              <div
+                id="atlas-graph-bottom-row"
+                class="atlas-graph-bottom-row"
+                data-atlas-graph-bottom-row=""
+              />
             </div>
           </section>
 
@@ -1881,10 +1891,12 @@ canvas:focus-visible {
   cursor: pointer;
   display: inline-flex;
   font-size: 1.45rem;
-  height: 2.35rem;
+  height: 2.75rem;
   justify-content: center;
   line-height: 1;
-  width: 2.35rem;
+  min-height: 2.75rem;
+  min-width: 2.75rem;
+  width: 2.75rem;
 }
 
 .atlas-roadmap-suggestion-close:hover,
@@ -2747,6 +2759,11 @@ html.atlas-modal-open .atlas-daily-task-toast {
   height: 100%;
 }
 
+.atlas-graph-bottom-chrome,
+.atlas-graph-bottom-row {
+  display: contents;
+}
+
 .atlas-graph-surface::before {
   background-image: linear-gradient(rgba(142, 185, 255, .035) 1px, transparent 1px), linear-gradient(90deg, rgba(142, 185, 255, .035) 1px, transparent 1px);
   background-size: 64px 64px;
@@ -2835,6 +2852,7 @@ html.atlas-modal-open .atlas-daily-task-toast {
   box-shadow: var(--atlas-glass-shadow);
   cursor: pointer;
   display: flex;
+  box-sizing: border-box;
   justify-content: center;
   line-height: 1.2;
   min-height: 2.75rem;
@@ -3260,9 +3278,12 @@ html.atlas-modal-open .atlas-daily-task-toast {
   font-size: .75rem;
 }
 
-.atlas-mobile-actions,
-.atlas-mobile-graph-tools {
+.atlas-mobile-actions {
   display: none;
+}
+
+.atlas-mobile-graph-tools {
+  display: contents;
 }
 
 .atlas-mobile-action,
@@ -3271,8 +3292,13 @@ html.atlas-modal-open .atlas-daily-task-toast {
   user-select: none;
 }
 
+.atlas-mobile-area-trigger {
+  display: none;
+}
+
 .atlas-mobile-graph-tools[hidden],
-.atlas-mobile-action[hidden] {
+.atlas-mobile-action[hidden],
+.atlas-mobile-area-trigger[hidden] {
   display: none !important;
 }
 
@@ -3399,11 +3425,17 @@ html.atlas-modal-open .atlas-daily-task-toast {
   .atlas-mobile-graph-tools {
     align-items: center;
     display: flex;
+    gap: .55rem;
     left: calc(var(--atlas-viewport-offset-left, 0px) + .75rem + var(--atlas-safe-left));
     pointer-events: none;
     position: fixed;
-    top: calc(var(--atlas-viewport-offset-top, 0px) + 4.55rem + var(--atlas-safe-top));
+    right: calc(100vw - var(--atlas-viewport-offset-left, 0px) - var(--atlas-visual-width, 100vw) + .75rem + var(--atlas-safe-right));
+    top: calc(var(--atlas-viewport-offset-top, 0px) + .65rem + var(--atlas-safe-top) + 3.35rem + .55rem);
     z-index: 6500;
+  }
+
+  .atlas-mobile-graph-tools-note {
+    justify-content: flex-end;
   }
 
   .atlas-mobile-area-trigger {
@@ -3419,12 +3451,29 @@ html.atlas-modal-open .atlas-daily-task-toast {
     font-size: .76rem;
     gap: .45rem;
     justify-content: space-between;
+    flex: 1 1 auto;
     min-height: 2.75rem;
-    max-width: min(17rem, calc(var(--atlas-visual-width, 100vw) - 1.5rem - var(--atlas-safe-left) - var(--atlas-safe-right)));
+    max-width: none;
+    min-width: 0;
     padding: .45rem .65rem .45rem .85rem;
     pointer-events: auto;
     text-align: left;
     touch-action: manipulation;
+  }
+
+  .atlas-mobile-graph-tools .atlas-daily-task-trigger {
+    flex: 0 0 2.75rem;
+    height: 2.75rem;
+    min-height: 2.75rem;
+    min-width: 2.75rem;
+    position: static;
+    right: auto;
+    top: auto;
+    width: 2.75rem;
+  }
+
+  .atlas-mobile-graph-tools .atlas-mobile-area-trigger {
+    max-width: none;
   }
 
   .atlas-mobile-area-trigger:hover,
@@ -3513,6 +3562,7 @@ html.atlas-modal-open .atlas-daily-task-toast {
 
   .atlas-mobile-graph-tools {
     left: calc(var(--atlas-viewport-offset-left, 0px) + 1.5rem + var(--atlas-safe-left));
+    right: calc(100vw - var(--atlas-viewport-offset-left, 0px) - var(--atlas-visual-width, 100vw) + 1.5rem + var(--atlas-safe-right));
     top: calc(var(--atlas-viewport-offset-top, 0px) + 5rem + var(--atlas-safe-top));
   }
 
@@ -3587,7 +3637,8 @@ html.atlas-modal-open .atlas-daily-task-toast {
 
   .atlas-mobile-graph-tools {
     left: calc(var(--atlas-viewport-offset-left, 0px) + .7rem + var(--atlas-safe-left));
-    top: calc(var(--atlas-viewport-offset-top, 0px) + 4.45rem + var(--atlas-safe-top));
+    right: calc(100vw - var(--atlas-viewport-offset-left, 0px) - var(--atlas-visual-width, 100vw) + .7rem + var(--atlas-safe-right));
+    top: calc(var(--atlas-viewport-offset-top, 0px) + .5rem + var(--atlas-safe-top) + 3.4rem + .5rem);
   }
 
   .atlas-mobile-area-trigger {
@@ -3659,12 +3710,15 @@ html.atlas-modal-open .atlas-daily-task-toast {
 
   #atlas-daily-task-panel {
     align-items: flex-end;
+    overflow-x: hidden;
+    overflow-y: auto;
     padding: 0;
   }
 
   .atlas-daily-task-card {
     border-radius: 1.15rem 1.15rem 0 0;
-    max-height: min(32rem, calc(var(--atlas-visual-height, 100dvh) - var(--atlas-safe-top) - var(--atlas-safe-bottom)));
+    max-height: none;
+    overflow: visible;
     transform: translateY(1rem);
     width: 100%;
   }
@@ -4054,6 +4108,506 @@ html.atlas-modal-open .atlas-daily-task-toast {
 
 :root.atlas-narrow-viewport .atlas-minimap-shell .atlas-graph-canvas {
   touch-action: pan-y;
+}
+
+/*
+ * The mobile graph chrome is one coordinated system. Keep the list and zoom
+ * controls in the same bottom row so neither can collide with the footer or
+ * with the touch hint while the viewport changes.
+ */
+@media all and (max-width: 1024px) {
+  .atlas-mobile-graph-tools {
+    gap: .55rem;
+    left: calc(var(--atlas-viewport-offset-left, 0px) + max(.7rem, var(--atlas-safe-left)));
+    right: calc(100vw - var(--atlas-viewport-offset-left, 0px) - var(--atlas-visual-width, 100vw) + max(.7rem, var(--atlas-safe-right)));
+    top: calc(var(--atlas-viewport-offset-top, 0px) + .5rem + var(--atlas-safe-top) + 3.4rem + .5rem);
+    width: auto;
+  }
+
+  .atlas-mobile-graph-tools .atlas-daily-task-trigger {
+    flex: 0 0 2.75rem;
+    height: 2.75rem;
+    min-height: 2.75rem;
+    min-width: 2.75rem;
+    position: static;
+    right: auto;
+    top: auto;
+    width: 2.75rem;
+  }
+
+  .atlas-graph-bottom-chrome {
+    display: block;
+    inset: 0;
+    pointer-events: none;
+    position: absolute;
+    z-index: 5;
+  }
+
+  .atlas-graph-bottom-row {
+    align-items: center;
+    bottom: calc(max(.7rem, var(--atlas-safe-bottom)));
+    display: flex;
+    gap: .6rem;
+    left: calc(max(.7rem, var(--atlas-safe-left)));
+    position: absolute;
+    right: calc(max(.7rem, var(--atlas-safe-right)));
+  }
+
+  .atlas-graph-bottom-row > .atlas-graph-list {
+    bottom: auto !important;
+    flex: 1 1 auto;
+    left: auto !important;
+    max-width: none;
+    min-width: 0;
+    position: static;
+    width: auto;
+  }
+
+  .atlas-graph-bottom-row > .atlas-map-controls-shell {
+    bottom: auto !important;
+    flex: 0 0 auto;
+    position: static;
+    right: auto !important;
+  }
+
+  .atlas-graph-bottom-row > * {
+    pointer-events: auto;
+  }
+
+  .atlas-graph-bottom-row .atlas-graph-list summary {
+    height: 3.05rem;
+    max-width: none;
+    min-height: 3.05rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+  }
+
+  .atlas-frame[data-atlas-route="graph"] .atlas-site-footer {
+    display: none;
+  }
+
+  #atlas-touch-hint {
+    bottom: calc(max(.7rem, var(--atlas-safe-bottom)) + 3.05rem + .6rem);
+  }
+
+  #atlas-daily-task-panel {
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 0;
+  }
+
+  .atlas-daily-task-card {
+    max-height: none;
+    overflow: visible;
+    width: 100%;
+  }
+
+  .atlas-daily-task-close {
+    height: 2.75rem;
+    min-height: 2.75rem;
+    min-width: 2.75rem;
+    width: 2.75rem;
+  }
+}
+
+@media all and (max-width: 1024px) and (max-height: 600px) and (orientation: landscape),
+  all and (max-width: 240px) {
+  #atlas-daily-task-panel {
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  #atlas-mobile-menu,
+  #atlas-search-sheet,
+  #atlas-area-sheet {
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+}
+
+:root.atlas-compact-viewport .atlas-mobile-graph-tools,
+:root.atlas-narrow-viewport .atlas-mobile-graph-tools {
+  gap: .55rem;
+  left: calc(var(--atlas-viewport-offset-left, 0px) + max(.7rem, var(--atlas-safe-left)));
+  right: calc(100vw - var(--atlas-viewport-offset-left, 0px) - var(--atlas-visual-width, 100vw) + max(.7rem, var(--atlas-safe-right)));
+  top: calc(var(--atlas-viewport-offset-top, 0px) + .5rem + var(--atlas-safe-top) + 3.4rem + .5rem);
+  width: auto;
+}
+
+:root.atlas-compact-viewport .atlas-mobile-graph-tools .atlas-daily-task-trigger,
+:root.atlas-narrow-viewport .atlas-mobile-graph-tools .atlas-daily-task-trigger {
+  pointer-events: auto;
+}
+
+:root.atlas-compact-viewport .atlas-mobile-graph-tools .atlas-daily-task-trigger,
+:root.atlas-narrow-viewport .atlas-mobile-graph-tools .atlas-daily-task-trigger {
+  flex: 0 0 2.75rem;
+  height: 2.75rem;
+  min-height: 2.75rem;
+  min-width: 2.75rem;
+  position: static;
+  right: auto;
+  top: auto;
+  width: 2.75rem;
+}
+
+:root.atlas-compact-viewport .atlas-mobile-graph-tools .atlas-mobile-area-trigger,
+:root.atlas-narrow-viewport .atlas-mobile-graph-tools .atlas-mobile-area-trigger {
+  max-width: none;
+}
+
+:root.atlas-compact-viewport .atlas-graph-bottom-chrome,
+:root.atlas-narrow-viewport .atlas-graph-bottom-chrome {
+  display: block;
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: 5;
+}
+
+:root.atlas-compact-viewport .atlas-graph-bottom-row,
+:root.atlas-narrow-viewport .atlas-graph-bottom-row {
+  align-items: center;
+  bottom: max(.7rem, var(--atlas-safe-bottom));
+  display: flex;
+  gap: .6rem;
+  left: max(.7rem, var(--atlas-safe-left));
+  position: absolute;
+  right: max(.7rem, var(--atlas-safe-right));
+}
+
+:root.atlas-compact-viewport .atlas-graph-bottom-row > .atlas-graph-list,
+:root.atlas-narrow-viewport .atlas-graph-bottom-row > .atlas-graph-list {
+  bottom: auto !important;
+  flex: 1 1 auto;
+  left: auto !important;
+  max-width: none;
+  min-width: 0;
+  position: static;
+  width: auto;
+}
+
+:root.atlas-compact-viewport .atlas-graph-bottom-row > .atlas-map-controls-shell,
+:root.atlas-narrow-viewport .atlas-graph-bottom-row > .atlas-map-controls-shell {
+  bottom: auto !important;
+  flex: 0 0 auto;
+  position: static;
+  right: auto !important;
+}
+
+:root.atlas-compact-viewport .atlas-graph-bottom-row > *,
+:root.atlas-narrow-viewport .atlas-graph-bottom-row > * {
+  pointer-events: auto;
+}
+
+:root.atlas-compact-viewport .atlas-graph-bottom-row .atlas-graph-list summary,
+:root.atlas-narrow-viewport .atlas-graph-bottom-row .atlas-graph-list summary {
+  height: 3.05rem;
+  max-width: none;
+  min-height: 3.05rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+
+:root.atlas-compact-viewport .atlas-frame[data-atlas-route="graph"] .atlas-site-footer,
+:root.atlas-narrow-viewport .atlas-frame[data-atlas-route="graph"] .atlas-site-footer {
+  display: none;
+}
+
+:root.atlas-compact-viewport #atlas-touch-hint,
+:root.atlas-narrow-viewport #atlas-touch-hint {
+  bottom: calc(max(.7rem, var(--atlas-safe-bottom)) + 3.05rem + .6rem);
+}
+
+:root.atlas-compact-viewport #atlas-daily-task-panel,
+:root.atlas-narrow-viewport #atlas-daily-task-panel {
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 0;
+}
+
+:root.atlas-compact-viewport .atlas-daily-task-card,
+:root.atlas-narrow-viewport .atlas-daily-task-card {
+  max-height: none;
+  overflow: visible;
+  width: 100%;
+}
+
+:root.atlas-compact-viewport .atlas-daily-task-close,
+:root.atlas-narrow-viewport .atlas-daily-task-close {
+  height: 2.75rem;
+  min-height: 2.75rem;
+  min-width: 2.75rem;
+  width: 2.75rem;
+}
+
+@media all and (max-width: 600px) {
+  .atlas-graph-bottom-row .atlas-graph-list summary {
+    font-size: clamp(.72rem, 3.6vw, .9rem);
+  }
+}
+
+@media all and (max-width: 240px) {
+  :root.atlas-narrow-viewport .atlas-navbar {
+    gap: 0;
+    padding-left: .3rem;
+    padding-right: .3rem;
+  }
+
+  :root.atlas-narrow-viewport .atlas-brand {
+    height: 1.7rem;
+    padding-inline: 0;
+  }
+
+  :root.atlas-narrow-viewport .atlas-brand-logo {
+    height: 1.45rem;
+    width: 1.45rem;
+  }
+
+  :root.atlas-narrow-viewport .atlas-mobile-action[data-atlas-theme-toggle] {
+    display: none;
+  }
+
+  :root.atlas-narrow-viewport .atlas-mobile-area-trigger {
+    gap: .2rem;
+    padding-inline: .45rem;
+  }
+
+  :root.atlas-narrow-viewport .atlas-mobile-area-trigger span {
+    font-size: .6rem;
+  }
+
+  :root.atlas-narrow-viewport .atlas-graph-bottom-row {
+    flex-wrap: wrap;
+  }
+
+  :root.atlas-narrow-viewport .atlas-graph-bottom-row > .atlas-graph-list {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+
+  :root.atlas-narrow-viewport .atlas-graph-bottom-row > .atlas-map-controls-shell {
+    margin-left: auto;
+  }
+
+  :root.atlas-narrow-viewport .atlas-note-content article h2 {
+    font-size: clamp(.9rem, 5vw, 1.55rem);
+  }
+
+  :root.atlas-narrow-viewport .atlas-note-content article h3 {
+    font-size: clamp(.85rem, 4.5vw, 1.2rem);
+  }
+
+  :root.atlas-narrow-viewport .atlas-note-content article h4 {
+    font-size: clamp(.8rem, 4vw, 1.05rem);
+  }
+
+  :root.atlas-narrow-viewport .atlas-legal-header h1 {
+    font-size: clamp(1rem, 7vw, 2rem);
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  :root.atlas-narrow-viewport .atlas-note-content article h1,
+  :root.atlas-narrow-viewport .atlas-note-content article h2,
+  :root.atlas-narrow-viewport .atlas-note-content article h3,
+  :root.atlas-narrow-viewport .atlas-note-content article h4,
+  :root.atlas-narrow-viewport .atlas-note-content article h5,
+  :root.atlas-narrow-viewport .atlas-note-content article h6 {
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  :root.atlas-narrow-viewport .atlas-roadmap-items,
+  :root.atlas-narrow-viewport .atlas-roadmap-card {
+    box-sizing: border-box;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  :root.atlas-narrow-viewport .atlas-roadmap-card h3 {
+    font-size: clamp(.6rem, 3.2vw, .88rem);
+    min-width: 0;
+  }
+
+  :root.atlas-narrow-viewport .atlas-roadmap-card p {
+    min-width: 0;
+  }
+
+  :root.atlas-narrow-viewport .atlas-roadmap-column-header {
+    gap: .3rem;
+    min-width: 0;
+    overflow: hidden;
+    padding-inline: 0;
+  }
+
+  :root.atlas-narrow-viewport .atlas-roadmap-column-header h2 {
+    font-size: .72rem;
+    min-width: 0;
+  }
+
+  :root.atlas-narrow-viewport .atlas-roadmap-count {
+    font-size: .55rem;
+    height: 1.15rem;
+    min-width: 1.1rem;
+    padding-inline: .15rem;
+  }
+}
+
+@media all and (max-width: 1024px) {
+  #atlas-roadmap-suggestion {
+    align-items: flex-start;
+    justify-content: flex-start;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .atlas-roadmap-suggestion-card {
+    max-height: none;
+    overflow: visible;
+    margin: 0 auto;
+  }
+}
+
+:root.atlas-compact-viewport #atlas-roadmap-suggestion,
+:root.atlas-narrow-viewport #atlas-roadmap-suggestion {
+  align-items: flex-start;
+  justify-content: flex-start;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+:root.atlas-compact-viewport .atlas-roadmap-suggestion-card,
+:root.atlas-narrow-viewport .atlas-roadmap-suggestion-card {
+  max-height: none;
+  overflow: visible;
+  margin: 0 auto;
+}
+
+@media all and (max-width: 360px) {
+  .atlas-mobile-menu .atlas-mobile-sheet-card {
+    padding: .8rem .75rem max(.75rem, var(--atlas-safe-bottom));
+  }
+
+  .atlas-mobile-menu-list {
+    gap: .15rem;
+    margin-top: .55rem;
+  }
+
+  .atlas-mobile-menu-list button,
+  .atlas-mobile-menu-list a {
+    font-size: .78rem;
+    gap: .4rem;
+    min-height: 2.75rem;
+    padding: .35rem .55rem;
+  }
+
+  .atlas-mobile-menu-institutional {
+    font-size: .56rem;
+    gap: .2rem .45rem;
+    margin-top: .45rem;
+    padding: .45rem .1rem 0;
+  }
+
+  .atlas-mobile-menu-institutional > span {
+    display: none;
+  }
+
+  .atlas-daily-task-header {
+    padding: .65rem .75rem .55rem;
+  }
+
+  .atlas-daily-task-header h2 {
+    font-size: .98rem;
+  }
+
+  .atlas-daily-task-kicker,
+  .atlas-daily-task-label {
+    font-size: .56rem;
+    line-height: 1.2;
+  }
+
+  .atlas-daily-task-body {
+    padding: .75rem .8rem .65rem;
+  }
+
+  .atlas-daily-task-summary {
+    margin-top: .2rem !important;
+  }
+
+  .atlas-daily-task-list {
+    gap: .42rem;
+    margin-top: .7rem;
+  }
+
+  .atlas-daily-task-item {
+    padding: .48rem .55rem .42rem;
+  }
+
+  .atlas-daily-task-item h3 {
+    font-size: .78rem;
+  }
+
+  .atlas-daily-task-item p {
+    font-size: .66rem;
+    line-height: 1.35;
+  }
+
+  .atlas-daily-task-item-track {
+    margin: .42rem 0 0 1.7rem;
+  }
+
+  .atlas-daily-task-progress-wrap {
+    margin-top: .8rem;
+  }
+
+  .atlas-daily-task-state {
+    margin-top: .7rem;
+  }
+
+  .atlas-daily-task-footer {
+    gap: .45rem;
+    padding: .62rem .8rem max(.65rem, var(--atlas-safe-bottom));
+  }
+
+  .atlas-daily-task-footer > span,
+  .atlas-daily-task-sound {
+    font-size: .6rem;
+  }
+}
+
+@media all and (min-width: 1025px) and (max-width: 1366px) {
+  .atlas-daily-task-trigger {
+    right: calc(100vw - var(--atlas-viewport-offset-left, 0px) - var(--atlas-visual-width, 100vw) + 1rem);
+    top: calc(var(--atlas-viewport-offset-top, 0px) + 1rem + 4rem + .75rem);
+  }
+}
+
+@media all and (min-width: 1367px) {
+  .atlas-daily-task-trigger {
+    right: calc(100vw - var(--atlas-viewport-offset-left, 0px) - var(--atlas-visual-width, 100vw) + 1rem);
+  }
+}
+
+@media all and (max-width: 1024px) and (max-height: 600px) and (orientation: landscape),
+  all and (max-width: 240px) {
+  :root.atlas-compact-viewport #atlas-daily-task-panel,
+  :root.atlas-narrow-viewport #atlas-daily-task-panel {
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  :root.atlas-compact-viewport #atlas-mobile-menu,
+  :root.atlas-compact-viewport #atlas-search-sheet,
+  :root.atlas-compact-viewport #atlas-area-sheet,
+  :root.atlas-narrow-viewport #atlas-mobile-menu,
+  :root.atlas-narrow-viewport #atlas-search-sheet,
+  :root.atlas-narrow-viewport #atlas-area-sheet {
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
 }
 
 

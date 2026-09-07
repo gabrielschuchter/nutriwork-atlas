@@ -700,7 +700,7 @@ html[data-atlas-access="unlocked"] #atlas-access {
   cursor: pointer;
   font: inherit;
   font-weight: 700;
-  min-height: 2.65rem;
+  min-height: 2.75rem;
   padding: .6rem 1rem;
 }
 
@@ -863,10 +863,12 @@ html[data-atlas-access="unlocked"] #atlas-access {
   cursor: pointer;
   display: inline-flex;
   font-size: 1.35rem;
-  height: 2.2rem;
+  height: 2.75rem;
   justify-content: center;
   line-height: 1;
-  width: 2.2rem;
+  min-height: 2.75rem;
+  min-width: 2.75rem;
+  width: 2.75rem;
 }
 
 .atlas-help-close:hover,
@@ -1042,10 +1044,12 @@ html[data-atlas-access="unlocked"] #atlas-access {
   cursor: pointer;
   display: inline-flex;
   font-size: 1.2rem;
-  height: 2rem;
+  height: 2.75rem;
   justify-content: center;
   line-height: 1;
-  width: 2rem;
+  min-height: 2.75rem;
+  min-width: 2.75rem;
+  width: 2.75rem;
 }
 
 .atlas-report-close:hover,
@@ -1258,6 +1262,11 @@ html[data-atlas-access="unlocked"] #atlas-access {
   transform: none;
 }
 
+.atlas-mobile-menu .atlas-mobile-sheet-card {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
 .atlas-mobile-sheet-header {
   align-items: flex-start;
   display: flex;
@@ -1354,8 +1363,7 @@ html[data-atlas-access="unlocked"] #atlas-access {
 }
 
 .atlas-mobile-search-results,
-.atlas-area-sheet-options,
-.atlas-mobile-menu-list {
+.atlas-area-sheet-options {
   flex: 1 1 auto;
   list-style: none;
   margin: 0 -.35rem;
@@ -1364,6 +1372,15 @@ html[data-atlas-access="unlocked"] #atlas-access {
   overscroll-behavior: contain;
   padding: .1rem .35rem .25rem;
   -webkit-overflow-scrolling: touch;
+}
+
+.atlas-mobile-menu-list {
+  flex: 0 0 auto;
+  list-style: none;
+  margin: 0;
+  min-height: 0;
+  overflow: visible;
+  padding: 0;
 }
 
 .atlas-mobile-search-result {
@@ -1423,7 +1440,11 @@ html[data-atlas-access="unlocked"] #atlas-access {
   display: flex;
   font-size: .92rem;
   justify-content: space-between;
+  box-sizing: border-box;
+  max-width: 100%;
   min-height: 3.5rem;
+  min-width: 0;
+  overflow: hidden;
   padding: .72rem .85rem;
   text-align: left;
   touch-action: manipulation;
@@ -1444,14 +1465,24 @@ html[data-atlas-access="unlocked"] #atlas-access {
 
 .atlas-mobile-menu-list {
   display: grid;
-  gap: .35rem;
-  margin-top: 1.1rem;
+  gap: .25rem;
+  margin-top: .85rem;
 }
 
 .atlas-mobile-menu-list button,
 .atlas-mobile-menu-list a {
-  font-size: .92rem;
-  gap: 1rem;
+  font-size: .9rem;
+  gap: .65rem;
+  line-height: 1.2;
+  min-height: 2.9rem;
+  padding: .48rem .72rem;
+}
+
+.atlas-mobile-menu-list button > span:first-child,
+.atlas-mobile-menu-list a > span:first-child {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .atlas-mobile-menu-list a {
@@ -1471,10 +1502,50 @@ html[data-atlas-access="unlocked"] #atlas-access {
   color: var(--atlas-muted, #94A3B8);
   flex: 0 0 auto;
   font-size: .75rem;
+  max-width: 45%;
+  min-width: 0;
+  overflow: hidden;
+  text-align: right;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .atlas-mobile-menu-arrow {
   font-size: 1.1rem;
+}
+
+.atlas-mobile-menu-institutional {
+  align-items: center;
+  border-top: 1px solid var(--atlas-line, rgba(220, 235, 255, .12));
+  color: var(--atlas-muted, #94A3B8);
+  display: flex;
+  flex-wrap: wrap;
+  font-size: .64rem;
+  gap: .35rem .7rem;
+  justify-content: center;
+  line-height: 1.35;
+  margin-top: .75rem;
+  padding: .65rem .2rem 0;
+  text-align: center;
+}
+
+.atlas-mobile-menu-institutional nav {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: .25rem .6rem;
+  justify-content: center;
+}
+
+.atlas-mobile-menu-institutional a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.atlas-mobile-menu-institutional a:hover,
+.atlas-mobile-menu-institutional a:focus-visible {
+  color: var(--atlas-ink, #F5F7FF);
+  text-decoration: underline;
+  text-underline-offset: .16em;
 }
 
 html.atlas-modal-open,
@@ -1531,6 +1602,23 @@ html.atlas-modal-open body {
   .atlas-mobile-sheet-card {
     width: min(100%, 42rem);
   }
+
+  #atlas-onboarding,
+  #atlas-help,
+  #atlas-report {
+    align-items: flex-start;
+    justify-content: flex-start;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .atlas-onboarding-card,
+  .atlas-help-card,
+  .atlas-report-card {
+    max-height: none;
+    overflow: visible;
+    margin: 0 auto;
+  }
 }
 
 @media all and (max-width: 600px) {
@@ -1551,6 +1639,14 @@ html.atlas-modal-open body {
   #atlas-search-sheet .atlas-mobile-sheet-card {
     height: 100%;
     min-height: 0;
+  }
+
+  @media all and (max-width: 240px) {
+    :root.atlas-narrow-viewport .atlas-mobile-menu-value {
+      overflow-wrap: break-word;
+      text-overflow: clip;
+      white-space: normal;
+    }
   }
 }
 
@@ -1584,7 +1680,14 @@ html.atlas-modal-open body {
 export const AtlasApp = () => {
   const AtlasAppComponent = ({ fileData }) => {
     const asset = logoPath(fileData)
-    const isRoadmap = String(fileData?.slug || "") === "roadmap"
+    const currentSlug = String(fileData?.slug || "index")
+    const isRoadmap = currentSlug === "roadmap"
+    const institutionalLinks = [
+      ["Privacidade", "privacidade"],
+      ["Termos", "termos"],
+      ["Segurança", "seguranca"],
+      ["Acessibilidade", "acessibilidade"],
+    ]
     return h(
       Fragment,
       null,
@@ -1845,6 +1948,25 @@ export const AtlasApp = () => {
               { type: "button", "data-atlas-logout": "true" },
               h("span", null, "Sair do Atlas"),
               h("span", { class: "atlas-mobile-menu-arrow", "aria-hidden": "true" }, "↗"),
+            ),
+          ),
+          h(
+            "div",
+            { class: "atlas-mobile-menu-institutional" },
+            h("span", null, "Informações institucionais"),
+            h(
+              "nav",
+              { "aria-label": "Links institucionais" },
+              institutionalLinks.map(([label, slug]) =>
+                h(
+                  "a",
+                  {
+                    href: withQuery(resolveRelative(currentSlug, slug), "atlasReturn", "atlas"),
+                    "data-router-ignore": "",
+                  },
+                  label,
+                ),
+              ),
             ),
           ),
         ),
