@@ -56,6 +56,13 @@ export function installAccessGate(expectedHash, storageKey, normalizeEmail) {
       status.hidden = !message
     }
   }
+  const clearStatus = (id) => {
+    const status = byId(id)
+    if (!status) return
+    status.textContent = ""
+    status.dataset.state = ""
+    status.hidden = true
+  }
   const render = () => {
     const identityForm = byId("atlas-identification-form")
     const passwordForm = byId("atlas-access-form")
@@ -272,6 +279,7 @@ export function installAccessGate(expectedHash, storageKey, normalizeEmail) {
       registered = false
       visitId = null
       render()
+      clearStatus("atlas-access-status")
       announce("")
       setState(false)
       focusInput()

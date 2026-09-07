@@ -213,4 +213,15 @@ describe("identificação → senha global, sem alterar o mecanismo de hash", ()
     assert.equal(page.get("atlas-identification-form").hidden, false)
     assert.equal(page.root.dataset.atlasAccess, "locked")
   })
+  it("trocar e-mail limpa erro antigo da senha", async () => {
+    const page = browser()
+    page.get("atlas-identification-email").value = "qa@example.com"
+    await page.submit("atlas-identification-form")
+    page.get("atlas-access-password").value = "errada"
+    await page.submit("atlas-access-form")
+    assert.equal(page.get("atlas-access-status").hidden, false)
+    page.click("atlas-identification-change")
+    assert.equal(page.get("atlas-access-status").textContent, "")
+    assert.equal(page.get("atlas-access-status").hidden, true)
+  })
 })
