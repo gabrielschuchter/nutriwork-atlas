@@ -521,7 +521,7 @@ html[data-atlas-access="unlocked"] #atlas-access {
 @media all and (max-height: 520px) and (min-width: 480px) {
   #atlas-access {
     align-items: center;
-    padding-block: .75rem;
+    padding-block: max(.75rem, env(safe-area-inset-top, 0px)) max(.75rem, env(safe-area-inset-bottom, 0px));
   }
 
   .atlas-access-card {
@@ -529,7 +529,7 @@ html[data-atlas-access="unlocked"] #atlas-access {
     column-gap: 1rem;
     grid-template-columns: minmax(11rem, 1fr) minmax(0, 1.5fr);
     max-width: 34rem;
-    padding: 1rem 1.25rem;
+    padding: .45rem 1rem;
     width: min(100%, 34rem);
   }
 
@@ -558,19 +558,24 @@ html[data-atlas-access="unlocked"] #atlas-access {
     align-self: center;
     grid-column: 2;
     grid-row: 1 / span 3;
-    gap: .4rem;
+    gap: .3rem;
     margin: 0;
+  }
+
+  .atlas-access-status {
+    font-size: .76rem;
+    line-height: 1.35;
   }
 
   .atlas-legal-consent {
     grid-column: 1 / -1;
-    margin-top: .55rem;
+    margin-top: .35rem;
   }
 }
 
 @media all and (max-height: 520px) and (max-width: 479px) {
   #atlas-access {
-    padding-block: .75rem;
+    padding-block: max(.75rem, env(safe-area-inset-top, 0px)) max(.75rem, env(safe-area-inset-bottom, 0px));
   }
 
   .atlas-access-card {

@@ -94,6 +94,31 @@ export function installAccessGate(expectedHash, storageKey, normalizeEmail) {
       }),
     )
   }
+  document.addEventListener("keydown", (event) => {
+    if (event.key !== "Tab" || root.dataset.atlasAccess !== "locked") return
+    const access = byId("atlas-access")
+    if (!access) return
+    const focusable = [
+      ...access.querySelectorAll(
+        "a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled])",
+      ),
+    ].filter((element) => !element.hidden && element.getClientRects().length > 0)
+    if (!focusable.length) return
+    const active = document.activeElement
+    const first = focusable[0]
+    const last = focusable[focusable.length - 1]
+    if (!access.contains(active)) {
+      event.preventDefault()
+      const destination = event.shiftKey ? last : first
+      destination.focus()
+    } else if (event.shiftKey && active === first) {
+      event.preventDefault()
+      last.focus()
+    } else if (!event.shiftKey && active === last) {
+      event.preventDefault()
+      first.focus()
+    }
+  })
   document.addEventListener("focusin", (event) => {
     const target = event.target
     if (!(target instanceof HTMLElement) || !target.closest("#atlas-access")) return
