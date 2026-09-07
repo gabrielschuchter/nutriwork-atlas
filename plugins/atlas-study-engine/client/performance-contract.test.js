@@ -220,6 +220,22 @@ test("Atlas keeps responsive edge cases covered by source contracts", async () =
   assert.match(app, /activeIsTabbable/)
   assert.match(app, /focusable\(overlay\)\.filter\(\(item\) => item\.tabIndex >= 0\)/)
   assert.match(app, /closeMobileMenu/)
+  assert.match(
+    app,
+    /function resetMobileSearchQuery\(\)[\s\S]*?mobileSearchQuery = ""[\s\S]*?input\.value = ""/,
+  )
+  assert.match(app, /if \(source === "search"\) resetMobileSearchQuery\(\)/)
+  assert.match(app, /function resetDesktopSearchQuery\(\)[\s\S]*?search\.value = ""/)
+  assert.match(app, /function showGraph\([\s\S]*?resetDesktopSearchQuery\(\)/)
+  assert.match(
+    app,
+    /const queryParts = searchQuery\(input\?\.value \?\? mobileSearchQuery\)[\s\S]*?if \(!node \|\| !queryParts\.length \|\| !searchMatch\(node, queryParts\)\) return/,
+  )
+  assert.match(app, /}\s*catch \(error\) \{\s*if \(serial !== navigationSerial\) return/)
+  assert.match(
+    app,
+    /if \(overlayIsOpen\("atlas-search-sheet"\)\) \{[\s\S]*?renderMobileSearchResults\(input\?\.value \?\? mobileSearchQuery\)/,
+  )
   assert.match(access, /document\.addEventListener\("focusin"/)
   assert.match(access, /scrollIntoView\?\.\(\{ block: "nearest"/)
   assert.match(daily, /restoreTarget/)

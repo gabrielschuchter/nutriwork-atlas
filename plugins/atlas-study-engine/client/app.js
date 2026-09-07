@@ -686,6 +686,17 @@
     }
   }
 
+  function resetMobileSearchQuery() {
+    const { input } = searchSheetElements()
+    mobileSearchQuery = ""
+    if (input) input.value = ""
+  }
+
+  function resetDesktopSearchQuery() {
+    const search = document.getElementById("atlas-search")
+    if (search) search.value = ""
+  }
+
   function closeSearch(focusTrigger = true) {
     cancelMobileSearchTimer()
     const { sheet, input } = searchSheetElements()
@@ -1037,6 +1048,7 @@
     atlas.graph?.persist()
     hidePreview(0)
     closeSearch(false)
+    if (source === "search") resetMobileSearchQuery()
     closeAreaSheet(false)
     closeAreaMenu()
     closeMobileMenu(false)
@@ -1068,6 +1080,7 @@
       setRouteLoading(false)
       window.requestAnimationFrame(() => document.getElementById("atlas-note-title")?.focus())
     } catch (error) {
+      if (serial !== navigationSerial) return
       console.error("O Atlas não conseguiu abrir a nota.", error)
       setRouteLoading(false)
       renderNoteError()
@@ -1076,6 +1089,7 @@
 
   function showGraph({ historyMode = "none", contextSlug = "" } = {}) {
     navigationSerial += 1
+    resetDesktopSearchQuery()
     atlas.graph?.persist()
     hidePreview(0)
     closeSearch(false)
@@ -1297,9 +1311,11 @@
     } else if (action === "close-search") {
       closeSearch(true)
     } else if (action === "open-search-result") {
-      closeSearch(false)
-      mobileSearchQuery = ""
-      openConcept(target.dataset.atlasSlug || "", { source: "search" })
+      const { input } = searchSheetElements()
+      const queryParts = searchQuery(input?.value ?? mobileSearchQuery)
+      const node = atlas.data.get(target.dataset.atlasSlug || "")
+      if (!node || !queryParts.length || !searchMatch(node, queryParts)) return
+      openConcept(node.slug, { source: "search" })
     } else if (action === "open-area") {
       openAreaSheet()
     } else if (action === "close-area") {
@@ -1627,6 +1643,10 @@
       await atlas.data.load()
       if (serial !== refreshSerial) return
       document.dispatchEvent(new CustomEvent("atlas:data-ready"))
+      if (overlayIsOpen("atlas-search-sheet")) {
+        const { input } = searchSheetElements()
+        renderMobileSearchResults(input?.value ?? mobileSearchQuery)
+      }
       selectedArea = "all"
       renderAreas()
       await renderInitialRoute()
