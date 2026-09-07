@@ -1,5 +1,17 @@
 # Nutriwork Atlas — plano e estado do MVP
 
+## Engine real de Tarefas de hoje — 6 de setembro de 2026
+
+Escopo autorizado: substituir as aproximadamente 50 tarefas textuais por uma lista pequena de tarefas declarativas, objetivamente detectáveis e localmente persistentes. Preservar o grafo, busca, filtros, navegação, access gate, responsividade e a arquitetura sem backend.
+
+- `activity-tracker.js` é a camada única de eventos semânticos e agrega somente slugs, métricas e eventos recentes limitados.
+- `tasks.js` define dez tarefas em famílias/grupos distintos; `task-engine.js` escolhe três grupos por data, deriva progresso da atividade e mantém conclusão/streak idempotentes.
+- `app.js` informa origens de abertura (`graph`, `search`, `internal_link`, `concept_list`, `direct`, `history`) e mudanças reais de filtro; `graph.js` informa pan/zoom significativos ao terminar os gestos.
+- `atlas_activity_v1` e `atlas_daily_tasks_v2` substituem a lista antiga de 50 templates e o estado `atlas_daily_tasks_v1:*`; progresso antigo não é inventado nem migrado.
+- Testes cobrem métricas únicas, busca, filtro, links, lista, reload, conclusão, streak, novo dia, corrupção de storage, som e calendário local.
+
+Gates específicos: `npm run check`, `npm test`, `npm run vault:check`, `npm run atlas:index`, `npm run build`, `npm audit --audit-level=high`, `git diff --check` e fluxo manual com o painel fechado.
+
 ## Navegação espacial, labels progressivos e fluxos auxiliares — 5 de setembro de 2026
 
 Escopo autorizado: transformar o grafo em um mapa espacial explorável, manter as posições estáveis após a estabilização do layout, revelar labels apenas conforme zoom e viewport, suavizar conexões não interativas, corrigir o envio de sugestões, preservar o contexto de retorno das páginas legais e impedir quebra de palavras em títulos. Preservar a identidade visual, as interações do grafo, `content/atlas` e as dependências atuais.

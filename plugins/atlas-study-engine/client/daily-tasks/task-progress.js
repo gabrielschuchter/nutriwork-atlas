@@ -1,30 +1,32 @@
 ;(() => {
   const atlas = (window.__nutriworkAtlasEngine = window.__nutriworkAtlasEngine || {})
 
-  function blank(date) {
-    return { date, count: 0, items: [], lastSlug: "" }
+  function uniqueItems(value) {
+    return Array.isArray(value) ? [...new Set(value.filter(Boolean))] : []
   }
 
-  function normalize(progress, date) {
-    const items = Array.isArray(progress?.items) ? progress.items.filter(Boolean) : []
+  function metricValue(activity, metric) {
+    const value = activity?.[metric]
+    if (Array.isArray(value)) return uniqueItems(value).length
+    return Number.isFinite(Number(value)) ? Math.max(0, Math.floor(Number(value))) : 0
+  }
+
+  function metricItems(activity, metric) {
+    const value = activity?.[metric]
+    return Array.isArray(value) ? uniqueItems(value) : []
+  }
+
+  function progress(task, activity) {
+    const target = Math.max(1, Number(task?.target) || 1)
+    const count = Math.min(target, metricValue(activity, task?.metric))
     return {
-      date,
-      count: Math.min(items.length, Math.max(0, Number(progress?.count || 0))),
-      items,
-      lastSlug: String(progress?.lastSlug || ""),
+      count,
+      target,
+      items: metricItems(activity, task?.metric),
+      metric: String(task?.metric || ""),
+      complete: count >= target,
     }
   }
 
-  function add(progress, item, target) {
-    if (!item || progress.items.includes(item)) return { ...progress, count: progress.items.length }
-    const items = [...progress.items, item]
-    const limit = Math.max(1, Number(target) || 1)
-    return { ...progress, items, count: Math.min(limit, items.length) }
-  }
-
-  function isComplete(progress, task) {
-    return progress.count >= Math.max(1, Number(task?.target) || 1)
-  }
-
-  atlas.dailyTaskProgress = { blank, normalize, add, isComplete }
+  atlas.dailyTaskProgress = { metricValue, metricItems, progress }
 })()

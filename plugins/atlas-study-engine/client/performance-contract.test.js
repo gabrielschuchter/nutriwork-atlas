@@ -101,11 +101,12 @@ test("Atlas roadmap is versioned, public and connected to the suggestion endpoin
   assert.match(sheets, /appendSuggestion_/)
 })
 
-test("Atlas daily tasks stay client-side and reuse concept-opening events", async () => {
-  const [runtime, app, graph, daily, storage, engine, frame, ui] = await Promise.all([
+test("Atlas daily tasks stay client-side and use one semantic activity tracker", async () => {
+  const [runtime, app, graph, tracker, daily, storage, engine, frame, ui] = await Promise.all([
     source("../runtime.js"),
     source("./app.js"),
     source("./graph.js"),
+    source("./daily-tasks/activity-tracker.js"),
     source("./daily-tasks.js"),
     source("./daily-tasks/task-storage.js"),
     source("./daily-tasks/task-engine.js"),
@@ -113,20 +114,29 @@ test("Atlas daily tasks stay client-side and reuse concept-opening events", asyn
     readFile(new URL("../../atlas-ui/components/index.js", import.meta.url), "utf8"),
   ])
   assert.match(runtime, /daily-tasks\/task-engine\.js/)
+  assert.match(runtime, /daily-tasks\/activity-tracker\.js/)
   assert.match(runtime, /atlasRoadmapRuntime/)
   assert.match(frame, /data-atlas-daily-action="open"/)
   assert.match(frame, /atlas-daily-task-list/)
   assert.match(ui, /data-atlas-daily-action.*open/)
   assert.match(ui, /Tarefas de hoje/)
   assert.match(app, /atlas:concept-opened/)
+  assert.match(app, /activityTracker\?\.recordActivity\("concept_opened"/)
   assert.match(graph, /source: "graph"/)
+  assert.match(graph, /graph_panned/)
+  assert.match(graph, /graph_zoomed/)
+  assert.match(graph, /graph_fit/)
+  assert.match(graph, /WHEEL_ZOOM_DELTA_THRESHOLD/)
+  assert.match(tracker, /atlas_activity_v1/)
+  assert.match(tracker, /area_filter_changed/)
   assert.match(daily, /pointerdown/)
   assert.match(daily, /completedTasks/)
-  assert.match(daily, /atlas:concept-opened/)
+  assert.match(daily, /atlas:activity/)
   assert.match(daily, /AudioContext/)
-  assert.match(storage, /atlas_daily_tasks_v1/)
+  assert.match(storage, /atlas_daily_tasks_v2/)
   assert.match(engine, /dailyTaskCount = 3/)
   assert.match(engine, /selectTasks/)
+  assert.match(engine, /definitionVersion/)
   assert.doesNotMatch(daily, /fetch\(/)
 })
 

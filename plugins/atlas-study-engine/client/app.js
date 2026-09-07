@@ -41,6 +41,19 @@
   let selectedArea = "all"
   let viewState = { mode: "graph", noteSlug: "", openedFromGraph: false }
 
+  function conceptActivitySource(source) {
+    if (
+      source === "graph" ||
+      source === "search" ||
+      source === "concept_list" ||
+      source === "history"
+    )
+      return source
+    if (source === "note") return "internal_link"
+    if (source === "preview") return "graph"
+    return "direct"
+  }
+
   function root() {
     return document.documentElement
   }
@@ -606,10 +619,17 @@
     const { menu } = areaPickerElements()
     const option = areaOptions(menu).find((item) => item.dataset.atlasAreaValue === value)
     if (!option) return
+    const previousArea = selectedArea
     setAreaPickerValue(value)
+    selectedArea = value
     closeAreaMenu(focusTrigger)
     closeAreaSheet(focusTrigger)
     applyFilters()
+    if (previousArea !== value)
+      atlas.activityTracker?.recordActivity("area_filter_changed", {
+        area: value,
+        previousArea,
+      })
   }
 
   function searchSheetElements() {
@@ -1034,9 +1054,15 @@
       renderNavState()
       atlas.graph?.setMode("minimap", node.slug)
       enhanceLinks()
+      const activitySource = conceptActivitySource(source)
+      atlas.activityTracker?.recordActivity("concept_opened", {
+        slug: node.slug,
+        source: activitySource,
+        area: selectedArea,
+      })
       document.dispatchEvent(
         new CustomEvent("atlas:concept-opened", {
-          detail: { slug: node.slug, title: node.title, source },
+          detail: { slug: node.slug, title: node.title, source: activitySource },
         }),
       )
       setRouteLoading(false)
@@ -1099,7 +1125,7 @@
 
   function returnToNote() {
     const slug = readSession(lastNoteKey)
-    if (slug && atlas.data.get(slug)) openConcept(slug)
+    if (slug && atlas.data.get(slug)) openConcept(slug, { source: "history" })
   }
 
   function onboardingComplete() {
@@ -1369,7 +1395,9 @@
     event.preventDefault()
     event.stopPropagation()
     hidePreview(0)
-    openConcept(slug, { source: "note" })
+    openConcept(slug, {
+      source: anchor.dataset.atlasConceptSource === "concept_list" ? "concept_list" : "note",
+    })
   }
 
   function handlePointerOver(event) {
@@ -1495,10 +1523,16 @@
     const area = document.getElementById("atlas-area-filter")
     if (!search || !area) return
     if (event?.target === area) {
+      const previousArea = selectedArea
       cancelFilterTimer()
       selectedArea = area.value
       setAreaPickerValue(selectedArea)
       applyFilters()
+      if (previousArea !== selectedArea)
+        atlas.activityTracker?.recordActivity("area_filter_changed", {
+          area: selectedArea,
+          previousArea,
+        })
       return
     }
     if (event?.target !== search) return
@@ -1634,6 +1668,11 @@
           renderNavState()
           atlas.graph?.setMode("minimap", node.slug)
           enhanceLinks()
+          atlas.activityTracker?.recordActivity("concept_opened", {
+            slug: node.slug,
+            source: "history",
+            area: selectedArea,
+          })
           setRouteLoading(false)
         })
         .catch((error) => {

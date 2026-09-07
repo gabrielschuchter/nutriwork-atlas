@@ -1,6 +1,6 @@
 ;(() => {
   const atlas = (window.__nutriworkAtlasEngine = window.__nutriworkAtlasEngine || {})
-  if (atlas.dailyTasks?.runtimeVersion === 2) return
+  if (atlas.dailyTasks?.runtimeVersion === 3) return
 
   let opener = null
   let toastTimer = 0
@@ -65,7 +65,7 @@
     const title = document.createElement("h3")
     title.textContent = task.title || "Tarefa do Atlas"
     const description = document.createElement("p")
-    description.textContent = task.description || "Explore o Atlas por alguns minutos."
+    description.textContent = task.description || "Siga a ação descrita para concluir a tarefa."
     copy.append(title, description)
     const countLabel = document.createElement("strong")
     countLabel.className = "atlas-daily-task-item-progress"
@@ -110,11 +110,12 @@
     if (item.state) {
       item.state.textContent = current.completed
         ? "Todas as tarefas de hoje foram concluídas."
-        : "Explore o grafo para concluir as tarefas."
+        : "Execute as ações descritas acima para concluir as tarefas."
       item.state.dataset.state = current.completed ? "complete" : "active"
     }
     const visibleStreak = Number(current.streak?.visibleCount || 0)
-    if (item.streakLabel) item.streakLabel.textContent = `Sequência: ${visibleStreak} dias`
+    if (item.streakLabel)
+      item.streakLabel.textContent = `Sequência: ${visibleStreak} ${visibleStreak === 1 ? "dia" : "dias"}`
     if (item.streakFire) {
       item.streakFire.hidden = visibleStreak < 1
       item.streakFire.dataset.level = String(Math.min(5, Math.max(1, Math.ceil(visibleStreak / 3))))
@@ -268,12 +269,8 @@
     }, 4600)
   }
 
-  function onConceptOpened(event) {
-    const result = atlas.dailyTaskEngine?.recordConceptOpened({
-      slug: event.detail?.slug,
-      source: event.detail?.source,
-      now: new Date(),
-    })
+  function onActivity(event) {
+    const result = atlas.dailyTaskEngine?.processActivity(event.detail, new Date())
     render()
     if (result?.completedTasks?.length) {
       playCompletionSound()
@@ -318,7 +315,7 @@
   document.addEventListener("pointerdown", handlePointerDown, true)
   document.addEventListener("click", handleClick, true)
   document.addEventListener("keydown", handleKeydown)
-  document.addEventListener("atlas:concept-opened", onConceptOpened)
+  document.addEventListener("atlas:activity", onActivity)
   document.addEventListener("atlas:data-ready", syncDay)
   document.addEventListener("visibilitychange", onVisibilityChange)
   window.addEventListener("focus", syncDay)
@@ -326,7 +323,7 @@
   syncDay()
 
   atlas.dailyTasks = {
-    runtimeVersion: 2,
+    runtimeVersion: 3,
     close,
     open,
     render,

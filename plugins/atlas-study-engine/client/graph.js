@@ -25,6 +25,13 @@
   const EMPTY_DASH = []
   const DEVELOPMENT_DASH = [3, 4]
   const GRAPH_FONT = "600 12px Poppins, Arial, sans-serif"
+  const GRAPH_ZOOM_THRESHOLD = Math.log(1.08)
+  const WHEEL_ZOOM_DELTA_THRESHOLD = Math.ceil(GRAPH_ZOOM_THRESHOLD / 0.0012)
+
+  function recordGraphActivity(state, type) {
+    if (state.mode !== "explore") return
+    atlas.activityTracker?.recordActivity(type)
+  }
   const LABEL_PADDING = 12
   const LABEL_GAP = 8
   const LABEL_CLEARANCE = 5
@@ -887,6 +894,7 @@
     if (!pinch.active) {
       if (!pinchPassedThreshold(pinch, next)) return
       pinch.active = true
+      state.pinchActivity = true
       state.gesture = GESTURES.PINCH
       state.suppressTap = true
       atlas.app?.dismissTouchHint()
@@ -937,7 +945,8 @@
       startY: point.y,
       lastX: point.x,
       lastY: point.y,
-      moved: true,
+      moved: false,
+      activityMoved: false,
       gesture: GESTURES.PAN,
     }
     state.gesture = GESTURES.PAN
@@ -957,6 +966,8 @@
       state.pointer = null
       state.gesture = GESTURES.PINCH
       state.pinch = createPinch(state)
+      state.pinchActivity = false
+      state.pinchInitialScale = state.pinch?.initialScale || state.camera.scale
       state.suppressTap = true
       state.canvas.style.cursor = "grabbing"
       atlas.app?.hidePreview(0)
@@ -975,6 +986,7 @@
       lastX: pointX,
       lastY: pointY,
       moved: false,
+      activityMoved: false,
       gesture: GESTURES.TAP_CANDIDATE,
     }
     state.gesture = GESTURES.TAP_CANDIDATE
@@ -1007,6 +1019,7 @@
       Math.hypot(pointX - pointer.startX, pointY - pointer.startY) > threshold
     ) {
       pointer.moved = true
+      pointer.activityMoved = true
       pointer.gesture = pointer.node && !touch ? GESTURES.NODE_DRAG : GESTURES.PAN
       state.gesture = pointer.gesture
       if (pointer.gesture === GESTURES.PAN) cancelCameraAnimation(state)
@@ -1075,6 +1088,7 @@
 
   function endPointer(state, event) {
     const canceled = event.type === "pointercancel" || event.type === "lostpointercapture"
+    const pinchInitialScale = state.pinch?.initialScale || state.pinchInitialScale
     if (!canceled) {
       const move = state.pendingPointerMoves.get(event.pointerId)
       if (move?.pending) {
@@ -1094,7 +1108,17 @@
         state.pinch = null
         setPanContinuation(state)
       } else {
+        if (
+          !canceled &&
+          state.pinchActivity &&
+          state.pointers.size === 0 &&
+          pinchInitialScale > 0 &&
+          Math.abs(Math.log(state.camera.scale / pinchInitialScale)) >= GRAPH_ZOOM_THRESHOLD
+        )
+          recordGraphActivity(state, "graph_zoomed")
         state.pinch = null
+        state.pinchActivity = false
+        state.pinchInitialScale = 0
         state.pointer = null
         state.gesture = GESTURES.IDLE
         state.suppressTap = false
@@ -1112,6 +1136,18 @@
       pointer.node.fy = null
       state.physics?.reheat(0.22)
     }
+    if (!canceled && pointer.activityMoved && pointer.gesture === GESTURES.PAN)
+      recordGraphActivity(state, "graph_panned")
+    if (
+      !canceled &&
+      state.pinchActivity &&
+      state.pointers.size === 0 &&
+      pinchInitialScale > 0 &&
+      Math.abs(Math.log(state.camera.scale / pinchInitialScale)) >= GRAPH_ZOOM_THRESHOLD
+    )
+      recordGraphActivity(state, "graph_zoomed")
+    state.pinchActivity = false
+    state.pinchInitialScale = 0
     const isTap = !canceled && pointer.gesture === GESTURES.TAP_CANDIDATE && !pointer.moved
     state.gesture = GESTURES.IDLE
     if (isTouchPointer(pointer.pointerType)) atlas.app?.dismissTouchHint()
@@ -1134,6 +1170,7 @@
 
   function zoomAt(state, pointX, pointY, factor) {
     cancelCameraAnimation(state)
+    const previousScale = state.camera.scale
     const beforeX = pointX / state.camera.scale + state.camera.x
     const beforeY = pointY / state.camera.scale + state.camera.y
     const bounds = scaleBounds(state)
@@ -1145,6 +1182,7 @@
     state.userCamera = true
     state.cameraDirty = true
     state.screenPositionsDirty = true
+    return state.camera.scale !== previousScale
   }
 
   function animateCameraTo(state, target, userCamera, onComplete) {
@@ -1203,6 +1241,12 @@
     const worldY = pointY / baseCamera.scale + baseCamera.y
     const bounds = scaleBounds(state)
     const scale = clamp(baseCamera.scale * factor, bounds.min, bounds.max)
+    if (
+      scale === baseCamera.scale ||
+      Math.abs(Math.log(scale / baseCamera.scale)) < GRAPH_ZOOM_THRESHOLD
+    )
+      return
+    recordGraphActivity(state, "graph_zoomed")
     animateCameraTo(
       state,
       {
@@ -1220,14 +1264,30 @@
     animateCameraTo(state, target, false)
   }
 
+  function queueWheelActivity(state, deltaY) {
+    state.wheelActivityDelta += Math.abs(Number(deltaY) || 0)
+    if (state.wheelActivityTimer) window.clearTimeout(state.wheelActivityTimer)
+    state.wheelActivityTimer = window.setTimeout(() => {
+      state.wheelActivityTimer = 0
+      if (state.wheelActivityDelta >= WHEEL_ZOOM_DELTA_THRESHOLD && !state.wheelActivityRecorded) {
+        recordGraphActivity(state, "graph_zoomed")
+        state.wheelActivityRecorded = true
+      }
+      state.wheelActivityDelta = 0
+      state.wheelActivityRecorded = false
+    }, 180)
+  }
+
   function flushWheel(state) {
-    if (!state.wheelQueued || !state.wheelDeltaY) return false
+    if (!state.wheelQueued) return false
     const deltaY = state.wheelDeltaY
     const pointX = state.wheelX
     const pointY = state.wheelY
     state.wheelDeltaY = 0
     state.wheelQueued = false
-    zoomAt(state, pointX, pointY, Math.exp(-deltaY * 0.0012))
+    if (!deltaY) return false
+    const changed = zoomAt(state, pointX, pointY, Math.exp(-deltaY * 0.0012))
+    if (changed && state.mode === "explore") queueWheelActivity(state, deltaY)
     return true
   }
 
@@ -1263,6 +1323,7 @@
       animateZoom(state, 0.84)
       event.preventDefault()
     } else if (event.key === "0") {
+      recordGraphActivity(state, "graph_fit")
       animateFit(state)
       event.preventDefault()
     }
@@ -1279,6 +1340,7 @@
     for (const node of nodes) {
       const item = make("li")
       const nodeLink = link(node, node.title, "atlas-concept-list-link")
+      nodeLink.dataset.atlasConceptSource = "concept_list"
       if (node.isDevelopment) nodeLink.dataset.atlasDevelopment = "true"
       item.appendChild(nodeLink)
       state.listItems.appendChild(item)
@@ -1333,7 +1395,10 @@
       const action = control?.dataset.atlasGraphAction
       if (action === "zoom-out") animateZoom(state, 0.82)
       else if (action === "zoom-in") animateZoom(state, 1.2)
-      else if (action === "fit") animateFit(state)
+      else if (action === "fit") {
+        recordGraphActivity(state, "graph_fit")
+        animateFit(state)
+      }
     }
     const onPointerDown = (event) => event.stopPropagation()
     controls.addEventListener("click", onClick)
@@ -1487,6 +1552,8 @@
       pointers: new Map(),
       pendingPointerMoves: new Map(),
       pinch: null,
+      pinchActivity: false,
+      pinchInitialScale: 0,
       gesture: GESTURES.IDLE,
       suppressTap: false,
       frame: 0,
@@ -1498,6 +1565,9 @@
       wheelDeltaY: 0,
       wheelX: 0,
       wheelY: 0,
+      wheelActivityDelta: 0,
+      wheelActivityTimer: 0,
+      wheelActivityRecorded: false,
       resizePending: false,
       resizeFrame: 0,
       resizeTimer: 0,
@@ -1643,6 +1713,7 @@
     if (state.frame) window.cancelAnimationFrame(state.frame)
     if (state.resizeFrame) window.cancelAnimationFrame(state.resizeFrame)
     if (state.resizeTimer) window.clearTimeout(state.resizeTimer)
+    if (state.wheelActivityTimer) window.clearTimeout(state.wheelActivityTimer)
     state.frame = 0
     state.resizeFrame = 0
     state.resizeTimer = 0
