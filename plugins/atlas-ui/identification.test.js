@@ -115,8 +115,9 @@ function browser({ saved = {}, denyStorage = false, fail = false } = {}) {
 describe("identificação → senha global, sem alterar o mecanismo de hash", () => {
   it("vazio e inválido não chamam servidor; sucesso persiste e só libera após senha correta", async () => {
     const page = browser()
+    assert.equal(page.get("atlas-access-title").textContent, "Acesse o Atlas")
     await page.submit("atlas-identification-form")
-    assert.match(page.get("atlas-identification-status").textContent, /Informe seu e-mail/)
+    assert.match(page.get("atlas-identification-status").textContent, /Digite seu e-mail/)
     page.get("atlas-identification-email").value = "invalido"
     await page.submit("atlas-identification-form")
     assert.equal(page.calls.length, 0)
@@ -126,13 +127,20 @@ describe("identificação → senha global, sem alterar o mecanismo de hash", ()
     assert.equal(page.storage.get(identityKey), identity)
     assert.equal(page.get("atlas-identification-form").hidden, true)
     assert.equal(page.get("atlas-access-form").hidden, false)
+    assert.equal(page.get("atlas-access-title").textContent, "Senha de acesso")
+    assert.equal(page.get("atlas-identification-email-display").textContent, "qa@example.com")
+    assert.equal(page.get("atlas-access-status").hidden, true)
     assert.equal(page.root.dataset.atlasAccess, "locked")
     page.get("atlas-access-password").value = "errada"
-    await page.submit("atlas-access-form")
+    const wrongPassword = page.submit("atlas-access-form")
+    assert.equal(page.get("atlas-access-submit").textContent, "Entrando…")
+    assert.equal(page.get("atlas-access-submit").disabled, true)
+    await wrongPassword
     assert.match(page.get("atlas-access-status").textContent, /Senha incorreta/)
     page.get("atlas-access-password").value = testPassword
     await page.submit("atlas-access-form")
     assert.equal(page.root.dataset.atlasAccess, "unlocked")
+    assert.equal(page.get("atlas-access-status").hidden, true)
     assert.equal(page.storage.get(accessKey), hash)
     assert.equal(page.get("atlas-access-password").value, "")
     assert.equal(JSON.stringify(page.calls).includes(testPassword), false)
@@ -141,6 +149,10 @@ describe("identificação → senha global, sem alterar o mecanismo de hash", ()
     page.click("atlas-access-logout")
     assert.equal(page.root.dataset.atlasAccess, "locked")
     assert.equal(page.storage.get(identityKey), identity)
+    page.get("atlas-access-password").value = "stale-password"
+    page.click("atlas-identification-change")
+    assert.equal(page.get("atlas-access-password").value, "")
+    assert.equal(page.get("atlas-access-password").type, "password")
   })
   it("recorrente não solicita e-mail e registra visita antes de restaurar sessão existente", async () => {
     const page = browser({ saved: { [identityKey]: identity, [accessKey]: hash } })

@@ -53,38 +53,37 @@ export function installAccessGate(expectedHash, storageKey, normalizeEmail) {
     if (status) {
       status.textContent = message
       status.dataset.state = state
+      status.hidden = !message
     }
   }
   const render = () => {
     const identityForm = byId("atlas-identification-form")
     const passwordForm = byId("atlas-access-form")
+    const title = byId("atlas-access-title")
+    if (title) title.textContent = email ? "Senha de acesso" : "Acesse o Atlas"
     if (identityForm) identityForm.hidden = Boolean(email)
     if (passwordForm) passwordForm.hidden = !email
     const identitySubmit = byId("atlas-identification-submit")
     if (identitySubmit) {
       identitySubmit.disabled = pending
-      identitySubmit.textContent = pending ? "Aguarde…" : "Continuar"
+      identitySubmit.textContent = pending ? "Verificando…" : "Continuar"
     }
     const input = byId("atlas-identification-email")
     if (input) input.readOnly = pending
     identityForm?.setAttribute("aria-busy", String(pending && !email))
     const passwordSubmit = byId("atlas-access-submit")
-    if (passwordSubmit) passwordSubmit.disabled = !registered || pending
+    if (passwordSubmit) {
+      passwordSubmit.disabled = !registered || pending
+      passwordSubmit.textContent = pending ? "Entrando…" : "Entrar no Atlas"
+    }
+    const passwordFormBusy = pending && Boolean(email)
+    passwordForm?.setAttribute("aria-busy", String(passwordFormBusy))
+    const emailDisplay = byId("atlas-identification-email-display")
+    if (emailDisplay) emailDisplay.textContent = email || ""
     const retry = byId("atlas-identification-retry")
     if (retry) retry.hidden = !email || registered || pending
     const change = byId("atlas-identification-change")
     if (change) change.disabled = pending
-    const hint = byId("atlas-device-hint")
-    if (hint) {
-      const iPadOs = navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1
-      hint.hidden = !(
-        navigator.userAgentData?.mobile ||
-        /Android|iPhone|iPad|iPod|Windows Phone|webOS|BlackBerry|IEMobile|Opera Mini/i.test(
-          navigator.userAgent || "",
-        ) ||
-        iPadOs
-      )
-    }
   }
   const focusInput = () => {
     // Avoid summoning the mobile keyboard automatically.
@@ -113,7 +112,7 @@ export function installAccessGate(expectedHash, storageKey, normalizeEmail) {
     const hadAccessSession = !isNew && readPasswordState()
     pending = true
     render()
-    announce("Validando seu e-mail…", "loading")
+    announce("")
     const started = Date.now()
     try {
       visitId ||= crypto.randomUUID()
@@ -141,7 +140,7 @@ export function installAccessGate(expectedHash, storageKey, normalizeEmail) {
       if (isNew) memoryUnlocked = false
       pending = false
       render()
-      announce("E-mail registrado. Digite a senha do Atlas.", "success")
+      announce("")
       setState(!isNew && readPasswordState())
       if (root.dataset.atlasAccess === "locked") focusInput()
     } catch (error) {
@@ -150,8 +149,8 @@ export function installAccessGate(expectedHash, storageKey, normalizeEmail) {
       render()
       announce(
         error?.message === "rate_limited"
-          ? "Muitas tentativas. Aguarde alguns minutos e tente novamente."
-          : "Não foi possível registrar seu acesso agora. Tente novamente.",
+          ? "Muitas tentativas. Tente novamente mais tarde."
+          : "Não foi possível verificar o e-mail. Tente novamente.",
         "error",
       )
       setState(hadAccessSession)
@@ -171,12 +170,7 @@ export function installAccessGate(expectedHash, storageKey, normalizeEmail) {
       const candidate = normalizeEmail(input?.value)
       if (!candidate || !input.validity.valid) {
         input?.setAttribute("aria-invalid", "true")
-        announce(
-          input?.value.trim()
-            ? "Digite um e-mail válido, como nome@exemplo.com."
-            : "Informe seu e-mail.",
-          "error",
-        )
+        announce(input?.value.trim() ? "Digite um e-mail válido." : "Digite seu e-mail.", "error")
         input?.focus()
         return
       }
@@ -189,12 +183,17 @@ export function installAccessGate(expectedHash, storageKey, normalizeEmail) {
     if (!email || !registered || pending) return
     const input = byId("atlas-access-password")
     if (!(input instanceof HTMLInputElement) || !input.value) {
-      announce("Informe a senha.", "error")
+      announce("Digite a senha.", "error")
       input?.focus()
       return
     }
+    pending = true
+    render()
+    announce("")
     try {
       if ((await digest(input.value)) !== expectedHash) {
+        pending = false
+        render()
         announce("Senha incorreta.", "error")
         input.select()
         return
@@ -204,10 +203,14 @@ export function installAccessGate(expectedHash, storageKey, normalizeEmail) {
       } catch {}
       memoryUnlocked = true
       input.value = ""
+      pending = false
+      render()
       announce("")
       setState(true)
     } catch {
-      announce("Não foi possível validar a senha neste navegador.", "error")
+      pending = false
+      render()
+      announce("Não foi possível entrar. Tente novamente.", "error")
     }
   })
   document.addEventListener("click", (event) => {
@@ -231,6 +234,14 @@ export function installAccessGate(expectedHash, storageKey, normalizeEmail) {
         window.localStorage.removeItem(identityKey)
         window.localStorage.removeItem(storageKey)
       } catch {}
+      const password = byId("atlas-access-password")
+      if (password) {
+        password.value = ""
+        password.type = "password"
+      }
+      const passwordToggle = byId("atlas-access-password-toggle")
+      passwordToggle?.setAttribute("aria-pressed", "false")
+      passwordToggle?.setAttribute("aria-label", "Mostrar senha")
       email = null
       memoryUnlocked = false
       registered = false

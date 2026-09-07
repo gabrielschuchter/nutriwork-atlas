@@ -60,30 +60,11 @@ export const AtlasAccess = (userOptions = {}) => {
           height: 56,
         }),
         h("p", { class: "atlas-access-kicker" }, "NUTRIWORK / ATLAS"),
-        h("h1", { id: "atlas-access-title" }, "O grafo é o Atlas."),
-        h(
-          "p",
-          { class: "atlas-access-description" },
-          "Entre para explorar conceitos e notas de Nutrição Baseada em Evidências.",
-        ),
-        h(
-          "p",
-          {
-            id: "atlas-device-hint",
-            class: "atlas-device-hint",
-            hidden: true,
-            role: "note",
-          },
-          "No celular ou tablet, explore com arrastar e pinça.",
-        ),
+        h("h1", { id: "atlas-access-title" }, "Acesse o Atlas"),
         h(
           "form",
           { id: "atlas-identification-form", class: "atlas-access-form", novalidate: true },
-          h(
-            "label",
-            { for: "atlas-identification-email" },
-            "Digite o e-mail que você utiliza no Nutriwork+.",
-          ),
+          h("label", { for: "atlas-identification-email" }, "E-mail do Nutriwork Plus"),
           h("input", {
             id: "atlas-identification-email",
             name: "email",
@@ -94,7 +75,7 @@ export const AtlasAccess = (userOptions = {}) => {
             spellcheck: false,
             maxlength: 254,
             required: true,
-            "aria-describedby": "atlas-identification-status atlas-identification-notice",
+            "aria-describedby": "atlas-identification-status",
           }),
           h(
             "button",
@@ -106,21 +87,34 @@ export const AtlasAccess = (userOptions = {}) => {
             class: "atlas-access-status",
             role: "status",
             "aria-live": "polite",
+            hidden: true,
           }),
-          h(
-            "p",
-            { id: "atlas-identification-notice", class: "atlas-identification-notice" },
-            "Ao continuar, seu e-mail será registrado para controle de acesso e melhoria do Atlas.",
-          ),
         ),
         h(
           "form",
           { id: "atlas-access-form", class: "atlas-access-form", novalidate: true, hidden: true },
+          h(
+            "div",
+            { class: "atlas-identity-summary" },
+            h("p", {
+              id: "atlas-identification-email-display",
+              class: "atlas-identification-email-display",
+            }),
+            h(
+              "button",
+              {
+                id: "atlas-identification-change",
+                type: "button",
+                class: "atlas-identification-change",
+              },
+              "Trocar e-mail",
+            ),
+          ),
           h("label", { for: "atlas-access-password" }, "Senha global do Atlas"),
           h(
             "p",
             { id: "atlas-global-password-hint", class: "atlas-password-hint" },
-            "Use a senha global disponibilizada no Nutriwork Plus. Não é a senha do seu e-mail.",
+            "Use a senha global — não a senha do seu e-mail.",
           ),
           h(
             "div",
@@ -130,7 +124,6 @@ export const AtlasAccess = (userOptions = {}) => {
               name: "password",
               type: "password",
               autocomplete: "off",
-              placeholder: "Senha global do Atlas",
               required: true,
               inputmode: "text",
               "aria-describedby": "atlas-global-password-hint atlas-access-status",
@@ -157,6 +150,7 @@ export const AtlasAccess = (userOptions = {}) => {
             class: "atlas-access-status",
             role: "status",
             "aria-live": "polite",
+            hidden: true,
           }),
           h(
             "button",
@@ -168,20 +162,11 @@ export const AtlasAccess = (userOptions = {}) => {
             },
             "Tentar novamente",
           ),
-          h(
-            "button",
-            {
-              id: "atlas-identification-change",
-              type: "button",
-              class: "atlas-identification-change",
-            },
-            "Usar outro e-mail",
-          ),
         ),
         h(
           "p",
           { class: "atlas-legal-consent" },
-          "Ao continuar, você declara ter lido os ",
+          "Ao continuar, você concorda com os ",
           h(
             "a",
             {
@@ -192,9 +177,9 @@ export const AtlasAccess = (userOptions = {}) => {
               ),
               "data-router-ignore": "",
             },
-            "Termos de Uso",
+            "Termos",
           ),
-          " e o ",
+          " e a ",
           h(
             "a",
             {
@@ -205,7 +190,7 @@ export const AtlasAccess = (userOptions = {}) => {
               ),
               "data-router-ignore": "",
             },
-            "Aviso de Privacidade",
+            "Política de Privacidade",
           ),
           ".",
         ),
@@ -219,7 +204,7 @@ html[data-atlas-access="locked"] .atlas-frame {
 }
 
 #atlas-access {
-  align-items: center;
+  align-items: flex-start;
   background: rgba(1, 2, 6, .86);
   box-sizing: border-box;
   bottom: auto;
@@ -229,6 +214,7 @@ html[data-atlas-access="locked"] .atlas-frame {
   left: var(--atlas-viewport-offset-left, 0px);
   padding: max(1rem, env(safe-area-inset-top, 0px)) max(1rem, env(safe-area-inset-right, 0px)) max(1rem, env(safe-area-inset-bottom, 0px)) max(1rem, env(safe-area-inset-left, 0px));
   position: fixed;
+  overflow-y: auto;
   right: auto;
   top: var(--atlas-viewport-offset-top, 0px);
   width: var(--atlas-visual-width, 100vw);
@@ -246,17 +232,15 @@ html[data-atlas-access="unlocked"] #atlas-access {
 
 .atlas-access-card {
   box-sizing: border-box;
-  max-height: calc(var(--atlas-visual-height, 100dvh) - max(1rem, env(safe-area-inset-top, 0px)) - max(1rem, env(safe-area-inset-bottom, 0px)));
   min-height: 0;
-  overflow-y: auto;
-  overscroll-behavior: contain;
+  margin-block: auto;
   background: rgba(7, 16, 35, .86);
   border: 1px solid rgba(142, 185, 255, .2);
   border-radius: 26px;
   box-shadow: 0 24px 80px rgba(0, 0, 0, .38);
   color: #F5F7FF;
   max-width: 26rem;
-  padding: clamp(1.6rem, 5vw, 2.6rem);
+  padding: clamp(1.25rem, 5vw, 2rem);
   width: min(100%, 26rem);
 }
 
@@ -265,7 +249,7 @@ html[data-atlas-access="unlocked"] #atlas-access {
   flex-shrink: 0;
   filter: invert(1) grayscale(1) brightness(1.55);
   height: 3.5rem;
-  margin-bottom: 1.4rem;
+  margin-bottom: .9rem;
   object-fit: contain;
   width: 3.5rem;
 }
@@ -277,19 +261,13 @@ html[data-atlas-access="unlocked"] #atlas-access {
   font-size: .7rem;
   font-weight: 700;
   letter-spacing: .14em;
-  margin: 0 0 .8rem;
+  margin: 0 0 .55rem;
 }
 
 .atlas-access-card h1 {
   font-size: clamp(1.8rem, 7vw, 2.7rem);
   letter-spacing: -.045em;
   line-height: 1.04;
-  margin: 0 0 .8rem;
-}
-
-.atlas-access-description {
-  color: #C8D2E5;
-  line-height: 1.55;
   margin: 0;
 }
 
@@ -308,14 +286,6 @@ html[data-atlas-access="unlocked"] #atlas-access {
   color: #1E5FAF;
 }
 
-:root[data-theme="light"] .atlas-access-description {
-  color: #526277;
-}
-
-:root[data-theme="light"] .atlas-device-hint {
-  color: #60738B;
-}
-
 :root[data-theme="light"] .atlas-access-form label {
   color: #142033;
 }
@@ -330,28 +300,17 @@ html[data-atlas-access="unlocked"] #atlas-access {
   color: #526277;
 }
 
-.atlas-device-hint {
-  color: #9EAFCA;
-  font-size: .76rem;
-  line-height: 1.45;
-  margin: .85rem 0 -.45rem;
-}
-
-.atlas-device-hint[hidden] {
-  display: none;
-}
-
 .atlas-access-form {
   display: grid;
   gap: .6rem;
-  margin-top: 1.6rem;
+  margin-top: 1.05rem;
 }
 
 .atlas-legal-consent {
   color: rgba(200, 210, 229, .66);
   font-size: .68rem;
   line-height: 1.45;
-  margin: .85rem 0 0;
+  margin: .7rem 0 0;
   text-align: center;
 }
 
@@ -369,20 +328,32 @@ html[data-atlas-access="unlocked"] #atlas-access {
   display: none;
 }
 
-.atlas-identification-notice,
 .atlas-identification-change,
-.atlas-password-hint {
+.atlas-password-hint,
+.atlas-identification-email-display {
   color: #C8D2E5;
   font-size: .76rem;
   line-height: 1.5;
 }
 
-.atlas-identification-notice {
+.atlas-identity-summary {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .15rem .7rem;
+  margin: 0 0 .05rem;
+}
+
+.atlas-identification-email-display {
+  font-size: .86rem;
+  font-weight: 600;
   margin: 0;
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .atlas-password-hint {
-  margin: -.25rem 0 .1rem;
+  margin: -.2rem 0 .05rem;
 }
 
 .atlas-identification-change {
@@ -390,7 +361,8 @@ html[data-atlas-access="unlocked"] #atlas-access {
   border: 0;
   cursor: pointer;
   font-family: inherit;
-  min-height: 44px;
+  min-height: 2rem;
+  padding: .2rem 0;
   text-decoration: underline;
 }
 
@@ -405,9 +377,9 @@ html[data-atlas-access="unlocked"] #atlas-access {
   transform: none;
 }
 
-:root[data-theme="light"] .atlas-identification-notice,
 :root[data-theme="light"] .atlas-identification-change,
-:root[data-theme="light"] .atlas-password-hint {
+:root[data-theme="light"] .atlas-password-hint,
+:root[data-theme="light"] .atlas-identification-email-display {
   color: #526277;
 }
 
@@ -531,12 +503,90 @@ html[data-atlas-access="unlocked"] #atlas-access {
 
 .atlas-access-status {
   color: #8EB9FF;
-  min-height: 1.3rem;
-  margin: .15rem 0 0;
+  margin: .1rem 0 0;
+}
+
+.atlas-access-status[hidden] {
+  display: none;
 }
 
 .atlas-access-status[data-state="error"] {
   color: #FFB4AB;
+}
+
+@media all and (max-height: 520px) and (min-width: 480px) {
+  #atlas-access {
+    align-items: center;
+    padding-block: .75rem;
+  }
+
+  .atlas-access-card {
+    display: grid;
+    column-gap: 1rem;
+    grid-template-columns: minmax(11rem, 1fr) minmax(0, 1.5fr);
+    max-width: 34rem;
+    padding: 1rem 1.25rem;
+    width: min(100%, 34rem);
+  }
+
+  .atlas-access-logo {
+    grid-column: 1;
+    height: 2.75rem;
+    margin: 0 0 .45rem;
+    width: 2.75rem;
+  }
+
+  .atlas-access-kicker {
+    align-self: start;
+    grid-column: 1;
+    margin: 0;
+  }
+
+  .atlas-access-card h1 {
+    align-self: start;
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    grid-column: 1;
+    line-height: 1;
+    margin: .4rem 0 0;
+  }
+
+  .atlas-access-form {
+    align-self: center;
+    grid-column: 2;
+    grid-row: 1 / span 3;
+    gap: .4rem;
+    margin: 0;
+  }
+
+  .atlas-legal-consent {
+    grid-column: 1 / -1;
+    margin-top: .55rem;
+  }
+}
+
+@media all and (max-height: 520px) and (max-width: 479px) {
+  #atlas-access {
+    padding-block: .75rem;
+  }
+
+  .atlas-access-card {
+    padding: 1rem;
+  }
+
+  .atlas-access-logo {
+    height: 2.75rem;
+    margin-bottom: .65rem;
+    width: 2.75rem;
+  }
+
+  .atlas-access-form {
+    gap: .45rem;
+    margin-top: .75rem;
+  }
+
+  .atlas-legal-consent {
+    margin-top: .5rem;
+  }
 }
 
 #atlas-preview {

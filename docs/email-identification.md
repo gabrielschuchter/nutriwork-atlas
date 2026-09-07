@@ -11,7 +11,7 @@ Quartz, o grafo e o gate por SHA-256 continuam existentes. A identificação nã
 - Uma visita é uma abertura/reload completo do Atlas. Ela atualiza `ultimo_acesso` e incrementa `acessos` antes do gate. Navegações SPA entre notas não contam novamente. Não é uma métrica de login autenticado ou validação de assinatura.
 - Recorrentes veem diretamente a etapa de senha enquanto o registro acontece. A sessão da senha existente continua válida: se já estiver salva, é restaurada depois da confirmação do registro. Uma identificação nova exige senha novamente.
 - Erro de rede, timeout, configuração ou Sheets mantém o gate bloqueado e oferece nova tentativa. Um erro não persiste a identificação inicial.
-- “Usar outro e-mail” limpa identificação e sessão de senha. “Sair do Atlas” limpa apenas a sessão de senha. Storage bloqueado permite a sessão atual em memória, mas não promete persistência.
+- “Trocar e-mail” limpa identificação e sessão de senha. “Sair do Atlas” limpa apenas a sessão de senha. Storage bloqueado permite a sessão atual em memória, mas não promete persistência.
 
 ## Código
 
