@@ -168,11 +168,13 @@
     window.setTimeout(() => void flushSuggestionQueue(), 5000)
   }
 
-  function flushSuggestionQueue(currentSubmissionId = "") {
-    if (flushing) return flushing.then(() => flushSuggestionQueue(currentSubmissionId))
+  function flushSuggestionQueue(currentSubmissionId = "", currentItem = null) {
+    if (flushing) return flushing.then(() => flushSuggestionQueue(currentSubmissionId, currentItem))
     flushing = (async () => {
       const queue = readSuggestionQueue()
-      const current = queue.find((item) => item.submissionId === currentSubmissionId)
+      const current =
+        queue.find((item) => item.submissionId === currentSubmissionId) ||
+        (currentItem?.submissionId === currentSubmissionId ? currentItem : null)
       const items = current
         ? [current, ...queue.filter((item) => item.submissionId !== currentSubmissionId)]
         : queue
@@ -273,7 +275,7 @@
     enqueueSuggestion(item)
     let delivered = false
     try {
-      delivered = await flushSuggestionQueue(item.submissionId)
+      delivered = await flushSuggestionQueue(item.submissionId, item)
     } catch {
       showToast("error", "Envio não concluído", "Não foi possível enviar agora. Tente novamente.")
     } finally {
