@@ -243,7 +243,16 @@
     setInvalid(title, titleInvalid)
     setInvalid(description, descriptionInvalid)
     if (titleInvalid || descriptionInvalid) {
-      setStatus("Preencha o título e a descrição para enviar.", "error")
+      setStatus(
+        !cleanTitle
+          ? "Informe um título para enviar."
+          : cleanTitle.length > 160
+            ? "O título deve ter no máximo 160 caracteres."
+            : !cleanDescription
+              ? "Informe uma descrição para enviar."
+              : "A descrição deve ter no máximo 2000 caracteres.",
+        "error",
+      )
       ;(titleInvalid ? title : description)?.focus()
       return
     }
@@ -262,12 +271,18 @@
       submissionId: submissionId(),
     }
     enqueueSuggestion(item)
-    const delivered = await flushSuggestionQueue(item.submissionId)
-    submitting = false
-    form.setAttribute("aria-busy", "false")
-    if (submit) {
-      submit.disabled = false
-      submit.textContent = "Enviar sugestão"
+    let delivered = false
+    try {
+      delivered = await flushSuggestionQueue(item.submissionId)
+    } catch {
+      showToast("error", "Envio não concluído", "Não foi possível enviar agora. Tente novamente.")
+    } finally {
+      submitting = false
+      form.setAttribute("aria-busy", "false")
+      if (submit) {
+        submit.disabled = false
+        submit.textContent = "Enviar sugestão"
+      }
     }
     if (delivered) {
       form.reset()

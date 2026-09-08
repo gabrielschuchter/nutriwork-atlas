@@ -8,6 +8,7 @@ async function request({
   fetcher = async () => ({ ok: true, json: async () => ({ ok: true }) }),
   env,
   limit = () => true,
+  logger = { info() {}, warn() {}, error() {} },
 } = {}) {
   const result = { headers: {} }
   const res = {
@@ -26,6 +27,7 @@ async function request({
     },
     fetcher,
     limit,
+    logger,
   })(
     {
       method: "POST",
@@ -63,7 +65,7 @@ describe("sugestões do roadmap", () => {
     assert.equal(result.headers["Cache-Control"], "no-store")
   })
 
-  it("preserva o POST quando o Apps Script redireciona a requisição", async () => {
+  it("recupera a resposta do Apps Script com GET após um 302", async () => {
     const calls = []
     const result = await request({
       body: { title: "Nova relação", description: "Mostrar mais contexto." },
@@ -83,8 +85,60 @@ describe("sugestões do roadmap", () => {
     })
     assert.equal(result.status, 200)
     assert.equal(calls.length, 2)
+    assert.equal(calls[1].options.method, "GET")
+    assert.equal(calls[1].options.body, undefined)
+    assert.equal(calls[1].options.redirect, "manual")
+  })
+
+  it("preserva o POST após um redirecionamento 307", async () => {
+    const calls = []
+    const result = await request({
+      body: { title: "Nova relação", description: "Mostrar mais contexto." },
+      fetcher: async (url, options) => {
+        calls.push({ url, options })
+        if (calls.length === 1)
+          return {
+            status: 307,
+            ok: false,
+            headers: {
+              get: (name) =>
+                name === "location" ? "https://script.googleusercontent.com/echo" : null,
+            },
+          }
+        return { status: 200, ok: true, json: async () => ({ ok: true }) }
+      },
+    })
+    assert.equal(result.status, 200)
+    assert.equal(calls.length, 2)
     assert.equal(calls[1].options.method, "POST")
     assert.equal(calls[1].options.redirect, "manual")
+  })
+
+  it("registra a etapa do erro sem registrar payload ou segredo", async () => {
+    const logs = []
+    const result = await request({
+      body: { title: "Título", description: "Descrição" },
+      logger: {
+        info: (message) => logs.push(message),
+        warn: (message) => logs.push(message),
+        error: (message) => logs.push(message),
+      },
+      fetcher: async () => ({
+        status: 200,
+        ok: true,
+        headers: { get: () => "text/html" },
+        json: async () => {
+          throw new Error("invalid upstream body")
+        },
+      }),
+    })
+    assert.equal(result.status, 503)
+    assert.ok(
+      logs.some((entry) => entry.includes('"event":"atlas_suggestions.webhook_invalid_json"')),
+    )
+    assert.ok(logs.some((entry) => entry.includes('"stage":"webhook_json"')))
+    assert.ok(logs.every((entry) => !entry.includes("test-secret-not-real")))
+    assert.ok(logs.every((entry) => !entry.includes("Nova relação")))
   })
 
   it("valida título, descrição e idempotency key antes do upstream", async () => {

@@ -15,3 +15,5 @@ O formulário da rota `/roadmap` envia JSON para `/api/atlas-suggestions`. A fun
 - Cabeçalho: `timestamp`, `titulo`, `descricao`, `submission_id`
 
 O `submission_id` existe apenas para tornar retries idempotentes. O Apps Script grava uma linha por sugestão, usa lock de script, limita o volume por minuto e mantém a planilha privada. O endpoint valida origem, tamanho, campos, rate limit por IP efêmero e configuração antes de encaminhar o payload.
+
+`integrations/google-sheets/Code.gs` é a fonte versionada do webhook, mas a implantação do Apps Script é um artefato separado do Git. Depois de alterar esse arquivo, salve o projeto, publique uma nova versão na mesma implantação do app da Web e confirme uma linha real na aba **Sugestões** antes de considerar a integração publicada.
