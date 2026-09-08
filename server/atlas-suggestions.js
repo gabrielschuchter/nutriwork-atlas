@@ -8,6 +8,7 @@ const BODY_MAX = 4096
 const WEBHOOK_TIMEOUT_MS = 29000
 const WEBHOOK_REDIRECT_STATUSES = new Set([301, 302, 307, 308])
 const WEBHOOK_REDIRECT_HOSTS = new Set(["script.google.com", "script.googleusercontent.com"])
+const WEBHOOK_RETRYABLE_STATUSES = new Set([404, 502, 503, 504])
 const SAFE_UPSTREAM_CODES = new Set([
   "busy",
   "configuration",
@@ -45,33 +46,48 @@ function traceIdFor(submissionId) {
 }
 
 async function postToWebhook(url, payload, fetcher) {
+  const signal = AbortSignal.timeout(WEBHOOK_TIMEOUT_MS)
   const request = {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload),
-    signal: AbortSignal.timeout(WEBHOOK_TIMEOUT_MS),
+    signal,
     redirect: "manual",
   }
-  let target = url
-  let nextRequest = request
-  for (let attempt = 0; attempt < 3; attempt += 1) {
-    const response = await fetcher(target, nextRequest)
-    if (!WEBHOOK_REDIRECT_STATUSES.has(response.status)) return response
-    const location = response.headers?.get?.("location")
-    if (!location) throw new Error("webhook_redirect_missing")
-    const redirected = new URL(location, target)
-    if (redirected.protocol !== "https:" || !WEBHOOK_REDIRECT_HOSTS.has(redirected.hostname))
-      throw new Error("webhook_redirect_invalid")
-    target = redirected.toString()
-    nextRequest =
-      response.status === 301 || response.status === 302
-        ? {
-            method: "GET",
-            headers: { Accept: "application/json" },
-            signal: request.signal,
-            redirect: "manual",
-          }
-        : request
+  for (let deliveryAttempt = 0; deliveryAttempt < 2; deliveryAttempt += 1) {
+    let target = url
+    let nextRequest = request
+    let response
+    for (let redirectAttempt = 0; redirectAttempt < 3; redirectAttempt += 1) {
+      response = await fetcher(target, nextRequest)
+      if (!WEBHOOK_REDIRECT_STATUSES.has(response.status)) break
+      const location = response.headers?.get?.("location")
+      if (!location) throw new Error("webhook_redirect_missing")
+      const redirected = new URL(location, target)
+      if (redirected.protocol !== "https:" || !WEBHOOK_REDIRECT_HOSTS.has(redirected.hostname))
+        throw new Error("webhook_redirect_invalid")
+      target = redirected.toString()
+      nextRequest =
+        response.status === 301 || response.status === 302
+          ? {
+              method: "GET",
+              headers: { Accept: "application/json" },
+              signal,
+              redirect: "manual",
+            }
+          : request
+    }
+    if (response && WEBHOOK_REDIRECT_STATUSES.has(response.status))
+      throw new Error("webhook_redirect_limit")
+    if (
+      response &&
+      WEBHOOK_RETRYABLE_STATUSES.has(response.status) &&
+      target.startsWith("https://script.googleusercontent.com/") &&
+      deliveryAttempt === 0
+    ) {
+      continue
+    }
+    return response
   }
   throw new Error("webhook_redirect_limit")
 }

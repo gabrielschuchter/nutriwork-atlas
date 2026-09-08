@@ -114,6 +114,38 @@ describe("sugestões do roadmap", () => {
     assert.equal(calls[1].options.redirect, "manual")
   })
 
+  it("repete a entrega quando o echo do Google responde 404", async () => {
+    const calls = []
+    const result = await request({
+      body: { title: "Nova relação", description: "Mostrar mais contexto." },
+      fetcher: async (url, options) => {
+        calls.push({ url, options })
+        if (calls.length === 1 || calls.length === 3)
+          return {
+            status: 302,
+            ok: false,
+            headers: {
+              get: (name) =>
+                name === "location"
+                  ? `https://script.googleusercontent.com/echo-${calls.length}`
+                  : null,
+            },
+          }
+        if (calls.length === 2)
+          return {
+            status: 404,
+            ok: false,
+            headers: { get: () => "text/html" },
+          }
+        return { status: 200, ok: true, json: async () => ({ ok: true }) }
+      },
+    })
+    assert.equal(result.status, 200)
+    assert.equal(calls.length, 4)
+    assert.equal(calls[2].url, "https://script.google.com/macros/s/test/exec")
+    assert.equal(calls[2].options.method, "POST")
+  })
+
   it("registra a etapa do erro sem registrar payload ou segredo", async () => {
     const logs = []
     const result = await request({
