@@ -8,6 +8,8 @@
 
   const root = document.documentElement
   const suggestionQueueKey = "nutriwork-atlas-roadmap-suggestions-v1"
+  const suggestionRequestTimeoutMs = 30000
+  const suggestionRetryDelayMs = 5000
   let opener = null
   let toastTimer = 0
   let submitting = false
@@ -141,7 +143,7 @@
 
   async function sendSuggestion(item) {
     const controller = new AbortController()
-    const timeout = window.setTimeout(() => controller.abort(), 25000)
+    const timeout = window.setTimeout(() => controller.abort(), suggestionRequestTimeoutMs)
     try {
       const response = await fetch("/api/atlas-suggestions", {
         method: "POST",
@@ -165,7 +167,23 @@
   function scheduleSuggestionRetry() {
     if (automaticRetryUsed || !readSuggestionQueue().length) return
     automaticRetryUsed = true
-    window.setTimeout(() => void flushSuggestionQueue(), 5000)
+    window.setTimeout(() => void flushSuggestionQueue(), suggestionRetryDelayMs)
+  }
+
+  async function sendSuggestionWithRetry(item, retryCurrent) {
+    let lastError
+    for (let attempt = 0; attempt <= (retryCurrent ? 1 : 0); attempt += 1) {
+      try {
+        await sendSuggestion(item)
+        return
+      } catch (error) {
+        lastError = error
+        if (attempt === (retryCurrent ? 1 : 0) || error?.message === "rate_limited") throw error
+        setStatus("Tentando novamente…")
+        await new Promise((resolve) => window.setTimeout(resolve, suggestionRetryDelayMs))
+      }
+    }
+    throw lastError
   }
 
   function flushSuggestionQueue(currentSubmissionId = "", currentItem = null) {
@@ -181,7 +199,7 @@
       let currentSucceeded = !currentSubmissionId
       for (const item of items) {
         try {
-          await sendSuggestion(item)
+          await sendSuggestionWithRetry(item, item.submissionId === currentSubmissionId)
           removeQueuedSuggestion(item.submissionId)
           if (item.submissionId === currentSubmissionId) {
             currentSucceeded = true

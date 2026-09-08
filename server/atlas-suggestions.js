@@ -5,6 +5,7 @@ const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{1
 const TITLE_MAX = 160
 const DESCRIPTION_MAX = 2000
 const BODY_MAX = 4096
+const WEBHOOK_TIMEOUT_MS = 29000
 const WEBHOOK_REDIRECT_STATUSES = new Set([301, 302, 307, 308])
 const WEBHOOK_REDIRECT_HOSTS = new Set(["script.google.com", "script.googleusercontent.com"])
 const SAFE_UPSTREAM_CODES = new Set([
@@ -48,7 +49,7 @@ async function postToWebhook(url, payload, fetcher) {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload),
-    signal: AbortSignal.timeout(25000),
+    signal: AbortSignal.timeout(WEBHOOK_TIMEOUT_MS),
     redirect: "manual",
   }
   let target = url

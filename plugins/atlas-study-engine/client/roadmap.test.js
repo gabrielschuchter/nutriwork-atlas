@@ -76,7 +76,10 @@ class FakeForm extends FakeElement {
   }
 }
 
-function createEnvironment() {
+function createEnvironment({
+  fetcher = async () => ({ ok: true, status: 200, json: async () => ({ ok: true }) }),
+  immediateRetry = false,
+} = {}) {
   const listeners = new Map()
   const fetchCalls = []
   const form = new FakeForm()
@@ -133,7 +136,7 @@ function createEnvironment() {
     document,
     fetch: async (input, init) => {
       fetchCalls.push({ input, init })
-      return { ok: true, status: 200, json: async () => ({ ok: true }) }
+      return fetcher(input, init)
     },
     window: {
       crypto: { randomUUID: () => "00000000-0000-4000-8000-000000000001" },
@@ -141,7 +144,8 @@ function createEnvironment() {
       requestAnimationFrame(callback) {
         callback()
       },
-      setTimeout() {
+      setTimeout(callback, delay) {
+        if (immediateRetry && delay === 5000) Promise.resolve().then(callback)
         return 1
       },
       clearTimeout() {},
@@ -176,6 +180,33 @@ test("envia a sugestão atual mesmo quando o localStorage recusa a gravação", 
     description: "A request deve continuar sendo feita.",
     submissionId: "00000000-0000-4000-8000-000000000001",
   })
+  assert.equal(environment.elements.form.resetCalled, true)
+  assert.equal(environment.elements.toast.toastTitle.textContent, "Sugestão recebida")
+  assert.equal(environment.elements.form.submitButton.disabled, false)
+})
+
+test("confirma uma nova tentativa antes de mostrar erro ao usuário", async () => {
+  let attempts = 0
+  const environment = createEnvironment({
+    immediateRetry: true,
+    fetcher: async () => {
+      attempts += 1
+      if (attempts === 1) throw new Error("network")
+      return { ok: true, status: 200, json: async () => ({ ok: true }) }
+    },
+  })
+  vm.runInContext(source, environment.context, { filename: "roadmap.js" })
+
+  environment.elements.form.title.value = "Título após uma falha transitória"
+  environment.elements.form.description.value =
+    "A confirmação precisa chegar antes do sucesso visual."
+  const submit = environment.listeners.get("submit")[0]
+  submit({ target: environment.elements.form, preventDefault() {} })
+  await new Promise((resolve) => setImmediate(resolve))
+  await new Promise((resolve) => setImmediate(resolve))
+  await new Promise((resolve) => setImmediate(resolve))
+
+  assert.equal(environment.fetchCalls.length, 2)
   assert.equal(environment.elements.form.resetCalled, true)
   assert.equal(environment.elements.toast.toastTitle.textContent, "Sugestão recebida")
   assert.equal(environment.elements.form.submitButton.disabled, false)
